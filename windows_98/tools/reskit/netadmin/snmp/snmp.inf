@@ -1,0 +1,95 @@
+; SNMP.INF
+;
+; Simple Network Management Protocol
+;
+; Copyright 1993-1994, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=NetService
+provider=%V_MS%
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%SNMP.DeviceDesc%=SNMP.ndi, SNMP; SNMP agent
+
+;*********************************************
+;    SNMP Agent
+;*********************************************
+[SNMP.ndi]
+AddReg=SNMP.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=SNMP
+CopyFiles=SNMP.copy.inf
+
+[SNMP.ndi.reg]
+HKR,Ndi,DeviceID,,SNMP
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"winsock"
+HKR,Ndi\Interfaces,LowerRange,,"winsock"
+HKR,Ndi\Compatibility,RequireAny,,"NWLINK,MSTCP"
+; Install-Remove Section
+HKR,Ndi\Install,,,"SNMP.Install"
+HKR,Ndi\Remove,,,"SNMP.Remove"
+; Context help
+HKR,Ndi,HelpText,,%SNMP_HELP%
+
+[SNMP.copy.inf]
+snmp.inf
+
+[SNMP.Install]
+AddReg=SNMP.Add.reg
+CopyFiles=SNMP.Add.files
+[SNMP.Add.reg]
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\EnableAuthenticationTraps",switch,1,01,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ExtensionAgents",1,,"SOFTWARE\Microsoft\RFC1156Agent\CurrentVersion"
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers",,4
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\TrapConfiguration",,4
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent",sysContact,,"Default"
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent",sysLocation,,"Default"
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent",sysServices,1,4c,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities",1,,"public"
+HKLM,"Software\Microsoft\RFC1156Agent\CurrentVersion",Pathname,,"inetmib1.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunServices","SNMP agent",,"SNMP.EXE"
+
+[SNMP.Add.files]
+snmp.exe
+
+[SNMP.Remove]
+DelReg=SNMP.Remove.reg
+[SNMP.Remove.reg]
+HKLM,"SYSTEM\CurrentControlSet\Services\SNMP"
+HKLM,"Software\Microsoft\RFC1156Agent\CurrentVersion"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunServices","SNMP agent"
+
+[SourceDisksNames]
+78=%DSK%, "", 0001
+
+[SourceDisksFiles]
+snmp.exe   =78,,36000
+snmp.inf   =78,,1024
+
+;****************************************************************************
+; Destination directories
+;****************************************************************************
+[DestinationDirs]
+SNMP.Add.files          = 25    ;LDID_SHARED
+SNMP.copy.inf           = 17    ;LDID_INF
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+
+; Devices
+SNMP.DeviceDesc="Microsoft SNMP agent"
+
+; Context help
+SNMP_HELP="The SNMP agent provides administrators with configuration information about this computer."
+
+DSK="Windows 95 resource kit"
+

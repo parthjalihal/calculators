@@ -1,0 +1,148 @@
+
+<html>
+<head>
+<title>CMP</title>
+
+
+<SCRIPT LANGUAGE="javascript">
+<!--
+var timeoutIDs = new Array();
+var timeoutCount = 0;
+
+function AddTimeout(timeoutID) {
+ timeoutCount++;
+ timeoutIDs[timeoutCount-1] = timeoutID;
+}
+
+function ClearAllTimeouts() {
+ var i;
+ for (i=0; i<timeoutCount; i++)
+  clearTimeout(timeoutIDs[i]);
+}
+
+function doAddChannel() {
+  ClearAllTimeouts();
+  window.external.addChannel('http://msie.cmpnet.com/CMPnet.cdf');
+}
+
+function showObj(objname) {
+	var obj = document.all.item(objname);
+	obj.filters.item(0).Apply();
+	obj.style.visibility= "visible";
+	obj.filters.item(0).Play();
+}
+
+function startAnimation() {
+	showObj("eve");
+	AddTimeout(setTimeout("SlideMessage()",2400));
+//	setTimeout("showNextPage()",7000);
+}
+
+function SlideMessage() {
+	clickhere.style.visibility = "visible";
+	pthClick.play();
+}
+
+function pthClick_onstop() {
+	clickhere.style.visibility = "visible";
+}
+
+function showNextPage() {
+	window.location="default.htm";
+}
+
+//-->
+</SCRIPT>
+
+<STYLE TYPE="text/css">
+#cmp {POSITION: absolute; TOP: 5px; LEFT: 100px; width:10;height:10; Z-INDEX: 10;
+  visibility:visible; }
+#eve {POSITION: absolute; TOP: 275px; LEFT: 100px; width:10;height:10; Z-INDEX: 20; filter:blendTrans(duration=0.8);visibility:hidden; }
+#subs {POSITION: absolute; TOP: 350px; LEFT:525px; width:10;height:10; Z-INDEX: 70; }
+.basicdot { POSITION: absolute; visibility: hidden; 
+ TOP: 349px; LEFT:255px; width:10;height:10; Z-INDEX: 50; 
+}
+</STYLE>
+
+</HEAD>
+
+<BODY bgcolor="white" onload="startAnimation();">
+
+
+<div id=cmp>
+<IMG border=0 SRC="gifs/cmpl2.gif" WIDTH="567" height="269">
+</div>
+
+<div id=eve>
+<IMG border=0 SRC="gifs/every_2.gif" WIDTH="383" height="97">
+</div>
+
+<div id=subs>
+<IMG border=0 SRC="gifs/addchan.gif" WIDTH="136" height="20" onclick="doAddChannel();" onMouseover='this.style.cursor="hand";'>
+</div>
+
+<div id=clickhere STYLE="POSITION: absolute; TOP: 350px; LEFT:543px; width:10;height:10; Z-INDEX: 0;">
+<IMG border=0 SRC="gifs/clickh.gif" WIDTH="110" height="23">
+</div>
+
+<OBJECT ID="pthClick" CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	style="Position: absolute; top: 0; left: 0; Height:12; Width:12;">
+	<PARAM NAME="Shape" VALUE="Polyline(2,533,350,533,375)">
+	<PARAM NAME="Target" VALUE="clickhere">
+	<PARAM NAME="Duration" VALUE="1.0">
+</OBJECT>
+
+<div id=dot1 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot2 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot3 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot4 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot5 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot6 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot7 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot8 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot9 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+<div id=dot10 class="basicdot">
+<IMG border=0 SRC="gifs/dot.gif" WIDTH="12" height="12">
+</div>
+
+<SCRIPT LANGUAGE="javascript">
+<!--
+function spreadDots() {
+	var i;
+	var obj;
+	for (i=1; i<=10;i++) {
+		obj = document.all.item("dot"+i);
+		obj.style.left = 255 + (i-1) * 27;
+		setTimeout('dot'+i+'.style.visibility = "visible";', 1300 + (i-1)*150);
+	}
+}
+
+
+spreadDots();
+
+//-->
+</SCRIPT>
+
+
+</body>
+</html>
+
+

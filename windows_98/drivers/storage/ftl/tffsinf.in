@@ -1,0 +1,297 @@
+;Copyright 1995-1997 M-Systems Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=hdc
+Provider=%MSystems%
+
+[Manufacturer]
+%MfgName%=TrueFFSInstallSection
+
+[TrueFFSInstallSection]
+%DeviceDescSRAM%=HotInstall, PCMCIA\MTD-0000
+%DeviceDescSer2%=HotInstall, PCMCIA\MTD-A289
+%DeviceDescSer2Pl%=HotInstall, PCMCIA\MTD-A089
+%DeviceDescCobra8%=HotInstall, PCMCIA\MTD-A689
+%DeviceDescCobra4%=HotInstall, PCMCIA\MTD-A789
+%DeviceDescCobra16%=HotInstall, PCMCIA\MTD-AA89
+%DeviceDescAm28F010%=HotInstall, PCMCIA\MTD-A701
+%DeviceDescAm28F020%=HotInstall, PCMCIA\MTD-2A01
+%DeviceDescAm28F010A%=HotInstall, PCMCIA\MTD-A201
+%DeviceDescAm28F020A%=HotInstall, PCMCIA\MTD-2901
+%DeviceDescAm29F040%=HotInstall, PCMCIA\MTD-A401
+%DeviceDescAm29F080%=HotInstall, PCMCIA\MTD-D501
+%DeviceDescAm29LV080%=HotInstall, PCMCIA\MTD-3801
+%DeviceDescAm29LV008%=HotInstall, PCMCIA\MTD-3701
+%DeviceDescAm29F016%=HotInstall, PCMCIA\MTD-AD01
+%DeviceDescAm29F016C%=HotInstall, PCMCIA\MTD-3D01
+%DeviceDescAm29LV017%=HotInstall, PCMCIA\MTD-C801
+%DeviceDescFuj29F040%=HotInstall, PCMCIA\MTD-A404
+%DeviceDescFuj29F080%=HotInstall, PCMCIA\MTD-D504
+%DeviceDescFuj29LV080%=HotInstall, PCMCIA\MTD-3804
+%DeviceDescFuj29LV008%=HotInstall, PCMCIA\MTD-3704
+%DeviceDescFuj29F016%=HotInstall, PCMCIA\MTD-AD04
+%DeviceDescFuj29F016C%=HotInstall, PCMCIA\MTD-3D04
+%DeviceDescFuj29LV017%=HotInstall, PCMCIA\MTD-C804
+%DeviceDescMSS2000%=HotInstall, PCMCIA\MTD-FFFF
+%DeviceDescUsbMc%=HotInstall, FTL\USB-MiniatureCard
+%DeviceDescUnknown%=HotInstall, PCMCIA\MTD-0002
+%DeviceDesc64Intel%=HotInstall, PCMCIA\MTD-1589
+%DeviceDesc32Intel%=HotInstall, PCMCIA\MTD-1489
+%DeviceDesc32Sharp%=HotInstall, PCMCIA\MTD-D4B0
+%DeviceDesc16Sharp%=HotInstall, PCMCIA\MTD-D0B0
+
+[HotInstall]
+AddReg=NewEntry, RegistryEntry, OverrideEntry
+
+[RemoveDriver]
+DelReg=EraseAll
+DelFiles=EraseDriver,EraseUtil,EraseInf,EraseDll
+
+[EraseAll]
+HKLM,Enum\PCMCIA\MTD-0000
+HKLM,Enum\PCMCIA\MTD-A289
+HKLM,Enum\PCMCIA\MTD-A089
+HKLM,Enum\PCMCIA\MTD-A689
+HKLM,Enum\PCMCIA\MTD-A789
+HKLM,Enum\PCMCIA\MTD-AA89
+HKLM,Enum\PCMCIA\MTD-A701
+HKLM,Enum\PCMCIA\MTD-2A01
+HKLM,Enum\PCMCIA\MTD-A201
+HKLM,Enum\PCMCIA\MTD-2901
+HKLM,Enum\PCMCIA\MTD-A401
+HKLM,Enum\PCMCIA\MTD-D501
+HKLM,Enum\PCMCIA\MTD-3801
+HKLM,Enum\PCMCIA\MTD-3701
+HKLM,Enum\PCMCIA\MTD-AD01
+HKLM,Enum\PCMCIA\MTD-3D01
+HKLM,Enum\PCMCIA\MTD-C801
+HKLM,Enum\PCMCIA\MTD-A404
+HKLM,Enum\PCMCIA\MTD-D504
+HKLM,Enum\PCMCIA\MTD-3804
+HKLM,Enum\PCMCIA\MTD-3704
+HKLM,Enum\PCMCIA\MTD-AD04
+HKLM,Enum\PCMCIA\MTD-3D04
+HKLM,Enum\PCMCIA\MTD-C804
+HKLM,Enum\PCMCIA\MTD-FFFF
+HKLM,Enum\PCMCIA\MTD-0002
+HKLM,Enum\PCMCIA\MTD-1589
+HKLM,Enum\PCMCIA\MTD-1489
+HKLM,Enum\PCMCIA\MTD-D4B0
+HKLM,Enum\PCMCIA\MTD-D0B0
+HKLM,Enum\ESDI\GENERIC_IDE__DISK_TYPE80_
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs
+HKLM,System\CurrentControlSet\control\InstalledFiles\trueffs.pdr
+HKLM,System\CurrentControlSet\control\InstalledFiles\trueffs.inf
+HKLM,System\CurrentControlSet\control\InstalledFiles\tcheck.exe
+HKLM,System\CurrentControlSet\control\InstalledFiles\tformat.exe
+HKLM,System\CurrentControlSet\control\InstalledFiles\tffs95.txt
+HKLM,System\CurrentControlSet\control\InstalledFiles\TFFSprop.dll
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\TrueFFS
+HKLM,System\CurrentControlSet\Services\Class\PCMCIA,TFFSOption
+HKCR,CLSID\{a2d76d60-0125-11d1-943d-004095210265}
+HKCR,drive\shellex\PropertySheetHandlers\TFFSpages
+HKCR,drive\shellex\IconHandlers\TFFSicon
+HKCR,drive\shellex\ContextMenuHandlers\TFFSmenu
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved",{a2d76d60-0125-11d1-943d-004095210265}"
+
+[EraseDriver]
+trueffs.pdr,,,1
+
+[EraseDll]
+TFFSprop.dll,,,1
+
+[EraseUtil]
+tformat.exe,,,1
+tcheck.exe,,,1
+tffs95.txt,,,1
+TFFSprop.hlp,,,1
+
+[EraseInf]
+trueffs.inf,,,1
+
+[OverrideEntry]
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; Memory Resource Descriptor
+;
+34,00,00,00, \	    ; Total length of Memory Resource Descriptor
+01,00,00,00, \	    ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;	   // MType_Range = 0x0014
+00,00,00,00, \	    ; MD_Alloc_Base;
+00,00,00,00, \	    ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,E0,FF,FF, \	    ; MR_Align; 	// Mask for base alignment
+00,20,00,00, \	    ; MR_nBytes;	// Count of bytes
+00,00,00,00, \	    ; MR_Min;	   // Min Address
+FF,FF,FF,FF, \	    ; MR_Max;	   // Max Address
+00,00, \       ; MR_Flags;	   // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \	    ; PCCARD flags, 0x02 = attribute mem, or
+	       ;	 0x08 = 16-bit common mem
+00,00,00,00, \	    ; Memory card address
+;
+; TERMINATOR
+;
+00,00,00,00
+
+[NewEntry]
+HKLM,Enum\PCMCIA\MTD-A289
+HKLM,Enum\PCMCIA\MTD-A289\0,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-A289\0,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-A289\0,DeviceDesc,,"Intel/M-Systems Flash Card (Intel 28F008SA)"
+HKLM,Enum\PCMCIA\MTD-A289\0,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-A289\0,HardwareID,,"PCMCIA\MTD-A289"
+HKLM,Enum\PCMCIA\MTD-A289\0,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-A289\0,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-A289\1,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-A289\1,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-A289\1,DeviceDesc,,"Intel/M-Systems Flash Card (Intel 28F008SA)"
+HKLM,Enum\PCMCIA\MTD-A289\1,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-A289\1,HardwareID,,"PCMCIA\MTD-A289"
+HKLM,Enum\PCMCIA\MTD-A289\1,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-A289\1,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-A289\2,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-A289\2,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-A289\2,DeviceDesc,,"Intel/M-Systems Flash Card (Intel 28F008SA)"
+HKLM,Enum\PCMCIA\MTD-A289\2,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-A289\2,HardwareID,,"PCMCIA\MTD-A289"
+HKLM,Enum\PCMCIA\MTD-A289\2,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-A289\2,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-A289\3,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-A289\3,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-A289\3,DeviceDesc,,"Intel/M-Systems Flash Card (Intel 28F008SA)"
+HKLM,Enum\PCMCIA\MTD-A289\3,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-A289\3,HardwareID,,"PCMCIA\MTD-A289"
+HKLM,Enum\PCMCIA\MTD-A289\3,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-A289\3,Mfg,,"M-Systems Flash Disk Pioneers"
+;
+HKLM,Enum\PCMCIA\MTD-0000
+HKLM,Enum\PCMCIA\MTD-0000\0,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-0000\0,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-0000\0,DeviceDesc,,"Static RAM Memory Card"
+HKLM,Enum\PCMCIA\MTD-0000\0,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-0000\0,HardwareID,,"PCMCIA\MTD-0000"
+HKLM,Enum\PCMCIA\MTD-0000\0,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-0000\0,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-0000\1,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-0000\1,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-0000\1,DeviceDesc,,"Static RAM Memory Card"
+HKLM,Enum\PCMCIA\MTD-0000\1,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-0000\1,HardwareID,,"PCMCIA\MTD-0000"
+HKLM,Enum\PCMCIA\MTD-0000\1,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-0000\1,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-0000\2,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-0000\2,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-0000\2,DeviceDesc,,"Static RAM Memory Card"
+HKLM,Enum\PCMCIA\MTD-0000\2,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-0000\2,HardwareID,,"PCMCIA\MTD-0000"
+HKLM,Enum\PCMCIA\MTD-0000\2,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-0000\2,Mfg,,"M-Systems Flash Disk Pioneers"
+HKLM,Enum\PCMCIA\MTD-0000\3,Class,,"hdc"
+HKLM,Enum\PCMCIA\MTD-0000\3,ConfigFlags,1,0
+HKLM,Enum\PCMCIA\MTD-0000\3,DeviceDesc,,"Static RAM Memory Card"
+HKLM,Enum\PCMCIA\MTD-0000\3,Driver,,"hdc\trueffs"
+HKLM,Enum\PCMCIA\MTD-0000\3,HardwareID,,"PCMCIA\MTD-0000"
+HKLM,Enum\PCMCIA\MTD-0000\3,IDENoSerialize,1,1
+HKLM,Enum\PCMCIA\MTD-0000\3,Mfg,,"M-Systems Flash Disk Pioneers"
+;
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs,DevLoader,,*IOS
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs,DriverDesc,,"M-Systems TrueFFS driver"
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs,InfPath,,"TRUEFFS.INF"
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs,InfSection,,"DriverPrototype"
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs,PortDriver,,"trueffs.pdr"
+HKLM,System\CurrentControlSet\Services\Class\hdc\trueffs\Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; Memory Resource Descriptor
+;
+34,00,00,00, \	    ; Total length of Memory Resource Descriptor
+01,00,00,00, \	    ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;	   // MType_Range = 0x0014
+00,00,00,00, \	    ; MD_Alloc_Base;
+00,00,00,00, \	    ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,E0,FF,FF, \	    ; MR_Align; 	// Mask for base alignment
+00,20,00,00, \	    ; MR_nBytes;	// Count of bytes
+00,00,00,00, \	    ; MR_Min;	   // Min Address
+FF,FF,FF,FF, \	    ; MR_Max;	   // Max Address
+00,00, \       ; MR_Flags;	   // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \	    ; PCCARD flags, 0x02 = attribute mem, or
+	       ;	 0x08 = 16-bit common mem
+00,00,00,00, \	    ; Memory card address
+;
+; TERMINATOR
+;
+00,00,00,00
+HKLM,System\CurrentControlSet\Services\Class\PCMCIA,TFFSOption,1,01,00,00,00
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\TrueFFS,DisplayName,,"%TRUEFFS_REMOVE%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\TrueFFS,UninstallString,,"RunDll setupx.dll,InstallHinfSection RemoveDriver 4 trueffs.inf"
+
+[DestinationDirs]
+EraseDriver=12
+EraseUtil=10,TFFS95
+EraseInf=17
+EraseDll=11
+
+[RegistryEntry]
+HKR,,DriverDesc,,"TrueFFS Port Drv"
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,trueffs.pdr
+
+[Strings]
+MfgName="Generic"
+MSystems="M-Systems Flash Disk Pioneers"
+DeviceDescSRAM="Static RAM Memory Card"
+DeviceDescSer2="Intel/M-Systems Flash Card (Intel 28F008SA)"
+DeviceDescSer2Pl="Intel/M-Systems Flash Card (Intel 28F016SA/SV)"
+DeviceDescCobra4="Intel/M-Systems Flash Card (Intel 28F004SC)"
+DeviceDescCobra8="Intel/M-Systems Flash Card (Intel 28F008SC)"
+DeviceDescCobra16="Intel/M-Systems Flash Card (Intel 28F016SC)"
+DeviceDescAm28F010="AMD Flash Card (Am28F010)"
+DeviceDescAm28F020="AMD Flash Card (Am28F020)"
+DeviceDescAm28F010A="AMD Flash Card (Am28F010A)"
+DeviceDescAm28F020A="AMD Flash Card (Am28F020A)"
+DeviceDescAm29F040="AMD Flash Card (Am29F040)"
+DeviceDescAm29F080="AMD Flash Card (Am29F080)"
+DeviceDescAm29LV080="AMD Flash Card (Am29LV080)"
+DeviceDescAm29LV008="AMD Flash Card (Am29LV008)"
+DeviceDescAm29F016="AMD Flash Card (Am29F016)"
+DeviceDescAm29F016C="AMD Flash Card (Am29F016C)"
+DeviceDescAm29LV017="AMD Flash Card (Am29LV017)"
+DeviceDescFuj29F040="Fujitsu Flash Card (29F040)"
+DeviceDescFuj29F080="Fujitsu Flash Card (29F080)"
+DeviceDescFuj29LV080="Fujitsu Flash Card (29LV080)"
+DeviceDescFuj29LV008="Fujitsu Flash Card (29LV008)"
+DeviceDescFuj29F016="Fujitsu Flash Card (29F016)"
+DeviceDescFuj29F016C="Fujitsu Flash Card (29F016C)"
+DeviceDescFuj29LV017="Fujitsu Flash Card (29LV017)"
+DeviceDescMSS2000="M-Systems Series 2000 Flash Memory Card"
+DeviceDescUsbMc="USB - Flash Miniature Card"
+DeviceDescUnknown="Intel/M-Systems or other Flash Card"
+DeviceDesc64Intel="64 Mbit Intel StrataFlash(tm)"
+DeviceDesc32Intel="32 Mbit Intel StrataFlash(tm)"
+DeviceDesc32Sharp="32 Mbit World-Wide FlashFile(tm)"
+DeviceDesc16Sharp="16 Mbit World-Wide FlashFile(tm)"
+TRUEFFS_REMOVE="M-Systems TrueFFS driver"
+

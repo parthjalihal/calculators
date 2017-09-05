@@ -1,0 +1,157 @@
+;  Microsoft Java VM Installation
+;  Copyright (C) 1996 Microsoft Corporation
+
+[Version]
+signature="$CHICAGO$"
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+
+[DefaultInstall]
+CopyFiles=MSJAVA.SysFiles, MSJAVA.WinFiles, MSJAVA.ClassFiles 
+DelFiles=MSJAVA.DelWinFiles, MSJAVA.DelFiles01, MSJAVA.DelOldClassFiles
+AddReg=MSJAVA.RunApps, MSJava.AddReg
+
+
+[DestinationDirs]
+MSJAVA.SysFiles=11 
+MSJAVA.WinFiles=10 
+MSJAVA.DelWinFiles=10 
+MSJAVA.InfFiles=17 ;4,13
+MSJAVA.ClassFiles=10,Java\Classes
+MSJAVA.DelOldClassFiles=10,Java\Classes
+MSJAVA.DelFiles00=10,Java\Classes
+MSJAVA.DelFiles01=10,Java\trustlib
+
+
+[MSJAVA.SysFiles]
+javacypt.dll,,,32
+javaprxy.dll,,,32
+javart.dll,,,32
+jdbgmgr.exe,,,32
+msawt.dll,,,32
+msjava.dll,,,32
+vmhelper.dll,,,32
+msjdbc10.dll,,,32
+dx3j.dll,,,32
+javaee.dll,,,32
+javasntx.dll,,,32
+javasup.vxd,,,32
+jit.dll,,,32
+javasec.hlp,,,32
+javaperm.hlp,,,32
+iejava.cab,,,32
+dajava.cab,,,32
+
+
+[MSJAVA.WinFiles]
+clspack.exe,,,32
+jview.exe,,,32
+jautoexp.dat,,,32
+setdebug.exe,,,32
+
+
+[MSJAVA.ClassFiles]
+classes.zip,,,32
+tclasses.zip,,,32
+msjdbc.zip,,,32
+dx3.zip,,,32
+classes.cer,,,32
+tclasses.cer,,,32
+msjdbc.cer,,,32
+dx3.cer,,,32
+xmldso4.cab,,,32
+win32ie4.cab,,,32
+osp.zip,,,32
+
+
+[MSJAVA.DelOldClassFiles]
+ClassR.exe,,,1
+jdbc.exe,,,1
+DxaR.exe,,,1
+Dx3R.exe,,,1
+CABR.exe,,,1
+
+
+[MSJAVA.DelWinFiles]
+runvm.exe,,,1
+
+
+[MSJAVA.RunApps]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_MSJAVA%",0,"%11%\regsvr32.exe /s %11%\msjava.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_MSAWT%",0,"%11%\regsvr32.exe /s %11%\msawt.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_VMHELPER%",0,"%11%\regsvr32.exe /s %11%\vmhelper.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_JAVAPRXY%",0,"%11%\regsvr32.exe /s %11%\javaprxy.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_JAVACYPT%",0,"%11%\regsvr32.exe /s %11%\javacypt.dll"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_DX3J%",0,"%11%\regsvr32.exe /s %11%\dx3j.dll"
+
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\900","%REGISTER_JDBGMGR%",0,"%11%\jdbgmgr.exe -regserver"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\905","Install Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\classes.zip,1,4,79,%VERNUM%,4,14,%10%\java\classes\classes.cer"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\905","Install Trusted Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\tclasses.zip,1,4,79,%VERNUM%,6,14,%10%\java\classes\tclasses.cer"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\910","Install Dx3 Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\dx3.zip,1,4,79,%VERNUM%,4,14,%10%\java\classes\dx3.cer"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\910","Install MSJDBC Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\msjdbc.zip,1,4,79,%VERNUM%,4,14,%10%\java\classes\msjdbc.cer"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\910","Install XML DataSource Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\xmldso4.cab,0,0,0,0,4,42"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\910","Install Win32 Class Files",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\win32ie4.cab,0,0,0,0,4,42"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\910","MemphisDA9",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %11%\dajava.cab,0,4,10,0610,0,12"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnceEx\950","001",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %11%\iejava.cab,0,0,0,0,0,10"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnce","Install COM Marshaling",0,"rundll32 %11%\msjava.dll,JavaPkgMgr_Install %10%\Java\classes\OSP.ZIP,1,3,99,0100,0,12"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnce","RunOnceEx",0,"rundll32.exe %11%\iernonce.dll,RunOnceExProcess"
+
+[MSJAVA.AddReg]
+HKLM,"Software\Microsoft\Java VM","Classpath",2,"%10%\java\classes;."
+HKLM,"Software\Microsoft\Java VM","TrustedClasspath",2,""
+HKLM,"Software\Microsoft\Java VM","TrustedLibsDirectory",2,"%10%\java\trustlib"
+HKLM,"Software\Microsoft\Java VM","LibsDirectory",2,"%10%\java\lib"
+HKLM,"System\CurrentControlSet\Services\VXD\JAVASUP","Start",1,0
+HKLM,"System\CurrentControlSet\Services\VXD\JAVASUP","StaticVxD",0,"JAVASUP.VXD"
+HKLM,"SOFTWARE\Classes\CLSID\%ClassId%",,,"%JAVAVM_NAME%"
+HKLM,"SOFTWARE\Classes\CLSID\%ClassId%\InstalledVersion",,,"4.79.%VERNUM%"
+HKLM,"Software\Classes\CLSID\%ClassId%\InstalledVersion","Path",,"%11%\msjava.dll"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ClassId%",,0,"%JAVAVM_NAME%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ClassId%","Version",0,"4,79,%VERNUM%,0"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ClassId%","ComponentID",,"%ComponentID%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ClassId%","IsInstalled",1,01,00,00,00
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ClassId%","Locale",,"%LocaleID%"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%UninstallFolderName%",,,""
+HKLM,"SOFTWARE\Microsoft\Java VM\RNIModuleFlags","mtxjava.dll",1,1,0,0,0
+HKLM,"SOFTWARE\Microsoft\Java VM\RNIModuleFlags","jdbcdemo.dll",1,1,0,0,0
+HKLM,"Software\Microsoft\Java VM\System Properties","com.ms.applet.enable.serversockets",0,"false"
+HKCU,"Software\Microsoft\Java VM","EnableJIT",3,1,0,0,0
+HKCU,"Software\Microsoft\Java VM","EnableLogging",3,0,0,0,0
+
+[Strings]
+BASEINSTDISKNAME="Java Support for Internet Explorer"
+BASEINSTDISK="javabase.cab"
+X86INSTDISKNAME="X86 Extensions for Java Support"
+X86INSTDISK="JAVAX86.cab"
+OTHERDISKNAME="Extensions to Java Support for Internet Explorer"
+JAVAVM_NAME="Microsoft VM for Java"
+UninstKey="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\MsJavaVM"
+REGISTER_MSJAVA="Register Java VM"
+REGISTER_MSAWT="Register Microsoft AWT"
+REGISTER_VMHELPER="Register VM Helper"
+REGISTER_JAVAPRXY="Register VM Proxies"
+REGISTER_JAVACYPT="Register javacypt.dll"
+REGISTER_DX3J="Register dx3j.dll"
+REGISTER_JDBGMGR="Register Debug Manager"
+VERNUM="2405"
+ClassId="{08B0E5C0-4FCB-11CF-AAA5-00401C608500}"
+BEGIN_UNINSTALL_PROMPT="Do you really want to remove Microsoft VM for Java?"
+BEGIN_UNINSTALL_TITLE="Microsoft VM Uninstall"
+DefaultName = "Microsoft VM for Java"
+ComponentID = "JAVAVM"
+LocaleID = "EN"
+UninstallFolderName = "MSJavaVM"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

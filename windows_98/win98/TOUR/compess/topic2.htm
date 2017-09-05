@@ -1,0 +1,686 @@
+<HTML>
+<HEAD>
+<TITLE>Welcome to Windows</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="topic2.txt">
+</OBJECT>
+
+<SCRIPT LANGUAGE="JavaScript">
+rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function SetOrig(){
+	imgMouse.origLeft=imgMouse.style.posLeft;
+	imgMouse.origTop=imgMouse.style.posTop;
+	imgMouseUp.origLeft=imgMouseUp.style.posLeft;
+	imgMouseUp.origTop=imgMouseUp.style.posTop;
+	imgMouseDown.origLeft=imgMouseDown.style.posLeft;
+	imgMouseDown.origTop=imgMouseDown.style.posTop;
+	imgCursor.origLeft=imgCursor.style.posLeft;
+	imgCursor.origTop=imgCursor.style.posTop;
+	sgball.origLeft=sgball.style.posLeft;
+	sgball.origTop=sgball.style.posTop;
+}
+
+function initarry(){
+	for(i=0;i<43;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+	divEnter.innerHTML = txtary[42];
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="VBScript">
+dim currentseq,currentQ,g_timedout,hovering
+currentQ="null"
+currentseq = 1
+
+sub window_onload()
+	window.focus()
+	initarry()
+	SetOrig()
+	if parent.backwards then
+		currentseq=25
+		call seq("25").Play()
+		parent.backwards=false
+	else
+		call seq("1").Play()
+	end if
+end sub
+
+sub document_onmousemove()
+	if currentQ = "Q1" then
+		seq("hover").Play
+	end if
+end sub
+
+sub timedout(caller)
+	if caller = currentQ then
+	if g_timedout <> 2 then
+		call seq("mvmt").stop()
+		select case currentQ
+			case "Q1"
+				call parent.dotext(12)
+				parent.sound("waves/topic2/T2_Ans4.mpa")
+			case "Q2"
+				call parent.dotext(21)
+				parent.sound("waves/topic2/T2_Ans9.mpa")
+			case "Q3"
+				call parent.dotext(30)
+				parent.sound("waves/topic2/T2_Ans13.mpa")
+			case "Q4"
+				call parent.dotext(38)
+				parent.sound("waves/topic2/T2_Ans19.mpa")
+		end select
+		call seq("mvmt").play()
+	end if
+	end if
+end sub
+
+Sub document_onkeydown()
+	whatkey = window.event.keycode
+	select case whatkey
+		case 37
+			g_timedout = 0
+			prevseq
+		case 38
+			parent.location.href = "../default.htm"
+		case 39
+			g_timedout = 0
+			nextseq
+	end select
+End Sub
+
+sub isolate()
+	if currentQ = "Q3" then
+		call seq("mvmt").stop()
+		call seq("mvmt").play()
+		doSGX("mouseclick")
+		call parent.dotext(28)
+		parent.sound("waves/topic2/T2_Ans11.mpa")
+		g_timedout = 2
+	end if
+end sub
+Sub document_onclick()
+	if currentQ <> "null" then
+	call seq("mvmt").stop()
+	if window.event.srcElement.id = "sgball" then
+		select case currentQ
+			case "Q1"
+				doSGX("mouseclick")
+				call parent.dotext(11)
+				parent.sound("waves/topic2/T2_Ans3.mpa")
+				g_timedout = 2
+			case "Q2"
+				doSGX("mouseclick")
+				call parent.dotext(18)
+				parent.sound("waves/topic2/T2_Ans5.mpa")
+				currentQ = "null"
+				g_timedout = 2
+			case "Q3"
+				call window.setTimeout("isolate", 0200, "vbscript")
+		end select
+	else
+		select case currentQ
+			case "Q2"
+				call parent.dotext(19)
+				parent.sound("waves/topic2/T2_Ans6.mpa")
+				g_timedout = 2
+			case "Q4"
+				call parent.dotext(35)
+				parent.sound("waves/topic2/T2_Ans15.mpa")
+				g_timedout = 2
+		end select
+	end if
+	call seq("mvmt").play()
+	end if
+end sub
+
+Sub sgball_onmouseover()
+	if currentQ <> "null" then
+		doSGX("mouseover")
+		select case currentQ
+			case "Q1"
+				call seq("mvmt").stop()
+				call seq("mvmt").play()
+				call parent.dotext(9)
+				parent.sound("waves/topic2/T2_Ans1.mpa")
+				currentQ = "null"
+				g_timedout = 2
+			case "Q2"
+				hovering = 1
+				call seq("hover").Play
+			case "Q4"
+				hovering = 1
+				call seq("hover").Play
+		end select
+	end if
+end sub
+
+Sub hover()
+	if g_timedout <> 2 then
+		call seq("mvmt").stop()
+		select case currentQ
+		case "Q1"
+			call parent.dotext(10)
+			parent.sound("waves/topic2/T2_Ans2.mpa")
+			g_timedout = 2
+		case "Q2"
+			if hovering then
+				call parent.dotext(20)
+				parent.sound("waves/topic2/T2_Ans7.mpa")
+				g_timedout = 2
+			end if
+		case "Q4"
+			if hovering then
+				call parent.dotext(36)
+				parent.sound("waves/topic2/T2_Ans16.mpa")
+				g_timedout = 2
+			end if
+		end select
+		call seq("mvmt").play()
+	end if
+end sub
+
+Sub sgball_onmouseout()
+	hovering = 0
+	if currentQ <> "null" then
+		doSGX("mouseout")
+	end if
+end sub
+
+Sub sgball_ondblclick()
+	if currentQ = "Q3" then
+		doSGX("doubleclick")
+		call parent.dotext(27)
+		parent.sound("waves/topic2/T2_Ans10.mpa")
+		currentQ = "null"
+		g_timedout = 2
+		call seq("mvmt").stop()
+		call seq("mvmt").play()
+	end if
+end sub
+
+sub nextseq()
+	call seq("mvmt").stop()
+	if currentseq < 25 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq + 1
+		currentQ = "null"
+		doSGX("mouseout")
+		call seq(cstr(currentseq)).play()
+	else
+		parent.nav.spanMeetDesk.click
+	end if
+end sub
+
+sub prevseq()
+	call seq("mvmt").stop()
+	if currentseq > 1 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq - 1
+		currentQ = "null"
+		doSGX("mouseout")
+		call seq(cstr(currentseq)).play()
+	else
+		parent.backwards=true
+		parent.nav.spanUseKey.click
+	end if
+end sub
+
+dim tx,ty,dragging
+sub sgball_ondragstart()
+	if currentQ = "Q4" then
+		dragging = 1
+		hovering = 0
+		if tx = 0 then
+			tx = window.event.x - sgball.style.pixelLeft
+			ty = window.event.y - sgball.style.pixelTop
+		end if
+
+		sgball.style.PixelLeft = window.event.x - tx
+		sgball.style.PixelTop = window.event.y - ty
+
+		if sgball.style.PixelLeft > 115 then 
+			sgball.style.PixelLeft = 115
+		end if
+		if sgball.style.PixelLeft < 0 then 
+			sgball.style.PixelLeft = 0
+		end if
+		if sgball.style.PixelTop > 160 then 
+			sgball.style.PixelTop = 160
+		end if	
+		if sgball.style.PixelTop < 0 then
+			sgball.style.PixelTop = 0
+		end if
+		window.event.returnValue = false
+	end if
+end sub
+
+sub sgball_onmousedown()
+	tx = 0
+	ty = 0
+end sub
+
+sub sgball_onmouseup()
+	tx = 0
+	ty = 0
+	if currentQ = "Q4" then
+		call seq("mvmt").stop()
+		call seq("mvmt").play()
+		if window.event.x > 135 then
+			currentQ = "null"
+			g_timedout = 2
+			call parent.dotext(34)
+			parent.sound("waves/topic2/T2_Ans14.mpa")
+		else
+			if dragging then
+				dragging = 0
+				call parent.dotext(37)
+				parent.sound("waves/topic2/T2_Ans17.mpa")
+				g_timedout = 2
+			else
+				hovering = 0
+				call parent.dotext(36)
+				parent.sound("waves/topic2/T2_Ans16.mpa")
+				g_timedout = 2
+			end if
+		end if
+	end if
+end sub
+
+Sub ResetOrig()
+	imgMouse.style.Left=imgMouse.origLeft
+	imgMouse.style.Top=imgMouse.origTop
+	imgMouseUp.style.Left=imgMouseUp.origLeft
+	imgMouseUp.style.Top=imgMouseUp.origTop
+	imgMouseDown.style.Left=imgMouseDown.origLeft
+	imgMouseDown.style.Top=imgMouseDown.origTop
+	imgCursor.style.Left=imgCursor.origLeft
+	imgCursor.style.Top=imgCursor.origTop
+	sgball.style.Left=sgball.origLeft
+	sgball.style.Top=sgball.origTop
+End Sub
+
+Sub seq_OnInit
+	Call seq("1").at(0.00, "ResetOrig")
+	Call seq("1").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("1").at(0.00, "parent.dotext(0)")
+	Call seq("1").at(0.00, "parent.sound('waves/topic2/top2_1a.mpa')")
+	Call seq("1").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("2").at(0.00, "ResetOrig")
+	Call seq("2").at(0.00, "parent.dotext(1)")
+	Call seq("2").at(0.00, "parent.sound('waves/topic2/top2_2.mpa')")
+	Call seq("2").at(0.00, "parent.hideall('curs', 'mse', 'circm')")
+	Call seq("2").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+	
+	Call seq("3").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("3").at(0.00, "ResetOrig")
+	Call seq("3").at(0.00, "parent.dotext(2)")
+	Call seq("3").at(0.00, "parent.sound('waves/topic2/top2_7.mpa')")
+	Call seq("3").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("4").at(0.00, "ResetOrig")
+	Call seq("4").at(0.00, "parent.hideall('curs', 'mse', 'circp')")
+	Call seq("4").at(0.00, "parent.dotext(3)")
+	Call seq("4").at(0.00, "parent.sound('waves/topic2/top2_9.mpa')")
+	Call seq("4").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("5").at(0.00, "ResetOrig")
+	Call seq("5").at(0.00, "parent.dotext(4)")
+	Call seq("5").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("5").at(0.00, "parent.sound('waves/topic2/top2_11.mpa')")
+	Call seq("5").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("6").at(0.00, "ResetOrig")
+	Call seq("6").at(0.00, "parent.dotext(5)")
+	Call seq("6").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("6").at(0.00, "parent.sound('waves/topic2/top2_12.mpa')")
+	Call seq("6").at(1.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("6").at(1.00, "parent.doMoveLeft(imgCursor, -12)", 6, 0.10)
+	Call seq("6").at(2.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("6").at(2.00, "parent.doMoveLeft(imgCursor, 12)", 6, 0.10)
+	Call seq("6").at(4.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("6").at(4.00, "parent.doMoveLeft(imgCursor, -12)", 6, 0.10)
+	Call seq("6").at(5.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("6").at(5.00, "parent.doMoveLeft(imgCursor, 12)", 6, 0.10)
+	Call seq("6").at(7.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("6").at(7.00, "parent.doMoveLeft(imgCursor, -12)", 6, 0.10)
+	Call seq("6").at(8.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("6").at(8.00, "parent.doMoveLeft(imgCursor, 12)", 6, 0.10)
+	Call seq("6").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("7").at(0.00, "ResetOrig")
+	Call seq("7").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("7").at(0.00, "parent.sound('waves/topic2/Top2_2b.mpa')")
+	Call seq("7").at(0.00, "parent.dotext(6)")
+	Call seq("7").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("8").at(0.00, "ResetOrig")
+	Call seq("8").at(0.00, "parent.dotext(7)")
+	Call seq("8").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("8").at(0.00, "parent.sound('waves/topic2/Top2_3c.mpa')")
+	Call seq("8").at(1.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(1.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(1.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(1.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(1.40, "doSGX('mouseover')")
+	Call seq("8").at(2.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(2.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(2.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(2.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(2.30, "doSGX('mouseout')")
+
+	Call seq("8").at(3.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(3.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(3.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(3.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(3.40, "doSGX('mouseover')")
+	Call seq("8").at(4.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(4.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(4.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(4.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(4.30, "doSGX('mouseout')")
+
+	Call seq("8").at(5.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(5.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("8").at(5.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(5.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("8").at(5.40, "doSGX('mouseover')")
+	Call seq("8").at(6.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(6.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("8").at(6.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(6.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("8").at(6.30, "doSGX('mouseout')")
+	Call seq("8").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Rollover Game
+	Call seq("9").at(0.00, "ResetOrig")
+	Call seq("9").at(0.00, "parent.dotext(8)")
+	Call seq("9").at(0.00, "parent.hideall()")
+	Call seq("9").at(0.00, "parent.sound('waves/topic2/Top2_15.mpa')")
+	Call seq("9").at(0.00, "parent.iterateGame('Q1')")
+	Call seq("9").at(25.00, "timedout('Q1')")
+
+	Call seq("10").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("10").at(0.00, "ResetOrig")
+	Call seq("10").at(0.00, "parent.dotext(13)")
+	Call seq("10").at(0.00, "parent.sound('waves/topic2/Top2_16.mpa')")
+	Call seq("10").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("11").at(0.00, "ResetOrig")
+	Call seq("11").at(0.00, "parent.dotext(14)")
+	Call seq("11").at(0.00, "parent.sound('waves/topic2/Top2_17.mpa')")
+	Call seq("11").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("11").at(2.00, "parent.doShow(imgCirFinger)")
+	Call seq("11").at(4.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("11").at(4.50, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("11").at(7.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("11").at(7.50, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("11").at(10.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("11").at(10.50, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("11").at(12.00, "parent.doHide(imgCirFinger)")
+	Call seq("11").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("12").at(0.00, "ResetOrig")
+	Call seq("12").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("12").at(0.00, "parent.dotext(15)")
+	Call seq("12").at(0.00, "parent.sound('waves/topic2/Top2_18a.mpa')")
+	Call seq("12").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Click Demo
+	Call seq("13").at(0.00, "ResetOrig")
+	Call seq("13").at(0.00, "parent.dotext(16)")
+	Call seq("13").at(0.00, "parent.sound('waves/topic2/Top2_4d.mpa')")
+	Call seq("13").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("13").at(1.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("13").at(1.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("13").at(1.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.10)
+	Call seq("13").at(1.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.10)
+	Call seq("13").at(1.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("13").at(1.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("13").at(1.50, "doSGX('mouseover')")
+	Call seq("13").at(3.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("13").at(3.50, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("13").at(3.60, "doSGX('mouseclick')")
+	Call seq("13").at(4.00, "doSGX('mouseout')")
+	Call seq("13").at(4.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("13").at(4.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("13").at(4.00, "parent.doMoveLeft(imgMouseDown, 3)", 6, 0.10)
+	Call seq("13").at(4.00, "parent.doMoveTop(imgMouseDown, 3)", 6, 0.10)
+	Call seq("13").at(4.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("13").at(4.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("13").at(6.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("13").at(6.50, "doSGX('mouseover')")
+	Call seq("13").at(8.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("13").at(8.50, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("13").at(8.60, "doSGX('mouseclick')")
+	Call seq("13").at(9.00, "doSGX('mouseout')")
+	Call seq("13").at(9.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("13").at(9.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("13").at(9.00, "parent.doMoveLeft(imgMouseDown, 3)", 6, 0.10)
+	Call seq("13").at(9.00, "parent.doMoveTop(imgMouseDown, 3)", 6, 0.10)
+	Call seq("13").at(9.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("13").at(9.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("13").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Click Game
+
+	Call seq("14").at(0.00, "ResetOrig")
+	Call seq("14").at(0.00, "parent.hideall()")
+	Call seq("14").at(0.00, "parent.dotext(17)")
+	Call seq("14").at(0.00, "parent.sound('waves/topic2/Top2_19.mpa')")
+	Call seq("14").at(1.00, "parent.iterateGame('Q2')")
+	Call seq("14").at(25.00, "timedout('Q2')")
+
+	Call seq("15").at(0.00, "ResetOrig")
+	Call seq("15").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("15").at(0.00, "parent.dotext(22)")
+	Call seq("15").at(0.00, "parent.sound('waves/topic2/Top2_5e.mpa')")
+	Call seq("15").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("16").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("16").at(0.00, "ResetOrig")
+	Call seq("16").at(0.00, "parent.dotext(23)")
+	Call seq("16").at(0.00, "parent.sound('waves/topic2/Top2_22.mpa')")
+	Call seq("16").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Double clicking Demo
+	Call seq("17").at(0.00, "ResetOrig")
+	Call seq("17").at(0.00, "parent.dotext(24)")
+	Call seq("17").at(0.00, "parent.sound('waves/topic2/T2_Ans13.mpa')")
+	Call seq("17").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("17").at(2.00, "parent.doShow(imgCirFinger)")
+	Call seq("17").at(3.50, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(3.75, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(4.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(4.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(6.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(6.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(6.50, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(7.00, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(9.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(9.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(9.50, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("17").at(9.75, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("17").at(12.00, "parent.doHide(imgCirFinger)")
+	Call seq("17").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Mousing DoubleClick Demo
+	Call seq("18").at(0.00, "ResetOrig")
+	Call seq("18").at(0.00, "parent.dotext(25)")
+	Call seq("18").at(0.00, "parent.sound('waves/topic2/Top2_6f.mpa')")
+	Call seq("18").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("18").at(2.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.20)
+	Call seq("18").at(2.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.20)
+	Call seq("18").at(2.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(2.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(2.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.20)
+	Call seq("18").at(2.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.20)
+	Call seq("18").at(2.50, "doSGX('mouseover')")
+	Call seq("18").at(3.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("18").at(3.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("18").at(4.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("18").at(4.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("18").at(3.50, "doSGX('doubleclick')")
+	Call seq("18").at(5.00, "doSGX('mouseout')")
+	Call seq("18").at(5.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.20)
+	Call seq("18").at(5.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.20)
+	Call seq("18").at(5.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(5.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(5.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.20)
+	Call seq("18").at(5.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.20)
+	Call seq("18").at(6.00, "ResetOrig")
+	Call seq("18").at(6.00, "parent.doShowNHide(imgMouse, imgMouseUp)")
+	Call seq("18").at(7.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.20)
+	Call seq("18").at(7.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.20)
+	Call seq("18").at(7.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(7.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(7.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.20)
+	Call seq("18").at(7.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.20)
+	Call seq("18").at(7.50, "doSGX('mouseover')")
+	Call seq("18").at(8.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("18").at(8.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("18").at(9.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("18").at(9.25, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("18").at(8.50, "doSGX('doubleclick')")
+	Call seq("18").at(10.00, "doSGX('mouseout')")
+	Call seq("18").at(10.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.20)
+	Call seq("18").at(10.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.20)
+	Call seq("18").at(10.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(10.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.20)
+	Call seq("18").at(10.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.20)
+	Call seq("18").at(10.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.20)
+	Call seq("18").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'DoubleClick Game
+	Call seq("19").at(0.00, "ResetOrig")
+	Call seq("19").at(0.00, "parent.hideall()")
+	Call seq("19").at(0.00, "parent.dotext(26)")
+	Call seq("19").at(0.00, "parent.sound('waves/topic2/Top2_25.mpa')")
+	Call seq("19").at(1.00, "parent.iterateGame('Q3')")
+	Call seq("19").at(25.00, "timedout('Q3')")
+
+	Call seq("20").at(0.00, "ResetOrig")
+	Call seq("20").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("20").at(0.00, "parent.dotext(31)")
+	Call seq("20").at(0.00, "parent.sound('waves/topic2/Top2_31.mpa')")
+	Call seq("20").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'Left Mouse Drag Demo
+	Call seq("21").at(0.00, "parent.dodrag(0)")
+	Call seq("21").at(0.00, "ResetOrig")
+	Call seq("21").at(0.00, "parent.dotext(32)")
+	Call seq("21").at(0.00, "parent.sound('waves/topic2/Top2_32.mpa')")
+	Call seq("21").at(0.00, "parent.hideall('curs', 'msup')")
+	Call seq("21").at(1.00, "parent.doMoveLeft(imgMouseUp, -3)", 6, 0.10)
+	Call seq("21").at(1.00, "parent.doMoveTop(imgMouseUp, -3)", 6, 0.10)
+	Call seq("21").at(1.00, "parent.doMoveLeft(imgMouseDown, -3)", 6, 0.10)
+	Call seq("21").at(1.00, "parent.doMoveTop(imgMouseDown, -3)", 6, 0.10)
+	Call seq("21").at(1.00, "parent.doMoveLeft(imgCursor, -9)", 6, 0.10)
+	Call seq("21").at(1.00, "parent.doMoveTop(imgCursor, -9)", 6, 0.10)
+	Call seq("21").at(1.50, "doSGX('mouseover')")
+	Call seq("21").at(6.00, "parent.doShowNHide(imgMouseUp, imgMouseDown)")
+	Call seq("21").at(6.10, "doSGX('mouseclick')")
+	Call seq("21").at(7.00, "parent.doMoveLeft(imgMouseUp, 3)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveTop(imgMouseUp, 3)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveLeft(imgMouseDown, 3)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveTop(imgMouseDown, 3)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveLeft(imgCursor, 9)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveTop(imgCursor, 9)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveLeft(sgball, 9)", 6, 0.10)
+	Call seq("21").at(7.00, "parent.doMoveTop(sgball, 9)", 6, 0.10)
+	Call seq("21").at(10.00, "parent.doShowNHide(imgMouseDown, imgMouseUp)")
+	Call seq("21").at(10.10, "doSGX('mouseout')")
+	Call seq("21").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("22").at(0.00, "ResetOrig")
+	Call seq("22").at(0.00, "parent.dodrag(1)")
+	Call seq("22").at(0.00, "parent.hideall()")
+	Call seq("22").at(0.00, "parent.dotext(33)")
+	Call seq("22").at(0.00, "parent.sound('waves/topic2/Top2_33.mpa')")
+	Call seq("22").at(1.00, "parent.iterateGame('Q4')")
+	Call seq("22").at(45.00, "timedout('Q4')")
+
+	Call seq("23").at(0.00, "parent.dodrag(0)")
+	Call seq("23").at(0.00, "ResetOrig")
+	Call seq("23").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("23").at(0.00, "parent.dotext(39)")
+	Call seq("23").at(0.00, "parent.sound('waves/topic2/Top2_34.mpa')")
+	Call seq("23").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("24").at(0.00, "parent.dotext(40)")
+	Call seq("24").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("24").at(0.00, "parent.sound('waves/topic2/Top2_35.mpa')")
+	Call seq("24").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("25").at(0.00, "parent.dotext(41)")
+	Call seq("25").at(0.00, "parent.hideall('curs', 'mse')")
+	Call seq("25").at(0.00, "parent.sound('waves/topic2/Top2_lst.mpa')")
+	Call seq("25").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("hover").at(5.00, "hover()")
+	Call seq("mvmt").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+end sub
+
+Sub doSGX(whatEvent)
+	select case whatEvent
+		case "mouseover"
+			sgball.src = "images/msover.gif"
+		case "mouseout"
+			sgball.src = "images/msout.gif"
+		case "mouseclick"
+			sgball.src = "images/msclick.gif"
+		case "doubleclick"
+			sgball.src = "images/dblclick.gif"
+	end select
+end sub
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR=#E3E3E3>
+
+<!--sequencer object-->
+<OBJECT ID="seq" 
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+</OBJECT>
+
+<!--computer with big mouse image-->
+<IMG class="always" ID="imgComputer" SRC="images/comp2.gif" STYLE="position:absolute;left:0;top:0; visibility:hidden">
+
+<!-- sgfx ball -->
+<IMG class="always" ID="sgball" src="images/msout.gif" STYLE="POSITION:ABSOLUTE; WIDTH:60; HEIGHT:60; TOP:30; LEFT:30; visibility:hidden">
+
+<!--mouse and hand images-->
+<IMG class="mse" ID="imgMouse" SRC="images/msonly.gif" STYLE="position:absolute; top:220; left:158; visibility:hidden">
+<IMG class="msup" ID="imgMouseUp" SRC="images/msup.gif" STYLE="position:absolute; top:220; left:158; visibility:hidden">
+<IMG class="msdn" ID="imgMouseDown" SRC="images/msdown.gif" STYLE="position:absolute; top:220; left:158; visibility:hidden">
+
+<!--cursor images-->
+<IMG class="curs" ID="imgCursor" SRC="images/cursor.gif" STYLE="position:absolute; top:100; left:100; visibility:hidden">
+
+<!--CIRCLES-->
+<IMG class="circm" ID="imgCirMouse" SRC="images/circles/c_bg_ms.GIF" STYLE="position:absolute; top:215; left:225; visibility:hidden;">
+<IMG class="circp" ID="imgCirPoint" SRC="images/circles/c_cursor.gif" STYLE="position:absolute; top:85; left:100; visibility:hidden;">
+<IMG class="circf" ID="imgCirFinger" SRC="images/circles/c_finger.gif" STYLE="position:absolute; top:210; left:225; visibility:hidden;">
+
+<!--holder div for text-->
+<DIV CLASS="clsHolder" ID="divHolderText" STYLE="margin-width:5; position:absolute; top:20; left:230; width:230; height:175;">
+</DIV>
+
+<!--back and forward directions-->
+<DIV CLASS="clsEnter" ID="divEnter" STYLE="position:absolute; top:412; left:10; width:460;">
+</DIV>
+</body>
+</html>

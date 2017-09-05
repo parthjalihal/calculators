@@ -1,0 +1,514 @@
+<HTML>
+
+<HEAD>
+
+	<TITLE>Warner Bros. PLAYDOM: The Coloring Corner</TITLE>
+
+
+
+<script language="VBScript">
+
+<!--
+
+
+
+sub window_onload
+
+	Seq4("Pres4").Play
+
+end sub
+
+
+
+Sub Seq4_onInit
+
+	call Seq4("Pres4").at(0.000, "showTag1()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(3.000, "showTag2()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(6.000, "showTag3()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(9.000, "showTag4()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(14.000, "showTag5()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(18.000, "showTag6()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(22.000, "showTag7()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(25.500, "moveLogo()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(28.500, "showTag8()",1, 0.0, 1)
+
+	call Seq4("Pres4").at(36.500, "parent.showPres0()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub showTag1
+
+	words1Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showTag2
+
+	words1Div.style.visibility = "hidden"
+
+	words2Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showTag3
+
+	words2Div.style.visibility = "hidden"
+
+	words3Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showTag4
+
+	words3Div.style.visibility = "hidden"
+
+	words4Div.style.visibility = "visible"
+
+	picture1.style.visibility = "visible"
+
+	BugsPath.Target = "picture1"
+
+	BugsPath.play
+
+	BugsTextPath.Target = "words4Div"
+
+	BugsTextPath.play	
+
+	ColoringLogoPath.Target = "ColoringLogo"
+
+	ColoringLogoPath.play
+
+End Sub
+
+
+
+Sub showTag5
+
+	words4Div.style.visibility = "hidden"
+
+	words5Div.style.visibility = "visible"
+
+	picture2.style.visibility = "visible"
+
+	BugsPath2.Target = "picture1"
+
+	BugsPath2.play
+
+	MarvinPath.Target = "picture2"
+
+	MarvinPath.play
+
+End Sub
+
+
+
+Sub showTag6
+
+	words5Div.style.visibility = "hidden"
+
+	words6Div.style.visibility = "visible"
+
+	picture3.style.visibility = "visible"
+
+	MarvinPath2.Target = "picture2"
+
+	MarvinPath2.play	
+
+	PorkyPath.Target = "picture3"
+
+	PorkyPath.play
+
+End Sub
+
+
+
+Sub showTag7
+
+	words6Div.style.visibility = "hidden"
+
+	words7Div.style.visibility = "visible"
+
+	picture4.style.visibility = "visible"
+
+	PorkyPath2.Target = "picture3"
+
+	PorkyPath2.play
+
+	SamPath.Target = "picture4"
+
+	SamPath.play
+
+End Sub
+
+
+
+Sub showTag8
+
+	words8Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub moveLogo
+
+	picture4.style.visibility = "hidden"
+
+	words7Div.style.visibility = "hidden"
+
+	ColoringLogoPath2.Target = "ColoringLogo"
+
+	ColoringLogoPath2.play
+
+End Sub
+
+
+
+//-->
+
+</script>
+
+
+
+</HEAD>
+
+
+
+<BODY bgcolor="#FFFFFF" text="#FFFFFF" link="#FFFF00" vlink="#FFFF00" alink="#FFFF00" leftmargin=0 topmargin=0 background="img/cc_bgrnd.gif">
+
+
+
+<bgsound src="med/looney.mid" loop=0>
+
+
+
+<DIV ID=ColoringLogo STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:0; LEFT:0; VISIBILITY:visible; z-Index:1" ALIGN=CENTER>
+
+<img src="img/cc_head.gif" width=139 height=100 border=0>
+
+</DIV>
+
+
+
+<DIV ID=words1Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:100; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:28" ALIGN=CENTER>
+
+<b><FONT ID=words1 face="Comic Sans MS, Verdana, Arial">Like to draw?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words2Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:100; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words2 face="Comic Sans MS, Verdana, Arial">Click on over to<br>
+
+the Coloring Corner</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words3Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:100; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words3 face="Comic Sans MS, Verdana, Arial">Where you can color your<br>
+
+favorite Warner Bros. Characters</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words4Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:100; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words4 face="Comic Sans MS, Verdana, Arial">There's<br>
+
+Bugs Bunny</FONT></b>
+
+</DIV>
+
+
+
+<img ID=Picture1 src="img/bugs.gif" width=247 height=185 border=5 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:-250; VISIBILITY:hidden; z-Index:3"><br>
+
+
+
+<DIV ID=words5Div STYLE="POSITION:ABSOLUTE; WIDTH:100; HEIGHT:100; TOP:100; LEFT:315; VISIBILITY:hidden; z-Index:5; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words5 face="Comic Sans MS, Verdana, Arial">Marvin the Martian</FONT></b>
+
+</DIV>
+
+
+
+<img ID=Picture2 src="img/marvin.gif" width=142 height=185 border=5 STYLE="POSITION:ABSOLUTE; TOP:-300; LEFT:82; VISIBILITY:hidden; z-Index:3"><br>
+
+
+
+<DIV ID=words6Div STYLE="POSITION:ABSOLUTE; WIDTH:100; HEIGHT:100; TOP:100; LEFT:315; VISIBILITY:hidden; z-Index:3; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words6 face="Comic Sans MS, Verdana, Arial">
+
+Porky & Petunia Pig</FONT></b>
+
+</DIV>
+
+
+
+<img ID=Picture3 src="img/porky.gif" width=171 height=185 border=5 STYLE="POSITION:ABSOLUTE; TOP:-300; LEFT:65; VISIBILITY:hidden; z-Index:3"><br>
+
+
+
+<DIV ID=words7Div STYLE="POSITION:ABSOLUTE; WIDTH:100; HEIGHT:100; TOP:100; LEFT:315; VISIBILITY:hidden; z-Index:3; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words7 face="Comic Sans MS, Verdana, Arial">
+
+and Yosemite Sam</FONT></b>
+
+</DIV>
+
+
+
+<img ID=Picture4 src="img/sam.gif" width=132 height=185 border=5 STYLE="POSITION:ABSOLUTE; TOP:-300; LEFT:82; VISIBILITY:hidden; z-Index:3"><br>
+
+
+
+<DIV ID=words8Div STYLE="POSITION:ABSOLUTE; WIDTH:425; HEIGHT:100; TOP:110; LEFT:5; VISIBILITY:hidden; z-Index:3; font-size:18" ALIGN=LEFT>
+
+<b><FONT ID=words8 face="Comic Sans MS, Verdana, Arial">
+
+If you enjoy painting, drawing, games, or just having online fun, <A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">click here.</A></FONT></b>
+
+</DIV>
+
+
+
+<OBJECT ID="Seq4"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="BugsPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-250,5,15,5)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="BugsPath2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,15,5,15,300)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="MarvinPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,82,-300,82,5)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="MarvinPath2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,82,5,82,300)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="PorkyPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,65,-300,65,5)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="PorkyPath2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,65,5,65,300)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="SamPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,82,-300,82,5)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="ColoringLogoPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,0,0,140,0)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="BugsTextPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,0,100,140,100)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="ColoringLogoPath2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,140,0,0,0)">
+
+</OBJECT>
+
+
+
+</BODY>
+
+</HTML>
+

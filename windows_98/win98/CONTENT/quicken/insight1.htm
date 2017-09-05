@@ -1,0 +1,129 @@
+
+<HTML>
+<HEAD>
+	<TITLE>	TEST 001</TITLE>
+</HEAD>
+
+<STYLE>
+.button {
+	position:absolute;
+	}
+
+.build {
+position: absolute;
+visibility: hidden;
+font-weight: bold;
+font-size: 13pt;
+z-index: 6;
+}
+
+</STYLE>
+<SCRIPT>
+<!--
+
+function mv(obj) { obj.style.visibility = "visible"; }
+function miv(obj) { obj.style.visibility = "hidden"; }
+
+
+function Start()
+{
+	count = 0;
+	mv(t1);
+	mv(t2);
+	setTimeout("intro();", 50);
+}
+
+function intro()
+{
+	if(count < 20) {
+		t1.style.posLeft += 30;
+		t2.style.posLeft += 30;
+		b3.style.posLeft -= 10;
+	}
+	else if(count == 20) {
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 21) {
+		mv(t3);
+		mv(t4);
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 22) {
+		mv(t5);
+		mv(t6);
+		mv(t7);
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 23) {
+		mv(t8);
+		mv(t9);
+		timer = setTimeout("intro()", 5000);
+	}
+	else
+	{
+		//next page...
+		document.location = "insight2.htm";
+	}
+		
+	if(count < 19) {
+		timer = setTimeout("intro()", 50);
+	}
+	else if (count == 19)
+	{
+		timer = setTimeout("intro()", 100);
+	}
+	count++;
+
+}
+// -->
+</SCRIPT>
+
+<BODY BGCOLOR="#FFFFFF" BACKGROUND="images/back.gif" onLoad = "Start();">
+<OBJECT ID="ActiveMovie" WIDTH=4 HEIGHT=4
+ CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+    <PARAM NAME="_ExtentX" VALUE="106">
+    <PARAM NAME="_ExtentY" VALUE="106">
+    <PARAM NAME="ShowDisplay" VALUE="0">
+    <PARAM NAME="ShowControls" VALUE="0">
+    <PARAM NAME="ShowTracker" VALUE="0">
+    <PARAM NAME="AutoStart" VALUE="-1">
+    <PARAM NAME="Appearance" VALUE="0">
+    <PARAM NAME="BorderStyle" VALUE="0">
+    <PARAM NAME="FileName" VALUE="strings.mp2">
+</OBJECT>
+<!--------- ALL MAIN IMAGES ------------->
+
+<DIV class=button ID = "b1" STYLE="top: 0px; left: 600px; z-index: 3">
+	<a href="qfn3_1.htm"><img src="images/qtop.gif" WIDTH=40 HEIGHT=40 BORDER=0></a></div>
+<DIV class=button ID = "b2" STYLE="top: 79px; left: 0px; z-index: 3">
+	<IMG SRC="images/i_man.gif" WIDTH=251 HEIGHT=361 BORDER=0></DIV>
+<DIV class=button ID = "b3" STYLE="top: 120px; left: 670px; z-index: 3">
+	<IMG SRC="images/bargraph.gif" WIDTH=74 HEIGHT=70 BORDER=0></DIV>
+	
+	
+<!-------- START OF ALL TEXT -----space between 15px---------------->
+<DIV class=build ID = "t1" STYLE="color: #ffffff; font-size: 17pt; top: 165; left: -500px; z-index: 7">INSIGHT</div>
+<DIV class=build ID = "t2" STYLE="font-size: 17pt; top: 165px; left: -393px; z-index: 7">ON INVESTMENTS</DIV>
+
+<DIV class=build ID = "t3" STYLE="color: #28385E; font-size: 10pt; top: 210px; left: 270px; z-index: 7">I SET ASIDE PART OF MY PORTFOLIO FOR HIGH RISK,</DIV>
+<DIV class=build ID = "t4" STYLE="color: #28385E; font-size: 10pt; top: 225px; left: 430px; z-index: 7">HIGH YIELD INVESTMENTS.</DIV>
+
+<DIV class=build ID = "t5" STYLE="color: #860000; font-size: 10pt; top: 250px; left: 273px; z-index: 7">BUT FIGURING OUT WHICH ONES TO BUY</DIV>
+<DIV class=build ID = "t6" STYLE="color: #860000; font-size: 10pt; top: 265px; left: 250px; z-index: 7">AND WHEN TO SELL WAS A MYSTERY TO ME.</DIV>
+<DIV class=build ID = "t7" STYLE="color: #860000; font-size: 10pt; top: 280px; left: 349px; z-index: 7">IT ENDED UP A CRAP SHOOT.</DIV>
+
+<DIV class=build ID = "t8" STYLE="color: #583407; font-size: 10pt; top: 305px; left: 275px; z-index: 7">NEEDLESS TO SAY MY PORTFOLIO</DIV>
+<DIV class=build ID = "t9" STYLE="color: #583407; font-size: 10pt; top: 320px; left: 240px; z-index: 7">WAS NOTHING TO WRITE HOME ABOUT.</DIV>
+
+<!------ BOTTOM NAVIGATION ----------->
+<DIV class=button ID = "n1" STYLE="top: 439px; left: 0px; z-index: 3">
+	<IMG SRC="images/quicken.gif" BORDER=0></DIV>
+
+<!--DIV class=button ID = "n3l" STYLE="top: 439px; left: 327px; z-index: 3"><A HREF="qfn3_1.html"><IMG SRC="images/arrows_l.gif" WIDTH=30 HEIGHT=29 BORDER=0></A></DIV>
+
+<DIV class=button ID = "n3r" STYLE="top: 439px; left: 355px; z-index: 3"><A HREF="achieve01a.html"><IMG SRC="images/arrows_r.gif" WIDTH=28 HEIGHT=29 BORDER=0></A></DIV-->
+
+<DIV class=button ID = "n10" STYLE="top: 403px; left: 544px; z-index: 3"><a href="signup.htm"><IMG SRC="images/subscr.gif" WIDTH=96 BORDER=0 HEIGHT=65 BORDER=0></a></DIV>
+
+</BODY>
+</HTML>

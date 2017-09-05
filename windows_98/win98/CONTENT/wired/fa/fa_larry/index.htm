@@ -1,0 +1,388 @@
+<html>
+
+
+
+<head>
+
+
+
+<title>Network Computers</title>
+
+
+
+<script language="JavaScript">
+
+function onStart() {
+
+	chronos.Item("transthis").play();
+
+}
+
+
+
+
+
+function onStop() {
+
+	chronos.Item("transthis").stop();
+
+}
+
+</script>
+
+
+
+<script language="JavaScript">
+
+
+
+function myPresentation_start() {
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+
+
+   BODY { margin: 0; background: white }
+
+
+
+   #ellison { position: absolute; left: 0px; top: 0px; width: 100%;
+
+
+
+height: 100%; z-index:1 }
+
+
+
+   #trash { position: absolute; left: 30%; top: 18%; width: 40%;
+
+
+
+height: 70%; z-index:2; visibility: hidden }
+
+
+
+   #party { position: absolute; left: 30%; top: 5%; width: 45%;
+
+
+
+height: 10%; color: white; background-color: black; font-weight: bold; font-family: arial; font-size: 12px; z-index:3; text-align: center; visibility: hidden}
+
+
+
+   #fears { position: absolute; left: 50%; top: 0; width: 50%;
+
+
+
+height: 94%; background-color: red; font-family: arial; font-size: 10px; z-index:2}
+
+
+
+   #numeral { color: black; font-family: arial; font-size: 35px; z-index:3}
+
+
+
+   #bigthing {position: absolute; left: 10%; top: 30%; width: 90%;
+
+
+
+height: 25%; color: white; font-family: arial; font-size: 130px; font-weight: bold; z-index:3; letter-spacing: -16; visibility: hidden}
+
+   #conform { position: absolute; left: 39.9%; top: 58.9%; width: 50%; height: 3%; color: white; font-family: arial; font-size: 18; font-weight: bold; z-index:5; visibility: hidden}
+
+	
+
+   #junior { position: absolute; left: 34.9%; top: 20.9%; width: 30%; height: 3%; color: white; font-family: arial; font-size: 18; font-weight: bold; z-index: 2; text-align: center; visibility: hidden }
+
+
+
+   #larry { position: absolute; left: 80%; top: 70%; width: 15%;
+
+
+
+height: 3%;color: white; font-family: arial; font-size: 12px; font-weight: bold; background-color: black; z-index:3; text-align: center; visibility: hidden}
+
+
+
+</style>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+<script language="JavaScript">
+
+
+
+// The stub for the object
+
+function presentation() {
+
+  this.onHold = presentation_onHold;
+
+  this.offHold = presentation_offHold;
+
+  this.calcScale = presentation_calcScale;
+
+  this.xFactor = document.body.offsetWidth / 800;
+
+  this.yFactor = document.body.offsetHeight / 576;
+
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+
+}
+
+
+
+function presentation_onHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_offHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_calcScale() {
+
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'sg') {
+
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+
+    }
+
+  }
+
+  return;
+
+}
+
+
+
+new presentation();
+
+
+
+myPresentation = new presentation();
+
+
+
+function presentationControl() {
+
+  this.startIt = onStart;
+
+  this.stopIt = onStop;
+
+}
+
+
+
+control = new presentationControl();
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+
+
+<IMG id="ellison" src="larry.gif" BORDER=0 >
+
+
+
+<IMG id="trash" src="trash.gif" BORDER=0  vspace=2 hspace=2>
+
+
+
+<div id="junior" style="Filter: DropShadow(color=#000000,offX=2,offY=2)">
+
+"The Network Computer has no maintenance costs. If it breaks, you can
+
+ </div>
+
+
+<div id="bigthing" style="Filter: DropShadow(color=#000000,offX=2,offY=2)">throw it away</div>
+
+<div id="conform" style="Filter: DropShadow(color=#000000,offX=2,offY=2)">
+
+and get a new one."
+
+</div>
+
+
+
+<div id="party" class="onhold">
+
+By the year 2005, an estimated 150 million PCs will have been recycled and 55 million PCs will be in landfills. Also, unused portions of the 150 million recycled computers will have been landfilled - the equivalent of 15 million trashed PCs.
+
+</div> 
+
+
+
+<div id="larry" class="onhold">
+
+Larry Ellison, Chairman & CEO Oracle
+
+</div>
+
+
+
+
+
+<script language="javascript" for="chronos" event="onInit">
+
+
+
+	chronos.Item("transthis").At(1.500,"trashpop",1,10.000,15);
+
+	
+
+	chronos.Item("transthis").At(3.000,"textpop",1,10.000,15);
+
+
+
+</script>
+
+
+
+
+
+<script language="VBSCRIPT">
+
+
+
+Sub trashpop()
+
+	
+
+	trash.style.visibility="visible"
+
+
+
+End Sub
+
+
+
+</script>
+
+
+
+
+
+
+
+<script language="VBSCRIPT">
+
+
+
+Sub textpop()
+
+	
+
+	junior.style.visibility="visible"
+
+	
+
+	bigthing.style.visibility="visible"
+
+	
+
+	conform.style.visibility="visible"
+
+	
+End Sub
+
+
+
+</script>
+
+<script language="JavaScript" for="window" event="onload">
+
+   parent.daScheduler.gramLoaded();
+
+</script>
+
+<script language="JavaScript" for="window" event="onunload">
+
+   parent.daScheduler.gramUnloaded();
+
+</script>	
+
+
+
+</body>
+
+
+
+</html>
+
+
+

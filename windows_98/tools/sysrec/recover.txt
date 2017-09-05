@@ -1,0 +1,161 @@
+-------------------------------------------------
+         Microsoft Windows 98 README for 
+                 System Recovery
+                   March 1998            
+-------------------------------------------------
+
+(c) Copyright Microsoft Corporation, 1998
+
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view Recover.txt on screen in Notepad, maximize 
+the Notepad window.
+
+To print Recover.txt, open it in Notepad or another 
+word processor, and then on the File menu, click 
+Print. 
+
+--------
+CONTENTS
+--------
+
+RESTORING YOUR SYSTEM BY USING SYSTEM RECOVERY
+
+TROUBLESHOOTING
+---------------------------------------------
+
+
+RESTORING YOUR SYSTEM BY USING SYSTEM RECOVERY
+==============================================
+
+The System Recovery program restores your Windows 98 
+system by using the full backup that you created with 
+Microsoft Backup. To use System Recovery to restore 
+your system, you must have:
+
+- Your Windows 98 CD-ROM
+
+- A backup device connected to your computer
+
+- A full system backup created with Microsoft Backup
+
+
+>>>To restore Windows 98 on your computer:
+
+1. Insert your Windows Startup Disk into your floppy disk drive, 
+   and then start your computer.
+
+2. On the Boot menu, choose Start your computer with 
+   CD-ROM support.
+
+3. At the MS-DOS command prompt, type
+       
+	n:
+	(where N is the drive letter of your CD-ROM drive)
+
+   and then press ENTER.
+	
+4. At the MS-DOS command prompt, type   
+
+	CD tools\sysrec
+
+   and then press ENTER.
+
+5. At the MS-DOS command prompt, type   
+ 
+	pcrestor
+
+   and then press ENTER.
+
+6. Follow the instructions that appear on your screen.
+
+   This reinstalls Windows 98 on your computer. When Setup is
+   complete, the System Recovery wizard starts.
+
+>>>To use the System Recovery wizard to restore your files:
+
+1. In the System Recovery wizard, click Next.
+
+2. Type your name and company, and then click Next.
+
+3. Click Details.
+
+4. In the Help window, read the entire Backup Help topic.
+   This explains the entire recovery process.
+
+5. When you have finished reading the Help topic, click the
+   Close button.
+
+6. In the System Recovery wizard, click Finish. 
+   The Microsoft Backup Welcome screen appears.
+
+IMPORTANT: If you click Cancel, click Yes, and then restart 
+your system. The System Recovery wizard automatically starts.
+
+
+7. In the Microsoft Backup dialog box, click Restore backed 
+   up files. 
+
+8. Follow the instructions that appear on your screen.
+
+   IMPORTANT: You should restore hardware settings ONLY 
+   if your hardware is the same as when you made the backup.
+
+   The entire backup of the registry is restored, as are 
+   all selected local drives.
+
+
+   -OR-
+
+
+   If you do not click Restore hardware and system settings 
+   to the registry but continue with the operation, your 
+   software settings and configuration will be restored along 
+   with all selected local drives. 
+
+   Restore all your new and changed files (incremental) 
+   backups. Begin with the oldest and progress to the most 
+   recent incremental backup. 
+
+
+TROUBLESHOOTING
+===============
+
+No Access to Backup Device
+--------------------------
+
+If you cannot gain access to your backup device while 
+running the System Recovery wizard, it is most 
+likely because the driver for the backup device 
+is not installed. 
+
+>>>To install the driver for your backup device:
+
+1. Click Start, point to Settings, click Control Panel, 
+   and then double-click System.
+
+2. Click Device Manager, double-click your backup 
+   device, and then click Driver.
+
+3. Click Update Driver, and then follow the instructions 
+   on your screen. When you are prompted for a disk, 
+   insert the disk that came with your backup device.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>Welcome to Windows</TITLE>
+<script language=javascript>
+var engine = window.external;
+var backwards = false;
+
+function dodrag(bool){
+	engine.AllowDragDrop(bool);
+}
+
+function hideall(c1, c2, c3, c4) {
+	c1 = c1 == "" ? "ignore" : c1;
+	c2 = c2 == "" ? "ignore" : c2;
+	c3 = c3 == "" ? "ignore" : c3;
+	c4 = c4 == "" ? "ignore" : c4;
+	var coll = window.main.document.images;
+	for(i=0; i<coll.length; i++){
+		if(coll(i).className != "always" && coll(i).className != c1 && coll(i).className != c2 && coll(i).className != c3 && coll(i).className != c4){
+			window.main.document.images(i).style.visibility="hidden";
+		}else{
+			window.main.document.images(i).style.visibility="visible";
+		}
+	}
+}
+
+function iterateGame(question){
+	window.main.currentQ = question;
+	window.main.g_timedout = 1;
+}
+
+function doShowt(sectionIn, trans, dur){
+	sectionIn.style.filter = "revealTrans(transition=" + trans + ",duration=" + dur + ")";
+	sectionIn.filters[0].Apply();
+	sectionIn.style.visibility = "visible";
+	sectionIn.filters[0].Play();
+}
+
+function dotext(n){
+	window.main.divHolderText.innerHTML = window.main.txtary[n];
+}
+
+function doShowNHide(sectionOut, sectionIn){
+	sectionOut.style.visibility = "hidden";
+	sectionIn.style.visibility = "visible";
+}
+
+function doShow(sectionIn){
+	sectionIn.style.visibility = "visible";
+}
+
+function doHide(sectionOut){
+	sectionOut.style.visibility = "hidden";
+}
+
+function sound(sound2){
+	narrator.src = sound2;
+}
+
+function doMoveLeft(objecttomove, howfar){
+	objecttomove.style.pixelLeft = objecttomove.style.pixelLeft + howfar;
+}
+
+function doMoveTop(objecttomove, howfar){
+	objecttomove.style.pixelTop = objecttomove.style.pixelTop + howfar;
+}
+</script>
+<BGSOUND id=narrator src="">
+</HEAD>
+
+	<FRAMESET COLS="155,*" BORDER=0 FRAMEBORDER=0 FRAMESPACING=0>
+		<FRAME SRC="nav.htm" NAME="nav" SCROLLING=AUTO>
+		<FRAME SRC="" NAME="main" SCROLLING=AUTO>
+	</FRAMESET>
+</HTML>

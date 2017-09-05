@@ -1,0 +1,108 @@
+App Name	Windows 98 Resource Kit Tools Sampler
+App Version	98.0.1.013
+Frame Bitmap	"rksetup.dll, 124"
+Frame Caption	Microsoft Windows 98 Resource Kit Tools Sampler Setup 
+Dialog Caption Base	Microsoft Windows 98 Resource Kit Tools Sampler
+Usage String	Usage:  Setup <rtn> - Installs or Removes the Windows 98 Resource Kit Tools Sampler.
+About Box String	Microsoft®  Windows 98™ Resource Kit\n\nCopyright © 1997 Microsoft Corporation.
+Check Modules	
+Source Directory	
+MSAPPS Mode	local
+Inf File Name	ResKit.Inf
+Maximum Object ID	1600
+Admin Mode Root Object ID	20:05
+Floppy Mode Root Object ID	20:05
+Network Mode Root Object ID	20:05
+Maintenance Mode Root Object ID	20:05
+Batch Mode Root Object ID	20:05										
+Setup Version	1.20.0.2402										
+
+ObjID	Install During Batch Mode	Title	Descr	Type	Data	BMP Id	Vital	Shared	Dir Chang	Dest Dir	Installed By Us
+5	yes	The Windows 98 Resource Kit Tools Sampler		AppSearch	"""%p\Win98RK"", ""Win98RK.hlp"", """", 128, """", yes, 8"						
+8	yes			SearchDrives	"""fixed"""						
+20	yes			AppMainDlg	21 : 200 250				yes	%5	
+21	yes	&Install	"The Microsoft Windows 98 Resource Kit Tools Sampler installation will install a Sample version of the ""Windows 98 Resource Kit"" tools to the drive location specified below."	Group	100	"rksetup.dll, 111"			yes		
+100	yes	Install		Group	400 500 600 700 900 1000 1300 1400 1500 1600						
+101											
+200	yes	Setup and System Files		Group	201 202 203 204 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230						
+201	yes			CopySection	SETUP				yes	%d	
+202	yes			AddRegData	"LOCAL,""Software\Microsoft\Windows\CurrentVersion\Uninstall\Win98RK"",""DisplayName"",""Microsoft Windows 98 Resource Kit Tools Sampler"""						
+203	yes			AddRegData	"LOCAL,""Software\Microsoft\Windows\CurrentVersion\Uninstall\Win98RK"",""UninstallString"",""%s\Acmsetup.exe /u /t reskit.stf"""						
+204	yes			AddRegData	"LOCAL,""Software\Microsoft\Reskit\Win98RK\Setup"",""InstallDir"",""%s"","""""						
+206	yes			AddRegData	"LOCAL,""Software\Microsoft\Reskit\Win98RK"",""Product"",""Windows98 Resource Kit Sampler"","""""						
+207	yes			CustomAction	"rksetup.dll,ShortPath,"""""				yes	%d
+208	yes			InstallSysFile	"SYSFILES, comctl32.ocx"				yes	%W\System
+209	yes			InstallSysFile	"SYSFILES,""comdlg32.ocx"""				yes	%W\System
+210	yes			InstallSysFile	"SYSFILES,""dao350.dll"""				yes	%W\System
+211	yes			InstallSysFile	"SYSFILES,""msgblast.ocx"""				yes	%W\System
+212	yes			InstallSysFile	"SYSFILES,""msjet35.dll"""				yes	%W\System
+213	yes			InstallSysFile	"SYSFILES,""msjint35.dll"""				yes	%W\System
+214	yes			InstallSysFile	"SYSFILES,""msjter35.dll"""				yes	%W\System
+215	yes			InstallSysFile	"SYSFILES,""msmask32.ocx"""				yes	%W\System
+216	yes			InstallSysFile	"SYSFILES,""msrd2x35.dll"""				yes	%W\System
+217	yes			InstallSysFile	"SYSFILES,""msrepl35.dll"""				yes	%W\System
+218	yes			InstallSysFile	"SYSFILES,""msvbvm50.dll"""				yes	%W\System
+219	yes			InstallSysFile	"SYSFILES,""odbcji32.dll"""				yes	%W\System
+220	yes			InstallSysFile	"SYSFILES, odbcjt32.dll"				yes	%W\System
+221	yes			InstallSysFile	"SYSFILES,""odbctl32.dll"""				yes	%W\System
+222	yes			InstallSysFile	"SYSFILES,""sysinfo.ocx"""				yes	%W\System
+223	yes			InstallSysFile	"SYSFILES,""tabctl32.ocx"""				yes	%W\System
+224	yes			InstallSysFile	"SYSFILES,""vb40032.dll"""				yes	%W\System
+225	yes			InstallSysFile	"SYSFILES,""vb5db.dll"""				yes	%W\System
+226	yes			InstallSysFile	"SYSFILES,""vb5stkit.dll"""				yes	%W\System
+227	yes			InstallSysFile	"SYSFILES,""vbajet32.dll"""				yes	%W\System
+228	yes			InstallSysFile	"SYSFILES,""win.tlb"""				yes	%W\System
+229	yes			CustomAction	"rksetup.dll,RegisterDAO350,"""""					
+230	yes			AddPathToAutoexec					yes	%207
+249										
+250	yes	Standard Documentation		Group	251 253 254 255 256					
+251	yes			CopySection	HELP				yes	%d
+253	yes			CustomAction	"rksetup.dll, StartMenu,"""""				yes	%d
+254	yes			InstallShortcut	"%251\README.DOC,Readme<Release Notes>,%s,,,,"					%253\rksec2<%253\Windows 98 Resource Kit>
+255	yes			InstallShortcut	"%251\WIN98RK.HLP,Win98rk<Resource Kit Tools Help>,%s,,,,"					%253\rksec2<%253\Windows 98 Resource Kit>
+256	yes			InstallShortcut	"%251\RK98BOOK.CHM,rk98book<Resource Kit Online Book>,%s,,,,"					%253\rksec2<%253\Windows 98 Resource Kit>
+257										
+400	yes	Desktop Tools		Group	401 402					
+401	yes			CopySection	DESKTOP				yes	%d
+402	yes			CopySection	DESKTOP\MINITEL				yes	%d\MINITEL
+403										
+500	yes 	Configuration Tools		Group	501 502 503					
+501	yes			CopySection	CONFIG				yes	%d
+502	yes			CopySection	CONFIG\CHDOSCP				yes	%d
+503	yes			CopySection	CONFIG\CHDOSCP\CODEPAGE				yes	%d\Codepage
+599										
+600	yes	File Tools		Group	601					
+601	yes			CopySection	FILE				yes	%d
+602										
+700	yes	Diagnostic Tools		Group	701					
+701	yes			CopySection	DIAGNOSE				yes	%d
+702										
+800										
+900	yes	Power Toys		Group	901					
+901	yes			CopySection	POWERTOY				yes	%d\PowerToy
+902										
+1000	yes	Deployment Tools		Group	1001 1002 1003 1004 1005 1006 1007					
+1001	yes			CopySection	DEPLOY				yes	%d
+1002	yes			CopyFile	"BATCH, batch.exe"				yes	%p\Microsoft Batch 98
+1003	yes			CopyFile	"BATCH, batch98.chm"				yes	%p\Microsoft Batch 98
+1004	yes			CopyFile	"BATCH, optional.ini"				yes	%p\Microsoft Batch 98
+1005	yes			CopyFile	"DEPLOY, batchs.exe"				yes	%d
+1006	yes			CopyFile	"INFINST, infinst.exe"				yes	%d
+1007	yes			CopyFile	"INFINST, infinst.chm"				yes	%d
+1008										
+1300	yes	Scripting Tools		Group	1301					
+1301	yes			CopySection	SCRPTING					%d
+1302										
+1400	yes	MMC		Group	1410					
+1410	yes			CustomAction	"rksetup.dll,""InstallMMC"","""""					
+1499										
+1500	yes	TMC		Group	1501 1502 1503 1504 1505 1506 1507					
+1501	yes			CopySection	TMC				yes	%d\TMC
+1502	yes			InstallShortcut	"%1501\WIN98TMC.MSC,win98tmc<Tools Management Console>,%s,,,,"				yes	%253\rksec<%253\Windows 98 Resource Kit>
+1503	yes	TMC		SelfReg	"TMC,""win98tmc.dll"""				yes	%d\TMC
+1504	yes	TMC		SelfReg	"TMC,""tmctkpad.dll"""				yes	%d\TMC
+1505	yes			AddRegData	"LOCAL,""Software\Microsoft\MMC\SnapIns\{797DCEEE-E8F1-11d0-9E6C-00805F200005}"",""(Default)"",""Win98 Resource Kit TMC Snapin"""					
+1506	yes			AddRegData	"LOCAL,""Software\Microsoft\MMC\SnapIns\{797DCEEE-E8F1-11d0-9E6C-00805F200005}"",""NameString"",""Windows 98 Resource Kit Tools Sampler"""					
+1507	yes			AddRegData	"LOCAL,""Software\Microsoft\MMC\SnapIns\{797DCEEE-E8F1-11d0-9E6C-00805F200005}\StandAlone"",,"""""					
+1599										
+1600	yes			CustomAction	"rksetup.dll,FinalizeWin98RK,"""""					

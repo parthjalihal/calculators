@@ -1,0 +1,13 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg=AddFDMA
+
+[AddFDMA]
+HKLM,System\CurrentControlSet\Services\VxD\PCI,122E8086,1,00,00,08,00
+HKLM,System\CurrentControlSet\Services\VxD\PCI,70008086,1,00,00,08,00
+HKLM,System\CurrentControlSet\Services\VxD\PCI,71108086,1,00,00,08,00
+HKLM,System\CurrentControlSet\Services\VxD\PCI,76008086,1,00,00,08,00
+
+

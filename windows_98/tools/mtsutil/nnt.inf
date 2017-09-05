@@ -1,0 +1,28 @@
+;
+; Remove "NameNumericTail"
+;
+; Copyright 1992-1998 Microsoft Corporation
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+DelReg    = Del_NNT.Reg
+
+[SourceDisksNames]
+55="Remove NNT","",1
+
+[SourceDisksFiles]
+NoNNT.INF=55
+
+[DestinationDirs]
+NNT.Files.Inf = 17
+
+[NNT.Files.Inf]
+NNT.INF
+
+[Del_NNT.Reg]
+HKLM,%Location%,NameNumericTail,,
+
+[Strings]
+Location="System\CurrentControlSet\Control\FileSystem"

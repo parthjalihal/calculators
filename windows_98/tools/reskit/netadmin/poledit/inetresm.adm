@@ -1,0 +1,287 @@
+; inetui.adm
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+CLASS USER   ;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+CATEGORY !!GeneralTab 
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Control Panel"
+	POLICY !!GeneralTab
+		PART !!RestrictHomePage CHECKBOX
+                        VALUENAME HomePage
+		END PART
+		PART !!RestrictCache CHECKBOX
+                        VALUENAME Cache
+		END PART
+		PART !!RestrictHistory CHECKBOX
+                        VALUENAME History
+		END PART
+		PART !!RestrictColors CHECKBOX
+                        VALUENAME Colors
+		END PART
+		PART !!RestrictLinks CHECKBOX
+			VALUENAME links
+		END PART
+		PART !!RestrictFonts CHECKBOX
+                        VALUENAME Fonts
+		END PART
+		PART !!RestrictLanguages CHECKBOX
+                        VALUENAME Languages
+		END PART
+		PART !!RestrictAccessibility CHECKBOX
+                        VALUENAME Accessibility
+		END PART
+	END POLICY
+END CATEGORY
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+CLASS MACHINE   ;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+CATEGORY !!Security 
+KEYNAME "Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings"
+    POLICY !!Security
+	PART !!Security_HKLM_only CHECKBOX
+	VALUENAME Security_HKLM_only
+	END PART
+
+	PART !!Security_options_edit CHECKBOX
+	VALUENAME Security_options_edit
+	END PART
+
+	PART !!Security_zones_map_edit CHECKBOX
+	VALUENAME Security_zones_map_edit
+	END PART
+    END POLICY
+END CATEGORY
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+CLASS USER   ;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+CATEGORY !!ContentTab
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Control Panel"
+	POLICY !!ContentTab
+		PART !!RestrictRatings CHECKBOX
+                        VALUENAME Ratings
+		END PART
+		PART !!RestrictCertificates CHECKBOX
+                        VALUENAME Certificates
+		END PART
+		PART !!RestrictProfiles CHECKBOX
+                        VALUENAME Profiles
+		END PART
+		PART !!RestrictWallet CHECKBOX
+                        VALUENAME Wallet
+		END PART
+	END POLICY
+END CATEGORY
+
+CATEGORY !!ConnectionTab 
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Control Panel"
+	POLICY !!ConnectionTab
+		PART !!RestrictConnectionWizard CHECKBOX
+                        VALUENAME "Connection Wizard"
+		END PART
+		PART !!RestrictConnectionSettings CHECKBOX
+                        VALUENAME "Connection Settings"
+		END PART
+		PART !!RestrictProxy CHECKBOX
+                        VALUENAME Proxy
+		END PART
+		PART !!RestrictAutoconfig CHECKBOX
+                        VALUENAME Autoconfig
+		END PART
+	END POLICY
+END CATEGORY
+
+CATEGORY !!ProgramsTab 
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Control Panel"
+	POLICY !!ProgramsTab
+		PART !!RestrictMessaging CHECKBOX
+                        VALUENAME Messaging
+		END PART
+
+		PART !!RestrictCalendarContact CHECKBOX
+                        VALUENAME CalendarContact
+		END PART
+		PART !!RestrictCheckBrowser CHECKBOX
+		VALUENAME Check_If_Default
+		END PART
+		PART !!RestrictCheckBrowser1 TEXT END PART
+	END POLICY
+END CATEGORY
+
+CATEGORY !!AdvancedTab 
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Control Panel"
+	POLICY !!AdvancedTab
+		PART !!RestrictAdvanced CHECKBOX
+                        VALUENAME Advanced
+		END PART
+	END POLICY
+END CATEGORY	
+
+;;;;;;;;;;;;;;;;;;;;;;;
+CLASS MACHINE ;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;
+CATEGORY !!CodeDownload
+KEYNAME "Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+	POLICY !!CodeDownload
+		PART !!Path EDITTEXT REQUIRED
+			DEFAULT !!DefaultSearchPath
+			VALUENAME "CodeBaseSearchPath"
+		END PART
+	END POLICY
+
+END CATEGORY
+
+;;;;;;;;;;;;;;;;;;;;;;
+CLASS USER ;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;
+CATEGORY !!sz_Channels
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Infodelivery\Restrictions"
+    POLICY !!sz_Channels
+        PART !!NoChannelUI CHECKBOX
+        VALUENAME NoChannelUI
+        END PART
+
+        PART !!NoAddingChannels CHECKBOX
+        VALUENAME NoAddingChannels
+        END PART
+
+        PART !!NoEditingChannels CHECKBOX
+        VALUENAME NoEditingChannels
+        END PART
+
+        PART !!NoRemovingChannels CHECKBOX
+        VALUENAME NoRemovingChannels
+        END PART
+
+        PART !!NoAddingSubscriptions CHECKBOX
+        VALUENAME NoAddingSubscriptions
+        END PART
+
+        PART !!NoEditingSubscriptions CHECKBOX
+        VALUENAME NoEditingSubscriptions
+        END PART
+
+        PART !!NoRemovingSubscriptions CHECKBOX
+        VALUENAME NoRemovingSubscriptions
+        END PART
+
+        PART !!NoChannelLogging CHECKBOX
+        VALUENAME NoChannelLogging
+        END PART
+
+        PART !!NoManualUpdates CHECKBOX
+        VALUENAME NoManualUpdates
+        END PART
+        PART !!NoManualUpdates1 TEXT END PART
+
+        PART !!NoScheduledUpdates CHECKBOX
+        VALUENAME NoScheduledUpdates
+        END PART
+
+        PART !!NoUnattendedDialing CHECKBOX
+        VALUENAME NoUnattendedDialing
+        END PART
+        
+	PART !!NoSubscriptionPasswords CHECKBOX
+	VALUENAME NoSubscriptionPasswords
+	END PART
+
+        PART !!NoChannelContent CHECKBOX
+        VALUENAME NoChannelContent
+        END PART
+	PART !!NoChannelContent1 TEXT END PART
+        
+        PART !!NoSubscriptionContent CHECKBOX
+        VALUENAME NoSubscriptionContent
+        END PART
+        PART !!NoSubscriptionContent1 TEXT END PART
+        
+        PART !!NoEditingScheduleGroups CHECKBOX
+        VALUENAME NoEditingScheduleGroups
+        END PART
+
+    END POLICY
+END CATEGORY
+
+
+[strings]
+GeneralTab="General"
+RestrictHomePage = "Disable changing home page settings"
+RestrictCache="Disable changing cache settings"
+RestrictHistory="Disable changing history settings"
+RestrictColors="Disable changing color settings"
+RestrictLinks="Disable changing link color settings"
+RestrictFonts="Disable changing font settings"
+RestrictLanguages="Disable changing language settings"
+RestrictAccessibility="Disable changing accessibility settings"
+
+Security="Security"
+PolicyName="Security Tab Settings"
+Security_HKLM_only="Use ONLY machine settings for security zones"
+Security_options_edit="Do not allow users to change policies for any security zone" 
+Security_zones_map_edit="Do not allow users to add/delete sites from a security zone"
+
+ContentTab="Content"
+RestrictRatings="Disable changing ratings settings"
+RestrictCertificates="Disable changing certificate settings"
+RestrictProfiles="Disable changing Profile Assistant settings"
+RestrictWallet="Disable changing Microsoft Wallet settings"
+
+ConnectionTab="Connection"
+RestrictConnectionWizard="Disable calling Connection Wizard"
+RestrictConnectionSettings="Disable changing connection settings"
+RestrictProxy="Disable changing proxy settings"
+RestrictAutoconfig="Disable changing Automatic Configuration settings"
+
+ProgramsTab="Programs"
+RestrictMessaging="Disable changing Messaging settings"
+RestrictCalendarContact="Disable changing Calendar and Contact settings"
+RestrictCheckBrowser="Disable changing checking if Internet Explorer"
+RestrictCheckBrowser1="       is the default browser"
+
+AdvancedTab="Advanced"
+RestrictAdvanced="Disable changing settings on Advanced Tab"
+
+CodeDownload="Code Download"
+SearchPath="Internet Search Path"
+Path="Path"
+DefaultSearchPath="CODEBASE;<http://activex.microsoft.com/objects/ocget.dll>"
+
+sz_Channels="Channels Settings"
+NoChannelUI=		"Disable Channel UI"
+NoAddingChannels=	"Disables adding and subscribing to channels"
+NoEditingChannels=	"Disables editing channel properties and channel subscriptions"
+NoRemovingChannels=	"Disables removing channels and subscriptions to channels"
+NoAddingSubscriptions=	"Disables adding site subscriptions"
+NoEditingSubscriptions=	"Disables editing site subscriptions"
+NoRemovingSubscriptions="Disables removing site subscriptions"
+NoChannelLogging=	"Disables channel logging"
+NoManualUpdates=	"Disables Update Now and Update All for channels"
+NoManualUpdates1=	"       and subscriptions"
+NoScheduledUpdates=	"Disables all scheduled channel and site subscriptions"
+NoUnattendedDialing=	"Disables unattended dialing by subscriptions"
+NoSubscriptionPasswords="Disables password caching for channel and site subscriptions"
+NoChannelContent=	"Disable downloading of channel subscription content"
+NoChannelContent1=	"       change notification will still work"
+NoSubscriptionContent=	"Disable downloading of site subscription content"
+NoSubscriptionContent1=	"       change notification will still work"
+NoEditingScheduleGroups="Disables editing and creating of schedule groups"
+
+IEAK_Title=Internet Restrictions
+IEAK_DescriptionTitle=Internet Restrictions
+IEAK_Description1=This allows the administrator to set restrictions on items in the Internet Properties Control Panel.
+IEAK_Description2=Channels can also be restricted through these settings. These settings allow you to disable adding, editing, or deleting any of the channel options.
+IEAK_Description3=To set the code download search path, enter a sequence of URLs to search for ActiveX or Java code that is needed for viewing an HTML page.
+IEAK_Description4=Example: CODEBASE;<http://activex.microsoft.com/objects/ocget.dll> would mean, use the CODEBASE attribute in the HTML <OBJECT> tag, and if absent query http://activex.microsoft.com/objects/ocget.dll for location. For details, see the Internet Component Download documentation in the Internet Client SDK.
+
+[IEAK]
+Lock=1
+Roles=001
+NumOfDescLines=4
+Platform=111

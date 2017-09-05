@@ -1,0 +1,384 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+
+
+Sub window_onload
+
+	Call Seq2("Pres2").Play
+
+End sub
+
+
+
+Sub Seq2_onInit
+
+	call Seq2("Pres2").at(2.000, "AnimIntro")
+
+	call Seq2("Pres2").at(4.500, "showCharImg(-2)")
+
+	call Seq2("Pres2").at(15.000, "showCharImg(-1)")
+
+	call Seq2("Pres2").at(15.500, "showCharImg(0)")
+
+	call Seq2("Pres2").at(20.000, "showCharImg(1)")
+
+	call Seq2("Pres2").at(30.000, "showCharImg(2)")
+
+	call Seq2("Pres2").at(40.000, "showCharImg(3)")
+
+	call Seq2("Pres2").at(50.000, "showCharImg(4)")
+
+	call Seq2("Pres2").at(60.000, "showCharImg(5)")
+
+	call Seq2("Pres2").at(70.000, "showCharImg(6)")
+
+	call Seq2("Pres2").at(80.000, "showCharImg(7)")
+
+	call Seq2("Pres2").at(90.000, "showCharImg(8)")
+
+	call Seq2("Pres2").at(92.000, "showCharImg(9)")
+
+	call Seq2("Pres2").at(100.000, "ShowPres")
+
+End Sub
+
+
+
+Sub ShowPres
+
+	call parent.showPres3()
+
+End Sub
+
+
+
+Sub AnimIntro
+
+	pthIntro.Target = "intro"
+
+	call pthIntro.Play
+
+End Sub
+
+
+
+Sub showCharImg(idx)
+
+	Select Case idx
+
+		Case "-2"
+
+			blackDiv.style.visibility="visible"
+
+		Case "-1"
+
+			intro.style.visibility="hidden"
+
+		Case "0"
+
+			blackDiv.style.visibility="hidden"
+
+		Case "1"
+
+			batman.style.visibility="visible"
+
+			batmanCopy.style.visibility="visible"
+
+		Case "2"
+
+			batmanCopy.style.visibility="hidden"
+
+			batman.style.visibility="hidden"
+
+			robin.style.visibility="visible"
+
+			robinCopy.style.visibility="visible"
+
+		Case "3"
+
+			robinCopy.style.visibility="hidden"
+
+			robin.style.visibility="hidden"
+
+			joker.style.visibility="visible"
+
+			jokerCopy.style.visibility="visible"
+
+		Case "4"
+
+			jokerCopy.style.visibility="hidden"
+
+			joker.style.visibility="hidden"
+
+			harley.style.visibility="visible"
+
+			harleyCopy.style.visibility="visible"
+
+		Case "5"
+
+			harleyCopy.style.visibility="hidden"
+
+			harley.style.visibility="hidden"
+
+			freeze.style.visibility="visible"
+
+			freezeCopy.style.visibility="visible"
+
+		Case "6"
+
+			freezeCopy.style.visibility="hidden"
+
+			freeze.style.visibility="hidden"
+
+			riddler.style.visibility="visible"
+
+			riddlerCopy.style.visibility="visible"
+
+		Case "7"
+
+			riddlerCopy.style.visibility="hidden"
+
+			riddler.style.visibility="hidden"
+
+			twoface.style.visibility="visible"
+
+			twofaceCopy.style.visibility="visible"
+
+		Case "8"
+
+			twofaceCopy.style.visibility="hidden"
+
+			twoface.style.visibility="hidden"
+
+		Case "9"
+
+			URL.style.visibility="visible"
+
+	End Select
+
+End Sub
+
+--> 
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. TOONDOM: Comics</TITLE>
+
+</HEAD>
+
+<body bgcolor=black background="img/batmntas.gif" text=ffffff LINK=ffffff ALINK=ffffff VLINK=ffffff>
+
+
+
+<DIV ID=blackDiv STYLE="POSITION:ABSOLUTE; WIDTH:436; HEIGHT:212; TOP:0; LEFT:0; VISIBILITY:hidden;BACKGROUND:BLACK">
+
+</DIV>
+
+
+
+<DIV ID=midiDiv STYLE="POSITION:absolute; TOP:0; LEFT:0">
+
+<bgsound src="med/btas.mid">
+
+</DIV>
+
+
+
+<img ID=batman src="img/btas_bat.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:10; VISIBILITY:hidden">
+
+
+
+<img ID=robin src="img/btas_rob.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:285; VISIBILITY:hidden">
+
+
+
+<img ID=joker src="img/btas_jok.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:10; VISIBILITY:hidden">
+
+
+
+<img ID=harley src="img/btas_har.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:285; VISIBILITY:hidden">
+
+
+
+<img ID=freeze src="img/btas_frz.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:10; VISIBILITY:hidden">
+
+
+
+<img ID=riddler src="img/btas_rid.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:285; VISIBILITY:hidden">
+
+
+
+<img ID=twoface src="img/btas_2fc.gif" STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:10; VISIBILITY:hidden">
+
+
+
+<DIV ID=intro STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:50; TOP:212; LEFT:50; VISIBILITY:visible">
+
+<center>
+
+<font size=3 face="Comic Sans MS, verdana, arial" color=white><b>In 1992, the birth of Warner Bros. "Batman: The Animated Series" changed the Batman Universe forever.  The series revamped the classic characters, casting a unique perspective on their origins and personalities.  Now, enter the world of "Batman: The Animated Series."</b></font>
+
+</center>
+
+</DIV>
+
+<DIV ID=batmanCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:285; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=blue>Batman</font><br>
+
+Batman is the "Dark Knight" of Gotham who stops at nothing to restore order to the city and protect it's citizens.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=robinCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:15; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=gold>Robin</font><br>
+
+A partner to Bruce Wayne's Batman, Dick Grayson dons his famed red & green cape when the need arises.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=jokerCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:285; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=purple>Joker</font><br>
+
+The Joker views every crime, infliction of pain, and murder as the ultimate joke -- mocking Batman.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=harleyCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:15; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=red>Harley Quinn</font><br>
+
+Once a brilliant criminal psychologist, Harley joins the world of crime as The Joker's accomplice and lover.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=freezeCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:285; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=gray>Mr. Freeze</font><br>
+
+Unable to survive outside of a sub-zero environment, Mr. Freeze lives a life of crime and vengence against a cruel world.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=riddlerCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:15; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=green>Riddler</font><br>
+
+Edward Nygma's twisted mind is obsessed with creating the ultimate riddle-related crime, which Batman can never solve.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=twofaceCopy STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:180; TOP:10; LEFT:285; VISIBILITY:hidden">
+
+<font size=2 face="Comic Sans MS, verdana, arial" color=white><b>
+
+<font size=4 color=white>Two Face</font><br>
+
+Harvey Dent is transformed to a state where right and wrong no longer hold any meaning; chance is everything to Two Face.
+
+</b></font>
+
+</DIV>
+
+
+
+<DIV ID=URL STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:75; TOP:150; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=3 face="Comic Sans MS, verdana, arial" color=white><b>
+
+See them all. <a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a>
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:155;FILTER:Alpha(Opacity=30)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<OBJECT 
+
+	ID="pthIntro"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="5.400">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".100">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,50,212,50,30">
+
+</OBJECT>
+
+
+
+<OBJECT ID="Seq2"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+
+</OBJECT>
+
+</body>
+
+</html>
+

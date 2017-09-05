@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<!-- The "META http-equiv=REFRESH" statement is included to provide a fallback
+  -- for non-scripting-enabled browsers.
+  -->
+
+<meta http-equiv="REFRESH" content="60; URL=e.htm">
+
+<TITLE>AOL Preview Channel</TITLE>
+
+<script language="VBScript">
+<!--
+    Sub centerBox()
+        x = (document.body.clientWidth - 620) / 2
+        y = (document.body.clientHeight - 336) / 2
+        document.all.background.style.pixelLeft = x
+        document.all.background.style.pixelTop = y
+        document.all.background.style.visibility = "Visible"
+        id = window.SetTimeout("DoCheck", 500, "VBScript")
+    End Sub
+
+    Sub DoCheck()
+        On Error Resume Next
+
+        window.document.FormA.AOLInstallObj1.CertPwd = "ducksabbess"
+        if Err Then
+            Err.Clear
+            window.Navigate("m.htm")
+            Exit Sub
+        End If
+
+        window.document.FormA.AOLInstallObj1.CertNo = "3E-9419-1358"
+        if Err Then
+            Err.Clear
+            window.Navigate("m.htm")
+            Exit Sub
+        End If
+
+        window.document.FormA.AOLInstallObj1.CheckInstall
+        if Err Then
+            Err.Clear
+            window.Navigate("m.htm")
+        End If
+	End Sub
+	  
+
+   	Sub AOLInstallObj1_OnCheckInstallComplete(checkResult)
+ 		Select Case checkResult
+            Case 3:    window.Navigate("l.htm")
+            Case 2:    window.Navigate("k.htm")
+            Case 1:    window.Navigate("j.htm")
+            Case 0:    window.Navigate("j.htm")
+            Case Else: window.Navigate("m.htm")
+      		End Select
+   	End Sub
+ -->
+</script>
+</HEAD>
+
+<BODY bgcolor=black leftmargin=0 rightmargin=0 topmargin=0 bottommargin=0 onload="centerBox" onresize="centerBox">
+
+
+<div ID="background"
+     STYLE="POSITION:ABSOLUTE; Visibility:Hidden; WIDTH:618; HEIGHT:336; TOP:0; LEFT:0; z-index:1">
+     <IMG SRC="images/back_a.gif" BORDER="0">
+
+
+<div ID="brand"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:324; HEIGHT:78; TOP:6; LEFT:10; z-index:10">
+     <IMG SRC="images/brand.gif" BORDER="0">
+ </div>
+
+<div ID="Searching"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:301; HEIGHT:24; TOP:95; LEFT:8; z-index:10">
+     <IMG SRC="images/search.gif" BORDER="0">
+ </div>
+
+<form name="FormA">
+<object id="AOLInstallObj1"
+ classid="CLSID:89AE9BC0-1E25-11d1-9170-0000C0D23BD8"
+ codebase="aolinstr.cab">
+</object>
+</form>
+
+</div>
+</BODY>
+</HTML>
+

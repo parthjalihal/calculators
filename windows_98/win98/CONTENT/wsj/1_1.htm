@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+
+
+<SCRIPT Language="Javascript" src="funcs.js">
+</SCRIPT>
+
+<SCRIPT LANGUAGE="Javascript">
+
+var LEFT_MARGIN = 10;
+
+function init()
+	{
+	resizeAll();
+
+	// Size the left and right divs
+	divLeft.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN)/2;
+	divRight.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN)/2;
+
+	vb_init();
+	}
+
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="VBscript">
+
+sub vb_init()
+	dim sh,sw,dw,dh
+
+	sh = toInt(parent.document.body.clientHeight)
+	sw =  toInt(parent.document.body.clientWidth)
+	dw = toInt( divRight.style.width )
+	dh = toInt( divRight.style.height )
+
+'	line = Array( (sw - dw)/2,sh, (sw-dw)/2,0, LEFT_MARGIN,0  )
+	line = Array( sw, 0, LEFT_MARGIN,0  )
+	call pthLeft.PolyLine( 2, line  )
+
+	line = Array( LEFT_MARGIN + dw, sh, LEFT_MARGIN + dw,20  )
+	call pthRight.PolyLine( 2, line  )
+
+	call pthLeft.AddTimeMarker(3, "end" )
+End Sub
+
+Sub pthLeft_onMarker( markerName )
+	call pthRight.Play()
+End Sub
+
+</SCRIPT>
+
+
+</HEAD>
+<BODY onresize="resizeAll();" onload="init();" background="images/back2.jpg">
+
+
+<div id=divLeft STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<CENTER>
+<B>
+<FONT SIZE=+4  FACE=Arial, helvetica" COLOR="#336699"> 
+ACTIVE<BR>
+CHANNEL<BR>
+CONTENT<BR>
+<i>from</I><br>
+<img src="images/celogo.gif" WIDTH="126" HEIGHT="104">
+
+</FONT>
+</B>
+</CENTER>
+</div>
+
+<div id=divRight STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+2  FACE=Arial, helvetica" COLOR="##336699"> 
+Updated 24 hours a day, the Interactive Journal brings together an unmatched combination of high quality content and powerful interactive capabilities. Sign up for <FONT COLOR="#003366"><B>The Wall Street Journal Interactive Edition</FONT> Active Channel</B>...
+</FONT>
+</div>
+
+
+<OBJECT ID="pthLeft"  
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="-1">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="6">
+	<PARAM NAME="Target" VALUE="divLeft">
+</OBJECT>
+
+<OBJECT ID="pthRight"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="divRight">
+</OBJECT>
+
+
+<!-- Stuff to put in every page is below here -->
+
+<!-- NOTE: the inline frame itself determines the size of this object.  -->
+<IFRAME class="ScreenItem" ID=frameNextPrev src="nextprev.htm"  frameborder=0 noresize scrolling=no 
+	STYLE="POSITION:RELATIVE; LEFT:0; TOP:0; WIDTH:0; height:0;" >
+</IFRAME>
+<div ID=divNextPrev frameborder=0 noresize scrolling=no
+	STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:0; WIDTH:0; height:0;z-index:10" >
+</div>
+<div ID=divLogo frameborder=0 noresize scrolling=no
+	STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:0; WIDTH:0; height:0;z-index:9;visibility:hidden" >
+</div>
+
+</BODY>
+</HTML>

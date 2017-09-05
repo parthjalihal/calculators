@@ -1,0 +1,12 @@
+; MapC_Off.INF
+; Copyright (c) 1993-1998, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg=Disable.MapCache
+
+[Disable.MapCache]
+HKLM,System\CurrentControlSet\Services\VxD\VMM,MapCache,1,00
+

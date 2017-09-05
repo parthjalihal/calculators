@@ -1,0 +1,221 @@
+           ----------------------------------------------
+                 Microsoft Windows 98 README for 
+                 Pan-European Regional Settings
+             (c) Copyright Microsoft Corporation, 1998
+           ----------------------------------------------
+
+
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+------------------------
+HOW TO USE THIS DOCUMENT
+------------------------
+
+To view Intl.txt on-screen in Notepad, maximize 
+the Notepad window.
+
+To print Intl.txt, open it in Notepad or another 
+word processor, and then on the File menu, click Print.
+
+--------
+CONTENTS
+--------
+
+INSTALLATION INSTRUCTIONS FOR
+  PAN-EUROPEAN COUNTRIES
+
+PROGRAM SUPPORT
+
+DOCUMENT SUPPORT
+
+INSTALLING SUPPORT FOR YOUR COUNTRY
+
+REGIONAL SETTINGS
+
+UPGRADING FROM THE PAN-EUROPEAN EDITION 
+OF MICROSOFT WINDOWS 95
+
+UPGRADING FROM THE U.S. EDITION OF
+MICROSOFT WINDOWS 95
+
+MULTILINGUAL FEATURES IN WINDOWS 98
+------------------------------------------
+
+
+INSTALLATION INSTRUCTIONS FOR 
+PAN-EUROPEAN COUNTRIES
+=============================
+
+Windows 98 includes all the support provided in 
+the Pan-European Edition of Windows 95.  
+It provides both program support and document 
+support for:
+
+- Existing localized Greek, Russian, Polish, 
+  Hungarian, Czech, Turkish, and Slovenian 
+  Windows 3.x, and Windows 95 programs. 
+- Markets that did not have a localized version 
+  of Windows 3.x but were supported by the 
+  Windows 3.x version for Central and Eastern 
+  Europe. This includes the Albanian, Croatian, 
+  Romanian, Serbian, Slovak, and Slovenian markets.
+- Markets that did not have a localized version 
+  of Windows 95 but were supported by the 
+  Pan-European Edition of Windows 95. This 
+  includes the Albanian, Belarusian, Bulgarian, 
+  Croatian, Estonian, Latvian, Lithuanian, Romanian, 
+  Serbian, Slovak, and Ukrainian markets.
+
+
+PROGRAM SUPPORT
+===============
+
+Windows 98 provides support for localized programs. 
+For example, you can run Russian Microsoft Excel 97 
+on Microsoft Windows 98.
+
+
+DOCUMENT SUPPORT
+================
+
+Using Windows 98, you can create a multilingual 
+document with TrueType fonts in all programs 
+that support TrueType fonts. For example, you 
+can now create a document in Microsoft Word 97 
+for Windows that includes Czech, Russian, Greek, 
+and French text.
+
+
+INSTALLING SUPPORT FOR YOUR COUNTRY
+===================================
+
+You can install this version of Windows 98 
+by upgrading from an existing installation 
+of Windows 3.1, Windows for Workgroups 3.11, 
+Windows 95, or on a computer that is currently 
+running MS-DOS only. By default, your existing 
+settings are detected and maintained. For 
+example, when you upgrade from Polish Microsoft 
+Windows 95, your default regional settings are 
+still in Polish, your default keyboard still 
+generates Polish characters, and you run your 
+MS-DOS-based and Windows-based programs as you 
+did before.
+
+If you install Windows 98 on a computer that is 
+currently running MS-DOS only, you should specify 
+the Regional Settings you want during Setup. The 
+default is English (United States). 
+
+>>> To change your regional settings:
+
+1. During Setup, select the Custom option 
+   in the Windows 98 Setup Wizard.
+ 
+2. In the Computer Settings dialog box, click 
+   Regional Settings, click Change, and then 
+   click the country you want.
+
+3. To ensure that you have the correct support 
+   for your language, choose the appropriate 
+   keyboard layout in the Computer Settings 
+   dialog box.
+ 
+   This installs a keyboard layout for Windows-based 
+   and MS-DOS-based programs. 
+
+   NOTE: Some languages default to the U.S. 
+   keyboard that is defined for MS-DOS windows 
+   and MS-DOS based programs.
+
+
+REGIONAL SETTINGS
+=================
+
+Windows 98 defines which Windows and MS-DOS code 
+pages and system fonts are installed on your 
+computer. You cannot change these settings after 
+Setup. 
+
+Regional Settings also defines which international 
+settings--such as date, currency, time formats, and 
+sort orders for programs your computer will use. 
+
+>>>To change your international settings after Setup:
+
+1. Click Start, point to Settings, and then 
+   click Control Panel. 
+
+2. Double-click Regional Settings. 
+
+3. On the Regional Settings tab, click the down 
+   arrow and select a language.
+
+4. To change your number, currency, time and 
+   date settings, click the respective tab, and 
+   then make your changes.
+
+5. Click OK.
+
+It is recommended that all users, whether 
+upgrading over an existing Windows 3.x installation 
+or a computer with MS-DOS, verify that their 
+Regional Settings have been detected correctly.
+
+
+UPGRADING FROM THE PAN-EUROPEAN EDITION 
+OF MICROSOFT WINDOWS 95
+=======================================
+
+When you are upgrading from the Pan-European 
+Edition of Windows 95, the upgrade is performed 
+automatically, using the current Regional 
+Settings and Keyboard values.
+
+
+UPGRADING FROM THE U.S. EDITION OF
+MICROSOFT WINDOWS 95
+==================================
+
+When you are upgrading from the U.S. Edition 
+of Windows 95, the Computer Settings dialog 
+box opens if the following two conditions 
+are met: 
+
+1. At least two keyboards installed.
+2. Multilanguage Support is installed.
+
+NOTE: If these two conditions are not met, 
+the Computer Setting dialog box does not open. 
+The existing settings are used and upgraded 
+automatically.
+
+If the Computer Settings dialog box opens, 
+you may select your respective Regional 
+Settings and Keyboard layout. Then the code 
+page changes when Setup is complete.
+
+
+MULTILINGUAL FEATURES IN WINDOWS 98
+===================================
+
+You can use Windows 98 to create documents 
+in many different languages. For example, 
+you can create documents in Central European, 
+Cyrillic, Baltic-based languages, Greek, or 
+Turkish. After Windows 98 is installed, refer 
+to "Multilingual Documents, Creating" in 
+Windows online Help for more information.
+
+In Windows 98, you can also load multiple 
+keyboard layouts in Windows programs. This 
+makes it easy to create multilingual documents. 
+To switch between keyboards, press the left 
+ALT+SHIFT. For more information, refer to 
+"Keyboard, layout" in Windows online Help.
+
+
+

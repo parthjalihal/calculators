@@ -1,0 +1,292 @@
+<HTML> 
+<HEAD>
+<TITLE>CNN/SI from CNN and Sports Illustrated</TITLE>
+
+<script language="JavaScript">
+<!--
+function isMsie4orGreater() {
+   var ua = window.navigator.userAgent;
+   var msie = ua.indexOf ("MSIE ");
+   
+   if (msie > 0)  {
+      return (parseInt (ua.substring (msie + 5, ua.indexOf (".", msie))) >= 4) && (ua.indexOf ("MSIE 4.0b") < 0);
+   } else {
+      return false;
+   }
+}
+-->
+</script>
+
+</HEAD>	 
+<BODY BGCOLOR=WHITE TOPMARGIN=0 LEFTMARGIN=0 onLoad="runPage()" onResize="SetSize()" STYLE="background-color: #000066;">
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2> 
+
+<DIV ID="mainBody" STYLE="position: absolute; top: 0; left: 0; height:100%; width:100%;">
+<OBJECT ID="DAControl" WIDTH=100% HEIGHT=100% ALIGN=LEFT
+   CLASSID="CLSID:B6FFC24C-7E13-11D0-9B47-00C04FC2F51D">
+</OBJECT><BR>
+</DIV>
+
+
+<SCRIPT LANGUAGE="JScript">
+<!--
+pi = 3.14159265359;
+m = DAControl.MeterLibrary;
+
+width = m.ModifiableBehavior(m.DANumber(document.body.clientWidth - 80));
+height = m.ModifiableBehavior(m.DANumber(document.body.clientHeight - 80));
+
+// SpeedAnim is a ModifiableBehavior that changes its value when
+// either of the buttons is pressed.
+
+speed = 100;
+speedAnim = m.ModifiableBehavior(m.DANumber(speed));
+
+function revealHeadline() {
+   Headline.filters[0].Apply();
+   Headline.style.visibility = "visible";
+   Headline.filters[0].Play();
+}
+
+function ballsCallback () {
+   DAControl.UpdateInterval = 100;
+   window.location.href = "page3.htm";
+   // window.location.href = "http://cnnsi.com/";
+}
+
+function SetSize() {
+   width.SwitchTo(m.DANumber(document.body.clientWidth - 80));
+   height.SwitchTo(m.DANumber(document.body.clientHeight - 80));
+}
+
+function SpeedUp() {
+   speed *= 2;
+   speedAnim.SwitchTo(m.DANumber(speed));
+}
+
+function SlowDown() {
+   speed *= 0.5;
+   speedAnim.SwitchTo(m.DANumber(speed));
+}
+
+function ballImage(cupAngle) {
+   ballImages = new Array (m.ImportImage("graphics/ieball1b.gif"),
+                           m.ImportImage("graphics/ieball2b.gif"),
+						   m.ImportImage("graphics/ieball3b.gif"),
+						   m.ImportImage("graphics/ieball4b.gif"),
+						   m.ImportImage("graphics/ieball5b.gif"));
+
+   number = m.DANumber(5);
+   index  = m.Mod (m.Mul (number, m.Div (cupAngle, m.Mul (m.DANumber(2), m.DANumber(pi)))), number);
+
+   a = m.DAArray (ballImages);
+
+   return (a.NthAnim(index));
+}
+
+function makeFlyingImage(image, tilt) {
+   geo = m.ImportGeometry("square.wrl");
+   imageBBox = image.BoundingBox;
+   maxPoint = imageBBox.Max;
+   
+   dim = m.Mul(imageBBox.Max.X, m.DANumber(2));
+   
+   rect = m.RectAnim (dim, dim);
+   transparentSquare = m.SolidColorImage(m.White).Clip(m.FillMatte(rect));
+   transparentSquare = transparentSquare.Opacity(0.0);
+   newImage = m.Overlay(image, transparentSquare);
+   
+   geo = geo.Transform(m.Scale3Uniform(0.5)).Texture(newImage.mapToUnitSquare());
+   
+   // Need some light
+   aLight = m.AmbientLight;
+   
+   srate = m.Mul(m.LocalTime, m.DANumber(9));
+   geo = geo.Transform(m.Rotate3Degrees(m.xVector3, -45));
+   geo = geo.Transform(m.Rotate3Degrees(m.yVector3, 80 * tilt));
+   geo = m.UnionGeometry(geo, aLight);
+   
+   cameraPoint = m.Point3(0, 0, 1000);
+   lookAt = m.Point3(0, 0, 0);
+   upDir = m.Vector3(0, 1, 0);
+   camera = m.PerspectiveCamera(1.0, 0.95);
+   camera = camera.Transform(m.Rotate3Anim(m.zVector3, m.Mul(m.DANumber(0.015 * tilt), srate)));
+   camera = camera.Transform(m.Translate3(0, 0, 50));
+   camera = camera.Transform(m.Translate3Anim(m.Mul(m.DANumber(0.001 * tilt), srate), m.DANumber(0), m.Neg(m.Mul(m.DANumber(1), srate))));
+   
+   return (geo.Render(camera).Transform(m.Scale2(0.25, 0.25)));
+   
+   flySpeed = m.Div(m.LocalTime, m.DANumber(2.5));
+   
+   offX = m.Mul(m.DANumber(0.00), m.Sin(flySpeed));
+   offY = m.Mul(m.DANumber(0.00), m.Sin(flySpeed));
+   offZ = m.Mul(m.DANumber(0.00), m.Sin(flySpeed));
+   rotX = m.Mul(flySpeed, m.DANumber(0));
+   rotY = m.Div(m.DANumber(pi), m.DANumber(4)); // m.Mul(flySpeed, m.DANumber(2));
+   rotZ = m.Mul(flySpeed, m.DANumber(0));
+   lrotX = m.Mul(m.DANumber(0.00), flySpeed);
+   lrotY = m.Mul(m.DANumber(0.00), flySpeed);
+   lrotZ = m.Mul(m.DANumber(0.00), flySpeed);
+   scale = m.DANumber(1);
+   
+   xfID = m.IdentityTransform2;
+   xfsc = m.Scale2UniformAnim(scale);
+   xflr = m.Compose3(m.Compose3(m.Rotate3Anim(m.xVector3, lrotX),
+                                m.Rotate3Anim(m.yVector3, lrotY)),
+                     m.Rotate3Anim(m.zVector3, lrotX)).ParallelTransform2();
+   xflt = m.Translate2Anim(offX, offY);
+   xfwt = m.Compose3(m.Compose3(m.Rotate3Anim(m.xVector3, rotX),
+                                m.Rotate3Anim(m.yVector3, rotY)),
+                     m.Rotate3Anim(m.zVector3, rotZ)).ParallelTransform2();
+   xf = m.Compose2(xfwt, m.Compose2(xflt, m.Compose2 (xflr, xfsc)));
+   
+   return image.Transform(xf);
+}
+
+function makeZoomingImage(image, tilt) {
+   geo = m.ImportGeometry("square.wrl");
+   imageBBox = image.BoundingBox;
+   maxPoint = imageBBox.Max;
+   
+   dim = m.Mul(imageBBox.Max.X, m.DANumber(2));
+   
+   rect = m.RectAnim (dim, dim);
+   transparentSquare = m.SolidColorImage(m.White).Clip(m.FillMatte(rect));
+   transparentSquare = transparentSquare.Opacity(0.0);
+   newImage = m.Overlay(image, transparentSquare);
+   
+   geo = geo.Transform(m.Scale3Uniform(0.5)).Texture(newImage.mapToUnitSquare());
+   
+   aLight = m.AmbientLight;
+   
+   srate = m.Mul(m.LocalTime, m.DANumber(9));
+   geo = m.UnionGeometry(geo, aLight);
+   
+   cameraPoint = m.Point3(0, 0, 1000);
+   lookAt = m.Point3(0, 0, 0);
+   upDir = m.Vector3(0, 1, 0);
+   camera = m.PerspectiveCamera(1.0, 0.95);
+   camera = camera.Transform(m.Translate3(0, 0, 50));
+   camera = camera.Transform(m.Translate3Anim(m.DANumber(0), m.DANumber(0), m.Neg(m.Mul(m.DANumber(1), srate))));
+   
+   return (geo.Render(camera).Transform(m.Scale2(0.25, 0.25)));
+}
+
+function runPage () {
+   winHeight = mainBody.offsetHeight;
+   winWidth = mainBody.offsetWidth;
+   
+   Headline.style.top = winHeight - 100;
+   
+   mediaBase = "";
+
+   imageBase = mediaBase + "graphics/";
+   soundBase = mediaBase + "sound/";
+
+   // Make the oscillating CNN and Sports Illustrated logos
+   cnnBlur = m.ImportImage(imageBase + "cnnblur.gif");
+   siBlur = m.ImportImage(imageBase + "siblur.gif");
+   moveExtent = m.Mul(width, m.pixel);
+   cnnBlur = makeFlyingImage(cnnBlur, 1);
+   siBlur = makeFlyingImage(siBlur, -1);
+   
+   // Make the CNN/SI logos
+   cnnsiLogo = m.ImportImage(imageBase + "cnnsi.gif");
+   ulti1Logo = m.ImportImage(imageBase + "ulti1.gif");
+   ulti1Logo = ulti1Logo.Transform(m.Translate2Anim(m.DANumber(0), m.Mul(m.DANumber(-90), m.pixel)));
+   ulti3Logo = m.ImportImage(imageBase + "ulti3.gif");
+   ulti3Logo = ulti3Logo.Transform(m.Translate2Anim(m.DANumber(0), m.Mul(m.DANumber(-90), m.pixel)));
+   forSportsLogo = m.ImportImage(imageBase + "4sports.gif");
+   forSportsLogo = forSportsLogo.Transform(m.Translate2Anim(m.DANumber(0), m.Mul(m.DANumber(-130), m.pixel)));
+   image2 = m.Overlay(cnnsiLogo, m.Overlay(ulti1Logo, forSportsLogo));
+   image2 = image2.Transform(m.Translate2Anim(m.DANumber(0), m.Mul(m.DANumber(70), m.pixel)));
+   image2 = makeZoomingImage(image2);
+   image3 = m.Overlay(cnnsiLogo, m.Overlay(ulti3Logo, forSportsLogo));
+   image3 = image3.Transform(m.Translate2Anim(m.DANumber(0), m.Mul(m.DANumber(70), m.pixel)));
+   
+   pos = m.Integral(speedAnim.RunOnce());
+
+   // Keep x between 0 and width, y between 0 and height.
+   x = new ActiveXObject("DirectAnimation.DANumber");
+   x.Init(m.Until(m.Mul(pos, m.pixel), m.Predicate(m.GTE(pos, width)),
+                  m.Until(m.Mul(m.Sub(width, pos), m.pixel), m.Predicate(m.GTE(pos, width)), x)));
+   y = new ActiveXObject("DirectAnimation.DANumber");
+   y.Init(m.Until(m.Mul(pos, m.pixel), m.Predicate(m.GTE(pos, height)),
+                  m.Until(m.Mul(m.Sub(height, pos), m.pixel), m.Predicate(m.GTE(pos, height)), y)));
+
+   // Use the x and y to animate the position of the "flowText" control.
+   myPoint = m.Point2Anim(x, y);
+   balls = ballImage(m.LocalTime);
+
+   // Make the balls pickable.
+   ballsPicked = balls.Pickable();
+   ballsPickEvent = m.AndEvent(m.LeftButtonDown, ballsPicked.pickEvent);
+   ballsPickEvent = ballsPickEvent.ScriptCallback("ballsCallback()", "JScript");
+   balls = m.UntilEx(ballsPicked.Image, ballsPickEvent);
+   balls = balls.Transform(m.Translate2Point(myPoint));
+   balls = balls.Transform(m.Translate2Anim(m.Div(m.Neg(m.Mul(width, m.pixel)), m.DANumber(2)), m.Div(m.Neg(m.Mul(height, m.pixel)), m.DANumber(2))));
+
+   fadeIn = m.SlowInSlowOut(0.0, 1.0, 2, -1);
+   fadeOut = m.SlowInSlowOut(1.0, 0.0, 2, -1);
+   
+   image2 = image2.RunOnce();
+   
+   finalImage = m.Sequence (cnnBlur.Duration(7), siBlur.Duration(7));
+   finalImage = m.Sequence (finalImage, image2.Duration(5.5));
+   finalImage = m.Sequence (finalImage, m.Overlay(image2, image3));
+   finalImage = m.Overlay (balls, finalImage);
+
+   flybyImp = m.ImportSound(soundBase + "flyby.wav");
+   flyby = flybyImp.Sound;
+   flybys = m.Sequence(flyby.Gain(10.0).Duration(7), flyby.Gain(10.0).Duration(7));
+   logoSoundImp = m.ImportSound(soundBase + "football.wav");
+   logoSound = logoSoundImp.Sound;
+   musicImp = m.ImportSound(soundBase + "looptheme.wav");
+   music = musicImp.Sound;
+
+   DAControl.Sound = m.Sequence(flybys, logoSound);
+   DAControl.Image = finalImage;
+   DAControl.UpdateInterval = .16;
+   DAControl.Start();
+
+   // revealHeadline();
+}
+//-->
+</SCRIPT>
+
+<DIV ID="Headline" STYLE="position:absolute; top:0; left: 0; height:80; width:100%; visibility: visible; filter: revealTrans(transition=12,duration=2)">
+<CENTER><B>
+<FONT SIZE=3 COLOR=FFFFFF FACE=Helvetica><b>CATCH THE BALL TO SEE MORE</b></FONT><BR>
+<FONT SIZE=3 COLOR=FFFFFF FACE=Helvetica><b>Subscribe Now!</b></FONT><BR>
+<A NAME="addChannel" HREF="http://www.microsoft.com/ie/ie40/download/?/ie/ie40/download/redirect.htm"><IMG SRC="graphics/ieaddcha.gif" BORDER=0></A><BR>
+<script language="JavaScript">
+   if (isMsie4orGreater()) {
+      addChannel.href = "javascript:addChan();"
+   }
+
+function addChan() {
+   DAControl.UpdateInterval = 100;       window.external.addChannel('http://cnnsi.com/ie/subscribe/cnnsi.cdf'); 
+   DAControl.UpdateInterval = .16;
+   }
+
+</script>
+<FONT SIZE=3 COLOR=FFFFFF FACE=Helvetica><b>Desktop Scoreboard!</b></FONT><BR>
+<A NAME="addDesktop" HREF="http://www.microsoft.com/ie/ie40/download/?/ie/ie40/download/redirect.htm"><IMG SRC="graphics/ieadddes.gif" BORDER=0></A>
+<script language="JavaScript">
+   if (isMsie4orGreater()) {
+      addDesktop.href = "javascript:addDesk();";
+   }
+
+function addDesk() {
+   DAControl.UpdateInterval = 100;    
+   location.href = "http://cnnsi.com/ie/subscribe/desktop.cdf"; 
+//   DAControl.UpdateInterval = .16;
+   }
+</script>
+</CENTER>
+</DIV>
+
+<IMG ID="Balls" SRC="graphics/ie_balls.gif" Style="position:absolute; top: 0; left: 0; visibility: hidden; z-index: -1">
+
+</BODY>
+</HTML>

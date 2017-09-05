@@ -1,0 +1,485 @@
+<HTML>
+<!-- version 1.0/cached -->
+<HEAD>
+<title>The Snap! Online Channel Preview</title>
+<STYLE type="text/css">
+
+#TopText		{
+				position:absolute;
+				left:58;
+				top:40;
+				width:100%;
+				height:15%;
+				visibility: hidden;
+				}
+
+#LogoOne		{
+				position:absolute;
+				left:146;
+				top:100;
+				width:168;
+				height:168;
+				visibility: visible;
+				}
+
+
+#LeftText		{
+				position:absolute;
+				left:65;
+				top:40;
+				width: 170;
+				height:25;
+				visibility: hidden;
+				}
+
+#RightText		{
+				position:absolute;
+				left:250;
+				top:40;
+				width: 170;
+				height:25;
+				visibility: hidden;
+				}
+
+#TopText2		{
+				position:absolute;
+				left:70;
+				top:40;
+				visibility: hidden;
+				}
+
+#dot1			{
+				position:absolute;
+				left:370;
+				top:40;
+				visibility: hidden;
+				}
+
+#dot2			{
+				position:absolute;
+				left:380;
+				top:40;
+				visibility: hidden;
+				}
+
+#dot3			{
+				position:absolute;
+				left:390;
+				top:40;
+				visibility: hidden;
+				}
+
+
+#LogoRight		{
+				z-index:1;
+				position:absolute;
+				left:274;
+				top:35;
+				width:181;
+				visibility: hidden;
+				}
+				
+#LogoJump		{
+				z-index:1;
+				position:absolute;
+				left:274;
+				top:35;
+				width:181;
+				visibility: hidden;
+				}
+
+#LogoFinal		{
+				z-index:1;
+				position:absolute;
+				left:274;
+				top:118;
+				width:181;
+				visibility: hidden;
+				}
+
+#MoveText		{
+				z-index:0;
+				position:absolute;
+				left:25;
+				top:800;
+				width:240;
+				height:2300;
+				visibility: hidden;
+				
+				}
+
+#SubGif			{
+				position:absolute;
+				left:58;
+				top:132;
+				height:25%;
+				visibility: hidden;
+				}
+
+#FreeGif		{
+				position:absolute;
+				left:75;
+				top:173;
+				width:146;
+				height:39;
+				visibility: hidden;
+				}
+
+#HelpGif		{
+				position:absolute;
+				left:60;
+				top:225;
+				width:226;
+				height:75;
+				visibility: hidden;
+				z-index:900
+				}
+
+#SubscribeDiv	{
+				z-index:0;
+				position:absolute;
+				left:0;
+				top: 314;
+				width:460;
+				height:51;
+				background-color:#000099
+				}
+
+#TestDiv		{
+				z-index:0;
+				position:absolute;
+				left:0;
+				top: 365;
+				width:460;
+				height:300;
+				background-color:#CCCCCC
+				}
+
+#PushButton		{
+				position:absolute;
+				top:13;
+				left:289;
+				z-index:2;
+				}
+
+.copy			{
+				position: absolute;
+				color:#333333;
+				font-family: arial, helvetica;
+				font-size:25 pt;
+				line-height: 25 pt;
+				font-weight: bold;
+				text-align:left;
+				}
+
+.copy2			{
+				color:#333333;
+				font-family: arial, helvetica;
+				font-size:15pt;
+				line-height:17pt;
+				font-weight: bold;
+				}
+
+.copy3			{
+				color:#333333;
+				font-family: arial, helvetica;
+				font-size:20pt;
+				line-height:21pt;
+				font-weight: bold;
+				}
+				
+#backText		{
+				color: #CCCCCC;
+				background-color: white;
+				font: bolder 14pt/17pt Arial, Helvetica;
+				text-align: justify;
+				position: relative;
+				z-index: 0;
+				}
+</STYLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var id=null;
+	function StartGlide() {
+	document.all.MoveText.style.pixelTop = document.body.offsetHeight;
+    id = window.setInterval("Glide()",1);
+	}
+	
+	function Glide() {
+    document.all.MoveText.style.pixelTop -= 75;
+	    if (
+		document.all.MoveText.style.pixelTop<=-1930) {
+     	document.all.MoveText.style.pixelTop=-1930;
+		window.clearInterval (id);
+    	}
+	}
+</SCRIPT>
+
+
+<script language="JavaScript">
+function foo() {
+	document.all.one.style.top = 0; //Bug. Inner DIV will not re-render without forcing outer DIV to rerender.
+	document.all.two.style.top = document.all.one.offsetHeight/2 - document.all.two.offsetHeight/2;
+	document.all.two.style.left = document.all.one.offsetWidth/2 - document.all.two.offsetWidth/2;
+	document.all.two.style.visibility = "visible";
+}
+</script>
+
+<SCRIPT language="vbscript">
+'call the sequence
+	sub window_onload
+				Call foo
+				Call seq("1").Play
+	end sub
+	
+'list every event in the sequence
+	Sub Seq_OnInit		
+'what is snap online
+		Call seq("1").at(2.00, "show(TopText)", 1, 0.0, 1)
+		Call seq("1").at(4.00, "hide(TopText)", 1, 0.0, 1)
+		
+'call centered snap logo
+		Call seq("1").at(0.50, "show(LogoOne)", 1, 0.0, 1)
+		Call seq("1").at(8.25, "hide(LogoOne)", 1, 0.0, 1)
+		
+'it slices
+		Call seq("1").at(4.00, "show(LeftText)", 1, 0.0, 1)
+		Call seq("1").at(6.50, "hide(LeftText)", 1, 0.0, 1)
+		
+'it dices
+		Call seq("1").at(5.50, "show(RightText)", 1, 0.0, 1)
+		Call seq("1").at(6.50, "hide(RightText)", 1, 0.0, 1)
+		
+'and does so much more
+		Call seq("1").at(6.50, "show(TopText2)", 1, 0.0, 1)
+		Call seq("1").at(8.250, "hide(TopText2)", 1, 0.0, 1)
+		
+'animated dots
+		Call seq("1").at(6.75, "show(dot1)", 1, 0.0, 1)
+		Call seq("1").at(7.25, "show(dot2)", 1, 0.0, 1)
+		Call seq("1").at(8.00, "show(dot3)", 1, 0.0, 1)
+		Call seq("1").at(8.25, "hide(dot1)", 1, 0.0, 1)
+		Call seq("1").at(8.25, "hide(dot2)", 1, 0.0, 1)
+		Call seq("1").at(8.25, "hide(dot3)", 1, 0.0, 1)		
+
+'call snap logo on right
+		Call seq("1").at(8.50, "show(LogoRight)", 1, 0.0, 1)
+		Call seq("1").at(16.75, "hide(LogoRight)", 1, 0.0, 1)
+	
+'call moving text on left
+		Call seq("1").at(9.00, "show(MoveText)", 1, 0.0, 1)
+		Call seq("1").at(9.50, "StartGlide()", 1, 1)
+		Call seq("1").at(20.50, "hide(MoveText)",1, 0.0, 1)
+		
+'subscribe now
+		Call seq("1").at(21.00, "show(SubGif)", 1, 0.0, 1)
+		
+'it's free
+		Call seq("1").at(22.50, "show(FreeGif)", 1, 0.0, 1)
+		
+'call jumping snappy
+		Call seq("1").at(16.75, "show(LogoJump)", 1, 0.0, 1)
+		Call seq("1").at(17.40, "hide(LogoJump)", 1, 0.0, 1)
+		
+'call bouncing snappy
+		Call seq("1").at(17.40, "show(LogoFinal)", 1, 0.0, 1)
+		
+'give him a hand
+		Call seq("1").at(26.00, "show(HelpGif)", 1, 0.0, 1)
+	End Sub
+	
+	
+	Sub show(what)
+			what.style.visibility= "visible" 
+	End Sub
+	
+	Sub hide(what) 
+			what.style.visibility= "hidden" 
+	End Sub
+	
+	
+	
+</SCRIPT>
+
+</HEAD>
+<BODY id="one" scroll="no" bgcolor="#FFFFCC" TOPMARGIN="0" LEFTMARGIN="0" onresize="foo()" style="background-color: white">
+<div id="backText">
+
+<!--the sound goes here-->
+<BGSOUND SRC="starter1.wav"> 
+
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+business&nbsp; education&nbsp; <nobr>home office</nobr>&nbsp; communities&nbsp; government&nbsp; computing&nbsp; <nobr>find web sites</nobr>&nbsp; <nobr>internet help</nobr>&nbsp; cyberculture&nbsp; software&nbsp; entertainment&nbsp; the arts&nbsp; <nobr>books & poetry</nobr>&nbsp; <nobr>find phone numbers</nobr>&nbsp; movies&nbsp; celebrities&nbsp; music&nbsp; radio&nbsp; television&nbsp; soaps&nbsp; health&nbsp; wellness&nbsp; <nobr>women's health</nobr>&nbsp; learning&nbsp; <nobr>find software titles</nobr>&nbsp; reference&nbsp; sciences&nbsp; living&nbsp; family&nbsp; fashion&nbsp; <nobr>food & drink</nobr>&nbsp; hobbies&nbsp; <nobr>home & garden</nobr>&nbsp; kids&nbsp; local&nbsp; <nobr>dining out</nobr>&nbsp; money&nbsp; <nobr>find email addresses</nobr>&nbsp; <nobr>business news</nobr>&nbsp; investing&nbsp; classifieds&nbsp; <nobr>personal finance</nobr>&nbsp; <nobr>find businesses</nobr>&nbsp; <nobr>real estate</nobr>&nbsp;  news&nbsp;  weather&nbsp;  shopping&nbsp;  automotive&nbsp;  sports&nbsp;  baseball&nbsp;  basketball&nbsp;  football&nbsp;  golf&nbsp;  hockey&nbsp;  tennis&nbsp;  skiing&nbsp;  travel&nbsp;  
+</div>
+<div id="two" style="position:absolute;left:0;width:460;height:365; background-color: #FFFFCC; visibility: hidden; clip: rect(0,auto,365,auto);">
+<div id="images" style="display: none">
+<IMG SRC="logo1.gif" WIDTH=168 HEIGHT=168 BORDER=0 ALT="">
+<IMG SRC="logo2.gif" WIDTH=164 HEIGHT=289 BORDER=0 ALT="">
+<IMG SRC="drop.gif" WIDTH=164 HEIGHT=289 BORDER=0 ALT="">	
+<IMG SRC="bounce.gif" WIDTH=164 HEIGHT=206 BORDER=0 ALT="">
+<IMG SRC="free.gif" WIDTH=127 HEIGHT=33 BORDER=0 ALT="">
+<IMG SRC="hand.gif" WIDTH=226 HEIGHT=75 BORDER=0 ALT="">
+<IMG id=PushButton SRC="addchan.gif" BORDER=0 ALT="">
+</div>
+		
+		<!--snap logo 1 div-->
+		<DIV id=LogoOne>
+		<IMG SRC="logo1.gif" WIDTH=168 HEIGHT=168 BORDER=0 ALT="">
+		</DIV>
+
+
+		<DIV id=TopText class="copy">
+		What is Snap Online?
+		</DIV>
+		
+		<!--left text div-->
+		<DIV id=LeftText class="copy">
+		It slices!
+		</DIV>
+
+		<!--right text div-->
+		<DIV id=RightText class="copy">
+		It dices!
+		</DIV>
+
+
+		
+		<!--top text, part 2 div-->
+		<DIV id=TopText2 class="copy">
+		And so much more
+		</DIV>
+		
+		<DIV id=dot1 class="copy" style="width:5">
+		.
+		</DIV>
+		
+		<DIV id=dot2 class="copy" style="width:5">
+		.
+		</DIV>
+
+		<DIV id=dot3 class="copy" style="width:5">
+		.
+		</DIV>
+
+		
+		<!--snap logo on right div-->
+		<DIV id=LogoRight>
+		<IMG SRC="logo2.gif" WIDTH=164 HEIGHT=289 BORDER=0 ALT="">
+		</DIV>
+
+		<!--the jumping snappy-->
+		<DIV id=LogoJump>
+		<IMG SRC="drop.gif" WIDTH=164 HEIGHT=292 BORDER=0 ALT="">
+		</DIV>
+		
+		<!--the final snappy-->
+		<DIV id=LogoFinal>
+		<IMG SRC="bounce.gif" WIDTH=164 HEIGHT=209 BORDER=0 ALT="">
+		</DIV>
+		
+		<!--magic moving text div-->
+		<DIV id=MoveText class="copy3"> 
+		<center>
+		Business<BR>
+		Education<BR>
+		Home Office<BR>
+		Communities<BR>
+		Government<BR>
+		Computing<BR>
+		Find Web Sites<BR>
+		Internet Help<BR>
+		Cyberculture<BR>
+		Software<BR>
+		Entertainment<BR>
+		The Arts<BR>
+		Books & Poetry<BR>
+		Find Phone Numbers<BR>
+		Movies<BR>
+		Celebrities<BR>
+		Music<BR>
+		Radio<BR>
+		Television<BR>
+		Soaps<BR>
+		Health<BR>
+		Wellness<BR>
+		Women's Health<BR>
+		Learning<BR>
+		Find Software Titles<BR>
+		Reference<BR>
+		Sciences<BR>
+		Living<BR>
+		Family<BR>
+		Fashion<BR>
+		Food & Drink<BR>
+		Hobbies<BR>
+		Home & Garden<BR>
+		Kids<BR>
+		Local<BR>
+		Dining Out<BR>
+		Money<BR>
+		Find Email Addresses<BR>
+		Business News<BR>
+		Investing<BR>
+		Classifieds<BR>
+		Personal Finance<BR>
+		Find Businesses<BR>
+		Real Estate<BR>
+		News<BR>
+		Weather<BR>
+		Shopping<BR>
+		Automotive<BR>
+		Sports<BR>
+		Baseball<BR>
+		Basketball<BR>
+		Football<BR>
+		Golf<BR>
+		Hockey<BR>
+		Tennis<BR>
+		Skiing<BR>
+		Travel<BR>
+		Find Anything</center>
+		<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+		<span class="copy"><center><nobr>Everything <span style="color:#FF0000">you</span></nobr><BR>
+		want from the<BR>
+		Internet.
+		</span></center>
+		</DIV>
+		
+		
+		<!--subscribe gif div-->
+		<DIV id=SubGif class="copy">
+		Get it now.
+		</DIV>
+		
+		
+		<!--it's free div-->
+		<DIV id=FreeGif> 
+		<IMG SRC="free.gif" WIDTH=127 HEIGHT=33 BORDER=0 ALT="">
+		</DIV>
+		
+		<!--help him out div-->
+		<DIV id=HelpGif>
+		<IMG SRC="hand.gif" WIDTH=226 HEIGHT=75 BORDER=0 ALT="">
+		</DIV>
+		
+		<!--susbscription div (don't forget to link it)-->
+		<DIV id=SubscribeDiv>
+			<a href="javascript:window.external.addChannel('http://home.snap.com:8005/channel/cdf/0,6,home-0,00.cdf')"><IMG id=PushButton SRC="addchan.gif" BORDER=0 ALT=""></a>
+		</DIV>
+		
+</DIV>
+	<!--#############ONLY OBJECTS BELOW THIS LINE##############-->
+			<OBJECT ID="Seq"CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+			STYLE="TOP:0pt;LEFT:0pt;WIDTH:0pt;HEIGHT:0pt">
+			</OBJECT>
+			
+
+</BODY>
+
+</HTML>

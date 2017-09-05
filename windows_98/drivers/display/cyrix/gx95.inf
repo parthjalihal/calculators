@@ -1,0 +1,97 @@
+; INF file for Cyrix Windows 95 display driver
+; Copyright 1995-1997, Cyrix Corporation
+
+[version]
+Class=DISPLAY
+signature="$Windows 95$"
+Provider=%Mfg%
+
+; Disk & Directory sections
+;----------------------------------------
+[DestinationDirs]
+DefaultDestDir  = 11	; LDID_SYS
+Cyrix.Copy = 11
+
+[SourceDisksNames]
+1="Cyrix XpressGRAPHICS(TM) Windows 95 Display Driver",,0
+
+[SourceDisksFiles]
+gx95.drv=1
+gxmini.vxd=1
+gxdraw.dll=1
+gxtv.dll=1
+gxtvpos.dll=1
+gxgamma.dll=1
+
+; Manufacturers 
+;----------------------------------------
+[Manufacturer]
+%Mfg%=Mfg
+
+
+; Driver sections
+;----------------------------------------
+[Mfg]
+%CyrixGX.DeviceDesc%=Cyrix, *CRX0003, *CRX0001
+
+
+; Install sections
+;----------------------------------------
+[Cyrix]
+CopyFiles=Cyrix.Copy
+DelReg=Prev.DelReg
+AddReg=Cyrix.AddReg
+
+[Cyrix.Copy]
+gx95.drv
+gxmini.vxd
+gxdraw.dll
+gxtv.dll
+gxtvpos.dll
+gxgamma.dll
+
+[Cyrix.PosDup]
+*PNP0900
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+
+[Cyrix.AddReg]
+HKR,,Ver,,4.10.01.1207
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,gx95.drv
+HKR,DEFAULT,vdd,,"*vdd"
+HKR,DEFAULT,minivdd,,gxmini.vxd
+HKR,DEFAULT,RefreshRate,,-1
+HKR,DEFAULT,DDC,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKCR,"CLSID\{4676caa0-73a6-11d0-995b-0020af6d015d}\InProcServer32",,,"gxtv.dll"
+HKCR,"CLSID\{4676caa0-73a6-11d0-995b-0020af6d015d}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\Cyrix GX TV",,,"{4676caa0-73a6-11d0-995b-0020af6d015d}"
+HKCR,"CLSID\{4676caa1-73a6-11d0-995b-0020af6d015d}\InProcServer32",,,"gxgamma.dll"
+HKCR,"CLSID\{4676caa1-73a6-11d0-995b-0020af6d015d}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\Cyrix GX Gamma",,,"{4676caa1-73a6-11d0-995b-0020af6d015d}"
+HKCR,"CLSID\{4676caa2-73a6-11d0-995b-0020af6d015d}\InProcServer32",,,"gxtvpos.dll"
+HKCR,"CLSID\{4676caa2-73a6-11d0-995b-0020af6d015d}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\Cyrix GX TV Position",,,"{4676caa2-73a6-11d0-995b-0020af6d015d}"
+
+; User visible strings
+;----------------------------------------
+[Strings]
+Class="Display"
+Mfg="Cyrix Corporation"
+CyrixGX.DeviceDesc="Cyrix XpressGRAPHICS(TM)"
+

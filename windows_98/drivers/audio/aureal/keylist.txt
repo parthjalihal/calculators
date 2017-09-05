@@ -1,0 +1,137 @@
+// (C) Aureal Semiconductor, 1997
+//
+// This file is used by the Vortex Uninstaller.  Please do not 
+// Modify!!!!
+//
+// These are comment lines.  See comments below on how to use this
+// file.  Be very careful about changing this file!!!!!
+// 
+//This program will take an input file and delete Registry entries based on text
+//string comparisons.  The input file format is as follows:
+// Line 1:  Root SUBKEY 
+//	Must be one of the following Keys:
+//		HKEY_CLASSES_ROOT=
+//		HKEY_CURRENT_USER=
+//		HKEY_LOCAL_MACHINE=
+//		HKEY_USERS=
+//	Additionally, there must be one extra character in the string such as '='
+// Line 2:  SUBKEY to search
+//	This is a string, any subkey of Line 1 which matches the string will be searched
+// Line 3:  String which must match subkey
+//	The subkeys of Line 2 will be compared with this string.
+//	if there is a match, then the subkey is a possible target for deletion.
+//	Enter "" if ALL subkeys are to be searched.
+// Line 4:  VALUE to compare
+//	A string of the value of the SUBKEY which is of interest.
+//	"" if you do not care.
+// Line 5:  String which must match value
+//	The string which you hope to match.
+//	"" if you do not care
+//If the keys contains "<" & ">" characters, these characters must be 
+//replaced by "%c"
+//
+HKEY_LOCAL_MACHINE=
+SOFTWARE
+Aureal
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM
+Vortex
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaResources\wave
+asp4
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaResources\mixer
+asp4
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaResources\midi
+asp4
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaResources\joystick
+msjstick
+Description
+Vortex
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Control\MediaResources\aux
+asp4
+""
+""
+HKEY_LOCAL_MACHINE=
+Enum\PCI
+VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Enum\VIRTUAL
+PCI_VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Enum\MF\CHILD0001
+PCI&VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Enum\MF\CHILD0000
+PCI&VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Config\0001\Enum\MF\CHILD0001
+PCI&VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Config\0001\Enum\MF\CHILD0000
+PCI&VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Config\0001\Enum\PCI
+VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+Config\0001\Enum\VIRTUAL
+PCI_VEN_12EB
+""
+""
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Services\Class\MEDIA
+""
+DriverDesc
+Vortex
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Services\Class\Modem
+""
+Manufacturer
+Aureal Semiconductor
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Services\Class\MultiFunction
+""
+DriverDesc
+Vortex
+HKEY_LOCAL_MACHINE=
+System\CurrentControlSet\Services\Class\Ports
+""
+DriverDesc
+Vortex
+//HKEY_DYN_DATA=
+//Config Manager\Enum
+//""
+//HardWareKey
+//PCI\VEN_12EB
+HKEY_LOCAL_MACHINE=
+SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+Aureal Vortex Applications
+""
+""

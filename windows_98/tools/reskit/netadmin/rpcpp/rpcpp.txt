@@ -1,0 +1,19 @@
+Microsoft RPC Print Provider (RPCPP)
+
+The Microsoft Remote Procedure Call (RPC) Print Provider enhances 
+network printing and remote administration by providing 
+the set of Win32 APIs required for a Windows 95 or Windows 98 client computer to remotely Pause and Cancel print jobs on Windows NT servers. . 
+Using this print provider, a Windows 95 or Windows 98 client can obtain 
+complete accounting and job status information from the 
+Windows NT server. 
+
+To install this software on your computer, use the Network option 
+in Control Panel, click the Add button, select Service as the type
+of network component to install, click
+the Add button, click the Have Disk button, and install from the
+TOOLS\RESKIT\NETADMIN\RPCPP directory.
+
+For more information about RPCPP, see the topic in the Windows 98 
+Resource Kit or in the Windows 98 Resource Kit tools online help (WIN98RK.HLP). 
+You can access this help by installing the Windows 98 Resource Kit tools 
+sampler from the TOOLS\RESKIT directory of the Windows 98 compact disc.

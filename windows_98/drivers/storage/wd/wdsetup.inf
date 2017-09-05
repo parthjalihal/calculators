@@ -1,0 +1,56 @@
+;
+; (C) Western Digital Corporation 1995.
+; All Rights Reserved.
+;
+; WDSETUP.INF Install file for wd7296a SCSI Adapter
+;
+; Part Number 84-000455-000
+;
+; For Microsoft WINDOWS 95 Operating System
+;
+
+
+[Version]
+signature="$CHICAGO$"
+Class=SCSIAdapter
+Provider=%WDC%
+
+[Manufacturer]
+%WDC%=WDC
+
+[WDC]
+%PCI\VEN_101C&DEV_3296.DeviceDesc%=Install_wd7296a,PCI\VEN_101C&DEV_3296
+
+[Install_wd7296a]
+CopyFiles=@wd7296a.mpd
+AddReg=IOS,wd7296a.reg
+UpdateInis=wd296safe
+
+[wd7296a.reg]
+HKR,,PortDriver,,wd7296a.mpd
+
+[wd296safe]
+%10%\ios.ini,safelist,,"wd296.exe"
+
+[IOS]
+HKR,,DevLoader,,*IOS
+HKR,,DontLoadIfConflict,,"Y"
+
+[ControlFlags]
+CopyFilesOnly=PCI\VEN_101c&DEV_3296
+
+[DestinationDirs]
+DefaultDestDir=12  ;\windows\system\iosubsys
+
+[SourceDisksNames]
+1=%ID1%,,
+
+[SourceDisksFiles]
+wd7296a.mpd=1
+
+[Strings]
+WDC="Western Digital Corp."
+ID1="Western Digital wd7296a SCSI Adapter"
+PCI\VEN_101c&DEV_3296.DeviceDesc="Western Digital wd7296a SCSI Host Adapter"
+
+

@@ -1,0 +1,24 @@
+SNMP Agent (SNMP.EXE and related files)
+
+Use this software to monitor remote connections to computers running 
+Windows 95 or Windows 98 if your network uses Simple Network Management Protocol (SNMP) 
+system management products for system management. 
+
+The Windows 95 SNMP agent conforms to the SNMP version 1 specification.
+This agent allows you to monitor, from an SNMP console, remote connections 
+to computers running Windows 95 or Windows 98. After this agent is installed, 
+you do not need to make any other modifications to client computers 
+to use SNMP. The SNMP agent is implemented as a Win32-based service 
+and works using Windows Sockets over both TCP/IP and IPX/SPX. 
+The extension agents are implemented as Win32 DLLs.
+
+To install SNMP Agent on a computer already running Windows 98, 
+use the Network icon in Control Panel, click the Add button,
+select Service as the type of network component to install, click
+the Add button, click the Have Disk button, and install from the
+TOOLS\RESKIT\NETADMIN\SNMP directory. 
+
+For more information, see that topic in the Windows 98 Resource Kit 
+or in the Windows 98 Resource Kit tools online help (WIN98RK.HLP). You can 
+access this help by installing the Windows 98 Resource Kit tools sampler 
+from the TOOLS\RESKIT directory of the Windows 98 compact disc.

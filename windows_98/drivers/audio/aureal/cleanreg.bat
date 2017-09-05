@@ -1,0 +1,3 @@
+delkey keylist.txt
+pause
+

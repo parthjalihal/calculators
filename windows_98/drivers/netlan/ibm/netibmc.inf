@@ -1,0 +1,257 @@
+;******************************************************************************
+; NETIBMC.INF - IBM 10/100 EtherJet CardBus Adapter INF for Windows95
+; Copyright (C) International Business Machines Corporation 1998.  All rights reserved.
+;
+;
+; Rev 2.1   17 Nov 1997	Eric Henderson
+; Rev 2.0   28 Oct 1997	Eric Henderson
+;
+;------------------------------------------------------------------------------
+
+;******************************************************************************
+; Version Section
+;------------------------------------------------------------------------------
+[Version]
+Signature	= "$Chicago$"
+Class		= Net
+Provider	= %COMPANY_NAME%
+
+;******************************************************************************
+; Manufacturer
+;------------------------------------------------------------------------------
+[Manufacturer]
+%COMPANY_NAME% = Device
+
+;******************************************************************************
+; Device
+;------------------------------------------------------------------------------
+[Device]
+%NIC%		= Install.NIC,PCI\VEN_1011&DEV_0019&SUBSYS_00011014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0003&SUBSYS_01811014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0005&SUBSYS_01821014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0007&SUBSYS_01821014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_000B&SUBSYS_01831014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_000F&SUBSYS_01831014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0003&SUBSYS_11811014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0005&SUBSYS_11821014
+%NIC%		= Install.NIC,PCI\VEN_115D&DEV_0007&SUBSYS_11821014
+
+;******************************************************************************
+; Install
+;------------------------------------------------------------------------------
+[Install.NIC]
+AddReg = Addreg.NDIS, Addreg.NIC, Addreg.NIC.Params
+
+;******************************************************************************
+; Add Registry
+;------------------------------------------------------------------------------
+[Addreg.NDIS]									; WIN95 forced load support
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,%NIC_DRIVERNAME%
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+; NDIS Info
+HKR,NDIS,LogDriverName,,%NIC_LOGDRIVERNAME%
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+; Install
+HKR,Ndi\Install,ndis3,,"Copyfiles"
+; Help section
+HKR,Ndi,HelpText,,%NIC_HELP%
+
+[AddReg.NIC]
+HKR,Ndi,CardType,,"PCI"								; CardType is only used on WIN95 with SR2 support/CardBus support.
+HKR,Ndi,DeviceID,,"PCI\VEN_1011&DEV_0019"   		
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IoBaseAddress,1,02,00,00,00
+HKR,,MemoryBaseAddress,1,01,00,00,00
+
+;******************************************************************************
+; Copy file sections
+;------------------------------------------------------------------------------
+[CopyFiles]
+CopyFiles = CopyFiles.NIC, CopyFiles.INF
+
+[CopyFiles.NIC]
+ibmc.sys
+
+[CopyFiles.INF]
+netibmc.inf
+
+;******************************************************************************
+; Destination Directories
+;------------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir          = 11 ; SYSTEM directory
+CopyFiles.NIC		= 11 ; SYSTEM directory
+CopyFiles.INF		= 17 ; INF directory
+
+;******************************************************************************
+; Localizable Strings
+;------------------------------------------------------------------------------
+[Strings]
+COMPANY_NAME	= "IBM"
+NIC		= "IBM 10/100 EtherJet CardBus Adapter"
+NIC_ML		= "IBM 10/100 EtherJet CardBus Adapter manual load"
+NIC_HELP	= "IBM's CardBus Adapter works in a PCMCIA slot that supports CardBus for full 32-bit support that provides PCI speed in a mobile adapter."
+NIC_DRIVERNAME	= "ibmc.sys"
+NIC_INFNAME	= "netibmc.inf"
+NIC_ML_ID	= "IBM-IBMC_10/100"
+
+NIC_LOGDRIVERNAME = "IBMC"
+
+;--------------------------------------
+; Context help
+;--------------------------------------
+
+;--------------------------------------
+; PNP Devices
+;--------------------------------------
+
+;******************************************************************************
+; Params
+;------------------------------------------------------------------------------
+[AddReg.NIC.Params]
+HKR,Ndi\params\NetworkAddress,ParamDesc,,"NetworkAddress"
+HKR,Ndi\params\NetworkAddress,default,,""
+HKR,Ndi\params\NetworkAddress,type,,edit
+HKR,Ndi\params\NetworkAddress,LimitText,,12
+HKR,Ndi\params\NetworkAddress,UpperCase,,1
+HKR,Ndi\params\NetworkAddress,optional,,1
+HKR,Ndi\params\NetworkAddress,flag,1,20,00,00,00
+
+HKR,Ndi\params\LineMode,ParamDesc,,"Line Mode"
+HKR,Ndi\params\LineMode,default,,0
+HKR,Ndi\params\LineMode,type,,enum
+HKR,Ndi\params\LineMode\enum,0,, "AutoDetect"
+HKR,Ndi\params\LineMode\enum,1,, "Half-Duplex"
+HKR,Ndi\params\LineMode\enum,2,, "Full-Duplex"
+
+HKR,Ndi\params\LineSpeed,ParamDesc,,"Line Speed"
+HKR,Ndi\params\LineSpeed,default,,0
+HKR,Ndi\params\LineSpeed,type,,enum
+HKR,Ndi\params\LineSpeed\enum,0,, "AutoDetect"
+HKR,Ndi\params\LineSpeed\enum,1,, "10 Mbps"
+HKR,Ndi\params\LineSpeed\enum,2,, "100 Mbps"
+HKR,Ndi\params\LineSpeed,flag,1,20,00,00,00
+
+HKR,Ndi\Params\EarlyTransmit,ParamDesc,,"Early Transmit"
+HKR,Ndi\Params\EarlyTransmit,Type,,ENUM
+HKR,Ndi\Params\EarlyTransmit,Default,,1
+HKR,Ndi\Params\EarlyTransmit\Enum,1,,ON
+HKR,Ndi\Params\EarlyTransmit\Enum,0,,OFF
+
+HKR,Ndi\Params\EarlyReceive,ParamDesc,,"Early Receive"
+HKR,Ndi\Params\EarlyReceive,Type,,ENUM
+HKR,Ndi\Params\EarlyReceive,Default,,0
+HKR,Ndi\Params\EarlyReceive\Enum,1,,ON
+HKR,Ndi\Params\EarlyReceive\Enum,0,,OFF
+
+HKR,Ndi\Params\LinkIntegrity,ParamDesc,,"Link Integrity"
+HKR,Ndi\Params\LinkIntegrity,Type,,ENUM
+HKR,Ndi\Params\LinkIntegrity,Default,,1
+HKR,Ndi\Params\LinkIntegrity\Enum,1,,ON
+HKR,Ndi\Params\LinkIntegrity\Enum,0,,OFF
+
+HKR,Ndi\Params\TXBUFFERSIZE,ParamDesc,,"Transmit Buffer Size"
+HKR,Ndi\Params\TXBUFFERSIZE,Type,,INT
+HKR,Ndi\Params\TXBUFFERSIZE,Default,,10
+HKR,Ndi\Params\TXBUFFERSIZE,Optional,,1
+HKR,Ndi\Params\TXBUFFERSIZE,Min,,1
+HKR,Ndi\Params\TXBUFFERSIZE,Max,,100
+HKR,Ndi\Params\TXBUFFERSIZE,Step,,1
+
+HKR,Ndi\Params\RXBUFFERSIZE,ParamDesc,,"Receive Buffer Size"
+HKR,Ndi\Params\RXBUFFERSIZE,Type,,INT
+HKR,Ndi\Params\RXBUFFERSIZE,Default,,30
+HKR,Ndi\Params\RXBUFFERSIZE,Optional,,1
+HKR,Ndi\Params\RXBUFFERSIZE,Min,,1
+HKR,Ndi\Params\RXBUFFERSIZE,Max,,100
+HKR,Ndi\Params\RXBUFFERSIZE,Step,,1
+
+HKR,Ndi\Params\MODE,ParamDesc,,"Address Mode"
+HKR,Ndi\Params\MODE,Type,,ENUM
+HKR,Ndi\Params\MODE,Default,,MEMORY
+HKR,Ndi\Params\MODE,Optional,,1
+HKR,Ndi\Params\MODE\Enum,MEMORY,,MEMORY
+HKR,Ndi\Params\MODE\Enum,IO,,IO
+
+HKR,Ndi\Params\LEDEnabled,ParamDesc,,"Adapter LEDs"
+HKR,Ndi\Params\LEDEnabled,Type,,ENUM
+HKR,Ndi\Params\LEDEnabled,Default,,1
+HKR,Ndi\Params\LEDEnabled\Enum,1,,ON
+HKR,Ndi\Params\LEDEnabled\Enum,0,,OFF
+
+[AddReg.NIC_ML.Params]
+HKR,Ndi\Params\InterruptStyle,ParamDesc,,"Interrupt Style"
+HKR,Ndi\Params\InterruptStyle,Type,,ENUM
+HKR,Ndi\Params\InterruptStyle,Default,,0
+HKR,Ndi\params\InterruptStyle\enum,0,, "AutoDetect"
+HKR,Ndi\params\InterruptStyle\enum,1,, "PCI IRQ"
+HKR,Ndi\params\InterruptStyle\enum,2,, "ISA IRQ"
+
+HKR,Ndi\Params\SocketNumber,ParamDesc,,"Socket Number"
+HKR,Ndi\params\SocketNumber,default,,0
+HKR,Ndi\params\SocketNumber,type,,enum
+HKR,Ndi\params\SocketNumber\enum,0,, "AutoDetect"
+HKR,Ndi\params\SocketNumber\enum,1,,1
+HKR,Ndi\params\SocketNumber\enum,2,,2
+HKR,Ndi\params\SocketNumber\enum,3,,3
+HKR,Ndi\params\SocketNumber\enum,4,,4
+HKR,Ndi\params\SocketNumber,flag,1,20,00,00,00
+
+HKR,Ndi\Params\CACHE,ParamDesc,,"Cache"
+HKR,Ndi\Params\CACHE,Type,,ENUM
+HKR,Ndi\Params\CACHE,Default,,32
+HKR,Ndi\Params\CACHE,Optional,,1
+HKR,Ndi\Params\CACHE\Enum,0,,0
+HKR,Ndi\Params\CACHE\Enum,8,,8
+HKR,Ndi\Params\CACHE\Enum,16,,16
+HKR,Ndi\Params\CACHE\Enum,32,,32
+
+HKR,Ndi\Params\LATENCY,ParamDesc,,"Latency"
+HKR,Ndi\Params\LATENCY,Type,,INT
+HKR,Ndi\Params\LATENCY,Default,,32
+HKR,Ndi\Params\LATENCY,Optional,,1
+HKR,Ndi\Params\LATENCY,Min,,0
+HKR,Ndi\Params\LATENCY,Max,,255
+HKR,Ndi\Params\LATENCY,Step,,1
+
+HKR,Ndi\Params\NOBURST,ParamDesc,,"Disable Burst Mode"
+HKR,Ndi\Params\NOBURST,Type,,ENUM
+HKR,Ndi\Params\NOBURST,Default,,ON
+HKR,Ndi\Params\NOBURST,Optional,,1
+HKR,Ndi\Params\NOBURST\Enum,ON,,ON
+
+HKR,Ndi\Params\NOPREFETCH,ParamDesc,,"Disable Prefetching"
+HKR,Ndi\Params\NOPREFETCH,Type,,ENUM
+HKR,Ndi\Params\NOPREFETCH,Default,,ON
+HKR,Ndi\Params\NOPREFETCH,Optional,,1
+HKR,Ndi\Params\NOPREFETCH\Enum,ON,,ON
+
+HKR,Ndi\Params\NOWRITEPOST,ParamDesc,,"Disable Write Posting"
+HKR,Ndi\Params\NOWRITEPOST,Type,,ENUM
+HKR,Ndi\Params\NOWRITEPOST,Default,,ON
+HKR,Ndi\Params\NOWRITEPOST,Optional,,1
+HKR,Ndi\Params\NOWRITEPOST\Enum,ON,,ON
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>Welcome to Windows</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+</HEAD>
+
+
+<BODY BACKGROUND="images/nav_bk.gif" BGCOLOR="white" leftmargin=0 topmargin=0>
+<IMG SRC="images/backleft.gif" style="position:absolute; top:0; left:-3;">
+
+<DIV style="position:absolute;top:0;z-index:10;width=147; height=100%;">
+<img src="images/navlogo.gif" style="margin-top:12px;">
+
+
+<TABLE id=color1 CLASS="navTab" style="color:#FF3300; margin-top:0;" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=147>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navTopCell"><a href="intro.htm" target="main"class="clsNav" ID="spanIntro" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navTopCell"><IMG ID="spanIntro1" SRC="images/pointer.gif" STYLE="visibility: hidden;"></TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navCell"><a href="topic1.htm" target="main" class="clsNav" ID="spanMeetComp" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navCell"><IMG SRC="images/pointer.gif" ID="spanMeetComp1" STYLE="visibility: hidden;"></TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navCell"><a href="topic3.htm" target="main" class="clsNav" ID="spanUseKey" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navCell"><IMG SRC="images/pointer.gif" ID="spanUseKey1" STYLE="visibility: hidden;"></TD>
+</TR>
+</TABLE>
+
+
+<TABLE id=color2 CLASS="navTab" style="color:#339933;" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=147>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navTopCell"><a href="topic2.htm" target="main" class="clsNav" ID="spanUseMouse" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navTopCell"><IMG ID="spanUseMouse1" SRC="images/pointer.gif" border=0 STYLE="visibility: hidden;"></TD>
+</TR>
+</TABLE>
+
+<TABLE id=color3 CLASS="navTab" style="color:#0080FF;" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=147>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navTopCell"><a href="topic4.htm" target="main" class="clsNav" ID="spanMeetDesk" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navTopCell"><IMG ID="spanMeetDesk1" SRC="images/pointer.gif" STYLE="visibility: hidden;"></TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navCell"><a href="topic5.htm" target="main" class="clsNav" ID="spanUseStart" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navCell"><IMG ID="spanUseStart1" SRC="images/pointer.gif" STYLE="visibility: hidden;"></TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navCell"><a href="topic6.htm" target="main" class="clsNav" ID="spanWorkWin" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navCell"><IMG ID="spanWorkWin1" SRC="images/pointer.gif" STYLE="visibility: hidden;"></TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP CLASS="navCell"><a href="topic7.htm" target="main" class="clsNav" ID="spanGetHelp" onmouseover="mov(this)" onMouseOut="mou(this)" onclick="clk(this);"></a><br></TD>
+<TD ALIGN=RIGHT VALIGN=TOP CLASS="navCell"><IMG ID="spanGetHelp1" SRC="images/pointer.gif" STYLE="visibility: hidden;"></TD>
+</TR>
+</TABLE>
+
+
+<TABLE id=color4 style="color:#000000; position:relative; margin:10; margin-top:20; top:0; left:0;" BORDER=0 CELLPADDING=0 CELLSPACING=0 onmousedown="btnDn();" onmouseup="btnUp();" onmouseover="mov(spanExit);btnOver();" onMouseOut="mou(spanExit);btnUp();">
+<TR VALIGN=MIDDLE ALIGN=LEFT>
+<TD><a href="../default.htm" target="_top" onblur="spanIntro.focus()"><IMG ID="imgBtn" SRC="images/btn_cu.gif" BORDER="0" STYLE="cursor: hand; visibility: hidden;"></a>&nbsp;</TD>
+<TD><a href="../default.htm" target="_top" onblur="spanIntro.focus()" class="clsNav" ID="spanExit"></a></TD>
+</TR>
+</TABLE>
+</a>
+</DIV>
+
+<IMG id="circ1" SRC="images/circles/c_nav.gif" BORDER=0 style="position:absolute;top:45;left:5;visibility:hidden;z-index:99">
+
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="nav.txt">
+</OBJECT>
+
+<script language="javascript" for="document" event="onclick">
+	parent.main.focus();
+	if(window.event.shiftKey){
+		return false;
+	}
+</script>
+
+<script language="javascript" for="document" event="onfocus">
+	parent.main.focus();
+</script>
+
+<script language="javascript">
+window.onload = loader;
+circ1.onclick=circ1_handler;
+
+rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function circ1_handler(){
+var where = window.event.y;
+
+if(where>75 && where<100)
+	spanIntro.click();
+if(where>115 && where<142)
+	spanMeetComp.click();
+if(where>155 && where<179)
+	spanUseKey.click();
+if(where>205 && where<229)
+	spanUseMouse.click();
+if(where>251 && where<275)
+	spanMeetDesk.click();
+if(where>285 && where<313)
+	spanUseStart.click();
+if(where>326 && where<346)
+	spanWorkWin.click();
+if(where>360 && where<370)
+	spanGetHelp.click();
+if(where>395 && where<415)
+	spanExit.click();
+
+circ1.style.visibility = "hidden";
+}
+
+function loader(){
+	initarry();
+	spanIntro.innerHTML = txtary[0];
+	spanMeetComp.innerHTML = txtary[1];
+	spanUseKey.innerHTML = txtary[2];
+	spanUseMouse.innerHTML = txtary[3];
+	spanMeetDesk.innerHTML = txtary[4];
+	spanUseStart.innerHTML = txtary[5];
+	spanWorkWin.innerHTML = txtary[6];
+	spanGetHelp.innerHTML = txtary[7];
+	spanExit.innerHTML = txtary[8];
+	spanIntro.click();
+	imgBtn.style.visibility = "visible";
+}
+function mov(tgt){
+	if(tgt.clicked){
+		tgt.style.textDecoration="underline";
+	}
+}
+
+function mou(tgt){
+	if(tgt.clicked){
+		tgt.style.textDecoration="none";
+	}
+}
+function clk(tgt){
+	document.all(tgt.id + "1").style.visibility = "visible";
+	tgt.clicked = 0;
+	tgt.style.textDecoration="none";
+
+	if(tgt.id != "spanIntro"){spanIntro1.style.visibility = 'hidden'; spanIntro.clicked = 1;}
+	if(tgt.id != "spanMeetComp"){spanMeetComp1.style.visibility = 'hidden'; spanMeetComp.clicked = 1;}
+	if(tgt.id != "spanUseKey"){spanUseKey1.style.visibility = 'hidden'; spanUseKey.clicked = 1;}
+	if(tgt.id != "spanUseMouse"){spanUseMouse1.style.visibility = 'hidden'; spanUseMouse.clicked = 1;}
+	if(tgt.id != "spanMeetDesk"){spanMeetDesk1.style.visibility = 'hidden'; spanMeetDesk.clicked = 1;}
+	if(tgt.id != "spanUseStart"){spanUseStart1.style.visibility = 'hidden'; spanUseStart.clicked = 1;}
+	if(tgt.id != "spanWorkWin"){spanWorkWin1.style.visibility = 'hidden'; spanWorkWin.clicked = 1;}
+	if(tgt.id != "spanGetHelp"){spanGetHelp1.style.visibility = 'hidden'; spanGetHelp.clicked = 1;}
+	if(tgt.id != "spanExit"){spanExit.clicked = 1;}
+}
+
+function btnUp() {
+	imgBtn.src = 'images/btn_cu.gif'
+}
+
+function btnDn()  {
+	imgBtn.src = 'images/btn_cd.gif'
+}
+
+function btnOver()  {
+	imgBtn.src = 'images/btn_co.gif'
+}
+
+function initarry(){
+	for(i=0;i<9;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+}
+</script>
+</BODY>
+</HTML>

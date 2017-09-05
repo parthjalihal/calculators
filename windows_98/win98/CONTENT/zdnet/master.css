@@ -1,0 +1,61 @@
+.channeltext	
+	{	font			:	32pt verdana;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	black}
+.channels	
+	{	font			:	10pt verdana;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	#333366}
+
+.select	
+	{	font			:	18pt arial,Helvetica;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	black;
+		filter			:	shadow(color=white, direction=135)
+	}
+
+.selector
+	{	FILTER			:	revealTrans(Duration=3.0, Transition=21)}
+
+.channelsIndent	
+	{	font			:	10pt verdana;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		margin-left		:	.15in;
+		color			:	#333366}
+
+.Indent	
+	{	margin-left		:	.15in}
+
+.tstext	{	font			:	10pt verdana;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	black}
+
+
+.zone	{	font			:	32pt impact;
+		letter-spacing		:	2px;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		filter			:	glow(color=white, strength=1);
+		color			:	#333366}
+
+.g10	{	font			: 	Georgia;
+		font-size		:	10pt;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	#333366}
+
+.g12	{	font-family		: 	Georgia;
+		font-size		:	12pt;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	#333366}
+
+.t18	{	font			:	18pt times, helvetica;
+		font-weight		:	bold;
+		text-decoration		:	none;
+		color			:	#333366}

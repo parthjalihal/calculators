@@ -1,0 +1,31 @@
+value:string
+You can type information and instructions into your computer using a keyboard.@
+This is the main typing area of your keyboard. It resembles the keys on a standard typewriter.@
+You press and release the keys, and the corresponding letters and numbers appear on the screen of your monitor.@
+Another part of your keyboard is called the numeric keypad. Not all keyboards have a numeric keypad.@
+You use it to enter numbers with one hand, as if you were using an adding machine.@
+These keys are called function keys (F1, F2, F3). They're used to quickly perform specific tasks in your software applications.@
+Your keyboard has other special keys that perform specific functions. For example, the escape key (ESC) can sometimes be used to interrupt a task.@
+You can use the ALT key and the control key (CTRL) by themselves or in combination with other keys to perform keyboard shortcuts. @
+Here's your chance to demonstrate what you've learned. Answer the following questions by pressing the appropriate number on your keyboard.@
+Where is the main typing area of your keyboard?@
+<IMG SRC="images/num1.gif" align="bottom"> That's right! You've correctly selected the main typing area. It resembles the letter and number keys on a standard typewriter.@
+This is the numeric keypad, which works like an adding machine. Next time, choose the main typing area.@
+You've selected the function keys instead of the main typing area. You use the function keys to quickly perform specific tasks. Try again to select the main typing area.@
+You've selected an area outside the keyboard. Try again to select the main typing area.@
+The main typing area is the part of your keyboard that looks like typewriter keys.@
+Which keys work like an adding machine?@
+You've selected the main typing area instead of the numeric keypad. The main typing area is the part of your keyboard that looks like typewriter keys. Try again.@
+<IMG SRC="images/num2.gif" align="bottom"> That's right! You selected the numeric keypad, a set of keys that work like an adding machine.@
+These are the function keys, which let you quickly perform specific tasks. Try again to select the numeric keypad.@
+You've selected an area outside the keyboard. Try again to select the numeric keypad.@
+You can use the numeric keypad to enter numbers the same way you would use an adding machine.@
+Which keys let you perform shortcuts or other special functions?@
+You've selected the main typing area instead of the function keys. The main typing area is the part of your keyboard that looks like typewriter keys. Try again.@
+This is the numeric keypad, which works like an adding machine. Next time, choose the function keys.@
+<IMG SRC="images/num3.gif" align="bottom"> Correct! You would use the function keys to perform shortcuts and special functions.@
+You've selected an area outside the keyboard. Try again to select the function keys.@
+The function keys are used to perform shortcuts and other specific functions, depending on the software you're using.@
+The more you work with your computer, the more comfortable you’ll become using the different keys on your keyboard.@
+In the next lesson, <B>Using Your Mouse</B>, you'll learn another way to give your computer instructions.@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

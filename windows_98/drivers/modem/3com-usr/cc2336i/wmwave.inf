@@ -1,0 +1,53 @@
+; Version 1.0.02
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%USR%
+LayoutFile=layout.inf
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%USR%=USR
+
+[USR]
+%Winmodem.DeviceDesc%=USRVOICE,MODEMWAVE\MEGAHERTZ_INTERNATIONAL_MODEM_FOR_WINDOWS
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[USRVOICE]
+AddReg=MSSERWAVE.AddReg, USRVOICE.AddReg
+
+[USRVOICE.AddReg]
+HKR,Drivers\wave\serwvdrv.drv,Description,,%Winmodem.DeviceDesc%
+HKR,Config,XformModule,  , "umdmxfrm.dll"
+HKR,Config,XformID,     1, 04, 00, 00, 00
+HKR,Config,WaveDevices,  1, 01, 00
+
+[MSSERWAVE.CopyList]
+serwave.vxd,,
+serwvdrv.drv,,
+vmodctl.dll,,
+
+[MSSERWAVE.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\serwvdrv.drv,Driver,,serwvdrv.drv
+HKR,Drivers,SubClasses,,"wave"
+
+[Strings]
+USR = "3Com Corp."
+MfgName="USR"
+Winmodem.DeviceDesc="MEGAHERTZ International Modem for Windows"
+WaveWrap.DeviceDesc="Voice Modem Wave Wrapper Device"
+MediaClassName="Sound, video and game controllers"

@@ -1,0 +1,162 @@
+<html>
+<head><title></title>
+<style type="text/css">
+  a:link       {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: #000000}
+  a:visited    {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: #000000}
+  body         {font-family: Verdana, Arial, Helvetica, sans-serif;
+                cursor: default;
+                }
+</style>
+
+<script language="JavaScript" for=window event=onload>
+  for (i = 0; i < 6; i++) {
+    eval("check" + (i+1) + ".src='content/images/check" + gTourCookie.charAt(i) + ".gif';");
+  }
+  i8.style.left = (590 - document.all.i8.offsetWidth);
+  loader.style.visibility="hidden";
+  pagecontents.style.visibility="";
+  window.focus();
+  i1.focus();
+</script>
+
+<script language="JavaScript" for=document event=onclick>
+  if (window.event.shiftKey) { return false; }
+</script>
+
+<script language="JavaScript" for=document event=onkeydown>
+  var whatkey = window.event.keyCode - 48;
+  if ( (whatkey > 0) && (whatkey < 7) ) { lesson(whatkey); }
+  else if ( (whatkey > 48) && (whatkey < 55) ) { lesson(whatkey-48); }
+  else if (whatkey == -39) { doTab() }
+  else if ( (whatkey==19) && (window.event.altKey) ) { engine.Exit(); }
+</script>
+
+<script language="JavaScript">
+var l2 = new Image();
+l2.src="content/images/loading.gif";
+
+var engine = window.external;
+var tabNum = 0;
+var gTourCookie = engine.getString();
+if (gTourCookie == "") {
+  engine.setString ("000000");
+  gTourCookie = "000000";
+  }
+
+function doTab() {
+  if (window.event.shiftKey) { tabNum--; }
+  else { tabNum++; }
+  if (tabNum > 8) { tabNum = 1; window.focus();}
+  if (tabNum < 1) { tabNum = 8; }
+  eval("a" + tabNum + ".focus();");
+ }
+
+function lesson(num) {
+  engine.StartTour("overview/content/l"+num+"frame.htm");
+}
+
+function over(num) {
+  if (num == 7) {
+    eval("i" + num + ".src='content/images/cont_ovr.gif';");
+  } else {
+  eval("i" + num + ".src='content/images/s" + num + "_ovr.gif';");
+  }
+  eval("s" + num + ".style.textDecoration='underline';");
+}
+
+function out(num) {
+  if (num == 7) {
+    eval("i" + num + ".src='content/images/cont_def.gif';");
+  } else {
+    eval("i" + num + ".src='content/images/s" + num + "_def.gif';");
+  }
+  eval("s" + num + ".style.textDecoration='none';");
+}
+
+</script>
+
+</head>
+
+<body background="content/images/bg_ovr.jpg"
+  bgcolor="#FFFFFF" text="#000000" topmargin=0 leftmargin=0
+  style="background-repeat: no-repeat;">
+
+<OBJECT ID="Data1" WIDTH=0 HEIGHT=0
+  CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+  <PARAM NAME="TextQualifier" VALUE="%">
+  <PARAM NAME="FieldDelim" VALUE="|">
+  <PARAM NAME="DataURL" VALUE="content/data/tooldata.txt">
+</OBJECT>
+
+<div id="loader" style="position:absolute; top:200; left:0; width:604;">
+<center><img src="../images/loading.gif"></center>
+</div>
+
+<div id=pagecontents style="position:absolute; top:0; left:0; width:100%; height:100%;z-index:10; visibility:hidden;">
+
+
+<img src="content/images/logo.gif" style="position:absolute; top:10; left:15;">
+
+<div style="position:relative; top:62; left:280;">
+  <img src="content/images/selttl.gif" style="position:absolute; top:0; left:0;">
+  <img src="content/images/blueline.gif" style="position:absolute; top:72; left:30;">
+  <div DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column8" style="position:absolute; left:30; top:82; width:250;"></div>
+</div>
+
+<div id=numbers style="position:relative; top:65; left:25; width:250;"><font size=3>
+  <img id=check1 src="content/images/check0.gif" align=absmiddle>
+  <a id=a1 href="javascript:lesson(1);" onmouseover="over(1)" onmouseout="out(1)" onfocus="over(1)" onblur="out(1)"><img id=i1 src="content/images/s1_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s1 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column10" style="width:150;"></span></a>
+  <br clear=all>
+
+  <img id=check2 src="content/images/check0.gif" align=absmiddle>
+  <a id=a2 href="javascript:lesson(2);" onmouseover="over(2)" onmouseout="out(2)" onfocus="over(2)" onblur="out(2)"><img id=i2 src="content/images/s2_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s2 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column13" style="width:150;"></span></a>
+  <br clear=all>
+
+  <img id=check3 src="content/images/check0.gif" align=absmiddle>
+  <a id=a3 href="javascript:lesson(3);" onmouseover="over(3)" onmouseout="out(3)" onfocus="over(3)" onblur="out(3)"><img id=i3 src="content/images/s3_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s3 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column14" style="width:150;"></span></a>
+  <br clear=all>
+
+  <img id=check4 src="content/images/check0.gif" align=absmiddle>
+  <a id=a4 href="javascript:lesson(4);" onmouseover="over(4)" onmouseout="out(4)" onfocus="over(4)" onblur="out(4)"><img id=i4 src="content/images/s4_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s4 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column15" style="width:150;"></span></a>
+  <br clear=all>
+
+  <img id=check5 src="content/images/check0.gif" align=absmiddle>
+  <a id=a5 href="javascript:lesson(5);" onmouseover="over(5)" onmouseout="out(5)" onfocus="over(5)" onblur="out(5)"><img id=i5 src="content/images/s5_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s5 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column11" style="width:150;"></span></a>
+  <br clear=all>
+
+  <img id=check6 src="content/images/check0.gif" align=absmiddle>
+  <a id=a6 href="javascript:lesson(6);" onmouseover="over(6)" onmouseout="out(6)" onfocus="over(6)" onblur="out(6)"><img id=i6 src="content/images/s6_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s6 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column12" style="width:150;"></span></a>
+  </font>
+  <p>
+
+  <font size=2>
+  <a id=a7 href="../default.htm" onmouseover="over(7)" onmouseout="out(7)" onfocus="over(7)" onblur="out(7)">
+  <img id=i7 src="content/images/cont_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s7 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column9"></span>
+  </a></font>
+  <br clear=all>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+
+<!-- close button image -->
+<a id=a8 href="#" onclick="engine.Exit();" onfocus="i8.src='content/images/clbtn2.gif'" onblur="i8.src='content/images/clbtn1.gif'"><img id=i8 src="content/images/clbtn1.gif" border=0 style="position:absolute; top:422; left:500;" onmouseover="this.src='content/images/clbtn2.gif'" onmouseout="this.src='content/images/clbtn1.gif'"></a>
+
+<script language="JavaScript">engine.SetTitleText(Data1.recordset.Fields('Column7'));</script>
+</div>
+</body>
+</html>

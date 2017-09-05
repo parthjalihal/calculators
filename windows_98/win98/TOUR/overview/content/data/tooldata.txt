@@ -1,0 +1,20 @@
+%
+Lessons
+%|%
+Back
+%|%
+Next
+%|%
+Show Me
+%|%
+
+%|%
+of
+%|%Windows 98 Overview%|%
+Press the corresponding number on your keyboard or click a lesson title to begin.
+%|%
+Contents
+%|%Starting a Program%|%Connecting to the Internet%|%Exploring the Active Desktop%|%Exploring Files and Folders%|%Finding Information%|%Managing Open Windows%|% %|%
+Close
+%|%This is a demonstration.  Click anywhere to close, then try it yourself.
+%

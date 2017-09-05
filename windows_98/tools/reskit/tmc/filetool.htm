@@ -1,0 +1,235 @@
+<HTML>
+
+<HEAD>
+
+<TITLE> File Tools </TITLE>
+
+<BASEFONT face="Tahoma,Arial" color="black" size=1>
+<STYLE>
+<!--
+  TD      {text-align: left}
+  A       {font-weight: bold; text-decoration: none; color="black"}
+-->
+</STYLE>
+</HEAD>
+
+<SCRIPT language="VBScript">
+<!--
+
+  'Main functions to perform task highlighting on with mouse movement
+
+  Sub DoMouseOver(task)
+    document.anchors("Task" & task).style.color="#0000CC"
+    document.anchors("Task" & task).style.textdecorationunderline=true
+  End Sub
+
+  Sub DoMouseOut(task)
+    document.anchors("Task" & task).style.color="black"
+    document.anchors("Task" & task).style.textdecorationunderline=false
+  End Sub
+
+  Sub FireUpBinary(BinaryName, SubDir)
+    Call TMCTkpad.LaunchGUI(Cstr(BinaryName), CStr(SubDir))
+  End sub
+
+  Sub FireUpConsole()
+    Call TMCTkpad.LaunchConsole()
+  End sub
+
+  Sub FireUpConsoleEX( ConsoleEXEName, SubDir, ArgString )
+    Call TMCTkpad.LaunchConsoleEx(Cstr(ConsoleEXEName), CStr(SubDir), CStr(ArgString))
+  End sub
+
+  Sub FireUpHelp( HelpEXEName, SubDir, HelpID )
+    Call TMCTkpad.LaunchHelp(Cstr(HelpEXEName), CStr(SubDir), HelpID)
+  End sub
+
+-->
+</SCRIPT>
+
+<BODY bgcolor="white" topmargin=0 leftmargin=0>
+
+    <!--------------------------------->
+    <!-- TaskPad Title Area Table    -->
+    <!--------------------------------->
+
+<TABLE width="100%" border=0 cellpadding=0 cellspacing=0 background="NTtile.gif">
+  <TR height=89>
+    <TD width=89>
+      <IMG align="middle" src="NTDisk.gif" width=89 height=89>
+    </TD>
+
+    <TD valign="top">
+      <FONT size=4><B>
+
+      File Tools
+
+      </B></FONT><BR>
+      <FONT size=2>
+
+      File Management, Information, and Conversion tools
+
+      </FONT>
+    </TD>
+
+    <TD halign=left valign=top width=5 background="NTtile.gif">
+    </TD>
+  </TR>
+</TABLE>
+<BR><BR>
+
+    <!--------------------------------->
+    <!-- TaskPad Tool Area Table     -->
+    <!--------------------------------->
+
+<TABLE width=* border=0 cellpadding=0 cellspacing=4>
+    <TR valign=top>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Lfnback -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon01" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("01")
+                           onMouseOut=DoMouseOut("01")
+                           onClick= "Call FireUpHelp('win98rk.hlp', '', 301)">
+            <IMG SRC="help.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task01" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("01")
+                           onMouseOut=DoMouseOut("01")
+                           onClick= "Call FireUpHelp('win98rk.hlp', '', 301)">
+              Lfnback
+            </A><BR>
+            Backs up and restores long filenames for use with legacy disk utilities.
+        </FONT>
+      </TD>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Text File Viewer -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon02" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("02")
+                           onMouseOut=DoMouseOut("02")
+                           onClick= "Call FireUpBinary('textview.exe', '')">
+            <IMG SRC="gui.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task02" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("02")
+                           onMouseOut=DoMouseOut("02")
+                           onClick= "Call FireUpBinary('textview.exe', '')">
+              Text File Viewer
+            </A><BR>
+            Quickly displays the contents of text files.
+        </FONT>
+      </TD>
+      <TD halign=left valign=top width=5>
+      </TD>
+    </TR>
+
+    <!-- Blank Row for Spacing -->
+    <TR>
+      <TD>&nbsp;<BR>&nbsp;</TD>
+    </TR>
+
+
+    <TR valign=top>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Where -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon03" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("03")
+                           onMouseOut=DoMouseOut("03")
+                           onClick= "Call FireUpConsoleEX('where.exe', '', '/?')">
+            <IMG SRC="console.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task03" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("03")
+                           onMouseOut=DoMouseOut("03")
+                           onClick= "Call FireUpConsoleEX('where.exe', '', '/?')">
+              Where
+            </A><BR>
+            Command-line tool that reports the location of a specified file on the hard disk.
+        </FONT>
+      </TD>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- WinDiff -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon04" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("04")
+                           onMouseOut=DoMouseOut("04")
+                           onClick= "Call FireUpBinary('windiff.exe', '')">
+            <IMG SRC="gui.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task04" HREF="filetool.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("04")
+                           onMouseOut=DoMouseOut("04")
+                           onClick= "Call FireUpBinary('windiff.exe', '')">
+              WinDiff
+            </A><BR>
+            Compares the contents of files or directories and reports differences.
+        </FONT>
+      </TD>
+      <TD halign=left valign=top width=5>
+      </TD>
+    </TR>
+
+    <!-- Blank Row for Spacing -->
+    <TR>
+      <TD>&nbsp;<BR>&nbsp;</TD>
+    </TR>
+
+
+</TABLE
+
+<P>
+    &nbsp;
+    <OBJECT id="TMCTkpad" name="TMCTkpad"
+    classid="CLSID:D306C3B7-2AD5-11D1-9E9A-00805F200005"
+    align="baseline" border="0" width="0" height="0">
+    </OBJECT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,67 @@
+Product Name	 Windows 98 ResourceKit		
+
+App Version	1.0.0.0001		
+
+Tool Category	Friendly Name	HTML Name	Description
+
+ToolCat	Accessibility Tools	access.htm	Tools and Utilities for Enhancing Windows 98 Accessibility
+ToolCat	Configuration Tools	config.htm	Tools and Utilities for Windows 98 Confirguration
+ToolCat	Deployment Tools	deploy.htm	Tools and Utilities for Windows 98 Setup and Deployment
+ToolCat	Desktop Tools	desktop.htm	Tools and Utilities for Customizing and Optimizing the Windows 98 Desktop
+ToolCat	Diagnostics and Trouble-shooting	dxtshoot.htm	Tools and Utilities for System Diagnostics and Troubleshooting Hardware and Applications
+ToolCat	File Tools	filetool.htm	File Management, Information, and Conversion tools
+ToolCat	Network Administration Tools	netadmin.htm	Network Administration Tools
+ToolCat	Performance Tools	perform.htm	Tools for Optimizing Windows 98 Performance
+ToolCat	Registry Tools	regtool.htm	Registry Maintenance, Troubleshooting, and Diagnostics Tools
+ToolCat	Scripting Tools	scriptol.htm	Scripting Tools, Languages, and Samples								
+
+AZCategory	First Char	Last Char	Description								
+
+AtoZ	A	C	A to C								
+AtoZ	D	O	D to O								
+AtoZ	P	R	P to R								
+AtoZ	S	T	S to T								
+AtoZ	U	Z	U to Z								
+
+OnLineBooks	Status	Type	Friendly Name	Binary File	Console Parms	CD Binary Location	HelpLink	HelpID	Platform	Description	
+
+OnLineBK	Enable	HELP	Resource Kit Tools Help	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	400	B	B	Windows 98 Resource Kit Tools Help
+OnLineBK	Enable	DOC	Release Notes	readme.doc		\docs\readme.doc	win98rk.hlp	400	B	B	Release Notes
+OnLineBK	Enable	HTML	Resource Kit Online Book	rk98book.chm		\help\rk98book.chm	rk98book.chm	500	B	B	Windows 98 Resource Kit Online Book
+
+Status	Type	Friendly Name	Binary File	Console Parms	CD Binary Location	HelpLink	HelpID	Product	Platform	Category	Description
+
+Enable	GUI	Fat 32 Conversion Information Tool	fat32win.exe		\config\fat32win.exe	win98rk.hlp	401	B	B	Configuration Tools	Estimates the amount of free disk space gained by converting to a FAT32 file system.
+Enable	GUI	Code Page Changer	chdoscp.exe		\config\chdoscp\chdoscp.exe	win98rk.hlp	2	B	B	Configuration Tools	Changes the Code Page used for MS-DOS-based programs to match Windows 98 Regional Settings.
+Enable	GUI	Time Zone Editor	tzedit.exe		\config\tzedit.exe	win98rk.hlp	205	B	B	Configuration Tools	Creates and edits time zone entries for the Date/Time icon in Control Panel.
+
+Enable	GUI	Batch98	batchs.exe		\deploy\batchs.exe	win98rk.hlp	13	B	B	Deployment Tools	Creates files for automated installation of Windows 98 and components.
+Enable	GUI	Windows 98 INF Installer	infinst.exe		\infinst\infinst.exe	win98rk.hlp	15	B	B	Deployment Tools	Allows addition of INF's and drivers to Windows 98 setup.
+
+
+Enable	GUI	ClipTray	cliptray.exe		\desktop\cliptray.exe	win98rk.hlp	4	B	B	Desktop Tools	Optimizes and manages the Clipboard.
+Enable	GUI	Image Editor	imagedit.exe		\desktop\imagedit.exe	win98rk.hlp	6	B	B	Desktop Tools	Edits icon and cursor graphic files.
+Enable	GUI	Checklinks	checklinks.exe		\desktop\chklnks.exe	win98rk.hlp	10	B	B	Desktop Tools	Finds and eliminates dead links and shortcuts.
+Enable	HELP	Minitel .TTF Files	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	7	B	B	Desktop Tools	Minitel font emulation files for Hyperterminal.
+Enable	GUI	Quiktray	quiktray.exe		\desktop\quiktray.exe	win98rk.hlp	9	B	B	Desktop Tools	Organizes the icons in the Windows 98 system tray.
+Enable	HELP	TweakUI	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	46	B	B	Desktop Tools	Enhances and customizes the Windows 98 desktop.
+
+
+Enable	GUI	Microsoft File Information	fileinfo.exe		\diagnose\fileinfo.exe	win98rk.hlp	23	B	B	Diagnostics and Trouble-shooting	Provides detailed information on Windows 98 and Internet Explorer system files.
+Enable	GUI	USB Viewer	usbview.exe		\diagnose\usbview.exe	win98rk.hlp	28	B	B	Diagnostics and Trouble-shooting	Displays configuration information for Universal Serial Bus devices installed on your system.
+
+Enable	HELP	Lfnback	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	301	B	B	File Tools	Backs up and restores long filenames for use with legacy disk utilities.
+Enable	GUI	Text File Viewer	textview.exe		\file\textview.exe	win98rk.hlp	39	B	B	File Tools	Quickly displays the contents of text files.
+Enable	CONSOLE	Where	where.exe	/?	\file\where.exe	win98rk.hlp	41	B	B	File Tools	Command-line tool that reports the location of a specified file on the hard disk.
+Enable	GUI	WinDiff	windiff.exe		\file\windiff.exe	win98rk.hlp	42	B	B	File Tools	Compares the contents of files or directories and reports differences.
+
+Enable	HELP	Password List Editor	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	302	B	B	Network Administration Tools	Removes entries from a Windows 98 password list file.
+Enable	HELP	Network Monitor Service	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	210	B	B	Network Administration Tools	Service for remote monitoring of network performance on Windows 98 client machines.
+Enable	HELP	Remote Registry Service	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	203	B	B	Network Administration Tools	Allows remote viewing and editing of the registries of Windows 98 machines on a network.
+Enable	HELP	RPC Print Provider	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	306	B	B	Network Administration Tools	Allows Windows 98 clients to administer printer queues on NT networks.
+Enable	HELP	SNMP Agent	win98rk.hlp		\help\win98rk.hlp	win98rk.hlp	300	B	B	Network Administration Tools	Allows Windows 98 machines to commumicate on SNMP networks.
+
+Enable	CONSOLE	TimeThis	timethis.exe	/?	\scrpting\timethis.exe	win98rk.hlp	62	B	B	Scripting Tools	Scripting tool that times how long it takes for the system to execute a given command.
+Enable	CONSOLE	Waitfor	waitfor.exe	/?	\scrpting\waitfor.exe	win98rk.hlp	63	B	B	Scripting Tools	Scripting tool that causes the computer to wait for signal sent over the network.
+Enable	HELP	Windows Scripting Host Administrators Guide	wshadmin.hlp		\scrpting\wshadmin.hlp	wshadmin.hlp	0	B	B	Scripting Tools	Guide to running scripts and designing applications for Windows Scripting Host.
+Enable	CONSOLE	Winset	winset.exe	/?	\scrpting\winset.exe	win98rk.hlp	204	B	B	Scripting Tools	Command-line/scripting tool that sets global environment variables for Windows 98.

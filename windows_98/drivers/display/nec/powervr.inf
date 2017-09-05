@@ -1,0 +1,253 @@
+;******************************************************************
+;
+;		PowerVR Installation 
+;		        
+;                     PCX2
+;
+;	       Build 4.1.1.5 Patch Release
+;
+;
+;				Last Modified : 9th April, 1998
+;******************************************************************
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+Provider=%String0%
+
+;******************************************************************
+;The Default directory for installing files is Windows
+;PowerVR copies files into the Windows directory (Midas_WindowsFiles)
+;and the Windows\System directory (Midas_SystemFiles). 
+;
+;It is recommended that these are not changed.
+;
+;Midas is the internal name for PowerVR.
+;******************************************************************
+[DestinationDirs]
+DefaultDestDir=10
+Midas_WindowsFiles=10
+Midas_SystemFiles=11
+
+[Manufacturer]
+%String1%=Mfg
+
+;******************************************************************
+;From reading the Vendor and Device ID for the board being
+;installed, the installer can determine whether it is a PCX1 or PCX2. 
+;A PCX2 will take the install path set out as Midas5
+;A PCX1 will take the install path set out as Midas4
+;******************************************************************
+[Mfg]
+%String23%=Midas5,PCI\VEN_1033&DEV_0046,PCI\VEN_1033&DEV_0046
+
+;******************************************************************
+;The Install Route
+;-----------------
+;
+;Taking the relevent install route (e.g. PCX2 - Midas5) 
+;the installation process is as follows:
+;
+;1. Delete Registry settings that may be resident from previous installations.
+;2. Delete any files that may be resident and are now redundant.
+;3. Copy the relevent files.
+;4. Add the new registry settings.
+;5. Update the .ini settigns.
+;6. Force Windows to reboot (to install any system files in use at time of installation).
+;******************************************************************
+[Midas5]
+DelReg=Midas_DelReg
+DelFiles=Midas_DelFiles
+CopyFiles=Midas5_WindowsFiles,Midas_SystemFiles
+AddReg=Midas5_AddReg
+UpdateInis=Midas5_UpdateInis
+Restart
+
+;******************************************************************
+;Copy files
+;----------
+;
+;Copy the files into their destined directories.
+;Midas5_WindowsFiles = Windows Directory
+;Midas_SystemFiles   = Systems Directory
+;******************************************************************
+[Midas5_WindowsFiles]
+sgl.dll
+sglmid5.dll
+pvros.dll
+pvrmid5.dll
+pvrsmx.dll
+
+[Midas_SystemFiles]
+vsgl.vxd
+pvrsm3d.dll
+pvrhal32.dll
+pvrinit.exe
+
+;******************************************************************
+;System CleanUp
+;--------------
+;
+;The system is cleared of any settings within SGLHW.INI and 
+;the PowerVR section of the Registry ready for the defualt
+;settings of the current build
+;******************************************************************
+[Midas_DelFiles]
+sglhw.ini
+
+[Midas_DelReg]
+HKLM,SOFTWARE\VideoLogic\PowerVR
+HKLM,SOFTWARE\PowerVR\PCX1&2
+
+;******************************************************************
+;Add Registry Settings
+;---------------------
+;
+;Midas5_AddReg = PCX2
+;
+; The Registry structure is 
+;
+;	HKR,,DevLoader,0,vsgl.vxd (VXD install)
+;	HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,PowerVR,0,pvrinit.exe (PVRINIT upon Windows StartUp)
+;
+;	HKLM, SOFTWARE\PowerVR\PCX1&2
+;			|
+;			|__AppHints
+;			|	|
+;			|	|_flight
+;			|	|
+;			|	|_vlflite
+;			|
+;			|
+;			|__HWINI
+;			|	|
+;			|	|_Defaults
+;			|	|
+;			|	|_PVRHAL
+;			|
+;			|__LastApp
+;			|
+;			|
+;			|__Smart3D
+;			|	|
+;			|	|_Layout
+;			|
+;			|__StartUp
+;			
+;
+;******************************************************************
+[Midas5_AddReg]
+HKLM,System\CurrentControlSet\Control\SessionManager\KnownVxDs,SGL,0,vsgl.vxd
+HKLM,Software\Microsoft\DirectDraw\Secondary,Name,0,pvrhal32.dll
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\flight.exe,%String4%,0,0.000001
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\flight.exe,BilinearState,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\flight.exe,BilinearCtlEnable,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\flight.exe,BilinearFilteringMode,0,3
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\vlflite.exe,%String4%,0,0.000001
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\vlflite.exe,BilinearState,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\vlflite.exe,BilinearCtlEnable,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\%String3%\vlflite.exe,BilinearFilteringMode,0,3
+HKCR,CLSID\{6B1823E0-AC36-11d0-821F-00802964BD71},,0,"PowerVR Shell Extension"
+HKCR,CLSID\{6B1823E0-AC36-11d0-821F-00802964BD71}\InProcServer32,,0,%11%"\pvrsm3d.dll"
+HKCR,CLSID\{6B1823E0-AC36-11d0-821F-00802964BD71}\InProcServer32,ThreadingModel,0,Apartment
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\"Controls Folder"\Display\shellex\PropertySheetHandlers\PowerVRPage,,0,{6B1823E0-AC36-11d0-821F-00802964BD71}
+HKCR,POWERVR\CLSID,,0,{6B1823E0-AC36-11d0-821F-00802964BD71}
+HKLM,SOFTWARE\PowerVR\PCX1&2\GraphicsCards\VEN_105D&DEV_2339,StrictLocks,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,AppTitle,0,PowerVR
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,MainLogo,0,""
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,InfoBitmap,0,""
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,GroupText",0,"3D Control Settings"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,CheckboxText,0,"&Enable PowerVR HAL"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,MainText,0,"This page allows you to adjust the PowerVR properties.  You can enable or disable the HAL."
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,BoardText,0,"Board ID: %s"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,VersionText,0,"HAL version: %s"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,SGLVersionText,0,"SGL version: %s"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,StrictLocksGroupText,0,"2D/3D Acceleration"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,StrictLocksOnText,0,"Standard"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,StrictLocksOffText,0,"Optimized (recommended)"
+HKLM,SOFTWARE\PowerVR\PCX1&2\Smart3d\Layout,ProductReleaseText,0,"Product Release: %s"
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,"SLReadOnly",0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,ProductRelease,0,"PowerVR 4.1.1 PatchRel"
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,StrictLocks,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,ISPParamSize,0,1536
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,TSPParamSize,0,256
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,ObjectParamSize,0,512
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,BilinearCtlEnable,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,BilinearState,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,EnableHAL,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,AllowQuads,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,AutoMIPMAP,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,ColourKey,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,Deferred2D,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,DisableNewPassPerTri,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,FullSort,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,GouraudSpecular,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,TableFog,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\PVRHAL,VertexFog,0,0
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,SetMaskingBGColour,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,FullMaskingPlane,0,1
+HKLM,SOFTWARE\PowerVR\PCX1&2\HWINI\Defaults,BilinearFilteringMode,0,3
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,PowerVR,0,pvrinit.exe
+HKR,,DevLoader,0,vsgl.vxd
+
+
+;******************************************************************
+;Update .ini Files
+;-----------------
+;
+;******************************************************************
+[Midas5_UpdateInis]
+%10%\sglhw.ini,default,,"StrictLocks=0",0
+%10%\sglhw.ini,default,,"SW_XRegionSize=32",0
+%10%\sglhw.ini,default,,"SW_YRegionSize=32",0
+
+;******************************************************************
+;Source Info
+;-----------
+;
+;SourceDiskNames is left blank to force user to point installer to files
+;
+;SourceDisksFiles - All the files to be installed
+;******************************************************************
+[SourceDisksNames]
+51=%String5%,,1
+
+[SourceDisksFiles]
+sgl.dll=51
+sglmid5.dll=51
+pvros.dll=51
+pvrmid5.dll=51
+vsgl.vxd=51
+pvrsm3d.dll=51
+pvrhal32.dll=51
+pvrinit.exe=51
+pvrsmx.dll=51
+
+;******************************************************************
+;Strings
+;-------
+;
+;Strings used throughout the .inf file
+;******************************************************************
+[Strings]
+String0="VideoLogic"
+String1="VideoLogic"
+String3="App hints"
+String4="Near Z Clip"
+String5="PowerVR Windows '95 Installation disk"
+String6="Need3DOn2D"
+String7="AutoMIPMap"
+String8="Alt2DBuffer"
+String9="StackRendersTillFlip"
+String10="ExpandTopMap"
+String11="Description"
+String12="DummyZ"
+String13="ReverseTrans"
+String14="Deferred2D"
+String15="SW_XRegionSize"
+String16="SW_YRegionSize"
+String18="AllowQuads"
+String19="OverrideExclusiveOnlyAsync"
+String20="SW_MinYSize"
+String23="PowerVR PCX2"
+

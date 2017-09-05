@@ -1,0 +1,79 @@
+; name and version number:@(#)toswave.inf       1.7*/
+; date of get: 		  11 Mar 1996 17:15:06*/
+; date of delta:	  25 Jan 1996 18:09:55*/
+;
+; Copyright 1996 TOSHIBA 
+; Copyright 1996 AT&T
+;
+; Manufacturer : TOSHIBA
+;
+[Version]
+Signature="$Windows95$"
+Class=MEDIA
+provider=%PROV%
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=Microsoft
+
+[Microsoft]
+; the device id's (MODEMWAVE\AT&T_Windows_Modem_Data_Fax_Modem_Voice)
+; correspond EXACTLY to the modem name with underscores in place of spaces.
+; the names must be an exact match or installer won't find device.
+; this scheme is because of the way the serial wave device enumeration occurs.
+
+%Wavewrap.DeviceDesc%=MSWRAPPER, MODEMWAVE\TOSHIBA_Internal_Modem_(V.34_28.8_Data+Fax+Voice)
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[MSSERWAVE]
+AddReg=MSSERWAVE.AddReg
+
+[MSSERWAVE.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\serwvdrv.drv,Description,,%Serial.DeviceDesc%
+HKR,Drivers\wave\serwvdrv.drv,Driver,,serwvdrv.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,XformModule,  , "umdmxfrm.dll"
+HKR,Config,XformID,     1, 04, 00, 00, 00
+; 2 wave devices - line & local phone
+HKR,Config,WaveDevices,  1, 02, 00
+
+[MSWRAPPER]
+AddReg=MSWRAPPER.AddReg
+
+[MSWRAPPER.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+;---------------------------------------------------------------;
+
+[Strings]
+PROV="TOSHIBA"
+MfgName="TOSHIBA"
+Wavewrap.DeviceDesc="TOSHIBA Voice Modem Wave Device"
+MediaClassName="Sound, video and game controllers"
+

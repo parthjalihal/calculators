@@ -1,0 +1,451 @@
+<HTML>
+<HEAD>
+<TITLE>
+Channel WSJ+ -- Front Page
+</TITLE>
+
+<STYLE>
+
+/* NOTE: Below does not work as hoped. */
+
+expltest
+{
+	background-color: white;
+	 z-index: 10;
+}
+
+#sample
+	{
+	position: absolute;
+	top: 0px;
+	left: 310px;
+	color: "#CCCCCC";
+	z-index: -1;
+	}
+
+
+html
+	{
+	overflow:clip;
+	}
+
+p.sep
+	{
+	text-align: center;
+	font-family: Arial;
+	font-size: 20px;
+	margin-top: 6px;
+	margin-bottom: 0px;
+	}
+#sums
+	{
+	position:absolute;
+	visibility:hidden;
+	top: 105px;
+	left: 0px;
+	width: 300px;
+	height: 300px;
+	overflow: scroll;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	background-color: white;
+	}
+
+#channels
+	{
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	width: 300px;
+	height: 5px;
+	overflow: clip;
+	}
+
+#help
+	{
+	position:absolute;
+	visibility:hidden;
+	top: 470px;
+	left: 0px;
+	width: 300px;
+	height: 85px;
+	overflow: clip;
+	margin: 4px;
+	font-size: 12px;
+	font-family: Arial;
+	color: blue;
+	}
+
+
+div.shownart
+	{
+	visibility:visible;
+	position:absolute;
+	top:0px;
+	left:300px;
+	width: 430px;
+	overflow: scroll;
+	margin: 10px;
+	padding: 10px;
+	font-size: 14px;
+	}
+
+div.hiddenart
+	{
+	visibility:hidden;
+	position:absolute;
+	top:0px;
+	left:300px;
+	width: 430px;
+	overflow: scroll;
+	margin: 10px;
+	padding: 10px;
+	}
+
+div.unvisited
+	{
+	background-color:white;
+	}
+
+div.active
+	{
+	background-color:#CCCCCC;
+	}
+
+div.visited
+	{
+	background-color:#bbbbbb;
+	}
+
+</STYLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+// Global to save which story is currently being viewed
+var ShownID=0
+var totalDocs=0
+
+function main()
+	{
+	checkResize();
+	calcDocs();
+	document.all["sums"].style.visibility = "visible";
+//	document.all["help"].style.visibility = "visible";
+	showDoc(1)
+	}
+	
+function checkResize()
+	{
+	document.all["sums"].style.posHeight = document.body.clientHeight - 95;
+//	document.all["help"].style.posTop = document.body.clientHeight - 75;
+
+	mydivs=document.all.tags('div')
+	for (i=0 ; i<mydivs.length ; i++)
+		{
+		if ( (mydivs[i].className == "shownart") || (mydivs[i].className == "hiddenart") )
+			mydivs[i].style.posHeight = document.body.clientHeight;
+			mydivs[i].style.posWidth = document.body.clientWidth - 300;
+
+		// Shouldn't need the following lines; but in build 912, the layout breaks without it.
+			document.all["channels"].style.posWidth = 300;
+			document.all["sums"].style.posWidth = 300;
+//			document.all["help"].style.posWidth = 300;
+		}
+
+	document.all["sample"].style.posHeight=document.body.clientHeight;
+	document.all["sample"].style.posWidth=document.body.clientWidth-300;
+	
+
+	}
+
+function calcDocs()
+	{
+	mydivs=document.all.tags('div')
+	for (i=0 ; i<mydivs.length ; i++)
+		{
+		if (mydivs[i].className=='unvisited')
+			{
+			totalDocs++;
+			}	
+		}
+	}
+	
+function checkKey()
+	{
+//	debug.value=window.event.keyCode;
+	myKey=window.event.keyCode;
+
+	if ( (myKey == 32) || (myKey == 110) )
+		{
+		hideDoc
+		if (ShownID == totalDocs)
+			nextDoc = 1;
+		else
+			nextDoc = ShownID + 1;
+		showDoc(nextDoc);
+		}
+	else if ( (myKey == 112) )
+		{
+		hideDoc
+		if (ShownID == 1)
+			nextDoc = totalDocs;
+		else
+			nextDoc = ShownID - 1;
+		showDoc(nextDoc);
+		}
+	}
+	
+
+function hideDoc()
+	{
+	hideSumID="s" + ShownID
+	hideIconID="i" + ShownID
+	hideArtID="a" + ShownID
+	document.all[hideSumID].className="inactive"		
+	document.all[hideArtID].className="hiddenart"
+	document.all[hideIconID].src="images/chPast.gif"	
+//	document.all["sampleshow"].className="inactive"
+	}
+
+function showDoc (IDNum)
+{
+	// Hide the sample
+
+	document.all["sample"].style.color='#CCCCCC'
+
+	// Hide whatever story is showing now.
+	if (ShownID != 0)
+	{
+		hideDoc();
+	}
+
+	//Record change in global
+	ShownID=IDNum
+
+	showSumID = "s" + IDNum
+	showIconID = "i" + IDNum
+	showArtID = "a" + IDNum
+	document.all[showSumID].className="active"
+	document.all[showSumID].scrollIntoView(0);
+	document.all[showIconID].src="images/chPres.gif"
+	document.all[showArtID].className="shownart"
+
+}
+
+
+function showSample()
+{
+	hideDoc();
+	document.all["sample"].style.color='black';
+	document.all["s5"].className="active"
+	document.all["i5"].src="images/chPres.gif"
+	ShownID=5;
+
+}
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="main()" onResize="checkResize()" onkeypress="checkKey()" bgcolor="white">
+
+<MAP NAME="ch.cmp">
+<AREA SHAPE=RECT COORDS="80,1,280,19" HREF="http://wsj.com/tour.htm" ALT="Take a Tour" TARGET="_top">
+<AREA SHAPE=RECT COORDS="80,19,280,36" HREF="http://wsj.com/regchoice.html" TARGET="_top">
+<AREA SHAPE=RECT COORDS="81,38,280,53" HREF="http://wsj.com/" TARGET="_top">
+<AREA SHAPE=RECT COORDS="0,72,60,94" HREF="front.htm">
+<AREA SHAPE=RECT COORDS="61,71,109,94" HREF="asia.htm">
+<AREA SHAPE=RECT COORDS="112,70,209,95" HREF="picks.htm">
+<AREA SHAPE=RECT COORDS="211,70,279,93" HREF="europe.htm">
+</MAP>
+
+<div id=channels align=center>
+
+<IMG SRC="images/chEurope.gif" WIDTH=280 HEIGHT=94 USEMAP="#ch.cmp" BORDER=0>
+
+</div>
+
+<div id=sums>
+
+<div id="s1" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(1)"><img id="i1" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Updated business news from<BR>
+	The Wall Street Journal
+	</td></tr></table>
+</div>
+
+<div id="s2" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(2)"><img id="i2" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Click  icons next to headlines<BR>
+	to display news on right side
+	</td></tr></table>
+</div>
+
+<div id="s3" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(3)"><img id="i3" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	As you read articles,<BR>
+	icons show checkmarks
+	</td></tr></table>
+</div>
+<div id="s4" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(4)"><img id="i4" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Read other news sections<BR>
+	using links above
+
+	</td></tr></table>
+</div>
+<div id="s5" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showSample()"><img id="i5" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Sample article
+
+	</td></tr></table>
+</div>
+
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871561865168323000.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a1" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+This section features top business news from Europe.
+</P>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871515428406612000.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a2" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+As you click the headline icons, the story will  be displayed in this space.
+ You can also use your keyboard, typing "n" or pressing the space bar to go to the next article, and "p" to back up.
+</P>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871490147285085500.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a3" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+Once you've clicked on a story, the icon to the left will change to indicate that you've already read it.
+</p>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871516115947784500.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a4" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+Use the links in the upper left-hand corner to read news in the other three sections of The Wall Street Journal's channel: <A HREF="front.htm">Front</A>, <A HREF="asia.htm">Asia</A>, and <A HREF="picks.htm">Editors' Picks</A>.</P>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">You can also take a tour of The Wall Street Journal Interactive Edition, subscribe to the Interactive Journal, or  see the Interactive Journal's home page.
+</P>
+</div>
+
+
+
+
+<div id="sample">
+
+
+<h2 class="ArtHed">Waigel Sticks to Cabinet Shuffle<br>
+As Stoiber Adds Detail to EMU</h2>
+
+<p><b>By S<font size="-1">ILVIA</font> A<font size="-1">SCARELLI</font>
+</b><br><font size="-1">Staff Reporter of </font><font 
+size="-1">T</font><font size="-2">HE</font><font 
+size="-1"> W</font><font size="-2">ALL</font><font 
+size="-1"> S</font><font size="-2">TREET</font><font 
+size="-1">
+J</font><font size="-2">OURNAL</font><font size="-1"></font><br>
+<b></b></p>
+<p>FRANKFURT -- German Finance Minister Theo Waigel continued pushing for a
+cabinet shuffle Thursday, holding the central spotlight in Bonn's annual
+summer theatrics.</p>
+<p>Meanwhile, Bavarian Minister-President Edmund Stoiber, a fellow member
+of the Christian Social Union, proposed delaying the unified European
+currency for two years if either France or Germany doesn't fulfill the
+eligibility criteria "to the letter." While Mr. Stoiber has frequently
+called for a delay, this is the first time he has been specific about the
+length of any postponement.</p>
+<p>A spokesman for Mr. Stoiber said that while Mr. Waigel knows of the
+idea, contingency plan is only Mr. Stoiber's.</p>
+<p class="subhed"><b>Growing Frustration</b></p>
+<p>Mr. Waigel's demands, meanwhile, were once again rebuffed by other
+members of Chancellor Helmut Kohl's ruling coalition, even as another CSU
+official insisted they would be on the agenda of next month's strategy
+session with Mr. Kohl's Christian Democrats.</p>
+<p>For the moment, the headlines are just part of Bonn's summer show,
+analysts said. "There's a good tradition here in Germany that in the
+summer, politicians try to push themes that are near to their hearts,
+because they have the time and the media attention," said Thomas Mayer,
+chief German economist with Goldman, Sachs &amp; Co.</p>
+<p>But he and others said Mr. Waigel's repeated calls for a cabinet shuffle
+-- despite a public refusal from Mr. Kohl -- underline the finance
+minister's growing frustration with what is increasingly becoming a no-win
+job. The unified-currency project has little popular support within
+Germany, and the Christian Social Union fears losing its majority rule in
+Bavarian state elections a year from now. And with the country increasingly
+unlikely to meet a strict reading of the budgetary limits laid out in the
+Maastricht treaty for economic and monetary union, Mr. Waigel will
+increasingly be the indirect target of Mr. Stoiber's attacks. The two are
+political rivals in the CSU, the sister party to Mr. Kohl's Christian
+Democrats, where they hold the most-senior jobs.</p>
+<p class="subhed"><b>Job Speculation Denied</b></p>
+<p>Should Mr. Waigel end his tenure as Germany's longest-serving finance
+minister, the job likely would be passed on to a member of the junior Free
+Democrats, analysts said. That would force the FDP to take more
+responsibility for fiscal policy. Mr. Waigel has become increasingly
+irritated with that party's insistence on a reduction in the so-called
+solidarity income-tax surcharge -- leaving him to plug the funding
+hole.</p>
+<p>But in an interview with the mass-circulation Bild Zeitung published on
+Thursday, Mr. Waigel insisted that he likes his job and isn't looking to
+become foreign minister, as many have speculated. "I'm talking about
+something else," he said. "It is already clear that one or two ministers
+... in the government want to quit after the next general election. It is
+legitimate to say: Let's bring forward these changes, which would be
+necessary anyway after the (September 1998 national) elections, to help the
+coalition."</p>
+<p>Mr. Stoiber, meanwhile, told the French financial daily La Tribune that
+should either Germany or France fail to meet the Maastricht criteria, the
+best solution would be to take another two years to do so and reduce the
+three-year transition period currently planned. Mr. Stoiber argued that
+exchange rates could be fixed on Jan. 1, 2001, instead of Jan. 1, 1999, and
+that the new bills and coins could still be introduced as scheduled on Jan.
+1, 2002.</p>
+<p>A spokeswoman for Mr. Waigel said the government isn't seeking a delay
+and expects the timetable to be met.</p>
+
+</DIV>
+
+
+<DIV id="a5">
+</DIV>
+
+
+</BODY></HTML>

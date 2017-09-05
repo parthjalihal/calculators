@@ -1,0 +1,89 @@
+; subs.adm
+;
+;;;;;;;;;;;;;;;;;;;;;;
+CLASS USER ;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+CATEGORY !!sz_Channels
+KEYNAME "Software\Policies\Microsoft\Internet Explorer\Infodelivery\Restrictions"
+    POLICY !!sz_Channels
+        PART !!MaxSubscriptionSize TEXT END PART
+	PART !!MaxSubscriptionSize1 NUMERIC SPIN 250
+        VALUENAME MaxSubscriptionSize
+        END PART
+        
+        PART !!MaxChannelSize TEXT END PART
+        PART !!MaxChannelSize1 NUMERIC SPIN 250
+        VALUENAME MaxChannelSize
+        END PART
+        
+        PART !!MaxSubscriptionCount TEXT END PART
+	PART !!MaxSubscriptionCount1 NUMERIC SPIN 5
+        VALUENAME MaxSubscriptionCount
+        END PART
+        
+        PART !!MinUpdateInterval TEXT END PART
+        PART !!MinUpdateInterval1 NUMERIC SPIN 60
+        VALUENAME MinUpdateInterval
+        END PART
+        
+        PART !!UpdateExcludeBegin TEXT END PART
+        PART !!UpdateExcludeBegin1 TEXT END PART
+        PART !!UpdateExcludeBegin2 NUMERIC SPIN 60
+        MAX 1440
+        VALUENAME UpdateExcludeBegin
+        END PART
+        
+        PART !!UpdateExcludeEnd TEXT END PART
+        PART !!UpdateExcludeEnd1 TEXT END PART
+        PART !!UpdateExcludeEnd2 NUMERIC SPIN 60
+        MAX 1440
+        VALUENAME UpdateExcludeEnd
+        END PART
+
+        PART !!MaxWebcrawlLevels DROPDOWNLIST
+        VALUENAME MaxWebcrawlLevels
+        ITEMLIST
+        	NAME !!MaxWebcrawlDepth0 VALUE NUMERIC 1
+        	NAME !!MaxWebcrawlDepth1 VALUE NUMERIC 2
+        	NAME !!MaxWebcrawlDepth2 VALUE NUMERIC 3
+        	NAME !!MaxWebcrawlDepth3 VALUE NUMERIC 4
+        END ITEMLIST
+        END PART
+
+    END POLICY
+END CATEGORY
+
+[strings]
+sz_Channels="Subscriptions"
+
+MaxSubscriptionSize="Maximum KB of site subscription"
+MaxSubscriptionSize1="               (zero disables restriction)"
+MaxChannelSize="Maximum KB of channel subscription"
+MaxChannelSize1="               (zero disables restriction)"
+MaxSubscriptionCount="Maximum number of installed site subscriptions"
+MaxSubscriptionCount1="               (zero disables restriction)"
+MinUpdateInterval="Minimum number of minutes between scheduled subscription"
+MinUpdateInterval1="updates. (zero disables restriction)"
+UpdateExcludeBegin="Beginning of range in which to exclude scheduled subscription"
+UpdateExcludeBegin1="updates. Measured in minutes from midnight"
+UpdateExcludeBegin2="               (zero disables restriction)"
+UpdateExcludeEnd="End of range in which to exclude scheduled subscription updates."
+UpdateExcludeEnd1="Measured in minutes from midnight"
+UpdateExcludeEnd2="               (zero disables restriction)"
+MaxWebcrawlLevels="Maximum site subscription crawl depth."
+MaxWebcrawlDepth0="0"
+MaxWebcrawlDepth1="1"
+MaxWebcrawlDepth2="2"
+MaxWebcrawlDepth3="3"
+
+IEAK_Title=Subscriptions
+IEAK_DescriptionTitle=Subscription Settings
+IEAK_Description1=The restrictions on these subscription settings allow you to control the amount of information downloaded. These settings allow you to restrict bandwidth in a number of ways. You may want to consider using these settings if you are concerned about server load.
+IEAK_Description2=Maximum site subscription crawl depth controls how many levels the webcasting update utility will search for new information. This setting should be used carefully as a high setting could make the amount of information being downloaded exponentially large.
+
+[IEAK]
+Lock=1
+Roles=001
+NumOfDescLines=2
+Platform=111

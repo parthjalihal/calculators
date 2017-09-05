@@ -1,0 +1,1150 @@
+<html>
+
+<title></title>
+
+<head>
+
+
+
+<link rel="STYLESHEET" href="master.css" type="text/css">
+
+<script language="javascript">
+
+
+
+function makeCool() {
+
+        src = event.toElement;
+
+        if (src.tagName == "A") {
+
+            var temp = src.className;
+
+            src.className = "cool";
+
+            src.oldClass = temp;
+
+        }
+
+    }
+
+
+
+function makeNormal() {
+
+        src=event.fromElement;
+
+        if (src.tagName == "A") {
+
+            src.className = src.oldClass;
+
+        }
+
+    }
+
+</script>
+
+
+
+<SCRIPT language="javascript">
+
+var n = window.top.frames[0];
+
+var ver = 0;
+
+var visibleVar="null";
+
+var url=location.href;
+
+
+
+ function init(){
+
+        if (navigator.appName == "Netscape") {
+
+                                layerStyleRef="layer.";
+
+                                layerRef="document.layers";
+
+                                styleSwitch="";
+
+                                visibleVar="show";
+
+        }else{
+
+                                layerStyleRef="layer.style.";
+
+                                layerRef="document.all";
+
+                                styleSwitch=".style";
+
+                                visibleVar="visible";
+
+                }
+
+        }
+
+
+
+        function showHideLayerSwitch(layerName){
+
+     
+
+                if (eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility == visibleVar')){
+
+                        hideLayer(layerName);
+
+                }else{
+
+                        showLayer(layerName);
+
+                }
+
+        }
+
+        function showLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="visible"');
+
+        }
+
+        
+
+        function hideLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="hidden"');
+
+        }
+
+        
+
+        function gothere(url)  {
+
+        	location.href=url
+
+        	}
+
+        	
+
+        
+
+        	
+
+       	
+
+
+
+</script>
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+
+
+
+
+Sub Window_OnLoad
+
+	pthMyim.Play()
+
+end sub
+
+
+
+Sub pthMyim_onstop()
+
+	call Transition2()
+
+	call Transition3()
+
+End Sub
+
+
+
+Sub Transition()
+
+	MyImage.style.filter = "revealTrans(Transition=12)"
+
+	MyImage.filters.item(0).Apply
+
+	MyImage.style.visibility= "visible"
+
+	MyImage.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition2()
+
+	MyText.style.filter = "revealTrans(Transition=12)"
+
+	Mytext.filters.item(0).Apply
+
+	Mytext.style.visibility= "visible"
+
+	Mytext.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition3()
+
+	banner.style.filter = "revealTrans(Transition=12)"
+
+	banner.filters.item(0).Apply
+
+	banner.style.visibility= "visible"
+
+	banner.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition10(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Answer1) then
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer2) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer3) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer4) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Answer5) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Answer6) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+Sub Transition11(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Me1) then
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me2) then
+
+			Me1.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me3) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me4) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Me5) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Me6) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+
+
+</SCRIPT>
+
+
+
+<STYLE TYPE="text/css">
+
+#pulldownButton {POSITION: absolute; TOP: 40px; LEFT: 400px; Z-INDEX: 10; }
+
+#pulldownMenu {POSITION: absolute;  VISIBILITY: hidden; TOP: 76px; LEFT: 425px; Z-INDEX: 20; }
+
+#MyText {Position: absolute; top: 56; left: 5; width: 390; height: 100;  visibility: hidden;}
+
+#Answer1 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer2 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer3 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer4 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer5 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer6 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Me1     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me2     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me3     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me4     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me5     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me6     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#who     {Position: absolute; top: 250; left: 420;}
+
+</style>
+
+</head>
+
+
+
+<BODY onload="init();">
+
+
+
+<DIV class=menu  onmouseover='if ("A"==event.toElement.tagName) event.toElement.style.color = "darkblue"' onmouseout='if ("A"==event.fromElement.tagName) event.fromElement.style.color = "#990000"'>
+
+
+
+
+
+
+
+<DIV ID=MyImage Style="position: absolute; top: 85; left:0; z-index: 10">
+
+<img src="art/ww0808.JPG" border=0></div>
+
+
+<DIV ID=aroo Style="position: absolute; top: 47; left:378; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/tag.gif"></A></DIV>
+
+
+
+
+
+<OBJECT ID="pthMyim"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+
+	<PARAM NAME="Shape" VALUE="Polyline(2,0,85,420,85)">
+
+	<PARAM NAME="Target" VALUE="MyImage">
+
+	<PARAM NAME="Duration" VALUE="2.0">
+
+	</OBJECT>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID=who Style="position: absolute; top:250; left:420;">--anonymous</DIV>
+
+
+
+  <DIV ID="pulldownButton">
+
+                <A HREF="javascript:showHideLayerSwitch('pulldownMenu');">
+
+                <IMG ALT="click" BORDER=0 WIDTH=202 HEIGHT=40 SRC="pulldown/should.gif"></a>
+
+        </DIV>
+
+
+
+
+
+        <DIV ID="pulldownMenu">
+
+                <IMG LT="click" USEMAP="#menuMap" BORDER=0 WIDTH=132 HEIGHT=170 SRC="pulldown/pulldown.gif">
+
+        </DIV>
+
+              
+
+<!--<DIV ID=aroo Style="position: absolute; top: 53; left:388; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/arro.gif"></A></DIV>-->
+
+
+
+        
+
+<!--menuMap-->
+
+<MAP NAME="menuMap">
+
+<AREA SHAPE=rect COORDS="15,23,120,37" HREF="javascript:Transition10(MyText,Answer1); Transition11(who,Me1);">
+
+<AREA SHAPE=rect COORDS="16,39,119,50" HREF="javascript:Transition10(MyText,Answer2); Transition11(who,Me2);" >
+
+<AREA SHAPE=rect COORDS="13,51,111,65" HREF="javascript:Transition10(MyText,Answer3); Transition11(who,Me3);" >
+
+<AREA SHAPE=rect COORDS="21,96,118,107" HREF="javascript:Transition10(MyText,Answer4); Transition11(who,Me4);" >
+
+<AREA SHAPE=rect COORDS="23,110,97,121" HREF="javascript:Transition10(MyText,Answer5); Transition11(who,Me5);" >
+
+<AREA SHAPE=rect COORDS="19,123,97,135" HREF="javascript:Transition10(MyText,Answer6); Transition11(who,Me6);" >
+
+<AREA SHAPE=rect COORDS="4,144,127,159" HREF="javascript:Transition10(MyText,MyText); Transition11(who,who);">
+
+<AREA SHAPE=rect COORDS="10,138,117,150" HREF="javascript:gothere('http://www.parentsoup.com/community/');" >
+
+</MAP>
+
+
+
+
+
+
+
+
+
+
+
+<div id=banner Style="position: absolute; top: 10; left: 95; width: 402; z-index:1; visibility: hidden"><IMG SRC="art/psoupy2.gif" WIDTH="402" height="32"></div>
+
+<DIV ID=home Style="position: absolute; top: 40; left:243; height: 100; width:300"><a href="indexa.htm">(back to main page)</a></div>
+
+
+
+<!--<DIV STYLE="position:absolute;left:270; TOP:40; z-index:0"><b>Aug 3 - 6</b></DIV>-->
+
+
+
+
+
+
+
+<!--<DIV STYLE="position:absolute;left:10; TOP:56; z-index:0"><H2>The Dilemma: Problem Child!</h2>
+
+</DIV>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID=MyText>
+
+<H3>The Dilemma: Problem Child!</h3><no br>
+
+	<font size=3><b>M</b></font>y son, who is now 4, is a difficult child. He's hot-tempered,
+
+                              won't pay attention and won't do what he is told. He had a rotten
+
+                                year in nursery school and his teacher and his pediatrician both
+
+                          say that they think he has ADD. I don't want my kid labelled and I
+
+                                 don't want him to take medication. I think we can deal with his
+
+                            behavior with patience and hard work. My husband is siding with
+
+                              the pediatrician and we are arguing about this. Should I go along
+
+                                                           with everyone else or should I trust my instincts?</DIV>
+
+
+
+<!-- *************************   The Me's   ********************* -->
+
+
+
+<DIV ID=Me1 Style="position: absolute; top: 250; left: 420; visibility: hidden"> --- Posted by symphony7 <br> 
+
+</div>
+
+
+
+
+
+<DIV ID=Me2 Style="position: absolute; top:250; left: 420; visibility: hidden">--- Posted by rsneden <br> 
+
+</div>                     
+
+                                                                                                                        
+
+<DIV ID=Me3 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by Ginger<br> 
+
+</div>                      
+
+                                                                                                                        
+
+ <DIV ID=Me4 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by symphony7<br> 
+
+</div>                                                                                                                             
+
+                                                                                                                   
+
+<DIV ID=Me5 Style="position: absolute; top: 250; left: 420; visibility: hidden"> --- Posted by Crazymum  <br> 
+
+</div>                                                                                                                        
+
+ 
+
+ 
+
+ <DIV ID=Me6 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by Fahey-Richardson<br> 
+</div>                                                                                                                  
+
+
+
+
+
+<!-- *************************   The Answers   ********************* -->
+
+<DIV ID=Answer1>
+
+
+
+<H3>A Solution: Give This a Try. . . </h3>
+
+
+
+<font size=3><b>M</b></font>y brother has ADD and didn't get diagnosed
+
+                                                                                                                         till he was 17. He had a hard time all through
+
+                                                                                                                         school that might have been preventable with
+
+                                                                                                                         help--even if the help had just been my
+
+                                                                                                                         parents knowing sooner. I would have him
+
+                                                                                                                         tested before I decided anything. A
+
+                                                                                                                         neurologist here locally highly recommends a
+
+                                                                                                                         natural remedy called Nuro-Boost for
+
+                                                                                                                         ADD/ADHD. It can be found in any health food
+
+                                                                                                                         store and is all natural. It doesn't cure it but
+
+                                                                                                                         it provides some of the missing
+
+                                                                                                                         chemicals/nutrients/etc. caused by the
+
+                                                                                                                         disorder. It might be worth trying or looking
+
+                                                                                                                         into and it's cheaper than Ritalin (and
+
+                                                                                                                         healthier). You can email me if you want.</div>
+
+
+
+                    
+
+                    
+
+
+
+                                                                                                                    
+
+<DIV ID=Answer2>
+
+
+
+<H3>A Solution: Show Me Perfection. . . </h3>
+
+
+
+<font size=3><b>H</b></font>oney, go with your instincts. Do not give
+
+                                                                                                                         your child Ritalin, or any other type of
+
+                                                                                                                         medication. My son who was 4 at the time
+
+                                                                                                                         was also a difficult child. I was told to have
+
+                                                                                                                         him tested for ADHD. I would not. This went
+
+                                                                                                                         on until his 3rd grade when I finally got tired
+
+                                                                                                                         of hearing that my child was ADHD. I took
+
+                                                                                                                         him to a psychologist, who told me that he
+
+                                                                                                                         was not ADHD. He told me that my son was a
+
+                                                                                                                         normal healthy 8 year old. He is now 9 almost
+
+                                                                                                                         10, a good student, and there is not any trace
+
+                                                                                                                         of any behavior problems. So you stick to
+
+                                                                                                                         your guns, he will grow out of it. If not in a
+
+                                                                                                                         few years, then have him tested. 4 year olds
+
+                                                                                                                         are naturally hyperactive children. Show me
+
+                                                                                                                         a 4 year old who is a perfect child and I have
+
+                                                                                                                         a swamp to sell you in Arizona.</div>
+
+                    
+
+<DIV ID=Answer3>
+
+
+
+<H3>A Solution: Been There, Done That. . . </h3>
+
+<font size=3><b>B</b></font>een there, done that, heard it all! My sonwas also diagnosed with ADHD at the age of 4. We delayed medication for a year while we
+
+                                                                                                                         read books, tried the Feingold diet, tried
+
+                                                                                                                         literally everything. In desperation, we
+
+                                                                                                                         finally agreed to just TRY the medication - we
+
+                                                                                                                         made it VERY clear to the doctor that we
+
+                                                                                                                         would stop it the second we felt that it was
+
+                                                                                                                         not helping or that it was making him a
+
+                                                                                                                         "zombie" as everyone told us it would. Both
+
+                                                                                                                         my husband and myself have chemical
+
+                                                                                                                         dependency as traits in our families, and will
+
+                                                                                                                         barely give our kids an aspirin, we are so
+
+                                                                                                                         terrified by "drugs" of any kind. The proof
+
+                                                                                                                         was in the pudding. This difficult little boy
+
+                                                                                                                         who wanted to very much to please, to "be
+
+                                                                                                                         good" but was totally frustrated by his
+
+                                                                                                                         inability to control his impulses changed in an
+
+                                                                                                                         hour. He sat through a church service, quietly,
+
+                                                                                                                         but not in a "drugged" state. When I saw the
+
+                                                                                                                         difference, I was ashamed of myself for
+
+                                                                                                                         delaying and causing him to "suffer" his
+
+                                                                                                                         disorder without help for a year longer than
+
+                                                                                                                         necessary. He will be 17 in September, and
+
+                                                                                                                         has done so much better than we ever
+
+                                                                                                                         expected. It is true that ADHD is now the
+
+                                                                                                                         "great American catch-all" for problem kids.
+
+                                                                                                                         It is true that many kids are misdiagnosed. It
+
+                                                                                                                         is also true that ADHD is a very real disorder,
+
+                                                                                                                         many kids truly do have it, and can get help.
+
+                                                                                                                         Without the help, they lead unsuccessful
+
+                                                                                                                         lives. My advice is this; read everything you
+
+                                                                                                                         can get your hands on - I particularly
+
+                                                                                                                         recommend, "Helping Your Hyperactive Child"
+
+                                                                                                                         by Dr John Thomas. It's written in layman's
+
+                                                                                                                         terms and offers many options; diet, meds,
+
+                                                                                                                         checking for sensitivities, etc. Get into a
+
+                                                                                                                         support group if there's one in your area.
+
+                                                                                                                         Learn, learn, learn. Then, go to a specialist,
+
+                                                                                                                         not a GP. And then, take an honest look at the
+
+                                                                                                                         situation, discount what others may say or
+
+                                                                                                                         think, consider it as an "illness", rather than a
+
+                                                                                                                         "crutch", and make your best "mom instinct"
+
+                                                                                                                         decision. Good luck, God bless, and if I can be
+
+                                                                                                                         of any help, e-mail me. ADHD runs in families,
+
+                                                                                                                         and although our middle child is must sever,
+
+                                                                                                                         our oldest was also medicated during his
+
+                                                                                                                         school years. He graduated from Marine boot
+
+                                                                                                                         camp on July 4th, is completely med free and
+
+                                                                                                                         doing great! </div>
+
+                    
+
+                    
+
+<DIV ID=Answer4>
+
+<H3>A Solution: See a Doctor. . .</h3>
+
+
+
+<font size=3><b>I</b></font>
+
+
+
+
+
+
+
+
+
+
+
+                       highly recommend you have your child
+
+                      seen by a child psychologist who may spend
+
+                      more time with your son than his
+
+                      pediatrician did. My step-son spent an hour
+
+                      a week with a psych. for 6 mos before he
+
+                      recommended medication. Only after much
+
+                      evaluation and some fun, and relatively easy
+
+                      "tests" did we agree and understand our son
+
+                      would benefit from meds. Your son is young
+
+                      still and you may want to wait and see how
+
+                      his Kindergarten teacher view his "behavior".
+
+                      You are right that children like this need
+
+                      patience, but when in situations where other
+
+                      children begin to shun a child, or a child
+
+                      KNOWS he is "different" due to ADD,
+
+                      medication can be very helpful. We have
+
+                      seen some improvement in our child's
+
+                      self-esteem in school, and socially since last
+
+                      year. Medication should never be the ONLY
+
+                      treatment for these kids. They need to work
+
+                      on using their "brakes", as my son's Dr.
+
+                      would put it. With encouragement and love
+
+                      from their parents, children with ADD/ADHD
+
+                      can thrive and feel good about themselves.
+
+                      Good luck.</div>
+
+                                                                                                                                                                                                                                                         
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                           
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                            
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+ 
+
+ 
+
+<DIV ID=Answer5>
+
+
+
+<H3>A Solution: You Are Lucky. . . </h3>
+
+
+
+<font size=3><b>Y</b></font>ou dont know how lucky you all are over in
+
+                      the USA at least it is recognised and treated.
+
+                      We in England have to fight tooth and nail to
+
+                      get help. The Schools dont beleive in it, they
+
+                      would rather exclude children that help
+
+                      them. The GPs dont like giving medication
+
+                      once diagnosed some GPs wont admit there
+
+                      is a problem. the Psychiatry/Pschology
+
+                      Deptparments are very few and far between
+
+                      over here who beleive in this disorder. I
+
+                      would accept any help. My Son was
+
+                      diagnosed with ADHD last year aged 12yrs
+
+                      he has lost out on 7yrs of schooling because
+
+                      he was not given the correct management he
+
+                      was thrown out of schools for what . Just
+
+                      because he hummed and walk around and
+
+                      could concentrate. you would have thought
+
+                      the signs were there they would have done
+
+                      something to help. He is 13 now and is still
+
+                      struggling even now he is diagnosed the
+
+                      school is still not living up to there part and
+
+                      I am afraid my son will be another statisic at
+
+                      aged 16 I dont want that and as a mum you
+
+                      wont want that for your child also. 
+
+
+
+                     
+
+                      
+
+
+
+                                                                                                                      
+
+
+
+                                                                                                                     
+
+
+
+                
+
+               </div>                                                            
+
+
+
+
+
+ <DIV ID=Answer6>
+
+
+
+<H3>A Solution: Read This Book. . . </h3>
+
+<font size=3><b>T</b></font>here's an excellent book out there called
+
+                      "Raising your spirited child" It's been a real
+
+                      life saver for me. My older son is four and
+
+                      sounds quite similar to yours. That book has
+
+                      helped my husband and I realize how our
+
+                      personalities conflict with our son's. We have
+
+                      been pouring tremendous effort into him. I
+
+                      don't like the idea of drugging someone in
+
+                      order to get them to behave a certain way.
+
+                      We have recently sought a counselor who
+
+                      believes that ADD is over diagnosed. He
+
+                      believes that 15% of the kids could be called
+
+                      "difficult" and one of ours falls into that
+
+                      category. We're learning new ways to deal
+
+                      with him and feel that we're making some
+
+                      good progress. Our society is too busy
+
+                      looking for a quick fix to everything.
+
+                      Marriages take a lot of work on both sides;
+
+                      healthy meals take planning and a little
+
+                      extra work; and I believe most behavorial
+
+                      problems can be worked out as well. </div>                                                                                                                  
+
+                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+</BODY>
+
+</HTML>
+

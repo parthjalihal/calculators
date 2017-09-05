@@ -1,0 +1,107 @@
+
+
+<html>
+<head>
+
+<title>CMP</title>
+
+<STYLE TYPE="text/css">
+
+#bgimage {POSITION: absolute; TOP: 0px; LEFT: 0px; width:10;height:10; Z-INDEX: 10;
+ visibility:hidden; filter:revealTrans(duration=3.0,transition=3);
+}
+#cmp {POSITION: absolute; TOP: 300px; LEFT: 532px; width:10;height:10; Z-INDEX: 15;
+ visibility:hidden; filter:blendTrans(duration=1.2);
+}
+#where {POSITION: absolute; visibility: hidden; TOP: 115px; LEFT: 252px; width:300;height:10; Z-INDEX: 20; }
+#where2 {visibility:hidden; POSITION: absolute; TOP: 115px; LEFT: 252px; width:300;height:10; Z-INDEX: 30; filter:blendTrans(duration=0.9); }
+#tech {POSITION: absolute; visibility: hidden; filter:revealTrans(Transition=2,duration=1.0);
+ TOP: 143px; LEFT: 367px; width:300;height:10; Z-INDEX: 50; }
+#swush {POSITION: absolute; visibility: hidden; filter:revealTrans(Transition=2,duration=0.8);
+ TOP: 167px; LEFT: 367px; width:300;height:10; Z-INDEX: 40; }
+#addchanbut {POSITION: absolute; TOP: 50px; LEFT:550px; width:10;height:10; Z-INDEX: 15; }
+</style>
+
+<SCRIPT language="javascript">
+<!--
+
+var timeoutIDs = new Array();
+var timeoutCount = 0;
+
+function AddTimeout(timeoutID) {
+ timeoutCount++;
+ timeoutIDs[timeoutCount-1] = timeoutID;
+}
+
+function ClearAllTimeouts() {
+ var i;
+ for (i=0; i<timeoutCount; i++)
+  clearTimeout(timeoutIDs[i]);
+}
+
+function doAddChannel() {
+  ClearAllTimeouts();
+  window.external.addChannel('http://msie.cmpnet.com/CMPnet.cdf');
+}
+
+function showObj(objname) {
+	var obj = document.all.item(objname);
+	obj.filters.item(0).Apply();
+	obj.style.visibility= "visible";
+	obj.filters.item(0).Play();
+}
+
+function startAnimation() {
+	showObj("bgimage");
+
+	AddTimeout(setTimeout('showObj("where2");', 3000));
+	AddTimeout(setTimeout('showObj("tech");',3000));
+	AddTimeout(setTimeout('showObj("swush");',4000));
+	AddTimeout(setTimeout('showObj("cmp");', 5000));
+	AddTimeout(setTimeout("showNextPage()",9500));
+}
+
+function showNextPage() {
+	window.location="cmp3.htm";
+}
+
+//-->
+</SCRIPT>
+
+</head>
+
+<body bgcolor=black topmargin=0 leftmargin=0 onload="startAnimation();">
+
+<div id="bgimage">
+<IMG border=0 SRC="gifs/back.gif" WIDTH="766" height="462">
+</div>
+
+<div id=cmp>
+<IMG border=0 SRC="gifs/cmplsm_t.gif" WIDTH="231" height="163">
+</div>
+
+<div id=where>
+<IMG border=0 SRC="gifs/where.gif" WIDTH="297" height="62">
+</div>
+
+<div id=swush>
+<IMG border=0 SRC="gifs/swush.gif" WIDTH="128" height="13">
+</div>
+
+
+<div id=tech>
+<font size=+2 face=helvetica color=white><b><i>Technology</b></i></font>
+</div>
+
+<div id=where2>
+<font size=+2 face=helvetica color=white><b><i>Where do you go to find<br>
+out about</b></i></font>
+</div>
+
+<div id="addchanbut">
+<IMG border=0 SRC="gifs/addchan.gif" WIDTH="136" height="20" onclick="doAddChannel();" onMouseover='this.style.cursor="hand";'>
+</div>
+
+</body>
+</html>
+

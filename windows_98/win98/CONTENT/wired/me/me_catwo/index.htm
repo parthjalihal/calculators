@@ -1,0 +1,211 @@
+<html>
+
+<head>
+
+<title>LiveWired: Catwoman on Top</title>
+
+
+<script language="JavaScript">
+function onStart() {
+	chronos.Item("visiswitch").Play();
+}
+
+
+function onStop() {
+	chronos.Item("visiswitch").Stop();
+}
+</script>
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+
+
+}
+
+</script>
+
+
+
+<style type="text/css">
+
+   BODY { margin: 0; background: white }
+   
+   cite {color: green}
+   
+   em {color: red}
+   
+   .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+	#catwoman { position: absolute; left: 0px; top: 0px; width: 100%;
+
+height: 100%; z-index:-10 }
+
+#catfancy { position: absolute; left: 0px; top: 0px; width: 100%;
+
+height: 100%; z-index:-9 }
+
+   #boys{ position: absolute; left: 20%; top: 48%; width: 60%;
+
+height: 7%; color: red; font-family: arial; font-size: 105.55%; z-index:2; font-weight: bold; text-align: center; font-style: italic }
+
+   #numone { position: absolute; left: 4%; top: 15%; width: 92%;
+
+height: 70%; color: white; font-family: arial; font-size: 105.55%; z-index:5; text-align: center; font-weight: bolder; visibility: hidden; margin: 4; line-height: 1.8; font-style: italic}
+
+   #numtwo { position: absolute; left: 4%; top: 15%; width: 92%;
+
+height: 70%; color: black; font-family: arial; font-size: 105.55%; z-index:6; text-align: center; font-weight: bolder; visibility: hidden; margin: 4; line-height: 1.8; font-style: italic}
+ 
+   #carvel { position: absolute; left: 3%; top: 25%; width: 94%;
+
+height: 45%; color: white; font-family: arial; font-size: 63.88%; visibility: hidden; z-index:7; text-align: center; font-weight: normal; margin: 4; line-height: 1.5}
+
+  #sampled {color: yellow; font-weight: bolder}
+  
+  #sourced { position: absolute; left: 55%; top: 95%; width: 45%;
+
+height: 3%; color: white; font-family: arial; visibility: hidden; font-size: 25%; z-index:7; text-align: left}
+
+</style>
+
+</head>
+
+<body style="font-size: 36pt">
+
+<script language="JavaScript">
+
+/* 
+This is the collection of routines that provide minimal functionality for
+yuor HTML document to become a presentation that fits into the context of
+liveWired.  Most of the routines cover the scaling of elements, the
+starting and stoping of the channel and the getting the "state" of the
+world; i.e. is it in the 20 second intro, or is it on the leisurely
+screensaver, or is it being viewed outside the context of the livewired and
+needs to do something to account for that. 
+
+These functions are written as objects so when calling them in there one
+should make a new instance of the object so if an individual presentation
+needs to modify any of the routines they can do so at that level.
+
+*/
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+
+</script>
+<script language="JavaScript">
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+
+</script>
+
+
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+<IMG id="catfancy" src="catfancy.gif" BORDER=0>
+
+<IMG id="catwoman" src="catwoman.gif" BORDER=0>
+
+
+
+<div id="boys">
+
+AMERICAN BOYS
+
+</div>
+
+
+<div id="numone">
+CATWOMAN<BR> RANKS AS NO.1 "SUPERHERO" FOR<BR> AMERICAN BOYS<BR> UNDER 10
+</div>
+
+<div id="numtwo" class="onhold">
+CATWOMAN<BR> RANKS AS NO.1 "SUPERHERO" FOR<BR> AMERICAN BOYS<BR> UNDER 10
+</div>
+
+<div id="carvel" class="onhold">
+Carvel Ice Cream Bakery recently queried 1,500 people in shopping malls around the country about what they wished for on their birthdays. Of that sample group, 61 percent of <span id="sampled">boys</span> under 10 who wished to be a "superhero" chose <span id="sampled">Catwoman</span>; 57 percent of girls under 10 who wished for the same chose Xena: Warrior Princess.
+</div>
+
+<div id="sourced" class="onhold">
+Source: Jericho Communications Inc. (New York), Carvel Ice Cream Bakery
+</div>
+
+<script id="chronosCall" language="javascript" for="chronos" event="onInit">
+	chronos.Item("visiswitch").At(1.000,"catflip()",1,0.100,15);
+</script>
+
+
+<script language="javascript">
+function catflip() {
+	//alert('gack!');
+	catfancy.style.visibility = "hidden";
+	boys.style.visibility = "hidden";
+	numone.style.visibility = "visible";
+}
+</script>
+<script language="JavaScript" for="window" event="onload">
+   parent.daScheduler.gramLoaded();
+</script>
+<script language="JavaScript" for="window" event="onunload">
+   parent.daScheduler.gramUnloaded();
+</script>
+
+</body>
+
+</html>
+

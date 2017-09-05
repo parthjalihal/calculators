@@ -1,0 +1,12 @@
+; DEFRAG.INF
+; Copyright (c) 1993-1998, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg=Add.Defrag
+
+[Add.Defrag]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce,Defrag,0,"DEFRAG.EXE /ALL"
+

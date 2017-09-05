@@ -1,0 +1,4 @@
+;Image=\ie4\images\intro.jpg
+rect demohome.htm 0,127 231,365
+rect http://investor.msn.com/external/ie4/cdpromo.asp 232,141 460,368
+rect http://investor.msn.com 0,0 163,76

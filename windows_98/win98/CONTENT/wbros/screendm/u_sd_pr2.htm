@@ -1,0 +1,262 @@
+<html>
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+
+
+sub window_onload
+
+	Seq2("Pres2").Play
+
+end sub
+
+
+
+Sub Seq2_onInit
+
+	call Seq2("Pres2").at(2.000, "changeSlide(1)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(4.000, "changeSlide(2)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(6.000, "changeSlide(3)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(8.000, "changeSlide(4)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(10.000, "changeSlide(5)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(13.000, "changeSlide(6)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(15.000, "changeSlide(7)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(20.000, "parent.showPres3()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub changeSlide(num)
+
+  	select case num
+
+        case "1"
+
+			imgLogo.style.visibility="hidden"
+
+			copy1.style.visibility="visible"
+
+        case "2"
+
+			copy1.style.visibility="hidden"
+
+			copy2.style.visibility="visible"
+
+			imgRosie.style.visibility="hidden"
+
+			imgTom.style.visibility="visible"
+
+        case "3"
+
+			copy2.style.visibility="hidden"
+
+			copy3.style.visibility="visible"
+
+			imgTom.style.visibility="hidden"
+
+			imgMadonna.style.visibility="visible"
+
+        case "4"
+
+			copy3.style.visibility="hidden"
+
+			copy4.style.visibility="visible"
+
+			imgMadonna.style.visibility="hidden"
+
+			imgJFK.style.visibility="visible"
+
+        case "5"
+
+			copy4.style.visibility="hidden"
+
+			copy5.style.visibility="visible"
+
+			imgJFK.style.visibility="hidden"
+
+			imgRosie.style.visibility="visible"
+
+        case "6"
+
+			copy5.style.visibility="hidden"
+
+			imgLogo.style.visibility="visible"
+
+	    case "7"
+
+			URL.style.visibility="visible"		
+
+  	end select	
+
+End Sub
+
+--> 
+
+</SCRIPT>
+
+<HEAD>
+
+<TITLE>Warner Bros. SCREENDOM: TV</TITLE>
+
+</HEAD>
+
+<body bgcolor="#000000" background="img/p2_robg.jpg" TEXT=000000 LINK=000000 ALINK=000000 VLINK=000000>
+
+
+
+<!--MAIN COMPONENTS***********************************************-->
+
+
+
+<img ID=imgRosie src="img/p2_rosie.gif" STYLE="POSITION:ABSOLUTE; TOP:25; LEFT:20; VISIBILITY:visible">
+
+
+
+<img ID=imgLogo src="img/p2_rlogo.gif" STYLE="POSITION:ABSOLUTE; TOP:55; LEFT:200; VISIBILITY:visible">
+
+
+
+<DIV ID=copy1  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:65; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5 FACE=Arial><B>
+
+Who's on "Rosie" today?
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy2  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:75; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5 FACE=Arial><B>
+
+Is it Tom Cruise?
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy3  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:75; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5 FACE=Arial><B>
+
+...Madonna?
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy4  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:75; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5 FACE=Arial><B>
+
+...maybe, JFK, Jr.?
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy5  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:25; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5 FACE=Arial><B>
+
+You never know who you're going to see when Rosie's on...
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<img ID=imgTom src="img/p2_rotom.jpg" STYLE="POSITION:ABSOLUTE; TOP:35; LEFT:20; VISIBILITY:hidden">
+
+
+
+<img ID=imgMadonna src="img/p2_romad.jpg" STYLE="POSITION:ABSOLUTE; TOP:35; LEFT:20; VISIBILITY:hidden">
+
+
+
+<img ID=imgJFK src="img/p2_rojfk.jpg" STYLE="POSITION:ABSOLUTE; TOP:35; LEFT:20; VISIBILITY:hidden">
+
+
+
+<DIV ID=URL  STYLE="POSITION:ABSOLUTE; WIDTH=200; TOP:150; LEFT:200; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=3 FACE=Arial><B>
+
+Click here to<br><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a>
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:300; Filter: Alpha(opacity=30)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<!--*********************************************************************-->
+
+<OBJECT ID="Seq2"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+</body>
+
+</html>
+

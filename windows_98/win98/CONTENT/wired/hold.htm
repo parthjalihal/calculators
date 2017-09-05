@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>hold button</title>
+<style type="text/css">
+   BODY {margin: 0; background-color: black; font-size: 36pt}
+   #holdit {position: absolute; left: 0; top: 25%; width: 100%; height: 100%; font-size: 18%; font-family: Arial; font-weight: bolder; text-align: center; cursor: hand; color: red}
+   #backMask {position: absolute; left: 5%; top: 5%; width: 90%; height: 90%; background-color: black; font-size: 1}
+</style>
+</head>
+<body style="font-size: 36pt">
+<div id="backMask"></div>
+<div id="holdit">PAUSE</div>
+<script language="JavaScript" for="holdit" event="onmouseover">
+  parent.chronos.Item("pageFlip").stop();
+  parent.document.frames[0].myPresentation.onHold();
+  holdit.style.color = '#aaFFaa';
+  document.all(4).style.backgroundColor = 'limegreen';
+  holdit.innerText = 'CONTINUE';
+</script>
+<script language="JavaScript" for="holdit" event="onmouseout">
+  parent.document.frames[0].myPresentation.offHold();
+  parent.chronos.Item("pageFlip").play();
+  holdit.style.color = '#FFaaaa';
+  document.all(4).style.backgroundColor = 'black';
+  holdit.innerText = 'PAUSE';
+</script>
+</body>
+</html>

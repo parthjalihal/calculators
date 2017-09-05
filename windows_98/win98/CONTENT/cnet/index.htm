@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+    <TITLE>The CNET Channel Preview</TITLE>
+
+
+<STYLE TYPE="text/css">
+<!--
+
+    // The CSS style sheet for the channel
+
+    .empty {}
+
+    #thebody    {
+                    position: absolute;
+                    left: 0px;
+                    top:  0px;
+                    width: 100%;
+                    height: 100%;
+
+                    font-family: arial, helvetica;
+                    font-size: 18px;
+                    text-align: justify;
+                    color: #666666;
+                    background-color: #999999;
+                }
+
+    #page       {
+                    position: absolute;
+                    left: 0px;
+                    top:  0px;
+                    width: 638px;
+                    height: 410px;
+                    overflow: clip;
+
+                    font-family: arial, helvetica;
+                    color: #000000;
+                    background-color: #FFCC33;
+                    visibility: hidden;
+                }
+
+    #logo       {
+                    position: absolute;
+                    left: 0px;
+                    top:  10px;
+                    width: 100%;
+                }
+
+    #addbutton  {
+                    position: absolute;
+                    left: 0px;
+                    top:  375px;
+                    width: 100%;
+                }
+
+    #arrow      {
+                    position: absolute;
+                    left: 0px;
+                    top:  0px;
+                    width: 13;
+                }
+
+/* QUOTE BLOCK 1*/
+    #quoteblock1 {
+                    position: absolute;
+                    left: 0px;
+                    top:  0px;
+                    width: 100%;
+                    height: 100%;
+                    visibility: hidden;
+                }
+
+    #quote1     {
+                    position: absolute;
+                    left: 50px;
+                    top:  90px;
+                    width: 375px;
+
+                    font-size: 42px;
+                    letter-spacing: 1px;
+                }
+
+    #qmark1     {
+                    position: absolute;
+                    left: 15px;
+                    top:  70px;
+                }
+
+    #qmark2     {
+                    position: absolute;
+                    left: 423px;
+                    top:  220px;
+                }
+
+
+/* Workplace Images */
+    #workplace  {
+                    position: absolute;
+                    left: 320px;
+                    top:  0px;
+                    width:320px;
+                    height:410px;
+                }
+
+/* QUOTE BLOCK 2 */
+    #quoteblock2 {
+                    position: absolute;
+                    left: 10px;
+                    top:  10px;
+                    width: 280px;
+                    height: 320px;
+                    visibility: hidden;
+                }
+
+    #quote2     {
+                    position: absolute;
+                    left: 60px;
+                    top:  60px;
+                    width: 250px;
+
+                    font-size: 32px;
+                    line-height: 0.7em;
+                }
+
+    #qmark11    {
+                    position: absolute;
+                    left: 18px;
+                    top:  62px;
+                }
+
+    #qmark22    {
+                    position: absolute;
+                    left: 140px;
+                    top:  250px;
+                }
+
+
+/* QUOTE BLOCK 3 */
+    #quoteblock3 {
+                    position: absolute;
+                    left: 325px;
+                    top:  80px;
+                    width: 315px;
+
+                    font-size: 36 px;
+                    line-height: 1.1em;
+                    visibility: hidden;
+                }
+
+
+/* Employee Images */
+    #employee   {
+                    position: absolute;
+                    left: 0px;
+                    top:  100px;
+                    width: 382px;
+                    height: 118px;
+                }
+
+
+/* QUOTE BLOCK 4 */
+    #quoteblock4 {
+                    position: absolute;
+                    left: 50px;
+                    top:  200px;
+                    width: 500px;
+                    height: 200px;
+                    visibility: hidden;
+                }
+
+    #quote4     {
+                    position: absolute;
+                    left: 25px;
+                    top:  20px;
+                    width: 100%;
+
+                    font-size: 30px;
+                    line-height: 1.0em;
+                }
+
+    #qmark111   {
+                    position: absolute;
+                    left: 0px;
+                    top:  0px;
+                }
+
+    #qmark222   {
+                    position: absolute;
+                    left: 470px;
+                    top:  101px;
+                }
+
+
+/* Get On! */
+    #geton      {
+                    position: absolute;
+                    left: 0px;
+                    top:  142px;
+                    width: 100%;
+
+                    color: #009900;
+                    font-style: italic;
+                    letter-spacing: 0.2em;
+                    visibility: hidden;
+                }
+
+    #getonImgarea   {
+                    position: absolute;
+                    left: 0px;
+                    top:  142px;
+                    width: 448px
+                    height: 97px;
+                    visibility: hidden;
+                }
+
+-->
+</STYLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+  // Centers given element in Parent object
+  function centerElm (e) {
+    sWidth  = e.parentElement.clientWidth;
+    sHeight = e.parentElement.clientHeight;
+
+    pWidth  = e.clientWidth;
+    pHeight = e.clientHeight;
+
+    e.style.pixelLeft = (sWidth / 2) - (pWidth / 2);
+    e.style.pixelTop = (sHeight / 2) - (pHeight / 2);
+
+  }
+
+  var readTime = 6000;
+
+// FRAME 0: Initial Full Page Quote - "If it has to do with computers..." -->
+  function frame0 () {
+     document.all.quoteblock1.style.visibility = "visible";
+
+     setTimeout ("frame1()", 4000);
+  }
+
+// FRAME 1: Half Screen Color img of workplace Wipes down-->
+  function frame1 () {
+     document.all.quoteblock1.style.visibility = "hidden";
+
+     document.all.workplace.style.filter = "revealTrans(duration=1.000,transition=5)";
+     document.all.workplace.style.backgroundColor = "#FFCC33";
+
+     document.all.workplace.filters(0).Apply();
+       document.all.wpImg.style.visibility = "visible";
+     document.all.workplace.filters(0).Play();
+
+    setTimeout ("frame2()", 2500);
+  }
+
+// FRAME 2: Half Screen Duo img of workplace random horizontal bars-->
+  function frame2 () {
+     document.all.workplace.style.filter = "revealTrans(duration=1.000,transition=21)";
+
+     document.all.workplace.filters(0).Apply();
+       document.all.wpImg.style.visibility = "hidden";
+       document.all.wpduoImg.style.visibility = "visible";
+     document.all.workplace.filters(0).Play();
+
+     document.all.workplace.style.backgroundColor = "";
+
+    setTimeout ("frame3()", 1500);
+  }
+
+// FRAME 3: Half Screen Quote appears on left - "CNET's NEWS.COM is the real deal..." -->
+  function frame3 () {
+     document.all.quoteblock2.style.visibility = "visible";
+    setTimeout ("frame4()", readTime);
+  }
+
+// FRAME 4: Half Screen Quote appears on right - "Businessweek rated SEARCH.COM..." -->
+  function frame4 () {
+     document.all.quoteblock2.style.visibility = "hidden";
+     document.all.quoteblock3.style.visibility = "visible";
+    setTimeout ("frame5()", readTime);
+  }
+
+// FRAME 5: Bar img of Employees Wipes Right -->
+  function frame5 () {
+     document.all.quoteblock3.style.visibility = "hidden";
+     document.all.wpduoImg.style.visibility = "hidden";
+
+     document.all.employee.style.filter = "revealTrans(duration=1.000,transition=6)";
+     document.all.employee.style.backgroundColor = "#FFCC33";
+
+     document.all.employee.filters(0).Apply();
+       document.all.empImg.style.visibility = "visible";
+     document.all.employee.filters(0).Play();
+
+     setTimeout ("frame6()", 2500);
+  }
+
+// FRAME 6: Bar duo img of Employees random vertical bars -->
+  function frame6 () {
+     document.all.employee.style.filter = "revealTrans(duration=1.000,transition=22)";
+
+     document.all.employee.filters(0).Apply();
+       document.all.empImg.style.visibility = "hidden";
+       document.all.empduoImg.style.visibility = "visible";
+     document.all.employee.filters(0).Play();
+
+     document.all.employee.style.backgroundColor = "";
+
+     setTimeout ("frame7()", 1500);
+  }
+
+// FRAME 7: Bottom half of screen Quote - "GAMECENTER.COM could evolve..." -->
+  function frame7 () {
+     document.all.quoteblock4.style.visibility = "visible";
+
+     setTimeout ("frame8()", readTime);
+  }
+
+// FRAME 8: Larger Center Screen "Get On" -->
+  function frame8 () {
+     document.all.quoteblock4.style.visibility = "hidden";
+     document.all.empduoImg.style.visibility = "hidden";
+     document.all.getonImgarea.style.visibility = "visible";
+
+     document.all.getonImg.style.height = "auto";
+     setTimeout ("doGetOn();", 2000);
+  }
+
+
+  var dx = 30;
+  var minWidth = 120;
+  var currentWidth = null;
+  var indx = null;
+
+// doGetOn: geton.gif goes from 120px to 30px width -->
+  function doGetOn () {
+
+    indx = document.all.getonImg.style.width.indexOf("px");
+    currentWidth = parseInt(document.all.getonImg.style.width.substring(0,indx));
+
+    if (currentWidth > minWidth)
+    {
+      document.all.getonImg.style.width = currentWidth - dx;
+      setTimeout("doGetOn()", 10);
+    }
+    else
+    {
+      document.all.getonImgarea.style.visibility = "hidden";
+      document.all.geton.style.visibility = "visible";
+      doBlink();
+    }
+  }
+
+  var isGreen = 1;
+
+// doBlink: "Get On" blinks between black and green -->
+  function doBlink () {
+
+    if (isGreen)
+    {
+      document.all.geton.style.color = "#000000";
+      isGreen = 0;
+      setTimeout("doBlink()", 1000);
+    }
+    else
+    {
+      document.all.geton.style.color = "#009900";
+      isGreen = 1;
+      setTimeout("doBlink()", 1000);
+    }
+
+  }
+
+
+// pageInit: Starts frame sequence -->
+  function pageInit() {
+
+    centerElm(document.all.page);
+
+    centerElm(document.all.quote1);
+    document.all.quote1.style.pixelTop += 20;
+
+    centerElm(document.all.arrow);
+    document.all.arrow.style.pixelTop += 60;
+
+    document.all.page.style.visibility = "visible";
+
+    frame0();  // Start animation
+
+  }
+
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#CC9933" LEFTMARGIN="0" TOPMARGIN="0" scroll="no" onLoad="pageInit()" onResize="centerElm(document.all.page);" ID="thebody">
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+
+The Computer Network Tech News Today Computing News Intranet News Business
+News Op-ed Pieces Personal Profiles CNET Online Browser News Sitebuilding
+News Reviews Product Comparisons Features CNET Personalities CNET TV News
+from TV.COM News from CNET Central News from the Web from the New Edge
+Gamecenter.com Gaming News Gaming Features Gaming Hardware Reviews Gaming
+Reviews Gaming Downloads SEARCH.COM Find Software People Search Yellow
+Pages Stock Quotes City Maps DOWNLOAD.COM Categories Profiles Toolkits
+Guides Browsers SHAREWARE.COM New Arrivals Most Popular Selections
+ACTIVEX.COM Most Popular Newest Titles Top Picks
+<!-- the page container -->
+<DIV ID="page">
+
+  <div ID="arrow">
+    <img src="arrow.gif" width=13 height=200 border=0>
+  </div>
+
+
+<!-- Employee Images -->
+  <div ID="employee">
+      <img ID="empImg" src="employ.gif" style="position:absolute; left:0; top:0; visibility: hidden" width=382 height=118 border=0>
+      <img ID="empduoImg" src="emplduo.gif" style="position:absolute; left:0; top:0; visibility: hidden" width=382 height=118 border=0>
+  </div>
+
+<!-- Workplace Images -->
+  <div ID="workplace">
+      <img ID="wpImg" src="workplac.gif" style="position:absolute; left:0; top:0; width:320px; height:410px; background-color: #FFCC33; visibility: hidden;" border=0>
+      <img ID="wpduoImg" src="workduo.gif" style="position:absolute; left:0; top:0; width:320px; height:410px; visibility: hidden" border=0>
+  </div>
+
+<!-- QUOTE BLOCK 1 -->
+  <div ID="quoteblock1">
+    <div ID="qmark1">
+      <img src="qubigopn.gif" width=178 height=137 border=0>
+    </div>
+
+    <div ID="qmark2">
+      <img src="qubigcls.gif" width=191 height=143 border=0>
+    </div>
+
+    <div ID="quote1">
+      If it has to do<br>
+      with <font face="arial black">computers,</font>
+      CNET is <font face="arial black">there...</font><br>
+      <font color=#666666 style="font-size:20px;"><b>- The Net</b></font>
+    </div>
+  </div>
+
+
+
+<!-- QUOTE BLOCK 2 -->
+  <div ID="quoteblock2">
+    <div ID="qmark11">
+      <img src="quoteopn.gif" width=68 height=54 border=0>
+    </div>
+
+    <div ID="qmark22">
+      <img src="quotecls.gif" width=73 height=52 border=0>
+    </div>
+
+    <div ID="quote2">
+      <br>
+      For <font face="arial black" style="font-size:40px">daily<p>
+      tech</font> news,<p>
+      NEWS.COM<p>
+      is <font style="font-size:36px"><b>the place</b></font><p>
+      to go.<p>
+      <font color=#666666 style="font-size:20px; line-height: 0.7em"><b>- Marketing Computers</b></font><br>
+      <br>
+
+    </div>
+  </div>
+
+
+<!-- QUOTE BLOCK 3 -->
+  <div ID="quoteblock3">
+      <b>BusinessWeek<br>
+      rated</b> <font color="#CC0000"><font style="font-size:30px">SEARCH.COM</font><br>
+      <font face="arial black" style="font-size:50px">one</font></font> <b>of<br>
+      the seven</b> <font face="arial black" color="#CC0000" style="font-size:55px">best</font><p>
+      <b>Web sites<br>
+      of 1996.</b>
+  </div>
+
+
+<!-- QUOTE BLOCK 4 -->
+  <div ID="quoteblock4">
+    <div ID="qmark111">
+      <img src="quoteopn.gif" width=68 height=54 border=0>
+    </div>
+
+    <div ID="qmark222">
+      <img src="quotecls.gif" width=73 height=52 border=0>
+    </div>
+
+    <div ID="quote4">
+      <b>GAMECENTER.COM</b> could evolve<br>
+      into <font face="arial black" style="font-size:50px">the bible</font><p>
+      <b>of the <font style="font-size:40px">gaming community.</font></b>
+      <br>
+     <font color=#666666 style="font-size:20px;"><b>- San Francisco Chronicle</b></font>
+    </div>
+  </div>
+
+
+<!-- Get On! -->
+  <div ID="getonImgarea">
+    <center><img ID="getonImg" src="geton.gif" style="width:448; height:97" border=0></center>
+  </div>
+
+  <div ID="geton" style="font-size: 20px;">
+    <center><b>Get On!</b></center>
+  </div>
+
+<!-- Add Button & Logo Images -->
+  <div ID="addbutton">
+    <center><img src="IEAddCh.gif" onclick="window.external.addChannel('http://channel.cnet.com/Channel/Cdf/0,1,,00.cdf')" width=136 height=20 border=0>
+    </center>
+  </div>
+
+  <div ID="logo">
+    <center><img src="cnetlogo.gif" width=148 height=64 border=0></center>
+  </div>
+
+</DIV> <!--page div ends -->
+
+</BODY>
+</HTML>

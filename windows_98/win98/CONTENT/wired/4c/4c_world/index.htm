@@ -1,0 +1,241 @@
+<html>
+
+<head>
+
+<title>LiveWired: Catwoman on Top</title>
+
+<script language="JavaScript">
+function onStart() {
+
+}
+
+
+function onStop() {
+	
+}
+</script>
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+
+
+}
+
+</script>
+
+
+<style type="text/css">
+
+   BODY { margin: 0; background: white }
+   
+   cite {color: green}
+   
+   em {color: red}
+   
+   .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+	#unsymbol { position: absolute; left: 30%; top: 2%; width: 40%;
+
+height: 50%; z-index:-3 }
+
+#sunset { position: absolute; left: 0px; top: 0px; width: 100%;
+
+height: 100%; z-index:-10 }
+
+   #cowboy{ position: absolute; left: 30%; top: 55%; width: 70%;
+
+height: 45%; z-index:-2 }
+
+   #boys{ position: absolute; left: 30%; top: 55%; width: 70%;
+
+height: 45%; color: red; font-family: arial; font-size: 38px; z-index:2; font-weight: bold; text-align: center }
+ 
+   #report { position: absolute; left: 3%; top: 75%; width: 94%;
+
+height: 10%; color: white; font-family: arial; font-size: 12px; visibility: hidden; z-index:6; text-align: center; font-weight: bold}
+
+  #sampled {color: yellow; font-weight: bolder}
+  
+  #sourced { position: absolute; left: 1%; top: 95%; width: 45%;
+
+height: 3%; color: yellow; font-family: arial; visibility: hidden; font-size: 9px; z-index:7; text-align: left}
+
+  #linked {position: absolute; left: 80%; top: 90%;width: 13%;
+
+height: 10%; color: white; font-family: arial; font-size: 9px; z-index:5; text-align: left; font-weight: bold; background-color: #00ccff; margin: 4}
+
+  #linkback {position: absolute; left: 83.5%; top: 94%;width: 13%;
+
+height: 5%; color: black; font-family: arial; font-size: 8px; z-index:6; text-align: left; font-weight: bold}
+
+  #bubbles {position: absolute; left: 1%; top: 40%; width: 98%; height:20%; z-index:9; text-align: center; font-family: Arial; font-weight: bold; font-size: 250%; color: white; visibility: hidden}
+
+  #catastrophe {position: absolute; left: 4%; top: 45%;width: 92%;
+
+height: 20% z-index:5; color: white; font-family: arial; font-size: 24px; visibility: hidden; text-align: center; font-weight: bold}
+
+
+</style>
+
+</head>
+
+<body link="000000">
+
+<script language="JavaScript">
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+</script>
+
+
+<div ID="bubbles" style="Filter: glow(color=#AAAAFF,strength=5)">
+Global Catastrophy Does Not Appear Imminent
+</div>
+
+
+<OBJECT
+	ID="linked" class="sg"
+	CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6">
+<PARAM NAME="Line0001" VALUE="SetLineColor(255,255,255)">
+
+<PARAM NAME="Line0002" VALUE="SetFillColor(0,0,0)">
+
+<PARAM NAME="Line0003" VALUE="SetLineStyle(0)">
+
+<PARAM NAME="Line0004" VALUE="Polygon(33,-50,0,-50,0,-50,1,-50,2,-50,3,-50,4,-49,5,-49,5,-48,6,-47,7,-46,7,-46,8,-45,8,-44,8,-43,9,-42,9,-41,9,-25,9,-25,-9,-41,-9
+
+,-43,-9,-45,-9,-46,-9,-46,-8,-47,-7,-48,-7,-49,-6,-49,-5,-50,-5,-50,-4,-50,-3,-50,-2,-50,0)">
+
+<PARAM NAME="Line0005" VALUE="SetLineColor(191,230,255)">
+
+<PARAM NAME="Line0006" VALUE="SetFillColor(255,255,255)">
+
+<PARAM NAME="Line0007" VALUE="SetLineStyle(6)">
+
+<PARAM NAME="Line0008" VALUE="Polyline(32,-25,9,-41,9,-42,9,-43,9,-44,8,-45,8,-46,8,-46,7,-47,7,-48,6,-49,5,-49,5,-50,4,-50,3,-50,2,-50,1,-50,0,-50,0,-50,-2,-50,-3
+
+,-50,-4,-50,-5,-49,-5,-49,-6,-48,-7,-47,-7,-46,-8,-46,-9,-45,-9,-43,-9,-41,-9,-25,-9)">
+
+<PARAM NAME="Line0009" VALUE="SetLineColor(255,255,255)">
+
+<PARAM NAME="Line0010" VALUE="SetFillColor(191,230,255)">
+
+<PARAM NAME="Line0011" VALUE="SetLineStyle(0)">
+
+<PARAM NAME="Line0012" VALUE="Polygon(42,47,-7,46,-7,45,-8,45,-9,44,-9,43,-9,42,-9,41,-9,40,-9,-25,-9,-25,9,40,9,41,9,41,9,41,9,42,9,43,8,44,8,44,8,45,8
+
+,45,7,46,7,47,6,47,5,48,5,48,4,49,3,49,3,49,2,49,1,49,0,49,0,49,0,50,0,49,-1,49,-2,49,-3,49,-4,48,-5,48,-5
+
+,47,-6,47,-7)">
+
+<PARAM NAME="Line0013" VALUE="SetLineColor(191,230,255)">
+
+<PARAM NAME="Line0014" VALUE="SetFillColor(255,255,255)">
+
+<PARAM NAME="Line0015" VALUE="SetLineStyle(6)">
+
+<PARAM NAME="Line0016" VALUE="Polyline(41,-25,-9,40,-9,41,-9,42,-9,43,-9,44,-9,45,-9,45,-8,46,-7,47,-7,47,-6,48,-5,48,-5,49,-4,49,-3,49,-2,49,-1,50,0,49,0,49,0
+
+,49,0,49,1,49,2,49,3,49,3,48,4,48,5,47,5,47,6,46,7,45,7,45,8,44,8,44,8,43,8,42,9,41,9,41,9,41,9,40,9
+
+,-25,9)">
+
+<PARAM NAME="Line0017" VALUE="SetLineColor(255,255,255)">
+
+<PARAM NAME="Line0018" VALUE="SetFillColor(191,230,255)">
+
+<PARAM NAME="Line0019" VALUE="SetLineStyle(0)">
+
+<PARAM NAME="Line0020" VALUE="Polygon(8,-35,5,-30,0,-35,-5,-35,-2,-44,-2,-44,1,-35,1,-35,5)">
+</OBJECT>
+
+	
+<IMG id="sunset" src="objects/sunset.jpg" BORDER=0>
+
+<IMG id="unsymbol" src="objects/unsymbol.gif" BORDER=0>
+
+<IMG id="cowboy" src="objects/cowboy.gif" BORDER=0>
+
+<div id="linkback">
+<a href="http://www.un.org/News/Press/docs/endev401.html"> UNITED NATIONS</a>
+</div>
+
+<div id="catastrophe">
+"Global catastrophe does not appear to be imminent." 
+</div>
+
+
+<div id="report" class="onhold">
+A recent UN report looked at critical trends in the global environment, focusing on fresh-water supply, food production, and deforestation. The study found that though progress had been made in the areas of population control and basic living standards, "the outlook for achieving sustainable development is not encouraging." Nonetheless, the report grudgingly concluded that "global catastrophe does not appear to be imminent."</div>
+
+<div id="sourced" class="onhold">
+Source: The United Nations' "Global Change and Sustainable Development: Critical Trends"
+</div>
+
+<script language="JavaScript" for="window" event="onload">
+   bubbles.style.visibility = 'visible';
+   parent.daScheduler.gramLoaded();
+</script>
+<script language="JavaScript" for="window" event="onunload">
+   parent.daScheduler.gramUnloaded();
+</script>
+
+
+</body>
+
+</html>

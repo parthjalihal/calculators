@@ -1,0 +1,1017 @@
+; ***************************************************************************
+;
+; NETMADGE.INF
+;
+; MADGE Network Interface Cards.
+;
+; Copyright 1994-1996 Microsoft Corporation & Madge Networks Ltd
+;
+; VeRsIoN=Madge Smart 16/4 Ringnode installation file for Windows95@
+; VeRsIoN=VERSION: v4.23 Post LSS 5.0(2)@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+; VeRsIoN=PRODUCT-ID: MDGMPORT.SYS  4.23@
+; VeRsIoN=PRODUCT-ID: MDGND.DOS  3.12@
+; VeRsIoN=INFO:       WIN95.TXT (Windows 95 Installation)@
+; VeRsIoN=INFO:       MDGND.TXT (NDIS2 parameter definitions)@
+; MaDgE=AF2B@
+;
+; ***************************************************************************
+;
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+Class=Net
+provider=%V_MS%
+;
+[Manufacturer]
+%V_MADGE%=MADGE
+;
+[MADGE]
+%*pnp81d7.DeviceDesc%=*PNP81D7.ndi, *PNP81D7    ;Madge Smart 16/4 PC Ringnode
+%MDGAT.DeviceDesc%=MDGAT.ndi,       MDGAT    ;Madge Smart 16/4 AT Ringnode
+%MDGISAC.DeviceDesc%=MDGISAC.ndi,   MDGISAC  ;Madge Smart 16/4 ISA Client Ringnode
+%MDGATP.DeviceDesc%=MDGATP.ndi,     MDGATP   ;Madge Smart 16/4 AT Plus Ringnode
+%*MDG0301.DeviceDesc%=*MDG0301.ndi, *MDG0301 ;Madge Smart 16/4 AT PnP Ringnode
+%MDGATPNPL.DeviceDesc%=MDGATPNPL.ndi, MDGATPNPL ;Madge Smart 16/4 AT PnP (Legacy) Ringnode
+%MDGISACP.DeviceDesc%=MDGISACP.ndi, MDGISACP ;Madge Smart 16/4 ISA Client Plus Ringnode
+%MDGSM16.DeviceDesc%=MDGSM16.ndi,   MDGSM16  ;Madge Smart 16 Ringnode
+%*MDG0002.DeviceDesc%=*MDG0002.ndi, *MDG0002 ;Madge Smart 16/4 EISA Ringnode
+%*MDG0004.DeviceDesc%=*MDG0004.ndi, *MDG0004 ;Madge Smart 16/4 EISA Ringnode Mk3
+%MCA_002D.DeviceDesc%=MCA_002D.ndi, MCA_002D ;Madge Smart 16/4 MC Ringnode
+%MCA_0074.DeviceDesc%=MCA_0074.ndi, MCA_0074 ;Madge Smart 16/4 MC32 Ringnode
+%MDG_PCMCIA.DeviceDesc%=MDG_PCMCIA.ndi, PCMCIA\MADGE-SMART_16/4_PCMCIA_RINGNODE-0757 ; Madge Smart 16/4 PCMCIA Ringnode
+%MDG_PCMCIA2A.DeviceDesc%=MDG_PCMCIA2A.ndi, PCMCIA\MADGE-SMART_16/4_PCMCIA_RINGNODE-3682 ; Madge Smart 16/4 PCMCIA Ringnode Mk2 (PIO)
+%*MDG0101.DeviceDesc%=*MDG0101.ndi, *MDG0101 ;Madge Smart 16/4 ISA PnP Ringnode
+%MDGPNPL.DeviceDesc%=MDGPNPL.ndi, MDGPNPL ;Madge Smart 16/4 ISA PnP (Legacy) Ringnode
+%MDG_PCI.DeviceDesc%=MDG_PCI.ndi, PCI\VEN_10B6&DEV_0001 ;Madge Smart 16/4 PCI Ringnode
+%MDG_PCI2.DeviceDesc%=MDG_PCI2.ndi, PCI\VEN_10B6&DEV_0002 ;Madge Smart 16/4 PCI Ringnode (BM)
+%MDG_PCI4.DeviceDesc%=MDG_PCI4.ndi, PCI\VEN_10B6&DEV_0004 ;Madge Smart 16/4 PCI Ringnode (BM)
+;
+;****************************************************************************
+; *PNP81D7 Madge Networks Smart 16/4 PC Ringnode
+;****************************************************************************
+[*PNP81D7.ndi]
+AddReg=*PNP81D7.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGPC.LogConfig
+;
+[*PNP81D7.ndi.reg]
+HKR,Ndi,DeviceID,,"*PNP81D7"
+;
+; 16/4 PC hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3&ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+;
+[MDGPC.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=A20-A2F(3FF::),1A20-1A2F(3FF::),2A20-2A2F(3FF::),3A20-3A2F(3FF::)
+IRQConfig=5,2,3,7
+DMAConfig=0
+;
+;****************************************************************************
+; MDGAT Madge Networks Smart 16/4 AT Ringnode
+;****************************************************************************
+[MDGAT.ndi]
+AddReg=MDGAT.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGAT.LogConfig
+;
+[MDGAT.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGAT"
+;
+; 16/4 AT hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+;
+[MDGAT.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=A20-A2F(3FF::),1A20-1A2F(3FF::),2A20-2A2F(3FF::),3A20-3A2F(3FF::)
+IRQConfig=5,3,7,10,11,12,15,2
+DMAConfig=0,1,3,5,6
+;
+;****************************************************************************
+; MDGISAC Madge Networks Smart 16/4 ISA Client Ringnode
+;****************************************************************************
+[MDGISAC.ndi]
+AddReg=MDGISAC.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGISAC.LogConfig
+;
+[MDGISAC.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGISAC"
+;
+; 16/4 ISA Client hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+;
+[MDGISAC.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=A20-A2F(3FF::),1A20-1A2F(3FF::),2A20-2A2F(3FF::),3A20-3A2F(3FF::)
+IRQConfig=5,3,7,10,11,12,15,2
+DMAConfig=0
+;
+;****************************************************************************
+; MDGATP Madge Networks Smart 16/4 AT/P Ringnode
+;****************************************************************************
+[MDGATP.ndi]
+AddReg=MDGATP.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGATP.LogConfig
+;
+[MDGATP.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGATP"
+;
+; 16/4 AT/P hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+;
+[MDGATP.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=A20-A2F(3FF::),1A20-1A2F(3FF::),2A20-2A2F(3FF::),3A20-3A2F(3FF::)
+IRQConfig=5,3,7,10,11,12,15,2
+DMAConfig=0,3,5,6
+;
+;
+;****************************************************************************
+; *MDG0301 Madge Smart 16/4 AT PnP Ringnode
+;****************************************************************************
+[*MDG0301.ndi]
+AddReg=*MDG0301.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[*MDG0301.ndi.reg]
+HKR,Ndi,DeviceID,,"*MDG0301"
+;
+; AT hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; Force16BitPIO (ndis3)
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+; TransferType
+HKR,NDI\params\TransferType,ParamDesc,,"Transfer Type"
+HKR,NDI\params\TransferType,default,,1
+HKR,NDI\params\TransferType,type,,enum
+HKR,NDI\params\TransferType\enum,0,,"PIO"
+HKR,NDI\params\TransferType\enum,1,,"DMA"
+HKR,NDI\params\TransferType\enum,2,,"MMIO"
+HKR,NDI\params\TransferType,flag,1,30,00,00,00
+;
+;****************************************************************************
+; MDGATPNPL Madge Networks Smart 16/4 AT PnP (Legacy) Ringnode
+;****************************************************************************
+[MDGATPNPL.ndi]
+AddReg=MDGATPNPL.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGATPNPL.LogConfig
+;
+[MDGATPNPL.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGATPNPL"
+;
+; 16/4 AT hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; Force16BitPIO (ndis3)
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+;
+[MDGATPNPL.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=920-92F(3FF::),940-94F(3FF::),960-96F(3FF::),980-98F(3FF::),A20-A2F(3FF::),A40-A4F(3FF::),A60-A6F(3FF::),A80-A8F(3FF::),B20-B2F(3FF::),B40-B4F(3FF::),B60-B6F(3FF::),B80-B8F(3FF::)
+IRQConfig=5,3,7,10,11,12,15,2
+DMAConfig=0,3,5,6
+;
+;****************************************************************************
+; MDGISACP Madge Networks Smart 16/4 ISA Client Plus Ringnode
+;****************************************************************************
+[MDGISACP.ndi]
+AddReg=MDGISACP.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGISACP.LogConfig
+;
+[MDGISACP.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGISACP"
+;
+; 16/4 ISA Client Plus hardware type.
+;
+HKR,,AdapterType,,"100"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+;
+[MDGISACP.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=A20-A2F(3FF::),1A20-1A2F(3FF::),2A20-2A2F(3FF::),3A20-3A2F(3FF::)
+IRQConfig=5,3,7,10,11,12,15,2
+DMAConfig=0
+;
+;****************************************************************************
+; MDGSM16 Madge Networks Smart 16 Ringnode
+;****************************************************************************
+[MDGSM16.ndi]
+AddReg=MDGSM16.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGSM16.LogConfig
+;
+[MDGSM16.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGSM16"
+;
+; Smart 16 hardware type.
+;
+HKR,,AdapterType,,"400"
+;
+; Alternate (ndis3 & ndis2)
+HKR,NDI\params\Alternate,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Alternate,default,,""
+HKR,NDI\params\Alternate,type,,enum
+HKR,NDI\params\Alternate\enum,0,,"No"
+HKR,NDI\params\Alternate\enum,1,,"Yes"
+HKR,NDI\params\Alternate,optional,,1
+HKR,NDI\params\Alternate,flag,1,30,00,00,00
+;
+[MDGSM16.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=4A20-4A2F(3FF::)
+IRQConfig=3,7,2
+DMAConfig=0
+;
+;****************************************************************************
+; *MDG0002 Madge Networks Smart 16/4 EISA Ringnode
+;****************************************************************************
+[*MDG0002.ndi]
+AddReg=*MDG0002.ndi.reg,Madge.ndi.reg
+;
+[*MDG0002.ndi.reg]
+HKR,Ndi,DeviceID,,"*MDG0002"
+;
+; 16/4 EISA hardware type.
+;
+HKR,,AdapterType,,"500"
+;
+;****************************************************************************
+; *MDG0004 Madge Networks Smart 16/4 EISA Ringnode Mk3
+;****************************************************************************
+[*MDG0004.ndi]
+AddReg=*MDG0004.ndi.reg,Madge.ndi.reg
+;
+[*MDG0004.ndi.reg]
+HKR,Ndi,DeviceID,,"*MDG0004"
+;
+; 16/4 EISA hardware type.
+;
+HKR,,AdapterType,,"500"
+;
+;****************************************************************************
+; MCA_002D Madge Networks Smart 16/4 MC Ringnode
+;****************************************************************************
+[MCA_002D.ndi]
+AddReg=MCA_002D.ndi.reg,Madge.ndi.reg,Microchannel
+;
+[MCA_002D.ndi.reg]
+HKR,Ndi,DeviceID,,"MCA_002D"
+;
+; 16/4 MCA hardware type.
+;
+HKR,,AdapterType,,"600"
+;
+;****************************************************************************
+; MCA_0074 Madge Networks Smart 16/4 MC32 Ringnode
+;****************************************************************************
+[MCA_0074.ndi]
+AddReg=MCA_0074.ndi.reg,Madge.ndi.reg,Microchannel
+;
+[MCA_0074.ndi.reg]
+HKR,Ndi,DeviceID,,"MCA_0074"
+;
+; 16/4 MCA hardware type.
+;
+HKR,,AdapterType,,"600"
+;
+;****************************************************************************
+; MDG_PCMCIA Madge Smart PCMCIA Token Ring Adapter
+;****************************************************************************
+[MDG_PCMCIA.ndi]
+AddReg=MDG_PCMCIA.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[MDG_PCMCIA.ndi.reg]
+HKR,Ndi,DeviceID,,"MADGE-SMART_16/4_PCMCIA_RINGNODE-0757"
+HKR,Ndi,CardType,,"PCMCIA"
+;
+; PCMCIA hardware type.
+;
+HKR,,AdapterType,,"200"
+;
+; Hardware settings required by PCMCIA adapters.
+;
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+E0,FF,20,00, \
+00,00,FF,FF, \
+00,00,00,00, \
+40,00,00,00, \
+;
+; IRQ
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+FF,FF,00,00, \
+20,00,00,00, \
+;
+; REQUEST_CONFIG_PKT
+;
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,32,32,02, \
+00,08,00,00, \
+00,00,00,01, \
+03, \
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+; Ring speed selection.
+;
+HKR,NDI\params\RingSpeed,ParamDesc,,"Ring speed"
+HKR,NDI\params\RingSpeed,default,,0
+HKR,NDI\params\RingSpeed,type,,enum
+HKR,NDI\params\RingSpeed\enum,0,,"Default (set at adapter)"
+HKR,NDI\params\RingSpeed\enum,1,,"4 MBit/s"
+HKR,NDI\params\RingSpeed\enum,2,,"16 MBit/s"
+HKR,NDI\params\RingSpeed,flag,1,28,00,00,00
+;
+; Old Force4/Force16 for backwards compatibility.
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; Force16BitPIO (ndis3)
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+;
+;
+;****************************************************************************
+; MDG_PCMCIA Madge Smart PCMCIA Token Ring Adapter Mk2
+;****************************************************************************
+[MDG_PCMCIA2A.ndi]
+AddReg=MDG_PCMCIA2A.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[MDG_PCMCIA2A.ndi.reg]
+HKR,Ndi,DeviceID,,"MADGE-SMART_16/4_PCMCIA_RINGNODE-3682"
+HKR,Ndi,CardType,,"PCMCIA"
+;
+; PCMCIA hardware type.
+;
+HKR,,AdapterType,,"200"
+;
+; Hardware settings required by PCMCIA adapters.
+;
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+E0,FF,20,00, \
+00,00,FF,FF, \
+00,00,00,00, \
+40,00,00,00, \
+;
+; IRQ
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+FF,FF,00,00, \
+20,00,00,00, \
+;
+; REQUEST_CONFIG_PKT
+;
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,32,32,02, \
+00,08,00,00, \
+00,00,00,01, \
+03, \
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+; Hardware settings required by PCMCIA adapters - WITH MEMORY WINDOW.
+;
+HKR,Override,0001,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+E0,FF,20,00, \
+00,00,FF,FF, \
+00,00,00,00, \
+40,00,00,00, \
+;
+; IRQ
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+FF,FF,00,00, \
+20,00,00,00, \
+;
+; MMIO
+;
+34,00,00,00,\
+01,00,00,00,\
+01,00,14,00,\
+00,00,00,00,\
+00,00,00,00,\
+00,00,00,00,\
+00,F0,FF,FF,\
+00,10,00,00,\
+00,00,00,00,\
+FF,FF,FF,FF,\
+00,00,00,00,\
+08,00,00,00,\
+00,00,00,00,\
+;
+; REQUEST_CONFIG_PKT
+;
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,32,32,02, \
+00,08,00,00, \
+00,00,00,01, \
+03, \
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+; Ring speed selection.
+;
+HKR,NDI\params\RingSpeed,ParamDesc,,"Ring speed"
+HKR,NDI\params\RingSpeed,default,,0
+HKR,NDI\params\RingSpeed,type,,enum
+HKR,NDI\params\RingSpeed\enum,0,,"Default (set at adapter)"
+HKR,NDI\params\RingSpeed\enum,1,,"4 MBit/s"
+HKR,NDI\params\RingSpeed\enum,2,,"16 MBit/s"
+HKR,NDI\params\RingSpeed,flag,1,28,00,00,00
+;
+; Old Force4/Force16 for backwards compatibility.
+;
+; Force16
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,20,00,00,00
+; Force4
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,20,00,00,00
+; Force16BitPIO
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+; TransferType
+HKR,NDI\params\TransferType,ParamDesc,,"Transfer Type"
+HKR,NDI\params\TransferType,default,,0
+HKR,NDI\params\TransferType,type,,enum
+HKR,NDI\params\TransferType\enum,0,,"PIO"
+HKR,NDI\params\TransferType\enum,2,,"MMIO"
+HKR,NDI\params\TransferType,flag,1,20,00,00,00
+;
+;
+;****************************************************************************
+; *MDG0101 Madge Smart 16/4 ISA Client PnP Ringnode
+;****************************************************************************
+[*MDG0101.ndi]
+AddReg=*MDG0101.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[*MDG0101.ndi.reg]
+HKR,Ndi,DeviceID,,"*MDG0101"
+;
+; PnP hardware type.
+;
+HKR,,AdapterType,,"300"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; Force16BitPIO (ndis3)
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+;
+;****************************************************************************
+; MDGPNPL Madge Networks Smart 16/4 ISA Client PnP (Legacy) Ringnode
+;****************************************************************************
+[MDGPNPL.ndi]
+AddReg=MDGPNPL.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+LogConfig=MDGPNPL.LogConfig
+;
+[MDGPNPL.ndi.reg]
+HKR,Ndi,DeviceID,,"MDGPNPL"
+;
+; 16/4 PnP hardware type.
+;
+HKR,,AdapterType,,"300"
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; Force16BitPIO (ndis3)
+HKR,NDI\params\Force16BitPIO,ParamDesc,,"Force 16bit PIO"
+HKR,NDI\params\Force16BitPIO,default,,0
+HKR,NDI\params\Force16BitPIO,type,,enum
+HKR,NDI\params\Force16BitPIO\enum,0,,no
+HKR,NDI\params\Force16BitPIO\enum,1,,yes
+HKR,NDI\params\Force16BitPIO,flag,1,20,00,00,00
+HKR,NDI\params\Force16BitPIO,optional,,1
+;
+[MDGPNPL.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=300-30F(3FF::),920-92F(3FF::),940-94F(3FF::),960-96F(3FF::),980-98F(3FF::),A20-A2F(3FF::),A40-A4F(3FF::),A60-A6F(3FF::),A80-A8F(3FF::),B20-B2F(3FF::),B40-B4F(3FF::),B60-B6F(3FF::),B80-B8F(3FF::)
+IRQConfig=2,3,5,7,9,10,11,15
+DMAConfig=0
+;
+;****************************************************************************
+; MDG_PCI Madge Smart 16/4 PCI Ringnode
+;****************************************************************************
+[MDG_PCI.ndi]
+AddReg=MDG_PCI.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[MDG_PCI.ndi.reg]
+HKR,Ndi,DeviceID,,"PCI\VEN_10B6&DEV_0001"
+;
+; PCI Hardware type.
+;
+HKR,,AdapterType,,"700"
+;
+; Ring speed selection.
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; TransferType
+HKR,NDI\params\TransferType,ParamDesc,,"Transfer Type"
+HKR,NDI\params\TransferType,default,,0
+HKR,NDI\params\TransferType,type,,enum
+HKR,NDI\params\TransferType\enum,0,,"PIO"
+HKR,NDI\params\TransferType\enum,2,,"MMIO"
+HKR,NDI\params\TransferType,flag,1,30,00,00,00
+HKR,NDI\params\TransferType,optional,,1
+;
+;****************************************************************************
+; MDG_PCI Madge Smart 16/4 PCI Ringnode (BM) 2
+;****************************************************************************
+[MDG_PCI2.ndi]
+AddReg=MDG_PCI2.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+;
+[MDG_PCI2.ndi.reg]
+HKR,Ndi,DeviceID,,"PCI\VEN_10B6&DEV_0002"
+;
+; PCI Hardware type.
+;
+HKR,,AdapterType,,"700"
+;
+; Ring speed selection.
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; TransferType
+HKR,NDI\params\TransferType,ParamDesc,,"Transfer Type"
+HKR,NDI\params\TransferType,default,,1
+HKR,NDI\params\TransferType,type,,enum
+HKR,NDI\params\TransferType\enum,0,,"PIO"
+HKR,NDI\params\TransferType\enum,1,,"DMA"
+HKR,NDI\params\TransferType,flag,1,30,00,00,00
+HKR,NDI\params\TransferType,optional,,1
+;
+;****************************************************************************
+; MDG_PCI Madge Smart 16/4 PCI Ringnode (BM)
+;****************************************************************************
+[MDG_PCI4.ndi]
+AddReg=MDG_PCI4.ndi.reg,Madge.ndi.reg,MadgeISA.ndi.reg
+[MDG_PCI4.ndi.reg]
+HKR,Ndi,DeviceID,,"PCI\VEN_10B6&DEV_0004"
+;
+; PCI Hardware type.
+;
+HKR,,AdapterType,,"700"
+;
+; Ring speed selection.
+;
+; Force16 (ndis3 & ndis2)
+HKR,NDI\params\Force16,ParamDesc,,"Force 16 Mbits/s"
+HKR,NDI\params\Force16,default,,""
+HKR,NDI\params\Force16,type,,enum
+HKR,NDI\params\Force16\enum,0,,"No"
+HKR,NDI\params\Force16\enum,1,,"Yes"
+HKR,NDI\params\Force16,optional,,1
+HKR,NDI\params\Force16,flag,1,30,00,00,00
+; Force4 (ndis3 & ndis2)
+HKR,NDI\params\Force4,ParamDesc,,"Force 4 Mbits/s"
+HKR,NDI\params\Force4,default,,""
+HKR,NDI\params\Force4,type,,enum
+HKR,NDI\params\Force4\enum,0,,"No"
+HKR,NDI\params\Force4\enum,1,,"Yes"
+HKR,NDI\params\Force4,optional,,1
+HKR,NDI\params\Force4,flag,1,30,00,00,00
+; TransferType
+HKR,NDI\params\TransferType,ParamDesc,,"Transfer Type"
+HKR,NDI\params\TransferType,default,,1
+HKR,NDI\params\TransferType,type,,enum
+HKR,NDI\params\TransferType\enum,0,,"PIO"
+HKR,NDI\params\TransferType\enum,1,,"DMA"
+HKR,NDI\params\TransferType,flag,1,30,00,00,00
+HKR,NDI\params\TransferType,optional,,1
+;
+;****************************************************************************
+; Madge Networks Smart Ringnode Driver
+;****************************************************************************
+[Madge.ndi.reg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,mdgmport.sys
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+; NDIS Info
+HKR,NDIS,LogDriverName,,"MDGMPORT"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"mdgnd$"
+HKR,NDIS\NDIS2,FileName,,"mdgnd.dos"
+HKR,NDIS\ODI,DriverName,,"madgeodi"
+HKR,NDIS\ODI,FileName,,"madgeodi.com"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis3,ndis2"
+HKR,Ndi\Interfaces,DefLower,,"tokenring"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3,ndis2,odi"
+HKR,Ndi\Interfaces,LowerRange,,"tokenring"
+; Install sections
+HKR,Ndi\Install,ndis3,,"madge.ndis3"
+HKR,Ndi\Install,ndis2,,"madge.ndis2"
+HKR,Ndi\Install,odi,,"madge.odi"
+; Note that we are running on Windows95
+HKR,,PlatformType,,"200"
+HKR,,TestAndXIDEnabled,,"1"
+; NetworkAddress
+HKR,NDI\params\NetworkAddress,ParamDesc,,"LAA"
+HKR,NDI\params\NetworkAddress,default,,""
+HKR,NDI\params\NetworkAddress,type,,edit
+HKR,NDI\params\NetworkAddress,LimitText,,12
+HKR,NDI\params\NetworkAddress,UpperCase,,1
+HKR,NDI\params\NetworkAddress,optional,,1
+HKR,NDI\params\NetworkAddress,flag,1,30,00,00,00
+; MaxFrameSize
+HKR,NDI\params\MaxFrameSize,ParamDesc,,"Maximum Frame Size"
+HKR,Ndi\params\MaxFrameSize,default,,4096
+HKR,NDI\params\MaxFrameSize,type,,int
+HKR,NDI\params\MaxFrameSize,min,,1024
+HKR,NDI\params\MaxFrameSize,max,,17839
+HKR,NDI\params\MaxFrameSize,flag,1,30,00,00,00
+; AutoOpen
+HKR,NDI\params\AutoOpen,ParamDesc,,"Automatically Open Adapter"
+HKR,NDI\params\AutoOpen,flag,1,10,00,00,00
+HKR,NDI\params\AutoOpen,default,,yes
+HKR,NDI\params\AutoOpen,type,,enum
+HKR,NDI\params\AutoOpen\enum,yes,,yes
+HKR,NDI\params\AutoOpen\enum,no,,no
+; PromiscuousModeX
+HKR,NDI\params\PromiscuousModeX,ParamDesc,,"Statistics Gathering Mode"
+HKR,NDI\params\PromiscuousModeX,default,,""
+HKR,NDI\params\PromiscuousModeX,type,,enum
+HKR,NDI\params\PromiscuousModeX\enum,1,,"Yes"
+HKR,NDI\params\PromiscuousModeX\enum,0,,"No"
+HKR,NDI\params\PromiscuousModeX,optional,,1
+HKR,NDI\params\PromiscuousModeX,flag,1,20,00,00,00
+; Quiet
+HKR,NDI\params\Quiet,ParamDesc,,"Warn if no lobe cable"
+HKR,NDI\params\Quiet,default,,""
+HKR,NDI\params\Quiet,type,,enum
+HKR,NDI\params\Quiet\enum,0,,"Yes"
+HKR,NDI\params\Quiet\enum,1,,"No"
+HKR,NDI\params\Quiet,optional,,1
+HKR,NDI\params\Quiet,flag,1,20,00,00,00
+; SyncEnhan
+HKR,NDI\params\SyncEnhan,ParamDesc,,"Synchronous Enhancement"
+HKR,NDI\params\SyncEnhan,default,,""
+HKR,NDI\params\SyncEnhan,type,,enum
+HKR,NDI\params\SyncEnhan\enum,1,,"Yes"
+HKR,NDI\params\SyncEnhan\enum,0,,"No"
+HKR,NDI\params\SyncEnhan,optional,,1
+HKR,NDI\params\SyncEnhan,flag,1,20,00,00,00
+;
+[Microchannel]
+;
+[MadgeISA.ndi.reg]
+; Resources
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IoLocation,1,02,00,00,00
+HKR,,DMAChannel,1,03,00,00,00
+HKR,,MemBase,1,01,00,00,00
+;ndis2
+HKR,NDI\params\IOAddress,resc,1,02,00,00,00
+HKR,NDI\params\IOAddress,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\IOAddress,flag,1,10,00,00,00
+;ndis3
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,NDI\params\InterruptNumber,ParamDesc,,"Interrupt Level"
+HKR,NDI\params\InterruptNumber,flag,1,20,00,00,00
+HKR,NDI\params\IoLocation,resc,1,02,00,00,00
+HKR,NDI\params\IoLocation,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\IoLocation,flag,1,20,00,00,00
+HKR,NDI\params\MemBase,resc,1,01,00,00,00
+HKR,NDI\params\MemBase,ParamDesc,,"MMIO Base Address"
+HKR,NDI\params\MemBase,flag,1,20,00,00,00
+HKR,NDI\params\DMAChannel,resc,1,03,00,00,00
+HKR,NDI\params\DMAChannel,ParamDesc,,"DMA Channel"
+HKR,NDI\params\DMAChannel,flag,1,20,00,00,00
+; Install NDIS3
+[madge.ndis3]
+CopyFiles=madge.ndis3.CopyFiles
+[madge.ndis3.CopyFiles]
+mdgmport.sys
+mdgmport.bin
+;
+; Install NDIS2
+[madge.ndis2]
+CopyFiles=madge.ndis2.CopyFiles
+[madge.ndis2.CopyFiles]
+mdgnd.dos
+mdgnd30.bin
+;
+; Install ODI
+[madge.odi]
+CopyFiles=madge.odi.CopyFiles
+[madge.odi.CopyFiles]
+madgeodi.com
+mdgdos30.bin
+;
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+DefaultDestDir              =11 ; LDID_SYS
+madge.ndis3.CopyFiles       =11 ; LDID_SYS
+madge.ndis2.CopyFiles       =26 ; LDID_WINBOOT
+madge.odi.CopyFiles         =26 ; LDID_WINBOOT
+[SourceDisksNames]
+99=%DISK_MADGE%,,0001
+[SourceDisksFiles]
+mdgmport.sys=99,,55000
+mdgmport.bin=99,,58000
+mdgnd.dos=99,,86000
+mdgnd30.bin=99,,58000
+madgeodi.com=99,,52000
+mdgdos30.bin=99,,51000
+;
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+; Provider
+V_MS="Microsoft"
+; Manufacturers
+V_MADGE="Madge"
+; PNP Devices
+*PNP81D7.DeviceDesc="Madge Smart 16/4 PC Ringnode"
+MDGAT.DeviceDesc="Madge Smart 16/4 AT Ringnode"
+MDGISAC.DeviceDesc="Madge Smart 16/4 ISA Client Ringnode"
+MDGATP.DeviceDesc="Madge Smart 16/4 AT Plus Ringnode"
+*MDG0301.DeviceDesc="Madge Smart 16/4 AT PnP Ringnode"
+MDGATPNPL.DeviceDesc="Madge Smart 16/4 AT PnP (Legacy) Ringnode"
+MDGISACP.DeviceDesc="Madge Smart 16/4 ISA Client Plus Ringnode"
+MDGSM16.DeviceDesc="Madge Smart 16 Ringnode"
+*MDG0002.DeviceDesc="Madge Smart 16/4 EISA Ringnode"
+*MDG0004.DeviceDesc="Madge Smart 16/4 EISA Ringnode Mk3"
+MCA_002D.DeviceDesc="Madge Smart 16/4 MC Ringnode"
+MCA_0074.DeviceDesc="Madge Smart 16/4 MC32 Ringnode"
+MDG_PCMCIA.DeviceDesc="Madge Smart 16/4 PCMCIA Ringnode"
+MDG_PCMCIA2A.DeviceDesc="Madge Smart 16/4 PCMCIA Ringnode Mk2
+*MDG0101.DeviceDesc="Madge Smart 16/4 ISA Client PnP Ringnode"
+MDGPNPL.DeviceDesc="Madge Smart 16/4 ISA Client PnP (Legacy) Ringnode"
+MDG_PCI.DeviceDesc="Madge Smart 16/4 PCI Ringnode"
+MDG_PCI2.DeviceDesc="Madge Smart 16/4 PCI Ringnode (BM) 2"
+MDG_PCI4.DeviceDesc="Madge Smart 16/4 PCI Ringnode (BM)"
+; Installation disk
+DISK_MADGE="Madge Networks Driver Disk"

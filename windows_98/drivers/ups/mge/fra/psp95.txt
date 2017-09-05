@@ -1,0 +1,6 @@
+Solution-Pac 97
+
+Si votre ordinateur est relié électriquement à un onduleur MGE UPS Systems, Solution-Pac 97 permet d'arrêter proprement votre ordinateur en cas de coupure de l'alimentation électrique.
+Solution-Pac 97 est utilisable sur un ordinateur monoposte ou un serveur de réseau local relié à un onduleur par une liaison série. Les échanges d'informations entre l'onduleur d'une
+part et votre ordinateur d'autre part se font par cette liaison série.
+Solution-Pac 97 analyse ces informations en permanence pour garantir la sécurité de votre système informatique.

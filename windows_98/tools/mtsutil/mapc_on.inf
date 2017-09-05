@@ -1,0 +1,28 @@
+;
+; Enable MapCache
+;
+; Copyright 1992-1998 Microsoft Corporation
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+DelReg    = Del_MapC_On.Reg
+
+[SourceDisksNames]
+55="Remove MapCache","",1
+
+[SourceDisksFiles]
+MapC_On.INF=55
+
+[DestinationDirs]
+MapC_On.Files.Inf = 17
+
+[MapC_On.Files.Inf]
+MapC_On.INF
+
+[Del_MapC_On.Reg]
+HKLM,%Location%,MapCache,,
+
+[Strings]
+Location="System\CurrentControlSet\Services\VxD\VMM"

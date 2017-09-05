@@ -1,0 +1,58 @@
+;#########################################################################
+;
+;  OEMSETUP.INF
+;
+;  Setup information file for the Compaq 32-Bit Fast-Wide SCSI-2
+;  Controllers SCSI Miniport Driver for Microsoft Windows 95.
+;
+;  Copyright (C) Compaq Computer Corporation 1995
+;  All Rights Reserved
+;
+;#########################################################################
+
+[Version]
+signature="$Windows 95$"
+Class=SCSIAdapter
+Provider=%COMPAQ%
+LayoutFile=LAYOUT.INF
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%*CPQ4430.DeviceDesc%=Install.CPQFWS2E,*CPQ4430
+%*CPQ4431.DeviceDesc%=Install.CPQFWS2E,*CPQ4431
+
+[Install.CPQFWS2E]
+CopyFiles=@cpqfws2e.mpd
+UpdateInis=DoubleBuffer
+AddReg=StdIOS_RegEntries,CPQFWS2E_RegEntries
+
+[StdIOS_RegEntries]
+HKR,,DevLoader,,*IOS
+HKR,,DontLoadIfConflict,,"Y"
+
+[CPQFWS2E_RegEntries]
+HKR,,PortDriver,,cpqfws2e.mpd
+
+[DestinationDirs]
+DefaultDestDir = 12                     ; IOSubsys directory
+
+[SourceDisksFiles]
+cpqfws2e.mpd = 1
+
+[SourceDisksNames]
+1 = %DISK1%,CPQFWS2E_1,0000-0000
+
+[DoubleBuffer]
+%31%\msdos.sys,Options,,"DoubleBuffer=1"
+%10%\IOS.INI,SafeList,,"WS2_ASPI.SYS"
+%10%\IOS.INI,SafeList,,"WS2_DISK.SYS"
+%10%\IOS.INI,SafeList,,"WS2_CD.SYS"
+
+[Strings]
+COMPAQ="Compaq Computer Corporation"
+DISK1="Compaq 32-Bit Fast-Wide SCSI-2/E Controllers Driver for Windows 95 Installation Disk"
+SCSIClassName="SCSI controllers"
+*CPQ4430.DeviceDesc="Compaq Integrated 32-Bit Fast-Wide SCSI-2/E Controller"
+*CPQ4431.DeviceDesc="Compaq 32-Bit Fast-Wide SCSI-2/E Controller"

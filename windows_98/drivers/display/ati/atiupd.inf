@@ -1,0 +1,371 @@
+;
+; ATI Display INF
+;
+[version]
+signature="$CHICAGO$"
+Class=Display
+ClassGUID={4d36e968-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+[DestinationDirs]
+DefaultDestDir  =11             ;LDID_SYS
+Driver.Copy     =11
+
+; Manufacturers
+; ---------------------------------------------------------
+[Manufacturer]
+%ATI%    =Mfg.ATI
+
+; Driver Sections
+; ---------------------------------------------------------
+
+[Mfg.ATI]
+;ATI_M64
+%PCI\VEN_1002&DEV_5654.DeviceDesc%=ATI_M64,PCI\VEN_1002&DEV_5654        ; Mach64 VT
+%PCI\VEN_1002&DEV_5654_ENU_A.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_5654 ; Mach64 VT
+%PCI\VEN_1002&DEV_5654_ENU_B.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_5654 ; Mach64 VT
+%PCI\VEN_1002&DEV_5654_ENU_C.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_5654 ; Mach64 VT
+%PCI\VEN_1002&DEV_4754.DeviceDesc%=ATI_M64,PCI\VEN_1002&DEV_4754        ; Mach64 GT
+%PCI\VEN_1002&DEV_4755.DeviceDesc%=ATI_M64,PCI\VEN_1002&DEV_4755        ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_A.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_4755     ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_B.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_4755     ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_C.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_4755     ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_D.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_4755     ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_E.DeviceDesc%=ATI_M64,,PCI\VEN_1002&DEV_4755     ; Rage II+(U3)
+%PCI\VEN_1002&DEV_4755_F.DeviceDesc%=ATI_M64.AIW,,PCI\VEN_1002&DEV_4755 ; Rage II+(U3)
+
+;ATI_R3
+%PCI\VEN_1002&DEV_4742.DeviceDesc%=ATIR3,PCI\VEN_1002&DEV_4742          ; GT3  
+%PCI\VEN_1002&DEV_4742_A.DeviceDesc%=ATIR3.AIW,,PCI\VEN_1002&DEV_4742   ; GT3
+%PCI\VEN_1002&DEV_4742_B.DeviceDesc%=ATIR3,,PCI\VEN_1002&DEV_4742       ; GT3
+%PCI\VEN_1002&DEV_4742_C.DeviceDesc%=ATIR3,,PCI\VEN_1002&DEV_4742       ; GT3
+%PCI\VEN_1002&DEV_4744.DeviceDesc%=ATIR3,PCI\VEN_1002&DEV_4744          ; GT3    
+%PCI\VEN_1002&DEV_4747.DeviceDesc%=ATIR3,PCI\VEN_1002&DEV_4747          ; GT3    
+%PCI\VEN_1002&DEV_4749.DeviceDesc%=ATIR3,PCI\VEN_1002&DEV_4749          ; GT3    
+%PCI\VEN_1002&DEV_4749_A.DeviceDesc%=ATIR3.AIW,,PCI\VEN_1002&DEV_4749   ; GT3
+%PCI\VEN_1002&DEV_4750.DeviceDesc%=ATIR3,PCI\VEN_1002&DEV_4750          ; GT3    
+%PCI\VEN_1002&DEV_4750_A.DeviceDesc%=ATIR3,,PCI\VEN_1002&DEV_4750       ; GT3 
+%PCI\VEN_1002&DEV_4750_B.DeviceDesc%=ATIR3,,PCI\VEN_1002&DEV_4750       ; GT3 
+
+; -------------- Common sections
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,,EnumPropPages
+HKR,INFO
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+
+[Cpl.DelReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Run","AtiKey"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\ATIPages"
+HKR,"shellex\PropertySheetHandlers\ATIPages"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\ATIPagesX"
+HKR,"shellex\PropertySheetHandlers\ATIPagesX"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\DriverPages"
+HKR,"shellex\PropertySheetHandlers\DriverPages"
+HKLM,"System\CurrentControlSet\Services\Class\DISPLAY\ATI"
+HKR,,"EnumPropPages"
+
+[VGA.LogConfig]
+ConfigPriority=HARDWIRED
+IOConfig=3B0-3BB
+IOConfig=3C0-3DF
+MemConfig=A0000-AFFFF
+MemConfig=B8000-BFFFF
+MemConfig=C0000-C7FFF,D0000-D7FFF,E0000-E5FFF,E0000-E7FFF
+
+; -------------- ATI VGA Wonder
+[ATIVGA]
+CopyFiles=ATIVGA.Copy
+DelReg=Prev.DelReg
+AddReg=ATIVGA.AddReg
+LogConfig=VGA.LogConfig
+
+[ATIVGA.Copy]
+framebuf.drv,,,12
+ati.vxd,,,12
+supervga.drv,,,12
+framebuf.dll,,,12
+
+[ATIVGA.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"4,640,480"
+HKR,DEFAULT,drv,,framebuf.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,ati.vxd
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,70,75"
+HKR,"MODES\8\800,600",,,"60,70,75"
+HKR,"MODES\8\1024,768",,,"60,70,75"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\24\640,480"
+
+; -------------- ATI mach64 Rage
+[ATI_M64.AIW]
+CopyFiles=ATI_M64.CopyFiles
+DelFiles=ATI_M64.DelFiles
+DelReg=Prev.DelReg,Cpl.DelReg
+AddReg=ATI_M64.AddReg,ATI_M64.AIW.AddReg
+LogConfig=VGA.LogConfig
+UpdateAutoBat=ATI_UpdateAutoBat
+
+[ATI_M64]
+CopyFiles=ATI_M64.CopyFiles
+DelFiles=ATI_M64.DelFiles
+DelReg=Prev.DelReg,Cpl.DelReg
+AddReg=ATI_M64.AddReg
+LogConfig=VGA.LogConfig
+UpdateAutoBat=ATI_UpdateAutoBat
+
+[ATI_M64.CopyFiles]
+ati_m64.drv,,,12
+ati_m64.vxd,,,12
+ati_dd16.dll,,,12
+ati_dd32.dll,,,12
+ati_hal.dll,,,12
+ati_d3d.dll,,,12
+ati_vpe.dll,,,12
+ati_tv.dll,,,12
+atidil.dll,,,12
+atipita.dll,,,12
+atiht.dll,,,12
+atidev.dll,,,12
+aticwdde.dll,,,12
+atidvenu.rsc,,,12
+atihal64.dll,,,12
+
+[ATI_M64.AddReg]
+HKR,,Ver,,4.02
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,ati_m64.drv
+HKR,DEFAULT,drv2,,ati_m64.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,ati_m64.vxd
+HKR,DEFAULT,minivdd2,,ati_m64.vxd
+HKR,DEFAULT,RefreshRate,,0
+HKR,DEFAULT,DDC,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,72,75,85,90,100,120,160,200"
+HKR,"MODES\8\800,600",,,"48,56,60,70,72,75,85,90,100,120,160,200"
+HKR,"MODES\8\1024,768",,,"43,60,70,72,75,85,90,100,120,140,150"
+HKR,"MODES\8\1152,864",,,"43,47,60,70,75,80,85,100,120"
+HKR,"MODES\8\1280,1024",,,"43,47,60,70,74,75,85,90,100"
+HKR,"MODES\8\1600,1200",,,"52,58,60,72,75"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1152,864"
+HKR,"MODES\24\1280,1024"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1152,864"
+HKR,"MODES\32\1280,1024"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}\InProcServer32",,,"atidev.dll"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Device\shellex\PropertySheetHandlers\ATIPagesX",,,"{2454EF40-4AE4-11d1-B72C-006097268D8C}"
+
+[ATI_M64.AIW.AddReg]
+HKR,"ENUM\Device1",pnpid,,"atitunep"
+HKR,"ENUM\Device2",pnpid,,"bt829"
+HKR,"ENUM\Device3",pnpid,,"atixbar"
+
+[ATI_M64.DelFiles]
+ati64hlp.stb,,,1
+ati64hl2.stb,,,1
+
+; -------------- ATI mach64 RagePro
+[ATIR3.AIW]
+CopyFiles=ATIR3.CopyFiles
+DelFiles=ATIR3.DelFiles
+DelReg=Prev.DelReg,Cpl.DelReg
+AddReg=ATIR3.AddReg,ATIR3.AIW.AddReg
+LogConfig=VGA.LogConfig
+UpdateAutoBat=ATI_UpdateAutoBat
+
+[ATIR3]
+CopyFiles=ATIR3.CopyFiles
+DelFiles=ATIR3.DelFiles
+DelReg=Prev.DelReg,Cpl.DelReg
+AddReg=ATIR3.AddReg
+LogConfig=VGA.LogConfig
+UpdateAutoBat=ATI_UpdateAutoBat
+
+[ATIR3.CopyFiles]
+atir3.drv,,,12
+atir3.vxd,,,12
+atir3d16.dll,,,12
+atir3d32.dll,,,12
+atir3hal.dll,,,12
+atir3d3d.dll,,,12
+atir3vpe.dll,,,12
+atir3tv.dll,,,12
+atidil.dll,,,12
+atipita.dll,,,12
+atiht.dll,,,12
+atidev.dll,,,12
+aticwdde.dll,,,12
+atidvenu.rsc,,,12
+atihal64.dll,,,12
+
+[ATIR3.AddReg]
+HKR,,Ver,,4.02
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,atir3.drv
+HKR,DEFAULT,drv2,,atir3.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,atir3.vxd
+HKR,DEFAULT,minivdd2,,atir3.vxd
+HKR,DEFAULT,RefreshRate,,0
+HKR,DEFAULT,DDC,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,72,75,85,90,100,120,160,200"
+HKR,"MODES\8\800,600",,,"48,56,60,70,72,75,85,90,100,120,160,200"
+HKR,"MODES\8\1024,768",,,"43,60,70,72,75,85,90,100,120,140,150"
+HKR,"MODES\8\1152,864",,,"43,47,60,70,75,80,100,120"
+HKR,"MODES\8\1280,1024",,,"43,47,60,70,74,75,85,90,100"
+HKR,"MODES\8\1600,1200",,,"52,58,60,66,72,75,76,85"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1152,864"
+HKR,"MODES\24\1280,1024"
+HKR,"MODES\24\1600,1200"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1152,864"
+HKR,"MODES\32\1280,1024"
+HKR,"MODES\32\1600,1200"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}\InProcServer32",,,"atidev.dll"
+HKCR,"CLSID\{2454EF40-4AE4-11d1-B72C-006097268D8C}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Device\shellex\PropertySheetHandlers\ATIPagesX",,,"{2454EF40-4AE4-11d1-B72C-006097268D8C}"
+
+[ATIR3.AIW.AddReg]
+HKR,"ENUM\Device1",pnpid,,"atitunep"
+HKR,"ENUM\Device2",pnpid,,"bt829pro"
+HKR,"ENUM\Device3",pnpid,,"atixbar"
+
+[ATIR3.DelFiles]
+ati64hlp.stb,,,1
+ati64hl2.stb,,,1
+
+
+
+; User visible strings
+; ---------------------------------------------------------
+[Strings]
+MS="Microsoft"
+
+ATI="ATI Technologies"
+
+8514Ultra="ATI 8514-Ultra (mach8)"
+GraphVantage="ATI Graphics Vantage (mach8)"
+GraphWonder="ATI Graphics Wonder (mach32)"
+GraphXPress="ATI Graphics Xpression (mach64)"
+WinTurbo="ATI WinTurbo (mach64)"
+
+*PNP090A.DeviceDesc="ATI Graphics Ultra Pro (mach32)"
+*PNP090B.DeviceDesc="ATI Graphics Ultra (mach8)"
+*PNP090D.DeviceDesc="ATI VGA Wonder"
+*PNP0916.DeviceDesc="ATI Graphics Pro Turbo (mach64)"
+
+*ATI4402.DeviceDesc="ATI Graphics Ultra Pro EISA (mach32)"
+
+PCI\VEN_1002&DEV_4158.DeviceDesc="ATI Graphics Ultra Pro PCI (mach32)"
+PCI\VEN_1002&DEV_4758.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - GX)"   ; GX
+PCI\VEN_1002&DEV_4358.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - CX)"   ; CX
+PCI\VEN_1002&DEV_4354.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - CT)"   ; CT
+PCI\VEN_1002&DEV_4354_ENU_A.DeviceDesc="ATI-264CT (atim64 - CT)"              ; CT
+PCI\VEN_1002&DEV_4354_ENU_B.DeviceDesc="ATI Graphics Xpression (atim64 - CT)" ; CT
+PCI\VEN_1002&DEV_4554.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - ET)"   ; ET
+PCI\VEN_1002&DEV_4C54.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - LT)"   ; LT
+PCI\VEN_1002&DEV_4C54_ENU.DeviceDesc="ATI 264-LT (atim64 - LT)"               ; LT
+PCI\VEN_1002&DEV_5654.DeviceDesc="ATI Graphics Pro Turbo PCI (atim64 - VT)"   ; VT
+PCI\VEN_1002&DEV_5654_ENU_A.DeviceDesc="ATI-264VT2  (atim64 - VT)"            ; VT
+PCI\VEN_1002&DEV_5654_ENU_B.DeviceDesc="ATI Video Xpression+  (atim64 - VT)"  ; VT
+PCI\VEN_1002&DEV_5654_ENU_C.DeviceDesc="Video Boost (atim64 - VT)"            ; VT
+
+
+PCI\VEN_1002&DEV_4754.DeviceDesc="ATI Rage/Rage II PCI (ati_m64)"             ; GT
+PCI\VEN_1002&DEV_4755.DeviceDesc="ATI Rage II+ PCI (ati_m64)"
+PCI\VEN_1002&DEV_4755_A.DeviceDesc="ATI 3D Xpression+  (ati_m64)"
+PCI\VEN_1002&DEV_4755_B.DeviceDesc="ATI 3D Xpression+  PC2TV (ati_m64)"
+PCI\VEN_1002&DEV_4755_C.DeviceDesc="ATI 3D Pro Turbo (ati_m64)"
+PCI\VEN_1002&DEV_4755_D.DeviceDesc="ATI 3D Pro Turbo PC2TV (ati_m64)"
+PCI\VEN_1002&DEV_4755_E.DeviceDesc="ATI 3D Charger (ati_m64)"
+PCI\VEN_1002&DEV_4755_F.DeviceDesc="All-In-Wonder (ati_m64)"
+
+PCI\VEN_1002&DEV_4742.DeviceDesc="ATI 3D Rage Pro (atir3)"
+PCI\VEN_1002&DEV_4742_A.DeviceDesc="All-In-Wonder PRO (atir3)"
+PCI\VEN_1002&DEV_4742_B.DeviceDesc="Xpert@Play (atir3)"
+PCI\VEN_1002&DEV_4742_C.DeviceDesc="Xpert@Work (atir3)"
+PCI\VEN_1002&DEV_4744.DeviceDesc="ATI 3D Rage Pro (atir3)"
+PCI\VEN_1002&DEV_4747.DeviceDesc="ATI 3D Rage Pro (atir3)"
+PCI\VEN_1002&DEV_4749.DeviceDesc="ATI 3D Rage Pro (atir3)"
+PCI\VEN_1002&DEV_4749_A.DeviceDesc="All-In-Wonder PRO (atir3)"
+PCI\VEN_1002&DEV_4750.DeviceDesc="ATI 3D Rage Pro (atir3)"
+PCI\VEN_1002&DEV_4750_A.DeviceDesc="Xpert@Work (atir3)"
+PCI\VEN_1002&DEV_4750_B.DeviceDesc="Xpert@Play (atir3)"
+
+
+
+[SourceDisksNames]
+222="DirectX Drivers Disk","",1
+
+[SourceDisksFiles]
+framebuf.drv=222
+supervga.drv=222
+ati.vxd=222
+atim8.drv=222
+atim32.drv=222
+atim32.dll=222
+ati_m64.drv=222
+ati_m64.vxd=222
+ati_dd16.dll=222
+ati_dd32.dll=222
+ati_hal.dll=222
+ati_d3d.dll=222
+ati_vpe.dll=222
+ati_tv.dll=222
+atir3.drv=222
+atir3.vxd=222
+atir3d16.dll=222
+atir3d32.dll=222
+atir3hal.dll=222
+atir3d3d.dll=222
+atir3vpe.dll=222
+atir3tv.dll=222
+;atiglock.dll=222
+atidil.dll=222
+atipita.dll=222
+atiht.dll=222
+atidev.dll=222
+aticwdde.dll=222
+atidvenu.rsc=222
+atihal64.dll=222
+
+

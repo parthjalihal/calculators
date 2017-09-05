@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>Release Notes</title>
+
+<SCRIPT LANGUAGE="JavaScript">
+	TempString = navigator.appVersion
+	if (navigator.appName == "Microsoft Internet Explorer"){	
+// Check to see if browser is Microsoft
+		if (TempString.indexOf ("4.") >= 0){
+// Check to see if it is IE 4
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+		}
+		else {
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+		}
+	}
+	else if (navigator.appName == "Netscape") {						
+// Check to see if browser is Netscape
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+	}
+	else
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+</script>
+
+<META NAME="DESCRIPTION" CONTENT="Release Notes"></head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Verdana,Arial,Helvetica">
+
+<h1>Microsoft ActiveX Data Objects&nbsp;1.5 Release Notes</h1>
+
+<p>This document provides late-breaking or other information that supplements the Microsoft&reg; ActiveX&#153; Data Objects version 1.5 documentation.</p>
+
+<p>The following sections are included in this document:<br>
+<a href="#productdescription">Product Description</a><br>	
+<a href="#newfeatures">New Features</a><br>	
+<a href="#installationnotes">Installation Notes</a><br>	
+<a href="#technicalsupport">Technical Support</a><br>
+<a href="#KnownIssues">Known Issues</a><br>
+<a href="#CopyrightInformation">Copyright Information</a>
+</p>
+
+<hr>
+<h1><a name="productdescription">Product Description</a></h1>
+
+<p>Microsoft ActiveX Data Objects (ADO) is an Automation-based interface for accessing data.  ADO uses the OLE DB interface to access a broad range of data sources, including but not limited to data provided via ODBC.</p>
+
+<p>Users of RDO and DAO should quickly become comfortable with programming to ADO, because the overall design of ADO comes from our experience in developing those interfaces.</p>
+
+<hr>
+<h1><a name="newfeatures">New Features</a></h1>
+
+<p>This release of ADO adds several features to give the developer more power and control in their applications.  (See the documentation for more information about using these features).  New features include the following:</p>
+
+<ul>
+<li> Integration with the Microsoft Client Cursors</li>
+<p>As in RDO 2.0, developers now have a high performance client-side cursor engine which supports optimistic batch updating, disconnected Recordset objects, and more.</p>
+
+<li>Commands as Connection Methods</li>
+<p>Using this feature, Commands associated with a connection become methods on that connection interface.</p>
+
+<li>Data Remoting</li>
+<p>Using this feature, ADO users can transmit data across HTTP to a client, work on that data, and submit it back to the HTTP server again.</p>
+</ul>
+
+<hr>
+<h1><a name="installationnotes">Installation Notes</a></h1>
+
+<h2>Before You Run Setup</h2>
+
+<p>Before you install ADO, make sure that your client and server computers meet the minimum hardware and software requirements.</p>
+
+<h2>Hardware Requirements</h2>
+
+<p>To install ADO, you must meet certain hardware requirements, which include the following:</p>
+
+<ul>
+<li>Any Microsoft&reg; Windows&reg; 98 or Microsoft&reg; Windows&nbsp;NT&reg; x86-compatible computer, or Digital Equipment Corporation ALPHA processor based machine.</li>
+<li>A hard disk with a minimum of 14 megabytes (MB) available space for a full installation of all the updated components required for ADO to run.</li>
+<li>A minimum of 12 MB of RAM for client computers.</li>
+<li>A minimum of 24 MB of RAM for server computers (32 MB of RAM recommended).</li>
+</ul> 
+
+<h2>Software Requirements</h2>
+
+<p>Before you install ADO, your computer must meet the following software requirements:</p>
+
+<ul>
+<li>Any of the following platforms: Windows 98, Windows&nbsp;NT Workstation 4.0 or later, or Windows&nbsp;NT Server 4.0 (with Service Pack 3) or later.</li>
+</ul>
+
+<p>To use ADO you will need a programming environment which supports Automation objects.  Currently this includes (but is not limited to) products such as Microsoft&reg; Internet Information Server 3.0 or 4.0 (with Active Server Pages), Microsoft&reg; Personal Web Server 4.0 for Windows&reg; 98, the products in Microsoft Office, and Microsoft Visual Studio&trade;.</p>
+
+<hr>
+<h1><a name="technicalsupport">Technical Support</a></h1>
+
+<p>For product support, refer to the Windows&reg; 98 documentation for the product support telephone number.</p>
+
+<h2>Visiting the Microsoft ActiveX Data Objects Web Site</h2>
+
+<p>You can visit the Microsoft ActiveX Data Objects Home Page on the World Wide Web for documentation updates and information about other related technologies. The address is http://www.microsoft.com/data/ado/.</p>
+
+<h2>Joining the OLE DB Public Newsgroup for Discussion of ActiveX Data Objects</h2>
+
+<p>To facilitate discussion and information sharing, Microsoft has established a public newsgroup: microsoft.public.oledb. You are welcome to post articles and messages to this unmoderated, unsupported newsgroup. Microsoft does not guarantee responses or direct support. For more information, visit the Microsoft OLE DB Web site, http://www.microsoft.com/data/oledb/.</p>
+
+<hr>
+<h1><a name="KnownIssues">Known Issues</a></h1>
+
+<ul>
+
+<li>When using the ADO <strong>Connection</strong> object's <strong>Open</strong> method in Microsoft&reg; Visual C++&reg; or Microsoft&reg; Visual J++&#153;, or other languages which require all optional parameters to be specified, you need to specify a fourth parameter of -1. This parameter is a placeholder for a future option. Microsoft&reg; Visual Basic&reg; users don't need to set this parameter, as it will default to the correct value.</p>
+<li>If you are executing a JOIN query against an Oracle database, and request a keyset or dynamic cursor, you'll get an error rather than a downgraded cursor. Oracle supports only Static read-only cursors with joins.</p>
+<li>Executing two or more <strong>Command</strong> objects on the same connection to a Microsoft&reg; SQL Server database will cause an error if any of the <strong>Command</strong> objects is a stored procedure with output parameters.  If you're executing Microsoft SQL Server stored procedures with output parameters, you must use separate connections for each such <strong>Command</strong> object, or else disconnect the other <strong>Command</strong> objects from the connection (i.e., in Microsoft Visual Basic, Set cmd.ActiveConnection = Nothing).</p>
+<li>When using an ORDER BY clause in a query against Microsoft SQL Server with Microsoft SQL Server Sevice Pack 3 installed, columns referenced in the ORDER BY clause must also be referenced in the SELECT clause.</p>
+<li>When opening a <strong>Recordset</strong> with the <strong>CursorLocation</strong> property set to <strong>adUseClient</strong> (i.e., a client-side cursor), the <strong>UnderlyingValue</strong> property is not available on <strong>Field</strong> objects of the resulting <strong>Recordset</strong>.</p>
+<li>In ADO 1.5, it's possible to copy values from one <strong>Recordset</strong> field to another by using a command line such as:<br>
+<pre>destRst.Fields("myfield") = srcRst.Fields("myfield")</pre>
+It has been found that explictly specifying .Value on both sides of the expression will improve performance and will avoid a known issue with a small memory leak in this area. The new syntax to use would be:
+<pre>destRst.Fields("myfield").Value  = srcRst.Fields("myfield").Value</pre>
+This should improve performance and avoid the memory leak.</p>
+</ul>
+
+<hr>
+<h1><a name="CopyrightInformation">Copyright Information</a></h1>
+
+<p>&copy; 1997 Microsoft Corporation</p>
+<p>These materials are provided &#147;as-is,&#148; for informational purposes only.</p>
+<p>Neither Microsoft nor its suppliers makes any warranty, express or implied with respect to the content of these materials or the accuracy of any information contained herein, including, without limitation, the implied warranties of merchantability or fitness for a particular purpose. Because some states/jurisdictions do not allow exclusions of implied warranties, the above limitation may not apply to you.</p>
+<p>Neither Microsoft nor its suppliers shall have any liability for any damages whatsoever including consequential incidental, direct, indirect, special, and loss profits. Because some states/jurisdictions do not allow exclusions of implied warranties, the above limitation may not apply to you. In any event, Microsoft&#146;s and its suppliers&#146; entire liability in any manner arising out of these materials, whether by tort, contract, or otherwise shall not exceed the suggested retail price of these materials.</p>
+
+<hr class="iis" size="1">
+<p align="center"><em>&copy; 1997 by Microsoft Corporation. All rights reserved. </em></p>
+
+</font>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[Windows 95 Params]
+	WndTitle     = Microsoft Setup
+	WndMess      = Starting Picture It! 2.0 Setup, please wait...
+	TmpDirSize   = 1500
+	TmpDirName   = ~msstfqf.t
+	CmdLine      = acmsetup /T setup.stf /S %s %s
+	DrvWinClass  = Stuff-Shell
+	Require31    = This application requires a newer version of Microsoft Windows.
+
+[Windows 95 Files]
+	acmsetup.exe = acmsetup.exe
+	acmsetup.hlp = acmsetup.hlp
+	mssetup.dll  = mssetup.dll
+        pibboard.dll = pibboard.dll
+        pisetup.dll  = pisetup.dll
+	setup.stf    = setup.stf
+	setup.inf    = setup.inf
+
+[NT Intel Params]
+	WndTitle     = Microsoft Setup
+	WndMess      = Starting Picture It! 2.0 Setup, please wait...
+	TmpDirSize   = 1500
+	TmpDirName   = ~msstfqf.t
+	CmdLine      = acmsetup /T setup.stf /S %s %s
+	DrvWinClass  = Stuff-Shell
+	Require31    = This application requires a newer version of Microsoft Windows.
+
+[NT Intel Files]
+	acmsetup.exe = acmsetup.exe
+	acmsetup.hlp = acmsetup.hlp
+	mssetup.dll  = mssetup.dll
+        pibboard.dll = pibboard.dll
+        pisetup.dll  = pisetup.dll
+	setup.stf    = setup.stf
+	setup.inf    = setup.inf

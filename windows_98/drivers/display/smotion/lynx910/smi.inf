@@ -1,0 +1,72 @@
+;****************************************************************************
+;									    *
+; INF file for Silicon Motion SM910 Win95 display driver                    *
+;									    *
+; Copyright (C) 1996-1997 Silicon Motion Inc.                               *
+;		All Rights Reserved.					    *
+;									    *
+;****************************************************************************
+
+[version]
+Class=DISPLAY
+signature="$CHICAGO$"
+Provider=%Mfg%
+
+[DestinationDirs]
+DefaultDestDir	= 11	; LDID_SYS
+Driver.Copy = 11
+
+[SourceDisksNames]
+1="Silicon Motion SM910 Driver Disk",,0
+
+[SourceDisksFiles]
+smdrv.drv=1
+smvdd.vxd=1
+smdd32.DLL=1
+
+[Manufacturer]
+%Mfg%=Mfg
+
+[Mfg]
+%PCI\VEN_126F&DEV_0910.DeviceDesc%=Driver.Install, PCI\VEN_126F&DEV_0910
+
+[Driver.Install]
+CopyFiles=Driver.Copy
+DelReg=Prev.DelReg
+AddReg=Driver.AddReg
+
+[Driver.Copy]
+smdrv.drv
+smvdd.vxd
+smdd32.DLL
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,MODES
+HKR,CURRENT
+
+[Driver.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,smdrv.drv
+HKR,DEFAULT,vdd,,"*vdd"
+HKR,DEFAULT,minivdd,,smvdd.vxd
+HKR,DEFAULT,RefreshRate,10,-1
+HKR,DEFAULT,DDC,,1
+HKR,DEFAULT,ExtModeSwitch,,0
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,75"
+HKR,"MODES\8\800,600",,,"60,75"
+HKR,"MODES\8\1024,768",,,"43,60,75"
+HKR,"MODES\16\640,480",,,"60,75"
+HKR,"MODES\16\800,600",,,"60,75"
+HKR,"MODES\16\1024,768",,,"43,60,75"
+HKR,"MODES\24\640,480",,,"60,75"
+HKR,"MODES\24\800,600",,,"60,75"
+
+[Strings]
+Mfg="Silicon Motion Inc."
+PCI\VEN_126F&DEV_0910.DeviceDesc="Silicon Motion SM910 PCI"

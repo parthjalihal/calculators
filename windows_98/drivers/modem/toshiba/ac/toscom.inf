@@ -1,0 +1,164 @@
+; name and version number:@(#)toscom.inf        1.16
+; date of get: 		  11 Mar 1996 17:15:02
+; date of delta:	  16 Feb 1996 17:34:23
+;----------------------------------------------------------------------------
+;
+; Windows Port Driver Setup File
+;
+; Copyright 1996 TOSHIBA
+; Copyright 1995 AT&T
+;
+; Manufacturer:  TOSHIBA
+;
+;----------------------------------------------------------------------------
+[Version]
+Signature="$WINDOWS 95$"
+Class=Ports
+Provider=%Mfg%
+
+[SourceDisksNames]
+;1 = %ATT.disk%, "", 0001 
+1 = %TOSHIBA.DISK%, "", 0001
+
+[SourceDisksFiles]
+attcom.vxd      = 1
+attvcd.vxd      = 1
+attmodem.vxd    = 1
+
+[DestinationDirs]
+DefaultDestDir = 11     ; LDID_SYS
+
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+
+;----------------------------------------------------------------------------
+[Manufacturer]
+; uncomment this line for banzai boards with linear addressing
+;%Mfg% = Models.linear
+; the next line is for banzai boards with aliased addressing
+;%Mfg% = Models.alias
+; uncomment this line for boards with index addressing
+;%Mfg% = Models.index
+%Mfg% = Modem1
+
+;----------------------------------------------------------------------------
+[Modem1]
+%Toshiba.Modem%=ComPort_Controllerless,  BIOS\*TOS7007 
+
+;[Models.linear]
+;%*PNP0500.DeviceDesc%=ComPort_LINEAR, *PNP0500, *PNP0501
+
+;[Models.alias]
+;%*PNP0500.DeviceDesc%=ComPort_ALIAS, *PNP0500, *PNP0501
+
+;[Models.index]
+;%*PNP0500.DeviceDesc%=ComPort_INDEX, *PNP0500, *PNP0501
+
+[ComPort_Controllerless]
+CopyFiles=ComPort.Copy,@attwave.drv
+AddReg=ComPort.AddReg
+UpdateInis=Wave.UpdateInis
+Uninstall=Wave.Remove
+LogConfig=comindex1
+
+;[ComPort_LINEAR]
+;CopyFiles=ComPort.Copy
+;AddReg=ComPort.AddReg
+;LogConfig=comlinear
+
+;[ComPort_ALIAS]
+;CopyFiles=ComPort.Copy
+;AddReg=ComPort.AddReg
+;LogConfig=comalias
+
+;[ComPort_INDEX]
+;CopyFiles=ComPort.Copy
+;AddReg=ComPort.AddReg
+;LogConfig=comindex
+
+[ComPort.Copy]
+attcom.vxd
+attvcd.vxd
+attmodem.vxd
+
+[Wave.UpdateInis]
+system.ini,drivers,,"WAVE1=ATTWAVE.DRV"
+system.ini,drivers,,"AUX1=ATTWAVE.DRV"
+
+[Wave.Remove]
+UpdateInis=Wave.RemoveInis
+
+[Wave.RemoveInis]
+system.ini,drivers,"WAVE1=ATTWAVE.DRV",,1
+system.ini,drivers,"AUX1=ATTWAVE.DRV",,1
+
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,serenum.vxd
+HKR,,PortDriver,,attcom.vxd
+HKR,,Contention,,attvcd.vxd
+HKR,,ModemDriver,,attmodem.vxd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+HKR,,CountryID,1,19
+
+;----------------------------------------------------------------------------
+; Direct addressing configuration (LINEAR)
+;----------------------------------------------------------------------------
+;[comlinear]
+;ConfigPriority=HARDRECONFIG
+;IOConfig = 3f8-3ff(3ff::), 2f8-2ff(3ff::), 3e8-3ef(3ff::), 2e8-2ef(3ff::)
+;IOConfig = 100-13F, 140-17F, 180-1BF, 200-23F, 240-27F, 280-2BF, 300-33F, 380-3BF
+;IRQConfig = 3, 4, 5, 7, 9, 10, 11, 12, 15
+
+;--------------------------------------------------------------------------
+; INDEXED addressing configuration
+;--------------------------------------------------------------------------
+;[comindex]                   
+;ConfigPriority=HARDRECONFIG
+;IOConfig= 3f8-3ff(3ff::), 2f8-2ff(3ff::), 3e8-3ef(3ff::), 2e8-2ef(3ff::)
+;IRQConfig = 3,4,10,11
+;IOConfig = 130-137, 140-147, 260-267, 270-277
+;DMAConfig = 0,3,6,7
+;DMAConfig = 0,3,6,7
+
+;----------------------------------------------------------------------------
+; Indirect addressing configuration (ALIAS)
+;----------------------------------------------------------------------------
+;[comalias]                   ; COM1, COM2, COM3, COM4
+;ConfigPriority=HARDRECONFIG
+;IOConfig = 3f8-3ff(ffff:f000:), 2f8-2ff(ffff:f000:), 3e8-3ef(ffff:f000:), 2e8-2ef(ffff:f000:)
+;IRQConfig = 3, 4, 5, 7, 9, 10, 11, 12, 15
+
+;----------------------------------------------------------------------------
+
+[comindex1]
+ConfigPriority=HARDRECONFIG
+
+;[ComPort.PosDup]
+;*PNP0500
+
+;[Ports.AddReg]
+;HKR,,NoSetupUI,,1
+
+;[*PNP0500.det]
+;AddReg=Ports.AddReg,DevMap.AddReg
+
+;[DevMap.AddReg]
+;HKLM,hardware\devicemap\serialcomm,COM1,,COM1
+;HKLM,hardware\devicemap\serialcomm,COM2,,COM2
+
+[Strings]
+TOSHIBA.DISK = "TOSHIBA Modem Install"
+PortsClassName = "Ports (COM / LPT) "
+Mfg = "TOSHIBA"
+Toshiba.Modem= "TOSHIBA Modem Port"
+
+;----------------------------------------------------------------------------
+

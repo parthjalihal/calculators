@@ -1,0 +1,444 @@
+<HTML>
+
+<HEAD>
+
+	<TITLE>Warner Bros. PLAYDOM: Batman Riddles</TITLE>
+
+
+
+<script language="JavaScript">
+
+<!--
+
+function showTag2()
+
+{
+
+	words1Div.style.visibility = "hidden";
+
+	words2Div.style.visibility = "visible";
+
+	CatGirlPath.Target = "CatGirl";
+
+	CatGirlPath.KeyFrame(2,CatArray,TimeArray);	
+
+	CatGirlPath.play();
+
+}
+
+
+
+//-->
+
+</script>
+
+
+
+<script language="VBScript">
+
+<!--
+
+dim CatArray, TimeArray
+
+CatArray = Array(550,43, 108,43)
+
+TimeArray = Array(3.000)
+
+
+
+sub window_onload
+
+	Seq3("Pres3").Play
+
+end sub
+
+
+
+Sub Seq3_onInit
+
+	call Seq3("Pres3").at(0.500, "showTag1()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(6.500, "showTag2()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(11.500, "FadeOut2(100)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(13.500, "showTag3()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(16.500, "FadeOut4(100)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(18.500, "showTag4()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(22.500, "FadeOut5(100)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(24.500, "showTag5()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(28.500, "BatLogoFadeIn()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(32.500, "LogoFadeOut(100)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(34.500, "showTag6()",1, 0.0, 1)
+
+	call Seq3("Pres3").at(42.500, "parent.showPres4()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub showTag1
+
+	BatPath.Target = "BatLogo"
+
+	BatPath.play
+
+	WordPath.Target = "words1Div"
+
+	WordPath.play
+
+End Sub
+
+
+
+Sub showTag3
+
+	words2Div.style.visibility = "hidden"
+
+	words3Div.style.visibility = "visible"
+
+	BatManPath.Target="BatMan"
+
+	BatManPath.play
+
+End Sub
+
+
+
+Sub showTag4
+
+	words3Div.style.visibility = "hidden"
+
+	words4Div.style.visibility = "visible"
+
+	AnswerPath.Target="words4Div"
+
+	AnswerPath.play	
+
+End Sub
+
+
+
+Sub showTag5
+
+	words4Div.style.visibility = "hidden"
+
+	words5Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub BatLogoFadeIn
+
+	words5Div.style.visibility = "hidden"
+
+	BatLogo.style.posleft=90
+
+	BatLogo.style.postop=25	
+
+	LogoFadeIn(0)
+
+End Sub
+
+
+
+Function LogoFadeIn(i)
+
+	dim v
+
+	BatLogo.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+		v = window.setTimeout("LogoFadeIn(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function LogoFadeOut(i)
+
+	dim v
+
+	BatLogo.filters(0).opacity=i
+
+	i = i - 10
+
+	if (i >= 0) then
+
+		v = window.setTimeout("LogoFadeOut(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Sub showTag6
+
+	words6Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Function FadeOut2(i)
+
+	dim v
+
+	CatGirl.filters(0).opacity=i
+
+	i = i - 10
+
+	if (i >= 0) then
+
+		v = window.setTimeout("FadeOut2(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function FadeOut4(i)
+
+	dim v
+
+	Batman.filters(0).opacity=i
+
+	i = i - 10
+
+	if (i >= 0) then
+
+		v = window.setTimeout("FadeOut4(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function FadeOut5(i)
+
+	dim v
+
+	words4Div.filters(0).opacity=i
+
+	i = i - 10
+
+	if (i >= 0) then
+
+		v = window.setTimeout("FadeOut5(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+//-->
+
+</script>
+
+
+
+</HEAD>
+
+
+
+<BODY bgcolor="#000000" text="#0000FF" link="#850514" vlink="#850514" alink="#850514" leftmargin=0 topmargin=0>
+
+
+
+<bgsound src="med/btas.mid" loop=0>
+
+
+
+<DIV ID="words1Div" STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:80; LEFT:-300; VISIBILITY:visible; z-Index:1; font-size:24" ALIGN=CENTER>
+
+<b><FONT ID=words1 face="Comic Sans MS, Verdana, Arial">Riddle me this</FONT></b>
+
+</DIV>
+
+
+
+<img ID="BatLogo" src="img/batlogo.gif" width=240 height=139 border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:-240; z-Index:5;filter:alpha(opacity=100)"><br>
+
+
+
+<DIV ID="words2Div" STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:10; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:16" ALIGN=CENTER>
+
+<b><FONT ID=words2 face="Comic Sans MS, Verdana, Arial">What episode teamed Batgirl and Catwoman?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID="CatGirl" STYLE="POSITION:ABSOLUTE; WIDTH:220; HEIGHT:146; TOP:50; LEFT:550; z-Index:4;filter:alpha(opacity=100)">
+
+<img ID="BatGirl" src="img/batgirl.gif" width=53 height=139 border=0 STYLE="POSITION:RELATIVE; TOP:0; LEFT:0"><br>
+
+<img ID="CatWoman" src="img/cat.gif" width=64 height=146 border=0 STYLE="POSITION:RELATIVE; TOP:-139; LEFT:153"><br>
+
+</DIV>
+
+
+
+<DIV ID="words3Div" STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:10; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:16" ALIGN=CENTER>
+
+<b><FONT ID=words3 face="Comic Sans MS, Verdana, Arial">What were the names of Bruce Wayne's parents?</FONT></b>
+
+</DIV>
+
+
+
+<img ID="Batman" src="img/batman2.gif" width=91 height=150 border=0 STYLE="POSITION:ABSOLUTE; TOP:50; LEFT:-125; z-Index:1;filter:alpha(opacity=100)"><br>
+
+
+
+<DIV ID="words4Div" STYLE="POSITION:ABSOLUTE; WIDTH:250; HEIGHT:100; TOP:80; LEFT:550; VISIBILITY:hidden; z-Index:5; font-size:24;filter:alpha(opacity=100)" ALIGN=CENTER>
+
+<b><FONT ID=words4 face="Comic Sans MS, Verdana, Arial">Know the answers?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID="words5Div" STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:60; LEFT:0; VISIBILITY:hidden; z-Index:3; font-size:18" ALIGN=CENTER>
+
+<b><FONT ID=words5 face="Comic Sans MS, Verdana, Arial">
+
+Will you be able to move to the next bat-level<br>
+
+or will you have to sharpen your bat-skills?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID="words6Div" STYLE="POSITION:ABSOLUTE; WIDTH:400; HEIGHT:180; TOP:60; LEFT:15; VISIBILITY:hidden; z-Index:6; font-size:16" ALIGN=CENTER>
+
+<b><FONT ID=words6 face="Comic Sans MS, Verdana, Arial">
+
+Trivia, Puzzles, and mysteries await you in PLAYDOM.  <A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Click here</A> to add the fun and excitement to your channels FOR FREE!.</FONT></b>
+
+</DIV>
+
+
+
+<OBJECT ID="Seq3"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="BatPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="4.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-240,40,480,40)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="WordPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-320,80,0,80)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="CatGirlPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="BatManPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-125,50,165,50)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="AnswerPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="2.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,550,80,85,80)">
+
+</OBJECT>
+
+
+
+</BODY>
+
+</HTML>
+

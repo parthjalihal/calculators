@@ -1,0 +1,233 @@
+<html>
+
+<head>
+
+<title>LiveWired: Automated Highways</title>
+
+
+
+<script language="JavaScript">
+function onStart() {
+	chronos.Item("transthis").play();
+	chronos.Item("visiswitch").Play();
+}
+
+
+function onStop() {
+	chronos.Item("visiswitch").Stop();
+	}
+</script>
+
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+
+
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+   BODY { margin: 0; background: white }
+   
+   cite {color: black}
+   
+   em {color: red}
+   
+   .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+   #auto { position: absolute;
+   			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index:-10 }
+
+#sign { position: absolute;
+   			left: 23.5%;
+			top: 42%;
+			width: 436px;
+			height: 67px;
+			z-index:-10;
+			visibility: hidden;
+			 }
+
+    #thinline { position: absolute;
+				left: 0;
+				top: 72%;
+				width: 100%;
+				height: .2%;
+				visibility: hidden;
+				z-index:7;
+				background-color: green}
+ 
+   #report { position: absolute;
+   			left: 0;
+			top: 73%;
+			color: white;
+			font-family: arial;
+			font-size: 40%;
+			visibility: hidden;
+			z-index:8;
+			text-align: center;
+			font-weight: bold;
+			background-color: black;
+			line-height: 1.4;
+			left-margin:12}
+
+  #sperm {color: black;
+  		font-weight: bolder;
+		font-size: 90%;
+		visibility: visible}
+  
+  #linkback {position: absolute;
+  			left: 0;
+			top: 91%;
+			width: 100%;
+			height: 2%;
+			color: yellow;
+			font-family: arial;
+			font-size: 26%;
+			z-index:9;
+			text-align: right;
+			font-weight: bold;
+			background-color: green;
+			margin: 2
+			}
+
+  
+
+</style>
+
+</head>
+
+<body link="000000" style="font-size:40pt">
+
+<script language="JavaScript">
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+
+
+</script>
+
+
+<OBJECT
+	ID="gearhed" class="sg"
+	CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6">
+
+
+</object>
+
+
+
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+
+
+<IMG id="auto" src="auto.jpg" BORDER=0>
+
+<IMG id="sign" src="sign4.gif" BORDER=0>
+
+<div id="linkback" class="onhold">
+Source: UC Berkeley, Partners for Advanced Transit and Highways (PATH), Institute of Transportation Studies
+</div>
+
+
+<div id="thinline" class="onhold">
+</div>
+
+<div id="report" class="onhold">
+A fully developed automated highway system - 20 years away from large-scale
+implementation - depends on new technology that links vehicle to roadway. The
+system's components include radar and laser probes that maintain distance between cars; magnetometers to keep cars aligned on the road by tracing embedded road magnets; video cameras that track lane stripes and evaluate road conditions; and side-view radar for collision avoidance.
+<br>
+<br>
+</div>
+
+
+
+<script language="JavaScript" for="window" event="onresize"> 
+myPresentation.calcScale();
+</script>
+
+<script id="chronosCall" language="javascript" for="chronos" event="onInit">
+	chronos.Item("visiswitch").At(2.000,"flip()",1,0.100,15);
+</script>
+
+<script language="javascript">
+function flip() {
+      sign.style.visibility= "visible";
+   }
+</script>
+<script language="JavaScript" for="window" event="onload">
+   parent.daScheduler.gramLoaded();
+</script>
+<script language="JavaScript" for="window" event="onunload">
+   parent.daScheduler.gramUnloaded();
+</script>
+
+
+</body>
+
+</html>
+

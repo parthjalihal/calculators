@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>NBC INTRO</TITLE>
+</HEAD>
+
+<BODY bgcolor="000055" link=white vlink=white>
+<CENTER>
+
+<DIV ID=MAIN STYLE="POSITION:relative; TOP:0; LEFT:0; WIDTH:460; HEIGHT=317;COLOR:WHITE; FONT-FAMILY:'IMPACT'; FONT-WEIGHT:NORMAL; FONT-SIZE:SMALLER">
+	<IMG ID=AVI SRC="images/video.jpg"  STYLE="POSITION:absolute;TOP:108; LEFT:144; Z-INDEX:3" DYNSRC="images/150x112.avi" BORDER=0>
+	<IMG ID=FRAME SRC="images/frame.jpg" STYLE="POSITION:absolute;TOP:107; LEFT:143; Z-INDEX: 2" BORDER=0>
+
+	<IMG ID=background SRC="images/bluebgrd.jpg" STYLE="POSITION:absolute; LEFT:0; TOP:0;">
+	<IMG ID=peacock SRC="images/peacock1.gif" STYLE="POSITION:absolute; LEFT:10; TOP:5; CURSOR:HAND;" onMouseOver="peacock(0)" onMouseOut="peacock(1)">
+	<IMG ID=NBC SRC="images/nbc.gif" STYLE="POSITION:absolute; LEFT:80; TOP:7; CURSOR:DEFAULT; Z-INDEX: 6">
+
+	<OBJECT ID=daily
+		STYLE="position:absolute; LEFT:150; TOP:0; HEIGHT:52; WIDTH:120; Z-INDEX: 5 ; FONT-WEIGHT:BOLD" 
+		CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6">
+		<PARAM NAME="Line0001" VALUE="SetFillStyle(0)">
+		<PARAM NAME="Line0002" VALUE="SetLineColor(150,150,150)">
+		<PARAM NAME="Line0003" VALUE="SetFillColor(255,0,0)">
+		<PARAM NAME="Line0004" VALUE="SetFont('Arial',50,600,0,0,0)">
+		<PARAM NAME="Line0005" VALUE="Text('Daily', -60, 16, 0)">
+	</object>
+
+	<SCRIPT LANGUAGE="VBScript"><!--
+	Sub Window_onLoad()
+		call AlphaMe()
+	End Sub
+	-->
+	</SCRIPT>
+	
+	<DIV ID=Click STYLE="POSITION:absolute; TOP:0; LEFT:0; WIDTH:100%;HEIGHT:100%">
+	<a href="subscrib.htm" border=0><IMG ID=clear SRC="images/clear.gif" CLASS=clickable STYLE="POSITION:absolute;LEFT:0;TOP:0;width:640;height:480" BORDER=0 ></a>
+	</DIV>
+
+	<DIV ID="MYtext0" 
+		STYLE="POSITION:ABSOLUTE;WIDTH:100%;HEIGHT:100%;TOP:82%;LEFT:28%; FONT-FAMILY:'IMPACT'; FONT-WEIGHT:NORMAL; FONT-SIZE:32; Z-INDEX: 20">
+		NBC Daily
+	</DIV>
+	<DIV ID="MYtext1" 
+		STYLE="POSITION:ABSOLUTE;WIDTH:100%;COLOR:888888;HEIGHT:100%;TOP:18%;LEFT:23%;visibility:hidden; FONT-FAMILY:'IMPACT'; FONT-WEIGHT:NORMAL; FONT-SIZE:21; Z-INDEX: 20; LETTER-SPACING:0.1em">
+		your desktop feed
+	</DIV>
+	<DIV ID="MYtext2" 
+		STYLE="POSITION:ABSOLUTE;WIDTH:100%;COLOR:66CC33;HEIGHT:100%;TOP:80%;LEFT:-1%;visibility:hidden; FONT-FAMILY:'IMPACT'; FONT-WEIGHT:NORMAL; FONT-SIZE:20; Z-INDEX: 20;  LETTER-SPACING:0.2em">
+		<P>the best in daily entertainment</P>
+	</DIV>
+</DIV>
+</CENTER>
+</BODY>
+
+</HTML>
+<script language=javascript>
+function AlphaMe()
+{
+	//video.style.filter = "alpha(opacity=90,enabled=1)";
+	MYtext0.style.visibility="";
+
+	//MYtext0.style.filter = "alpha(opacity=100,enabled=1)";
+	window.setTimeout("AlphaYou()", 2000, "JavaScript");
+	
+}
+
+function AlphaYou()
+{
+	//video.style.filter = "alpha(opacity=75,enabled=1)";
+	MYtext0.style.visibility="hidden"
+	//MYtext0.style.filter = "alpha(opacity=50,enabled=1)";
+	//MYtext1.style.filter = "alpha(opacity=0,enabled=1)";
+	MYtext1.style.visibility=""
+	//MYtext1.style.filter = "alpha(opacity=100,enabled=1)";
+	window.setTimeout("AlphaUs()", 2000, "JavaScript");
+	
+}
+
+function AlphaUs()
+{
+	//video.style.filter = "alpha(opacity=60,enabled=1)";
+	MYtext1.style.visibility="hidden"
+	//MYtext1.style.filter = "alpha(opacity=50,enabled=1)";
+	//MYtext2.style.filter = "alpha(opacity=0,enabled=1)";
+	MYtext2.style.visibility=""
+	//MYtext2.style.filter = "alpha(opacity=100,enabled=1)";
+	window.setTimeout("Redir()", 4000, "JavaScript");
+	
+}
+
+function Redir()
+{
+	var smegma;
+	smegma = document.location.href="subscrib.htm";
+}
+
+</script>
+

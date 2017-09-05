@@ -1,0 +1,112 @@
+%<!-- version 9.15.8 --><!--lesson6.htm--><!-- Exploring the Active Desktop -->
+In this lesson, you will learn how to switch between the Active Desktop
+and the standard Windows desktop, and how to use the shortcuts on the <b>Quick Launch</b> toolbar to start programs. Finally, you'll learn how to view and add channels, which deliver Web content to your computer.
+<p>
+<br>
+<p>
+Click the <b>Next</b> button, above, to continue.
+%~%
+The <a id=a1 href="javascript:;" onclick="javascript:popup('Column37', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+Active Desktop</a> integrates your Internet Explorer
+<a id=a2 href="javascript:;" onclick="javascript:popup('Column38', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+browser</a> with the standard Windows <a id=a3 href="javascript:;" onclick="javascript:popup('Column19', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+desktop</a>. You can switch back and forth between the Active Desktop and
+the standard Windows desktop at any time.
+<br><a id=a4 id="tiplink" href="javascript:;" onClick="javascript:popup('Column39', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+%~%
+To return to the standard desktop, <a id=a1 href="javascript:;" onclick="javascript:popup('Column8', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+right-click</a> an empty area of the desktop,
+point to <b>Active Desktop</b> on the <a id=a2 href="javascript:;" onclick="javascript:popup('Column40', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+shortcut menu</a>, and click <b>View As Web Page</b>.
+<br><a id=a3 id="tiplink" href="javascript:;" onClick="javascript:popup('Column41', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a4 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To restore the Active Desktop, right-click an empty area of your
+desktop, click <b>Active Desktop,</b> and click <b>View As Web Page.</b> The Active
+Desktop reappears.
+<br><a id=a1 id="tiplink" href="javascript:;" onClick="javascript:popup('Column42', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To complete the following steps, your computer must be connected to the Internet. To learn how to connect, click the <b>Lessons</b> button <img src="images/ovhome.gif">
+on the step window <a id=a1 href="javascript:;" onclick="javascript:popup('Column43', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+toolbar</a>, and click the <b>Connecting to the Internet</b> lesson.
+%~%
+Locate the <b>Quick Launch</b> toolbar to the right of the <b>Start</b> button on the
+Windows <a id=a1 href="javascript:;" onclick="javascript:popup('Column2', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+taskbar</a>. The <b>Quick Launch</b> toolbar contains buttons that start Internet Explorer and Outlook Express, a button that minimizes all open <a id=a2 href="javascript:;" onclick="javascript:popup('Column17', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+windows</a> at once, and a button that displays your list of Active Channels.
+<br><a id=a3 id="tiplink" href="javascript:;" onClick="javascript:popup('Column45', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+%~%
+On the <b>Quick Launch</b> toolbar, click the <b>Launch Internet Explorer Browser</b>
+button <img src="images/TurQwkie.gif"> to open Internet Explorer.
+<br><a id=a1 id="tiplink" href="javascript:;" onClick="javascript:popup('Column46', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+With Internet Explorer, you can view Web pages and explore the <a id=a1 href="javascript:;" onclick="javascript:popup('Column47', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+World Wide Web</a>. Click the <b>Close</b> button <img src="images/StdClose.gif"> on the <a id=a2 href="javascript:;" onclick="javascript:popup('Column3', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+title bar</a> of the <b>Internet Explorer</b> window.
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+Locate the <b>Quick Launch</b> toolbar on the taskbar, and click the <b>View
+Channels</b> button <img src="images/TurVwChn.gif">. Move your pointer to the
+right edge of the window to temporarily hide the <a id=a1 href="javascript:;" onclick="javascript:popup('Column48', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+Channel bar</a> and view the full-screen window.
+<br><a id=a2 id="tiplink" href="javascript:;" onClick="javascript:popup('Column49', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To view the Channel bar again, move your pointer to the left edge of the
+window. To split the window into two panes, click the pushpin button <img src="images/TurPshPn.gif"> on
+the title bar of the Channel bar.
+<br><a id=a1 id="tiplink" href="javascript:;" onClick="javascript:popup('Column50', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+Click the <b>MSNBC News</b> <a id=a1 href="javascript:;" onclick="javascript:popup('Column51', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+channel</a> on the Channel bar. A preview of this channel appears in the right
+<a id=a2 href="javascript:;" onclick="javascript:popup('Column52', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+pane</a> of the window. To add this channel, click the <b>Add Active
+Channel</b> button when it appears.
+<p>
+You may need to <a id=a3 href="javascript:;" onclick="javascript:popup('Column57', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">
+drag</a> the step window to the left to see the <b>Add Active Channel</b> button.
+<br><a id=a4 id="tiplink" href="javascript:;" onClick="javascript:popup('Column53', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a5 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+In the <b>Modify Channel Usage</b> dialog box, click the <b>Yes, but only tell
+me when updates occur</b> option. Click <b>OK</b>.
+<p>
+You now have a subscription to the <b>MSNBC News</b> channel. Internet Explorer will notify you when the channel content changes.
+<br><a id=a1 id="tiplink" href="javascript:;" onClick="javascript:popup('Column80', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+Click the <b>Close</b> button <img src="images/TurChCls.gif"> on the toolbar to close the window.
+<p>
+You now know how explore the Active Desktop.
+<p>
+<a id=a1 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%

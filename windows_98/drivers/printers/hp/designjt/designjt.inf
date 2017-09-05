@@ -1,0 +1,115 @@
+File STDIN:
+ ; HP DesignJet printer installation file
+[Version]
+Signature="$CHICAGO$"
+InfVersion=2.40
+Class=Printer
+Provider=Hewlett-Packard
+
+[ClassInstall]
+AddReg=ClassReg
+
+[ClassReg]
+HKR,,,,Printer
+
+[Manufacturer]
+"HP"
+
+
+[HP]
+"HP DesignJet 455CA (E / A0)"     =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesig2932
+"HP DesignJet 455CA (D / A1)"     =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesigE963
+"HP DesignJet 450C (E / A0)"      =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesigC3D7
+"HP DesignJet 450C (D / A1)"      =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesigC327
+"HP DesignJet 430 (E / A0)"       =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesigC58E
+"HP DesignJet 430 (D / A1)"       =WINDRV_FRANKY,LPTENUM\Hewlett-PackardDesig043F
+"HP DesignJet 750C Plus (E / A0)" =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardHP_DeF52A,LPTENUM\Hewlett-PackardHP_De052A
+"HP DesignJet 750C Plus (D / A1)" =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardHP_De357B,LPTENUM\Hewlett-PackardHP_DeC57B
+"HP DesignJet 755CM (C3198B)"       =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardHP_De51B1
+"HP DesignJet 700 (E / A0)"       =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardHP_De4ACA,LPTENUM\Hewlett-PackardHP_DeBACA
+"HP DesignJet 700 (D / A1)"       =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardHP_De4A3A,LPTENUM\Hewlett-PackardHP_DeBA3A
+"HP DesignJet 350C (E / A0)"        =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigA0BC
+"HP DesignJet 350C (D / A1)"        =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigFE52
+"HP DesignJet 330 (E / A0)"         =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigF39A
+"HP DesignJet 330 (D / A1)"         =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigF36A
+"HP DesignJet 750C (C3196A)"      =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesig0ED8
+"HP DesignJet 750C (C3195A)"      =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesig0E28
+"HP DesignJet 755CM (C3198A)"     =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigBF9C
+"HP DesignJet 250C (C3191A)"      =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigCA65
+"HP DesignJet 250C (C3190A)"      =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesig0A34
+"HP DesignJet 230 (C4695A)"       =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesigADE8,LPTENUM\Hewlett-PackardDesig85BA
+"HP DesignJet 230 (C4694A)"       =WINDRV_NOFRANKY,LPTENUM\Hewlett-PackardDesig6DB9,LPTENUM\Hewlett-PackardDesig17BB
+"HP DesignJet 650C (C2859B)"      =WINDRV_NOFRANKY
+"HP DesignJet 650C (C2858B)"      =WINDRV_NOFRANKY
+"HP DesignJet 650C (C2859A)"      =WINDRV_NOFRANKY
+"HP DesignJet 650C (C2858A)"      =WINDRV_NOFRANKY
+"HP DesignJet 600 (C2848A)"       =WINDRV_NOFRANKY
+"HP DesignJet 600 (C2847A)"       =WINDRV_NOFRANKY
+"HP DesignJet 220 (C3188A)"       =WINDRV_NOFRANKY
+"HP DesignJet 220 (C3187A)"       =WINDRV_NOFRANKY
+"HP DesignJet 200 (C3181A)"       =WINDRV_NOFRANKY
+"HP DesignJet 200 (C3180A)"       =WINDRV_NOFRANKY
+"HP DesignJet"                                         =WINDRV_NOFRANKY
+
+[WINDRV_FRANKY]
+CopyFiles=DESIGNJET_FILES,LINK_MANAGER_FILES
+DelFiles=OldFiles
+DriverFile=HPGLRTL2.DRV
+LanguageMonitor="Advanced DesignJet Monitor",HPLLM.DLL
+RetryTimeout=800
+NotSelectedTimeout=800
+DefaultDataType=EMF
+VendorSetup=HPLOTCHG.EXE,AdaptDriver
+
+[WINDRV_NOFRANKY]
+CopyFiles=DESIGNJET_FILES,LINK_MANAGER_FILES
+DelFiles=OldFiles
+DriverFile=HPGLRTL2.DRV
+RetryTimeout=800
+NotSelectedTimeout=800
+DefaultDataType=EMF
+VendorSetup=HPLOTCHG.EXE,AdaptDriver
+
+[DESIGNJET_FILES]
+HPGLRTL2.DRV,HPGLRTL2.DR_
+HPGLRTL2.HLP,HPGLRTL2.HL_
+HPGLRTL3.HLP,HPGLRTL3.HL_
+HPGLRTL2.HPM,HPGLRTL2.HP_
+HPGLRTL4.HPM,HPGLRTL4.HP_
+HPGLCAL4.DLL,HPGLCAL4.DL_
+HPSCAL.DLL,HPSCAL.DL_
+HPSCALIB.HLP,HPSCALIB.HL_
+HPLOTCHG.EXE,HPLOTCHG.EX_
+
+[LINK_MANAGER_FILES]
+HPLLNK.EXE,HPLLNK.EX_
+HPLLNK.INI,HPLLNK.IN_
+
+[OldFiles]
+HPGLCAL3.DLL
+HPLOTABS.DLL
+DESIGNJT.TXT
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[SourceDisksFiles]
+HPGLRTL2.DR_ = 1
+HPGLRTL2.HL_ = 1
+HPGLRTL3.HL_ = 1
+HPGLRTL2.HP_ = 1
+HPGLRTL4.HP_ = 1
+HPGLCAL4.DL_ = 1
+HPSCAL.DL_   = 1
+HPSCALIB.HL_ = 1
+HPLOTCHG.EX_ = 1
+HPLLNK.EX_   = 1
+HPLLNK.IN_   = 1
+
+[SourceDisksNames]
+1=%DISK_NAME%,DESIGNJET,0
+
+
+[strings]
+DISK_NAME="HP DesignJet Printer Driver for Windows (v2.4) Disk"
+

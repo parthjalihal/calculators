@@ -1,0 +1,71 @@
+
+<html>
+<head>
+<title>CMP</title>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+var timeoutIDs = new Array();
+var timeoutCount = 0;
+
+function AddTimeout(timeoutID) {
+ timeoutCount++;
+ timeoutIDs[timeoutCount-1] = timeoutID;
+}
+
+function ClearAllTimeouts() {
+ var i;
+ for (i=0; i<timeoutCount; i++)
+  clearTimeout(timeoutIDs[i]);
+}
+
+function doAddChannel() {
+  ClearAllTimeouts();
+  window.external.addChannel('http://msie.cmpnet.com/CMPnet.cdf');
+}
+
+function revealAni() {
+	ani.filters.item(0).Apply();
+	ani.style.visibility = "visible";
+	ani.filters.item(0).Play();
+}
+
+function hideAni() {
+	ani.filters.item(0).Stop();
+	ani.filters.item(0).Apply();
+	ani.style.visibility = "hidden";
+	ani.filters.item(0).Play();
+}
+
+function runAnimation() {
+	revealAni();
+	AddTimeout(setTimeout('window.location="cmp4.htm";', 10000));
+}
+
+//-->
+</SCRIPT>
+
+<STYLE TYPE="text/css">
+DIV {}
+.stlani {visibility:hidden; background-color:blue;
+ POSITION: absolute; TOP: 50px; LEFT:240px; width:100; height:100; Z-INDEX: 10;
+ filter:revealTrans(transition=3,duration=1);
+}
+#subs {POSITION: absolute; TOP: 385px; LEFT:330px; width:100; height:100; Z-INDEX: 30; }
+
+</STYLE>
+
+</head>
+<body bg color="white" onLoad="runAnimation()">
+
+<div id=ani class="stlani">
+<IMG border=0 SRC="animate/slidesh.gif" WIDTH="323" height="324">
+</div>
+                
+<div id=subs>
+<IMG border=0 SRC="gifs/addchan.gif" WIDTH="136" height="20" onclick="doAddChannel();" onMouseover='this.style.cursor="hand";'>
+</div>
+
+</body>
+</html>

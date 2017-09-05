@@ -1,0 +1,88 @@
+; IPRIP.INF
+;
+; Routing Information Protocol (RIP) Listener
+;
+; Copyright 1993-1994, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=NetService
+provider=%V_MS%
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%IPRIP.DeviceDesc%=IPRIP.ndi, IPRIP; IPRIP agent
+
+;*********************************************
+;    IPRIP Listener
+;*********************************************
+[IPRIP.ndi]
+AddReg=IPRIP.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=IPRIP
+CopyFiles=IPRIP.copy.inf
+
+[IPRIP.ndi.reg]
+HKR,Ndi,DeviceID,,IPRIP
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"winsock"
+HKR,Ndi\Interfaces,LowerRange,,"winsock"
+HKR,Ndi\Compatibility,RequireAny,,"MSTCP"
+; Install-Remove Section
+HKR,Ndi\Install,,,"IPRIP.Install"
+HKR,Ndi\Remove,,,"IPRIP.Remove"
+; Context help
+HKR,Ndi,HelpText,,%IPRIP_HELP%
+
+[IPRIP.copy.inf]
+iprip.inf
+
+[IPRIP.Install]
+AddReg=IPRIP.Add.reg
+CopyFiles=IPRIP.Add.files
+[IPRIP.Add.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunServices","IPRIP Listener",,"IPRIP.EXE"
+
+[IPRIP.Add.files]
+iprip.exe
+routetb1.dll
+trace.dll
+
+[IPRIP.Remove]
+DelReg=IPRIP.Remove.reg
+[IPRIP.Remove.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\RunServices","IPRIP Listener"
+
+[SourceDisksNames]
+78=%DSK%, "", 0001
+
+[SourceDisksFiles]
+iprip.exe   =78
+iprip.inf   =78
+trace.dll   =78
+routetb1.dll =78
+
+;****************************************************************************
+; Destination directories
+;****************************************************************************
+[DestinationDirs]
+IPRIP.Add.files          = 25    ;LDID_SHARED
+IPRIP.copy.inf           = 17    ;LDID_INF
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+
+; Devices
+IPRIP.DeviceDesc="Microsoft IPRIP Listener"
+
+; Context help
+IPRIP_HELP="The IPRIP listener listens to RIP version 1 annoucements and builds the routing table on this computer."
+
+DSK="Windows 95 resource kit"
+

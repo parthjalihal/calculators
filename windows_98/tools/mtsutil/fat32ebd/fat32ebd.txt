@@ -1,0 +1,272 @@
+------------------------------------------
+  Microsoft Windows 98 README for the
+       FAT32 Emergency Boot Disk          
+             
+------------------------------------------
+
+(c) Copyright Microsoft Corporation, 1998
+
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view FAT32EBD.txt on-screen in Notepad, maximize 
+the Notepad window.
+
+To print FAT32EBD.txt, open the file in Notepad or another
+word processor, then on the File menu, click Print.
+
+--------
+CONTENTS
+--------
+
+INTRODUCTION
+HOW TO CREATE A FAT32 EMERGENCY BOOT DISK
+CREATING FAT32 DRIVES
+KNOWN ISSUES
+MORE INFORMATION
+
+
+=============
+INTRODUCTION
+=============
+
+The FAT32 Emergency Boot Disk (EBD) provides a virus-free means for
+starting and troubleshooting a computer, as well as a means for
+partitioning large drives with the FAT32 file system.
+
+The utility that creates the EBD, FAT32EBD.EXE, writes an image of a
+known-good boot sector that was scanned for viruses. A virus-free
+boot disk can be used to troubleshoot systems that you suspect are
+infected with a virus, or to create a large partition for Windows 98.
+
+
+=========================================
+HOW TO CREATE A FAT32 EMERGENCY BOOT DISK
+=========================================
+
+The utility that creates the FAT32 EBD, FAT32EBD.EXE, can be run from
+MS-DOS or within Windows. It will prompt you to insert a 1.44 MB
+floppy disk in the A:\ drive and then prompt you to continue.
+FAT32EBD.EXE transfers the boot sector to the floppy to ensure
+there are no viruses. Next, the files for the disk are extracted from
+the WIN98*.CAB files and transferred to the floppy.
+
+------------
+Requirements
+------------
+
+ - Access to the Windows 98 CD-ROM
+ - Access to a 1.44 MB floppy drive on A:\
+ - 1.44 MB floppy disk
+
+-----------------------------------------------------------
+Steps to create the FAT32 EBD using Windows 95 or Windows98
+-----------------------------------------------------------
+
+1. Click the Start button and select Windows Explorer from the
+   Programs menu.
+
+2. Select the CD-ROM drive containing the Windows 98 CD-ROM.
+
+3. Select and double-click the \Tools folder to expand it. Expand the
+   subdirectory, \MTSutil, and then its subdirectory, \FAT32EBD. 
+ 
+4. Double-click FAT32EBD.EXE and follow its prompts to create a FAT32
+   EBD.
+
+5. Write-protect the diskette when it is finished creating the EBD to
+   ensure a virus cannot write to the disk.
+
+6. Restart the computer with the FAT32 EBD.
+
+-----------------------------------------------
+Steps to create the FAT32 EBD using Windows 3.x
+-----------------------------------------------
+
+For the best results, exit Windows and create the FAT32 EBD using
+MS-DOS. Please refer to the following section after you exit Windows.
+
+------------------------------------------
+Steps to create the FAT32 EBD using MS-DOS
+------------------------------------------
+
+1. At a command prompt outside of Windows, change to the CD-ROM drive
+   containing the Windows 98 CD-ROM. For example, if your CD-ROM
+   drive is D:\, you would type: 
+
+	D:\    [press Enter key]
+
+2. Change to the FAT32EBD directory by typing the following:
+
+	CD\TOOLS\MTSUTIL\FAT32EBD    [press Enter key]
+
+3. Run FAT32EBD.EXE and follow its prompts to create a FAT32 EBD. Run
+   the utility by typing:
+
+	FAT32EBD.EXE    [press Enter key]
+
+4. Write-protect the diskette when it is finished creating the EBD to
+   ensure a virus cannot write to the disk. 
+
+5. Restart the computer with the FAT32 EBD.
+
+
+=====================
+CREATING FAT32 DRIVES
+=====================
+
+In Windows 98, if you run the FDISK tool on a system with a drive
+over 512 MB in size, you will be asked whether or not to enable large
+disk support. If you answer Yes, any partition you create that is
+larger than 512 MB is marked as a FAT32 partition.
+
+   NOTE: The Drive Converter (FAT32) can be run if Windows 98 is
+         installed. See online help for additional information.
+
+
+============
+KNOWN ISSUES
+============
+
+If you experience difficulty running FAT32EBD.EXE, please refer to
+the following list of known issues for the tool.
+
+-------------------------------
+Invalid files copied to the EBD
+-------------------------------
+
+If the files on the FAT32 EBD are 0 (zero) bytes in size, it may be
+the result of the TMP environment variable being set to the floppy
+drive, or insufficient conventional memory.
+
+TMP environment variable set to floppy drive
+--------------------------------------------
+
+Booting with a floppy disk may set the TMP environment variable to the
+floppy drive. FAT32EBD.EXE requires the TMP environment variable be
+set to a hard disk. If TMP is set to the floppy drive, FAT32EBD.EXE
+may create a boot disk with zero byte files. 
+
+Determine the current status of the TMP by typing:
+
+	SET	[press Enter key]
+
+Set the TMP environment variable to the hard drive by typing:
+
+	SET TMP=C:\	[press Enter key]
+
+Insufficient conventional memory
+--------------------------------
+
+FAT32EBD.EXE relies on the Windows 98 EXTRACT.EXE utility. EXTRACT
+requires approximately 520K of free conventional memory. Loading
+real-mode CD-ROM drivers and DriveSpace/DoubleSpace compression
+drivers can reduce the amount of conventional memory. To workaround
+this, modify your CONFIG.SYS and AUTOEXEC.BAT files to load devices
+high.
+
+   ---- Example CONFIG.SYS ----
+
+   Device=C:\windows\himem.sys
+   Device=C:\windows\Emm386.exe noems
+   Dos=high,umb
+   Devicehigh=C:\CDROM\oakcdrom.sys /d:mscd001
+   Devicehigh=C:\Windows\drvspace.sys /move
+
+   ---- Example AUTOEXEC.BAT ----
+
+   LH C:\CDROM\mscdex.exe /d:mscd001
+
+----------------------------
+Bad or corrupted Floppy Disk
+----------------------------
+
+If FAT32EBD.EXE generates a "Write fault" or "Can not write to Disk
+in Drive A:\" error, you may be using a damaged floppy disk. 
+
+-----------------------------------
+Slow performance creating Boot Disk
+-----------------------------------
+
+FAT32EBD.EXE extracts files for the FAT32 EBD from the Windows 98 CD.
+EXTRACT.EXE may run slowly outside of Windows. To improve the
+performance of FAT32EBD.EXE outside of Windows, load SMARTDRV.EXE. 
+
+   NOTE: The Windows 98 SMARTDRV.EXE may be loaded from the
+         \TOOLS\OLDMSDOS folder on the Windows 98 CD.
+
+-----------------------
+Windows 98 Startup Disk
+-----------------------
+
+The FAT32 EBD does not include all of the troubleshooting tools
+available on the Windows 98 Startup Disk. Microsoft recommends
+creating a Windows 98 Startup Disk during Windows 98
+setup, or from the Startup disk tab in the Control Panel's Add/Remove
+Programs. 
+
+
+================
+MORE INFORMATION
+================
+
+A computer virus is an executable file designed to replicate itself
+and avoid detection. A virus may try to avoid detection by disguising
+itself as a legitimate program. Viruses are often rewritten and
+adjusted so that they will not be detected. Anti-virus programs must
+be updated continuously to look for new and modified viruses.
+
+When a computer boots (or starts), it looks to the boot sector of the
+hard disk before loading the operating system or any other startup
+files. A boot sector virus is designed to replace the information in
+the hard disk's boot sectors with its own code. When a computer is
+infected with a boot sector virus, the virus' code is read into
+memory before anything else. Once in memory, it can replicate itself
+onto any other disks that are used in the infected computer.
+
+--------------------
+Description of FAT32
+--------------------
+
+Windows 98 provides an updated version of the File Allocation Table
+file system, called FAT32. This updated file system allows for a
+default cluster size as small as 4K, as well as support for EIDE
+hard disk sizes in excess of 2 GB.
+
+ - A FAT32 volume cannot be compressed using Microsoft DriveSpace or 
+   DriveSpace 3.
+
+ - FAT32 volumes cannot be accessed if the computer is started using
+   another operating system. 
+
+ - MS-DOS, Windows NT 3.x and 4.x, Windows 1.x, 2.x, and 3.x, and 
+   Windows 95 (950) may not recognize a FAT32 volume.
+
+   NOTE: Windows 95 OEM Service Release 2 (1111) supports FAT32.
+
+FAT32 provides the following enhancements over previous
+implementations of the FAT file system:
+
+ - Supports drives up to 2 terabytes in size.
+
+ - FAT32 uses smaller clusters (that is, 4K clusters for drives up to
+   8 GB in size), resulting in 10 to 15 percent more efficient use of
+   disk space relative to large FAT16 drives.
+
+ - FAT32 has the ability to relocate the root directory and use the
+   backup copy of the FAT instead of the default copy. In addition,
+   the boot record on FAT32 drives has been expanded to include a
+   backup of critical data structures. This means that FAT32 drives
+   are less susceptible to a single point of failure than existing
+   FAT16 volumes.
+
+ - The root directory on a FAT32 drive is now an ordinary cluster
+   chain, so it can be located anywhere on the drive. For this reason,
+   the previous limitations on the number of root directory entries
+   no longer exist.

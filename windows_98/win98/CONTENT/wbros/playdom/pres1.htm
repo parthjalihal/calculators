@@ -1,0 +1,494 @@
+<HTML>
+
+<HEAD>
+
+	<TITLE>Warner Bros. PLAYDOM: Batman vs. Mr. Freeze</TITLE>
+
+
+
+<script language="VBScript">
+
+<!--
+
+
+
+sub window_onload
+
+	Seq1("Pres1").Play
+
+end sub
+
+
+
+Sub Seq1_onInit
+
+	call Seq1("Pres1").at(0.500, "playWarning()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(0.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(1.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(1.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(2.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(2.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(3.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(3.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(4.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(4.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(5.000, "showTag1()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(5.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(5.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(6.000, "showFreeze()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(6.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(6.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(7.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(7.500, "changeWord('WARNING!')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(8.000, "changeWord('')",1, 0.0, 1)
+
+	call Seq1("Pres1").at(9.000, "showBatman()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(11.000, "PlayFreeze()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(16.000, "showTag2()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(18.000, "showFreezeAnim()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(22.000, "showTag3()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(23.500, "showBoomerang()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(27.000, "showTag4()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(31.000, "showTag5()",1, 0.0, 1)
+
+	call Seq1("Pres1").at(39.000, "parent.showPres2()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub playWarning
+
+	If ChannelE.IsSoundCardEnabled = true and ChannelE.ReadyState > 0 then
+
+		ChannelE.Stop
+
+		ChannelE.Run
+
+	End If
+
+End Sub
+
+
+
+Sub changeWord(word)
+
+	words.innertext=word
+
+End Sub
+
+
+
+Sub showTag1
+
+	words1Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showTag2
+
+	words1Div.style.visibility = "hidden"
+
+	words2Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showFreezeAnim
+
+	FreezeAnim.style.visibility = "visible"
+
+	Freeze.style.visibility = "hidden"
+
+	If ChannelC.IsSoundCardEnabled = true and ChannelC.ReadyState > 0 then
+
+		ChannelC.Stop
+
+		ChannelC.Run
+
+	End If
+
+End Sub
+
+
+
+Sub showTag3
+
+	words2Div.style.visibility = "hidden"
+
+	words3Div.style.visibility = "visible"
+
+	BatmanAnim.style.visibility = "visible"
+
+	Batman.style.visibility = "hidden"
+
+End Sub
+
+
+
+Sub showBoomerang
+
+	BatBoomerang.style.visibility = "visible"
+
+	If ChannelD.IsSoundCardEnabled = true and ChannelD.ReadyState > 0 then	
+
+		ChannelD.stop
+
+		ChannelD.run
+
+	End If
+
+End Sub
+
+
+
+Sub showTag4
+
+	BatBoomerang.style.visibility = "hidden"
+
+	words3Div.style.visibility = "hidden"
+
+	words4Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showTag5
+
+	words4Div.style.visibility = "hidden"
+
+	words5Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub showFreeze
+
+	Freeze.style.visibility = "visible"
+
+	FadeIn2(0)
+
+End Sub
+
+
+
+Sub PlayFreeze
+
+	If ChannelB.IsSoundCardEnabled = true and ChannelB.ReadyState > 0 then
+
+		ChannelB.Stop
+
+		ChannelB.run
+
+	End If
+
+End Sub
+
+
+
+Sub showBatman
+
+	Batman.style.visibility = "visible"
+
+	FadeIn(0)
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then	
+
+		ChannelA.stop
+
+		ChannelA.run
+
+	End If
+
+End Sub
+
+
+
+Function FadeIn(i)
+
+	dim v
+
+	Batman.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+		v = window.setTimeout("FadeIn(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function FadeIn2(i)
+
+	dim v
+
+	Freeze.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+		v = window.setTimeout("FadeIn2(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function FadeIn3(i)
+
+	dim v
+
+	BackImg.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 50) then
+
+		v = window.setTimeout("FadeIn3(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+//-->
+
+</script>
+
+
+
+</HEAD>
+
+
+
+<BODY bgcolor="#FFFFFF" text="#000080" link="#008000" vlink="#008000" alink="#008000" leftmargin=0 topmargin=0>
+
+
+
+<img ID="Freeze" src="img/mrfreeze.gif" width=141 height=154 border=0 STYLE="POSITION:ABSOLUTE; TOP:45; LEFT:0; Z-INDEX:3; visibility:hidden;filter:alpha(opacity=0)"><br>
+
+<img ID="Batman" src="img/batman.gif" width=90 height=157 border=0 STYLE="POSITION:ABSOLUTE; TOP:45; LEFT:345; Z-INDEX:3; visibility:hidden;filter:alpha(opacity=0)"><br>
+
+<img ID="FreezeAnim" src="img/frezanim.gif" width=146 height=200 border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; Z-INDEX:5; visibility:hidden"><br>
+
+<img ID="BatmanAnim" src="img/batanim.gif" width=121 height=173 border=0 STYLE="POSITION:ABSOLUTE; TOP:27; LEFT:314; Z-INDEX:5; visibility:hidden"><br>
+
+<img ID="BatBoomerang" src="img/boomrang.gif" width=350 height=250 border=0 STYLE="POSITION:ABSOLUTE; TOP:50; LEFT:-36; Z-INDEX:2; visibility:hidden"><br>
+
+
+
+<DIV ID=wordsDiv STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:30; TOP:0; LEFT:0; VISIBILITY:visible; color:red; z-Index:2; font-size:32" ALIGN=CENTER>
+
+<b><FONT ID=words face="Verdana"></FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words1Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:110; LEFT:0; VISIBILITY:hidden; z-Index:1; font-size:18" ALIGN=CENTER>
+
+<b><FONT ID=words1 face="Comic Sans MS, Verdana, Arial">Mr. Freeze has escaped<br>
+
+from Arkham Asylum,</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words2Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:110; LEFT:0; VISIBILITY:hidden; z-Index:10; font-size:18" ALIGN=CENTER>
+
+<b><FONT ID=words2 face="Comic Sans MS, Verdana, Arial">and is bent<br>
+
+on freezing Gotham!</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words3Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:80; LEFT:0; VISIBILITY:hidden; z-Index:10; font-size:18" ALIGN=CENTER>
+
+<b><FONT ID=words3 face="Comic Sans MS, Verdana, Arial">The Dark Knight and <br>
+
+you are the<br>
+
+city's last hope!</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words4Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:80; LEFT:0; VISIBILITY:hidden; z-Index:5; font-size:18" ALIGN=CENTER>
+
+<b><FONT ID=words4 face="Comic Sans MS, Verdana, Arial">Will you be able<br>
+
+to save Gotham?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words5Div STYLE="POSITION:ABSOLUTE; WIDTH:200; HEIGHT:180; TOP:60; LEFT:115; VISIBILITY:hidden; z-Index:3; font-size:16" ALIGN=CENTER>
+
+<b><FONT ID=words5 face="Comic Sans MS, Verdana, Arial">
+
+For the best in online games including Mr. Freeze, <A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">click here</A> to add PLAYDOM to your channels FOR FREE!</FONT></b>
+
+</DIV>
+
+
+
+<img ID=BackImg src="img/batbgrnd.gif" width=435 height=210 border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; z-INDEX:-1;filter:alpha(opacity=30)" >
+
+
+
+<OBJECT ID="Seq1"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/freeze.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelB"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/mrfreeze.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelC"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/freezgun.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelD"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/boomrang.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelE"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="3">
+
+<PARAM NAME="FileName" VALUE="med/warning.wav"">
+
+</OBJECT>
+
+
+
+</BODY>
+
+</HTML>
+

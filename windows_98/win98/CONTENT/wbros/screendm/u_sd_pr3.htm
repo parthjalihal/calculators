@@ -1,0 +1,258 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+
+
+sub window_onload
+
+	Seq3("1").Play
+
+end sub
+
+
+
+Sub Seq3_onInit
+
+	call Seq3("1").at(3.000, "changeSlide(1)",1, 0.0, 1)
+
+	call Seq3("1").at(6.000, "changeSlide(2)",1, 0.0, 1)
+
+	call Seq3("1").at(9.000, "changeSlide(3)",1, 0.0, 1)
+
+	call Seq3("1").at(12.000, "changeSlide(4)",1, 0.0, 1)
+
+	call Seq3("1").at(15.000, "changeSlide(5)",1, 0.0, 1)
+
+	call Seq3("1").at(18.000, "changeSlide(6)",1, 0.0, 1)
+
+	call Seq3("1").at(23.000, "changeSlide(7)",1, 0.0, 1)
+
+	call Seq3("1").at(26.000, "changeSlide(8)",1, 0.0, 1)
+
+	call Seq3("1").at(32.000, "parent.showPres4()",1, 0.0, 1)
+
+End Sub
+
+
+
+
+
+Sub changeSlide(idx)
+
+	Select Case idx
+
+		Case "1"
+
+			copy1.style.visibility="visible"
+
+		Case "2"
+
+			copy1.style.visibility="hidden"
+
+			copy2.style.visibility="visible"
+
+		Case "3"
+
+			copy2.style.visibility="hidden"
+
+			copy3.style.visibility="visible"
+
+		Case "4"
+
+			copy3.style.visibility="hidden"
+
+			copy4.style.visibility="visible"
+
+		Case "5"
+
+			copy4.style.visibility="hidden"
+
+			copy5.style.visibility="visible"
+
+		Case "6"
+
+			copy5.style.visibility="hidden"
+
+			copy6.style.visibility="visible"
+
+		Case "7"
+
+			copy6.style.visibility="hidden"
+
+			copy7.style.visibility="visible"
+
+		Case "8"
+
+			copy7.style.visibility="hidden"
+
+			copy8.style.visibility="visible"
+
+	End Select
+
+End Sub
+
+
+
+--> 
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. SCREENDOM: Home Entertainment</TITLE>
+
+</HEAD>
+
+
+
+<body bgcolor="#000000" background="img/p3_hvbg.jpg" text=ffffff link=ffffff alink=ffffff vlink=ffffff>
+
+
+
+<!--MAIN COMPONENTS******************************************-->
+
+
+
+<DIV ID=copy1 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5><b>Remember those special movies...</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy2 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5><b>...the one that made you laugh so hard you could hardly see straight?</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy3 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5><b>...or the one that made you cry like a baby?</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy4 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5><b>...or the one that made you so afraid you could hardly get to sleep that night?</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+
+
+<DIV ID=copy5 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=5><b>Why don't you see them again...?</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=copy6 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:90; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=6><b>...at Home.</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+
+
+<DIV ID=copy7 STYLE="POSITION:ABSOLUTE; WIDTH:335; HEIGHT:20; TOP:50; LEFT:50; VISIBILITY:hidden">
+
+<CENTER>
+
+<DIV STYLE="POSITION:relative;width:100;height:55;background:white">
+
+<img src="img/p3_dvd.gif" STYLE="POSITION:absolute;top:10;left:12">
+
+</div>
+
+<br>
+
+<FONT SIZE=5><b>Pick them up in Video or DVD today.</b></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+
+
+<DIV ID=copy8  STYLE="POSITION:ABSOLUTE; WIDTH=240; TOP:115; LEFT:100; VISIBILITY:hidden">
+
+<CENTER>
+
+<FONT SIZE=4 FACE=Arial><B>
+
+For the latest titles,<br><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a>
+
+</B></FONT>
+
+</CENTER>
+
+</DIV>
+
+
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:300; Filter: Alpha(opacity=30)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<!--************************************************-->
+
+<OBJECT ID="Seq3"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+</body>
+
+</html>
+

@@ -1,0 +1,35 @@
+[version]
+Signature="$CHICAGO$"
+LayoutFile = layout.inf, layout1.inf
+
+[BaseWinOptions]
+Sampler_Base
+
+[Sampler_Base]
+CopyFiles  = SamplerFiles	;filelist
+UpdateInis = SamplerInis
+
+[DestinationDirs]
+SamplerFiles     = 11    ; LDID_SYS
+Sampler.Copy.Inf = 17    ; LDID_INF
+
+[SamplerFiles]							
+imgstart.exe
+imgstart.ini
+imgst_tr.exe
+imgst_tr.ini
+
+[Sampler.Copy.Inf]
+sampler.inf
+
+[SamplerInis]
+setup.ini, progman.groups,, "samplergroup=%SAMPLER_GROUP_NAME%"		;creates folder 
+setup.ini, samplergroup,, """%IMGSTART_NAME%"",""%IMGSTART_EXE%""" 	;creates link 
+setup.ini, samplergroup,, """%IMGTRIAL_NAME%"",""%IMGTRIAL_EXE%""" 	;creates link 
+
+[Strings]
+SAMPLER_GROUP_NAME = "Microsoft CD Sampler"
+IMGSTART_NAME = "Interactive CD Sampler"
+IMGSTART_EXE = "imgstart.exe"
+IMGTRIAL_NAME = "Trial Programs"
+IMGTRIAL_EXE = "imgst_tr.exe"

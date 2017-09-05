@@ -1,0 +1,47 @@
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%sProvider%
+LayoutFile=layout.inf
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%sProvider%=ManProvider
+
+[ManProvider]
+%Winmodem.DeviceDesc%=PvdVOICE,MODEMWAVE\SPORTSTER_WINMODEM_PC_CARD_(FCEBR)
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[PvdVOICE]
+AddReg=MSSERWAVE.AddReg, PvdVOICE.AddReg
+
+[PvdVOICE.AddReg]
+HKR,Drivers\wave\serwvdrv.drv,Description,,%Winmodem.DeviceDesc%
+HKR,Config,XformModule,  , "umdmxfrm.dll"
+HKR,Config,XformID,     1, 04, 00, 00, 00
+HKR,Config,WaveDevices,  1, 01, 00
+
+[MSSERWAVE.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\serwvdrv.drv,Driver,,serwvdrv.drv
+HKR,Drivers,SubClasses,,"wave"
+
+[Strings]
+sProvider = "GATEWAY 2000."
+Winmodem.DeviceDesc = "Gateway 2000 Telepath 3CXM356"
+WaveWrap.DeviceDesc="Voice Modem Wave Wrapper Device"
+MediaClassName="Sound, video and game controllers"
+

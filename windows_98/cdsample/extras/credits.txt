@@ -1,0 +1,444 @@
+Microsoft Interactive CD Sampler Credits
+
+
+
+Producer:
+
+
+    Bethann Butcher Martin
+
+
+
+Product Manager:
+
+
+    Victor Cho
+
+
+    
+Associate Producer:
+
+
+    Marcy Stringfellow
+    Microsoft Studios
+
+
+Designer:
+
+
+    Becky Johnson
+    Microsoft Studios
+
+
+Art Production & Screen Animation:
+
+
+    Peter Ogden
+    Mad Hat Design
+    Redmond, Washington
+
+
+Content Manager & HTML Catalog Production:
+
+
+    Carina Winters Jacobs
+
+
+Voiceover Talent:
+
+
+    Lindsay Schnebly
+
+
+HTML Programming:
+
+
+    Michael Scott Carreiro
+    Point of Presence Company
+    Seattle, Washington
+
+
+Programming - Sampler Shell and Multimedia Components:
+
+
+    Mike Miller Multimedia Services
+    Issaquah, Washington
+
+
+Programming - Setup, Ready-to-Run & Windows 98 Integration:
+
+
+    Tom Marecek, Excell Data Corp.
+
+
+Programming - Product Demo Applets
+
+
+    Phil Kramer,
+    Propellerhead Productions
+    Seattle, Washington
+
+
+    Glenn Bradford
+    Envision Design
+    Redmond, Washington
+
+
+
+Sound Recording:
+
+    John Ball
+
+
+
+Sound Editing and Mixing:
+
+
+    Kevin Johnson
+
+
+
+Sound Compression:
+
+    Paul Trice
+
+
+
+AVID Editing:
+
+
+
+    Sterling Noren
+    DW Clark
+    Reeve Baily
+
+
+
+D Vision Editing:
+
+
+    Craig Mathewson
+
+
+
+Post Production Editor
+
+
+    Bill Olafson
+
+
+MPEG Compression:
+
+
+    Brian Honey
+    Staci Dinehart
+
+
+AVI Compression:
+
+
+    Annie Ferguson
+
+
+Product Video Direction:
+
+
+    Deanna Jack
+
+    Quinn Edamura
+
+    Erin Hudson
+
+    Tina Munro
+
+
+Product Video Creative Direction and Production:
+
+
+    Dan Molvar, Magic Hour, Inc.
+
+
+
+
+Dublin Localisation Team:
+
+
+Program Management:
+
+        Stella Barrett
+
+
+
+Translation and Content Coordination:
+
+        Deirdre Fahey
+
+
+
+HTML Catalog Production and Editing:
+
+        Cameron Bremner
+
+
+Software Test Engineers:
+
+        Raymond Walker
+        Paul Good
+
+
+Script Supervision:
+
+        Frank Moeritz
+
+
+
+Audio Production:
+        Elayne Devlin
+
+
+
+Visual Media Specialist:
+
+        Gerry Donnelly
+
+
+
+Video Direction:
+
+        Michel Buch-Andersen
+
+
+
+Multimedia Production Manager
+
+        Peter Fitzpatrick
+
+
+Audio PostProduction and Editing:
+
+        Jason Shirley
+        Steve Belton
+
+
+Media Production Assistant:
+
+        Paul Brennan
+
+
+Video Editing and Compression:
+
+        Cara Ludlow
+        Alison Harnett
+
+
+Music Composition :
+
+        Steve McGrath
+        Drop In Recording Studios
+
+
+Thanks to the many Product Managers, Program Managers and Creative
+Artists in the Microsoft Interactive Media Group and Dreamworks Interactive for their contributions:
+
+
+   
+Thanks to Patricia Doyle, Shaleen Pruitt, Amy & Paul Metting, Ruthann Lorentzen and Marty Taucher for their support.
+
+
+
+
+Copyright Information
+
+
+(c) & (P)1997-1998 Microsoft Corporation.  All rights reserved.
+
+
+Microsoft, ActiveX, Advisor FYI, Age of Empires, 
+Beyond The Limit, Bookshelf, DirectInput, EasyBall, Encarta, Finty Flush, Fringer, Home Essentials, IntelliMouse, McZee, Money Insider, Monster Truck Madness, MS-DOS, MSN, Natural, Picture It!, Precision Racing, Realmation, SideWinder, Windows, the Windows logo, and Windows NT are either registered trademark or trademarks of Microsoft Corporation in the United States and/or other countries.
+
+SCHOLASTIC and THE MAGIC SCHOOL BUS and associated designs and logos are trademarks of Scholastic Inc. ©1997 Scholastic Inc. All rights reserved. 
+
+The ZIP Code database contained in Microsoft(r) Bookshelf(r) 96 is intended for reference purposes only and may not be used for the purposes of qualifying for postal rate discounts.
+
+The NBA and individual NBA member team identifications used on or in this product are trademarks, copyrighted designs, and/or other forms of intellectual property, that are the exclusive property of NBA Properties, Inc. and the respective NBA member teams and may not be used, in whole or in part, without the prior written consent of NBA Properties, Inc. All rights reserved.
+  
+All logos and marks of CART, its Teams, Drivers, Tracks, and Sponsors are the property of CART and its respective Teams, Drivers, Tracks, and Sponsors and may not be reproduced, in whole or in part, without prior written consent of CART Licensed Products, LP.
+
+Major League Baseball trademarks and copyrights are used with permission of Major League Baseball Properties, Inc.
+
+(C) MLBPA, Official Licensee-Major League Baseball Players Association
+
+ZAGATSURVEY (c) Copyright 1994-1997 by Zagat Survey, LLC.  All rights reserved.  (c) Copyright 1997 by Woodall Publications Corp. All rights reserved.    
+ 
+American Yellow Pages(TM) (c) Copyright 1997 by American Business Information, Inc., 5711 So. - 86th Circle, Omaha, Nebraska 68126 (402) 593-4500.  All rights reserved.  
+  
+(C) 1997 Hallmark Cards, Inc. All rights reserved. Hallmark Connections is a trademark of Hallmark Licensing, Inc.
+
+Kodak is a trademark of Eastman Kodak Company.
+
+(C) Copyright 1984-1997 by SoftVoice, Inc. All rights reserved.
+
+Society articles derived from Culturgrams (c) 1996 Brigham Young University. All rights reserved.
+
+A Culturgram is a product of native commentary and original, expert analysis. Statistics are estimates and information is presented as a matter of opinion. While the editors strive for accuracy and detail, Culturgram readers are reminded that individual Culturgrams do not necessarily apply to all peoples of a nation.
+
+SPOTView satellite imagery (c) CNES/SPOT Image Corporation 1994
+
+Fractal compression technology for photo images by Iterated Systems.
+
+Indeo 3.1 video compression technology by Intel.
+
+Portions of animation, Flash and Shockwave Flash by Macromedia Copyright 1997 Macromedia, Inc. All rights reserved.
+
+United States Board on Geographic Names, Advisory Committee on Antarctic Names, United States Defense Mapping Agency, United States Department of Commerce, National Oceanic and Atmospheric Administration,     National Environmental Satellite, Data, and Information Service, National Geophysical Data Center, United States Geological Survey, National Mapping Division Eros Data Center
+ 
+Bloomsbury Treasury of Quotations is licensed from Bloomsbury Publishing Plc.  Copyright (c) 1994 by Bloomsbury Publishing Plc. All rights reserved.
+
+The Chambers Dictionary is licensed from Larousse plc.  Copyright (c) 1994-1996 by Larousse plc.  All rights reserved.
+
+The Hutchinson Concise Encyclopedia is licensed from Helicon Publishing Ltd. Text and illustrations copyright (c) 1996 by Helicon Publishing Ltd.  All rights reserved.
+
+The Original Roget's Thesarus of English Words and Phrases is licensed from Addison Wesley Longman Limited.  Copyright (c) 1987 by Longman Group UK Ltd.  All rights reserved.
+
+Concise Encarta World Atlas (c) & (p) 1987-1996 Microsoft Corporation. All rights reserved.
+
+Internet Directory 96  (c) 1996 Microsoft Corporation. All rights reserved.
+ 
+Internet Directory 96, edited by Kevin Savetz.
+
+Other products and company names mentioned herein may be the trademarks of their respective owners.
+
+Dreamworks Interactive Products
+
+Chaos Island: The Lost World
+    (C) 1997 DreamWorks Interactive L.L.C. All rights reserved.
+    DreamWorks Interactive is a trademark of DreamWorks L.L.C. 
+    The Lost World:  Jurassic ParkTM & (C)1997 Universal City 
+    Studios, Inc. and Amblin Entertainment, Inc.Chaos Island 
+    is a trademark of Universal City Studios,  Inc. and Amblin 
+    Entertainment, Inc.Licensed by Universal Studios 
+    Licensing, Inc. All rights reserved.
+
+Dilbert's Desktop Games
+    (C) 1997 DreamWorks Interactive L.L.C. All rights reserved.
+    DreamWorks Interactive is a trademark of DreamWorks L.L.C. 
+    Dilbert (C)1997 United  Feature Syndicate, Inc.
+
+Goosebumps: Escape From HorrorLand
+    (C)1996 DreamWorks Interactive L.L.C. All rights reserved.
+    DreamWorks Interactive is a trademark of DreamWorks L.L.C.
+    GOOSEBUMPS, PARACHUTE PRESS, ESCAPE FROM HORROLAND and 
+    associated logos are trademarks of Parachute Press, Inc. 
+    Based on the Goosebumps book series by R. L. Stine 
+    ((C)Parachute Press, Inc.) published by Scholastic in
+    the U.S. and other countries. All rights reserved. 
+    Scholastic and associated logos are trademarks of
+    Scholastic, Inc.
+
+Goosebumps: Attack of the Mutant
+    (C)1997 DreamWorks Interactive L.L.C. All rights reserved.
+    DreamWorks Interactive is a trademark of DreamWorks L.L.C.
+    GOOSEBUMPS, PARACHUTE PRESS, ATTACK OF THE MUTANT and 
+    associated logos are trademarks of Parachute Press, Inc. 
+    Based on the Goosebumps book series by R. L. Stine 
+    ((C)Parachute Press, Inc.) published by Scholastic in 
+    the U.S. and other countries.  All rights reserved. 
+    Scholastic and associated logos are trademarks of Scholastic, Inc.
+
+The Neverhood
+    (C)1996 DreamWorks Interactive L.L.C. All rights reserved.
+    DreamWorks Interactive is a trademark of DreamWorks L.L.C.
+    The Neverhood is a trademark of The Neverhood. 
+    
+
+AutoRoute Express Europe
+
+1987-1997 Microsoft Corporation. All rights reserved. 
+
+Selected Road Maps (c) Copyright 1996 by AND Mapping B.V. All rights reserved. 
+
+Campground database (c) Copyright 1997 by The Alan Rogers Good Camps Guides. 
+
+Published in the UK by Deneway Guides & Travel (Europe) Limited. All rights reserved. 
+
+Ski and snowboarding resorts database (c) Copyright 1996 by Snow Hunter Ltd. All rights reserved. 
+
+Golf course database (c) Copyright 1996 by The Golfer's Course Guide Limited. All rights reserved. 
+
+Editorial contribution by Adastra Publishing Ltd. 
+
+Compression technology by Iterated Systems, Inc. 
+
+Product, service and/or company names mentioned herein may be trademarks or registered trademarks of their respective owners. 
+
+All information in this product is subject to change without notice. 
+
+Microsoft makes no representation that the information in this product is absolutely accurate or complete. Microsoft does not assume and hereby disclaims any liability to any party for any loss, damage, or any potential travel disruption caused by errors, omissions, or inaccuracies in the product, whether such errors, omissions, or inaccuracies result from negligence, accident, or any cause. It is strongly recommended that you call ahead and always verify the information in this product before making final travel plans or reservations. 
+
+
+WARNING: This computer program is protected by copyright law and international treaties. Unauthorised reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law. 
+
+
+
+
+Music Credits:
+
+Opening Video Sequence:  Ludwig's Boogie Digitally Mastered at Microsoft Studios
+
+Blues for Memphis performed by Brenda McCleod
+
+Live Well (St. James Infirmary) performed by Brenda McCleod
+
+Play Hard "Black Box Boogie" performed by Brown Shoes and Nametags
+
+Work Smart "Rocking the Boogie" performed by The Debutantes
+
+Learn More "Boston Boogie" performed by Brenda McCleod with The Debutantes
+
+
+
+
+Filmed on location in Redmond, Washington, Holladay, Utah and Dublin, Ireland.
+
+
+
+
+
+This film is dedicated to Gary, Elissa, Connor, Bowen, Linda, Steve, Kevin, Axel and Diana.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

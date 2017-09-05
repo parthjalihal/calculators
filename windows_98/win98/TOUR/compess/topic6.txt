@@ -1,0 +1,33 @@
+value:string
+When you start a program or application, a defined work area appears on the screen. This defined work area is called a window.@
+A window is a movable, resizable area in which information is displayed and with which you can interact.@
+The title bar appears at the top of each window. It displays the name of the open application or software.@
+A window may be moved from one location to another by pointing to the title bar and dragging the window to another location.@
+A scroll bar is a bar that can appear at the lower edge or the right edge of a window.@
+Scroll bars are used when the amount of information in a window is larger than can fit comfortably in a single window.@
+Since a window is a flexible (resizable) object, you can easily change its size.@
+On the far right of the title bar are three important buttons: <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B>.@
+You can use these buttons to increase or decrease the size of a window, or to close the window.@
+Now that you've learned how to work with windows, it's time to identify the parts of a window.@
+Answer the following questions by pressing the appropriate number on your keyboard.@
+Point to the title bar in the open window on your screen.@
+<IMG SRC="images/num1.gif" align="bottom"> Correct! The title bar shows the name of the open document or application. @
+The <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons are one part of the title bar. Try again to select the entire title bar.@
+These are scroll bars. Scroll bars are used when a document contains more information than can be seen in a single window. Try again to select the title bar.@
+You've selected an item that is not part of a window. Try again to select the title bar.@
+The title bar, which shows a window's name, appears at the top edge of all open windows.@
+Where are the <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons?@
+This is the title bar, which displays the name of the document or application you're working on. Try again.@
+<IMG SRC="images/num2.gif" align="bottom"> Correct! The <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons are on the far right side of the title bar.@
+These are scroll bars, which are used when a document contains more information than can be displayed in a single window. Try again.@
+You've selected an item that's not part of a window. Try again.@
+The <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons are on the far right side of the title bar.@
+Where are the scroll bars?@
+This is the title bar, which displays the name of the document or application you're working on. Try again.@
+The <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons are located on the far right side of the title bar. Try again to select the scroll bars.@
+<IMG SRC="images/num3.gif" align="bottom"> Correct! Scroll bars are used when a document contains more information than can be displayed in a single window.@
+You've selected an item that is not part of a window. Try again to select the scroll bars.@
+Scroll bars are used when a document contains more information than can be displayed in a single window.@
+You can easily move around and between windows using the title bar, scroll bars, and the <B>Minimize</B>, <B>Maximize</B>, and <B>Close</B> buttons.@
+In the next lesson, <B>Getting Help</B>, you'll learn how to utilize a valuable resource in Windows.@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

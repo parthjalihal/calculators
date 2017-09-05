@@ -1,0 +1,11 @@
+If you experience problems with the Vortex card, here are some suggestions:
+
+Refer to the Installation Guide which accompanied your Vortex product.
+
+Try performing an UNINSTAL as described in the Vortex Installation Manual.  
+Then try re-installing the driver software.
+
+Questions about Vortex are best answered by contacting the manufacturer of 
+this Aureal based product.
+
+Thank You for supporting Aureal's Vortex product.

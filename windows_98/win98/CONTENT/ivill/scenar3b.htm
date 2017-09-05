@@ -1,0 +1,770 @@
+<html>
+
+
+
+<head>
+
+<link rel="STYLESHEET" href="master.css" type="text/css">
+
+<title>Parent Soup</title>
+
+<script language="javascript">
+
+
+
+function makeCool() {
+
+        src = event.toElement;
+
+        if (src.tagName == "A") {
+
+            var temp = src.className;
+
+            src.className = "cool";
+
+            src.oldClass = temp;
+
+        }
+
+    }
+
+
+
+function makeNormal() {
+
+        src=event.fromElement;
+
+        if (src.tagName == "A") {
+
+            src.className = src.oldClass;
+
+        }
+
+    }
+
+</script>
+
+
+
+<SCRIPT language="javascript">
+
+var n = window.top.frames[0];
+
+var ver = 0;
+
+var visibleVar="null";
+
+var url=location.href;
+
+
+
+ function init(){
+
+        if (navigator.appName == "Netscape") {
+
+                                layerStyleRef="layer.";
+
+                                layerRef="document.layers";
+
+                                styleSwitch="";
+
+                                visibleVar="show";
+
+        }else{
+
+                                layerStyleRef="layer.style.";
+
+                                layerRef="document.all";
+
+                                styleSwitch=".style";
+
+                                visibleVar="visible";
+
+                }
+
+        }
+
+
+
+        function showHideLayerSwitch(layerName){
+
+     
+
+                if (eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility == visibleVar')){
+
+                        hideLayer(layerName);
+
+                }else{
+
+                        showLayer(layerName);
+
+                }
+
+        }
+
+        function showLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="visible"');
+
+        }
+
+        
+
+        function hideLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="hidden"');
+
+        }
+
+        
+
+        function gothere(url)  {
+
+        	location.href=url
+
+        	}
+
+        	
+
+
+
+</script>
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+
+
+
+
+Sub Window_OnLoad
+
+	pthMyim.Play()
+
+end sub
+
+
+
+Sub pthMyim_onstop()
+
+	call Transition2()
+
+	call Transition3()
+
+End Sub
+
+
+
+
+
+Sub Transition()
+
+	MyImage.style.filter = "revealTrans(Transition=12)"
+
+	MyImage.filters.item(0).Apply
+
+	MyImage.style.visibility= "visible"
+
+	MyImage.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition2()
+
+	MyText.style.filter = "revealTrans(Transition=12)"
+
+	Mytext.filters.item(0).Apply
+
+	Mytext.style.visibility= "visible"
+
+	Mytext.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition3()
+
+	banner.style.filter = "revealTrans(Transition=12)"
+
+	banner.filters.item(0).Apply
+
+	banner.style.visibility= "visible"
+
+	banner.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition10(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Answer1) then
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer2) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer3) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer4) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Answer5) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Answer6) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+Sub Transition11(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Me1) then
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me2) then
+
+			Me1.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me3) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me4) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Me5) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Me6) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+
+		
+
+
+</SCRIPT>
+
+
+
+<STYLE TYPE="text/css">
+
+#pulldownButton {POSITION: absolute; TOP: 40px; LEFT: 400px; Z-INDEX: 10; }
+
+#pulldownMenu {POSITION: absolute;  VISIBILITY: hidden; TOP: 76px; LEFT: 425px; Z-INDEX: 20; }
+
+#MyText {Position: absolute; top: 56; left: 5; width: 390; height: 100;  visibility: hidden;}
+
+#Answer1 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer2 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer3 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer4 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer5 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer6 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Me1     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me2     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me3     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me4     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me5     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me6     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#who     {Position: absolute; top: 250; left: 420;}
+
+</style>
+
+
+
+</head>
+
+
+
+<BODY onload="init()">
+
+
+
+<div id=banner Style="position: absolute; top: 10; left: 95; width: 402; z-index:1; visibility: hidden"><IMG SRC="art/psoupy2.gif" WIDTH="402" height="32"></div>
+
+<DIV ID=home Style="position: absolute; top: 40; left:240; height: 100; width: 150"><a href="indexa.htm">(back to the main page)</a></div>
+
+<DIV class=menu  onmouseover='if ("A"==event.toElement.tagName) event.toElement.style.color = "darkblue"' onmouseout='if ("A"==event.fromElement.tagName) event.fromElement.style.color = "#990000"'>
+
+
+
+
+
+                                                                                                                                                                                        
+
+                                                                                                                                                                                        
+
+<DIV ID="MyImage" Style="position: absolute; top: 85; left:0;">
+
+<img src="art/ww0822.JPG" border=0></div>
+
+
+
+<OBJECT ID="pthMyim"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+
+	<PARAM NAME="Shape" VALUE="Polyline(2,0,85,420,85)">
+
+	<PARAM NAME="Target" VALUE="MyImage">
+
+	<PARAM NAME="Duration" VALUE="2.0">
+
+	</OBJECT>
+
+
+
+<DIV ID="who" Style="position: absolute; top:250; left:420;">--confusedD-i-l</DIV>
+
+
+
+
+
+
+
+
+
+
+
+  <DIV ID="pulldownButton">
+
+                <A HREF="javascript:showHideLayerSwitch('pulldownMenu');">
+
+                <IMG ALT="click" BORDER=0 WIDTH=202 HEIGHT=40 SRC="pulldown/should.gif"></a>
+
+        </DIV>
+
+
+
+
+
+        <DIV ID="pulldownMenu">
+
+                <IMG LT="click" USEMAP="#menuMap" BORDER=0 WIDTH=132 HEIGHT=170 SRC="pulldown/pull3b.gif">
+
+        </DIV>
+
+              
+
+<!--<DIV ID=aroo Style="position: absolute; top: 53; left:388; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/arro.gif"></A></DIV>-->
+
+<DIV ID=aroo Style="position: absolute; top: 47; left:378; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/tag.gif"></A></DIV>
+
+        
+
+<!--menuMap-->
+
+<MAP NAME="menuMap">
+
+<AREA SHAPE=rect COORDS="20,24,98,35" HREF="javascript:Transition10(MyText,Answer1); Transition11(who,Me1);">
+
+<AREA SHAPE=rect COORDS="18,37,102,50" HREF="javascript:Transition10(MyText,Answer2); Transition11(who,Me2);" >
+
+<AREA SHAPE=rect COORDS="22,51,101,63" HREF="javascript:Transition10(MyText,Answer3); Transition11(who,Me3);" >
+
+<AREA SHAPE=rect COORDS="24,95,75,106" HREF="javascript:Transition10(MyText,Answer5); Transition11(who,Me5);" >
+
+<AREA SHAPE=rect COORDS="27,108,123,119" HREF="javascript:Transition10(MyText,Answer4); Transition11(who,Me4);" >
+
+<AREA SHAPE=rect COORDS="24,121,123,135" HREF="javascript:Transition10(MyText,Answer6); Transition11(who,Me6);" >
+
+<AREA SHAPE=rect COORDS="6,146,128,159" HREF="javascript:Transition10(MyText,MyText); Transition11(who,who);">
+
+
+
+</MAP>
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID=MyText>
+
+
+
+<H3>The Dilemma: Adventures in Babysitting</h3><no br>
+
+<font size=3><b>M</b></font>y husband and I have been married for six years and have a 2-year-old daughter. For years we had a horrible 
+	relationship with my mother-in-law. We eventually broke off communication with her. When our daughter was born, she wanted back into our lives. 
+	We agreed, with the condition that all the behavior problems must stop forever. Our problem is this: She now wants to babysit. Fortunately, 
+	my husband and I are in agreement that she will NEVER be allowed to baby-sit. She hasn't done anything "wrong" since our daughter was born, and she
+	 really is trying. I am worried that when we tell her no, it will be World War III. Should we tell her she can't baby-sit or should we just keep
+	  making excuses? HELP! 
+</div>
+
+
+
+<!-- *************************   The Me's   ********************* -->
+
+
+
+
+
+
+
+
+
+<DIV ID=Me1 Style="position: absolute; top:250; left: 420; visibility: hidden">--- Posted by Brieem <br> 
+
+</div>                     
+
+                                                                                                                        
+
+<DIV ID=Me2 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by anonymous<br> 
+
+</div>                      
+
+                                                                                                                        
+
+ <DIV ID=Me3 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by anonymous<br> 
+
+</div>                                                                                                                             
+
+                                                                                                                   
+
+<DIV ID=Me4 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by yzcat <br> 
+
+</div>                                                                                                                        
+
+ 
+<DIV ID=Me5 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by DebiSA <br> 
+
+</div> 
+
+ <DIV ID=Me6 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by shaylah <br> 
+</div>                                                                                                                  
+
+
+
+
+
+<!-- *************************   The Answers   ********************* -->
+
+
+
+
+<DIV ID=Answer1>
+
+
+
+<H3>A Solution: Running Out. . .</h3>
+
+
+
+<font size=3><b>Y</b></font>ou should tell her the truth. I am in the same situation except we live with my mother-in-law. We have tried to tell 
+her in every way possible that we don't trust her except by being blunt. I wish we could do it because it is creating so many problems trying to 
+come up with so many excuses. I've even said in front of her that we don't trust anyone but my 19 year old daughter to watch my babies. She is not 
+catching on to the hints. She always looks so sad when we take the babies away from her that I wish we could explain why. If you have the nerve to do 
+it then by all means. I wish I could! Then my life would be easier than always coming up with some exuse real fast. It is very similar to a lie, you have 
+to constantly keep coming up with something. 
+
+</div>
+
+                    
+
+<DIV ID=Answer2>
+
+
+
+<H3>A Solution: Tell It Like It Is. . . </h3>
+
+<font size=3><b>D</b></font>ON'T LET YOUR MOM-IN-LAW BABYSIT! Tell her like it is. How much can I stress that?! I have the same situation, 
+but it's with MY mom. (She believed in spanking my son for wetting the bed when he was 5. That is only one of her crazy philosophies...I went to 
+counseling for years.) I know she is angry at me for not letting her watch my kids much, but I care about my children, so she is just going to have to 
+deal with it. If you care about your child's self-esteem and self worth, send them to a trusted, loving sitter. 
+ 
+ </div>
+
+                    
+
+                    
+
+<DIV ID=Answer3>
+
+<H3>A Solution: Have a Heart. . .</h3>
+
+
+
+<font size=3><b>T</b></font>ell your mother-in-law the truth. Lying only hurts what good there might still be in your relationship. Sit 
+down & have a heart to heart talk with her, if possible. Once you broach the subject she might be a little more understanding & willing 
+to work with you instead of fighting all the time. Besides, if you keep making excuses, one day your child will probably blurt out, "My 
+mommy & daddy won't let you babysit me because . . ." Which will not only hurt your mother-in-law's feelings, but embarrass you to death. 
+The truth may hurt a little at first, but honesty is ALWAYS the best policy ~ especially where family is concerned. Besides, no grandparent 
+should be deprived of their grandchildren. I know, because we live in different parts of the country, my mom resents the fact that she doesn't 
+get to spend time with my son (now 13). We've haven't lived closer than 1300 miles since before our son was born. Give her a chance, monitored 
+at first if that's what you feel is necessary. But at least, give her that chance. 
+</div>
+
+                                                                                                                          
+
+
+<DIV ID=Answer4>
+
+
+
+<H3>A Solution: Give Her a Tryout. . .</h3>
+
+
+
+<font size=3><b>I</b></font> would invite the mother-in-law over to 'babysit' while the couple or at least one of the them is present in the home. 
+That way they can monitor how the mother-in-law does 'babysitting' and perhaps give her advice and/or special instructions on how they wish their 
+child to be cared for. I feel the mother-in-law is showing an honest attempt to be a part of her grandchild's life and should not be denied that 
+opportunity and at least be given a chance to redeem herself....  
+
+ </div>                                                                                                 
+
+
+
+<DIV ID=Answer5>
+
+
+
+<H3>A Solution: Fake It. . .</h3>
+
+
+
+<font size=3><b>"F</b></font>ake it - until you make it". I think it is easier to make excuses until you are able to see whether she really is worthy
+ of looking after you children, or whether you should avoid letting her babysit at all costs. I know exactly how you feel - we have a similar problem. 
+ I am very wary and extremely cautious. Anyway, by making excuses, she will eventually stop asking and may even be clever enough to know that "no is no". 
+ I don't even think you need to give a reason - you are their mother and you have your reasons. Your decision is something you live by and you don't even 
+ have to try and explain. We love our M.I.Law, but we certainly cannot leave our baby there - with the millions of dogs, chainsmoking, and general 
+ carelessness and over-relaxed attitude - we are terrified to leave our baby there overnight or for extended periods. 
+
+ </div>
+
+
+<DIV ID=Answer6>
+
+
+
+<H3>A Solution: Getting the Hint. . .</h3>
+
+<font size=3><b>I</b></font> would stick by your instincts. My husband and I don't have a good relationship with my mother in law either. She has 
+also been bugging us to let her babysit, but I am not comfortable. We continue to "make excuses" and I think she's gotten the hint. Grandparents do 
+have the right to visit and enjoy their grandchildren, but nothing says you can't be there to share it. Just because someone is a relative doesn't entitle 
+them to anything. As long as your daughter knows and loves her Grandma, that is all that should matter. The rest is up to you. Good luck! 
+
+</div>                                                                                                                  
+
+</BODY>
+
+</HTML>
+

@@ -1,0 +1,250 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+sub window_onload
+
+	Seq("1").Play
+
+end sub
+
+
+
+Sub Seq_onInit
+
+	call Seq("1").at(1.000, "AnimCover")
+
+	call Seq("1").at(2.000, "AnimSong1")
+
+	call Seq("1").at(3.000, "AnimSong2")
+
+	call Seq("1").at(4.000, "AnimSong3")
+
+	call Seq("1").at(5.000, "AnimSong4")
+
+	call Seq("1").at(7.000, "AnimOrder")
+
+End Sub
+
+
+
+Sub AnimCover
+
+	pthCover.play()
+
+End Sub
+
+
+
+Sub AnimSong1
+
+	pthSong1.play()
+
+End Sub
+
+
+
+Sub AnimSong2
+
+	pthSong2.play()
+
+End Sub
+
+
+
+Sub AnimSong3
+
+	pthSong3.play()
+
+End Sub
+
+
+
+Sub AnimSong4
+
+	pthSong4.play()
+
+End Sub
+
+
+
+Sub AnimOrder
+
+	pthOrder.play()
+
+End Sub
+
+</SCRIPT>
+
+<HEAD>
+
+<TITLE>Warner Bros. TUNEDOM: Paula Cole</TITLE>
+
+</HEAD>
+
+
+
+<body bgcolor=black background="img/bg_cole.jpg" text=FFFFFF link=FFFFFF alink=FFFFFF vlink=FFFFFF>
+
+
+
+<img src="img/cov_cole.gif" border=0 ID=cover STYLE="POSITION:ABSOLUTE; TOP:-167; LEFT:15; VISIBILITY:VISIBLE">
+
+
+
+<DIV ID=song1 STYLE="overflow:hidden; POSITION:ABSOLUTE; TOP:15; LEFT:436; VISIBILITY:VISIBLE">
+
+<FONT ID=covbg COLOR=FFFFFF FACE=Arial STYLE="FONT-SIZE=14px">
+
+<b><i>Where Have All<BR>The Cowboys Gone?</i></b>
+
+</FONT>
+
+</DIV>
+
+
+
+<DIV ID=song2 STYLE="overflow:hidden;  color:FFFFFF; font-family:Arial; font-size=14px; POSITION:ABSOLUTE; TOP:65; LEFT:436; VISIBILITY:VISIBLE">
+
+<b><i>Road To Dead</i></b>
+
+</DIV>
+
+
+
+<DIV ID=song3 STYLE="overflow:hidden;  color:FFFFFF; font-family:Arial; font-size=14px; POSITION:ABSOLUTE; TOP:100; LEFT:436; VISIBILITY:VISIBLE">
+
+<b><i>Me</i></b>
+
+</DIV>
+
+
+
+<DIV ID=song4 STYLE="overflow:hidden;  color:FFFFFF; font-family:Arial; font-size=14px; POSITION:ABSOLUTE; TOP:135; LEFT:436; VISIBILITY:VISIBLE">
+
+<b><i>I Don't Want To Wait</i></b>
+
+</DIV>
+
+
+
+<DIV ID=order STYLE="overflow:hidden; color:FFFFFF; font-family:Arial; font-size=14px; POSITION:ABSOLUTE; TOP:175; LEFT:436; VISIBILITY:VISIBLE">
+
+<b><i><a href="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')" title="Add To Channels"><font color=ffff00>Add To Channels for FREE!</font></a></i></b>
+
+</DIV>
+
+
+
+<OBJECT ID="Seq"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthCover"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 15,-167, 15,15)">
+
+	<PARAM NAME="Target" VALUE="cover">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthSong1"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME=AutoStart VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 436,15, 235,15)">
+
+	<PARAM NAME="Target" VALUE="song1">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthSong2"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME=A"utoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 436,65, 235,65)">
+
+	<PARAM NAME="Target" VALUE="song2">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthSong3"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 436,100, 235,100)">
+
+	<PARAM NAME="Target" VALUE="song3">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthSong4"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 436,135, 235,135)">
+
+	<PARAM NAME="Target" VALUE="song4">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthOrder"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 436,175, 235,175)">
+
+	<PARAM NAME="Target" VALUE="order">
+
+</OBJECT>
+
+
+
+</body>
+
+</html>
+

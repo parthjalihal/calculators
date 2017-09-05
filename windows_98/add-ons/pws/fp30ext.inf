@@ -1,0 +1,385 @@
+[Version]
+Signature = "$Windows NT$"
+
+[Optional Components]
+fp
+fp_extensions
+vid
+fp_vid_deploy
+
+[fp]
+; FP code and remote admin utilities
+OptionDesc = %fp_desc%
+Tip = %fp_tip%
+IconIndex = *
+
+[vid]
+; Visual InterDev RAD deployment system
+OptionDesc = %vid_desc%
+Tip = %vid_tip%
+IconIndex = *
+
+[fp_extensions]
+; Core FP server extensions, plus SERK
+Parent = fp
+Needs = iis_www
+OptionDesc = %SDESC_Fp_Extensions%
+Tip = %LDESC_Fp_Extensions%
+Modes = 1,3
+IconIndex = *
+
+[fp_vid_deploy]
+; If this subcomponent is chosen, we'll copy fp30reg.dll into the
+; isapi\_vti_bin\_vti_adm directory, so Visual InterDev can use it to
+; remotely deploy apps.
+; *Not* installed by default.
+Parent = vid
+Needs = fp_extensions
+OptionDesc = %SDESC_Vid_Deployment_Dll%
+Tip = %LDESC_Vid_Deployment_Dll%
+; Modes not set, because we don't install this by default
+IconIndex = *
+
+[fp_install_vid]
+CopyFiles = FPvid_deploy
+
+[fp_uninstall_vid]
+DelFiles = FPvid_deploy
+
+;-------------------------
+
+[fp_install_r]
+CopyFiles = FPsystem_r, FPbin, FPisapiBin, FPisapiAut, FPisapiAdm, FPserk, FPserkImages, FPadmin, FPadminScripts
+
+[fp_install_d]
+CopyFiles = FPsystem_d, FPbin, FPisapiBin, FPisapiAut, FPisapiAdm, FPserk, FPserkImages, FPadmin, FPadminScripts
+
+[fp_install_w95]
+CopyFiles = FProot_servsupp_w95
+
+[fp_install_nt]
+CopyFiles = FProot_servsupp_nt
+
+[fp_install_core]
+CopyFiles = FPsystem32_Core
+
+[fp_install_w95_core]
+CopyFiles = FPsystem32_w95_Core
+
+[fp_uninstall_d]
+DelFiles = FPsystem_d, FPbin, FPisapiBin, FPisapiAut, FPisapiAdm, FPserk, FPserkImages, FPadmin, FPadminScripts, FPremove_servsupp, FPremove_temp
+
+[fp_uninstall_r]
+DelFiles = FPsystem_r, FPbin, FPisapiBin, FPisapiAut, FPisapiAdm, FPserk, FPserkImages, FPadmin, FPadminScripts, FPremove_servsupp, FPremove_temp
+
+[fp_uninstall_w95]
+DelFiles = FProot_servsupp_w95
+
+[fp_uninstall_nt]
+DelFiles = FProot_servsupp_nt
+
+; ---------------- Start of file lists --------------
+
+[FPsystem_d]
+fp30weld.dll,,,32
+fp30txtd.dll,,,32
+fp30utld.dll,,,32
+
+[FPsystem_r]
+fp30wel.dll,,,32
+fp30txt.dll,,,32
+fp30utl.dll,,,32
+
+; Core files don't get reference counted
+[FPsystem32_Core]
+msencode.dll,,,32
+
+; Core files don't get reference counted
+[FPsystem32_w95_Core]
+msvcirt.dll,,,32
+
+[FPbin]
+fp30vss.dll,,,32
+fpexedll.dll,,,32
+fpsrvadm.exe,,,32
+fpsrvwin.exe,,,32
+fpsrvwin.hlp,,,32
+fpsrvwin.cnt,,,32
+postinfo.html,,,32
+_vti_inf.html,,,32
+nortbots.htm,,,32
+imagemap.exe,,,32
+htimage.exe,,,32
+fp30reg.dll,,,32
+
+[FPisapiBin]
+shtml.dll,,,32
+fpcount.exe,,,32
+
+[FPisapiAut]
+author.dll,,,32
+dvwssr.dll,,,32
+
+[FPisapiAdm]
+admin.dll,,,32
+
+[FPserk]
+a_bots.htm,,,32
+a_fpini.htm,,,32
+a_iisprm.htm,,,32
+a_spfile.htm,,,32
+a_uncnf.htm,,,32
+a_unperm.htm,,,32
+admin.htm,,,32
+appendix.htm,,,32
+banner.htm,,,32
+default.htm,,,32
+home.htm,,,32
+install.htm,,,32
+intro.htm,,,32
+security.htm,,,32
+trouble.htm,,,32
+nav.htm,,,32
+
+[FPserkImages]
+admin.gif,,,32
+appendix.gif,,,32
+architec.gif,,,32
+serkr.gif,,,32
+editor.gif,,,32
+explorer.gif,,,32
+home.gif,,,32
+i_conten.gif,,,32
+i_fpacls.gif,,,32
+install.gif,,,32
+intro.gif,,,32
+mslogo.gif,,,32
+publish1.gif,,,32
+publish2.gif,,,32
+security.gif,,,32
+serkl.gif,,,32
+trouble.gif,,,32
+u_conten.gif,,,32
+u_fpaccs.gif,,,32
+filler25.gif,,,32
+
+; HTML admin forms, for remote admin of FrontPage server extensions
+[FPadmin]
+fpbanner.htm,,,32
+check.htm,,,32
+contents.htm,,,32
+disable.htm,,,32
+enable.htm,,,32
+fpadmin.htm,,,32
+ipaddress.htm,,,32
+newserver.htm,,,32
+newsubweb.htm,,,32
+perms.htm,,,32
+recalc.htm,,,32
+uninstall.htm,,,32
+topleft.gif,,,32
+topright.gif,,,32
+fpcreated.gif,,,32
+deletesubweb.htm,,,32
+renamesubweb.htm,,,32
+setdirexec.htm,,,32
+setdirnoexec.htm,,,32
+footer.htm,,,32
+
+[FPadminScripts]
+fpadmdll.dll,,,32
+
+[FPremove_servsupp]
+servers.cnf
+
+[FPremove_temp]
+frontpg.lck
+
+[FProot_servsupp_nt]
+fp30msft.dll,,,32
+
+[FProot_servsupp_w95]
+fp30pws.dll,,,32
+
+[FPvid_deploy]
+fp30reg.dll,,,32
+
+; ---------------- Directory Definitions --------------
+
+[DestinationDirs]
+FPsystem_d   = 40000		; WINDOWS\System
+FPsystem_r   = 40000
+
+FPsystem32_Core     = 40001	; WINDOWS\System32 (nt) or WINDOWS\System (95)
+FPsystem32_w95_Core = 40001
+
+FPbin      = 40002, version3.0\bin
+FPisapiBin = 40002, version3.0\isapi\_vti_bin
+FPisapiAut = 40002, version3.0\isapi\_vti_bin\_vti_aut
+FPisapiAdm = 40002, version3.0\isapi\_vti_bin\_vti_adm
+FPserk       = 40002, version3.0\serk
+FPserkImages = 40002, version3.0\serk\images
+FPadmin    = 40002, version3.0\admin\isapi
+FPadminScripts = 40002, version3.0\admin\isapi\scripts
+
+FProot_servsupp_w95   = 40002, version3.0\servsupp
+FProot_servsupp_nt    = 40002, version3.0\servsupp
+FPremove_servsupp     = 40002, version3.0\servsupp
+
+FPremove_temp = 40002, version3.0\temp
+
+; If the fp_vid_deploy subcomponent is selected, we install fp30reg.dll
+; to the isapi\_vti_bin\_vti_aut, from whence it gets propagated to all
+; webs
+FPvid_deploy = 40002, version3.0\isapi\_vti_bin\_vti_aut
+
+; -----------------------------------------
+
+[SourceDisksNames]
+1=%K2_CD_NAME%,"fp30ext.cab",0
+
+[SourceDisksFiles]
+fp30wel.dll=1,,706832,,
+fp30txt.dll=1,,98576,,
+fp30utl.dll=1,,435984,,
+fp30weld.dll=1,,0,,
+fp30txtd.dll=1,,0,,
+fp30utld.dll=1,,0,,
+fp30msft.dll=1,,133904,,
+fp30pws.dll=1,,108816,,
+msencode.dll=1,,94208,,
+msvcirt.dll=1,,70656,,
+fp30vss.dll=1,,19216,,
+fpexedll.dll=1,,5904,,
+fpsrvadm.exe=1,,14608,,
+fpsrvwin.exe=1,,109328,,
+fpsrvwin.hlp=1,,25288,,
+fpsrvwin.cnt=1,,170,,
+postinfo.html=1,,2443,,
+_vti_inf.html=1,,1704,,
+nortbots.htm=1,,764,,
+imagemap.exe=1,,6416,,
+htimage.exe=1,,7952,,
+shtml.dll=1,,14608,,
+admin.dll=1,,15120,,
+author.dll=1,,15120,,
+dvwssr.dll=1,,6416,,
+a_bots.htm=1,,7754,,
+a_fpini.htm=1,,14972,,
+a_iisprm.htm=1,,31869,,
+a_spfile.htm=1,,16744,,
+a_uncnf.htm=1,,14752,,
+a_unperm.htm=1,,30589,,
+admin.htm=1,,99883,,
+appendix.htm=1,,1039,,
+banner.htm=1,,554,,
+default.htm=1,,2329,,
+home.htm=1,,1685,,
+install.htm=1,,44020,,
+intro.htm=1,,26411,,
+security.htm=1,,48735,,
+trouble.htm=1,,23174,,
+nav.htm=1,,2374,,
+admin.gif=1,,1469,,
+appendix.gif=1,,1373,,
+architec.gif=1,,6948,,
+serkr.gif=1,,15419,,
+filler25.gif=1,,103,,
+editor.gif=1,,52562,,
+explorer.gif=1,,29016,,
+home.gif=1,,1157,,
+i_conten.gif=1,,14197,,
+i_fpacls.gif=1,,12108,,
+install.gif=1,,1352,,
+intro.gif=1,,1374,,
+mslogo.gif=1,,9866,,
+publish1.gif=1,,6644,,
+publish2.gif=1,,5036,,
+security.gif=1,,1244,,
+serkl.gif=1,,7938,,
+trouble.gif=1,,1531,,
+u_conten.gif=1,,14451,,
+u_fpaccs.gif=1,,12814,,
+fpcount.exe=1,,107008,,
+fp30reg.dll=1,,103936,,
+fpbanner.htm=1,,391,,
+check.htm=1,,1719,,
+contents.htm=1,,2409,,
+disable.htm=1,,1846,,
+enable.htm=1,,1723,,
+fpadmin.htm=1,,875,,
+ipaddress.htm=1,,2675,,
+newserver.htm=1,,2079,,
+newsubweb.htm=1,,2126,,
+perms.htm=1,,2565,,
+recalc.htm=1,,1691,,
+uninstall.htm=1,,1851,,
+topleft.gif=1,,7938,,
+topright.gif=1,,15080,,
+fpcreated.gif=1,,9866,,
+deletesubweb.htm=1,,1852,,
+renamesubweb.htm=1,,1710,,
+setdirexec.htm=1,,1915,,
+setdirnoexec.htm=1,,1925,,
+footer.htm=1,,741,,
+fpadmdll.dll=1,,9488,,
+
+[lang_dep]
+;
+; Language-dependent strings loaded explicitly by the FP OCM code
+; Localize all strings in this section and the next.
+;
+FrontPageLangID = "0x0409"
+UILangAbbrev = "enu"
+;
+; next 2 strings must be valid filenames
+;
+FrontPageRoot = "Microsoft FrontPage"
+ServerAdminDesc = "FrontPage Server Administrator"
+;
+; status strings, displayed during install/uninstall
+;
+ConfiguringExtensions = "Configuring the FrontPage Server Extensions..."
+RemovingExtensions = "Removing the FrontPage Server Extensions..."
+;
+; The following is a security warning displayed when the user does a Custom
+; setup and chooses to install the VID RAD deployment support DLL.
+;
+; The four VidWarningX strings are simply concatenated together.  There should be
+; a single space at the end of each.  The max length for each individual string
+; is 512 bytes.
+;
+VidWarning1 = "You have chosen to install Visual InterDev RAD Remote Deployment Support. You should do this only on development servers, "
+VidWarning2 = "because RAD lets authors register server components and modify the Microsoft Transaction Server settings, affecting the state "
+VidWarning3 = "of the running server. If you install RAD Remote Deployment Support, you should regularly review the permissions settings of "
+VidWarning4 = "your FrontPage webs to ensure that no unwanted authors have obtained authoring privileges."
+VidWarningTitle = "Visual InterDev RAD Remote Deployment Support"
+;
+; The following are command lines used to install/uninstall/upgrade the
+; server extensions.
+; Do Not Localize!
+; Do Not change the order of the substitution parameters!
+; Note: the %%s in New/DelFPWebCmdLine is intentional - this string is sprintf'd
+;       into twice, the second time by K2's MMC.
+;
+NewFPWebCmdLine = "%s\version3.0\bin\fpsrvadm -unattended true -o install -t msiis -m %%s -u ""%s"" -pw p"
+DelFPWebCmdLine = "%s\version3.0\bin\fpsrvadm -unattended true -o uninstall -m %%s"
+FpCmdInstall = "%s\version3.0\bin\fpsrvadm -unattended true -o install -t msiis -m %s -u ""%s"" -pw p"
+FpCmdUninstall = "%s\version3.0\bin\fpsrvadm -unattended true -o uninstall -m %s"
+FpCmdUpgrade = "%s\version3.0\bin\fpsrvadm.exe -unattended true -o upgrade -m %s"
+
+
+[Strings]
+;
+; Localize all strings in this section.
+; These strings are used directly by OCM.
+;
+fp_desc = "FrontPage 98 Server Extensions"
+fp_tip = "Enables authoring and administration of websites with Microsoft FrontPage and Visual InterDev"
+vid_desc = "Visual InterDev RAD Remote Deployment Support"
+vid_tip = "Enables the remote deployment of applications on your web server"
+K2_CD_NAME = "Microsoft Internet Information Server"
+SDESC_Fp_Extensions = "FrontPage Server Extensions files" 
+LDESC_Fp_Extensions = "Enables authoring and administration of websites with Microsoft FrontPage and Visual InterDev"
+SDESC_Vid_Deployment_Dll = "Visual InterDev RAD Remote Deployment Support"
+LDESC_Vid_Deployment_Dll = "Enables the remote deployment of applications on your web server"

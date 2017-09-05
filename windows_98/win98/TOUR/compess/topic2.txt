@@ -1,0 +1,44 @@
+value:string
+In addition to the keyboard, you can use a pointing device to give your computer instructions.@
+The most popular type of pointing device is the mouse.@
+This section will show you how to perform four basic actions: pointing, clicking, double-clicking, and dragging.@
+The mouse controls a pointer that identifies your location on the screen.@
+Think of the mouse as an extension of your hand.@
+When you move the mouse on your desk, the pointer moves as well.@
+Some objects change when your pointer passes over them.@
+To demonstrate, the solid red circle will become a patterned blue circle after you pass your mouse pointer over it.@
+Now it's your turn. Rest your hand on top of your mouse, and move it until the tip of the pointer passes over the solid red circle on your screen.@
+Congratulations! You correctly pointed to the solid red circle by placing the mouse pointer over it.@
+You've pointed somewhere else on the screen. Try again. Move the mouse with your hand until the pointer is over the solid red circle.@
+You've pointed correctly by moving the mouse pointer over the solid red circle, but you've also pressed down on a mouse button. Try again to point without pressing down on a button.@
+Move the mouse with your hand until the pointer is over the solid red circle.@
+You can select and move items on your screen by working with one of the buttons on your mouse. The first action you'll learn is called clicking.@
+Clicking means pressing and releasing a mouse button one time.@
+The result of this action varies depending on the software you are using and the button you click.@
+To demonstrate, clicking on the solid red circle will change the circle to a solid teal square.
+Ready to try it? Make sure your pointer is over the solid red circle on your screen. Then, with your index finger, quickly press and release the left mouse button once to select the circle.@
+Yes! You've correctly selected the solid red circle by pointing to it and clicking the left mouse button once.@ 
+You've pointed somewhere else on the screen. Try again. Move the mouse until the pointer is over the solid red circle and click the left mouse button once.@
+You've pointed correctly by moving the mouse pointer over the solid red circle. Now you just need to quickly click once and release the left mouse button.@
+To click your mouse, you quickly press and release the left mouse button once.@
+Now that you know how to click, you can either click the <B>Left Arrow</B> button to go back or click the <B>Right Arrow</B> button to continue.  Or, press the RIGHT or LEFT ARROW keys on your keyboard.@
+A second thing you can do with a mouse is called double-clicking.@
+Double-clicking means to press and release the left mouse button twice in quick succession.@
+When you double-click, the solid red circle will become a patterned blue square.@
+It's time to practice double-clicking. Move your mouse pointer over the solid red circle and quickly press and release the left mouse button twice.@
+Correct! You successfully double-clicked the solid red circle by quickly pressing and releasing the left mouse button.@
+You've pressed the mouse button once instead of twice. That's called clicking. Try again to double-click on the solid red circle.@ 
+You've double-clicked correctly, but you used the right mouse button. Double-clicking means to quickly press and release the left mouse button twice. Try again.@
+Double-clicking means to press and release the left mouse button twice in quick succession.@
+Another action you can perform using the left mouse button is moving items around your screen by dragging them.@
+To do this, position the pointer over an object, press and hold down the left mouse button, move the mouse to the desired place on your screen. Release the button.@
+Now it's your turn. Move your pointer over the solid red circle, press and hold down the left mouse button, and drag the now patterned blue circle to the far-right side of the screen. Release the button.@
+Perfect! You drag an item by positioning your mouse over an item, press and hold down the left mouse button, move the mouse to a different place, then release the mouse button. @
+You've pointed somewhere else on the screen. Pointing means to move the mouse pointer over a particular item. Try again to point to the solid red circle.@
+You've pointed correctly by moving the mouse pointer over the solid red circle. Now you need to drag it to the far-right side of the screen. Try again.@
+You've pointed correctly to the solid red circle and you dragged, but you released the button too soon. Try again.@
+To drag an item, first point to it, hold down the left mouse button, move the mouse to a different place, then release the mouse button. @
+In this section, you've become acquainted with your mouse and four basic actions: pointing, clicking, double-clicking, and dragging.@
+You use these mouse actions repeatedly when working on your computer.@
+Now that you're familiar with the basic hardware components of your computer system, you're ready for an introduction to your operating system in <B>Exploring the Windows Desktop.</B>@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.@

@@ -1,0 +1,81 @@
+[version]
+Signature="$CHICAGO$"
+Class=hdc
+provider=%OPTi%
+LayoutFile=layout.inf
+
+[DestinationDirs]
+;DefaultDestDir = 11  	   
+OPT.CopyINF = 17	; INF
+
+[ClassInstall]
+AddReg=HDC_Class
+
+[HDC_Class]
+HKR,,,,%HDCClassName%
+HKR,,Icon,,-9
+
+[Manufacturer]
+%MfgName%=OPTiMedia
+
+[SourceDisksNames]
+1="OPTi 82C933 Plug-N-Play Multimedia Disk",,0001
+
+[ControlFlags]
+;CopyFilesOnly=*OPTFFFF
+
+
+[OPTiMedia]
+%*OPT0007.DeviceDesc%=OPT0007_Device, *OPT0007, *PNP0600   ;IDE
+;%*OPTFFFF.DeviceDesc%=OPTFFFF_Device, *OPTFFFF
+
+[OPT0007_Device]
+LogConfig=OPTi0007.LC
+AddReg=OPT0007.AddReg
+CopyFiles=OPT.CopyINF
+
+[OPT0007.PosDup]
+*OPT0007
+
+;[OPTFFFF_Device]
+;LogConfig=OPTiFFFF.LC
+;CopyFiles=OPT.CopyINF
+
+[OPTi0007.LC]
+ConfigPriority=NORMAL
+
+[*OPT0007.det]          ;ESDI Controller
+LogConfig=OPTi0007.LC
+AddReg = HDC_HW_REG
+
+;[OPTiFFFF.LC]
+;ConfigPriority=DISABLED
+
+[OPT0007.AddReg]
+HKR,,DriverDesc,,"ESDI Port Driver"
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,ESDI_506.pdr
+
+[HDC_HW_REG]
+HKR,,NoSetupUI,,1
+
+[OPT.CopyINF]
+snd933p.inf,,
+snd_aux.inf,,
+
+[SourceDisksFiles]
+snd_aux.inf=1
+snd933p.inf=1
+snd933p.vxd=1
+snd933p.drv=1
+sndopl3p.drv=1
+sndm401p.drv=1
+sndm401p.vxd=1
+
+[Strings]
+HDCClassName="Hard disk controllers"
+OPTi="OPTi Inc."
+MfgName="OPTi Inc."
+;*OPT0007.DeviceDesc="OPTi Plug-N-Play IDE Controller"
+*OPT0007.DeviceDesc= "Standard IDE/ESDI Hard Disk Controller"
+;*OPTFFFF.DeviceDesc="OPTi Plug-N-Play Device"

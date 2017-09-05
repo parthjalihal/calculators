@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+	
+<STYLE>
+<!--
+	.Item{ font-size: 12pt; font-family: Verdana; font-weight: bold; color: #0000FF }
+	
+	.Highlight{ font-size: 12pt; font-family: Verdana; font-weight: bold; color: #FF0000 }
+-->
+</STYLE>
+<!-- window.event.srcElement.style -->
+<SCRIPT>
+<!--
+
+
+var ver = 0;
+
+function doInit(){
+	var ua = window.navigator.userAgent;
+	var msie = ua.indexOf ("MSIE")
+	if ( msie > 0)			// is Microsoft Internet Explorer; 		return version number
+		ver = parseInt(ua.substring(msie+5, ua.indexOf(".",msie)));
+	}
+
+
+function go(){
+	window.location = "more.htm"
+	}
+	
+function goContinue(){
+	window.location = "continue.htm"
+	}
+
+function closeBox(){
+	document.all.popup.style.visibility = "hidden";
+	document.all.popup.style.zIndex = 0;
+	}
+
+function openBox(){
+	document.all.popup.style.visibility = "visible";
+	document.all.popup.style.zIndex = 2;
+	}
+	
+function DoOver(color){
+	if (ver >= 4) window.event.srcElement.style.color=color;
+	}
+
+function DoOut(){
+	if (ver >= 4) window.event.srcElement.style.color="blue";
+	}
+//-->
+</SCRIPT>
+
+
+</HEAD>
+
+<BODY onload="doInit()" BGCOLOR="#FFFFFF">
+
+<DIV style="position:absolute; left: 0px; top: 0px; width: 100%; height: 100%; text-align=center;">
+
+
+<DIV style="position:relative; width: 640px; height: 445px; text-align:center;">
+
+
+<DIV class=Item style="position:absolute; left: 20px; top: 15px; width: 600px; height: 20px; z-index:1; cursor:hand; text-align:center;"><SPAN onmouseover="DoOver('#FF0000')" onmouseout="DoOut()" onclick="goContinue()"><U>When the Shockwave&#153; and Flash&#153; icons appear below, click here.</U></SPAN><P>
+
+</DIV>
+
+
+<DIV style="position:relative; left: 0px; top: 0px; width: 640px; height: 445px;  visibility:visible; align=center; z-index:-1;"><IMG SRC="welcome.jpg" WIDTH=640 HEIGHT=445 BORDER=0>
+
+</DIV>
+
+
+
+
+
+<DIV style="position:absolute; left: 30px; top: 324px; width: 80px; height: 74px;"><OBJECT
+	ID="ShockwaveFlash Object"
+	CLASSID="CLSID:D27CDB6E-AE6D-11CF-96B8-444553540000"
+	codebase="swflash.cab#version=2,1,0,12" 
+	standby="Downloading Macromedia Shockwave Flash..."
+	WIDTH=80
+	HEIGHT=74>
+<PARAM NAME="SAlign" VALUE="top">
+<PARAM NAME="loop" VALUE="false">
+<PARAM NAME="movie" VALUE="flshlt1.swf">
+<PARAM NAME="quality" VALUE="best">
+<PARAM NAME="play" VALUE="true">
+</OBJECT>
+</DIV>
+
+<DIV style="position:absolute; left: 526px; top: 325px; width: 100px; height: 90px;"><OBJECT
+	ID="Macromedia Active Shockwave"
+	CLASSID="CLSID:166B1BCA-3F9C-11CF-8075-444553540000"
+	codebase="swdir.cab#version=6,0,1,6110"
+	WIDTH=100
+	HEIGHT=90>
+<PARAM NAME="src" VALUE="shock16.dcr">
+</OBJECT>
+</DIV>
+</DIV>
+</DIV>
+<BGSOUND SRC="pooh03.mid" LOOP="INFINITE">
+<EMBED src=pooh03.mid hidden=true autostart=true loop=true width=0 height=0>
+
+<!--
+	<object 
+        id=narrative 
+        classid=CLSID:1C00A043-11DF-1D20-8006-00A024224E76
+        codebase=ie4cache.cab
+		width=150 height=35 STANDBY="Please stand by while the files are being downloaded to your computer. You WILL have to run the .exe program to install the actual program. If you are using IE4.0 and it appears that the software is not downloading, change your browser security options in the View menu, Options, Security tab, Safety Level..., Medium">>
+	>
+		<param name="VoxFileURL"	value="../images/ToolVox.vox">
+		<param name="PlayMode"		value="auto">
+	</object>
+-->
+
+<DIV style="position:absolute; left: 100px; top: 35px; width: 200px; height: 200px; visibility:hidden;">	<object 
+        id=narrative 
+        classid=CLSID:1C922443-125F-11D0-8006-00A024514E76
+        codebase=vox.cab#2,5,13,39
+		width=150 height=35 STANDBY="Please stand by while the matchmaking files are being downloaded to your computer. This will take approximately X minutes on a 28.8 kbps modem connection. If you are using IE4.0 and it appears that the software is not downloading, change your browser security options in the View menu, Options, Security tab, Safety Level..., Medium">>
+	>
+		<param name="VoxFileURL"	value="">
+		<param name="PlayMode"		value="auto">
+	</object>
+</DIV>
+</BODY>
+</HTML>

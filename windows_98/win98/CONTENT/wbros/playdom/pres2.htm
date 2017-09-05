@@ -1,0 +1,495 @@
+<HTML>
+
+<HEAD>
+
+	<TITLE>Warner Bros. PLAYDOM: The River Adventure</TITLE>
+
+
+
+<script language="VBScript">
+
+<!--
+
+
+
+sub window_onload
+
+	Seq2("Pres2").Play
+
+end sub
+
+
+
+Sub Seq2_onInit
+
+	call Seq2("Pres2").at(0.000, "showTag1()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(9.000, "showTag2()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(14.000, "showTag3()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(20.500, "showTag4()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(26.500, "showTag5()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(29.500, "hideTag5()",1, 0.0, 1)	
+
+	call Seq2("Pres2").at(29.500, "blackFade(0)",1, 0.0, 1)	
+
+	call Seq2("Pres2").at(31.500, "TimeFade(0)",1, 0.0, 1)		
+
+	call Seq2("Pres2").at(34.500, "showEyes()",1, 0.0, 1)	
+
+	call Seq2("Pres2").at(34.500, "EyesFadeIn(0)",1, 0.0, 1)
+
+	call Seq2("Pres2").at(37.500, "showTag6()",1, 0.0, 1)
+
+	call Seq2("Pres2").at(50.500, "parent.showPres3()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub showTag1
+
+	words1Div.style.visibility = "visible"
+
+	TitlePath.Target = "words1Div"
+
+	TitlePath.Play
+
+End Sub
+
+
+
+Sub TitlePath_onStop
+
+	v = window.setTimeout("TextFadeOut(100)", 1000, VBScript)
+
+End Sub
+
+
+
+Sub showTag2
+
+	'words1Div.style.visibility = "hidden"
+
+	words2Div.style.visibility = "visible"
+
+	RaftPath2.Target="Raft"
+
+	RaftPath2.Play
+
+	'SunPath.Target="Sun"
+
+	'SunPath.Play
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then	
+
+		ChannelA.stop
+
+		ChannelA.run
+
+	End If
+
+End Sub
+
+
+
+Sub showTag3
+
+	words2Div.style.visibility = "hidden"
+
+	words3Div.style.visibility = "visible"
+
+	MapPath.Target = "CompMap"
+
+	MapPath.Play
+
+End Sub
+
+
+
+Sub showTag4
+
+	words3Div.style.visibility = "hidden"
+
+	words4Div.style.visibility = "visible"
+
+	RaftPath.Target="Raft"
+
+	RaftPath.play
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then	
+
+		ChannelA.stop
+
+		ChannelA.run
+
+	End If
+
+End Sub
+
+
+
+Sub showTag5
+
+	words4Div.style.visibility = "hidden"
+
+	words5Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub hideTag5
+
+	words5Div.style.visibility = "hidden"
+
+End Sub
+
+
+
+
+
+Sub showTag6
+
+	words5Div.style.visibility = "hidden"
+
+	words6Div.style.visibility = "visible"
+
+End Sub
+
+
+
+Function blackFade(i)
+
+	dim v
+
+	BlackImg.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+		v = window.setTimeout("blackFade(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Sub showEyes
+
+	Eyes.style.visibility="visible"
+
+	TimeText.style.visibility="hidden"
+
+End Sub
+
+
+
+Function EyesFadeIn(i)
+
+	dim v
+
+	Eyes.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+  		v = window.setTimeout("EyesFadeIn(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function TextFadeOut(i)
+
+	dim v
+
+	words1Div.filters(0).opacity=i
+
+	i = i - 10
+
+	if (i >= 0) then
+
+		v = window.setTimeout("TextFadeOut(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+Function TimeFade(i)
+
+	dim v
+
+	TimeText.filters(0).opacity=i
+
+	i = i + 10
+
+	if (i <= 100) then
+
+		v = window.setTimeout("TimeFade(" & i & ")", 100, VBScript)
+
+  	end if
+
+End Function
+
+
+
+//-->
+
+</script>
+
+
+
+</HEAD>
+
+
+
+<BODY bgcolor="#FFFFFF" text="#FFFF00" link="#FF0000" vlink="#FF0000" alink="#FF0000" leftmargin=0 topmargin=0 bgproperties="fixed">
+
+
+
+<bgsound src="med/crickets.wav" loop=infinite>
+
+
+
+<img ID=BackGnd src="img/sky.jpg" width=435 height=210 border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; VISIBILITY:VISIBLE; Z-INDEX:-1; filter:alpha(opacity=100)"><br>
+
+
+
+<DIV ID=words1Div STYLE="POSITION:ABSOLUTE; WIDTH:325; HEIGHT:50; TOP:0; LEFT:0; VISIBILITY:hidden; font-size:32;filter:alpha(opacity=100); z-Index:4" ALIGN=CENTER>
+
+<b><FONT ID=words1 face="Comic Sans MS, Verdana, Arial">The River Adventure</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words2Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:5; LEFT:0; VISIBILITY:hidden; font-size:24; z-Index:4" ALIGN=CENTER>
+
+<b><FONT ID=words2 face="Comic Sans MS, Verdana, Arial">It's getting dark and you are<br>
+
+lost in an endless winding river</FONT></b>
+
+</DIV>
+
+
+
+<img ID="Raft" src="img/raft.gif" width=278 height=46 border=0 STYLE="POSITION:ABSOLUTE; TOP:150; LEFT:435; VISIBILITY:VISIBLE; z-Index:4"><br>
+
+<img ID="Sun" src="img/sun.gif" width=51 height=46 border=0 STYLE="POSITION:ABSOLUTE; TOP:-46; LEFT:231; VISIBILITY:VISIBLE; z-Index:1"><br>
+
+
+
+<DIV ID=words3Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:5; LEFT:0; VISIBILITY:hidden; font-size:24; z-Index:4" ALIGN=CENTER>
+
+<b><FONT ID=words3 face="Comic Sans MS, Verdana, Arial">Will your compass and map be enough to help you find your way through the twisted waters?</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID="CompMap" STYLE="POSITION:ABSOLUTE; WIDTH:190; HEIGHT:95; TOP:0; LEFT:-200; z-Index:4">
+
+<img ID="Compass" src="img/compass.gif" width=102 height=95 border=0 STYLE="POSITION:RELATIVE; TOP:0; LEFT:0;VISIBILITY:VISIBLE;z-INDEX:4"><br>
+
+<img ID="MapImg" src="img/map.gif" width=80 height=85 border=0 STYLE="POSITION:RELATIVE; TOP:-95; LEFT:110;VISIBILITY:VISIBLE;z-INDEX:4"><br>
+
+</DIV>
+
+
+
+<DIV ID=words4Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:5; LEFT:0; VISIBILITY:hidden; font-size:24; z-Index:4" ALIGN=CENTER>
+
+<b><FONT ID=words4 face="Comic Sans MS, Verdana, Arial">All you can do is paddle towards<br>
+
+the sun as it drops to the horizon.</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=words5Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:60; LEFT:0; VISIBILITY:hidden; font-size:24; z-Index:4" ALIGN=CENTER>
+
+<b><FONT ID=words5 face="Comic Sans MS, Verdana, Arial">
+
+Only time will tell,</FONT></b>
+
+</DIV>
+
+
+
+<DIV ID=TimeText STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:60; LEFT:0; VISIBILITY:visible; font-size:24; z-Index:6;Filter:Alpha(opacity=0)" ALIGN=CENTER>
+
+<b><FONT ID=wordsTime face="Comic Sans MS, Verdana, Arial">
+
+and it is ticking away.</FONT></b>
+
+</DIV>
+
+
+
+<img ID=BlackImg src="img/blackimg.gif" width=435 height=210 border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; VISIBILITY:VISIBLE; Z-INDEX:5; filter:alpha(opacity=0)"><br>
+
+
+
+<DIV ID=Eyes STYLE="POSITION:ABSOLUTE; WIDTH:100%; HEIGHT:100%; TOP:0; LEFT:0;VISIBILITY:HIDDEN; z-Index:6; filter:alpha(opacity=0)">
+
+<img ID="Eyes1" src="img/eyeanim.gif" width=60 height=46 border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:140; VISIBILITY:VISIBLE"><br>
+
+<img ID="Eyes2" src="img/eyeanim.gif" width=60 height=46 border=0 STYLE="POSITION:ABSOLUTE; TOP:130; LEFT:300; VISIBILITY:VISIBLE"><br>
+
+<img ID="Eyes3" src="img/eyeanim.gif" width=60 height=46 border=0 STYLE="POSITION:ABSOLUTE; TOP:160; LEFT:50; VISIBILITY:VISIBLE">
+
+</DIV>
+
+
+
+<DIV ID=words6Div STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:100; TOP:50; LEFT:0; VISIBILITY:hidden; font-size:18; z-Index:6" ALIGN=CENTER>
+
+<b><FONT ID=words6 face="Comic Sans MS, Verdana, Arial">
+
+For the best in adventure games including The River Adventure, <A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">click here</A> to add PLAYDOM to your channels.</FONT></b>
+
+</DIV>
+
+
+
+<OBJECT ID="Seq2"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+<OBJECT ID="TitlePath"  
+
+CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="5.000">
+
+	<PARAM NAME="Repeat" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 500,38, 50,38)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="RaftPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="4.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-280,150,435,150)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="RaftPath2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="4.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,435,150,-280,150)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="SunPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="20.000">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,300,0, 460,50)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="MapPath"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="6.000">
+
+	<PARAM NAME="TimerInterval" VALUE=".001">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-200,110,435,110)">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/water.wav"">
+
+</OBJECT>
+
+
+
+
+
+</BODY>
+
+</HTML>

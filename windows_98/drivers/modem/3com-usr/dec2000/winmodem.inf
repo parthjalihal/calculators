@@ -1,0 +1,59 @@
+[version]
+signature="$CHICAGO$"
+ClassGUID={4D36E96D-E325-11CE-BFC1-08002BE10318}
+Class=Winmodem
+
+Provider=%USR%
+
+[DestinationDirs]
+ClassInstall.CopyWin=11
+ComPort.CopyPass=11
+ComPort.CopyWin=11,winmodem.101
+
+[SourceDisksFiles]
+winmodem.exe=1
+winmodem.drv=1
+wmpass.dll=1
+
+[SourceDisksNames]
+1="U.S. Robotics Inc. Sportster Winmodem PC Card",DISK1,2345-16E8
+
+[ClassInstall]
+CopyFiles=ClassInstall.CopyWin
+AddReg=PortsClass.AddReg
+
+[ClassInstall.CopyWin]
+winmodem.cpl,winmodem.cp_
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+HKR,,Icon,,2
+HKR,,Installer,,winmodem.cpl
+HKR,,NoUseClass,,1
+HKR,,NoInstallClass,,1
+HKR,,NoDisplayClass,,1
+HKR,,SilentInstall,,1
+HKR,,LanguageFromRegistry,,1
+HKR,AdditionalIDs,0000,,"PCMCIA\USROBOTICS-SPORTSTER_WINMODEM_PC_CARD-29C9"
+
+[Manufacturer]
+%Std%=Std
+
+[Std]
+%Winmodem.DeviceDesc% = ComPort,PCMCIA\USROBOTICS-SPORTSTER_WINMODEM_PC_CARD-29C9
+
+[ComPort]
+CopyFiles=ComPort.CopyWin, ComPort.CopyPass
+
+[ComPort.CopyWin]
+winmodem.drv,winmodem.dr_
+winmodem.exe,winmodem.ex_
+
+[ComPort.CopyPass]
+wmpass.dll,wmpass.dl_
+
+[Strings]
+USR = "U.S. Robotics, Inc."
+Std = "U.S. Robotics, Inc."
+PortsClassName = "Winmodem"
+Winmodem.DeviceDesc  ="Sportster Winmodem PC Card"

@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+
+<TITLE>AOL Preview Channel</TITLE>
+
+<script language="VBScript">
+<!--
+  moveDelay = 5
+  nextImageDelay = 2000
+
+  Sub DownLogo()
+     aolLogo.style.posTop = 280
+     aolLogo.style.posLeft = 9
+  End Sub
+
+  Sub UpLogo()
+     aolLogo.style.posTop = 279
+     aolLogo.style.posLeft = 8
+  End Sub
+
+  Sub MoveClick()
+     tryNow.style.visibility = "Hidden"
+     tryNow.style.posLeft = 620
+     DownLogo()
+     clickHere.style.visibility = "Visible"
+     curX = clickHere.style.posLeft
+     if (curX > 83) then
+         curX = curX - 60
+         clickHere.style.posLeft = curX
+         id = window.setTimeout("MoveClick", moveDelay)
+     else
+         UpLogo()
+         id = window.SetTimeout("MoveFree", nextImageDelay)
+     end if
+  End Sub
+  
+  Sub MoveFree()
+     clickHere.style.visibility = "Hidden"
+     clickHere.style.posLeft = 620
+     DownLogo()
+     getFree.style.visibility = "Visible"
+     curX = getFree.style.posLeft
+     if (curX > 83) then
+         curX = curX - 60
+         getFree.style.posLeft = curX
+         id = window.setTimeout("MoveFree", moveDelay)
+     else
+         UpLogo()
+         id = window.SetTimeout("MoveTry", nextImageDelay)
+     end if
+  End Sub
+ 
+  Sub MoveTry()
+     getFree.style.visibility = "Hidden"
+     getFree.style.posLeft = 620
+     DownLogo()
+     tryNow.style.visibility = "Visible"
+     curX = tryNow.style.posLeft
+     if (curX > 83) then
+         curX = curX - 60
+         tryNow.style.posLeft = curX
+         id = window.setTimeout("MoveTry", moveDelay)
+     else
+         UpLogo()
+         id = window.SetTimeout("MoveClick", nextImageDelay)
+     end if
+  End Sub
+ 
+  Sub centerBox()
+      x = (document.body.clientWidth - 620) / 2
+      y = (document.body.clientHeight - 336) / 2
+      document.all.background.style.pixelLeft = x
+      document.all.background.style.pixelTop = y
+      document.all.background.style.visibility = "Visible"
+  End Sub
+
+  Sub DoLoad()
+      centerBox()
+      id = window.setTimeout("MoveClick", 250)
+  End Sub
+
+//-->
+</script>
+
+
+</HEAD>
+<BODY bgcolor=black leftmargin=0 rightmargin=0 topmargin=0 bottommargin=0 onLoad="DoLoad" onresize="centerBox">
+
+<div ID="background"
+     STYLE="POSITION:ABSOLUTE; Visibility:Hidden; WIDTH:618; HEIGHT:336; TOP:0; LEFT:0; z-index:1">
+     <IMG SRC="images/back_a.gif" BORDER="0">
+
+<div ID="brand"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:324; HEIGHT:78; TOP:6; LEFT:10; z-index:10">
+     <IMG SRC="images/brand.gif" BORDER="0">
+ </div>
+
+<div ID="nCopy"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:354; HEIGHT:151; TOP:95; LEFT:8; z-index:10">
+     <IMG SRC="images/n_copy.gif" BORDER="0">
+ </div>
+
+<div ID="animation"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:229; HEIGHT:146; TOP:95; LEFT:380; z-index:10">
+     <IMG SRC="images/n_anim.gif" BORDER="0">
+ </div>
+
+<div ID="pressCopy"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:465; HEIGHT:11; TOP:261; LEFT:8; z-index:10">
+     <IMG SRC="images/add_chan.gif" BORDER="0">
+ </div>
+
+<div ID="on"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:136; HEIGHT:20; TOP:260; LEFT:477; z-index:11">
+     <A HREF="g.htm"><IMG SRC="images/IEChan.gif" BORDER="0"></A>
+ </div>
+
+
+<div ID="aolLogo"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:63; HEIGHT:54; TOP:279; LEFT:8; z-index:11">
+     <A HREF="o.htm"><IMG SRC="images/logo_up.gif" BORDER="0"></A>
+ </div>
+ 
+<div ID="tryShad"
+     STYLE="POSITION:ABSOLUTE; Visibility:Visible; WIDTH:63; HEIGHT:54; TOP:280; LEFT:9; z-index:10">
+     <IMG SRC="images/logoshad.gif" BORDER="0">
+ </div>
+ 
+<div ID="clickHere"
+     STYLE="POSITION:ABSOLUTE; Visibility:Hidden; WIDTH:110; HEIGHT:19; TOP:296; LEFT:620; z-index:10">
+     <IMG SRC="images/clck_hre.gif" BORDER="0">
+ </div>
+
+ <div ID="getFree"
+     STYLE="POSITION:ABSOLUTE; Visibility:Hidden; WIDTH:188; HEIGHT:23; TOP:296; LEFT:620; z-index:10">
+     <IMG SRC="images/get_50.gif" BORDER="0">
+ </div>
+
+ <div ID="tryNow"
+     STYLE="POSITION:ABSOLUTE; Visibility:Hidden; WIDTH:140; HEIGHT:24; TOP:296; LEFT:620; z-index:10">
+     <IMG SRC="images/try_now.gif" BORDER="0">
+ </div>
+
+</div>
+</BODY>
+</HTML>
+

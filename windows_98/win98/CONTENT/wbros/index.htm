@@ -1,0 +1,366 @@
+<html>
+
+<HEAD>
+
+<TITLE>Welcome to Warner Bros.</TITLE>
+
+<SCRIPT Language = vbscript>
+
+<!--
+
+
+
+sub document_onmouseover()
+
+dim clicked_objMV
+
+set clicked_objMV = window.event.srcElement 
+
+		select case clicked_objMV.id
+
+	    	case "wbc_log"
+
+				wbc_loga.style.visibility="visible"
+
+	    	case "ent_log"
+
+				ent_loga.style.visibility="visible"
+
+	    	case "ss_log"
+
+				ss_loga.style.visibility="visible"
+
+		end select
+
+end sub
+
+
+
+
+
+sub document_onmouseout()
+
+dim clicked_objMO
+
+set clicked_objMO = window.event.srcElement 
+
+		select case clicked_objMO.id
+
+	    	case "wbc_loga"
+
+				wbc_loga.style.visibility="hidden"
+
+	    	case "ent_loga"
+
+				ent_loga.style.visibility="hidden"
+
+	    	case "ss_loga"
+
+				ss_loga.style.visibility="hidden"
+
+		end select
+
+end sub
+
+
+
+
+
+Sub Window_OnLoad
+
+	Seq("Intro").Play
+
+End Sub
+
+
+
+
+
+Sub Seq_onInit	
+
+	call Seq("Intro").at(2.000, "changeSlide(1)",5,20.0)
+
+	call Seq("Intro").at(6.000, "changeSlide(2)",5,20.0)
+
+	call Seq("Intro").at(11.000, "changeSlide(3)",5,20.0)
+
+End Sub
+
+
+
+
+
+Sub changeSlide(num)
+
+  	select case num
+
+        case "1"
+
+		pthRR.play()
+
+        case "2"
+
+		pthWE.play()
+
+        case "3"
+
+		pthTW.play()		
+
+  	end select	
+
+End Sub
+
+
+
+-->
+
+</SCRIPT>
+
+
+
+</HEAD>
+
+
+
+<body bgcolor=29397b text=ffffff link=ffffff alink=ffffff vlink=ffffff>
+
+
+
+<center>
+
+<DIV ID=centeringDiv STYLE="POSITION:relative; WIDTH:640; top:0">
+
+
+
+
+
+<img ID=header src="img/ovw_head.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:10;LEFT:120">
+
+
+
+
+
+
+
+<DIV ID=subCopy1 STYLE="POSITION:ABSOLUTE; WIDTH:550;HEIGHT:100; TOP:25;LEFT:50">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font STYLE = "font-family:Arial;color:white;font-size:9pt;font-weight:bold"> Click <a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><img src="img/atc_btn.gif" border=0 vspace=0 hspace=0 align=middle></a> to add <FONT COLOR=GOLD SIZE=4>ALL THREE CHANNELS for</FONT>  <font color=gold size=4>FREE!</font>
+
+<br>
+
+</td></tr>
+
+</table>
+
+</center>
+
+</DIV>
+
+
+
+
+
+
+
+
+
+<DIV ID=SUBCOPYX STYLE="POSITION:ABSOLUTE; WIDTH:550;TOP:91;LEFT:50">
+
+<font STYLE = "font-family:Arial;color:white;font-size:9pt;font-weight:bold">
+
+<B>For a <FONT SIZE=4 COLOR=GOLD>SPECIAL CHANNEL PREVIEW</font> select one of the icons below.</B> </FONT>
+
+</DIV>
+
+
+
+
+
+
+
+
+
+<a href="wbc_frm.htm"><img ID=wbc_log src="img/tbr_blue/wbc_log.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:20"></a>
+
+<a href="wbc_frm.htm"><img ID=wbc_loga src="img/tbr_blue/wbc_loga.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:20; visibility:hidden"></a>
+
+
+
+<DIV ID=Copy1 STYLE="POSITION:ABSOLUTE; WIDTH:150;TOP:200;LEFT:25">
+
+<font STYLE = "font-family:Times;color:white;font-size:11pt;font-weight:bold">
+
+<center>
+
+It's all from Warner Bros. -- 
+
+Blockbuster movies, your favorite TV shows, the latest music plus the world of Looney Tunes!</font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<a href="ent_frm.htm"><img ID=ent_log src="img/tbr_blue/ent_log.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:230"></a>
+
+<a href="ent_frm.htm"><img ID=ent_loga src="img/tbr_blue/ent_loga.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:230; visibility:hidden"></a>
+
+
+
+<DIV ID=Copy2 STYLE="POSITION:ABSOLUTE; WIDTH:150;TOP:200;LEFT:240">
+
+<font STYLE = "font-family:Times;color:white;font-size:11pt;font-weight:bold">
+
+<center>
+
+The most comprehensive entertainment destination in the world of online!
+
+</font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<a href="ss_frm.htm"><img ID=ss_log src="img/tbr_blue/ss_log.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:430"></a>
+
+<a href="ss_frm.htm"><img ID=ss_loga src="img/tbr_blue/ss_loga.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:120;LEFT:430; visibility:hidden"></a>
+
+
+
+<DIV ID=Copy3 STYLE="POSITION:ABSOLUTE; WIDTH:150;TOP:200;LEFT:440">
+
+<font STYLE = "font-family:Times;color:white;font-size:11pt;font-weight:bold">
+
+<center>
+
+Shop 'til you drop for the most entertaining gifts in cyberspace.
+
+</font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+
+
+<IMG ID=RR_anim SRC="img/ani_road.gif" STYLE="POSITION:ABSOLUTE; TOP:100; LEFT:-1000">
+
+
+
+<IMG ID=WE_anim SRC="img/ani_wile.gif" STYLE="POSITION:ABSOLUTE; TOP:100; LEFT:-1000">
+
+
+
+<IMG ID=TW_anim SRC="img/ani_twee.gif" STYLE="POSITION:ABSOLUTE; TOP:100; LEFT:-1000">
+
+
+
+
+
+<DIV ID=copyright STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:600; HEIGHT:75; TOP:350; LEFT:10">
+
+<center>
+
+<h5>TM & &copy 1997 Warner Bros.</h5>
+
+</center>
+
+</DIV>
+
+
+
+
+
+</DIV>
+
+
+
+</center>
+
+
+
+
+
+<OBJECT ID=Seq
+
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+
+</OBJECT>
+
+
+
+
+
+
+
+
+
+<OBJECT ID="pthRR"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -1000,75, 3000,75)">
+
+	<PARAM NAME="Target" VALUE="RR_anim">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthWE"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -1000,75, 3000,75)">
+
+	<PARAM NAME="Target" VALUE="WE_anim">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthTW"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="5.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(29, -1000,151,-200,151,111,151, 75,151,179,142,217,106,212,47,168,31,118,34,91,73,107,118,175,141,253,151,331,153,411,151,375,151,479,142,517,106,512,47,468,31,418,34,391,73,407,118,475,141,553,151,631,153, 800,151,1000,151,2000,151)">
+
+	<PARAM NAME="Target" VALUE="TW_anim">
+
+</OBJECT>
+
+
+
+
+
+</BODY>
+
+</HTML>
+

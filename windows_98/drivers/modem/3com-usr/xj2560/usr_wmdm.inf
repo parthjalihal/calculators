@@ -1,0 +1,97 @@
+; USR_WMDM.INF
+; Copyright 1997, 3Com Corp.
+; This file is the master device information file for the USR_Wmdm
+; hardware installation.
+; Version 1.0.03
+
+; Comment starting with semicolon should not be added at the end of a line.
+
+[Version]
+Signature=$CHICAGO$
+Class=USR_WMDM
+; install hardware with both port and modem capabilities.                        
+
+Provider=%USR%
+; name of the hardware provider
+
+[DestinationDirs]
+ClassInstall.CopyWin=11
+; SYSTEM subdirectory is location for usr_wmdm.cpl
+
+ComPort.CopyWin=11,PCCard
+; SYSTEM\PCCard subdirectory is the location for usr_wmdm.exe and usr_wmdm.drv
+
+[SourceDisksFiles]
+usr_wmdm.ex_=1
+usr_wmdm.dr_=1          
+usr_wmdm.cp_=1
+usr_wuns.exe=1
+usr_wuns.ini=1
+usr_wuns.vxd=1
+
+; files located on disk one
+
+[SourceDisksNames]
+1="PC Card Install",DISK1,0000-0000
+; this is the install disk description
+
+;----------------------------------------------------------
+; Install class "USR_WMDM"
+; Windows will probably use these entries, because the USRProduct class
+; is not installed.
+
+[ClassInstall]
+CopyFiles=ClassInstall.CopyWin
+AddReg=PortsClass.AddReg
+
+[ClassInstall.CopyWin]
+usr_wmdm.cpl,usr_wmdm.cp_
+; this file will be copied in the SYSTEM directory
+
+[PortsClass.AddReg]
+HKR,,,0,%PortsClassName%
+HKR,,Icon,0,2
+HKR,,Installer,0,usr_wmdm.cpl
+HKR,,NoUseClass,0,1
+HKR,,NoInstallClass,0,1
+HKR,,NoDisplayClass,0,1
+HKR,,SilentInstall,0,1
+
+;----------------------------------------------------------
+; Drivers
+; USR_WMDM hardware declaration
+
+[Manufacturer]
+%USR%=USR
+
+[USR]
+%USR_WMDM.DeviceDesc% = ComPort,PCMCIA\MEGAHERTZ-XJ/CC2560-3A6D
+%USR_WMDM.DeviceDesc% = ComPort,UNIMODEM42CD1BF4
+
+;----------------------------------------------------------
+; COM sections
+
+[ComPort]
+CopyFiles=ComPort.CopyWin
+; copy USR_WMDM files
+
+;Reboot
+; Force Reboot after install
+
+[ComPort.CopyWin]
+usr_wmdm.drv,usr_wmdm.dr_
+usr_wmdm.exe,usr_wmdm.ex_
+usr_wuns.exe
+usr_wuns.ini
+usr_wuns.vxd
+
+; these files will be copied in the SYSTEM\PCCard directory
+
+[ControlFlags]
+
+;----------------------------------------------------------
+; User readable strings
+[Strings]
+USR="3Com Corp."
+PortsClassName="USR_WMDM"
+USR_WMDM.DeviceDesc ="Megahertz XJ-CC2560"

@@ -1,0 +1,68 @@
+; RANCHO.INF  Installation file for RT1600 host adapter miniport driver 
+;*** Created 7/18/94  (Creation Date)
+;
+; RTI 1600 Host Adapter 
+;
+
+
+[Version]
+signature="$CHICAGO$"
+Class=SCSIAdapter
+Provider=%RTI%
+LayoutFile=LAYOUT.INF
+
+[Manufacturer]                   
+%RTI%=RANCHO
+
+
+[RANCHO]
+%RT1600%=RTI_ISA
+
+
+[RTI_ISA]
+LogConfig=*RTI1600.LogConfig
+CopyFiles=@RT1600NT.MPD
+AddReg=IOS, RTILOG_REG
+UpdateInis=DoubleBuffer
+
+
+[RTILOG_REG]
+HKR,,PortDriver,,RT1600NT.MPD
+
+
+[*RTI1600.Det]
+AddReg=ForceMPCopy
+
+
+[*RTI1600.LogConfig]
+ConfigPriority=HARDRECONFIG          
+IOConfig=330-33F(3FF::), 230-23F(3FF::) 
+IRQConfig=10,11,12,15
+DMAConfig=5,7 
+
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[SourceDisksFiles]
+;<file>=<disk#>,<cabinet>,<size>
+RT1600NT.MPD = 1
+
+[SourceDisksNames]
+;<disk#> = <name>, <Volumelable>, <volume serial number>
+1 =  "RT1600 Driver Installation Disk",, 
+
+[IOS]
+HKR,,DevLoader,,*IOS
+
+[ForceMPCopy]
+HKR,,NoSetupUI,,1
+
+[DoubleBuffer]
+%31%msdos.sys,Options,,"DoubleBuffer=1"
+
+
+[Strings]
+RTI="Rancho Technology, Inc."
+RT1600="RT1600/E SCSI Miniport Driver"
+SCSIClassName="SCSI controllers"       

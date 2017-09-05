@@ -1,0 +1,989 @@
+<html>
+
+<title></title>
+
+<head>
+
+
+
+<link rel="STYLESHEET" href="master.css" type="text/css">
+
+<script language="javascript">
+
+
+
+function makeCool() {
+
+        src = event.toElement;
+
+        if (src.tagName == "A") {
+
+            var temp = src.className;
+
+            src.className = "cool";
+
+            src.oldClass = temp;
+
+        }
+
+    }
+
+
+
+function makeNormal() {
+
+        src=event.fromElement;
+
+        if (src.tagName == "A") {
+
+            src.className = src.oldClass;
+
+        }
+
+    }
+
+</script>
+
+
+
+<SCRIPT language="javascript">
+
+var n = window.top.frames[0];
+
+var ver = 0;
+
+var visibleVar="null";
+
+var url=location.href;
+
+
+
+ function init(){
+
+        if (navigator.appName == "Netscape") {
+
+                                layerStyleRef="layer.";
+
+                                layerRef="document.layers";
+
+                                styleSwitch="";
+
+                                visibleVar="show";
+
+        }else{
+
+                                layerStyleRef="layer.style.";
+
+                                layerRef="document.all";
+
+                                styleSwitch=".style";
+
+                                visibleVar="visible";
+
+                }
+
+        }
+
+
+
+        function showHideLayerSwitch(layerName){
+
+     
+
+                if (eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility == visibleVar')){
+
+                        hideLayer(layerName);
+
+                }else{
+
+                        showLayer(layerName);
+
+                }
+
+        }
+
+        function showLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="visible"');
+
+        }
+
+        
+
+        function hideLayer(layerName){
+
+                eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="hidden"');
+
+        }
+
+        
+
+        function gothere(url)  {
+
+        	location.href=url
+
+        	}
+
+        	
+
+
+
+</script>
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+
+
+
+
+Sub Window_OnLoad
+
+	pthMyim.Play()
+end sub
+
+
+
+Sub pthMyim_onstop()
+
+	call Transition2()
+
+	call Transition3()
+
+End Sub
+
+
+
+
+
+Sub Transition()
+
+	MyImage.style.filter = "revealTrans(Transition=12)"
+
+	MyImage.filters.item(0).Apply
+
+	MyImage.style.visibility= "visible"
+
+	MyImage.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition2()
+
+	MyText.style.filter = "revealTrans(Transition=12)"
+
+	Mytext.filters.item(0).Apply
+
+	Mytext.style.visibility= "visible"
+
+	Mytext.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition3()
+
+	banner.style.filter = "revealTrans(Transition=12)"
+
+	banner.filters.item(0).Apply
+
+	banner.style.visibility= "visible"
+
+	banner.filters.item(0).Play(3.0)
+
+End Sub
+
+
+
+Sub Transition10(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Answer1) then
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer2) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer3) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Answer4) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Answer5) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Answer6) then
+
+			Answer1.style.visibility="hidden"
+
+			Answer2.style.visibility="hidden"
+
+			Answer3.style.visibility="hidden"
+
+			Answer4.style.visibility="hidden"
+
+			Answer5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+Sub Transition11(layerName1,layerName2)
+
+		
+
+		if (layerName2 = Me1) then
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me2) then
+
+			Me1.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me3) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if (layerName2 = Me4) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if 
+
+		
+
+		if (layerName2 = Me5) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me6.style.visibility="hidden"
+
+		end if
+
+		
+
+		if not (layerName2 = Me6) then
+
+			Me1.style.visibility="hidden"
+
+			Me2.style.visibility="hidden"
+
+			Me3.style.visibility="hidden"
+
+			Me4.style.visibility="hidden"
+
+			Me5.style.visibility="hidden"
+
+		end if
+
+			
+
+		layerName1.style.visibility="hidden"
+
+		layerName2.style.visibility="visible"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.style.filter="revealTrans(Transition=12)"
+
+		'divName2.filters.item(0).Apply()
+
+		'divName2.filters.item(0).Play(2.0)
+
+
+
+		end sub
+
+		
+
+
+
+		
+
+
+
+</SCRIPT>
+
+
+
+<STYLE TYPE="text/css">
+
+#pulldownButton {POSITION: absolute; TOP: 40px; LEFT: 400px; Z-INDEX: 10; }
+
+#pulldownMenu {POSITION: absolute;  VISIBILITY: hidden; TOP: 76px; LEFT: 425px; Z-INDEX: 20; }
+
+#MyText {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer1 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer2 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer3 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer4 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer5 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Answer6 {Position: absolute; top: 56; left: 5; width: 400; height: 100;  visibility: hidden;}
+
+#Me1     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me2     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me3     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me4     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me5     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#Me6     {Position: absolute; top: 250; left: 420; visibility: hidden;}
+
+#who     {Position: absolute; top: 250; left: 420;}
+
+</style>
+
+
+
+</head>
+
+
+
+<BODY onload="init()">
+
+
+
+
+
+<div id=banner Style="position: absolute; top: 10; left: 95; width: 402; z-index:1; visibility: hidden"><IMG SRC="art/psoupy2.gif" WIDTH="402" height="32"></div>
+
+
+
+<DIV ID=MyImage Style="position: absolute; top: 85; left:0; z-index:10">
+
+<img src="art/ww0805.JPG" border=0></div>
+
+
+
+<OBJECT ID="pthMyim"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+
+	<PARAM NAME="Shape" VALUE="Polyline(2,0,85,420,85)">
+
+	<PARAM NAME="Target" VALUE="MyImage">
+
+	<PARAM NAME="Duration" VALUE="2.0">
+
+	</OBJECT>
+
+
+
+
+
+<DIV ID=who Style="position: absolute; top:250; left:420;">--anonymous</DIV>
+
+
+
+
+
+
+
+
+
+  <DIV ID="pulldownButton">
+
+                <A HREF="javascript:showHideLayerSwitch('pulldownMenu');">
+
+                <IMG ALT="click" BORDER=0 WIDTH=202 HEIGHT=40 SRC="pulldown/should.gif"></a>
+
+        </DIV>
+
+
+
+
+
+        <DIV ID="pulldownMenu">
+
+                <IMG LT="click" USEMAP="#menuMap" BORDER=0 WIDTH=132 HEIGHT=170 SRC="pulldown/pull2.gif">
+
+        </DIV>
+
+              
+
+<!-- <DIV ID=aroo Style="position: absolute; top: 53; left:388; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/arro.gif"></A></DIV>-->
+
+<DIV ID=aroo Style="position: absolute; top: 47; left:378; z-index:200;"><A HREF="javascript:showHideLayerSwitch('pulldownMenu');"><IMG ALT="click" border=0 SRC="art/tag.gif"></A></DIV>
+
+
+
+
+
+
+
+<MAP NAME="menuMap">
+
+<AREA SHAPE=rect COORDS="15,23,120,37" HREF="javascript:Transition10(MyText,Answer1); Transition11(who,Me1);">
+
+<AREA SHAPE=rect COORDS="16,39,119,50" HREF="javascript:Transition10(MyText,Answer2); Transition11(who,Me2);" >
+
+<AREA SHAPE=rect COORDS="13,51,111,65" HREF="javascript:Transition10(MyText,Answer3); Transition11(who,Me3);" >
+
+<AREA SHAPE=rect COORDS="21,96,118,107" HREF="javascript:Transition10(MyText,Answer4); Transition11(who,Me4);" >
+
+<AREA SHAPE=rect COORDS="23,110,97,121" HREF="javascript:Transition10(MyText,Answer5); Transition11(who,Me5);" >
+
+<AREA SHAPE=rect COORDS="19,123,97,135" HREF="javascript:Transition10(MyText,Answer6); Transition11(who,Me6);" >
+
+<AREA SHAPE=rect COORDS="4,144,127,159" HREF="javascript:Transition10(MyText,MyText); Transition11(who,who);">
+
+<AREA SHAPE=rect COORDS="10,138,117,150" HREF="javascript:gothere('http://www.parentsoup.com/community/');" >
+
+</MAP>
+
+
+
+
+
+<DIV ID=home Style="position: absolute; top: 40; left:243; height: 100; width: 300"><a href="indexa.htm">(back to main page)</a></div>
+
+<DIV class=menu  onmouseover='if ("A"==event.toElement.tagName) event.toElement.style.color = "darkblue"' onmouseout='if ("A"==event.fromElement.tagName) event.fromElement.style.color = "#990000"'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID=MyText STYLE="position: absolute; top: 56; left: 5; height: 100; width: 400; visibility: hidden">
+
+<H3>The Dilemma: My Mothers Will</h3>
+
+	<font size=3><b>M</b></font>y mother said that she was going to change her will and leave
+
+                                                                                her money to my sister "because she needs it and you don't." My
+
+                                                                               husband and I aren't rich but we have good jobs and savings. My
+
+                                                                                sister is a single mom who has two kids and a hard life. I see my
+
+                                                                           mother's point, but I think she should leave me my share and trust
+
+                                                                                 me to do right by my sister. I say to myself "grow up, your mom
+
+                                                                                 has the right to do what she wants." Yet I still feel hurt. Should I
+
+                                                                                                                         just get over this or should I say something?</DIV>
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                           
+
+<!-- *************************   The Me's   ********************* -->
+
+
+
+<DIV ID=Me1 Style="position: absolute; top: 250; left: 420; visibility: hidden"> --- Posted by Brendq <br> 
+
+</div>
+
+
+
+
+
+<DIV ID=Me2 Style="position: absolute; top:250; left: 420; visibility: hidden">--- Posted by plustwo<br> 
+
+</div>                     
+
+                                                                                                                        
+
+<DIV ID=Me3 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by chata <br> 
+
+</div>                      
+
+                                                                                                                        
+
+ <DIV ID=Me4 Style="position: absolute; top: 250; left: 420; visibility: hidden"> --- Posted by tlskates<br> 
+
+</div>                                                                                                                             
+
+                                                                                                                   
+
+<DIV ID=Me5 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by Anonymous<br> 
+
+</div>                                                                                                                        
+
+ 
+
+ 
+
+ <DIV ID=Me6 Style="position: absolute; top: 250; left: 420; visibility: hidden">--- Posted by Anonymous<br> 
+
+</div>                                                                                                                  
+
+
+
+
+
+<!-- *************************   The Answers   ********************* -->
+
+<DIV ID=Answer1>
+
+
+
+<H3>A Solution: Accept It . . . </h3>
+
+
+
+<font size=3><b>Y</b></font>our mother has every legal and
+
+                      logical right to do exactly as she
+
+                      pleases with her money. Don't make
+
+                      this issue into one of sibling rivalry
+
+                      or to evaluate how much your mother
+
+                      loves you. Simply accept that this is
+
+                      her money and, as an adult, she can
+
+                      do as she pleases with it. How would
+
+                      you feel if she were trying to tell you
+
+                      and your husband what to do with
+
+                      your money?  </div>
+
+
+
+                    
+
+                    
+
+
+
+                                                                                                                    
+
+<DIV ID=Answer2>
+
+
+
+<H3>A Solution: So Be It. . . </h3>
+
+
+
+<font size=3><b>P</b></font>lease do not take this wrong, but It
+
+                      ticks me off when I hear this. You
+
+                      love you parent right? You should let
+
+                      them do what they want with their
+
+                      and I emphasize their belongings.
+
+                      They earned it and have the right to
+
+                      make decisions about them. YOu
+
+                      should be content to know that your
+
+                      parents loved you. The rest is
+
+                      meaningless. memories should satisfy
+
+                      all. If one gets more than the other
+
+                      because the parent felt this would
+
+                      help best that way. so be it.  </div>
+
+
+
+                      
+
+                      
+
+
+
+                                                                                                                     
+
+
+
+                
+
+              
+
+                    
+
+<DIV ID=Answer3>
+
+
+
+<H3>A Solution: Count Your Blessings. . . </h3>
+
+<font size=3><b>T</b></font>he things in life that are of value
+
+                      cannot be bought with money.
+
+                      Obviously, your mother's heart is at
+
+                      peace knowing you are well taken
+
+                      care of and do not need her as much
+
+                      as your sister does. She was able to
+
+                      share her decision with you because
+
+                      she felt you would understand and
+
+                      have the same compassion for your
+
+                      sister as she does. You have an
+
+                      "equal", "friend" relationship with
+
+                      your mother that your sister does
+
+                      not. My mother has no money to
+
+                      leave me but she has given me
+
+                      everything--her love, friendship and
+
+                      herself. Count your blessings and not
+
+                      the bucks!  </div>
+
+                    
+
+                    
+
+<DIV ID=Answer4>
+
+<H3>A Solution: I Understand . . .</h3>
+
+
+
+<font size=3><b>I</b></font> understand where you are coming from. I am the
+
+                                                                                                          single mother and my sister is happily married one. I
+
+                                                                                                          am always grateful for any help my father can give
+
+                                                                                                          me and so is my sister it just seems while he is
+
+                                                                                                          giving to me he won't buy her a cup of coffee
+
+                                                                                                          because after all 'she can afford it.' She is made to
+
+                                                                                                          feel her successes are being held against her and I
+
+                                                                                                          am made to feel like my fathers pet charity. Either
+
+                                                                                                          way we both feel uncomfortable with it.
+
+</div>
+
+                                                                                                                                                                                                                                                         
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                           
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                            
+
+                                                                                                                            
+
+                                                                                                                             
+
+                                                                                                                             
+
+                                                                                                                            
+
+                                                                                                                            
+
+<DIV ID=Answer5>
+
+
+
+<H3>A Solution: Get Your Feelings Out. . . </h3>
+
+
+
+<font size=3><b>I</b></font> would talk with your mother, since it's obviously
+
+                                                                                                          eating you up inside, and tell her how you feel. Your
+
+                                                                                                          purpose in talking to her doesn't have to be to
+
+                                                                                                          change her mind; I just think it'd be good for you to
+
+                                                                                                          get all of your feelings out in the open. One of the
+
+                                                                                                          other parents here may be right in saying your
+
+                                                                                                          mother may plan to leave you something else,
+
+                                                                                                          something perhaps that may mean more to you than
+
+                                                                                                          money, and if that's the case, and if you value a
+
+                                                                                                          memento more than the money, you'll feel much
+
+                                                                                                          better if you know that. I'm a single mom, and I
+
+                                                                                                          know how hard things can get, but I can tell you
+
+                                                                                                          that, if it came down to money or a relationship with
+
+                                                                                                          my sister, I'd thank my mother for her good
+
+                                                                                                          intentions, but I'd split the money. Who knows -
+
+                                                                                                          maybe your sister feels the same way. You may even
+
+                                                                                                          want to talk with her about it, to see how she feels.
+
+ </div>                                                                                                 
+
+
+
+
+
+ <DIV ID=Answer6 STYLE="position: absolute; top: 56; left: 10; height: 100; width: 380; visibility: hidden">
+
+
+
+<H3>A Solution: No Greater Joy. . .</h3>
+
+<font size=3><b>I</b></font> am going thru the same thing only with my
+
+                                                                                                          grandmother,but I realize that its just the devil
+
+                                                                                                          whom puts these thoughts inmy head. He is the
+
+                                                                                                          author of all confusion.Of course I would rather that
+
+                                                                                                          my family in need come 1st..Only hope that she uses
+
+                                                                                                          good judgementin how she distributes this will &sets
+
+                                                                                                          guidelines in how it is to be used by & not squanderd
+
+                                                                                                          by the individuals.But we have no control over this. I
+
+                                                                                                          feel no matter what the desision is you should resist
+
+                                                                                                          the devil & become a friend to this person and not
+
+                                                                                                          just one of the possible resippients.Adding your
+
+                                                                                                          support For these very difficult times.Being a part of
+
+                                                                                                          the giving is just as rewarding as the resieving trust
+
+                                                                                                          me...Thers no greater joy..And you will also gain your
+
+                                                                                                          surviving families friendships forever..Hope I
+
+                                                                                                          added...</div>                                                                                                                  
+
+                     
+
+                                                                                                                                                                                         
+
+                                                                                                                                                                                         
+
+                                                                                                                                                                                         
+
+                                                                                                                                                                                         
+
+                                                                                                                                                                                         
+
+</BODY>
+
+</HTML>
+

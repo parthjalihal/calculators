@@ -1,0 +1,19 @@
+Microsoft Remote Registry service (REGSERV.EXE and related files)
+
+Install this software on Windows 95 or Windows 98 computers to 
+allow administrators to change Registry entries on other computers 
+over the network.
+
+The local and remote computers must each be running the Remote 
+Registry service, and user-level security must be enabled on 
+the computer you are administering. To change the Registry, 
+you can use Registry Editor or System Policy Editor.
+
+To install this service, use the Network option in Control Panel, click
+the Add button, select Service as the type of network component to
+install, click the Add button, click the Have Disk button, and install
+from the TOOLS\RESKIT\NETADMIN\REMOTREG directory.
+
+For more information about the Remote Registry Service, see that topic 
+in the Windows 98 Resource Kit or in the Windows 98 Resource Kit tools online help
+(WIN98RK.HLP). You can access this help by installing the Windows 98 Resource Kit tools sampler from the TOOLS\RESKIT directory of the Windows 98 compact disc.

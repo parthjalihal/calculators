@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+	<TITLE>Forbes Preview Channel</TITLE>
+	<META Name="ROBOTS" content="NOINDEX">
+	<style type="text/css">	
+		/* define the attributes for the body */
+		body
+		{
+			background-color:white;
+			color:black;
+			font-family:Arial;
+			font-size:10pt;
+		}
+	</style>
+
+<SCRIPT LANGUAGE="VBScript">
+
+Sub Window_onLoad()	
+	call Transition()
+End Sub
+
+Sub Transition()
+	Daisy.filters.item(0).Transition=12
+	Daisy.filters.item(0).Apply()
+	Daisy.style.visibility= "visible"
+	Daisy.filters.item(0).Play(6)
+End Sub
+
+Sub HideAll()
+	Adescript.style.visibility="hidden"
+	Atext.style.color="white"
+	Bdescript.style.visibility="hidden"
+	Btext.style.color="white"
+	Cdescript.style.visibility="hidden"
+	Ctext.style.color="white"
+	Ddescript.style.visibility="hidden"
+	Dtext.style.color="white"
+	Edescript.style.visibility="hidden"
+	Etext.style.color="white"
+End Sub
+
+Sub ShowDescript(descript)
+	HideAll()	
+	Select Case descript
+		case "A":
+			Adescript.style.visibility="visible"
+			Atext.style.color="red"
+		case "B":
+			Bdescript.style.visibility="visible"
+			Btext.style.color="red"
+		case "C":
+			Cdescript.style.visibility="visible"
+			Ctext.style.color="red"
+		case "D":
+			Ddescript.style.visibility="visible"
+			Dtext.style.color="red"
+		case "E":
+			Edescript.style.visibility="visible"
+			Etext.style.color="red"
+	End Select		
+End Sub									
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY id="body">			 
+
+<DIV ID=Daisy STYLE="z-index:10; position: absolute; top: 0; left: 120; visibility:hidden;
+	background-color:white;font-family:verdana;color:silver;font-size:20pt;;
+	FILTER:revealTrans(Duration=3.0, Transition=4)">
+	<IMG SRC="./images/blur.gif">
+</DIV>
+
+<DIV ID=Adescript STYLE="z-index: 12; visibility: hidden; position: absolute; top: 30; left: 50; font-size: 8pt; color: black; font-family: Helvetica, Arial, Verdana">
+	<P STYLE="color: red; padding-left: 6px; margin-left: 72; margin-right: 375" ALIGN=CENTER>
+		The bi-weekly leader in business publications delivers authoritative coverage of key business events and major trends for the top management audience. 
+	</P>	
+</DIV>
+<DIV ID=Bdescript STYLE="z-index: 12; visibility: hidden; position: absolute; top: 10; left: 125; font-size: 8pt; color: black; font-family: Helvetica, Arial, Verdana">
+	<P STYLE="color: red; padding-left: 6px; margin-left: 72; margin-right: 375" ALIGN=CENTER>
+		FORBES' award-winning technology supplement&#151;the must read for today's technology driven executives.
+	</P>
+</DIV>
+<DIV ID=Cdescript STYLE="z-index: 12; visibility: hidden; position: absolute; top: 100; left: 80; font-size: 8pt; color: black; font-family: Helvetica, Arial, Verdana">
+	<P STYLE="color: red; padding-left: 6px; margin-left: 72; margin-right: 375" ALIGN=CENTER>
+		FORBES' quarterly lifestyle supplement covers all the pleasures of The Good Life.
+	</P>
+</DIV>
+<DIV ID=Ddescript STYLE="z-index: 12; visibility: hidden; position: absolute; top: 50; left: 100; font-size: 8pt; color: black; font-family: Helvetica, Arial, Verdana">
+	<P STYLE="color: red; padding-left: 6px; margin-left: 72; margin-right: 275" ALIGN=CENTER>
+		The FORBES Digital Tool provides daily coverage of technology-related news and trends in wireless communications, investing, journalism, international technology, and digital entertainment.
+	</P>
+</DIV>		
+<DIV ID=Edescript STYLE="z-index: 12; visibility: hidden; position: absolute; top: 20; left: 200; font-size: 8pt; color: black; font-family: Helvetica, Arial, Verdana">
+	<P STYLE="color: red; padding-left: 6px; margin-left: 72; margin-right: 375" ALIGN=CENTER>
+		The TOOLBOX is a complete collection of interactive databases, indexes, calculators and the renowned FORBES lists.
+	</P>
+</DIV>		
+
+<DIV ID=Left STYLE="background-color:black; POSITION:ABSOLUTE; LEFT:0; TOP:0; WIDTH:120; HEIGHT:480; z-index:10" ALIGN=CENTER>
+
+	<DIV onMouseOver="ShowDescript('A')" ID=A STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:10" ALIGN=CENTER>
+		<IMG SRC="./images/forbes2.gif"><DIV ID=Atext STYLE="position: relative; font-size: 8pt; color: white; font-family: Helvetica, Arial, Verdana" ALIGN=CENTER><B>Forbes Magazine</B></DIV>
+	</DIV>
+	<DIV onMouseOver="ShowDescript('B')" ID=B STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:85" ALIGN=CENTER>
+		<IMG SRC="./images/asap2.gif"><DIV ID=Btext STYLE="position: relative; font-size: 8pt; color: white; font-family: Helvetica, Arial, Verdana" ALIGN=CENTER><B>Forbes ASAP</B></DIV>
+	</DIV>
+	<DIV onMouseOver="ShowDescript('C')" ID=C STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:160" ALIGN=CENTER>
+		<IMG SRC="./images/fyi2.gif"><DIV ID=Ctext STYLE="position: relative; font-size: 8pt; color: white; font-family: Helvetica, Arial, Verdana" ALIGN=CENTER><B>Forbes FYI</B></DIV>
+	</DIV>
+	<DIV onMouseOver="ShowDescript('D')" ID=D STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:235" ALIGN=CENTER>
+		<IMG SRC="./images/tool2.gif"><DIV ID=Dtext STYLE="position: relative; font-size: 8pt; color: white; font-family: Helvetica, Arial, Verdana" ALIGN=CENTER><B>Forbes Digital Tool</B></DIV>
+	</DIV>
+	<DIV onMouseOver="ShowDescript('E')" ID=E STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:310" ALIGN=CENTER>
+		<IMG SRC="./images/toolbox2.gif"><DIV ID=Etext STYLE="position: relative; font-size: 8pt; color: white; font-family: Helvetica, Arial, Verdana" ALIGN=CENTER><B>Forbes Digital Tool</B></DIV>
+	</DIV>
+</DIV>
+
+<DIV ID=AddChannel STYLE="z-index:13; position: absolute; TOP: 265; LEFT: 345;">
+<A HREF="javascript:window.external.addChannel('http://www.forbes.com/ie40/cdf/forbes.cdf')"><IMG SRC="./images/IEAddCha.GIF" border=0></A>	
+</DIV>
+
+<DIV id=tagLine STYLE="position: absolute; TOP: 400; LEFT: 120; z-index:11; color: black; font-family: Arial, helvetica;">
+<NOBR>
+THE <FONT STYLE="color: red"><B>ONLY WEBSITE</B></FONT> YOU WILL EVER NEED
+</NOBR>
+</DIV>
+
+<OBJECT ID="pthLine" CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="-1">
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="0">
+	<PARAM NAME="Duration" VALUE="7">
+	<PARAM NAME="Shape" VALUE="Polyline(2,150,0,150,200)">
+	<PARAM NAME="Target" VALUE="tagLine">
+</OBJECT>
+
+	<!-- begin navigation -->
+	<span id="spnNextPage" style="position:absolute; left:370px; top:340; z-index:14;">
+		<a href="./pages/tools.htm"><IMG BORDER=0 SRC="./images/prev.gif"></a>
+	</span>
+	<!-- end navigation -->
+
+</BODY>
+
+</HTML>

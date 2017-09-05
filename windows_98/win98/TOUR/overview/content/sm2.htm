@@ -1,0 +1,418 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="Jscript">
+<!--
+  var engine = window.external;
+// -->
+</SCRIPT>
+
+<script language="VBScript" src="data/sm2.vbs"></script>
+
+<script language="JavaScript" src="data/sm.js"></script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+loadnum = -1
+
+SUB Window_Onload
+  demotext.innerText = dt
+  demotext.style.top = document.body.offsetHeight - document.all.demotext.offsetHeight - 10
+  playstep = engine.GetShortName()
+  Select Case playstep
+    Case 3
+      loadnum = 2
+      img1.src="images/202mcsel.gif"
+      last.src="images/203mcwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(0),xy(1), xy(2),xy(3), xy(2),xy(3) )
+      t = Array(2.7, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 3.1, 1
+      P1.AddTimeMarker 3.4, 2
+
+    Case 4
+      loadnum = 3
+      img1.src="images/203mcwin.gif"
+      img2.src="images/205cdsel.gif"
+      last.src="images/206cdwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(2),xy(3), xy(4),xy(5), xy(4),xy(5) )
+      t = Array(2.5, 1.1)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.8, 3
+      P1.AddTimeMarker 3.1, 4
+      img1.style.visibility="visible"
+
+    Case 5
+      loadnum = 3
+      img1.src="images/206cdwin.gif"
+      img2.src="images/207mdhi.gif"
+      last.src="images/208mdwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(4),xy(5), xy(6),xy(7), xy(6),xy(7) )
+      t = Array(1.6, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.9, 6
+      P1.AddTimeMarker 2.2, 7
+      img1.style.visibility="visible"
+
+    Case 6
+      loadnum = 7
+      img1.src="images/208mdwin.gif"
+      img2.src="images/209flhi.gif"
+      img3.src="images/210flmen.gif"
+      img4.src="images/211flnew.gif"
+      img5.src="images/212flnme.gif"
+      img6.src="images/213flfol.gif"
+      last.src="images/214nfhi1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(6),xy(7), xy(8),xy(9), xy(8),xy(9), xy(10),xy(11), xy(10),xy(11), xy(12),xy(13), xy(12),xy(13) )
+      t = Array(1.2, 1.0, 1.3, 0.6, 1.0, 1.3)
+      P1.KeyFrame 7, k, t
+      P1.AddTimeMarker 1.1, 8
+      P1.AddTimeMarker 1.5, 9
+      P1.AddTimeMarker 2.5, 10
+      P1.AddTimeMarker 2.9, 11
+      P1.AddTimeMarker 5.1, 12
+      P1.AddTimeMarker 5.9, 13
+      P1.AddTimeMarker 6.3, 14
+      img1.style.visibility="visible"
+
+    Case 7
+      loadnum = 10
+      img1.src="images/208mdwin.gif"
+      img2.src="images/215nfico.gif"
+      img3.src="images/218nfpop.gif"
+      img4.src="images/219nfren.gif"
+      img5.src="images/220sf001.gif"
+      img6.src="images/221sf002.gif"
+      img7.src="images/222sf003.gif"
+      img8.src="images/223sf004.gif"
+      img9.src="images/225sfsel.gif"
+      last.src="images/217nfsel.gif"
+      P1.Target = "arrow"
+      k = Array( xy(12),xy(13), xy(14),xy(15), xy(14),xy(15), xy(16),xy(17), xy(16),xy(17) )
+      t = Array(1.2, 1.0, 1.3, 3.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.5, 16
+      P1.AddTimeMarker 3.3, 17
+      P1.AddTimeMarker 4.0, 18
+      P1.AddTimeMarker 4.5, 19
+      P1.AddTimeMarker 4.8, 20
+      P1.AddTimeMarker 5.1, 21
+      P1.AddTimeMarker 5.4, 22
+      P1.AddTimeMarker 5.7, 23
+      img3.style.zindex=2
+      img4.style.zindex=2
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+
+    Case 8
+      loadnum = 9
+      img1.src="images/208mdwin.gif"
+      img2.src="images/209flhi.gif"
+      img3.src="images/210flmen.gif"
+      img4.src="images/211flnew.gif"
+      img5.src="images/212flnme.gif"
+      img6.src="images/229sfico.gif"
+      img7.src="images/226fldoc.gif"
+      img8.src="images/227siico.gif"
+      last.src="images/228nwic1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(16),xy(17), xy(8),xy(9), xy(8),xy(9), xy(10),xy(11), xy(10),xy(11), xy(18),xy(19), xy(18),xy(19) )
+      t = Array(1.2, 1.0, 1.3, 0.6, 1.0, 2.0)
+      P1.KeyFrame 7, k, t
+      P1.AddTimeMarker 1.1, 8
+      P1.AddTimeMarker 1.5, 9
+      P1.AddTimeMarker 2.5, 10
+      P1.AddTimeMarker 2.9, 11
+      P1.AddTimeMarker 5.5, 24
+      P1.AddTimeMarker 5.9, 25
+      P1.AddTimeMarker 6.3, 26
+      img3.style.zindex=2
+      img4.style.zindex=2
+      img5.style.zindex=2
+      img7.style.zindex=2
+      img1.style.visibility="visible"
+      img6.style.visibility="visible"
+
+    Case 9
+      loadnum = 13
+      img1.src="images/208mdwin.gif"
+      img2.src="images/229sfico.gif"
+      img3.src="images/227siico.gif"
+      img4.src="images/230nwic2.gif"
+      img5.src="images/232sisel.gif"
+      img6.src="images/233si101.gif"
+      img7.src="images/234si102.gif"
+      img8.src="images/235si103.gif"
+      img9.src="images/236si104.gif"
+      img10.src="images/237nwpop.gif"
+      img11.src="images/238nwren.gif"
+      img12.src="images/228nwic1.gif"
+      last.src="images/231nwsel.gif"
+      P1.Target = "arrow"
+      k = Array( xy(18),xy(19), xy(20),xy(21), xy(20),xy(21), xy(22),xy(23), xy(22),xy(23) )
+      t = Array(1.2, 1.0, 1.3, 3.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.5, 28
+      P1.AddTimeMarker 3.5, 29
+      P1.AddTimeMarker 4.2, 30
+
+      P1.AddTimeMarker 4.6, 31
+      P1.AddTimeMarker 4.9, 32
+      P1.AddTimeMarker 5.2, 33
+      P1.AddTimeMarker 5.5, 34
+
+      P1.AddTimeMarker 6.0, 35
+      img10.style.zindex=2
+      img11.style.zindex=2
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+
+    Case 11
+      loadnum = 6
+      img1.src="images/208mdwin.gif"
+      img2.src="images/229sfico.gif"
+      img3.src="images/227siico.gif"
+      img4.src="images/232sisel.gif"
+      img5.src="images/225sfsel.gif"
+      last.src="images/240simov.gif"
+      P1.Target = "arrow"
+      k = Array( xy(22),xy(23), xy(24),xy(25), xy(24),xy(25), xy(26),xy(27), xy(28),xy(29), xy(28),xy(29) )
+      t = Array(1.2, 1.0, 0.1, 1.4, 0.7)
+      P1.KeyFrame 6, k, t
+      P1.AddTimeMarker 1.5, 37
+      P1.AddTimeMarker 2.3, 38 ' CURSOR DISAPPEARS, sampfilemov DRAGS TO SAMPLE FOLDER
+      P1.AddTimeMarker 3.7, 39 ' SAMPLE FOLDER HIGHLIGHTS
+      P1.AddTimeMarker 4.4, 40
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+
+    Case 12
+      loadnum = 4
+      img1.src="images/208mdwin.gif"
+      img2.src="images/229sfico.gif"
+      img3.src="images/225sfsel.gif"
+      last.src="images/242sfwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(24),xy(25), xy(30),xy(31), xy(30),xy(31) )
+      t = Array(1.2, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.5, 41
+      P1.AddTimeMarker 1.65, 42
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+
+    Case 13
+      loadnum = 2
+      img1.src="images/242sfwin.gif"
+      last.src="images/243sfclo.gif"
+      P1.Target = "arrow"
+      k = Array( xy(30),xy(31), xy(32),xy(33), xy(32),xy(33) )
+      t = Array(2.3, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.5, 43
+      P1.AddTimeMarker 3.0, 44
+      img1.style.visibility="visible"
+
+  End Select
+END SUB
+
+Sub P1_onplaymarker(m)
+  Select Case m
+' ------------------------ STEP 3
+    Case 1 ' ----------- MY COMPUTER HIGHLIGHTS
+      img1.style.visibility="visible"
+    Case 2 ' ----------- OPEN MY COMPUTER WINDOW
+      img1.style.visibility="hidden"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 4
+    Case 3 ' ---------- C: SELECTED
+      img2.style.visibility="visible"
+    Case 4 ' ---------- C: OPENS
+      img2.style.visibility="hidden"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 5
+    Case 6 ' --------- 'MY DOCUMENTS' HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 7 ' --------- SOUND PLAYS, 'MY DOCUMENTS' OPENS
+      img2.style.visibility="hidden"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 6
+    Case 8 ' ---------- FILE MENU HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 9 ' ---------- FILE MENU APPEARS, SOUND PLAYS
+      img3.style.visibility="visible"
+    Case 10 ' -------- 'NEW' HIGHLIGHTS
+      img4.style.visibility="visible"
+    Case 11 ' -------- 'NEW' MENU APPEARS
+      img5.style.visibility="visible"
+    Case 12 ' -------- NEW FOLDER HIGHLIGHTS
+      img6.style.visibility="visible"
+    Case 13 ' ------------- SOUND PLAYS, MENUS DISAPPEAR
+      img6.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img2.style.visibility="hidden"
+    Case 14 ' ------------- NEW FOLDER ICON APPEARS
+      last.style.visibility="visible"
+
+' ------------------------ STEP 7
+    Case 16 ' ---- SOUND PLAYS, POPUP MENU APPEARS
+      last.style.visibility="visible"
+      img3.style.visibility="visible"
+    Case 17 ' ---- 'RENAME' HIGHLIGHTS
+      img4.style.visibility="visible"
+    Case 18 ' ---- CLICK
+      img4.style.visibility="hidden"
+      img3.style.visibility="hidden"
+    Case 19 ' ---- TYPING
+      last.style.visibility="hidden"
+      img5.style.visibility="visible"
+    Case 20 ' ---- TYPING
+      img5.style.visibility="hidden"
+      img6.style.visibility="visible"
+    Case 21 ' ---- TYPING
+      img6.style.visibility="hidden"
+      img7.style.visibility="visible"
+    Case 22 ' ---- TYPING
+      img7.style.visibility="hidden"
+      img8.style.visibility="visible"
+    Case 23 ' ---- TYPING
+      img2.style.visibility="hidden"
+      img8.style.visibility="hidden"
+      img9.style.visibility="visible"
+
+' ------------------------ STEP 8
+    Case 24 ' -------- WORDPAD DOCUMENT HIGHLIGHTS
+      img7.style.visibility="visible"
+    Case 25 ' ------------- SOUND PLAYS, MENUS DISAPPEAR
+      img3.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img7.style.visibility="hidden"
+      img2.style.visibility="hidden"
+    Case 26 ' ------------- NEW WORD DOCUMENT ICON APPEARS
+      img8.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 9
+    Case 28 ' ---- POPUP MENU APPEARS
+      img10.style.visibility="visible"
+      img5.style.visibility="visible"
+      last.style.visibility="visible"
+    Case 29 ' ---- 'RENAME' HIGHLIGHTS
+      img11.style.visibility="visible"
+    Case 30 ' ---- CLICK
+      img5.style.visibility="hidden"
+      last.style.visibility="hidden"
+      img10.style.visibility="hidden"
+      img11.style.visibility="hidden"
+      img12.style.visibility="visible"
+    Case 31 ' ---- TYPING 'SAMPLE FILE'
+      img12.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img6.style.visibility="visible"
+    Case 32 ' ---- TYPING
+      img7.style.visibility="visible"
+      img6.style.visibility="hidden"
+    Case 33 ' ---- TYPING
+      img8.style.visibility="visible"
+      img7.style.visibility="hidden"
+    Case 34 ' ---- TYPING
+      img9.style.visibility="visible"
+      img8.style.visibility="hidden"
+    Case 35 ' ---- 'SAMPLE FILE' HIGHLIGHTED APPEARS
+      img5.style.visibility="visible"
+      img9.style.visibility="hidden"
+
+' ------------------------ STEP 11
+    Case 37 ' ---------- 'SAMPLE FILE' HIGHLIGHTS
+      img4.style.visibility="visible"
+      img3.style.visibility="hidden"
+    Case 38 ' ---------- CURSOR DISAPPEARS, sampfilemov DRAGS TO SAMPLE FOLDER
+      arrow.src = last.src
+      img4.style.visibility="hidden"
+    Case 39 ' ---------- SAMPLE FOLDER HIGHLIGHTS
+      img5.style.visibility="visible"
+      img2.style.visibility="hidden"
+    Case 40 ' ---------- CURSOR REAPPEARS, sampfilemov DISAPPEARS
+      arrow.src = "images/012arrow.gif"
+      arrow.style.left=xy(30)
+      arrow.style.top=xy(31)
+
+' ------------------------ STEP 12
+    Case 41 ' ---------- SAMPLE FOLDER HIGHLIGHTS
+      img3.style.visibility="visible"
+    Case 42 ' ---------- SAMPLE FOLDER OPENS
+      last.style.visibility="visible"
+
+' ------------------------ STEP 13
+    Case 43 ' ---------- CLOSE BUTTON DEPRESSES, SOUND PLAYS
+      last.style.visibility="visible"
+    Case 44 ' ---------- ALL DISAPPEAR
+      last.style.visibility="hidden"
+      img1.style.visibility="hidden"
+
+  End Select
+End Sub
+
+' -->
+</SCRIPT>
+
+<script language="javaScript" for="P1" event="onStop">
+<!--
+  timeout1 = window.setTimeout("showmedone();",500);
+//-->
+</script>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" style="border:ridge;border-width:5;">
+
+<!-- ----------------------------- IMAGES ----------------------- -->
+<div id="l" STYLE="visibility:hidden;">
+  <IMG ID=desktop SRC="images/001deskt.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:visible;">
+
+  <IMG ID=img1 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img2 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img3 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img4 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img5 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img6 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img7 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img8 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img9 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img10 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img11 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img12 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=img13 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=last SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;z-index:1;" onload="javascript:loadTally();">
+  <IMG ID=arrow SRC="images/012arrow.gif" STYLE="position:absolute;LEFT: 220; TOP: 250;visibility:hidden;z-index:3;">
+  <div id="demotext" align="center"
+    style="color:#000000; position:relative; left:0; width:540; font-family:verdana, arial, helvetica, sans-serif; font-size:10pt; font-weight:bold; line-height:98%; visibility:visible; FILTER:revealTrans(Duration=1.2, Transition=6); z-index:9;">
+  </div>
+
+</div>
+
+<div id="loading" style="visibility:visible; position:absolute; top:0; left:0; width:100%; height:100%; background-color:ffffff; z-index:10" align=center>
+<img src="../../images/loading.gif" style="position:relative; top:200; visibility:visible;">
+</div>
+
+<!-- ----------------------------- OBJECTS ----------------------- -->
+<OBJECT ID="P1" width=0 height=0
+    CLASSID="clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+</BODY>
+</HTML>

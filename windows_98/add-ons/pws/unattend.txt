@@ -1,0 +1,85 @@
+[Version]
+Signature = "$Windows NT$"
+
+[Global]
+; in K2 setup, iis.dll will handle this [Global] section and set setup mode appropriately. 
+; Your don’t have to worry about this section.
+;
+; you can specify the mode that setup runs in
+; Setup will take on the install modes based on the configuration of target machine
+; Fresh, Maintanence, Upgrade
+;
+; FreshMode = [ Minimal | Typical | Custom ]
+; MaintanenceMode = [ AddRemove | RemoveAll ]
+; UpgradeMode = [ UpgradeOnly | AddExtraComps ]
+
+; If machine is in FreshMode, but no "FreshMode=" line is specified, then Typical is the default value.
+
+; If machine is in MaintanenceMode, but no "MaintanenceMode=" line is specified, then There is no default value and you will get an error message in the registry. ;(HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OC Manager\MasterInfs\Errors)
+
+; If machine is in UpgradeMode, but no "UpgradeMode=" line is specified, then UpgradeOnly is the default value.
+
+FreshMode = Typical
+MaintanenceMode = RemoveAll
+
+[Components]
+;<sub-component name>=[ ON | OFF ]
+; this [components] section is valid only when 
+;FreshMode = Custom
+;MaintanenceMode = AddRemove
+;UpgradeMode = AddExtraComps
+
+; pws
+iis_common = ON
+iis_www = ON
+iis_pwmgr = ON
+iis_doc_common = ON
+iis_doc_pwmcore = ON
+iis_doc_asp = OFF
+
+; mts
+mts_core=on
+mts_core_docs=on
+mts_mtsdev=on
+mts_mtsdev_core=on
+mts_mtsdev_core_docs=on
+mts_mtsdev_vbaddin=on
+
+; FrontPage Extensions
+fp_extensions=ON
+fp_vid_deploy=OFF
+
+; DAC
+DAC_ADO_CORE = ON
+DAC_DRV_BRAZOS = ON
+DAC_DRV_SQLSRV = ON
+DAC_DRV_ORACLE = ON
+DAC_ADO_DOC = ON
+DAC_RDS_11 = OFF
+DAC_RDS_CORE ON
+DAC_RDS_DOC ON
+DAC_RDS_SAMPLE = ON
+
+; MSMQ requires msmqinst.ini file
+Msmq_Server_Core = OFF
+Msmq_Admin = OFF
+Msmq_SDK = OFF
+Msmq_Doc = OFF
+
+
+; Rasics
+COMMONDOC = OFF
+CMAKPROG = OFF
+CMAKDOC = OFF
+
+
+[iis]
+; Each major component may have it own private data.
+;Path =c:\install\path
+PathWWWRoot=E:\MyInetpub\wwwroot
+PathPROGRoot=E:\MyProgRoot
+
+[mts_core]
+Path="C:\Program Files\Mts"
+USERID="Interactive User"
+PASSWORD=""

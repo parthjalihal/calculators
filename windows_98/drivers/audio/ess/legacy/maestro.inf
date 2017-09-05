@@ -1,0 +1,141 @@
+;; ESS Technology, Inc INF file. 
+;; Copyright (c) 1996, 1997. All rights Reserved.
+
+[Version]
+Signature="$Windows 95$"
+Class=MEDIA
+provider=%PT%
+LayoutFile=layout.inf
+
+[ControlFlags]
+ExcludeFromSelect=*PTA0001
+ExcludeFromSelect=*AGG0002
+
+[ClassInstall]
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"0"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=ESSTech
+
+[ESSTech]
+%*AGGENUM.DeviceDesc%=AGGENUM_Device, *PTA0001
+%*AGGMF.DeviceDesc%=AGGMF_Device, PCI\VEN_1285&DEV_0100
+
+;---------------------------------------------------------------;
+[AGGWTSYNTH_Device]
+
+;---------------------------------------------------------------;
+[AGGMF_Device]
+DelReg=AGOGO.DelReg
+AddReg=AGOGOMF.Reg
+CopyFiles=AGOGO.CopyList,AGOGOINF.CopyList,AGOGODOS.CopyList
+
+UpdateCfgSys= AGOGOConfig
+UpdateAutoBat=AGOGOAuto 
+
+[AGOGOConfig]
+DevDelDev=AECU.SYS
+DevDelDev=AGOGO.SYS
+DevDelDev=AGOGO.COM
+DevDelDev=AGOGOXP.SYS
+DevDelDev=AGOGOXP.COM
+
+[AGOGOAuto]
+CmdDelete=AGOGO
+CmdDelete=AGOGOXP
+CmdDelete=MAESTRO
+
+[AGOGOMF.Reg]
+HKR,,Driver,,mstrmg.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,DeviceDriver,,mstrmg.vxd
+HKR,,GameSupport,1,00,00
+
+;---------------------------------------------------------------;
+[AGGENUM_Device]
+AddReg=AGGENUM.Reg
+
+[AGGENUM.Reg]
+HKR,,Driver,,mstrenum.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,mstrenum.vxd
+
+;---------------------------------------------------------------;
+[AGOGO.CopyList]
+maestro.vxd,,
+maestro.drv,,
+mstrmg.vxd,,
+mstrsbp.vxd,,
+mstr401.vxd,,
+mstr401.drv,,
+mstrenum.vxd,,
+mstrjoy.drv,,
+mstrjoy.vxd,,
+plat2meg.dll,,
+plat2meg.IMG,,
+;plat4meg.dll,,
+;plat4meg.IMG,,
+
+[AGOGOINF.CopyList]
+MSTROWT.INF,,
+
+[AGOGODOS.CopyList]
+MAESTRO.COM,,
+AECU.SYS,,
+
+;---------------------------------------------------------------;
+[AGOGO.DelReg]
+HKLM,%DEL_REG%,AGOGO
+
+
+;---------------------------------------------------------------;
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[*AGG0001.Det]
+AddReg=PreCopySection
+
+;---------------------------------------------------------------;
+
+[DestinationDirs]
+DefaultDestDir = 11	; LDID_SYS
+AGOGODOS.CopyList=30
+AGOGOINF.CopyList=17
+AGOGOUTI.CopyList=10
+AGOGOLNK.CopyList=10,desktop
+
+[SourceDisksNames]
+1="Maestro PCI Audio Device Multimedia Disk",,0001
+
+[SourceDisksFiles]
+mstrmg.vxd=1
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+;Non-localized strings
+KEY_WARNVER="SYSTEM\CurrentControlSet\Control\SessionManager\WarnVerDLLs"
+KEY_CHKVER="SYSTEM\CurrentControlSet\Control\SessionManager\CheckVerDLLs"
+DEL_REG="SYSTEM\CurrentControlSet\Services\Class\AGOGO"
+
+;Localized strings
+PT="ESS Technology, Inc."
+MfgName="ESS Technology, Inc."
+*AGGMF.DeviceDesc="Maestro Device Manager"
+*AGGENUM.DeviceDesc="Maestro Enumerator"
+MediaClassName="Sound, video and game controllers"
+
+V_EXTERNAL="Maestro External MIDI Port"
+V_INTERNAL="Maestro FM Synthesis"
+

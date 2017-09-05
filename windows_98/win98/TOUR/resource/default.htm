@@ -1,0 +1,161 @@
+<html>
+<head><title></title>
+<style type="text/css">
+  a:link       {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: navy;}
+  a:visited    {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: navy;}
+  body         {font-family: Verdana, Arial, Helvetica, sans-serif;
+                cursor: default;
+                }
+</style>
+
+<script language="JavaScript" for=window event=onLoad>
+  contents.style.top = parseInt(numbers.style.top) + parseInt(document.all.numbers.offsetHeight) + 15;
+  if ( parseInt(contents.style.top) < 390 ) { contents.style.top = 390; }
+  loader.style.visibility="hidden";
+  pagecontents.style.visibility="";
+  window.focus();
+  i1.focus();
+
+</script>
+
+<script language="JavaScript" for=document event=onclick>
+  if (window.event.shiftKey) { return false; }
+</script>
+
+<script language="JavaScript" for=document event=onkeydown>
+  var whatkey = window.event.keyCode - 48;
+  switch (whatkey) {
+    case 1:
+      location.href="strthere.htm";
+      break;
+    case 2:
+      location.href="mspress.htm";
+      break;
+    case -39:
+      doTab();
+      break;
+    case 49:
+      location.href="strthere.htm";
+      break;
+    case 50:
+      location.href="mspress.htm";
+      break;
+    case 19:
+      if (window.event.altKey) { engine.Exit(); }
+      break;
+    default:
+      break;
+  }
+</script>
+
+<script language="JavaScript">
+var l2 = new Image();
+l2.src="../images/loading.gif";
+
+var engine = window.external;
+var tabNum = 0;
+
+function home() {
+  engine.SetKioskMode( true, 0, 0, 0, 0 );
+  location.href="../default.htm";
+  }
+
+function doTab() {
+  if (window.event.shiftKey) { tabNum--; }
+  else { tabNum++; }
+  if (tabNum > 7) { tabNum = 1; window.focus();}
+  if (tabNum < 1) { tabNum = 7; }
+  eval("a" + tabNum + ".focus();");
+  }
+
+function over(num) {
+  if (num == 6) {
+    eval("i" + num + ".src='../overview/content/images/cont_ovr.gif';");
+    eval("s" + num + ".style.textDecoration='underline';");
+  } else if ((num == 1)||(num == 2)) {
+    eval("i" + num + ".src='../overview/content/images/s" + num + "_ovr.gif';");
+    eval("s" + num + ".style.textDecoration='underline';");
+  } else {
+    eval("a" + num + ".style.textDecoration='underline';");
+  }
+}
+
+function out(num) {
+  if (num == 6) {
+    eval("i" + num + ".src='../overview/content/images/cont_def.gif';");
+    eval("s" + num + ".style.textDecoration='none';");
+  } else  if ((num == 1)||(num == 2)) {
+    eval("i" + num + ".src='../overview/content/images/s" + num + "_def.gif';");
+    eval("s" + num + ".style.textDecoration='none';");
+  } else {
+    eval("a" + num + ".style.textDecoration='none';");
+  }
+}
+
+</script>
+
+</head>
+
+<body background="images/bg_res1.jpg"
+  bgcolor="#FFFFFF" text="#000000" topmargin=0 leftmargin=0
+  style="background-repeat: no-repeat;">
+
+<OBJECT ID="Data1" WIDTH=0 HEIGHT=0
+  CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+  <PARAM NAME="TextQualifier" VALUE="%">
+  <PARAM NAME="FieldDelim" VALUE="|">
+  <PARAM NAME="DataURL" VALUE="resource.txt">
+</OBJECT>
+
+<div id="loader" style="position:absolute; top:200; left:0; width:604;">
+<center><img src="../images/loading.gif"></center>
+</div>
+
+<div id=pagecontents style="position:absolute; top:0; left:0; width:100%; height:100%;z-index:10; visibility:hidden;">
+
+
+<img src="../overview/content/images/logo.gif" style="position:absolute; top:10; left:15;">
+<!-- MSPress Logo --><img src="images/MPlogo.gif" style="position:absolute; top:44; left:378;">
+
+<!-- Left hand column -->
+<div id=numbers style="position:absolute; top:85; left:18; width:250;"><font size=2>
+  <a id=a1 href="strthere.htm" onmouseover="over(1)" onmouseout="out(1)" onfocus="over(1)" onblur="out(1)"><img id=i1 src="../overview/content/images/s1_def.gif" hspace=5 vspace=8 border=0 align=top>
+  <span id=s1 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column3" style="width:200;color:black;"></span></a>
+  <br clear=all>
+
+  <a id=a2 href="mspress.htm" onmouseover="over(2)" onmouseout="out(2)" onfocus="over(2)" onblur="out(2)"><img id=i2 src="../overview/content/images/s2_def.gif" hspace=5 vspace=8 border=0 align=top>
+  <span id=s2 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column4" style="width:180;color:black;"></span></a>
+  <p>&nbsp;</p>
+
+</font></div>
+
+<div id=contents style="position:absolute; top:400; left:18;">
+  <font size=2>
+  <a id=a6 href="javascript:home();" onmouseover="over(6)" onmouseout="out(6)" onfocus="over(6)" onblur="out(6)">
+  <img id=i6 src="../overview/content/images/cont_def.gif" hspace=5 vspace=8 border=0 align=absmiddle>
+  <span id=s6 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column5" style="color:black;"></span>
+  </a></font>
+</div>
+
+<!-- Right hand column -->
+<div style="position:absolute; top:62; left:270; width:310;">
+  <img src="images/resttl.gif" style="position:absolute; top:30; left:61;">
+  <img src="../overview/content/images/blueline.gif" style="position:absolute; top:72; left:30;">
+  <div DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column2" style="position:relative; left:30; top:82; width:300;"></div>
+  <p>&nbsp;</p><br>
+  <div align=right><a id=a7 href="#" onclick="engine.Exit();" onfocus="i7.src='../overview/content/images/clbtn2.gif'" onblur="i7.src='../overview/content/images/clbtn1.gif'" style="position:relative; top:20; left:-20;"><img id=i7 src="../overview/content/images/clbtn1.gif" border=0 onmouseover="this.src='../overview/content/images/clbtn2.gif'" onmouseout="this.src='../overview/content/images/clbtn1.gif'"></a></div>
+  <p>&nbsp;</p>
+</div>
+
+<script language="JavaScript">engine.SetTitleText(Data1.recordset.Fields('Column7'));</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+; MOUSESYS.INF
+; Installs Mouse Systems Windows 3.x drivers
+
+[Version]
+Signature="$CHICAGO$"
+Class=Mouse
+Provider=%Provider%
+
+[DestinationDirs]
+DefaultDestDir = 11		; LDID_SYS
+
+[SourceDisksNames]
+51="Mouse Systems Driver Disk",,1
+
+[SourceDisksFiles]
+mscmouse.drv=51
+msc3bc2.drv=51
+mscvmd.386=51
+
+
+; Manufacturer Sections
+; ---------------------------------------------------------
+[Manufacturer]
+%Mfg%=Mfg
+
+[Mfg]
+%Mscmouse%=Mscmouse
+%Msc3bc2%=Msc3bc2
+
+
+; Install Sections
+; ---------------------------------------------------------
+
+[Mscmouse]
+DelReg=Prev.DelReg
+CopyFiles=@mscmouse.drv, @mscvmd.386
+UpdateInis=Mscmouse.Ini
+
+[Mscmouse.Ini]
+system.ini,boot,,"mouse.drv=mscmouse.drv"
+system.ini,386Enh,,"mouse=mscvmd.386"
+system.ini,boot.description,,"mouse.drv=%Mscmouse%"
+
+
+; 3 button on COM2
+
+[Msc3bc2]
+DelReg=Prev.DelReg
+CopyFiles=@msc3bc2.drv, @mscvmd.386
+UpdateInis=Msc3bc2.Ini
+
+[Msc3bc2.Ini]
+system.ini,boot,,"mouse.drv=msc3bc2.drv"
+system.ini,386Enh,,"mouse=mscvmd.386"
+system.ini,boot.description,,"mouse.drv=%Msc3bc2%"
+
+
+[Prev.DelReg]
+HKR,,DevLoader
+HKR,,MouseDriver
+HKR,,MouseType
+HKR,,ComInfo
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Mouse\shellex\PropertySheetHandlers\DriverPages"
+
+
+; User visible strings
+; ---------------------------------------------------------
+
+[Strings]
+Provider="Microsoft"
+MouseClassName="Mouse"
+
+Mfg="Mouse Systems"
+Mscmouse="Mouse Systems Mouse"
+Msc3bc2="Mouse Systems Mouse (3 button on COM2)"

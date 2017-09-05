@@ -1,0 +1,149 @@
+<html>
+<head><title> </title>
+<style type="text/css">
+<!--
+body         {font-family: Verdana, Arial, Helvetica;
+              cursor: default;
+             }
+.tip    {font-family: Verdana, Arial, Helvetica;
+             font-style: italic;
+             font-weight: bold;
+             font-size: 10pt;
+             text-decoration: none;
+             color: blue;
+             cursor: hand;
+             top: 5px;
+             border: 2px double #FFFFFF;
+             width: 29;
+             }
+.GreenBar    {font-family: Verdana, Arial, Helvetica;
+             font-weight: bold;
+             text-decoration: none;
+             color: black;
+             background: url(images/curve.gif) fixed 100% bottom;
+             background-color: #99cccc;
+             }
+.glossary    {font-family: Verdana;
+              font-size: 10pt;
+              text-decoration: underline;
+              color: blue;
+              cursor: hand;
+              }
+.invisible    {
+              font: 1pt Arial;
+              text-decoration: none;
+              color: white;
+              }
+//-->
+</style>
+<script language="javascript">
+<!--
+var engine = window.external;
+
+var c = 2;
+
+window.onerror=errortrap;
+function errortrap(message,url,line) {
+  return true;
+}
+
+function loadpage() {
+  Data1.recordset.movefirst();
+  lessontitle.innerText=parent.buttons.ToolData.recordset.Fields('Column13');
+  if (document.all.item("tip",0) != null) {
+    tip.style.width=tiplink.offsetWidth+5;
+    }
+}
+
+function popup(col,popx,popy) {
+  engine.ShowPopupText(Gloss.recordset.Fields(col), popx, popy, 200);
+  return;
+}
+
+function LaunchShowMe() {
+    engine.ShowPopupBrowserFile("overview/content/showme2.htm", Data1.recordset.AbsolutePosition.toString(), 100, 100, 552, 435);
+}
+
+function doTab() {
+  if (parent.buttons.acount > 0) {
+    parent.buttons.tabNum++;
+    if (parent.buttons.tabNum > (3 + parent.buttons.acount)) { parent.buttons.doTab(); }
+    else if (parent.buttons.tabNum > 3) { eval("document.anchors[" + (parent.buttons.tabNum - 4) + "].focus();"); }
+    }
+  else { parent.buttons.a1.focus(); }
+}
+//-->
+</script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+sub document_onMouseOver()
+    dim srcElement
+    set srcElement = window.event.srcElement
+    if srcElement.classname = "glossary" then
+        srcElement.style.color = "red"
+        window.event.cancelBubble = true
+    end if
+end sub
+
+sub document_onMouseOut()
+    dim srcElement
+    set srcElement = window.event.srcElement
+    if srcElement.classname = "glossary" then
+        srcElement.style.color = "blue"
+        window.event.cancelBubble = true
+    end if
+end sub
+
+sub window_onerror()
+  window.event.returnvalue = false
+end sub
+' -->
+</script>
+
+<script language="JavaScript" for=document event=onclick>
+  if (window.event.shiftKey) { return false; }
+</script>
+
+<script language="JavaScript" for=document event=onkeydown>
+if (window.event.shiftKey) { window.event.keyCode=0; }
+else if (!window.event.altKey) {
+  switch(window.event.keyCode){
+    case 9:   {doTab();break;}
+    case 37:  {parent.buttons.previous();break;}
+    case 39:  {parent.buttons.next();break;}
+    default:  {break;}
+   }
+}
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 leftmargin=0 onload="loadpage();">
+<div class=GreenBar><font size=2><span id=lessontitle style="position:relative; left:10;"> </span></font></div>
+
+<DIV style="position:relative; top:10; left:10;">
+  <OBJECT ID="Data1" WIDTH=0 HEIGHT=0
+    CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+    <PARAM NAME="TextQualifier" VALUE="%">
+    <PARAM NAME="RowDelim" VALUE="~">
+    <PARAM NAME="FieldDelim" VALUE="|">
+    <PARAM NAME="DataURL" VALUE="data/l2data.txt">
+  </OBJECT>
+
+  <OBJECT ID="Gloss" WIDTH=0 HEIGHT=0
+    CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+    <PARAM NAME="TextQualifier" VALUE="%">
+    <PARAM NAME="FieldDelim" VALUE="|">
+    <PARAM NAME="DataURL" VALUE="data/glossary.txt">
+  </OBJECT>
+
+
+
+<font size=2>
+<div id=Lesson4Text DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column1"></DIV>
+</font>
+<br>
+</DIV>
+</body>
+</html>

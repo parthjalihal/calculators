@@ -1,0 +1,127 @@
+<html>
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+
+
+Dim LCLeft
+
+Dim RCLeft
+
+
+
+LCLeft=0
+
+RCLeft=230
+
+
+
+
+
+
+
+
+
+sub window_onload
+
+	on error resume next
+
+	Seqi("Curtains").Play
+
+end sub
+
+
+
+
+
+Sub Seqi_onInit
+
+	call Seqi("Curtains").at(4.000, "moveLCurtain",15, 0.4, 1)
+
+	call Seqi("Curtains").at(4.000, "moveRCurtain",15, 0.4, 1)
+
+	call Seqi("Curtains").at(9.000, "parent.showPres0()",1, 0.0, 1)
+
+End Sub
+
+
+
+
+
+Sub moveLCurtain
+
+
+	LCLeft=LCLeft-20
+
+	lcurtain.style.left=LCLeft
+
+End Sub
+
+
+
+Sub moveRCurtain
+
+
+	RCLeft=RCLeft+20
+
+	rcurtain.style.left=RCLeft
+
+End Sub
+
+
+
+
+
+
+
+-->
+
+</SCRIPT>
+
+<HEAD>
+
+<TITLE>Warner Bros. SCREENDOM: Curtains</TITLE>
+
+</HEAD>
+
+
+
+<body bgcolor=black text=ffffff link=ffffff alink=ffffff vlink=ffffff>
+
+
+
+
+
+
+
+
+
+<img src="img/curtain.jpg" border=0 class=hspots ID=lcurtain STYLE="POSITION:ABSOLUTE; WIDTH:230; HEIGHT:272; TOP:0; LEFT:-13">
+
+
+
+<img src="img/curtain.jpg" border=0 class=hspots ID=rcurtain STYLE="POSITION:ABSOLUTE; WIDTH:230; HEIGHT:272; TOP:0; LEFT:218">
+
+
+
+
+
+<OBJECT ID="Seqi"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+
+
+</body>
+
+</html>

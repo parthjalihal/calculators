@@ -1,0 +1,10 @@
+value:string
+Introduction@
+1. Meeting Your Computer@
+Using Your Keyboard@
+2. Using Your Mouse@
+3. Exploring the Windows Desktop@
+Using the Start Menu@
+Working with Windows@
+Getting Help@
+Contents@

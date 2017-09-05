@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+	<TITLE>Quicken.com Channel</TITLE>
+
+<STYLE>
+
+<!--
+.intro {
+	font-size: 15pt; 
+	font-family: "Book Antiqua";
+	}
+.leftwords {
+	z-index: 10;
+	left : -250px;
+	font-size: 20pt; 
+	font-family: "New York";
+	font-weight: light;
+	visibility: hidden;
+	}
+
+.rightwords {
+	z-index: 10;
+	left : 500px;
+	font-size: 20pt; 
+	font-family: "New York";
+	font-weight: light;
+	visibility: hidden;
+	}
+-->
+</STYLE>
+<SCRIPT language=JavaScript>
+<!--
+count = 1;
+function start()
+{
+	setTimeout("animate()", 1000);
+}
+
+function animate()
+{
+	var i1 = document.all.i1.style;
+	var i2 = document.all.i2.style;
+	var i3 = document.all.i3.style;
+
+	i1.visibility = "visible";
+
+	if (count < 20) {
+		i1.posLeft += 7;
+		timer = setTimeout("animate()", 20);
+	}
+	else if(count < 35) {
+		timer = setTimeout("animate()", 20);
+	}
+	else if (count < 65) {
+		i2.visibility = "visible";
+		i2.posLeft += 7;
+		timer = setTimeout("animate()", 20);
+	}
+	else if(count < 80) {
+		timer = setTimeout("animate()", 20);
+	}
+	else if (count < 100) {
+		i3.visibility = "visible";
+		i3.posLeft += 7;
+		timer = setTimeout("animate()", 20);
+	}
+	else {
+		count = 0;
+		setTimeout("MakeVisible()", 1500);
+		timer = setTimeout("CrossMoveArray()", 1500);
+	}
+
+	count++;
+
+}
+
+
+
+function MakeVisible()
+{
+	w1.style.visibility = "visible";
+}
+
+
+function CrossMoveArray()
+{
+	var i1 = document.all.i1.style;
+	var i2 = document.all.i2.style;
+	var i3 = document.all.i3.style;
+	i1.visibility = "hidden";
+	i2.visibility = "hidden";
+	i3.visibility = "hidden";
+	
+	count++;
+	if(count ==2)
+	{
+		//window.parent.frames.bottom.location = "crowd.html";		
+	}
+	w1.style.posLeft += 16
+	
+	if(count > 20) {
+		w1.style.visibility = "visible";
+		w8.style.visibility = "visible";
+		w3.style.visibility = "visible";
+		w1.style.posLeft += 16
+		w8.style.posLeft -= 10
+		w3.style.posLeft += 4
+	}
+	if(count > 30) {
+		w12.style.visibility = "visible";
+		w7.style.visibility = "visible";
+
+		w12.style.posLeft -= 8
+		w7.style.posLeft += 14
+	}
+	if(count > 40) {
+		w17.style.visibility = "visible";
+		w5.style.visibility = "visible";
+		w10.style.visibility = "visible";
+		w14.style.visibility = "visible";
+
+		w17.style.posLeft += 6
+		w5.style.posLeft += 2
+		w10.style.posLeft -= 50
+		w14.style.posLeft -= 18
+	}
+	if(count > 50) {
+		w9.style.visibility = "visible";
+		w11.style.visibility = "visible";
+		w13.style.visibility = "visible";
+		w15.style.visibility = "visible";
+		w2.style.visibility = "visible";
+		w4.style.visibility = "visible";
+		w6.style.visibility = "visible";
+		w16.style.visibility = "visible";
+
+		w9.style.posLeft += 8
+		w11.style.posLeft += 40
+		w13.style.posLeft += 12
+		w15.style.posLeft += 4
+		w2.style.posLeft -= 65
+		w4.style.posLeft -= 8
+		w6.style.posLeft -= 40
+		w16.style.posLeft -= 22
+	}
+
+	if(count > 60) {
+		Q1.style.visibility = "visible"
+		Q2.style.visibility = "visible"
+	}
+
+	if(count < 70) {
+		timer = setTimeout("CrossMoveArray()", 50);
+	}
+	else {
+		count = 0;
+		timer = setTimeout("Clear()", 50);
+	}
+
+}
+
+function Clear() {
+
+	count++;
+	
+	w1.style.posLeft += 150
+	w3.style.posLeft += 150
+	w5.style.posLeft += 150
+	w7.style.posLeft += 150
+	w9.style.posLeft += 150
+	w11.style.posLeft += 150
+	w13.style.posLeft += 150
+	w15.style.posLeft += 150
+	w17.style.posLeft += 150
+
+	w2.style.posLeft -= 150
+	w4.style.posLeft -= 150
+	w6.style.posLeft -= 150
+	w8.style.posLeft -= 150
+	w10.style.posLeft -= 150
+	w12.style.posLeft -= 150
+	w14.style.posLeft -= 150
+	w16.style.posLeft -= 150
+
+	if(count < 10){
+		timer = setTimeout("Clear()", 50);
+	}
+	else {
+		count = 0;
+		timer = setTimeout("Quicken()", 500);
+	}
+}	
+
+function Quicken() {
+
+	count++;
+
+	var vWait;
+	vWait = 50;
+
+	//Q2.style.posLeft += 20;
+	Pig.style.posLeft += 20;
+	Check.style.posLeft -= 20;
+	if(count < 8) { 
+		vWait = 130;
+		switch(count)
+		{
+		case 1:
+			F1.style.visibility = "visible";
+			break;
+		case 2:
+			F2.style.visibility = "visible";
+			F1.style.visibility = "hidden";
+			break;
+		case 3:
+			F3.style.visibility = "visible";
+			F2.style.visibility = "hidden";
+			break;
+		case 4:
+			F4.style.visibility = "visible";
+			F3.style.visibility = "hidden";
+			break;
+		case 5:
+			F5.style.visibility = "visible";
+			F4.style.visibility = "hidden";
+			break;
+		case 7:
+			Q2.style.visibility = "hidden";
+			F5.style.visibility = "hidden";
+			break;
+		}
+	}
+	else if (count < 15)
+	{
+		Q1.style.posLeft += 20;
+	}
+	if(count < 25){
+		timer = setTimeout("Quicken()", vWait);
+	}
+	else {
+		count = 0;
+		setTimeout("document.location = \"qfn2_1.htm\"", 2000);
+		//setTimeout("window.parent.frames.bottom.location = \"side.html\"", 1000);		
+	}
+}	
+
+// -->
+</SCRIPT>
+
+</HEAD>
+<BODY onLoad = 'start();'
+	background = "images/back.gif">
+<!-- The images -->
+<OBJECT ID="ActiveMovie" WIDTH=1 HEIGHT=1
+ CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+    <PARAM NAME="FileName" VALUE="crowd.mp2">
+    <PARAM NAME="ShowDisplay" VALUE="0">
+    <PARAM NAME="ShowControls" VALUE="0">
+    <PARAM NAME="ShowTracker" VALUE="0">
+    <PARAM NAME="AutoStart" VALUE="-1">
+</OBJECT>
+<IMG SRC="images/check.gif" ID= "Check" WIDTH=164 HEIGHT=129 BORDER=0 ALIGN="LEFT"
+STYLE="position: absolute; left: 5px; top: 5px">
+<IMG SRC="images/pig.gif" ID ="Pig" WIDTH=149 HEIGHT=118 BORDER=0 STYLE="position:
+absolute; left: 490px; top: 329px">
+
+<DIV ID="Q1" STYLE="color: red; font-size: 58; font-weight:bold; position: absolute; left: 154px; top: 160px; visibility: hidden; z-index: 15;">Q</DIV>
+<DIV ID="Q2" STYLE="color: red; font-size: 58; font-weight:bold; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 15;">uicken.com</DIV>
+
+<IMG ID="F1" SRC="images/fad1.gif" STYLE="width: 350px; height:85px; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 20;">
+<IMG ID="F2" SRC="images/fad2.gif" STYLE="width: 350px; height:85px; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 20;">
+<IMG ID="F3" SRC="images/fad3.gif" STYLE="width: 350px; height:85px; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 20;">
+<IMG ID="F4" SRC="images/fad4.gif" STYLE="width: 350px; height:85px; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 20;">
+<IMG ID="F5" SRC="images/fad5.gif" STYLE="width: 350px; height:85px; position: absolute; left: 200px; top: 160px; visibility: hidden; z-index: 20;">
+
+
+<!-- Intro text -->
+<DIV class=intro ID="i1" style="position: absolute; top: 170; left:-90; visibility: hidden; z-index: 10" >What do I need to save?</DIV>
+<DIV class=intro ID="i2" style="position: absolute; top: 200; left:-90; visibility:hidden; z-index: 10" >My business.  How do I build it?</DIV>
+<DIV class=intro ID="i3" style="position: absolute; top: 230; left:-90; visibility: hidden; z-index: 10" >Where do I go for opinions that I can trust?</DIV>
+
+<!-- Running Words -->
+<DIV class = leftwords  id=w1  style="position: absolute; top: 0px;   font-size: 15pt">My business.  How do I make it grow?</DIV> 			
+<DIV class = rightwords id=w2  style="position: absolute; top: 25px; ">Where do I go for opinions I can <font color="red">trust</font>?</DIV>
+<DIV class = leftwords  id=w3  style="position: absolute; top: 50px; "><font color = "white">How can I get information tailored for me?</font></DIV>
+<DIV class = rightwords id=w4  style="position: absolute; top: 100px;">Where do I find what I need on the net?</DIV>
+<DIV class = leftwords  id=w5  style="position: absolute; top: 125px; font-size: 15pt">Why is it so important  to save?</DIV>
+<DIV class = rightwords id=w6  style="position: absolute; top: 150px; font-size: 10pt"><font color ="white">What can I do to stay on top of my <font color="brown">finances</font>?</font></DIV>
+<DIV class = leftwords  id=w7  style="position: absolute; top: 175px;">What do other people think about professionals?</DIV>
+<DIV class = rightwords id=w8  style="position: absolute; top: 200px; font-size: 15pt">How do others rate financial products?</DIV>
+<DIV class = leftwords  id=w9 style="position: absolute; top: 250px;">What do others think about <font color="blue">information sources</font>?</DIV>
+<DIV class = rightwords id=w10 style="position: absolute; top: 275px; font-size: 10pt">Investment opportunities.  Where do I find them?</DIV>
+<DIV class = leftwords  id=w11 style="position: absolute; top: 325px;"><font color="white">Insurance costs.  How can I reduce them?</font></DIV>
+<DIV class = rightwords id=w12 style="position: absolute; top: 350px; font-size: 15pt">How can I save on my mortgage?</DIV>
+<DIV class = leftwords  id=w13 style="position: absolute; top: 375px;">Where can I get the same information the pros use?</DIV>
+<DIV class = rightwords id=w14 style="position: absolute; top: 400px; font-size: 10pt">How do I compare to other investors?</DIV> 
+<DIV class = leftwords  id=w15 style="position: absolute; top: 425px; font-size: 15pt">What do people like me say about <font color="white">investor services</font>?</DIV>
+<DIV class = rightwords id=w16 style="position: absolute; top: 225px;">How can I pay less in <font color="red">taxes</font>?</DIV>
+<DIV class = leftwords  id=w17 style="position: absolute; top: 210px; font-size: 10pt">What  do I need to <font color ="red">save</font>?</DIV>
+							
+</BODY>
+</HTML>

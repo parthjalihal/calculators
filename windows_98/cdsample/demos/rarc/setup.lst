@@ -1,0 +1,20 @@
+[Windows 95 Params] 
+	WndTitle   = Microsoft Return of Arcade Setup
+	WndMess    = Microsoft Return of Arcade Setup...
+	TmpDirSize  = 2000
+	TmpDirName  = ~msstfqf.t
+	CmdLine     = acmsetup /T arctrial.stf /O "_" /S %s %s
+	DrvWinClass = Stuff-Shell
+	Require31   = This application requires a newer version of Microsoft Windows.
+	CabinetFile = ARCADE1.CAB
+
+[Windows 95 Files]
+	@acmsetup.exe = acmsetup.exe
+	@acmsetup.hlp = acmsetup.hlp
+	@mssetup.dll  = mssetup.dll
+	@arcade.dll  = arcade.dll
+	@dsetup.dll  = dsetup.dll
+	@dsetup16.dll  = dsetup16.dll
+	arctrial.stf  = arctrial.stf
+	arctrial.inf  = arctrial.inf
+

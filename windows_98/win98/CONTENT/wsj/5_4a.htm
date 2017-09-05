@@ -1,0 +1,269 @@
+<HTML>
+<HEAD>
+
+
+<SCRIPT Language="Javascript" src="funcs.js">
+</SCRIPT>
+
+<SCRIPT LANGUAGE="Javascript">
+
+var LEFT_MARGIN = 110;
+
+function init()
+	{
+	// Tell the  Nav bar to posisition itself
+	resizeAll();
+
+	// Make all divs the width of the display area
+	div1.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN);
+	div2.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN);
+	div3.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN);
+	div4.style.width = (toInt(parent.document.body.clientWidth) - LEFT_MARGIN);
+
+	// Do the init stuff that I could not get working
+	// in javascript
+	vb_init();
+	}
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="VBscript">
+
+sub vb_init()
+	dim sh,sw,dw,dh, h
+
+	sh = toInt(parent.document.body.clientHeight)
+	sw =  toInt(parent.document.body.clientWidth)
+	dw = toInt( div1.style.width )
+	dh = toInt( div1.style.height )
+
+
+	' Specify all the paths
+	' SD moved down to allow new text
+	h = 30
+	line = Array( sw, h, LEFT_MARGIN,h  )
+	call pth1.PolyLine( 2, line  )
+
+	h = h + 60
+	line = Array( LEFT_MARGIN, sh, LEFT_MARGIN, h  )
+	call pth2.PolyLine( 2, line  )
+
+	h = h + 35
+	line = Array( sw, h,  LEFT_MARGIN,h  )
+	call pth3.PolyLine( 2, line  )
+
+	h = h + 80
+	line = Array( LEFT_MARGIN, sh, LEFT_MARGIN, h   )
+	call pth4.PolyLine( 2, line  )
+
+	h = h + 50
+	line = Array( sw, h, LEFT_MARGIN, h   )
+	call pth5.PolyLine( 2, line  )
+
+	h = h + 30
+	line = Array( sw/2, 0, sw/2, h, LEFT_MARGIN + 100, h   )
+	call pth6.PolyLine( 3, line  )
+
+	h = h + 30
+	line = Array( LEFT_MARGIN + 100, sh, LEFT_MARGIN + 100, h   )
+	call pth7.PolyLine( 2, line  )
+
+	h = h + 30
+	line = Array( sw, h, LEFT_MARGIN + 100, h   )
+	call pth8.PolyLine( 2, line  )
+
+
+End Sub
+
+
+Sub seq_onInit
+	call seq("1").at(0.000, "pth1.Play",1, 0.0, 1)
+	call seq("1").at(4.000, "pth2.Play",1, 0.0, 1)
+	call seq("1").at(8.000, "pth3.Play",1, 0.0, 1)
+	call seq("1").at(12.000, "pth4.Play",1, 0.0, 1)
+	call seq("1").at(16.000, "pth5.Play",1, 0.0, 1)
+	call seq("1").at(22.000, "pth6.Play",1, 0.0, 1)
+	call seq("1").at(26.000, "pth7.Play",1, 0.0, 1)
+	call seq("1").at(30.000, "pth8.Play",1, 0.0, 1)
+	call seq("1").Play()
+End Sub
+
+
+</SCRIPT>
+
+
+</HEAD>
+<BODY onresize="resizeAll();" onload="init();" background="images/back.jpg">
+
+<div STYLE="margin-left=-12">
+
+<img src="images/sideIE.gif" align=left ISMAP USEMAP="#side.cmp" BORDER=0>
+
+</div>
+
+
+
+<div id=div1 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+Global news from The Asian Wall Street Journal and The Wall Street Journal
+Europe, plus hundreds of Dow Jones reporters world-wide.
+</FONT>
+</div>
+
+<div id=div2 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+Up-to-date coverage of markets around the globe.
+</FONT>
+</div>
+
+<div id=div3 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+A searchable news archive, including easy access to the Dow Jones
+News/Retrieval Publications Library of more than 3,700 top business news
+sources.
+</FONT>
+</div>
+
+<div id=div4 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+In-depth sections focused on technology, personal finance and small business.
+</FONT>
+</div>
+
+<div id=div5 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#33CC99"> 
+<b>Included in your subscription:</B>
+</FONT>
+</div>
+
+<div id=div6 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+<B>Barron's Online</B>
+</FONT>
+</div>
+
+<div id=div7 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#336699"> 
+<B>SmartMoney Interactive</B>
+</FONT>
+</div>
+
+<div id=div8 STYLE="position:absolute;LEFT:-100; TOP: -1000;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#33CC99"> 
+<I>and...</I>
+</FONT>
+</div>
+
+
+<div id=div9 STYLE="position:absolute;LEFT:110; TOP: 0;">
+<FONT SIZE=+1  FACE=Arial, helvetica" COLOR="#33cc99"> 
+<B> You'll also get:</B>
+</FONT>
+</div>
+
+<OBJECT ID="pth1"  
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div1">
+</OBJECT>
+
+<OBJECT ID="pth2"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div2">
+</OBJECT>
+
+<OBJECT ID="pth3"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div3">
+</OBJECT>
+
+<OBJECT ID="pth4"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div4">
+</OBJECT>
+
+<OBJECT ID="pth5"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div5">
+</OBJECT>
+
+<OBJECT ID="pth6"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div6">
+</OBJECT>
+
+<OBJECT ID="pth7"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div7">
+</OBJECT>
+
+<OBJECT ID="pth8"  CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="EdgeAction" VALUE="0">
+	<PARAM NAME="AutoStart" VALUE="0">	
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="1">	
+	<PARAM NAME="Duration" VALUE="3">
+	<PARAM NAME="Target" VALUE="div8">
+</OBJECT>
+
+
+<OBJECT ID="seq"
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+</OBJECT>
+
+<!-- Stuff to put in every page is below here -->
+
+<!-- NOTE: the inline frame itself determines the size of this object.  -->
+<IFRAME class="ScreenItem" ID=frameNextPrev src="nextprev.htm"  frameborder=0 noresize scrolling=no 
+	STYLE="POSITION:RELATIVE; LEFT:0; TOP:0; WIDTH:0; height:0;" >
+</IFRAME>
+<div ID=divNextPrev frameborder=0 noresize scrolling=no
+	STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:0; WIDTH:0; height:0;z-index:10" >
+</div>
+<div ID=divLogo frameborder=0 noresize scrolling=no
+	STYLE="POSITION:ABSOLUTE; LEFT:0; TOP:0; WIDTH:0; height:0;z-index:9" >
+</div>
+
+<MAP NAME="side.cmp">
+
+<AREA SHAPE=RECT COORDS="27,10,86,65" HREF=3_1.htm>
+
+<AREA SHAPE=RECT COORDS="26,71,90,124" HREF=4_1.htm>
+
+<AREA SHAPE=RECT COORDS="24,131,93,184" HREF=5_1.htm>
+
+<AREA SHAPE=RECT COORDS="25,190,96,247" HREF=6.htm>
+
+</MAP>
+
+</BODY>
+</HTML>

@@ -1,0 +1,920 @@
+<HTML>
+
+<HEAD>
+
+	<TITLE>Warner Bros. PLAYDOM: Home (preview)</TITLE>
+
+
+
+<script language="VBScript">
+
+<!--
+
+
+
+Sub Window_onLoad
+
+	Seq("Intro").Play	
+
+End Sub
+
+
+
+Sub Seq_onInit
+
+	call Seq("Intro").at(0.000, "SlideBtn1")
+
+	call Seq("Intro").at(1.500, "SlideBtn2")
+
+	call Seq("Intro").at(3.000, "SlideBtn3")
+
+	call Seq("Intro").at(4.500, "SlideBtn4")
+
+End Sub
+
+
+
+Sub SlideBtn1
+
+	pthBtn1.Target = "btn1"
+
+	pthbtn1.play
+
+End Sub
+
+
+
+Sub SlideBtn2
+
+	pthBtn2.Target = "btn2"
+
+	pthbtn2.play
+
+End Sub
+
+
+
+Sub SlideBtn3
+
+	pthBtn3.Target = "btn3"
+
+	pthbtn3.play
+
+End Sub
+
+
+
+Sub SlideBtn4
+
+	pthBtn4.Target = "btn4"
+
+	pthbtn4.play
+
+End Sub
+
+
+
+Sub pthBtn1_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn2_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn3_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn4_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthbtn1_onstop
+
+	Btn1Img.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub pthbtn2_onstop
+
+	Btn2Img.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub pthbtn3_onstop
+
+	Btn3Img.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub pthbtn4_onstop
+
+	Btn4Img.style.visibility = "visible"
+
+End Sub
+
+
+
+Sub playSlideSnd
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelA.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playBtnSnd
+
+	If ChannelB.IsSoundCardEnabled = true and ChannelB.ReadyState > 0 then
+
+		ChannelB.Stop
+
+		ChannelB.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playTabSnd
+
+	If ChannelC.IsSoundCardEnabled = true and ChannelC.ReadyState > 0 then
+
+		ChannelC.Stop
+
+		ChannelC.Run
+
+	End If
+
+End Sub
+
+
+
+sub document_onclick()
+
+	dim clicked_obj, obj
+
+	set clicked_obj = window.event.srcElement
+
+    select case clicked_obj.id	
+
+		case "btn1Img"
+
+			playBtnSnd
+
+			showPres1()
+
+	    case "btn2Img"
+
+			playBtnSnd
+
+			showPres2()
+
+	    case "btn3Img"
+
+			playBtnSnd
+
+			showPres3()
+
+	    case "btn4Img"
+
+			playBtnSnd
+
+			showPres4()
+
+		case "Area0"
+
+			playTabSnd
+
+			showPres0()
+
+		case "Area1"
+
+			playTabSnd
+
+			showPres1()
+
+		case "Area2"
+
+			playTabSnd
+
+			showPres2()
+
+		case "Area3"
+
+			playTabSnd
+
+			showPres3()						
+
+		case "Area4"
+
+			playTabSnd
+
+			showPres4()						
+
+	end select
+
+End sub
+
+
+
+Sub tbr_dom1_onMouseOver
+
+	tbr_dom1.style.borderWidth = 2
+
+End Sub
+
+
+
+Sub tbr_dom2_onMouseOver
+
+	tbr_dom2.style.borderWidth = 2
+
+End Sub
+
+
+
+Sub tbr_dom3_onMouseOver
+
+	tbr_dom3.style.borderWidth = 2
+
+End Sub
+
+
+
+Sub tbr_btn1_onMouseOver
+
+	tbr_btn1a.style.visibility="visible"
+
+End Sub
+
+
+
+Sub tbr_btn2_onMouseOver
+
+	tbr_btn2a.style.visibility="visible"
+
+End Sub
+
+
+
+Sub tbr_btn3_onMouseOver
+
+	tbr_btn3a.style.visibility="visible"
+
+End Sub
+
+
+
+Sub tbr_btn4_onMouseOver
+
+	tbr_btn4a.style.visibility="visible"
+
+	tbr_btn4a.style.borderWidth = 2	
+
+End Sub
+
+
+
+Sub tbr_dom1_onMouseOut
+
+	tbr_dom1.style.borderWidth = 0
+
+End Sub
+
+
+
+Sub tbr_dom2_onMouseOut
+
+	tbr_dom2.style.borderWidth = 0
+
+End Sub
+
+
+
+Sub tbr_dom3_onMouseOut
+
+	tbr_dom3.style.borderWidth = 0
+
+End Sub
+
+
+
+Sub tbr_btn1a_onMouseOut
+
+	tbr_btn1a.style.visibility="hidden"
+
+End Sub
+
+
+
+Sub tbr_btn2a_onMouseOut
+
+	tbr_btn2a.style.visibility="hidden"
+
+End Sub
+
+
+
+Sub tbr_btn3a_onMouseOut
+
+	tbr_btn3a.style.visibility="hidden"
+
+End Sub
+
+
+
+Sub tbr_btn4a_onMouseOut
+
+	tbr_btn4a.style.visibility="hidden"
+
+	tbr_btn4a.style.borderWidth = 0	
+
+End Sub
+
+
+
+//-->
+
+</script>	
+
+
+
+<script language="JavaScript">
+
+<!--
+
+
+
+function showPres0()
+
+{
+
+	window.status="Hot Picks";
+
+	monitor_display.document.location="pres0.htm";
+
+}
+
+
+
+function showPres1()
+
+{
+
+    window.status="Action";
+
+	monitor_display.document.location="pres1.htm";
+
+}
+
+
+
+function showPres2()
+
+{
+
+    window.status="Adventure";
+
+	monitor_display.document.location="pres2.htm";
+
+}
+
+
+
+function showPres3()
+
+{
+
+    window.status="Mystery";
+
+	monitor_display.document.location="pres3.htm";
+
+}
+
+
+
+function showPres4()
+
+{
+
+    window.status="Kids";
+
+	monitor_display.document.location="pres4.htm";
+
+}
+
+
+
+function HPicks(num)
+
+{
+
+	if (num == 0)
+
+	{
+
+		playTabSnd();
+
+		showPres0();
+
+	}
+
+	else if (num == 1)
+
+	{
+
+		playTabSnd();
+
+		showPres1();
+
+	}
+
+	else if (num == 2)
+
+	{
+
+		playTabSnd();
+
+		showPres2();
+
+	}
+
+	else if (num == 3)
+
+	{
+
+		playTabSnd();
+
+		showPres3();
+
+	}
+
+	else if (num == 4)
+
+	{
+
+		playTabSnd();
+
+		showPres4();
+
+	}
+
+}
+
+
+
+//-->
+
+</script>
+
+</HEAD>
+
+
+
+<BODY bgcolor="#040265" text="#000000" link="#ff0000" vlink="#ff0000" alink="#ff0000" leftmargin=0 topmargin=0>
+
+
+
+<!--MAIN COMPONENTS****************************************************-->
+
+
+
+<center>
+
+<DIV ID=centeringDiv STYLE="POSITION:relative; WIDTH:640; top:0">
+
+
+
+
+
+<img src="img/hpicks.gif" border=0 ID=HPicksImg STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:3; VISIBILITY:visible" width=53 height=267 usemap="#HPicksMap">
+
+
+
+<img src="img/one.gif" width=112 height=66 border=0 STYLE="POSITION:ABSOLUTE;TOP:3;LEFT:60;z-INDEX:0">
+
+
+
+<img src="img/btn1.gif" border=0 ID=btn1 STYLE="POSITION:ABSOLUTE;TOP:70; LEFT:60;z-INDEX:1" width=112 height=65>
+
+
+
+<img src="img/two.gif" width=112 height=66 border=0 STYLE="POSITION:ABSOLUTE;TOP:69;LEFT:60;z-INDEX:2">
+
+
+
+<img src="img/btn2.gif" border=0 ID=btn2 STYLE="POSITION:ABSOLUTE; TOP:137; LEFT:60;z-INDEX:3" width=112 height=65>
+
+
+
+<img src="img/three.gif" width=112 height=66 border=0  STYLE="POSITION:ABSOLUTE;TOP:136;LEFT:60;z-INDEX:4">
+
+
+
+<img src="img/btn3.gif" border=0 ID=btn3 STYLE="POSITION:ABSOLUTE; TOP:204; LEFT:60;z-INDEX:5" width=112 height=65>
+
+
+
+<img src="img/four.gif" width=112 height=66 border=0  STYLE="POSITION:ABSOLUTE;TOP:203;LEFT:60;z-INDEX:6">
+
+
+
+<img src="img/btn4.gif" border=0 ID=btn4 STYLE="POSITION:ABSOLUTE; TOP:273; LEFT:60;z-INDEX:7" width=112 height=66>
+
+
+
+<img src="img/btnback.gif" width=112 height=65 border=0  STYLE="POSITION:ABSOLUTE;TOP:273;LEFT:60;z-INDEX:8">
+
+
+
+<img src="img/action.gif" width=90 height=40 border=0 ID=btn1Img STYLE="POSITION:ABSOLUTE; TOP:15; LEFT:72;z-INDEX:10; VISIBILITY:HIDDEN;CURSOR:HAND">
+
+
+
+<img src="img/advent.gif" width=90 height=40 border=0 ID=btn2Img STYLE="POSITION:ABSOLUTE; TOP:82; LEFT:72;z-INDEX:10; VISIBILITY:HIDDEN;CURSOR:HAND">
+
+
+
+<img src="img/mystery.gif" width=90 height=40 border=0 ID=btn3Img STYLE="POSITION:ABSOLUTE; TOP:149; LEFT:72;z-INDEX:10; VISIBILITY:HIDDEN;CURSOR:HAND">
+
+
+
+<img src="img/kids.gif" width=90 height=40 border=0 ID=btn4Img STYLE="POSITION:ABSOLUTE; TOP:217; LEFT:72;z-INDEX:10; VISIBILITY:HIDDEN;CURSOR:HAND">
+
+
+
+<img src="img/tv.gif" border=0 ID=monitor_frame STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:178" width=446 height=264>
+
+
+
+<IFRAME ID=monitor_display STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:211; TOP:40; LEFT:184" SRC="pres0.htm" SCROLLING=NO>
+
+</IFRAME>
+
+
+
+
+
+<DIV ID=toolbar STYLE="POSITION:ABSOLUTE; TOP:273; LEFT:15;z-INDEX:9">
+
+
+
+<img ID=left src="img/tbr_left.jpg" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0">
+
+
+
+<img src="img/tbr_rd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:2">
+
+	<a href="../rhythmdm/rd_unsub.htm">
+
+	<img ID=tbr_dom1 src="img/tbr_rdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:16; width:28" TITLE="Go to RHYTHMDOM!">
+
+	</a>
+
+
+
+<img src="img/tbr_sd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:60">
+
+	<a href="../screendm/sd_unsub.htm">
+
+	<img ID=tbr_dom2 src="img/tbr_sdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:74" TITLE="Go to SCREENDOM!">
+
+	</a>
+
+
+
+<img src="img/tbr_td.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:118">
+
+	<a href="../toondom/td_unsub.htm">
+
+	<img ID=tbr_dom3 src="img/tbr_tdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:132" TITLE="Go to PLAYDOM!">
+
+	</a>
+
+
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1 src="img/tbr_ed.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1a src="img/tbr_eda.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176;visibility:hidden" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2 src="img/tbr_ss.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176" TITLE="Go to STUDIO PLAZA!"></a>
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2a src="img/tbr_ssa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176;visibility:hidden" TITLE="Go to STUDIO PLAZA!"></a>
+
+
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3 src="img/tbr_wbc.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176" TITLE="Go to WarnerBros.Com!"></a>
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3a src="img/tbr_wbca.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176;visibility:hidden" TITLE="Go to WarnerBros.Com!"></a>
+
+
+
+<img src="img/tbr_go2.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:305">
+
+<img ID=tbr_btn4 src="img/tbr_go2l.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+<img ID=tbr_btn4a src="img/tbr_goa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312;visibility:hidden" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+
+
+</DIV>
+
+
+
+<DIV ID=ad1 STYLE="POSITION:ABSOLUTE; WIDTH:234; HEIGHT:60; TOP:273; LEFT:370;background:black">
+
+<A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><IMG SRC="img/pb234x60.jpg" BORDER=0></A>
+
+</DIV>
+
+
+
+<img src="img/scrnbar.gif" border=0 ID=median STYLE="POSITION:ABSOLUTE; TOP:335; LEFT:3; VISIBILITY:VISIBLE; z-INDEx:9" width=609 height=22>
+
+
+
+<DIV ID="Categories" STYLE="POSITION:ABSOLUTE; WIDTH:609; HEIGHT:334; TOP:362; LEFT:3;BACKGROUND-IMAGE:URL(img/backback.gif)">
+
+
+
+<table border=0 width=609 CELLPADDING=10>
+
+<tr>
+
+<td align=center width=25%>
+
+<font size="4" face="Arial"><b>Action</b></font>
+
+<hr>
+
+</td>
+
+<td align=center width=25%>
+
+<font size="4" face="Arial"><b>Adventure</b></font>
+
+<hr>
+
+</td>
+
+<td align=center width=25%>
+
+<font size="4" face="Arial"><b>Mystery</b></font>
+
+<hr>
+
+</td>
+
+<td align=center width=25%>
+
+<font size="4" face="Arial"><b>Kids</b></font>
+
+<hr>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td colspan=4 align="center" valign="top">
+
+<font size="3" face="Comic Sans MS"><blockquote>
+
+Add PLAYDOM to your channels for a comprehensive daily index of the best in the online gaming universe!  Whether it is head-to-head action, intriguing adventure, enigmatic mysteries, or entertainment for the kids, PLAYDOM is your online destination!</font>
+
+<br>
+
+<a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><img src="../img/atc_btn.gif" border=0 vspace=10></a></blockquote>
+
+<br><br>
+
+<center>
+
+<h5>TM & &copy 1997 Warner Bros.</h5>
+
+</center>
+
+</td>
+
+</tr>
+
+</table>
+
+</DIV>
+
+
+
+
+
+</DIV>
+
+</center>
+
+
+
+
+
+<OBJECT 
+
+	ID="pthBtn1"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE=".500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 60,70,60,3)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthBtn2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE=".500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,60,137,60,70)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthBtn3"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE=".500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,60,204,60,137)">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthBtn4"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE=".500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,60,273,60,204)">
+
+</OBJECT>
+
+
+
+<OBJECT ID="Seq"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/btnin.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelB"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/btnsnd.wav">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelC"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/tabsnd.wav">
+
+</OBJECT>
+
+
+
+<MAP NAME="HPicksMap">
+
+<AREA SHAPE=POLY COORDS="3,5,15,0,27,61,28,127,18,165,27,199,21,265,4,266,3,6,3,5" ID="Area0">
+
+<AREA SHAPE=POLY COORDS="19,2,52,2,52,60,30,60,18,3,19,2" ID="Area1">
+
+<AREA SHAPE=POLY COORDS="30,63,52,63,52,136,30,125,30,63" ID="Area2">
+
+<AREA SHAPE=POLY COORDS="30,128,52,139,52,198,29,198,21,165,29,129,30,128" ID="Area3">
+
+<AREA SHAPE=POLY COORDS="30,202,52,202,52,265,24,266,30,202" ID="Area4">
+
+</MAP>
+
+
+
+</BODY>
+
+</HTML>
+

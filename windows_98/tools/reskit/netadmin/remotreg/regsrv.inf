@@ -1,0 +1,90 @@
+; REGSRV.INF
+;
+; Remote Registry Service
+;
+; Copyright 1993-1994, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=NetService
+provider=%V_MS%
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%REMOTEREG.DeviceDesc%= REMOTEREG.ndi, REMOTEREG ;remote registry service
+
+;*********************************************
+;    Remote Registry Service
+;*********************************************
+[REMOTEREG.ndi]
+AddReg=REMOTEREG.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=REMOTEREG
+CopyFiles=REMOTEREG.copy.inf
+
+[REMOTEREG.ndi.reg]
+HKR,Ndi,DeviceID,,REMOTEREG
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"netbios,ipx,tcpip"
+HKR,Ndi\Interfaces,LowerRange,,"netbios,ipx,tcpip"
+HKR,Ndi\Compatibility,RequireAny,,"NWLINK,MSTCP,NETBEUI"
+; Install-Remove Section
+HKR,Ndi\Install,,,"REMOTEREG.Install"
+HKR,Ndi\Remove,,,"REMOTEREG.Remove"
+; Context help
+HKR,Ndi,HelpText,,%REMOTEREG_HELP%
+
+[REMOTEREG.copy.inf]
+regsrv.inf
+
+[REMOTEREG.Install]
+ADDREG=REMOTEREG.Add.reg
+CopyFiles=REMOTEREG.Add.sys.Files,REMOTEREG.Add.win.Files
+[REMOTEREG.Add.reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Runservices,regserv,,"regserv.exe"
+[REMOTEREG.Add.sys.Files]
+winreg.dll    
+[REMOTEREG.Add.win.Files]
+regserv.exe   
+
+[REMOTEREG.Remove]
+DELREG=REMOTEREG.Rmv.reg
+DelFiles=REMOTEREG.Rmv.win.Files,REMOTEREG.Rmv.sys.Files
+[REMOTEREG.Rmv.reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Runservices,regserv
+
+;****************************************************************************
+; SourceDisks
+;****************************************************************************
+[SourceDisksNames]
+71=%DSK%, "", 0001
+
+[SourceDisksFiles]
+winreg.dll    =71,,22000
+regserv.exe   =71,,33000
+regsrv.inf    =71,,1024
+
+;****************************************************************************
+; Destination directories
+;****************************************************************************
+[DestinationDirs]
+REMOTEREG.Add.sys.Files = 11    ;LDID_SYS 
+REMOTEREG.Add.win.Files = 25    ;LDID_SHARED
+REMOTEREG.copy.inf      = 17    ;LDID_INF
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+
+; Devices
+REMOTEREG.DeviceDesc="Microsoft Remote Registry"
+
+; Context help
+REMOTEREG_HELP="The remote registry service allows administrators to manage this computer's settings."
+
+DSK="Windows 95 resource kit"

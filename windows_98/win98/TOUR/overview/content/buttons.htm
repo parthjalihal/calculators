@@ -1,0 +1,152 @@
+<HTML>
+<HEAD><TITLE></TITLE>
+
+<style type="text/css">
+body   {font-family: Verdana, Arial, Helvetica; font-size: 10pt; color: #ffffff; text-decoration: none; cursor: default;}
+td   {font-family: Verdana, Arial, Helvetica; font-size: 10pt; color: #ffffff; text-decoration: none;}
+a:link   {font-family: Verdana, Arial, Helvetica; font-size: 10pt; color: #ffffff; text-decoration: none;}
+a:active   {font-family: Verdana, Arial, Helvetica; font-size: 10pt; color: #ffcc00; text-decoration: none;}
+a:visited   {font-family: Verdana, Arial, Helvetica; font-size: 10pt; color: #ffffff; text-decoration: none;}
+</style>
+
+<script language="javascript">
+<!--
+var engine=window.external;
+var tabNum = 0; // WHICH ITEM HAS FOCUS
+var acount; // NUMBER OF ANCHORS IN LESSON TEXT
+// PRE-LOAD BUTTON BAR IMAGES
+var imgsprev1 = new Image(22,22); imgsprev1.src="images/sprev01.gif";
+var imgsprev2 = new Image(22,22); imgsprev2.src="images/sprev02.gif";
+var imgsprev3 = new Image(22,22); imgsprev3.src="images/sprev03.gif";
+var imgsnext1 = new Image(22,22); imgsnext1.src="images/snext01.gif";
+var imgsnext2 = new Image(22,22); imgsnext2.src="images/snext02.gif";
+var imgsnext3 = new Image(22,22); imgsnext3.src="images/snext03.gif";
+var imghome1 = new Image(22,22); imghome1.src="images/home01.gif";
+var imghome2 = new Image(22,22); imghome2.src="images/home02.gif";
+var imghome3 = new Image(22,22); imghome3.src="images/home03.gif";
+
+function doTab() {
+  tabNum++;
+  if ( (tabNum > 3)&&(acount == 0) ) { tabNum = 1; a1.focus(); }
+  else if (tabNum > (acount + 3)) { tabNum = 1; parent.buttons.focus(); a1.focus(); }
+  else if ( (tabNum > 0)&&(tabNum < 4) ) { eval("a" + tabNum + ".focus();"); }
+  else { tabNum--; parent.content.focus(); }
+}
+
+function pageload() {
+  parent.buttons.focus();
+  setTimeout("update();",250);
+  x = homelabel.offsetHeight;
+  if ( x > 16 ) {
+    homelabel.style.top = 16 - x;
+    sprevlabel.style.top = 16 - x;
+    snextlabel.style.top = 16 - x;
+    }
+  }
+function update() {
+  Position.innerHTML = parent.content.Data1.recordset.AbsolutePosition;
+  Count.innerHTML = parent.content.Data1.recordset.RecordCount;
+  acount = parent.content.document.anchors.length;
+  }
+
+function home() {
+  engine.BackToWelcome("overview/default.htm");
+  }
+
+function previous() {
+  if (parent.content.Data1.recordset.AbsolutePosition > 1) {
+    parent.content.Data1.recordset.moveprevious();
+    update();
+    }
+  else home();
+  }
+
+function next() {
+  if (parent.content.Data1.recordset.AbsolutePosition == parent.content.Data1.recordset.RecordCount - 1) {
+    writeVars(parent.content.c);
+    }
+  if (parent.content.Data1.recordset.AbsolutePosition != parent.content.Data1.recordset.RecordCount) {
+    parent.content.Data1.recordset.movenext();
+    update();
+    }
+  else home();
+  }
+
+function writeVars(num) {
+  // ******************* WRITE THE "COOKIE" *********************
+  var gTourCookie = engine.getString();
+
+  if (gTourCookie == "") {
+    engine.setString ("000000");
+    var gTourCookie = "000000";
+    }
+
+  num--;
+  // replace position(num) in the 'Cookie' with its opposite
+  gTourCookie = gTourCookie.substring(0,num) + "1" + gTourCookie.substring((num + 1),(gTourCookie.length));
+  // rewrite the 'cookie'
+  engine.setString (gTourCookie);
+  }
+
+function ovr(which) {
+  eval(which + "img.src=img" + which + "2.src;");
+  eval(which + "label.style.color='#ffcc00';");
+  }
+function out(which) {
+  eval(which + "img.src=img" + which + "1.src;");
+  eval(which + "label.style.color='#ffffff';");
+  }
+function dep(which) {
+  eval(which + "img.src=img" + which + "3.src;");
+  }
+
+
+//-->
+</script>
+
+<script language="JavaScript" for=document event=onclick>
+  if (window.event.shiftKey) { return false; }
+</script>
+
+<script language="JavaScript" for=document event=onkeydown>
+if (window.event.shiftKey) { window.event.keyCode=0; }
+else if (!window.event.altKey) {
+  switch(window.event.keyCode){
+    case 9:   {doTab();break;}
+    case 37:  {previous();break;}
+    case 39:  {next();break;}
+    default:  {break;}
+   }
+  }
+  return 0;
+</script>
+
+</HEAD>
+
+<BODY bgcolor="#313131" topmargin=0 leftmargin=0 onload="pageload();" scroll=no tabIndex=-1>
+<table id=buttontable width=318 cellspacing=0 cellpadding=0 border=0 align=left bgcolor="#313131">
+  <tr>
+    <td width=2><img id=i1 src="images/check0.gif" width=2 height=10></td>
+    <td><a id=a1 href="javascript:home();" onmouseover="ovr('home');" onmouseout="out('home');" onfocus="ovr('home');" onblur="out('home');" onmousedown="dep('home');" onmouseup="out('home');"><img id=homeimg src="images/home01.gif" alt="" width=22 height=22 border=0 vspace=2 hspace=2><br>
+  <span id=homelabel style="position:relative;top:0;" DATASRC=#ToolData DATAFORMATAS="html" DATAFLD="Column1"></span></a></td>
+    <td width=2><img src="images/check0.gif" width=2 height=10></td>
+    <td><a id=a2 href="javascript:previous();" onmouseover="ovr('sprev');" onmouseout="out('sprev');" onfocus="ovr('sprev');" onblur="out('sprev');" onmousedown="dep('sprev');" onmouseup="out('sprev');"><img src="images/sprev01.gif" alt="" name=sprevimg alt="" width=22 height=22 border=0 vspace=2 hspace=2><br>
+  <span id=sprevlabel style="position:relative;top:0;" DATASRC=#ToolData DATAFORMATAS="html" DATAFLD="Column2"></span></a></td>
+    <td width=2><img src="images/check0.gif" width=2 height=10></td>
+    <td><a id=a3 href="javascript:next();" onmouseover="ovr('snext');" onmouseout="out('snext');" onfocus="ovr('snext');" onblur="out('snext');" onmousedown="dep('snext');" onmouseup="out('snext');"><img src="images/snext01.gif" alt="" name=snextimg alt="" width=22 height=22 border=0 vspace=2 hspace=2><br>
+  <span id=snextlabel style="position:relative;top:0;" DATASRC=#ToolData DATAFORMATAS="html" DATAFLD="Column3"></span></a></td>
+    <td width=10><img src="images/check0.gif" width=10 height=10></td>
+    <td align=right width=60><nobr><span id=Position> </span>&nbsp;<span class=toolbar DATASRC=#ToolData DATAFORMATAS="html" DATAFLD="Column6"> </span><span id=Count> </span></span></nobr></td>
+    <td width=10><img src="images/check0.gif" width=10 height=10></td>
+ </tr>
+</table>
+
+  <OBJECT ID="ToolData" WIDTH=0 HEIGHT=0
+    CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+    <PARAM NAME="TextQualifier" VALUE="%">
+    <PARAM NAME="FieldDelim" VALUE="|">
+    <PARAM NAME="DataURL" VALUE="data/tooldata.txt">
+  </OBJECT>
+
+</BODY>
+</HTML>

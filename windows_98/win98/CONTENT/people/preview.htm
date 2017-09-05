@@ -1,0 +1,545 @@
+<!--NoAd-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- JavaScript & HTML by Charles Herold -->
+<HTML>
+<HEAD>
+<STYLE>
+.keyword {
+	font:60;
+	color:#FFFFFF;
+	font-style:italic;
+	font-family:Verdana;
+	font-weight:800;
+}
+.phrase {
+	font:26;
+	color:#000000;
+	font-family:Verdana;
+	font-weight:400;
+}
+.lphrase {
+	font:42;
+	color:#000000;
+	font-family:Verdana;
+	font-weight:400;
+}
+BODY {
+	font-family:Verdana;
+	font:20;
+}
+</STYLE>
+	<TITLE>People</TITLE>
+	
+<SCRIPT LANGUAGE="JavaScript" SRC="scripts/moveobj.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="scripts/runthing.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="scripts/shiftcol.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="peopleOnline" event="onfilterchange">
+function runMainSequence()
+{
+	moveBeauty.run();
+	cshiftBeauty.run();
+	beautiful.highquality = true;
+}
+runMainSequence();
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+var pause = 1000;
+var grow = 1, shrink = -1;
+var peopleOnlineContents;
+var testTimeOut;
+var test;
+function sleep(mill)
+{
+	var date = new Date();
+	var started = date.getTime();
+	var current;
+	do {
+		date = new Date();
+		current = date.getTime();
+	} while (started + mill > current);
+}
+
+function start()
+{
+	peopleOnlineContents = peopleOnline.innerHTML;	// save this
+	init();
+//	doContent();
+	runFirstSequence();
+}
+function runFirstSequence()
+{
+	runFinalBit();
+}
+var fadeinIncrement = 20;
+var fadeoutIncrement = 25;
+var keywordHop = 50;
+var phraseHop = 110;
+
+function init()
+{
+	moveObjDefaultSpeed = 50;
+	moveObjDefaultHop = keywordHop;
+	defaultShiftColorIncrement = fadeinIncrement;
+		
+	moveBeauty = new Mover (beautiful);	// makes an object with move info and object
+	moveBeauty.setTop(100);
+	moveBeauty.setLeft(parseInt(beautiful.style.left));
+	moveBeauty.setHop(keywordHop - 20)
+	moveBeauty.setRunAtEnd(movepeople);	// making moveMost.run the argument crashes
+
+	cshiftBeauty = new ColorShifter(beautiful);
+	cshiftBeauty.setRGB(255,0,0);
+	
+	moveMost = new Mover (themost);
+	moveMost.setLeft(16);
+	moveMost.setTop(parseInt(themost.style.top));
+	moveMost.setHop(phraseHop);
+	moveMost.setRunAtEnd(fadeTMP);
+	
+	movePeople = new Mover(people);
+	movePeople.setLeft(315);
+	movePeople.setTop(parseInt(people.style.top));
+	movePeople.setHop(phraseHop);
+	movePeople.setRunAtEnd(movethemost);
+
+	moveSexy = new Mover (sexiest);	// makes an object with move info and object
+	moveSexy.setTop(parseInt(sexiest.style.top));
+	moveSexy.setLeft(78);
+	moveSexy.setRunAtEnd(movethe);
+
+	cshiftSexy = new ColorShifter(sexiest);
+	cshiftSexy.setRGB(255, 0, 0);
+
+	moveThe = new Mover (the);
+	moveThe.setLeft(37);
+	moveThe.setTop(parseInt(the.style.top));
+	moveThe.setHop(phraseHop);
+	moveThe.setRunAtEnd(movemanalive);
+
+	moveManAlive = new Mover(manalive);
+	moveManAlive.setLeft(200);
+	moveManAlive.setTop(parseInt(manalive.style.top));
+	moveThe.setHop(phraseHop + 100);
+	moveManAlive.setRunAtEnd(fadeTMA);
+
+	moveIntrigue = new Mover(intriguing);
+	moveIntrigue.setLeft(parseInt(intriguing.style.left));
+	moveIntrigue.setTop(150);
+	moveIntrigue.setRunAtEnd(movepeople);
+	
+	cshiftIntrigue = new ColorShifter(intriguing);
+	cshiftIntrigue.setRGB(255, 0, 0);
+
+	moveDressed = new Mover(dressed);
+	moveDressed.setLeft(parseInt(dressed.style.left));
+	moveDressed.setTop(170);
+	moveDressed.setRunAtEnd(movebestandworst);
+
+	
+	cshiftDressed = new ColorShifter(dressed);
+	cshiftDressed.setRGB(255, 0, 0);
+	cshiftDressed.setIncrement(7);
+	cshiftDressed.setRunAtEnd(fadedressed);
+
+	moveWorst = new Mover (bestandworst);
+	moveWorst.setTop(parseInt(bestandworst.style.top));
+	moveWorst.setLeft(27);
+	moveWorst.setHop(phraseHop);
+	
+	moveStars = new Mover(youngstars);
+	moveStars.setTop(parseInt(youngstars.style.top));
+	moveStars.setLeft(30);
+	moveStars.setRunAtEnd(movethehottest);
+	
+	cshiftStars = new ColorShifter(youngstars);
+	cshiftStars.setRGB(255, 0, 0);
+	cshiftStars.setIncrement(fadeoutIncrement);
+
+	moveHottest = new Mover (thehottest);
+	moveHottest.setLeft(74);
+	moveHottest.setTop(parseInt(thehottest.style.top));
+	moveHottest.setRunAtEnd(fadestars);
+}
+
+function startBullseye()
+{
+	pulsate(0, grow);
+}
+
+var pulseID, pointID;
+function pulsate(number, direction)
+{
+	var speed = 200;
+
+	ring[number].style.visibility = direction == grow ? "visible" : "hidden";
+/*
+	if (0 && firstTime && direction != grow && number == 0) {
+		clearTimeout(pulseID);
+		clearTimeout(pointID);
+		dissolvePeopleOnline();
+		firstTime = false;
+//		setTimeout("runMainSequence()", 1000);
+		return;
+	}
+*/
+
+	if (number == 0)
+			pointID = setTimeout("point(0)", 300);		// shoot out arrows from center
+	number += direction;
+	if (number >= ring.length || number < 0) {
+		direction = -direction;
+		number += direction;
+	}
+	pulseID = setTimeout("pulsate(" + number + ", " + direction + ")", speed);
+}
+
+var firstTime = true;	// whether we've gone through the begin/end sequence before
+function point(number)
+{
+	var speed = 600;
+
+	if (firstTime && arrow[arrow.length - 1].style.visibility == "visible") {
+		clearTimeout(pointID);
+		clearTimeout(pulseID);
+		dissolvePeopleOnline();
+		firstTime = false;
+//		setTimeout("runMainSequence()", 1000);
+		return;
+	}
+	if (!arrow[0])	// check for when we've faded out this
+		return;
+	arrow[number].style.visibility = "visible";
+	if (number > 0)
+		arrow[number-1].style.visibility = "hidden";
+	else
+		arrow[arrow.length-1].style.visibility = "hidden";
+	
+	if (++number < arrow.length)
+		pointID = setTimeout("point(" + number + ")", speed);
+}
+
+function dissolvePeopleOnline()
+{
+ 	peopleOnline.filters[0].Apply(); 
+	peopleOnline.innerHTML = "";
+	peopleOnline.filters[0].Play(); 
+	peopleOnline.innerHTML = peopleOnlineContents;		// put back to how it was before the first run
+}
+function movegetpeople() { moveGetPeople.run();}
+// wrapper functions for the various runs
+function movethemost() {sleep(pause); moveMost.run();}
+function movepeople()
+{
+	sleep(pause);
+	movePeople.run();
+}
+function movebestandworst() {moveWorst.run();}
+function fadedressed()
+{
+	sleep(pause);
+	cshiftDressed.setRGB(255,255,255);
+	cshiftDressed.setRunAtEnd(movestars);
+	cshiftDressed.setIncrement(fadeoutIncrement);
+	cshiftDressed.run();
+	fadeworst();
+	
+}
+function fadestars()
+{
+	sleep(pause);
+	cshiftStars.setRGB(255,255,255);
+	cshiftStars.setRunAtEnd(fadeIngetpeople);
+	cshiftStars.run();
+	fadehottest();
+	
+}
+function fadehottest()
+{
+	thehottest.style.visibility = 'hidden';
+}
+function movestars(){moveStars.run();cshiftStars.run();}
+function fadeworst()
+{
+	bestandworst.style.visibility = 'hidden';
+}
+
+function fadeTMP() {		// temp replacement for the fade out that doesn't work
+	cshiftBeauty.setRGB(255,255,255);
+	cshiftBeauty.run();
+
+	sleep(pause);
+	themost.style.visibility = 'hidden';
+	people.style.visibility = 'hidden';
+	setTimeout("moveSexy.run()", 1000);
+	setTimeout("cshiftSexy.run()", 1100);	// just a little pause	
+}
+
+function fadeTMP2() {		// temp replacement for the fade out that doesn't work
+	sleep(pause);
+	themost.style.visibility = 'hidden';
+	people.style.visibility = 'hidden';
+	cshiftIntrigue.setRGB(255, 255, 255);
+	cshiftIntrigue.setIncrement(25);
+	cshiftIntrigue.setRunAtEnd(movedressed);
+	cshiftIntrigue.run();
+	
+	return;fadeMost.run();fadePeople.run();
+}
+
+function movethe() {sleep(pause);moveThe.run();}
+function movethehottest() {moveHottest.run();}
+function movemanalive() {moveManAlive.run();}
+function cshiftsexy() {cshiftSexy.run();}
+function fadeTMA() {
+	sleep(pause);
+	the.style.visibility = 'hidden';
+	manalive.style.visibility = 'hidden';	
+
+	cshiftSexy.setRGB(255, 255, 255);
+	cshiftSexy.setIncrement(fadeoutIncrement);
+	cshiftSexy.setRunAtEnd(moveintrigue)	
+
+	cshiftSexy.run();
+}
+function moveintrigue() {
+	moveIntrigue.run();
+	cshiftIntrigue.run();
+	// now we need to initialize themost and people to their new starting positions
+	themost.style.left = -175;
+	themost.style.top = 138;
+	themost.style.visibility = 'visible';
+	people.style.left = -200;
+	people.style.top = 192;
+	people.style.visibility = 'visible';
+	moveMost.setTop(parseInt(themost.style.top));
+	moveMost.setRunAtEnd(fadeTMP2);
+	movePeople.setTop(parseInt(people.style.top));
+	movePeople.setLeft(220);
+	movePeople.setRunAtEnd(movethemost);
+
+}
+function movedressed() {
+	moveDressed.run();
+	cshiftDressed.run();
+}
+
+function fadeIn(which)
+{
+	which.filters.item(0).apply();
+	which.style.visibility = "";
+	which.filters.item(0).play();
+}
+function fadeIngetpeople()
+{
+	fadeIn(getpeople);
+	setTimeout("fadeIn(becauseenough)", 3000);
+	setTimeout("fadeAllKeywords()", 4000);
+	setTimeout("dissolveOut(becauseenough);dissolveOut(getpeople)", 7000);
+	setTimeout("doContent()", 9500);
+//	setTimeout("runFinalBit()", 9500);
+}
+
+
+// put in that stuff Microsoft wanted
+function doContent()
+{
+	var string = "<SPAN STYLE='color:red;'>People Online</SPAN> is the Internet's number one source for celebrity news, photos and videos. " +
+				"Now you can get the latest star gossip, candids and quotes, plus your daily horoscope, conveniently delivered to your desktop. " +
+				"How? Simply subscribe today to the <SPAN STYLE='color:red;'>People Online Daily</SPAN> -- because you can never get enough People.";
+					
+	cursorBlink();
+	writeString(0, string, 10);
+}
+
+/*
+ * This writes a string to innerText one character at a time, with a faux cursor at the end of the
+ * text.  initialPause indicates how many times to let the cursor blink before the sentence starts
+ */
+function writeString(index, string, initialPause)
+{
+	if (index < string.length) {
+		if (initialPause < 1) {
+			if (string.substring(index, index+1) == '<')	// print out tags in one fell swoop
+				index = string.indexOf('>', index) + 2;
+			longText.innerHTML = string.substring(0, ++index) + cursor();
+		} else 
+			longText.innerHTML = cursor();	// just blink the cursor
+	} else {
+		longText.innerHTML = string + cursor();
+		if (++index > string.length + 30) {
+			dissolveOut(longText);
+			setTimeout("runFinalBit()", 2000);
+			return;	//end sequence
+		}
+	}
+	test = "writeString(" + (index) + ", \"" + string + "\"," +  --initialPause + ")";
+	testTimeOut = setTimeout(test, 20);
+}
+
+var cursorToggle = false;
+function cursorBlink()
+{
+	cursorToggle = !cursorToggle;
+	curblinkID = setTimeout("cursorBlink()", 300);
+}
+function cursor()
+{
+	return cursorToggle ? '<SPAN STYLE="color:red;font-weight:500;">l</SPAN>' : ''; 
+}
+
+function fadeInNow()
+{
+	fadeIn(now);
+}
+function dissolveOut(which)
+{
+ 	which.filters[0].Apply(); 
+	which.innerHTML = "";
+	which.filters[0].Play(); 
+}
+function dissolveOutImage(which)
+{
+	which.filters[0].apply();
+	which.style.visibility = "hidden";
+	which.filters[0].play();
+}
+function fadeAllKeywords()
+{
+	var keys = new Array(cshiftBeauty, cshiftIntrigue, cshiftDressed, cshiftStars, cshiftSexy);
+	sleep (500);
+	for (var i = 0; i < keys.length; i++) {
+		keys[i].setRGB(255, 255, 0);
+		keys[i].setRunAtEnd(null);
+		keys[i].run();
+	}
+}
+
+function runFinalBit()
+{
+	// because we wipe away peopleLogo and online after this is run the first timel,
+	// we must reinitialize, so all initialization is just before
+	// we run the moves
+	movePeopleLogo = new Mover(peopleLogo);
+	movePeopleLogo.setTop(70);
+	movePeopleLogo.setLeft(parseInt(peopleLogo.style.left));
+	movePeopleLogo.setHop(keywordHop - 30);
+	movePeopleLogo.setRunAtEnd(startBullseye);
+	
+	moveOnline = new Mover (online);
+	moveOnline.setTop(parseInt(online.style.top));
+	moveOnline.setLeft(parseInt(peopleLogo.style.left) + 2);
+	moveOnline.setHop(keywordHop - 30);
+
+	movePeopleLogo.run();
+	moveOnline.run();
+}
+
+function addChan()
+{
+	if (testTimeOut>0) {
+		clearTimeout (testTimeOut);
+	}
+	window.external.addChannel('http://www.pathfinder.com/people/channel/channel.cdf')
+	if (testTimeOut>0) { 	
+		testTimeOut = setTimeout(test, 20);
+	}
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="yellow" onload="start();">
+
+<DIV id=longText STYLE="position:absolute;top:45;left:50;width:370;height:800;visibility:visible;z-index:20;filter:revealtrans(duration=2,transition=12);">
+</DIV>
+
+<DIV id=beautiful CLASS=keyword STYLE="position:absolute;top:300;left:120;visibility:visible;color:#FFFF00">
+beautiful
+</DIV>
+<DIV id=sexiest CLASS=keyword STYLE="position:absolute;top:127;left:-300;visibility:visible;color:#FFFF00;">
+Sexiest
+</DIV>
+<DIV id=themost CLASS="phrase" STYLE="position:absolute;top:135;left:-175;">
+the most
+</DIV>
+
+<DIV id=the CLASS="phrase" STYLE="position:absolute;top:134;left:-200;">
+the 
+</DIV>
+
+
+<DIV id=manalive CLASS="lphrase" STYLE="position:absolute;top:171;left:-290;">
+man alive
+</DIV>
+
+<DIV id=intriguing CLASS="keyword" STYLE="position:absolute;top:-100;left:50;color:#FFFFCC">
+intriguing
+</DIV>
+
+<DIV id=dressed CLASS="keyword" STYLE="position:absolute;top:-100;left:140;color:#FFFFCC">
+dressed!
+</DIV>
+
+<DIV id=bestandworst CLASS="phrase" STYLE="position:absolute;top:157;left:-350;">
+the best and worst
+</DIV>
+
+<DIV id=youngstars CLASS="keyword"
+	STYLE="position:absolute;top:130;left:-400;color:#FFFFCC;font:55;font-weight:800">
+young stars
+</DIV>
+
+<DIV id=thehottest CLASS="phrase" STYLE="position:absolute;top:124;left:-200;">
+the hottest
+</DIV>
+
+<DIV id=people CLASS="lphrase" STYLE="position:absolute;top:146;left:-200;">
+people
+</DIV>
+
+	<DIV id=becauseenough STYLE="position:absolute;top:160;left:10;font:20;filter:revealtrans(duration=2,transition=12);visibility:hidden;">
+		Because you can never <DIV STYLE="position:absolute;top:0;left:278;">enough</DIV>
+	</DIV>
+	<DIV id=getpeople STYLE="position:absolute;top:160;left:250;font:20;color:red;filter:revealtrans(duration=2, transition=12);visibility:hidden;">
+		get <DIV STYLE="position:absolute;top:0;left:120;">People.</DIV>
+	</DIV>
+<DIV id=peopleOnline STYLE="position:absolute;top:0;left:0;width:500;height:500;filter:revealtrans(duration=2, transition=12);">
+<!-- SECOND HALF OF ANIMATION (BULLSEYE) -->
+<DIV id=bullseye STYLE="position:absolute;left:154;top:120;">
+	<IMG id=ring SRC="images/ring1.gif" WIDTH=177 HEIGHT=177 ALT="" STYLE="position:absolute;left:0;top:0;visibility:hidden;">
+	<IMG id=ring SRC="images/ring2.gif" WIDTH=177 HEIGHT=177 ALT="" STYLE="position:absolute;left:0;top:0;visibility:hidden;">
+	<IMG id=ring SRC="images/ring3.gif" WIDTH=177 HEIGHT=177 ALT="" STYLE="position:absolute;left:0;top:0;visibility:hidden;">
+	<IMG id=ring SRC="images/ring4.gif" WIDTH=177 HEIGHT=177 ALT="" STYLE="position:absolute;left:0;top:0;visibility:hidden;">
+	
+	<IMG id=arrow SRC="images/arrow.gif" STYLE="position:absolute;left:90;top:90;visibility:hidden;">
+	<IMG id=arrow SRC="images/arrow.gif" STYLE="position:absolute;left:125;top:125;visibility:hidden;">
+	<IMG id=arrow SRC="images/arrow.gif" STYLE="position:absolute;left:160;top:160;visibility:hidden;">
+
+</DIV>
+
+	<IMG id="peopleLogo" SRC="images/people.gif" STYLE="position:absolute;top:-150;left:60;">
+	<IMG id="online" SRC="images/online.gif" STYLE="position:absolute;top:173;left:-200">
+</DIV>
+<!-- subscribe button -->
+<DIV onMouseover="style.color='red'"
+	onMouseout="style.color='black'"
+	onClick="addChan()"
+	STYLE="position:absolute;left:300;top:320;cursor:hand;visibility:visible;font-family:Verdana;font:23;font-weight:800;z-index:30;">
+	<IMG SRC="images/ieaddcha.gif">
+</DIV>
+
+
+<!-- guidelines, REMOVE BEFORE STAGING -->
+<!--
+<DIV STYLE="position:absolute;top:0;left:460;width:1;background-color:black;height:365"></DIV>
+<HR STYLE="position:absolute;top:365;left:0">
+-->
+</BODY>
+</HTML>

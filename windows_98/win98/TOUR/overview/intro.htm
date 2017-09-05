@@ -1,0 +1,35 @@
+<HTML>
+<head>
+<object id="introdata" classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83" ondatasetcomplete="loadFrames()">
+  <param name="TextQualifier" value="%">
+	<param name="FieldDelim" value="|">
+	<param name="DataURL" value="~intro/intrdata.txt">
+</object>
+<SCRIPT FOR=document EVENT=onkeypress LANGUAGE="javascript">
+	//if there is a keypress, continue
+	location="default.htm"
+</SCRIPT>
+
+<script language="JavaScript">
+var bDoneonce = false;
+
+function loadFrames(){
+  //pass thread back to the browser to ensure TDC is loaded
+	if (!bDoneonce) {
+		window.setTimeout("loadFrames()",1);
+		bDoneonce = true;
+		return;
+	}
+	content.location='~intro/introcnt.htm'
+}
+</script>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="window" EVENT="onload">
+	tempvar=introdata.recordset
+</SCRIPT>
+<head>
+<frameset cols="100%,*" frameborder="0" framespacing="0">
+	<frame src="" name="content" noresize scrolling="auto">
+	<frame src="" name="blankfrm" noresize scrolling="no">
+</frameset>
+</HTML>

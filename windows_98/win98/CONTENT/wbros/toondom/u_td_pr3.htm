@@ -1,0 +1,386 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+sub window_onload
+
+	Seq3("Pres3").Play
+
+end sub
+
+
+
+Sub Seq3_onInit
+
+	call Seq3("Pres3").at(1.000, "AnimDaffy1",1, 0.0, 1)
+
+	call Seq3("Pres3").at(4.000, "changeIntro(1)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(6.000, "changeIntro(2)",1, 0.0, 1)
+
+	call Seq3("Pres3").at(8.000, "AnimDaffy2",1, 0.0, 1)
+
+	call Seq3("Pres3").at(10.000, "AnimFuddOn",1, 0.0, 1)
+
+	call Seq3("Pres3").at(14.000, "BubbleOn",1, 0.0, 1)
+
+	call Seq3("Pres3").at(14.500, "changeWord('we')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(14.750, "changeWord('will')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(15.000, "changeWord('go')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(16.000, "changeWord('That')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(16.250, "changeWord('Wabbit')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(16.500, "changeWord('bugs')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(16.750, "changeWord('me')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(17.000, "changeWord('so')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(18.000, "changeWord('Heigh-')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(18.250, "changeWord('Ho')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(18.500, "changeWord('my')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(18.750, "changeWord('outrage')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(19.000, "changeWord('grows')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(20.000, "changeWord('A-hunting')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(20.500, "changeWord('we')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(20.750, "changeWord('will')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(21.000, "changeWord('go')",1, 0.0, 1)
+
+	call Seq3("Pres3").at(21.500, "BubbleOff",1, 0.0, 1)
+
+	call Seq3("Pres3").at(22.000, "AnimFuddOff",1, 0.0, 1)
+
+	call Seq3("Pres3").at(24.000, "AnimBand",1, 0.0, 1)
+
+	call Seq3("Pres3").at(25.000, "ShowURL",1, 0.0, 1)
+
+	call Seq3("Pres3").at(30.000, "parent.showPres4()",1, 0.0, 1)
+
+End Sub
+
+
+
+Sub BubbleOn
+
+	bubble.style.visibility="visible"
+
+	wordsDiv.style.visibility="visible"
+
+End Sub
+
+
+
+Sub BubbleOff
+
+	bubble.style.visibility="hidden"
+
+	wordsDiv.style.visibility="hidden"
+
+End Sub
+
+
+
+Sub ShowURL
+
+	URL.style.visibility="visible"
+
+End Sub
+
+
+
+Sub AnimDaffy1
+
+	pthDaffy1.Target = "daffy"
+
+	pthDaffy1.Play
+
+End Sub
+
+
+
+Sub AnimDaffy2
+
+	pthDaffy2.Target = "daffy"
+
+	pthDaffy2.Play
+
+End Sub
+
+
+
+Sub AnimFuddOn
+
+	pthFuddOn.Target = "fudd"
+
+	pthFuddOn.Play
+
+End Sub
+
+
+
+Sub AnimFuddOff
+
+	pthFuddOn.Direction = 1
+
+	pthFuddOn.Play
+
+End Sub
+
+
+
+Sub AnimBand
+
+	pthBand.Target = "band"
+
+	pthBand.Play
+
+End Sub
+
+
+
+Sub changeIntro(idx)
+
+	Select Case idx
+
+		Case "1"
+
+			lklogo.style.visibility="hidden"
+
+			copy1.style.visibility="visible"
+
+		Case "2"
+
+			copy1.style.visibility="hidden"
+
+			copy2.style.visibility="visible"
+
+	End Select
+
+End Sub
+
+
+
+Sub changeWord(word)
+
+	words.innertext=word
+
+End Sub
+
+--> 
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. TOONDOM: Fun Stuff</TITLE>
+
+</HEAD>
+
+<body bgcolor=black BACKGROUND="img/kar_bg.gif" text=850514 LINK=850514 ALINK=850514 VLINK=850514>
+
+
+
+<DIV ID=midiDiv STYLE="POSITION:absolute; TOP:0; LEFT:0">
+
+<bgsound src="med/hunting.mid">
+
+</DIV>
+
+
+
+<img ID=fudd src="img/kar_fudd.gif" STYLE="POSITION:ABSOLUTE; TOP:212; LEFT:100; VISIBILITY:visible">
+
+
+
+<img ID=bubble src="img/kar_bub.gif" STYLE="POSITION:ABSOLUTE; TOP:51; LEFT:150; VISIBILITY:hidden">
+
+
+
+<DIV ID=daffy STYLE="POSITION:ABSOLUTE; WIDTH:400; HEIGHT:150; TOP:51; LEFT:-400; VISIBILITY:visible">
+
+
+
+<DIV STYLE="POSITION:ABSOLUTE; WIDTH:280; HEIGHT:100; TOP:25; LEFT:0; VISIBILITY:visible; BACKGROUND:WHITE">
+
+
+
+<DIV ID=copy1 STYLE="POSITION:ABSOLUTE; WIDTH:280; HEIGHT:75; TOP:10; LEFT:0; VISIBILITY:HIDDEN">
+
+<center>
+
+<FONT SIZE=5><b>Learn your favorite kids songs with Warner Bros. lyrics!</b></FONT>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=copy2 STYLE="POSITION:ABSOLUTE; WIDTH:280; HEIGHT:75; TOP:25; LEFT:0; VISIBILITY:HIDDEN">
+
+<center>
+
+<FONT SIZE=5><b>And sing along in streaming audio!</b></FONT>
+
+</center>
+
+</DIV>
+
+
+
+<img ID=lklogo src="img/kar_logo.gif" STYLE="POSITION:ABSOLUTE; TOP:16; LEFT:10; VISIBILITY:visible">
+
+
+
+</DIV>
+
+<img src="img/kar_daff.gif" STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:280; VISIBILITY:visible">
+
+</DIV>
+
+
+
+<DIV ID=URL STYLE="POSITION:ABSOLUTE; WIDTH:280; HEIGHT:75; TOP:100; LEFT:78; VISIBILITY:hidden">
+
+<center>
+
+<FONT SIZE=3 FACE=Arial><b>Click here and join in the fun!<br><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a></b></FONT>
+
+</center>
+
+</DIV>
+
+
+
+<img ID=band src="img/kar_band.gif" STYLE="POSITION:ABSOLUTE; TOP:51; LEFT:-400; VISIBILITY:visible">
+
+
+
+<DIV ID=wordsDiv STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:20; TOP:70; LEFT:0; VISIBILITY:hidden">
+
+<CENTER>
+
+<b><FONT SIZE=5 ID=words>A-hunting</FONT></b>
+
+</CENTER>
+
+</DIV>
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:300; FILTER:Alpha(Opacity=30)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<OBJECT 
+
+	ID="pthDaffy1"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="1.500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".100">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-118,51,92,51">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthDaffy2"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="1.500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".100">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,127,51,436,51">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthFuddOn"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="1.500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".100">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,100,212,100,51">
+
+</OBJECT>
+
+
+
+<OBJECT 
+
+	ID="pthBand"
+
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="Duration" VALUE="4.500">
+
+	<PARAM NAME="REPEAT" VALUE="1">
+
+	<PARAM NAME="Relative" VALUE="0">
+
+	<PARAM NAME="TimerInterval" VALUE=".100">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2,-200,51,436,51">
+
+</OBJECT>
+
+
+
+
+
+<OBJECT ID="Seq3"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+
+</OBJECT>
+
+</body>
+
+</html>
+

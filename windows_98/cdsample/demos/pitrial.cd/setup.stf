@@ -1,0 +1,644 @@
+Setup Version	3.0.0.1210
+Inf File Name	SETUP.INF
+Usage String	Type SETUP to install. Type SETUP /Q to install in batch mode.
+
+MSAPPS Mode	local
+MSAPPS Connect	server
+Source Directory
+Check Modules	"PictureItFrame,Microsoft Picture It!,MSWinPub,Microsoft Publisher,Greetings Workshop,OpusApp,Microsoft Word,XLMAIN,Microsoft Excel"
+Check Modules2	"Microsoft PowerPoint,PPApplicationClass,Microsoft PowerPoint,Microsoft Works,Microsoft Works,MSWorks4.Main,Microsoft Works"
+
+About Box String	Microsoft Picture It! Version 2.0\n\nCopyright (C) 1997 Microsoft Corporation\n\nAll rights reserved.
+Frame Caption	Microsoft Picture It! 2.0 Setup
+Frame Bitmap	"pisetup.dll, 100"
+Dialog Caption Base	Microsoft Picture It! 2.0
+
+App Name	Picture It!
+App Version	2.0.0.7285 (1033)
+Maximum Object ID	6500
+Floppy Mode Root Object ID	10:01
+Maintenance Mode Root Object ID	11:01
+Batch Mode Root Object ID	10:01
+
+Suppress Serial Number Dialog
+
+ObjID	Checkbox State	Title	Description	Object Type	Object Data	Bitmap Id	Vital Attribute	Shared Attribute	Configurable Directory	Destination Directory	Check Directory	Installed By	Install Data	Install Directory
+1				AppSearch	"<%P\Microsoft Picture It!>,PICTURE.EXE,,128,,yes,2"
+2				SearchReg	"HKEY_CLASSES_ROOT,PictureIt!.Picture\DefaultIcon"
+
+10		Maintenance Mode		AppMainDlg	11				yes	%1
+11		&Install Picture It!	...Click this button to continue.	Group	85	"pisetup.dll, 111"
+
+80		Admin mode		CustomAction	"pisetup.dll,DetectAdminPrivileges"
+81		Detect Win95 Shell		CustomAction	"pisetup.dll,IsWin95UI"
+82		License Dialog		CustomAction	"pisetup.dll,PIEULADlg"
+83		Detect NT OS		CustomAction	"pisetup.dll,IsWinNT"
+85		Microsoft Picture It! 2.0		DependAsk	80 ? 86 : 99
+86				DependAsk	81 ? 87 : 99
+87				Depend	82 ? 88 89 : 99
+88				CustomAction	"pisetup.dll,ShortPath"
+89				Depend	83 ? 90 92 : 90 93
+
+90				Group	91 95 100 200 300 400 500 900
+91				CustomAction	"pisetup.dll,StartMeter,Please wait a few minutes while Setup updates your system."
+92		NT4.0 Only		Group	191 291
+93		Win95 Only		Group	192 292 
+95				CustomAction	"pisetup.dll,VerifyRequiredCabfiles,Y"
+99		Quit Acme		CustomAction	"pisetup.dll,QuitAcmeBeforeCopyFiles"
+
+100		PROGRAM		Group	101 102 103   199
+101		Picture.EXE		CopyFile	"PictureIt Files,PICTURE_EXE"
+102				StampCDInfo	"101,4353,4352"
+103				CopySection	PictureIt Files
+104				CopySection	KIMPS					%D\Kodak
+105				CopyFile	"KIMPS,KNPARCH_DLL"					%D\Kodak
+191		NT Only		CopyFile	"NT System Files,RDYWARNT_DLL"
+192		Win95 Only		CopyFile	"System Files,RDYWAR95_DLL"
+195				CustomAction	"pisetup.dll,MediaManagerDiskCost"
+196				CustomAction	"pisetup.dll,UnInstallMediaManager"
+199				CustomAction	"pisetup.dll,PingMeter"
+
+200		SYSTEM		Group	201 202 203 204 210 220  250 286 299 2000  2100					%M
+201				InstallShared	"PictureIt SysFiles,PISERVER_DLL,Picture It! Server,,101"					%H\PIShared
+202				InstallShared	"PictureIt SysFiles,PIHANDLE_DLL,Picture It! Handler,,101"					%H\PIShared
+203				CopyFile	"System Files,PINEW_MIX"					%W\ShellNew
+204				RemoveSection	Stubs
+210		MFC files		Group	211 212  214 215
+211				InstallSysFile	"System Files,MFC40"
+212				InstallSysFile	"System Files,MFC42"
+213				InstallSysFile	"System Files,MFC40LOC"
+214				InstallSysFile	"System Files,MSVCRT"
+215				InstallSysFile	"System Files,MSVCRT40"
+220				InstallSysFile	"System Files,OLEPRO32_DLL"
+230		Kodak KIMPs Files		Group	231 232 233 234 235 236
+231				InstallSysFile	"System Files,MSJT3032_DLL"
+232				InstallSysFile	"System Files,MSJINT32_DLL"
+233				InstallSysFile	"System Files,MSJTER32_DLL"
+234				InstallSysFile	"System Files,VBAJET32_DLL"
+235				InstallSysFile	"System Files,VBAR2232_DLL"
+236				InstallSysFile	"System Files,VEN2232_OLB"
+240		Data Access Objects		Group	241 242					"%H\DAO,%D\OS\System"
+241				InstallShared	"System Files,DAO3032_DLL,DAO,DAO,105"
+242				CompanionFile	"241 : System Files,DAO2532_TLB"
+250		FONTS		Group	 2550  					%W\Fonts
+285		Check for optional component		CustomAction	"pisetup.dll,DetectQV"
+286				Depend	285 ? 287 585
+287		NIF Quick Viewer		InstallShared	"PictureIt SysFiles,PIFPXVU_DLL,Picture It! QViewer,,101"					%M\Viewers
+291		NT Only		InstallSysFile	"NT System Files,CTL3D32_DLL"					%M
+292		Win95 Only		InstallSysFile	"System Files,CTL3D32_DLL"					%M
+299				CustomAction	"pisetup.dll,PingMeter"
+
+300		Content		Group	301 302 303 304  308 309 310 311  350
+301				CustomAction	"pisetup.dll,CreateLocalContentDirs"
+302				CreateDir	E-Mail Postcards
+303				CustomAction	"pisetup.dll,GetMyPicturesDirRoot"
+304		User's Pictures		CreateDir	My Pictures					%303
+305				CreateDir	PhotoNet
+306				CustomAction	"pisetup.dll,HideDestinationDir"					%D\PhotoNet
+307				CustomAction	"pisetup.dll,DelNodeDestDir"					%D\PhotoNet
+308		PI Files		CopySection	All PiFiles
+309				CustomAction	"pisetup.dll,HideDestinationDir"					%D\PiFiles
+310				CreateDir	Slide Shows
+311		UA Files		CreateDir	UAFiles
+320		Kodak KIMPs Dir		Group	321 322 323					%D\Kodak
+321				CreateDir	Download
+322				CreateDir	History
+323				CreateDir	Transfer
+350		Trial Content		Group	352 356 359
+351				CustomAction	"pisetup.dll,IsOptionalCabfileAvailable,4.cab"
+352				DependAsk	351 ? 353 354
+353				CopySection	PictArt
+354				CopySection	Content1
+355				CustomAction	"pisetup.dll,IsOptionalCabfileAvailable,5.cab"
+356				DependAsk	355 ? 357
+357				CopySection	Content2
+358				CustomAction	"pisetup.dll,IsOptionalCabfileAvailable,6.cab"
+359				DependAsk	358 ? 360
+360				CopySection	Content3
+399				CustomAction	"pisetup.dll,PingMeter"
+
+400		HELP		Group	401 402 403 410 411 420 421
+401				CopyFile	"PictureIt Help,PIHELP_HLP"
+402				CompanionFile	"401 : PictureIt Help,PIHLP_DLL"
+403		Remove helper files on Uninstall		CustomAction	"pisetup.dll,RemoveHelpAuxFile,PictureIt Help;PIHELP_HLP"
+410				CopyFile	"PictureIt Help,PISUPPRT_HLP"
+411		Remove helper files on Uninstall		CustomAction	"pisetup.dll,RemoveHelpAuxFile,PictureIt Help;PISUPPRT_HLP"
+420				CopyFile	"PictureIt Help,README_HLP"
+421		Remove helper files on Uninstall		CustomAction	"pisetup.dll,RemoveHelpAuxFile,PictureIt Help;README_HLP"
+499				CustomAction	"pisetup.dll,PingMeter"
+
+500		Registry		Group	501 502 504 507 508 510 520 550 599
+501				CustomAction	"pisetup.dll,GetWindowsPathFromReg,Programs"
+502				InstallShortcut	"%101\%F101,Picture<Microsoft Picture It! 2.0>,%101"					%501
+503		Microsoft Picture It! 2.0 Setup		YesNoDlg	Would you like a Microsoft Picture It! 2.0 icon on your desktop?
+504	yes			Depend	503 ? 505 506
+505				CustomAction	"pisetup.dll,GetWindowsPathFromReg,Desktop"
+506				InstallShortcut	"%101\%F101,Picture<Microsoft Picture It! 2.0>,%101"					%505
+507				AddIniLine	"WIN.INI,embedding,PictureIt!.Picture,"
+508				CustomAction	"pisetup.dll,AssociatePictureItToHP"
+510		SelfRegs		Group	511 512 513 514 5100
+511		Register PictureIt!		CustomAction	"pisetup.dll,CallRegExec,%s\PICTURE.EXE"
+512				CustomAction	"pisetup.dll,PingMeter"
+513		Register SlideShow		CustomAction	"pisetup.dll,CallRegExec,%s\PISLIDE.EXE"
+514				CustomAction	"pisetup.dll,PingMeter"
+520		CLASSES		Group	540 5200  5300
+540		CLSID		Group	5400 5410
+550		LOCAL		Group	551 552 5500 5520 
+551				CustomAction	"pisetup.dll,GetPathFromReg,""LOCAL,Software\Microsoft\Shared Tools,SharedFilesDir"""					%H
+552		FILTERS	Reg/Unreg only if installed	Group	6000 6300					%551\GrphFlt
+585		NIF Quick Viewer		Group	586 5850
+586				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved,{8C6DA802-906F-11cf-84CC-00AA00A3F09A},Picture It! FlashPix(c) File Viewer"
+599				CustomAction	"pisetup.dll,PingMeter"
+
+900		SETUP		Group	901 902 903 904 905 906 907 990					%D\Setup
+901				CustomAction	"pisetup.dll,CopyInstalledSetupSection"
+902		Write STF		WriteTableFile	SETUP.STF
+903		Compliance checking		InstallComplianceFile	"Installed Setup,COMPLINC_DLL"
+904		UnInstall		AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Picture It!,DisplayName,Microsoft Picture It! 2.0"
+905				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Picture It!,UninstallString,%s\setup.exe"
+906		Modify 1.0 STF		CustomAction	"pisetup.dll,Magical1_0_STFModification"
+907		Remove ACMSetup_GID		CustomAction	"pisetup.dll,RemoveHelpAuxFile,Installed Setup;ACMSETUP_HLP"
+980				CustomAction	"pisetup.dll,RunRegWizard"
+990		Billboards		Group	991 992 993 994 995 
+991				AddBillboard	"pibboard.dll,101,FBillbrdDlgProc"
+992				AddBillboard	"pibboard.dll,102,FBillbrdDlgProc"
+993				AddBillboard	"pibboard.dll,103,FBillbrdDlgProc"
+994				AddBillboard	"pibboard.dll,104,FBillbrdDlgProc"
+995				AddBillboard	"pibboard.dll,105,FBillbrdDlgProc"
+996				AddBillboard	"pibboard.dll,106,FBillbrdDlgProc"
+
+2000		TWAIN files		Group	2001 2002 2003 2004 2005					%W
+2001				InstallShared	"Twain Files,TWAIN_DLL,twain.dll,TwainDir,101"
+2002				InstallShared	"Twain Files,TWAIN_32_DLL,twain_32.dll,TwainDir,101"
+2003				InstallShared	"Twain Files,TWUNK_16_EXE,twunk_16.exe,TwainDir,101"
+2004				InstallShared	"Twain Files,TWUNK_32_EXE,twunk_32.exe,TwainDir,101"
+2005				CustomAction	"pisetup.dll,PingMeter"
+
+2010		MSInfo		Group	2011 2012 2013 2014 2015 2016
+2011				InstallShared	"MSInfo Files,MSINFO32_EXE,MSInfo,MSInfo,101"					%H\MSInfo
+2012				CompanionFile	"2011 : MSInfo Files,MSINFO32_HLP"
+2013				CompanionFile	"2011 : MSInfo Files,IMGWALK_DLL"
+2014				CompanionFile	"2011 : MSInfo Files,MSINF16H_EXE"
+2015				CompanionFile	"2011 : MSInfo Files,MSINFO32_CNT"
+2016				CustomAction	"pisetup.dll,RemoveHelpAuxFile,MSInfo Files;MSINFO32_HLP"
+
+2100		FILTERS		Group	2101 2102 2103 2104 2105 2106 2107 2108 2109 2110 2111 2112 2113 2114 2115 2116 2117 2118 2119					"%H\GrphFlt,%D\Shared\GrphFlt"
+2101				InstallShared	"Graphic Filters,BMPIMP32,WindowsDIB,GrphFlts,101"
+2102				InstallShared	"Graphic Filters,CDRIMP32,CDR,GrphFlts,101"
+2103				InstallShared	"Graphic Filters,DRWIMP32,DRW,GrphFlts,101"
+2104				InstallShared	"Graphic Filters,DXFIMP32,DXF,GrphFlts,101"
+2105				InstallShared	"Graphic Filters,EMFIMP32,EMF,GrphFlts,101"
+2106				InstallShared	"Graphic Filters,EPSIMP32,EPS,GrphFlts,101"
+2107				InstallShared	"Graphic Filters,FPX32,FPX,GrphFlts,101"
+2108				InstallShared	"Graphic Filters,GIFIMP32,GIF,GrphFlts,101"
+2109				InstallShared	"Graphic Filters,JPEGIM32,JPEG,GrphFlts,101"
+2110				InstallShared	"Graphic Filters,PCDIMP32,Kodak Photo CD Filter,GrphFlts,101"
+2111				InstallSysFile	"Graphic Filters,PCDLIB32"
+2112				InstallShared	"Graphic Filters,PCXIMP32,PCX,GrphFlts,101"
+2113				InstallShared	"Graphic Filters,PICTIM32,PICT,GrphFlts,101"
+2114				InstallShared	"Graphic Filters,PNG32,PNG,GrphFlts,101"
+2115				InstallShared	"Graphic Filters,TGAIMP32,TGA,GrphFlts,101"
+2116				InstallShared	"Graphic Filters,TIFFIM32,TIFF,GrphFlts,101"
+2117				InstallShared	"Graphic Filters,WMFIMP32,WindowsMetafile,GrphFlts,101"
+2118				InstallShared	"Graphic Filters,WPGIMP32,WPGIMP,GrphFlts,101"
+2119				CustomAction	"pisetup.dll,PingMeter"
+
+2500		Kodak Fonts		Group	2501 2502 2503 2504 2505 2506 2507 2508 2509 2510 2511 2512 2513 2514 2515 2516 2517 2518 2519 2520 2521 2522 2523 2524
+2501				InstallTTFFile	"Font Files,ALDINE,Aldine 721 Bold BT (True Type)"
+2502				InstallTTFFile	"Font Files,FUTURA,Futura Medium BT (True Type)"
+2503				InstallTTFFile	"Font Files,BRUSH,Brush Script BT (True Type)"
+2504				InstallTTFFile	"Font Files,GARAMONDBT,Classical Garamond BT (True Type)"
+2505				InstallTTFFile	"Font Files,GARAMONDIBT,Classical Garamond Italic BT (True Type)"
+2506				InstallTTFFile	"Font Files,UROMAN,University Roman Bold BT (True Type)"
+2507				InstallTTFFile	"Font Files,WINDSOR,Windsor Light Condensed BT (True Type)"
+2508				InstallTTFFile	"Font Files,COOPER,Cooper Medium BT (True Type)"
+2509				InstallTTFFile	"Font Files,DOM,Dom Casual BT (True Type)"
+2510				InstallTTFFile	"Font Files,GARAMONDBBT,Elegant Garamond Bold BT (True Type)"
+2511				InstallTTFFile	"Font Files,KAUFMANN,Kaufmann Bold BT (True Type)"
+2512				InstallTTFFile	"Font Files,VAG,VAG Rounded BT (True Type)"
+2513				InstallTTFFile	"Font Files,ENGLISH,English 157 BT (True Type)"
+2514				InstallTTFFile	"Font Files,MURRAY,Murray Hill Bold BT (True Type)"
+2515				InstallTTFFile	"Font Files,CATANEO,Cataneo BT (True Type)"
+2516				InstallTTFFile	"Font Files,GARAMONDBIBT,Classical Garamond Bold Italic BT (True Type)"
+2517				InstallTTFFile	"Font Files,AMAZONE,Amazone BT (True Type)"
+2518				InstallTTFFile	"Font Files,FREEHAND591,Freehand 591 BT (True Type)"
+2519				InstallTTFFile	"Font Files,FREEHAND575,Freehand 575 BT (True Type)"
+2520				InstallTTFFile	"Font Files,DELLA,Della Robbia Bold BT (True Type)"
+2521				InstallTTFFile	"Font Files,FORMAL,Formal 436 BT (True Type)"
+2522				InstallTTFFile	"Font Files,TANGO,Tango BT (True Type)"
+2523				InstallTTFFile	"Font Files,OLDDREADFUL,Old Dreadful No.7 BT (True Type)"
+2524				CustomAction	"pisetup.dll,PingMeter"
+
+2550		Picture It! Fonts		Group	2551 2552 2553 2554 2555 2556 2557 2558 2559 2560 2561 2562 2563 2564 2565 2566 2567 2568 2569 2570 2571 2572 2573 2574 2575 2576 2577 2578 2579 2580 2581
+2551				InstallTTFFile	"Font Files,BEESKNEE,Beesknees ITC (True Type)"
+2552				InstallTTFFile	"Font Files,BRADHITC,Bradley Hand ITC (True Type)"
+2553				InstallTTFFile	"Font Files,COMIC,Comic Sans MS (True Type)"
+2554				InstallTTFFile	"Font Files,COMICBD,Comic Sans MS Bold (True Type)"
+2555				InstallTTFFile	"Font Files,COPRGTB,Copperplate Gothic Bold (True Type)"
+2556				InstallTTFFile	"Font Files,COPRGTL,Copperplate Gothic Light (True Type)"
+2557				InstallTTFFile	"Font Files,CURLZ___,Curlz MT (True Type)"
+2558				InstallTTFFile	"Font Files,FELIXTI,Felix Titling (True Type)"
+2559				InstallTTFFile	"Font Files,FORTE,Forte (True Type)"
+2560				InstallTTFFile	"Font Files,FRSCRIPT,French Script MT (True Type)"
+2561				InstallTTFFile	"Font Files,GILSANUB,Gill Sans Ultra Bold (True Type)"
+2562				InstallTTFFile	"Font Files,GLSNECB,Gill Sans MT Ext Condensed Bold (True Type)"
+2563				InstallTTFFile	"Font Files,GOUDYSTO,Goudy Stout (True Type)"
+2564				InstallTTFFile	"Font Files,HATTEN,Haettenschweiler (True Type)"
+2565				InstallTTFFile	"Font Files,IMPRISHA,Imprint MT Shadow (True Type)"
+2566				InstallTTFFile	"Font Files,JUICE___,Juice ITC (True Type)"
+2567				InstallTTFFile	"Font Files,KUNSTLER,Kunstler Script (True Type)"
+2568				InstallTTFFile	"Font Files,MATISSE_,Matisse ITC (True Type)"
+2569				InstallTTFFile	"Font Files,PEPITA,Pepita MT (True Type)"
+2570				InstallTTFFile	"Font Files,PLAYBILL,Playbill (True Type)"
+2571				InstallTTFFile	"Font Files,RAGE,Rage Italic (True Type)"
+2572				InstallTTFFile	"Font Files,SCRIPTBL,Script MT Bold (True Type)"
+2573				InstallTTFFile	"Font Files,SNAP____,Snap ITC (True Type)"
+2574				InstallTTFFile	"Font Files,TCB_____,Tw Cen MT Bold (True Type)"
+2575				InstallTTFFile	"Font Files,TCCB____,Tw Cen MT Condensed Bold (True Type)"
+2576				InstallTTFFile	"Font Files,TCCM____,Tw Cen MT Condensed Medium (True Type)"
+2577				InstallTTFFile	"Font Files,TEMPSITC,Tempus Sans ITC (True Type)"
+2578				InstallTTFFile	"Font Files,VINERITC,Viner Hand ITC (True Type)"
+2579				InstallTTFFile	"Font Files,VLADIMIR,Vladimir Script (True Type)"
+2580				InstallTTFFile	"Font Files,WINGDNG2,Wingdings 2 (True Type)"
+2581				CustomAction	"pisetup.dll,PingMeter"
+
+2600		Japanese Fonts		Group	2601 2602 2603 2604 2605 2606 2607
+2601				InstallTTFFile	"Font Files,HGRGEP,HG∫ﬁºØ∏E-PRO (True Type)"
+2602				InstallTTFFile	"Font Files,HGRSKP,HGê≥û≤èëëÃ-PRO (True Type)"
+2603				InstallTTFFile	"Font Files,HGRSMP,HGä€∫ﬁºØ∏M-PRO (True Type)"
+2604				InstallTTFFile	"Font Files,JKAI00M,ARû≤èëëÃM & AR Pû≤èëëÃM (True Type)"
+2605				InstallTTFFile	"Font Files,JKAN00H0,ARä®í‡ó¨H & AR Pä®í‡ó¨H (True Type)"
+2606				InstallTTFFile	"Font Files,JLEI00M,ARóÍèëM & AR PóÍèëëÃM (True Type)"
+2607				InstallTTFFile	"Font Files,JOOR00H,ARîíä€POPëÃH & AR Pîíä€POPëÃH (True Type)"
+
+2610		Korean Fonts		Group	2611 2612 2613 2614 2615 2616 2617
+2611				InstallTTFFile	"Font Files,H2PIRL,HY« ±‚L (True Type)"
+2612				InstallTTFFile	"Font Files,H2BDRM,HYπˆµÈM (True Type)"
+2613				InstallTTFFile	"Font Files,H2BSRB,HYπÈº€B (True Type)"
+2614				InstallTTFFile	"Font Files,H2SNRB,HYºæΩ∫B (True Type)"
+2615				InstallTTFFile	"Font Files,H2SNRL,HYºæΩ∫L (True Type)"
+2616				InstallTTFFile	"Font Files,H2TBRB,HY≈¬πÈB (True Type)"
+2617				InstallTTFFile	"Font Files,HMFMPYUN,»ﬁ∏’∆Ì¡ˆ√º (True Type)"
+
+5100		Self Registering DLLs		Group	5101 5111 
+5101				Depend	103 ? 5102 5103  5106 5107					%103
+5102		PITASKS.DLL		SelfReg	"PictureIt Files,PITASKS_DLL,,,"
+5103				CustomAction	"pisetup.dll,PingMeter"
+5104		PICATTSK_DLL		SelfReg	"PictureIt Files,PICATTSK_DLL,,,"
+5105				CustomAction	"pisetup.dll,PingMeter"
+5106		PISEMLYR.DLL		SelfReg	"PictureIt Files,PISEMLYR_DLL,,,"
+5107				CustomAction	"pisetup.dll,PingMeter"
+5111				Depend	201 ? 5112 5113 5230					%201
+5112		PISERVER.DLL		SelfReg	"PictureIt SysFiles,PISERVER_DLL,,,"
+5113				CustomAction	"pisetup.dll,PingMeter"
+5121				Depend	241 ? 5122 5123
+5122		DAO3032.DLL		SelfReg	"System Files,DAO3032_DLL,,,"					%241
+5123				CustomAction	"pisetup.dll,PingMeter"
+
+5200		PictureIt!.Picture		Group	5201 5202 5203 5204 5205 5206 5207 5208 5209
+5201				AddRegData	"CLASSES,PictureIt!.Picture,,Microsoft Picture It! Picture"
+5202				AddRegData	"CLASSES,PictureIt!.Picture\DefaultIcon,,""%s\PICTURE.EXE,1"""
+5203				AddRegData	"CLASSES,PictureIt!.Picture\shell\New\command,,""""""%s\PICTURE.EXE"""" /dde"""
+5204				AddRegData	"CLASSES,PictureIt!.Picture\shell\New\ddeexec,,[new]"
+5205				AddRegData	"CLASSES,PictureIt!.Picture\shell\open\command,,""""""%s\PICTURE.EXE"""" /dde"""
+5206				AddRegData	"CLASSES,PictureIt!.Picture\shell\open\ddeexec,,[open(""%%1"")]"
+5207				AddRegData	"CLASSES,PictureIt!.Picture\shell\print\command,,""""""%s\PICTURE.EXE"""" /dde"""
+5208				AddRegData	"CLASSES,PictureIt!.Picture\shell\print\ddeexec,,[print(""%%1"")]"
+5209				CustomAction	"pisetup.dll,PingMeter"
+
+5210		Kodak KIMPs Files		Group	5211 5212 5213 5214 5215 5216 5217
+5211				AddRegData	"CLASSES,.nix,,nixfile"
+5212				AddRegData	"CLASSES,.nix,Content Type,application/x-mix-transfer"
+5213				AddRegData	"CLASSES,MIME\Database\Content Type\application/x-mix-transfer,Extension,.nix"
+5214				AddRegData	"CLASSES,nixfile,,MIX Network Transfer File"
+5215				AddRegData	"CLASSES,nixfile\Shell"
+5216				AddRegData	"CLASSES,nixfile\Shell\Open\command,,""%s\Kodak\kmovr.exe """"%%1"""""""					%88
+5217				AddRegData	"CLASSES,nixfile\DefaultIcon,,""%s\Kodak\kmovr.exe,0"""					%88
+
+5230		PiServer.DLL		Group	5231 5232 5233 5234 5235 5236 5237 5238 5239 5240 5241 5242 5243 5244 5245 5246 5247 5248 5249
+5231				AddRegData	"CLASSES,CompositionGraph,,Microsoft Picture It! Picture"
+5232				AddRegData	"CLASSES,CompositionGraph\CLSID,,{F41788B1-C2C9-11ce-ADC2-00AA00A28514}"
+5233				AddRegData	"CLASSES,CompositionTransform,,Microsoft Picture It! Picture"
+5234				AddRegData	"CLASSES,CompositionTransform\CLSID,,{56616B00-C154-11ce-8553-00AA00A1F95B}"
+5235				AddRegData	"CLASSES,Domain,,Microsoft Picture It! Picture"
+5236				AddRegData	"CLASSES,Domain\CLSID,,{21ED7E81-C5ED-11ce-ADC3-00AA00A28514}"
+5237				AddRegData	"CLASSES,FeatherTransform,,Microsoft Picture It! Picture"
+5238				AddRegData	"CLASSES,FeatherTransform\CLSID,,{AA0A8B70-5C22-11cf-B28F-00AA00A28209}"
+5239				AddRegData	"CLASSES,FillTransform,,Microsoft Picture It! Picture"
+5240				AddRegData	"CLASSES,FillTransform\CLSID,,{0DCBA040-0021-11cf-B277-00AA00A28209}"
+5241				AddRegData	"CLASSES,GlobalState,,Microsoft Picture It! Picture"
+5242				AddRegData	"CLASSES,GlobalState\CLSID,,{7FF58220-C909-11ce-8495-00AA00614DF6}"
+5243				AddRegData	"CLASSES,PropSet,,Microsoft Picture It! Picture"
+5244				AddRegData	"CLASSES,PropSet\CLSID,,{326D6640-F404-11CE-8AEF-00AA00422363}"
+5245				AddRegData	"CLASSES,SpriteCache,,Microsoft Picture It! Picture"
+5246				AddRegData	"CLASSES,SpriteCache\CLSID,,{56616080-C154-11ce-8553-00AA00A1F95B}"
+5247				AddRegData	"CLASSES,ViewTransform,,Microsoft Picture It! Picture"
+5248				AddRegData	"CLASSES,ViewTransform\CLSID,,{B0F9EFD1-C6A3-11ce-ADC3-00AA00A28514}"
+5249				CustomAction	"pisetup.dll,PingMeter"
+
+5300		Associate file extensions		Group	5301 5302 5303 5304 5305 5306 5307 5308 5309 5310 5311 5312 5313 5314 5315 5316 5317 5318 5319
+5301		.FPX		AddRegData	"CLASSES,.fpx,,PictureIt!.Picture,"
+5302				AddRegData	"CLASSES,.fpx,Content Type,image/x-xbitmap"
+5303		.MIX		AddRegData	"CLASSES,.mix,,PictureIt!.Picture,"
+5304				AddRegData	"CLASSES,.mix,Content Type,image/x-xbitmap"
+5305				AddRegData	"CLASSES,.mix\ShellNew,FileName,pinew.mix,"
+5306		If not already associated		CustomAction	"pisetup.dll,AssociateExtension,.bmp"
+5307				CustomAction	"pisetup.dll,AssociateExtension,.dib"
+5308				CustomAction	"pisetup.dll,AssociateExtension,.emf"
+5309				CustomAction	"pisetup.dll,AssociateExtension,.eps"
+5310				CustomAction	"pisetup.dll,AssociateExtension,.gif"
+5311				CustomAction	"pisetup.dll,AssociateExtension,.jpg"
+5312				CustomAction	"pisetup.dll,AssociateExtension,.pcd"
+5313				CustomAction	"pisetup.dll,AssociateExtension,.pct"
+5314				CustomAction	"pisetup.dll,AssociateExtension,.pcx"
+5315				CustomAction	"pisetup.dll,AssociateExtension,.png"
+5316				CustomAction	"pisetup.dll,AssociateExtension,.tga"
+5317				CustomAction	"pisetup.dll,AssociateExtension,.tif"
+5318				CustomAction	"pisetup.dll,AssociateExtension,.wmf"
+5319				CustomAction	"pisetup.dll,PingMeter"
+
+5400		PiHandle.DLL		Depend	202 ? 5401 5402 5403 5404 5405 5406 : 5407					%202
+5401				AddRegData	"CLASSES,CLSID\{2D722850-8C4B-11D0-A96F-00A0C905410D}\InProcHandler32,,%s\PIHANDLE.DLL"
+5402				AddRegData	"CLASSES,CLSID\{2D722850-8C4B-11D0-A96F-00A0C905410D}\MiscStatus,,1"
+5403				AddRegData	"CLASSES,CLSID\{56616700-C154-11CE-8553-00AA00A1F95B}\InProcHandler32,,%s\PIHANDLE.DLL"
+5404				AddRegData	"CLASSES,CLSID\{56616700-C154-11CE-8553-00AA00A1F95B}\MiscStatus,,1"
+5405				AddRegData	"CLASSES,CLSID\{56616800-C154-11CE-8553-00AA00A1F95B}\InProcHandler32,,%s\PIHANDLE.DLL"
+5406				AddRegData	"CLASSES,CLSID\{56616800-C154-11CE-8553-00AA00A1F95B}\MiscStatus,,1"
+5407				CustomAction	"pisetup.dll,RestorePiHandler"
+
+5410		CleanUpRegistry		Group	5411 5412 5413 5414 5415 5416 5417 5418 5420
+5411				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{2855F441-9785-11CF-9A71-00AA00A21882}"""
+5412				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{18E6CD61-1079-11CF-9A70-00AA00A21882}"""
+5413				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{8D5ABE81-0FB7-11CF-9A70-00AA00A21882}"""
+5414				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,PictureIt!.Picture"""
+5415				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,Picture It!.Control Manager"""
+5416				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,Picture It!.Composition Manager"""
+5417				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,Picture It!.Picture View"""
+5418				CustomAction	"pisetup.dll,DeleteRegTree,""CURRENT,Software\Microsoft\Picture It!"""
+5420				Depend	202 ? 5421 5422 5423
+5421				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{2D722850-8C4B-11D0-A96F-00A0C905410D}"""
+5422				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{56616700-C154-11CE-8553-00AA00A1F95B}"""
+5423				CustomAction	"pisetup.dll,DeleteRegTree,""CLASSES,CLSID\{56616800-C154-11CE-8553-00AA00A1F95B}"""
+
+5500		LOCAL-PictureIt!		Group	5501 5502 5503 5504 5505 5506 
+5501				AddRegData	"LOCAL,Software\Microsoft\Picture It!\InstallRoot,Path,%s"					%D
+5502				AddRegData	"LOCAL,Software\Microsoft\Picture It!\InstallDest,Path,%s"
+5503				AddRegData	"LOCAL,Software\Microsoft\Picture It!\InstallDest,Help Media,%s\UAFiles"					%D
+5504				AddRegData	"LOCAL,Software\Microsoft\Picture It!\Content,Picture It! Content,%s\CONTENT"					%D
+5505				AddRegData	"LOCAL,Software\Microsoft\Picture It!\2.0\Settings,LastFileOpenPath,%s\My Pictures"					%303
+5506				AddRegData	"LOCAL,Software\Microsoft\Picture It!\2.0\Settings,MyPicturePath,%s\My Pictures"					%303
+5507		PhotoNet		AddRegData	"LOCAL,Software\Microsoft\Picture It!\PhotoNet,LookupServerName,"
+5508				AddRegData	"LOCAL,Software\Microsoft\Picture It!\PhotoNet,LookupServerPort,,DWORD"
+5509				AddRegData	"LOCAL,Software\Microsoft\Picture It!\PhotoNet,UploadServerName,"
+5510				AddRegData	"LOCAL,Software\Microsoft\Picture It!\PhotoNet,UploadServerPort,,DWORD"
+
+5520		LOCAL-Windows		Group	5521 5522 5523 5524
+5521		Help File		AddRegData	"LOCAL,Software\Microsoft\Windows\Help,PIHelp.hlp,%s"
+5522		Help File		AddRegData	"LOCAL,Software\Microsoft\Windows\Help,PISupprt.hlp,%s"
+5523				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\App Paths\PICTURE.EXE,,%s\PICTURE.EXE"
+5524				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\App Paths\PICTURE.EXE,Path,%s"
+
+5550		Kodak KIMPs		Group	5551 5552 5553 5554 5555 5556 5557 5558 5559 5560 5561 5562 5563 5564 5565 5566 5567 5568 5569 5570 5571 5572 5573 5574 5575 5576 5577 5578 5579 5580 5581 5582
+5551				AddRegData	"LOCAL,Software\Distinct\SerialNumber,Number,S0SEASTMANKDAK00"
+5552				AddRegData	"LOCAL,Software\Distinct\SerialNumber,Key,D4-7F-8E"
+5553				AddRegData	"LOCAL,Software\Kodak\KIMPS,ReprintTemplateRoot,%s\PIFiles\Reprints"					%88
+5554				AddRegData	"LOCAL,Software\Kodak\KIMPS,UpdaterDnloadDir,%s\Kodak\Download"					%88
+5555				AddRegData	"LOCAL,Software\Kodak\KIMPS,TemplateRoot,%s\Content\Creation"					%88
+5556				AddRegData	"LOCAL,Software\Kodak\KIMPS,InstallRoot,%s\Kodak"					%88
+5557				AddRegData	"LOCAL,Software\Kodak\KIMPS,LastUpdate,19960500"
+5558				AddRegData	"LOCAL,Software\Kodak\KIMPS,TransferDir,Transfer"
+5559				AddRegData	"LOCAL,Software\Kodak\KIMPS,MakeLogFile,1,DWORD"
+5560				AddRegData	"LOCAL,Software\Kodak\KIMPS,TemplateBrowserURL,http://www.kodak.com/imageMagicPrintService/customCreations.htm"
+5561				AddRegData	"LOCAL,Software\Kodak\KIMPS,LastKOEpid,0,DWORD"
+5562				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToCountry,0,DWORD"
+5563				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,LastOrderNumber,0,DWORD"
+5564				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SaveCreditInfo,0,DWORD"
+5565				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToCountry,0,DWORD"
+5566				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToCity,"
+5567				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToEmail,"
+5568				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToFirstName,"
+5569				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToLastName,"
+5570				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToMiddleName,"
+5571				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToPhone,"
+5572				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToPostalCode,"
+5573				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToState,"
+5574				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,BillToStreet,"
+5575				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToCity,"
+5576				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToFirstName,"
+5577				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToLastName,"
+5578				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToMiddleName,"
+5579				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToPostalCode,"
+5580				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToState,"
+5581				AddRegData	"LOCAL,Software\Kodak\KIMPS\OrderEntry,SendToStreet,"
+5582				CustomAction	"pisetup.dll,PingMeter"
+
+5850		QuickView		Group	5851 5852 5853 5854 5855 5856 5857 5858 5859 5860 5861 5862 5863 5864
+5851				AddRegData	"CLASSES,QuickView\.fpx,,Microsoft Picture It! Picture"
+5852				AddRegData	"CLASSES,QuickView\.fpx\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage Viewer"
+5853				AddRegData	"CLASSES,QuickView\.mix,,Microsoft Picture It! Picture"
+5854				AddRegData	"CLASSES,QuickView\.mix\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage Viewer"
+5855				AddRegData	"CLASSES,QuickView\{2D722850-8C4B-11D0-A96F-00A0C905410D},,Microsoft Picture It! Picture"
+5856				AddRegData	"CLASSES,QuickView\{2D722850-8C4B-11D0-A96F-00A0C905410D}\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage Viewer"
+5857				AddRegData	"CLASSES,QuickView\{56616700-C154-11ce-8553-00AA00A1F95B},,Microsoft Picture It! Picture"
+5858				AddRegData	"CLASSES,QuickView\{56616700-C154-11ce-8553-00AA00A1F95B}\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage Viewer"
+5859				AddRegData	"CLASSES,QuickView\{56616800-C154-11ce-8553-00AA00A1F95B},,Microsoft Picture It! Picture"
+5860				AddRegData	"CLASSES,QuickView\{56616800-C154-11ce-8553-00AA00A1F95B}\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage Viewer"
+5861				AddRegData	"CLASSES,CLSID\{8C6DA802-906F-11cf-84CC-00AA00A3F09A},,Microsoft Picture It! Collage File Viewer"
+5862				AddRegData	"CLASSES,CLSID\{8C6DA802-906F-11cf-84CC-00AA00A3F09A}\InprocServer32,,%M\Viewers\pifpxvu.dll"
+5863				AddRegData	"CLASSES,CLSID\{8C6DA802-906F-11cf-84CC-00AA00A3F09A}\InprocServer32,ThreadingModel,Apartment"
+5864				CustomAction	"pisetup.dll,PingMeter"
+
+6000		Import Filters		Group	6001 6020 6030 6040 6050 6060 6070 6090 6110 6120 6140 6150 6160 6170 6180 6190 6210 6220 6299
+6001		Windows Bitmap Import Filter		Depend	2101 ? 6002 6003 6004 6005 6006 6007 6008 6009 6010 6011 6012 6013 6014 6015 6016
+6002				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP,Name,Windows Bitmaps"
+6003				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP,Path,%s\BMPIMP32.FLT"
+6004				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP,Extensions,bmp dib"
+6005				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Filter API"
+6006				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,Time Stamp,29057434,DWORD"
+6007				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,Compression Type,128,DWORD"
+6008				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,Black Is 0,Yes"
+6009				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,Description,0,DWORD"
+6010				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,BiLevel,""1,131,0"""
+6011				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,GrayScale,""136,131,0"""
+6012				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,Palette,""136,131,0"""
+6013				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,RGB,""128,131,0"""
+6014				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Image API,RGB Planar,""0,0,0"""
+6015				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\BMP\Options,ShowProgressDialog,Yes"
+6016				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,BMP"""
+6020		Corel Draw Import Filter		Depend	2102 ? 6021 6022 6023
+6021				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\CDR,Name,Corel Draw"
+6022				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\CDR,Path,%s\CDRIMP32.FLT"
+6023				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\CDR,Extensions,cdr"
+6030		Micrografx Designer/Draw Filter		Depend	2103 ? 6031 6032 6033
+6031				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DRW,Name,Micrografx Designer/Draw"
+6032				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DRW,Path,%s\DRWIMP32.FLT"
+6033				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DRW,Extensions,drw"
+6040		DXF32 Import Filter		Depend	2104 ? 6041 6042 6043
+6041				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DXF,Name,AutoCAD Format 2-D"
+6042				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DXF,Path,%s\DXFIMP32.FLT"
+6043				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\DXF,Extensions,dxf"
+6050		Enhanced Metafile Import Filter		Depend	2105 ? 6051 6052 6053
+6051				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EMF,Name,Enhanced Metafiles"
+6052				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EMF,Path,%s\EMFIMP32.FLT"
+6053				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EMF,Extensions,emf"
+6060		Encapsulated PostScript Filter		Depend	2106 ? 6061 6062 6063
+6061				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EPS,Name,Encapsulated PostScript"
+6062				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EPS,Path,%s\EPSIMP32.FLT"
+6063				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\EPS,Extensions,eps"
+6070		FlashPix Import Filter		Depend	2107 ? 6071 6072 6073 6074 6075 6076 6077 6078 6079 6080 6081 6082 6083 6084 6085 6086 6087
+6071				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX,Name,FlashPix"
+6072				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX,Path,%s\FPX32.FLT"
+6073				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX,Extensions,FPX"
+6074				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Filter API"
+6075				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,Compression Type,128,DWORD"
+6076				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,Black Is 0,Yes"
+6077				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,Description,0,DWORD"
+6078				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,BiLevel,""0,0,0"""
+6079				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,GrayScale,""0,0,0"""
+6080				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,Palette,""0,0,0"""
+6081				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,RGB,""128,128,2"""
+6082				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Image API,RGB Planar,""0,0,0"""
+6083				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Options,ShowProgressDialog,Yes"
+6084				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Options,ShowOptionsDialog,Yes"
+6085				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX\Options,DefaultResolution,3"
+6086				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,FPX"""
+6087				CustomAction	"pisetup.dll,DeleteRegTree,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\FPX"""
+6090		PictureIt! Import Filter		Depend	2107 ? 6091 6092 6093 6094 6095 6096 6097 6098 6099 6100 6101 6102 6103 6104 6105 6106 6107
+6091				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX,Name,Picture It! Format"
+6092				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX,Path,%s\FPX32.FLT"
+6093				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX,Extensions,MIX"
+6094				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Filter API"
+6095				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,Compression Type,128,DWORD"
+6096				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,Black Is 0,Yes"
+6097				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,Description,0,DWORD"
+6098				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,BiLevel,""0,0,0"""
+6099				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,GrayScale,""0,0,0"""
+6100				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,Palette,""0,0,0"""
+6101				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,RGB,""128,128,2"""
+6102				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Image API,RGB Planar,""0,0,0"""
+6103				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Options,ShowProgressDialog,Yes"
+6104				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Options,ShowOptionsDialog,Yes"
+6105				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX\Options,DefaultResolution,3"
+6106				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,MIX"""
+6107				CustomAction	"pisetup.dll,DeleteRegTree,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\MIX"""
+6110		GIF Import Filter		Depend	2108 ? 6111 6112 6113 6114
+6111				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\GIF,Name,GIF"
+6112				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\GIF,Path,%s\GIFIMP32.FLT"
+6113				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\GIF,Extensions,gif"
+6114				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,GIF"""
+6120		JPEG Filter		Depend	2109 ? 6121 6122 6123 6124 6125 6126 6127 6128 6129 6130 6131 6132 6133 6134 6135
+6121				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG,Name,JPEG File Interchange Format"
+6122				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG,Path,%s\JPEGIM32.FLT"
+6123				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG,Extensions,jpg"
+6124				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Filter API"
+6125				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,Time Stamp,29057434,DWORD"
+6126				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,Compression Type,128,DWORD"
+6127				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,Black Is 0,Yes"
+6128				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,Description,0,DWORD"
+6129				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,BiLevel,""0,0,0"""
+6130				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,GrayScale,""128,192,0"""
+6131				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,Palette,""0,0,0"""
+6132				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,RGB,""128,192,0"""
+6133				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Image API,RGB Planar,""0,0,0"""
+6134				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\JPEG\Options,ShowProgressDialog,Yes"
+6135				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,JPEG"""
+6140		Kodak PhotoCD Filter		Depend	2110 ? 6141 6142 6143 6144
+6141				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCD,Name,Kodak Photo CD"
+6142				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCD,Path,%s\PCDIMP32.FLT"
+6143				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCD,Extensions,pcd"
+6144				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,PCD"""
+6150		PC Paintbrush Filter		Depend	2112 ? 6151 6152 6153 6154
+6151				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCX,Name,PC Paintbrush"
+6152				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCX,Path,%s\PCXIMP32.FLT"
+6153				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PCX,Extensions,pcx"
+6154				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,PCX"""
+6160		Macintosh PICT Import Filter		Depend	2113 ? 6161 6162 6163
+6161				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PICT,Name,Macintosh PICT"
+6162				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PICT,Path,%s\PICTIM32.FLT"
+6163				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PICT,Extensions,pct"
+6170		PNG32 Import Filter		Depend	2114 ? 6171 6172 6173 6174
+6171				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PNG,Name,Portable Network Graphics"
+6172				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PNG,Path,%s\PNG32.FLT"
+6173				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\PNG,Extensions,png"
+6174				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,PNG"""
+6180		Targa Graphics Import Filter		Depend	2115 ? 6181 6182 6183 6184
+6181				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TGA,Name,Targa"
+6182				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TGA,Path,%s\TGAIMP32.FLT"
+6183				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TGA,Extensions,tga"
+6184				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,TGA"""
+6190		Tagged Image File Format 5.0 Filter		Depend	2116 ? 6191 6192 6193 6194 6195 6196 6197 6198 6199 6200 6201 6202 6203 6204 6205 6206
+6191				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF,Name,Tagged Image File Format"
+6192				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF,Path,%s\TIFFIM32.FLT"
+6193				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF,Extensions,tif"
+6194				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Filter API"
+6195				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Time Stamp,29057434"
+6196				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Compression Type,128"
+6197				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Black Is 0,Yes"
+6198				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Description,7,DWORD"
+6199				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,BiLevel,""1,141,1"""
+6200				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,GrayScale,""1672,177,1"""
+6201				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Palette,""142,177,1"""
+6202				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,RGB,""128,193,3"""
+6203				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,RGB Planar,""128,193,3"""
+6204				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Image API,Halftones,No"
+6205				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\TIFF\Options,ShowProgressDialog,Yes"
+6206				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import,Image API Enabled Filters,TIFF"""
+6210		Windows Metafiles Filter		Depend	2117 ? 6211 6212 6213
+6211				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WMF,Name,Windows Metafiles"
+6212				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WMF,Path,%s\WMFIMP32.FLT"
+6213				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WMF,Extensions,wmf"
+6220		WordPerfect Graphics Import Filter		Depend	2118 ? 6221 6222 6223
+6221				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WPG,Name,WordPerfect Graphics"
+6222				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WPG,Path,%s\WPGIMP32.FLT"
+6223				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Import\WPG,Extensions,wpg"
+6299				CustomAction	"pisetup.dll,PingMeter"
+
+6300		Export Filters		Group	6301 6310 6320 6340 6350 6360 6370 6399
+6301		Windows Bitmap Export Filter		Depend	2101 ? 6302 6303 6304 6305
+6302				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\BMP,Name,Windows Bitmaps"
+6303				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\BMP,Path,%s\BMPIMP32.FLT"
+6304				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\BMP,Extensions,bmp dib"
+6305				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,BMP"""
+6310		GIF Export Filter		Depend	2108 ? 6311 6312 6313 6314
+6311				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\GIF,Name,GIF"
+6312				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\GIF,Path,%s\GIFIMP32.FLT"
+6313				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\GIF,Extensions,gif"
+6314				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,GIF"""
+6320		JPEG Filter		Depend	2109 ? 6321 6322 6323 6324 6325 6326 6327 6328 6329 6330 6331 6332 6333 6334 6335 6336
+6321				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG,Name,JPEG File Interchange Format"
+6322				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG,Path,%s\JPEGIM32.FLT"
+6323				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG,Extensions,jpg"
+6324				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Filter API"
+6325				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,Time Stamp,29057434,DWORD"
+6326				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,Compression Type,128,DWORD"
+6327				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,Black Is 0,Yes,"
+6328				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,Description,0,DWORD"
+6329				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,BiLevel,""0,0,0"""
+6330				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,GrayScale,""128,192,0"""
+6331				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,Palette,""0,0,0"""
+6332				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,RGB,""128,192,0"""
+6333				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Image API,RGB Planar,""0,0,0"""
+6334				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Options,ShowProgressDialog,Yes"
+6335				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\JPEG\Options,Quality,75,DWORD"
+6336				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,JPEG"""
+6340		PC Paintbrush Filter		Depend	2112 ? 6341 6342 6343 6344
+6341				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PCX,Name,PC Paintbrush"
+6342				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PCX,Path,%s\PCXIMP32.FLT"
+6343				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PCX,Extensions,pcx"
+6344				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,PCX"""
+6350		PNG32 Export Filter		Depend	2114 ? 6351 6352 6353 6354
+6351				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PNG,Name,Portable Network Graphics"
+6352				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PNG,Path,%s\PNG32.FLT"
+6353				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\PNG,Extensions,png"
+6354				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,PNG"""
+6360		Targa Graphics Export Filter		Depend	2115 ? 6361 6362 6363 6364
+6361				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TGA,Name,Targa"
+6362				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TGA,Path,%s\TGAIMP32.FLT"
+6363				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TGA,Extensions,tga"
+6364				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,TGA"""
+6370		Tagged Image File Format 5.0 Filter		Depend	2116 ? 6371 6372 6373 6374
+6371				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TIFF,Name,Tagged Image File Format"
+6372				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TIFF,Path,%s\TIFFIM32.FLT"
+6373				AddRegData	"LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export\TIFF,Extensions,tif"
+6374				CustomAction	"pisetup.dll,AddEnabledFilter,""LOCAL,Software\Microsoft\Shared Tools\Graphics Filters\Export,Image API Enabled Filters,TIFF"""
+6399				CustomAction	"pisetup.dll,PingMeter"

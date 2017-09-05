@@ -1,0 +1,47 @@
+<HTML>
+<META HTTP-EQUIV NAME="keywords" CONTENT="The New York Times on the Web">
+<META HTTP-EQUIV NAME="description" CONTENT="A -1meg cd based commercial featuring audio, video and high speed animation.">
+<META HTTP-EQUIV NAME="author" CONTENT="Blue Hypermedia">
+
+<!--  Flash Animation by Blue Hypermedia, Inc. 				      -->
+<!--  Original Music Copyright 1997 Blue Hypermedia, Inc. All Rights Reserved -->
+
+
+<HEAD>
+<title>The New York Times on the Web</title>
+</head>
+
+
+
+<body bgcolor="#FFFFFF" topmargin=1 leftmargin=1 ID=myB>
+<SCRIPT LANGUAGE="VBScript">
+sub Window_OnLoad
+       MainImage.style.top = (myB.clientheight - MainImage.style.pixelHeight)/3
+       MainImage.style.Left = (myB.clientwidth - MainImage.style.pixelWidth)/2
+
+	If document.all.myB.clientwidth<620 then 
+                intro.width=180
+		intro.height=120
+        end if
+
+
+end sub      
+</SCRIPT>
+
+<DIV ID=MainImage STYLE="position: relative; width:580; height=420; visibility: visible">
+<CENTER>
+<FONT COLOR=#ffffff>
+<OBJECT  id="intro" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+codebase="swflash.cab#version=2,1,0,12" width=580 height=420>
+<param NAME="Movie" VALUE="tour.swf">
+<PARAM NAME="bgcolor" VALUE="#FFFFFF">
+<param NAME="Quality" VALUE="best">
+<param NAME="scale" VALUE="exactfit">
+<param NAME="play" VALUE="true">
+<param NAME="align" VALUE="right">
+<param NAME="loop" VALUE="false">
+</OBJECT>
+</DIV>
+</BODY>
+</center>
+</HTML>

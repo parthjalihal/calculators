@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+
+<!--
+
+Authored by Ted Skolnick
+8/15/97
+
+This page contains the HTML for the next and previous buttons
+used on all of our pages in the IE4 cd. Since all of our pages
+have the same navigation controls it made sense to break them out
+into their own file to make maintenance easy, should we decide to change
+the look of the NextPrev navigigation or even the order of the pages.
+
+How it works:
+
+1) Each page of the demo includes this page in a hidden frame.
+2) When this page loads, it fills the navigation div ( divNextPrev ) in the pareny page with
+html content.
+3) When the parent page resizes, it calls the resize function here, and this guy has the logic
+to place the controls on the parent page.  In this case the logic keeps the controls
+tied to the lower right corner.
+
+
+
+-->
+
+<SCRIPT Language="Javascript" src="funcs.js">
+</SCRIPT>
+
+
+<SCRIPT Language="Javascript" >
+
+function resize()
+	{
+	// Set my size
+	parent.divNextPrev.style.width = 640;
+	parent.divNextPrev.style.height = 90;
+	parent.divNextPrev.style.left = toInt(parent.document.body.clientWidth) - toInt(parent.divNextPrev.style.width) - 5;
+	parent.divNextPrev.style.top = toInt(parent.document.body.clientHeight) - toInt(parent.divNextPrev.style.height) - 5;
+
+	parent.divNextPrev.innerText = "";
+	parent.divNextPrev.insertAdjacentHTML( "AfterBegin", divNextPrev.innerHTML );
+
+
+	parent.divLogo.style.width = 100;
+	parent.divLogo.style.height = 120;
+	parent.divLogo.style.left = 0;
+	parent.divLogo.style.top = toInt(parent.document.body.clientHeight) - toInt(parent.divLogo.style.height) - 5;
+
+	parent.divLogo.innerText = "";
+	parent.divLogo.insertAdjacentHTML( "AfterBegin", divLogo.innerHTML );
+	}
+
+
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY onload="resize()" bgcolor="gray" >
+
+<div id=divNextPrev >
+<!--
+<input type=button name=Prev value=prev onclick="parent.prev();">
+<input type=button name=Next value=next onclick="parent.next();">
+-->
+<img src="images/botnav.gif" border=0 USEMAP="#botnav.cmp">
+<MAP NAME="botnav.cmp">
+<AREA SHAPE=RECT COORDS="103,57,158,79" HREF="">
+<AREA SHAPE=RECT COORDS="516,56,543,79" HREF="Javascript:parent.prev();">
+<AREA SHAPE=RECT COORDS="562,56,597,79" HREF="Javascript:parent.next();">
+</map>
+
+</div>
+
+
+<div ID=divLogo >
+	<img src="images/leftlogo.gif" >
+</div>
+
+
+</BODY>
+</HTML>

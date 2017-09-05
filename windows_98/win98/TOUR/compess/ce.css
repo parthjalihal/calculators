@@ -1,0 +1,60 @@
+
+div
+	{
+	color:#13053B;
+	font-family: verdana; 
+	position: relative;
+	}
+
+.clsHolder
+	{
+	font-size: 14pt;
+	height: 100;
+	cursor:default;
+	}
+
+.clsInst
+	{
+	font-size: 10pt;
+	cursor:default;
+	}
+
+.clsEnter
+	{
+	font-size: 10pt;
+	margin-top: 10pt; 
+	height:15;
+	cursor:default;
+	}
+
+a.clsNav
+	{
+	width:100%;
+	cursor:hand;
+	font: 8pt verdana;
+	font-weight: bold;
+	text-align: left;
+	text-decoration: none;
+	color: black;
+	}
+
+.navTab {
+	position:relative; 
+	margin:0; 
+	top:0; 
+	left:0; 
+	width:147;
+	}
+
+.navCell {
+	padding-top:10; 
+	padding-left:10; 
+	}
+
+.navTopCell {
+	padding-top:25; 
+	padding-left:10; 
+	}
+
+#spanExit
+	{font-size: 9pt;}

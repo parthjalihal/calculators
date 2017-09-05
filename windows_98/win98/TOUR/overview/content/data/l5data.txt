@@ -1,0 +1,106 @@
+%<!-- version 9.15.8 --><!--lesson5.htm--><!-- Connecting to the Internet -->
+In this lesson you'll learn how to connect to the Internet. Once you're connected, you'll begin to explore the Internet and the World Wide Web.
+<P>
+<br>
+<p>
+Click the <b>Next</b> button, above, to continue.
+%~%
+This lesson shows you how to connect to the <a id=a1 href="javascript:;" onclick="javascript:popup('Column27', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>Internet</a> via a modem and through an <a id=a2 href="javascript:;" onclick="javascript:popup('Column28', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>Internet Service Provider</a> (ISP).  You must have a modem properly installed
+and configured to perform the steps in this lesson.
+<br><a id=a3 id="tiplink" href="javascript:;" onClick="javascript:popup('Column29', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+%~%
+The first step in connecting to the Internet is choosing an ISP.  Double-click the <b>Online Services</b> <a id=a1 href="javascript:;" onclick="javascript:popup('Column5', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>folder</a> on your <a id=a2 href="javascript:;" onclick="javascript:popup('Column19', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>desktop</a> to view icons for several ISPs.
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+The sign up process varies, depending on the ISP.
+<P>
+At this time, if you want to complete the sign up process, double-click the <b>About The Onlines Services</b> <a id=a1 href="javascript:;" onclick="javascript:popup('Column18', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>icon</a> or the icon corresponding to the ISP in which you are interested. Your area may have other ISPs which are not included in the <b>Online Services</b> folder.
+<br><a id=a2 id="tiplink" href="javascript:;" onClick="javascript:popup('Column31', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+%~%
+Click the <b>Close</b> button <img src="images/stdclose.gif"> on the <a id=a1 href="javascript:;" onclick="javascript:popup('Column3', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>title bar</a> of the <b>Online Services</b> window.
+<br><a id=a2 id="tiplink" href="javascript:;" onClick="javascript:popup('Column73', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To complete the rest of the steps in this lesson, you must be connected to the Internet.
+<p>
+Once you've established an online connection, double-click the <b>Internet Explorer</b> icon on your desktop.
+<p>
+<a id=a1 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+In the <b>Internet Explorer</b> window, click the <b>Address</b> box on the <b>Address</b> <a id=a1 href="javascript:;" onclick="javascript:popup('Column43', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>toolbar</a>, type <i>www.microsoft.com/</i> and press the ENTER key. Note that the Microsoft
+Corporation <a id=a2 href="javascript:;" onclick="javascript:popup('Column59', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>home page</a> opens.
+<br><a id=a3 id="tiplink" href="javascript:;" onClick="javascript:popup('Column32', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a4 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+In the <b>Internet Explorer</b> window, click the <b>Internet Explorer News</b> button on the <b>Links</b> toolbar.
+<p>
+If you do not see the <b>Internet Explorer News</b> button on the <b>Links</b> toolbar, click <b>Links</b> on the <b>Links</b> toolbar, and <a id=a1 href="javascript:;" onclick="javascript:popup('Column57', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'">drag</a> the <b>Links</b> toolbar directly beneath the <b>Address</b> toolbar. The <b>Links</b> toolbar now appears below the <b>Address</b> toolbar.<br><a id=a2 id="tiplink" href="javascript:;" onClick="javascript:popup('Column74', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span>
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+The <b>Internet Explorer News</b> <a id=a1 href="javascript:;" onclick="javascript:popup('Column60', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>Web site</a> opens with the latest information about your Web browser.
+%~%
+To return to the previous <a id=a1 href="javascript:;" onclick="javascript:popup('Column75', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>Web</a> page, click the <b>Back</b> button  <img src="images/turbkbtn.gif">  on the toolbar in the <b>Internet Explorer</b> window.
+To return to the Web site you just visited, Internet Explorer News, click the <b>Forward</b> button
+<img src="images/turforwd.gif"> on the toolbar.
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To view the content on a different site, click <b>Best of the Web</b> on the <b>Links</b> toolbar.
+<p>
+A Web page with links to recommended Web sites appears.
+<p>
+<a id=a1 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+Move your mouse pointer over some of the images and text in <b>Best of the Web</b>.  Your
+mouse pointer turns into a hand when it passes over a <a id=a1 href="javascript:;" onclick="javascript:popup('Column64', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>hyperlink</a>.  Click one of the text <a id=a2 href="javascript:;" onclick="javascript:popup('Column65', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>links</a>.
+<p>
+You may need to <a id=a3 href="javascript:;" onclick="javascript:popup('Column78', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>scroll</a> down the page to view the links.
+<p>
+<a id=a4 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To return to your Internet <a id=a1 href="javascript:;" onclick="javascript:popup('Column79', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>start page</a>, click the <b>Home</b> button <img src="images/turhome.gif"> on the Standard toolbar.
+<br><a id=a2 id="tiplink" href="javascript:;" onClick="javascript:popup('Column82', window.event.x, window.event.y+65);" onmouseOver="tip.style.borderColor='#000099'" onmouseOut="tip.style.borderColor='white'" onfocus="tip.style.borderColor='#000099'" onblur="tip.style.borderColor='white'"><span id="tip" class=tip>
+Tip!</span></a>
+<p>
+<a id=a3 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To close <b>Internet Explorer</b>, click the <b>Close</b> button <img src="images/stdclose.gif"> on the title bar of the window. If your ISP prompts you to disconnect from the Internet, click <b>Yes</b>.
+<p>
+You now know how to explore the Internet and World Wide Web.
+<p>
+<a id=a1 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%
+

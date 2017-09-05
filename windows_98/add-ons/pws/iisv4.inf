@@ -1,0 +1,26 @@
+[Version]
+Signature = "$Chicago$"
+
+[Strings]
+Title="Microsoft Personal Web Server Setup"
+
+[PageTitles]
+SetupPage=%Title%
+
+[Components]
+iis = iis.dll,OcEntry,iis.inf
+mts = mtssetup.dll,MTSSetupProc,mtsiis.inf
+DAC=dagsetup.dll,DAGSetup,dagsetup.inf
+fp = fp30ext.dll,FrontPage3Extensions,fp30ext.inf
+vid = fp30ext.dll,FrontPage3Extensions,fp30ext.inf
+Msmq_Client = msmqocm.dll,MsmqOcm,msmqclnt.inf
+
+[PageReplace]
+welcome = iis
+mode = iis
+final = Msmq_Client,iis
+
+[PageAdd]
+early = iis, mts,Msmq_Client
+prenet = 
+late = default

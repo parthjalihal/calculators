@@ -1,0 +1,52 @@
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+provider=%BWS%
+LayoutFile=layout.inf
+
+[Manufacturer]
+%MfgName%=Intel
+
+[Intel]
+%USB\VID_8086&PID_BEEF.DeviceDesc%=FLASH, USB\VID_8086&PID_BEEF
+%USB\VID_8086&PID_1234.DeviceDesc%=FLASH, USB\VID_8086&PID_1234
+%USB\VID_8086&PID_0DAD&MI_01.DeviceDesc%=FLASH, USB\VID_8086&PID_0DAD&MI_01
+%USB\VID_8086&PID_8602&MI_01.DeviceDesc%=FLASH, USB\VID_8086&PID_8602&MI_01
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[SourceDisksNames]
+8086=%DISK%, "", 1
+
+[SourceDisksFiles]
+usbflash.sys=8086
+usbmtd.vxd=8086
+
+[DestinationDirs]
+FLASH.CopyList = 11      ; LDID_SYS
+
+[FLASH]
+CopyFiles=FLASH.CopyList
+AddReg=FLASH.AddReg
+
+[FLASH.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"usbflash.sys,usbmtd.vxd"
+
+[FLASH.CopyList]
+usbflash.sys
+usbmtd.vxd
+
+;---------------------------------------------------------------;
+
+[Strings]
+BWS="Blue Water Systems"
+MfgName="Intel"
+DISK="Intel USB installation disk"
+USB\VID_8086&PID_BEEF.DeviceDesc="SCM USB Miniature Card Reader/Writer"
+USB\VID_8086&PID_1234.DeviceDesc="Intel USB Prototype Reader/Writer"
+USB\VID_8086&PID_0DAD&MI_01.DeviceDesc="USB Miniature Card Slot"
+USB\VID_8086&PID_8602&MI_01.DeviceDesc="USB Miniature Card Slot"
+

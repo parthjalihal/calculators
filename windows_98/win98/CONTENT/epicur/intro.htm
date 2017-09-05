@@ -1,0 +1,638 @@
+<HTML>
+<HEAD>
+
+<TITLE>Epicurious Food & Travel</TITLE>
+
+<SCRIPT LANGUAGE="Javascript">
+<!--
+
+function vhcenter(obj) {
+  var newoffset = Math.floor((document.body.offsetHeight - 430) / 2)
+  newoffset -= 2
+  if (newoffset < 0) {
+    newoffset = 0
+  }
+  obj.style.top = newoffset + "px"
+  newoffset = Math.floor((document.body.offsetWidth - 610) / 2)
+  newoffset -= 10   // Centering correction
+  if (newoffset < 0) {
+    newoffset = 0
+  }
+  obj.style.left = newoffset + "px"
+}
+
+
+function showall() {
+  hide(loadingScreen)
+  show(mainDiv)
+}
+
+function show(obj) {
+  obj.style.visibility = "visible"
+}
+
+// Sequencer stuff
+function sequence_init() {
+  Seq.item("initialActionSet").At(1.500, "doTrans()")
+  Seq.item("initialActionSet").Play()
+}
+
+// Transition stuff
+var oldsrcleft = "ftext.gif"
+var oldsrcright = "ttext.gif"
+
+function doTrans() {
+  var tmp
+  LeftTrans.filters.item(0).apply()
+  tmp = LeftTrans.src
+  LeftTrans.src = oldsrcleft
+  oldsrcleft = tmp
+  LeftTrans.filters.item(0).play()
+  RightTrans.filters.item(0).apply()
+  tmp = RightTrans.src
+  RightTrans.src = oldsrcright
+  oldsrcright = tmp
+  RightTrans.filters.item(0).play()
+}
+
+
+function do_right() {
+  Seq.item("slideActionSet").At(0.000, "fadeout(rightContainer)")
+  Seq.item("slideActionSet").At(0.500, "right_slide()")
+  Seq.item("slideActionSet").At(2.500, "hide(leftDiv)")
+  Seq.item("slideActionSet").At(2.500, "hide(rightDiv)")
+  Seq.item("slideActionSet").At(2.750, "show(travelDiv)")
+  Seq.item("slideActionSet").At(2.800, "travelInit()")
+  Seq.item("slideActionSet").At(3.000, "action_stop('slideActionSet')")
+  Seq.item("slideActionSet").Play()
+}
+
+function do_left() {
+  Seq.item("slideActionSet").At(0.000, "fadeout(leftContainer)")
+  Seq.item("slideActionSet").At(0.500, "left_slide()")
+  Seq.item("slideActionSet").At(2.500, "hide(rightDiv)")
+  Seq.item("slideActionSet").At(2.500, "hide(leftDiv)")
+  Seq.item("slideActionSet").At(2.750, "show(foodDiv)")
+  Seq.item("slideActionSet").At(2.800, "foodInit()")
+  Seq.item("slideActionSet").At(3.000, "action_stop('slideActionSet')")
+  Seq.item("slideActionSet").Play()
+}
+
+function right_slide() {
+  mainDiv.style.backgroundColor = "#FFCE6B"
+  rightDiv.style.zIndex += 1
+  plArray = Array(305,0, 0,0)
+  slidePath.PolyLine(2, plArray)
+  slidePath.target = "rightDiv"
+  slidePath.Play()
+}
+
+function left_slide() {
+  mainDiv.style.backgroundColor = "#94CECE"
+  leftDiv.style.zIndex += 1
+  plArray = Array(0,0, 305,0)
+  slidePath.PolyLine(2, plArray)
+  slidePath.target = "leftDiv"
+  slidePath.Play()
+}
+
+function fadeout(obj) {
+  obj.filters.item(0).apply()
+  obj.style.visibility = "hidden"
+  obj.filters.item(0).play()
+}
+
+function fadein(obj) {
+  obj.style.zIndex = 1
+  obj.filters.item(0).apply()
+  obj.style.visibility = "visible"
+  obj.filters.item(0).play()
+}
+
+function hide(obj) {
+  obj.style.visibility = "hidden"
+}
+
+function travel_reinitialize() {
+  hideAllTravel()
+  show(travelTool1)
+  foodDiv.style.zIndex = 0
+  fadein(travelDiv)
+  setTimeout("travelInit()", 2500)
+}  
+
+function food_reinitialize() {
+  hideAllFood()
+  show(foodTool1)
+  travelDiv.style.zIndex = 0
+  fadein(foodDiv)
+  setTimeout("foodInit()", 2500)
+}  
+
+function hideAllTravel() {
+  hide(travelImage1)
+  hide(travelSection1)
+  hide(travelSection1a)
+  hide(travelSection2)
+  hide(travelSection2a)
+  hide(travelSection3)
+  hide(travelSection3a)
+  hide(travelSection4)
+  hide(travelSection4a)
+  hide(travelSection5)
+  hide(travelTools)
+  hide(travelTool1a)
+  hide(travelDiv)
+}
+
+function hideAllFood() {
+  hide(foodDiv)
+  hide(foodImage1)
+  hide(foodSection1)
+  hide(foodSection1a)
+  hide(foodSection2)
+  hide(foodSection2a)
+  hide(foodSection3)
+  hide(foodSection3a)
+  hide(foodSection4)
+  hide(foodSection4a)
+  hide(foodSection5)
+  hide(foodTools)
+  hide(foodTool1a)
+}
+
+function action_stop(actionset) {
+  Seq.item(actionset).Stop()
+}
+// -->
+</SCRIPT>
+
+
+
+<SCRIPT LANGUAGE="Javascript">
+//////////////////////////// Shvetal's Code
+
+function travelInit() {
+    fadein(travelImage1)
+	setTimeout("section(travelSection1,'travelSection1',375,372,57,167)",1500)
+	setTimeout("fadein(travelSection1a)",4000)
+	setTimeout("section(travelSection2,'travelSection2',0,372,376,166)",6500)
+	setTimeout("fadein(travelSection2a)",9000)
+	setTimeout("section(travelSection3,'travelSection3',375,372,57,256)",12000)	
+	setTimeout("fadein(travelSection3a)",14500)
+	setTimeout("section(travelSection4,'travelSection4',0,372,376,256)",18000)
+	setTimeout("fadein(travelSection4a)",20500)			
+	setTimeout("fadein(travelSection5)",23000)			
+	setTimeout("fadein(travelTools)",25500)			
+}
+	
+////////////////////////////
+
+function foodInit() {
+    fadein(foodImage1)
+	setTimeout("section(foodSection1,'foodSection1',375,372,57,167)",1500)
+	setTimeout("fadein(foodSection1a)",4000)
+	setTimeout("section(foodSection2,'foodSection2',0,372,376,166)",6500)
+	setTimeout("fadein(foodSection2a)",9000)
+	setTimeout("section(foodSection3,'foodSection3',375,372,57,256)",12000)	
+	setTimeout("fadein(foodSection3a)",14500)
+	setTimeout("section(foodSection4,'foodSection4',0,372,376,256)",17000)
+	setTimeout("fadein(foodSection4a)",19500)			
+	setTimeout("fadein(foodSection5)",22000)			
+	setTimeout("fadein(foodTools)",24500)			
+}
+	
+////////////////////////////
+
+function section(obj,name,x1,y1,x2,y2){
+	PLArray = Array(x1,y1,x2,y2)
+	slidePath.PolyLine(2,PLArray)	
+	slidePath.target = name
+	obj.style.visibility = "visible"
+	slidePath.Play()
+}	
+
+////////////////////////////
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="Black" ONLOAD="vhcenter(mainDiv); showall()"  ONRESIZE="vhcenter(mainDiv)"
+      LEFTMARGIN=0 TOPMARGIN=0>
+	  
+<CENTER>
+<DIV ID="loadingScreen" STYLE="text-align:center; font: 22pt helvetica; background-color:black; color:white; width:610px; height:430px">
+  <DIV STYLE="position:relative; top:200px">
+  Please wait: Page loading
+  </DIV>
+</DIV>
+</CENTER>
+
+<DIV ID="mainDiv" STYLE="visibility:hidden; position:absolute; top:0px; left:0px;
+                         width:610px; height:430px">
+
+  <DIV ID="leftDiv" STYLE="position:absolute; top:0px; left:0px; width:305px; height:430px;
+                           background-color:#94CECE">
+	<DIV ID="leftContainer" STYLE="position:absolute; top:0px; left:0px; width:305px; height:430px;
+	                                background-color:#94CECE; filter:blendTrans(Duration=0.500)">
+      <IMG SRC="flogo.gif" WIDTH=306 HEIGHT=73 BORDER=0
+           STYLE="position:absolute; top:140px; left:0px">
+      <IMG SRC="elogo1.gif" WIDTH=215 HEIGHT=112 BORDER=0
+	       STYLE="position:absolute; top:8px; left:93px">
+      <IMG SRC="chef.gif" WIDTH=306 HEIGHT=102 BORDER=0 ID="LeftTrans"
+           STYLE="filter:revealTrans(Duration=1.300, Transition=12);
+                  position:absolute; top:213px; left:0px">
+      <IMG SRC="ftext.gif" WIDTH=306 HEIGHT=102 BORDER=0
+           STYLE="position:absolute; top:213px; left:0px; visibility:hidden">
+      <A HREF="javascript:window.external.addChannel('http://food.epicurious.com/channel/intro.cdf')"><IMG SRC="add.gif"
+	     WIDTH=136 HEIGHT=20 BORDER=0
+         STYLE="position:absolute; top:314px; left:84px"></A>
+      <IMG SRC="blue1a.gif" WIDTH=306 HEIGHT=42 BORDER=0 ID="blue1a"
+	       ONCLICK="hide(blue1a); hide(blue2a); show(blue1b); show(blue2b); do_left()"
+           STYLE="position:absolute; top:349px; left:0px; cursor:hand">
+      <IMG SRC="blue1a.gif" WIDTH=306 HEIGHT=42 BORDER=0 ID="blue1b"
+           STYLE="position:absolute; top:349px; left:0px; visibility:hidden">
+	  <A HREF="http://food.epicurious.com" TARGET="_blank"><IMG SRC="blue1b.gif"
+	     WIDTH=306 HEIGHT=39 BORDER=0
+		 STYLE="position:absolute; top:391px; left:0px"></A>
+    </DIV>
+  </DIV>
+
+  <DIV ID="rightDiv" STYLE="position:absolute; top:0px; left:305px; width:305px; height:430px;
+                            background-color:#FFCE6B">
+	<DIV ID="rightContainer" STYLE="position:absolute; top:0px; left:0px; width:305px; height:430px;
+	                                background-color:#FFCE6B; filter:blendTrans(Duration=0.500)">
+      <IMG SRC="elogo2.gif" WIDTH=235 HEIGHT=112 BORDER=0
+	       STYLE="position:absolute; top:8px; left:0px">
+      <IMG SRC="tlogo.gif" WIDTH=304 HEIGHT=73 BORDER=0
+	       STYLE="position:absolute; top:140px; left:0px">
+	  <IMG SRC="train.gif" WIDTH=304 HEIGHT=102 BORDER=0 ID="RightTrans"
+           STYLE="filter:revealTrans(Duration=1.300, Transition=12);
+	              position:absolute; top:213px; left:0px">
+      <IMG SRC="ttext.gif" WIDTH=304 HEIGHT=102 BORDER=0
+           STYLE="position:absolute; top:213px; left:0px; visibility:hidden">
+      <A HREF="javascript:window.external.addChannel('http://travel.epicurious.com/channel/intro.cdf')"><IMG SRC="add.gif"
+	     WIDTH=136 HEIGHT=20 BORDER=0
+         STYLE="position:absolute; top:314px; left:85px"></A>
+	  <IMG SRC="blue2a.gif" WIDTH=304 HEIGHT=42 BORDER=0 ID="blue2a"
+	       ONCLICK="hide(blue1a); hide(blue2a); show(blue1b); show(blue2b); do_right()"
+		   STYLE="position:absolute; top:349px; left:2px; cursor:hand">
+	  <IMG SRC="blue2a.gif" WIDTH=304 HEIGHT=42 BORDER=0 ID="blue2b"
+		   STYLE="position:absolute; top:349px; left:2px; visibility:hidden">
+	  <A HREF="http://travel.epicurious.com" TARGET="_blank"><IMG SRC="blue2b.gif"
+	     WIDTH=304 HEIGHT=39 BORDER=0
+	     STYLE="position:absolute; top:391px; left:2px"></A>
+    </DIV>
+  </DIV>
+
+  <DIV ID="foodDiv" STYLE="position:absolute; top:0px; left:0px; width:610px; height:430px;
+                             visibility:hidden; background-color:#94CECE;
+							 filter:revealTrans(Transition=6, Duration=2.500)">
+    <CENTER>
+      <IMG SRC="food/flogo2.gif"
+      	   ID="foodImage1"
+	       STYLE="visibility:hidden;
+	              filter:revealTrans(Duration=1.500, Transition=12)"
+	  >		        	 
+    </CENTER>
+
+
+
+<IMG ID="foodSection1"
+ 	 SRC="food/texttop1.gif"
+	 BORDER=0
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;		
+			visibility:hidden
+			"
+			>
+			
+<IMG ID="foodSection1a"
+ 	 SRC="food/textbot1.gif"
+     STYLE="position:absolute;
+	 	    left:57px;
+			top:196px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+
+
+<IMG ID="foodSection2"
+ 	 SRC="food/texttop2.gif"
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+
+<IMG ID="foodSection2a"
+ 	 SRC="food/textbot2.gif"
+     STYLE="position:absolute;
+	 	    left:376px;
+			top:196px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+			
+			
+<IMG ID="foodSection3"
+ 	 SRC="food/texttop3.gif"
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+
+<IMG ID="foodSection3a"
+ 	 SRC="food/textbot3.gif"
+     STYLE="position:absolute;
+	 	    left:57px;
+			top:286px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+			
+			
+<IMG ID="foodSection4"
+ 	 SRC="food/texttop4.gif"
+	 BORDER=0
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+<IMG ID="foodSection4a"
+ 	 SRC="food/textbot4.gif"
+     STYLE="position:absolute;
+	 	    left:376px;
+			top:286px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+<IMG ID="foodSection5"
+ 	 SRC="food/fmore.gif"
+     STYLE="position:absolute;
+	 	    left:264px;
+			top:343px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+<!-- //////////////// -->
+<DIV ID="foodTools"
+	 STYLE="position:absolute;
+	 		top:379px;
+			left:0px;
+			width:630px;
+			height:60px;
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.500, Transition=12)
+			"
+			>						
+
+<IMG SRC="food/atc.gif" WIDTH=250 HEIGHT=51 BORDER=0
+	 ID="foodTool1" ONCLICK="hide(this); show(foodTool1a); travel_reinitialize()"
+	 STYLE="position:absolute;
+	 		left:0px;
+			top:0px;
+			visibility:visible;
+			cursor:hand;		
+			">
+			
+<IMG SRC="food/atc.gif" WIDTH=250 HEIGHT=51 BORDER=0
+	 ID="foodTool1a"
+	 STYLE="position:absolute;
+	 		left:0px;
+			top:0px;
+			visibility:hidden;		
+			">
+
+
+<A HREF="javascript:window.external.addChannel('http://food.epicurious.com/channel/intro.cdf')">			
+<IMG SRC="food/add.gif" WIDTH=195 HEIGHT=51 BORDER=0
+	 ID="foodTool2"
+	 STYLE="position:absolute;
+	 		left:415px;
+			top:0px;
+			visibility:visible;			
+			">
+</A>
+<A HREF="http://food.epicurious.com" TARGET="_blank">			
+<IMG SRC="food/fconn.gif" WIDTH=165 HEIGHT=51 BORDER=0
+	 ID="foodTool3"
+	 STYLE="position:absolute;
+	 		left:250px;
+			top:0px;
+			visibility:visible;			
+			">
+</A>
+</DIV>
+
+  </DIV>
+
+  <DIV ID="travelDiv" STYLE="position:absolute; top:0px; left:0px; width:610px; height:430px;
+                             visibility:hidden; background-color:#FFCE6B;
+							 filter:revealTrans(Transition=7, Duration=2.500)">
+	
+<CENTER>
+<IMG SRC="travel/tlogo2.gif"
+	 ID="travelImage1"
+	 STYLE="visibility:hidden;
+	        filter:revealTrans(Duration=1.500, Transition=12)"
+	 >		        	 
+</CENTER>
+
+
+
+<IMG ID="travelSection1"
+ 	 SRC="travel/texttop1.gif"
+	 BORDER=0
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;		
+			visibility:hidden
+			"
+			>
+			
+<IMG ID="travelSection1a"
+ 	 SRC="travel/textbot1.gif"
+     STYLE="position:absolute;
+	 	    left:57px;
+			top:196px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+
+
+<IMG ID="travelSection2"
+ 	 SRC="travel/texttop2.gif"
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+
+<IMG ID="travelSection2a"
+ 	 SRC="travel/textbot2.gif"
+     STYLE="position:absolute;
+	 	    left:376px;
+			top:196px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+			
+			
+<IMG ID="travelSection3"
+ 	 SRC="travel/texttop3.gif"
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+
+<IMG ID="travelSection3a"
+ 	 SRC="travel/textbot3.gif"
+     STYLE="position:absolute;
+	 	    left:57px;
+			top:286px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+			
+			
+<IMG ID="travelSection4"
+ 	 SRC="travel/texttop4.gif"
+	 BORDER=0
+     STYLE="position:absolute;
+	 	    left:0px;
+			top:0px;
+			visibility:hidden
+			"
+			>
+<IMG ID="travelSection4a"
+ 	 SRC="travel/textbot4.gif"
+     STYLE="position:absolute;
+	 	    left:376px;
+			top:286px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+
+<!-- //////////////// -->
+<IMG ID="travelSection5"
+ 	 SRC="travel/tmore.gif"
+     STYLE="position:absolute;
+	 	    left:264px;
+			top:343px;		
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.750, Transition=12)
+			"
+			>
+<!-- //////////////// -->
+<DIV ID="travelTools"
+	 STYLE="position:absolute;
+	 		top:379px;
+			left:0px;
+			width:630px;
+			height:60px;
+			visibility:hidden;
+	        filter:revealTrans(Duration=0.500, Transition=12)
+			"
+			>						
+
+<IMG SRC="travel/afc.gif" WIDTH=221 HEIGHT=51 BORDER=0
+	 ID="travelTool1" ONCLICK="hide(this); show(travelTool1a); food_reinitialize()"
+	 STYLE="position:absolute;
+	 		left:0px;
+			top:0px;
+			visibility:visible;
+			cursor:hand;
+	        filter:revealTrans(Duration=1.500, Transition=12)			
+			">
+
+<IMG SRC="travel/afc.gif" WIDTH=221 HEIGHT=51 BORDER=0
+	 ID="travelTool1a"
+	 STYLE="position:absolute;
+	 		left:0px;
+			top:0px;
+			visibility:hidden;
+			">
+
+<A HREF="javascript:window.external.addChannel('http://travel.epicurious.com/channel/intro.cdf')">			
+<IMG SRC="travel/add.gif" WIDTH=195 HEIGHT=51 BORDER=0
+	 ID="travelTool2"
+	 STYLE="position:absolute;
+	 		left:415px;
+			top:0px;
+			visibility:visible;
+	        filter:revealTrans(Duration=1.500, Transition=12)			
+			">
+</A>
+<A HREF="http://travel.epicurious.com" TARGET="_blank">			
+<IMG SRC="travel/tconn.gif" WIDTH=196 HEIGHT=51 BORDER=0
+	 ID="travelTool3"
+	 STYLE="position:absolute;
+	 		left:221px;
+			top:0px;
+			visibility:visible;
+	        filter:revealTrans(Duration=1.500, Transition=12)			
+			">
+</A>
+</DIV>
+
+  </DIV>
+  
+<MAP NAME="bluebar3.map">
+<AREA SHAPE="rect" COORDS="0,0 305,48" HREF="http://food.epicurious.com" TARGET="_blank">
+<AREA SHAPE="rect" COORDS="306,0 610,48" HREF="http://travel.epicurious.com" TARGET="_blank">
+</MAP>
+
+<OBJECT ID="Seq"
+ CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+ STYLE="width:0; height:0; visibility:hidden; position:absolute; top:0px; left:0px">
+</OBJECT>
+
+<OBJECT ID="slidePath" CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+  <PARAM NAME="Duration" VALUE="2.000">
+  <PARAM NAME="Bounce" VALUE="False">
+</OBJECT>
+
+<SCRIPT FOR="Seq" EVENT="oninit" LANGUAGE="Javascript">
+<!--
+sequence_init()
+// -->
+</SCRIPT>
+
+</DIV>
+
+</BODY>
+</HTML>

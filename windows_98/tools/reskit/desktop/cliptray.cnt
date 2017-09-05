@@ -1,0 +1,17 @@
+:Base ClipTray.hlp
+:Title ClipTray Help
+1 What is ClipTray?
+2 What is Cliptray?=jump_WhatIs
+1 Using ClipTray
+2 Using ClipTray=jump_Using
+2 Adding ClipTray Entries=jump_Adding
+2 Deleting ClipTray Entries=jump_Deleting
+2 Editing ClipTray Entries=jump_Editing
+2 Changing the Order of ClipTray Entries=jump_Order
+2 Changing the Number of ClipTray Entries That Appear on the Menu=jump_MenuSize
+2 Using Multiple ClipTray Files=jump_Open
+2 Preview Mode=jump_Preview
+1 Advanced
+2 ClipTray Files=jump_Files
+2 Manually Modifying ClipTray Files=jump_Hacking
+2 Uninstalling ClipTray=jump_Uninstall

@@ -1,0 +1,111 @@
+       -----------------------------------------------------------
+                       Microsoft Windows 98 README
+                      for Windows Messaging and FAX
+       -----------------------------------------------------------
+
+              (c) Copyright Microsoft Corporation, 1998
+
+------------------------
+How to Use This Document
+------------------------
+
+To view WMS-FAX.TXT on screen in Notepad, maximize the Notepad window.
+
+To print WMS-FAX.TXT, open it in Notepad or another word processor, and then use the Print command on the File menu. 
+
+-------- 
+CONTENTS
+--------
+
+WHAT IS WINDOWS MESSAGING? 
+WHAT IS MICROSOFT MAIL POSTOFFICE?
+WHAT IS MICROSOFT FAX?
+INSTALLATION
+UNINSTALLATION
+USING WINDOWS MESSAGING WITH MICROSOFT SCHEDULE+ 1.0
+USING WINDOWS MESSAGING WITH MICROSOFT MAIL
+TROUBLESHOOTING TIPS 
+
+
+WHAT IS WINDOWS MESSAGING? 
+===========================
+
+Windows Messaging is an update to Exchange that was originally shipped with Windows 95. Like Exchange, Windows Messaging enables the user to send and receive e-mail, faxes, and documents in message format by accessing a Microsoft Mail Postoffice Mailbox Account. Information Services that can be used with Windows Messaging include Microsoft Mail, Internet Mail, Microsoft Fax, and the Microsoft Network. Windows Messaging is a Full MAPI Client.
+
+WHAT IS MICROSOFT MAIL POSTOFFICE?
+===================================
+
+Microsoft Mail Postoffice was included in Windows for Workgroups, Windows 95, OSR2 and OSR2.5. Microsoft Mail Postoffice provides a centralized location for Network Administrators or Small Office Administrators to create and maintain a Workgroup Postoffice.  The Administrator would create an account for each user within the Workgroup Postoffice.  This account would then provide users the ability to send or receive e-mail to or from other users within the company network. 
+
+WHAT IS MICROSOFT FAX?
+=======================
+
+Microsoft Fax is a faxing application that requires a Full MAPI Client to operate, such as: Microsoft Exchange, Windows Messaging, Microsoft Exchange Server Client or Outlook97. Microsoft Fax was originally shipped with Windows for Workgroups as At Work Fax and later updated to Microsoft Fax and included in Windows 95, OSR2 and OSR2.5.  This is the same update and does not include any feature changes.  Microsoft Fax requires a fax modem.  
+
+
+
+INSTALLATION
+============
+
+WMS.EXE
+
+Locate WMS.EXE on the Windows 98 CD ROM in Tools\OldWin95\Messaging directory.  Launch the executable by double clicking the file or selecting the file and hitting Enter.  Follow the prompts provided by the install.  If prompted to reboot when setup is completed, select OK to allow setup to reboot and finalize settings.  Once setup is finalized, first time users will need to create a profile.  You can create a new profile by double clicking the Inbox Icon on the Desktop or selecting the Inbox Icon on the Desktop and hitting Enter.  Follow the Inbox Setup Wizard instructions.
+
+This file installs Windows Messaging and Microsoft Mail Postoffice, also commonly referred to as a Workgroup Postoffice.  Windows Messaging is a Full MAPI Client.  WMS.EXE is provided for Microsoft Technical Support (MTS), or Windows 95, OSR2 and OSR2.5 upgrade users to repair pre-existing Windows 95 Microsoft Exchange, OSR2 and OSR2.5 Windows Messaging clients and Microsoft Mail Postoffice if they become corrupted. ("Pre-existing" requires that Microsoft Exchange or Windows Messaging and Microsoft Mail Postoffice is fully functional prior to upgrading to Windows 98.)  If Microsoft Exchange or Windows Messaging files become corrupted, this will install updated versions of those files.  WMS.EXE will add an Inbox Icon to the desktop as well as a Mail Icon and a Microsoft Mail Postoffice Icon to Control Panel if one does not already exist.  If At Work Fax was configured in Windows For Workgroups Microsoft Mail prior to upgrading to Windows 98, this file will remove the At Work Fax functionality in Microsoft Mail and remove the At Work Fax Icon in Control Panel.  The Inbox Icon on the Desktop will open to Windows Messaging once a profile has been created.  The system must be able to access a Workgroup Postoffice Account in order to create a profile.   
+
+WARNING: This file is an updated version of Windows Messaging. However, it does not contain any additional updates for Microsoft Mail Postoffice. This file does not contain any feature changes to Microsoft Windows Messaging or Microsoft Mail Postoffice.  All known issues regarding Microsoft Windows Messaging and Microsoft Mail Postoffice will be applicable to this update.  This file is not intended for use with Microsoft Exchange Server Client or Outlook 97.  If errors occur within Microsoft Exchange Server Client or Outlook 97, it is recommended that you reinstall the original application.  If it is necessary to install WMS.EXE to restore Microsoft Mail Postoffice functionality, it is recommended that you reinstall Microsoft Exchange Server Client or Outlook 97 after WMS.EXE install is complete.
+
+
+
+AWFAX.EXE
+
+Locate AWFAX.EXE on the Windows 98 CD ROM in Tools\OldWin95\Messaging directory.  Launch the executable by double clicking the file or selecting the file and hitting Enter.  Follow the prompts provided by the install.  Setup will prompt you to reboot when setup is completed, select OK to allow setup to reboot and finalize settings.  Add Microsoft Fax as a service in the MAPI Client Profile through the Mail and Fax Icon in Control Panel.
+
+AWFAX.EXE installs Microsoft Fax.  Microsoft Fax requires a Full MAPI Client in order to function, such as: Microsoft Exchange, Windows Messaging, Microsoft Exchange Server Client or Outlook 97.  AWFAX.EXE is provided for Microsoft Technical Support (MTS) or Windows 95, OSR2 and OSR2.5 upgrade users to repair a pre-existing Microsoft Fax installation if it becomes corrupted. ("Pre-existing" requires that Microsoft Fax be fully functional prior to upgrading to Windows 98.) If Microsoft Fax files become corrupted, this will install updated versions of those files.  AWFAX.EXE will add a Microsoft Fax Printer into the Printers Folder if one does not already exist.  If At Work Fax was configured in Windows For Workgroups Microsoft Mail prior to upgrading to Windows 98, this file will remove the At Work Fax functionality in Microsoft Mail and remove the At Work Fax Icon in Control Panel.  Microsoft Fax must be an added service to the MAPI Client Profile in order to function.
+
+WARNING:  This file does not contain any feature changes to Microsoft Fax.  All known issues regarding Microsoft Fax will be applicable to this update.  
+
+In order for Microsoft Fax to answer an incoming call and receive a fax, the MAPI Client must be launched and running.
+
+
+
+UNINSTALLATION
+==============
+ 
+To uninstall any of these packages go to Control Panel and double click Add/Remove Programs.  The component will be listed on the first tab, Install/Uninstall.  Select the package you wish to uninstall and click on the Add/Remove Button. 
+
+
+USING WINDOWS MESSAGING WITH MICROSOFT SCHEDULE+ 1.0
+=====================================================
+
+Windows Messaging is designed to work with Microsoft Schedule+ 7.0. When Windows Messaging is installed, it will partially disable Microsoft Schedule+ 1.0. You will still be able to use Microsoft Schedule+ 1.0 in standalone mode, but you will not be able to send or receive meeting requests. You will see an error message when starting Microsoft Schedule+ 1.0 that notifies you that the mail spooler cannot be started. Click Yes to continue, and Microsoft Schedule+ 1.0 will continue. 
+
+Microsoft Schedule+ is disabled by changing Mailspl.exe to Mailspl.bak and by putting a StartupOffline=1 line into Schdplus.ini. 
+
+NOTE:  There is no message warning you that these changes are made. 
+
+
+USING WINDOWS MESSAGING WITH MICROSOFT MAIL
+============================================
+
+Windows Messaging is designed to replace the Microsoft Mail program that comes with Windows for Workgroups and Microsoft Mail version 3.x. WMS.EXE contains the MMF Converter to allow you to import your Microsoft Mail messages into Windows Messaging.
+
+
+TROUBLESHOOTING TIPS 
+====================
+
+If you experience problems connecting to your Microsoft Mail Postoffice, please ensure you have network access to your postoffice. You can also get diagnostic details about the reason for failures from within Windows Messaging by clicking the Tools menu, clicking Microsoft Mail Tools, and then clicking View Session Log. 
+
+If you experience a problem composing or reading a message that produces an error saying "Can't launch form," then the forms file may be corrupt. To correct this problem, quit Windows Messaging, and then go to your {Windows}\Forms directory and delete Frmcache.dat.  From {Windows}\Forms, copy the file Frmcache.bak to Frmcache.dat, and restart Windows Messaging. 
+
+Some Microsoft Mail 3.x extensions are not compatible with Windows Messaging--for example, WinRules and Conference+.  Windows Messaging automatically disables some of these extensions to prevent system problems. If a Microsoft Mail 3.x extension is causing a problem, it can be disabled by placing a ';' in front of the corresponding line in Msmail.ini.  Contact the product vendors for further information. 
+
+If you experience a problem where messages are stuck in the Outbox, it is possible that the wrong information service is trying to process the message. To correct the problem, click the Tools menu, click Options, click Delivery, and then ensure the information services are listed in the order you want them. 
+
+After quitting Windows Messaging, you may notice that MAPISP32 is still running. MAPISP32 continues to run for 20 seconds after you quit Windows Messaging. 
+
+E-forms created with the Microsoft Electronic Forms Designer do not open correctly when saved in the .msg file format. Transfer the .msg file from the file system to the Inbox to open the e-form correctly.
+
+If clicking Send on the File command in Lotus Approach does not work, please ensure that you have a file called Msmail.ini in your {Windows}\ directory.  If the file does not exist, just create an empty file with that name. 
+
+Two clients using Microsoft Mail should not be run against the same Microsoft Mail Postoffice mailbox. This configuration is not supported.

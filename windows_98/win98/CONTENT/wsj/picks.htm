@@ -1,0 +1,499 @@
+<HTML>
+<HEAD>
+<TITLE>
+Channel WSJ+ -- Front Page
+</TITLE>
+
+<STYLE>
+
+/* NOTE: Below does not work as hoped. */
+
+expltest
+{
+	background-color: white;
+	 z-index: 10;
+}
+
+#sample
+	{
+	position: absolute;
+	top: 0px;
+	left: 310px;
+	color: "#CCCCCC";
+	z-index: -1;
+	}
+
+
+html
+	{
+	overflow:clip;
+	}
+
+p.sep
+	{
+	text-align: center;
+	font-family: Arial;
+	font-size: 20px;
+	margin-top: 6px;
+	margin-bottom: 0px;
+	}
+#sums
+	{
+	position:absolute;
+	visibility:hidden;
+	top: 105px;
+	left: 0px;
+	width: 300px;
+	height: 300px;
+	overflow: scroll;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	background-color: white;
+	}
+
+#channels
+	{
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	width: 300px;
+	height: 5px;
+	overflow: clip;
+	}
+
+#help
+	{
+	position:absolute;
+	visibility:hidden;
+	top: 470px;
+	left: 0px;
+	width: 300px;
+	height: 85px;
+	overflow: clip;
+	margin: 4px;
+	font-size: 12px;
+	font-family: Arial;
+	color: blue;
+	}
+
+
+div.shownart
+	{
+	visibility:visible;
+	position:absolute;
+	top:0px;
+	left:300px;
+	width: 430px;
+	overflow: scroll;
+	margin: 10px;
+	padding: 10px;
+	font-size: 14px;
+	}
+
+div.hiddenart
+	{
+	visibility:hidden;
+	position:absolute;
+	top:0px;
+	left:300px;
+	width: 430px;
+	overflow: scroll;
+	margin: 10px;
+	padding: 10px;
+	}
+
+div.unvisited
+	{
+	background-color:white;
+	}
+
+div.active
+	{
+	background-color:#CCCCCC;
+	}
+
+div.visited
+	{
+	background-color:#bbbbbb;
+	}
+
+</STYLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+// Global to save which story is currently being viewed
+var ShownID=0
+var totalDocs=0
+
+function main()
+	{
+	checkResize();
+	calcDocs();
+	document.all["sums"].style.visibility = "visible";
+//	document.all["help"].style.visibility = "visible";
+	showDoc(1)
+	}
+	
+function checkResize()
+	{
+	document.all["sums"].style.posHeight = document.body.clientHeight - 95;
+//	document.all["help"].style.posTop = document.body.clientHeight - 75;
+
+	mydivs=document.all.tags('div')
+	for (i=0 ; i<mydivs.length ; i++)
+		{
+		if ( (mydivs[i].className == "shownart") || (mydivs[i].className == "hiddenart") )
+			mydivs[i].style.posHeight = document.body.clientHeight;
+			mydivs[i].style.posWidth = document.body.clientWidth - 300;
+
+		// Shouldn't need the following lines; but in build 912, the layout breaks without it.
+			document.all["channels"].style.posWidth = 300;
+			document.all["sums"].style.posWidth = 300;
+//			document.all["help"].style.posWidth = 300;
+		}
+
+	document.all["sample"].style.posHeight=document.body.clientHeight;
+	document.all["sample"].style.posWidth=document.body.clientWidth-300;
+	
+
+	}
+
+function calcDocs()
+	{
+	mydivs=document.all.tags('div')
+	for (i=0 ; i<mydivs.length ; i++)
+		{
+		if (mydivs[i].className=='unvisited')
+			{
+			totalDocs++;
+			}	
+		}
+	}
+	
+function checkKey()
+	{
+//	debug.value=window.event.keyCode;
+	myKey=window.event.keyCode;
+
+	if ( (myKey == 32) || (myKey == 110) )
+		{
+		hideDoc
+		if (ShownID == totalDocs)
+			nextDoc = 1;
+		else
+			nextDoc = ShownID + 1;
+		showDoc(nextDoc);
+		}
+	else if ( (myKey == 112) )
+		{
+		hideDoc
+		if (ShownID == 1)
+			nextDoc = totalDocs;
+		else
+			nextDoc = ShownID - 1;
+		showDoc(nextDoc);
+		}
+	}
+	
+
+function hideDoc()
+	{
+	hideSumID="s" + ShownID
+	hideIconID="i" + ShownID
+	hideArtID="a" + ShownID
+	document.all[hideSumID].className="inactive"		
+	document.all[hideArtID].className="hiddenart"
+	document.all[hideIconID].src="images/chPast.gif"	
+//	document.all["sampleshow"].className="inactive"
+	}
+
+function showDoc (IDNum)
+{
+	// Hide the sample
+
+	document.all["sample"].style.color='#CCCCCC'
+
+	// Hide whatever story is showing now.
+	if (ShownID != 0)
+	{
+		hideDoc();
+	}
+
+	//Record change in global
+	ShownID=IDNum
+
+	showSumID = "s" + IDNum
+	showIconID = "i" + IDNum
+	showArtID = "a" + IDNum
+	document.all[showSumID].className="active"
+	document.all[showSumID].scrollIntoView(0);
+	document.all[showIconID].src="images/chPres.gif"
+	document.all[showArtID].className="shownart"
+
+}
+
+
+function showSample()
+{
+	hideDoc();
+	document.all["sample"].style.color='black';
+	document.all["s5"].className="active"
+	document.all["i5"].src="images/chPres.gif"
+	ShownID=5;
+
+}
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="main()" onResize="checkResize()" onkeypress="checkKey()" bgcolor="white">
+
+<MAP NAME="ch.cmp">
+<AREA SHAPE=RECT COORDS="80,1,280,19" HREF="http://wsj.com/tour.htm" ALT="Take a Tour" TARGET="_top">
+<AREA SHAPE=RECT COORDS="80,19,280,36" HREF="http://wsj.com/regchoice.html" TARGET="_top">
+<AREA SHAPE=RECT COORDS="81,38,280,53" HREF="http://wsj.com/" TARGET="_top">
+<AREA SHAPE=RECT COORDS="0,72,60,94" HREF="front.htm">
+<AREA SHAPE=RECT COORDS="61,71,109,94" HREF="asia.htm">
+<AREA SHAPE=RECT COORDS="112,70,209,95" HREF="picks.htm">
+<AREA SHAPE=RECT COORDS="211,70,279,93" HREF="europe.htm">
+</MAP>
+
+<div id=channels align=center>
+
+<IMG SRC="images/chEditor.gif" WIDTH=280 HEIGHT=94 USEMAP="#ch.cmp" BORDER=0>
+
+</div>
+
+<div id=sums>
+
+<div id="s1" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(1)"><img id="i1" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Updated business news from<BR>
+	The Wall Street Journal
+	</td></tr></table>
+</div>
+
+<div id="s2" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(2)"><img id="i2" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Click  icons next to headlines<BR>
+	to display news on right side
+	</td></tr></table>
+</div>
+
+<div id="s3" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(3)"><img id="i3" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	As you read articles,<BR>
+	icons show checkmarks
+	</td></tr></table>
+</div>
+<div id="s4" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showDoc(4)"><img id="i4" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Read other news sections<BR>
+	using links above
+
+	</td></tr></table>
+</div>
+<div id="s5" class="unvisited">
+	<table border=0 cellspacing=0 cellpadding=3><tr>
+	<td><a href="javascript:showSample()"><img id="i5" align=left src="images/chFuture.gif"
+		height=29 width=24 hspace="2" border=1 alt="[Go]"></a></td>
+	<td valign=top>
+	Sample article
+
+	</td></tr></table>
+</div>
+
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871561865168323000.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a1" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+This section features Interactive Journal editors' choices of the best features, columns and editorials from today's Wall Street Journal, as well as occasional articles from Barron's Online and SmartMoney Interactive.
+</P>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871515428406612000.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a2" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+As you click the headline icons, the story will  be displayed in this space.
+ You can also use your keyboard, typing "n" or pressing the space bar to go to the next article, and "p" to back up.
+</P>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871490147285085500.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a3" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+Once you've clicked on a story, the icon to the left will change to indicate that you've already read it.
+</p>
+</div>
+
+<!-- Article Type: Major Business News -->
+<!--   Article ID: SB871516115947784500.djm -->
+<!-- Template File Used: main.htm -->
+<div id="a4" class="hiddenart">
+<CENTER><IMG SRC="images/chSmLogo.gif" width="233" height="55" alt="The Wall Street Journal"></CENTER><BR CLEAR=ALL>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">
+Use the links in the upper left-hand corner to read news in the other three sections of The Wall Street Journal's channel: <A HREF="front.htm">Front</A>, <A HREF="europe.htm">Europe</A>, and <A HREF="picks.htm">Editors' Picks</A>.</P>
+<P STYLE="background-color: white; z-index: 1; border: solid thin; padding-left: 6px; margin-left: 72; margin-right: 72">You can also take a tour of The Wall Street Journal Interactive Edition, subscribe to the Interactive Journal, or  see the Interactive Journal's home page.
+</P>
+</div>
+
+
+
+
+<div id="sample">
+
+
+<h2 class="ArtHed"><i><i>Windsor Handicraft
+Renaissance<br>
+Captures Woodworkers' Curiosity </i></i></h2>
+
+<p><b>By W<font size="-1">ILLIAM</font> M. B<font size="-1">ULKELEY</font>
+</b><br><font size="-1">Staff Reporter of </font><font 
+size="-1">T</font><font size="-2">HE</font><font 
+size="-1"> W</font><font size="-2">ALL</font><font 
+size="-1"> S</font><font size="-2">TREET</font><font 
+size="-1">
+J</font><font size="-2">OURNAL</font><font size="-1"></font><br>
+<b></b></p>
+<p>HAMPTON, N.H.-- With small metal tongs, Michael Dunbar pulls a planed,
+46-inch length of whittled red oak from an oven-hot box. He grasps the
+stick, still steaming, in his bare hands and bends it around a curved form,
+tapping in pegs and wedges to hold it as it cures.</p>
+<p>"Can we use gloves?" an anxious student asks.</p>
+<p>"Don't," Mr. Dunbar instructs. "Knowledge comes from your hands.
+Sometimes you'll feel the stick just as it starts to split, and you can
+flip it over and bend it the other way." Today the bent oak, the future
+arms and back of a handmade Windsor chair, holds its form.</p>
+
+<p>Mr. Dunbar leads a renaissance in Windsor handicraft. Every two weeks, a
+group of seven woodworkers from around the country gather in his workshop
+in this seacoast town for a class in which each builds a Windsor. To many
+woodworkers, it is the pinnacle of their pastime.</p>
+<p>The Windsor, with its elegant spindles and splayed legs, is the
+prototypical Colonial chair, ubiquitous in historic homes. Pudgier
+machine-made versions, nailed and screwed together, adorn kitchens all over
+America.</p>
+<p class="subhed"><b>Creating 'a Composition'</b></p>
+<p>Mr. Dunbar builds Windsors with hand-whittled backs, wood-wedged
+spindles and no metal fasteners. He shapes them, and teaches students to do
+likewise, with such carving tools as the gutter adze, the spokeshave and
+the travisher.</p>
+<p>When Mr. Dunbar builds a Windsor, he says, he aims to create "a
+composition that takes the person's eye and interrupts the act of sitting
+down."</p>
+<p>After 26 years of building Windsors, Mr. Dunbar says he can "go from log
+to chair in 10 hours." The novices in his $550 class take five eight-hour
+days.</p>
+<p>Mr. Dunbar's passion is at the exotic end of an amateur woodworking
+boom. American Woodworker magazine -- whose circulation has risen to
+330,000, 15 times as high as it was in 1988 -- says 17 million hobbyists,
+average age 45, spend $7.3 billion a year on wood, glue and tools.</p>
+<p>Mr. Dunbar, 50 years old, says he found his calling at a 1971 yard sale
+when "I came face to face with a little black chair," bought for $15. "It
+was a real epiphany." At night he surrounded it with candles to see how the
+light played on its hand-hewn surfaces. At a library, he learned its name,
+which derives from the town in England where it originated in the 17th
+century.</p>
+<p>Mr. Dunbar acquired antique tools and repaired broken chairs. As he
+divined techniques Colonial craftsmen used, he began building Windsors full
+time. "I made a good living as a chair maker," he says proudly.</p>
+<p class="subhed"><b>History Teacher</b></p>
+<p>Woodworkers discovered Mr. Dunbar after he wrote his first book about
+chair restoring, and now acolytes come from as far away as New Zealand. He
+teaches a little history, a little design, some sharpening techniques and
+lots about the ways of the smooth-hewing hand-tools of the rough-hewn past.
+He shows how to drill holes in the curved back of a chair with a spoon-bit,
+a semicircular drill resembling a test-tube sliced vertically. Chin firmly
+atop a brace, he urges, "Look down the drill to aim it through the middle
+of the bow," and starts turning the brace. A curl of wood slithers out of
+the hole.</p>
+<p>"This is fun. You change your whole way of thinking for a week," says
+Edward Fisher, a software programmer who has taken three classes. James
+Henri, a Rochester, N.H., accountant, sold his Harley Davidson motorcycle
+and started buying hand tools after seeing one of Mr. Dunbar's books. "I
+knew I wanted to make one," he says. Now, he has built more than 20.</p>
+<p>Every year, a few students decide they, too, can make a living building
+chairs. Mr. Dunbar says there are about 100 craftsmen making Windsors
+professionally.</p>
+<p>Marc Blanchette, 39, quit a $36,000-a-year job as a photographer for the
+Bangor (Maine) Daily News after taking four classes at which he learned to
+build different Dunbar designs. Now, he builds two $550 chairs a week. Greg
+Long, a laid-off translator for a Texas oil company, took his first class
+in 1994 and now builds and sells Windsors in Houston. Both say the
+economics of the business require a spouse with a full-time job and health
+insurance.</p>
+<p class="subhed"><b>'An 18th Century Lifestyle'</b></p>
+<p>But countless others dream of joining them. "I was amazed at the number
+of professionals who were learning to whittle, scoop, steam-bend and
+wood-turn in the sincere hopes of starting an 18th-century lifestyle," says
+Robert Gilbert, a public-relations man who built his first Windsor this
+spring.</p>
+<p>The wood pieces needed to make a chair cost $55, and a full set of the
+specialized tools used in construction go for about $500. Most wooden
+chairs have two long pieces of wood called stiles that form the rear legs
+and extend up to form the back. Windsors have a carved wooden seat with all
+four legs inserted into the bottom, and a back made of spindles inserted
+into the top. Mr. Dunbar teaches classes in making Windsor side chairs,
+armchairs and even rocking chairs.</p>
+<p>The seat emerges from a two-inch thick pine board sculpted into a saddle
+shape that conforms to the human bottom. In the shop, Mr. Dunbar places the
+ovaled plank on the floor, stands on it and starts swinging the gutter adze
+-- a broad-bladed cousin of the pick-ax -- between his legs. At each pass,
+the sharp, concave adze blade chips out a chunk of wood. The seat is placed
+on the workbench, where Mr. Dunbar smoothes it with a scorp, a
+horseshoe-shaped knife drawn toward the carver as it is used. Next comes a
+compass plane, which has a curved blade. Then the travisher, a small tool
+with a blade curved to smooth hollowed surfaces.</p>
+<p>Mr. Dunbar teaches students how to insert the legs, made of fine-grain
+birch or other hardwood, and the back and arms, which come from
+long-grained oak or other wood suitable for carving and bending. Staining
+would give the varied grains a piebald look, so Mr. Dunbar paints Windsors
+a solid color, as did the colonists.</p>
+<p>Even without cushions, hand-built Windsors are comfortable because the
+thin, carved spindles in the back flex with the sitter's weight.
+Machine-made, turned spindles are thicker, because a machine can't carve
+along the wood grain.</p>
+<p>After years of pondering why he is attracted to a piece of furniture,
+Mr. Dunbar says: "Windsors are about line. Line is dynamic. It takes your
+eye and leads it." He tells a new class: "You remember learning about
+Michelangelo in the Sistine chapel, leading your eye from Adam, along the
+arm to God? That's the same thing that goes into a Windsor chair."</p>
+
+
+</DIV>
+
+
+<DIV id="a5">
+</DIV>
+
+
+</BODY></HTML>

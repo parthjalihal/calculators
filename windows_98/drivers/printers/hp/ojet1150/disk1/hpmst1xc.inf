@@ -1,0 +1,139 @@
+;HP OfficeJet Pro 1150C INF file, ver 1.0
+;Copyright Hewlett Packard 1994-1996
+
+[Version]
+Signature="$CHICAGO$"
+Class=Printer
+Provider=Hewlett-Packard
+
+[ClassInstall]
+AddReg=ClassReg
+
+[ClassReg]
+HKR,,,,Printer
+
+[Manufacturer]
+"HP"
+
+[HP]
+"HP OfficeJet Pro 1150C" = OJT1150C,LPTENUM\HEWLETT-PACKARDOFFIC30A3
+
+[OJT1150C]
+CopyFiles=COMMON_FILES, ICM_FILE, OJT1150C_FILES
+DataSection=DJ_DATA
+DriverFile=HPMDJCXC.DRV
+
+
+[DJ_DATA]
+DefaultDataType=EMF
+VendorSetup="HPMW32XC.DLL,DESKJETC_EntryPoint"
+
+[COMMON_FILES]
+hpm24rxc.dll
+hpmcpsxc.dll
+hpmcuixc.dll
+hpmdosxc.dll
+hpmecpxc.dll
+hpmhftxc.dll
+hpmmlcxc.dll
+hpmmonxc.dll
+hpmpmlxc.dll
+hpmnetxc.dll
+hpmqprxc.dll
+hpmst2xc.dll
+hpmst3xc.dll
+hpmsuixc.dll
+hpmttpxc.dll
+hpmw32xc.dll
+hpmwinxc.dll
+hpmdjcxc.drv
+hpmbkgxc.exe
+hpmcfgxc.exe
+hpmhidxc.exe
+hpmnhdxc.exe
+hpmlnkxc.exe
+hpmst1xc.exe
+hpmcfgxc.hlp
+hpmcmaxc.hpm
+hpmlnkxc.ini
+hpmst1xc.ini
+HPMTBXxc.EXE
+hpmcblxc.dll
+hpmrdbxc.dll
+hpmrelxc.ico
+hpcola16.dll
+hpnets16.hpa
+hpnwsh16.dll
+hpobj16.hpa
+hpprn16.hpa
+hpsnmp16.dll
+hpmnwixc.exe
+
+[ICM_FILE]
+hpdesk.icm
+
+[OJT1150C_FILES]
+hpm870xc.hpc
+hpm87dxc.hlp
+hpm87hxc.hlp
+hpm87rxc.hlp
+hpm87txc.hlp
+
+[DestinationDirs]
+COMMON_FILES=11
+OJT1150C_FILES=11
+ICM_FILE=23
+DefaultDestDir=11
+
+[SourceDisksFiles]
+hpm24rxc.dll = 1
+hpmdosxc.dll = 1
+hpmecpxc.dll = 1
+hpmmlcxc.dll = 1
+hpmmonxc.dll = 1
+hpmpmlxc.dll = 1
+hpmnetxc.dll = 1
+hpmqprxc.dll = 1
+hpmttpxc.dll = 1
+hpmw32xc.dll = 1
+hpmwinxc.dll = 1
+hpmdjcxc.drv = 1
+hpmbkgxc.exe = 1
+hpmhidxc.exe = 1
+hpmnhdxc.exe = 1
+hpmlnkxc.exe = 1
+hpmst1xc.exe = 1
+hpmcmaxc.hpm = 1
+hpmst1xc.ini = 1
+hpmcpsxc.dll = 1
+hpmcuixc.dll = 1	
+hpmsuixc.dll = 1
+hpdesk.icm = 1
+hpmst2xc.dll = 2
+hpmst3xc.dll = 2
+hpmhftxc.dll = 2
+hpmcfgxc.exe = 2
+hpmlnkxc.ini = 2
+hpmcfgxc.hlp = 2
+hpm87dxc.hlp = 2
+hpm87hxc.hlp = 2
+hpm87txc.hlp = 2
+hpm87rxc.hlp = 2
+hpmrelxc.ico = 2
+HPMTBXxc.EXE = 2
+hpmcblxc.dll = 3
+hpm870xc.hpc = 3
+hpmrdbxc.dll = 3
+hpmnwixc.exe = 3
+hpcola16.dll = 3
+hpnets16.hpa = 3
+hpnwsh16.dll = 3
+hpobj16.hpa = 3
+hpprn16.hpa = 3
+hpsnmp16.dll = 3
+
+[SourceDisksNames]
+1 = "HP OfficeJet Pro 1150C Installation Disk 1",,
+2 = "HP OfficeJet Pro 1150C Installation Disk 2",,
+3 = "HP OfficeJet Pro 1150C Installation Disk 3",,
+

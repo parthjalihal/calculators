@@ -1,0 +1,142 @@
+0 HP DeskJet Series Installation for DOS
+1 ~S~tart Installation
+2 ~E~xplain
+3 E~x~it
+4 ~C~ancel
+5 
+6 ~O~K
+7 ~M~odify
+8 Do ~N~ot Modify
+9 ~C~heck
+10 ~R~eboot
+11 ~S~kip
+12 Go ~B~ack
+13 ~R~etry
+14 ~S~kip Anyway
+15 ~A~gree to the License
+16
+17
+18
+19
+20 \x1B&b18WPML \x04\x00\x05\x01\x03\x03\x03\x0B\x04\x02\x01\x55\x1BE
+21 \x1B&b18WPML \x04\x00\x05\x01\x03\x03\x01\x33\x04\x02\x01\x55\x1BE
+22
+23
+24 HP DeskJet 540,HP DeskJet 600,HP DeskJet 660C,HP DeskJet 680C,HP DeskJet 690C,HP DeskJet 850C,HP DeskJet 870C
+25 VERSION=Version 96.04.24 18:14:00            
+26 README2.TXT
+27 
+28 REM Add directory containing HP DeskJet printer software to path\n
+29
+30 
+31 
+32
+33
+34
+35 The Installation Program will be installing the Control Panel for the following printer and port connection:
+36 The HP DeskJet Installation program will be installing the Control Panel for the:
+37 LPT1 (Parallel Port 1)
+38 LPT2 (Parallel Port 2)
+39 LPT3 (Parallel Port 3)
+40 If you would like to select a different printer or port, please make a new selection below.
+41 Po~r~t:
+42 ~P~rinter
+43 Select the printer model and port from the choices below.
+44
+45 The HP DeskJet Installation program will be installing the HP DeskJet Control Panel for DOS.
+46 The HP DeskJet Control Panel for DOS is a software program that allows you to:
+47 * Clean the print cartridge.
+48 * Solve a printer problem.
+49 * Select default print settings that are not available through specific DOS programs.
+50 The HP DeskJet Installation program is installing the HP DeskJet Control Panel for DOS.
+51 The HP DeskJet Control Panel for DOS has been installed.  To use the Control Panel, type DJCP at the DOS prompt.  e.g. [C:\\>].
+52
+53
+54
+55 The HP DeskJet Installation program will modify the system file AUTOEXEC.BAT now.  Your current system file will be saved as AUTOEXEC.HP.
+56 This will allow the HP DeskJet Control Panel for DOS to be run from any DOS directory.
+57 If you choose not to modify your system file you will need to go to the C:\\DESKJET directory and type DJCP to run the Control Panel.
+58 The HP DeskJet Installation program is saving and modifying the system file AUTOEXEC.BAT.
+59 The system file AUTOEXEC.BAT has been modified and saved.
+60
+61
+62
+63 * The HP DeskJet Control Panel for DOS has been installed.
+64 * The system file AUTOEXEC.BAT has been modified and saved as AUTOEXEC.HP.
+65 * Communication between your computer and printer was established.
+66 * Communication between your computer and printer was not established.
+67 More information on using your printer is available in the DOS Printing Guide.
+68
+69
+70 Installation of the HP DeskJet Control Panel for DOS was successful.
+71 If you use Microsoft Windows programs, be sure to perform the printer software installation for Windows.
+72 In order to access the HP DeskJet Control Panel for DOS from any directory, you must reboot your computer.  To reboot, remove the "Installation Disk 3" from your floppy drive and press the Reboot button now.
+73 In order to access the HP DeskJet Control Panel for DOS from any directory, you must reboot your computer.  To reboot, first exit Windows. Then remove the "Installation Disk 3" from your floppy drive and press CTRL-ALT-DEL.
+74 Remember to align the print cartridges from the HP Deskjet Control Panel after this software installation.
+75 The HP DeskJet Control Panel installation is incomplete.
+76 To complete the Control Panel installation you will need to run the HP DeskJet Installation program again.
+77 To return to the HP DeskJet Installation program press the "Go Back" button.
+78
+79
+80 There is not enough room on your hard drive for software installation.  You will need to remove some files from your hard drive to perform the software installation.
+81 There is not enough memory to run the HP DeskJet Installation for DOS program.  See your DOS manual for instructions on how to free additional system memory.
+82 An error occurred while copying the HP DeskJet Control Panel for DOS.  Try running the HP DeskJet Installation program again.  If that doesn't work, call the HP Customer Support Center.
+83 An error occurred while modifying the system file AUTOEXEC.BAT.  Restore your system file by renaming AUTOEXEC.HP to AUTOEXEC.BAT.
+84 The HP DeskJet Installation program was unable to modify your system file AUTOEXEC.BAT.
+85 To run the Control Panel you will need to go to the C:\\DESKJET directory and type DJCP.
+86
+87
+88
+89
+90 Printer Model\n \nSelect your printer model from the printer list.
+91 Port\n \nSelect the port to which you connected your printer when you set it up.  LPT ports are parallel ports.\n \nIf no other printers are installed on your system, you will probably want to select LPT1.
+92
+93
+94
+95 The HP Deskjet Installation program is about to check the communication between the printer and computer.
+96
+97 The HP Deskjet Installation program is able to check the communication between the printer and the computer and verify that the cable connection is working properly.
+98 This ensures that all of the printer's features will be available for use by your software programs.
+99
+100 The HP Deskjet Installation program is checking communications.
+101
+102 THERE IS A PROBLEM
+103 Communication cannot be established between the printer and the computer to which it is connected.
+104 *  The printer cable should be firmly connected at both ends.
+105 *  The power cable should be connected to the printer and plugged in.
+106 *  The printer should be turned on.
+107 Press "Retry" to check communications again.
+108 Press "Skip" to continue installation anyway.
+109
+110 INSTALLATION HAS STOPPED!
+111 Communication between the printer and computer was not established.
+112 Be sure to properly connect the printer before attempting to install this printer software again.  See the setup instructions that came with your printer.
+113
+114 WARNING
+115 Skipping now will continue the installation without establishing communications between the printer and the computer.  You may be able to print, but you will not have access to all of your printer's features.
+116 If you have reached this point and you don't know why, press "Explain" for more information.
+117 It is recommended that you Go Back and Retry.
+118 You could have:\n \n* a bad printer cable\n* a printer connected through a switchbox\n* a printer on a network\n* computer hardware problem\n* printer hardware problem
+119 Call the support number listed in the User's Guide.
+120 SUCCESSFUL CONNECTION!
+121 Communication between the printer and computer has been established.
+122 
+123 HP DeskJet 540
+124 HP DeskJet 600
+125 HP DeskJet 660C
+126 HP DeskJet 680C
+127 HP DeskJet 850C
+128 HP DeskJet 690C
+129 HP DeskJet 870C
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140 DeskJet Printer Software License Agreement
+141 IMPORTANT - The right to use this software is licensed by Hewlett-Packard ("HP") only on the condition that the customer agrees to this license.

@@ -1,0 +1,694 @@
+<html>
+
+
+
+<head>
+
+
+
+<title>LiveWired: Deep Freeze</title>
+
+
+
+<script language="JavaScript">
+
+function onStart() {
+
+	chronos.Item("visiswitch").Play();
+
+	chronos.Item("visiswitch1").Play();
+
+	chronos.Item("visiswitch2").Play();
+
+}
+
+function onStop() {
+
+	chronos.Item("visiswitch").Stop();
+
+	chronos.Item("visiswitch1").Stop();
+
+	chronos.Item("visiswitch2").Stop();
+
+}
+
+</script>
+
+
+
+<script language="Javascript">
+
+function transient() {
+
+	gramWrapper.filters.item(0).Apply();
+
+	closephoto.style.visibility = 'hidden';
+
+	gramWrapper.filters.item(0).play(3.000);
+
+	}
+
+</script>
+
+				
+
+
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+}
+
+</script>
+
+
+
+
+
+
+
+<style type="text/css">
+
+
+
+   BODY { margin: 0; background: white }
+
+   
+
+   cite {color: green}
+
+   
+
+   em {color: red}
+
+   
+
+   .onhold {visibility: hidden}
+
+
+
+   .offhold {visibility: visible}
+
+
+
+#closephoto { position: absolute;
+
+			left: 0px;
+
+			top: 0px;
+
+			width: 100%;
+
+			height: 100%;
+
+			z-index:0;
+
+			visability: visible }
+
+			
+
+#bigphoto { position: absolute;
+
+				left: 0px;
+
+				top: 0px;
+
+				width: 100%;
+
+				height: 100%;
+
+				z-index:-10;
+
+				visibility: visible
+
+				}			
+
+
+
+ #headline { position: absolute;
+
+   			left: 27%;
+
+			top: 78%;
+
+			width: 62%;
+
+			height: 10%;
+
+			color: black;
+
+			font-family: arial black;
+
+			font-size: 110%;
+
+			z-index:6;
+
+			font-weight: bold;
+
+			visibility: hidden;
+
+			margin: 4;
+
+			line-height: 1.8;}
+
+
+
+  #rollover { position: absolute;
+
+   			left: 65%;
+
+			top: 35%;
+
+			width: 30%;
+
+			height: 30%;
+
+			color: white;
+
+			font-family: arial;
+
+			font-size: 42%;
+
+			visibility: hidden;
+
+			z-index:7;
+
+			text-align: left;
+
+			font-weight: normal;
+
+			margin: 8;
+
+			background: black}
+
+			
+
+	#textcolor { color: blue;
+
+				font-weight: bold;
+
+				}		
+
+
+
+	#photocred { position: absolute;
+
+  			left: 0%;
+
+			top: 97%;
+
+			width: 23%;
+
+			height: 3%;
+
+			color: white;
+
+			font-family: arial;
+
+			visibility: hidden;
+
+			font-size: 25%;
+
+			z-index:7;
+
+			text-align: left;
+
+			margin: 4;
+
+			}
+
+			
+
+	#gramWrapper {position: absolute;
+
+				left: 0;
+
+				top: 0;
+
+				width: 100%;
+
+				height: 100%;
+
+				z-index:-10
+
+				}
+
+
+
+	#list {position: absolute;
+
+			top: 53%;
+
+			left: 10%;
+
+			z-index: 10;
+
+			width: 70%;
+
+			margin: 0;
+
+			visibility: hidden;
+
+			z-index:7;
+
+			}
+
+	.blackened {color: white;
+
+   				background-color: black;
+
+				font-size: 9;
+
+				font-weight: bold;
+
+				font-family: arial;
+
+				margin: 4
+
+				}
+
+
+
+	.blue {color: blue;
+
+   			background-color: black;
+
+			font-size: 9;
+
+			font-weight: bold;
+
+			font-family: arial;
+
+			margin: 4
+
+			}
+
+
+
+	.bigblue {color: white;
+
+   			background-color: blue;
+
+			font-size: 11;
+
+			font-weight: bold;
+
+			font-family: arial;
+
+			margin: 4;
+
+			}																	
+
+					
+
+</style>
+
+
+
+</head>
+
+
+
+<body style="font-size: 40">
+
+<script language="JavaScript">
+
+// The stub for the object
+
+function presentation() {
+
+  this.onHold = presentation_onHold;
+
+  this.offHold = presentation_offHold;
+
+  this.calcScale = presentation_calcScale;
+
+  this.xFactor = document.body.offsetWidth / 800;
+
+  this.yFactor = document.body.offsetHeight / 576;
+
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+
+}
+
+
+
+function presentation_onHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_offHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_calcScale() {
+
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'sg') {
+
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+
+    }
+
+  }
+
+  return;
+
+}
+
+
+
+new presentation();
+
+
+
+myPresentation = new presentation();
+
+
+
+function presentationControl() {
+
+  this.startIt = onStart;
+
+  this.stopIt = onStop;
+
+}
+
+
+
+control = new presentationControl();
+
+
+
+
+
+</script>	
+
+
+
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+
+
+<div id="gramWrapper" style="Filter: revealtrans(Duration=1.0, transition=0)">	
+
+<IMG id="bigphoto" src="storage1.jpg" BORDER=0>
+
+<IMG id="closephoto" src="cyroclos.jpg" BORDER=0>
+
+</div>
+
+
+
+<div id="headline" class="onhold">
+
+Deep Freeze
+
+</div>
+
+
+
+<div id="rollover" class="onhold">
+
+Patients who choose to be cryonically frozen are - upon being pronounced dead - immediately injected with a special organ-preservation solution and with medications and nutrients that protect the cells. Once delivered to a cryonics lab (usually by special ambulance), bodies are placed in a Dewar, a large thermoslike tank
+
+filled with liquid nitrogen, and gradually cooled to <span id="textcolor">-320 F</span>.
+
+</div>
+
+
+
+<div id="list" class="onhold">
+
+<TABLE bgcolor="blue" cellpadding="1" cellspacing="1" border="0" height="50">
+
+
+
+<TD ROWSPAN=5 class="bigblue">
+
+Leading<br>
+
+Cryonics<br>
+
+Organizations<br>
+
+Worldwide<br>
+
+</TD>
+
+<TR>
+
+	<TD class="blue">
+
+	VENDOR
+
+	</TD>
+
+	<TD class="blue">
+
+	HOME OFFICE
+
+	</TD>
+
+	<TD class="blue">
+
+	SERVICES
+
+	</TD>
+
+	<TD class="blue">
+
+	COST (US$)
+
+	</TD>
+
+</TR>
+
+
+
+<TR>
+
+    <TD class="blackened">
+
+	Alcor Life Extension<BR>
+
+	Foundation   
+
+	</TD>
+
+	<TD class="blackened">
+
+	Scottsdale, AZ 
+
+	</TD>
+
+	<TD class="blackened">
+
+	Body<BR>
+
+	Head 
+
+	</TD>
+
+	<TD class="blackened">
+
+	$120,000<BR>
+
+	$50,000
+
+	</TD>
+
+</TR>
+
+
+
+<TR>
+
+	      	       
+
+	<TD class="blackened">
+
+	CryoSpan	
+
+	</TD>
+
+	<TD class="blackened">
+
+	Ontario, Canada
+
+	</TD>
+
+	<TD class="blackened">
+
+	Body<br>
+
+	Head<br>
+
+	Pets
+
+	</TD>
+
+	<TD class="blackened">
+
+	$125,000<br> 
+
+	$58,500<br>
+
+	Negotiable<br>
+
+	</TD>
+
+</TR>
+
+
+
+<TR>
+
+	<TD class="blackened">
+
+	TransTime
+
+	</TD>
+
+	<TD class="blackened">
+
+	Oakland, CA
+
+	</TD>
+
+	<TD class="blackened">
+
+	Body
+
+	</TD>
+
+	<TD class="blackened">
+
+	$150,000
+
+	</TD>
+
+</TR>
+
+
+
+</TABLE>
+
+
+
+</div>
+
+
+
+<div id="photocred">
+
+&copy; ALCOR
+
+</div>
+
+
+
+<script id="chronosCall" language="javascript" for="chronos" event="onInit">
+
+	chronos.Item("visiswitch").At(0.001,"transient()",1,0.100,15);
+
+	chronos.Item("visiswitch1").At(4.000,"flip1()",1,0.100,16);
+
+	chronos.Item("visiswitch2").At(15.000,"flip2()",1,0.100,17);
+
+</script>
+
+
+
+
+
+<script language="javascript">
+
+
+
+function flip1() {
+
+   headline.style.visibility = "visible";
+
+   photocred.style.visibility= "visible";
+
+}
+
+function flip2() {
+
+   rollover.style.visibility = "visible";
+
+   list.style.visibility = "visible";
+
+}
+
+</script>
+
+
+
+<script language="JavaScript" for="window" event="onload">
+
+   parent.daScheduler.gramLoaded();
+
+</script>
+
+<script language="JavaScript" for="window" event="onunload">
+
+   parent.daScheduler.gramUnloaded();
+
+</script>	
+
+	
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+
+

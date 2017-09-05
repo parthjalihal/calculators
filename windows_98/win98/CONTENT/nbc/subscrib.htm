@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+
+<TITLE> NBC Daily Preview </TITLE>
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+Boo = 0
+sub document_OnClick
+	set clicked_obj = window.event.srcElement 
+	if clicked_obj.classname = "clickable" then
+		select case clicked_obj.id
+			case "subscribe"
+				window.external.addChannel("http://www.nbc.com/ie4channel/cdf/nbc.cdf")
+		end select
+	end if
+end sub 
+
+sub initTextObj(n)
+	for i = 1 to 4
+		document.all( "title" & i ).style.color = "MEDIUMORCHID"
+		document.all( "navtext" & i ).style.visibility = "hidden"
+		document.all( "display" & i ).style.visibility = "hidden"
+		'document.all( "arrow" & i ).style.visibility = "hidden"
+	next
+	document.all( "navtext4").style.visibility = "hidden"
+	if n < 5 then
+		document.all( "title" & n ).style.color = "WHITE"
+		document.all( "navtext" & n ).style.visibility = "visible"
+		document.all( "display" & n ).style.visibility = "visible"
+		'document.all( "arrow" & n ).style.visibility = "visible"
+	else
+		document.all( "display1" ).style.visibility = "visible"
+		document.all( "navtext4").style.visibility = "visible"
+	end if	
+			
+end sub
+
+sub peacock
+	if Boo = 1 then
+		document.all("peacock").src = "images/peacock1.gif"
+		boo = 0		
+	else
+		document.all("peacock").src = "images/peacock.gif"
+		boo = 1		
+	end if
+end sub
+
+sub lensflare(n)
+	if n = 1 then
+		document.all("background").src = "images/flare.jpg"		
+	else
+		document.all("background").src = "images/bluebgrd.jpg"		
+	end if
+end sub
+-->
+
+</SCRIPT>
+
+</HEAD>
+<CENTER>
+
+<BODY BGCOLOR="000044" link=white vlink=white>
+<DIV ID=MAIN STYLE="POSITION:relative; TOP:0; LEFT:0; WIDTH:460; HEIGHT=317; Z-INDEX:1; COLOR:WHITE; FONT-FAMILY:'ARIAL'; FONT-WEIGHT:BOLD; FONT-SIZE:SMALLER;">
+<IMG ID=background SRC="images/bluebgrd.jpg" STYLE="POSITION:absolute; TOP:0; LEFT:0; WIDTH:460; HEIGHT=317; Z-INDEX:2;">
+
+	<IMG ID=NBC CLASS=clickable SRC="images/nbc.gif" STYLE="POSITION:absolute; LEFT:80; TOP:7; Z-INDEX:11; CURSOR:DEFAULT;" onMouseOver="initTextObj(4)">
+	<IMG ID=peacock SRC="images/peacock.gif" STYLE="POSITION:absolute; LEFT:10; TOP:4; Z-INDEX:11; CURSOR:HAND;" BORDER=0>
+	<OBJECT ID="peacockaroo"        
+   		STYLE="POSITION:absolute; LEFT:10; TOP:0; width:70; height:40; Z-INDEX:12"
+   		CLASSID="CLSID:B6FFC24C-7E13-11D0-9B47-00C04FC2F51D">
+	</OBJECT>
+	<IMG ID=display1 SRC="images/comedy.jpg"  ALT="Click the 'Add Active Channel' button to subcribe." CLASS=clickable STYLE="POSITION:absolute;LEFT:265;TOP:80;Z-INDEX:6; CURSOR:HAND;" BORDER=0>
+	<IMG ID=display2 SRC="images/access.jpg"  ALT="Click the 'Add Active Channel' button to subcribe." CLASS=clickable STYLE="POSITION:absolute;LEFT:265;TOP:80;Z-INDEX:7; CURSOR:HAND;" BORDER=0>
+	<IMG ID=display3 SRC="images/mustsee.jpg" ALT="Click the 'Add Active Channel' button to subcribe." CLASS=clickable STYLE="POSITION:absolute;LEFT:265;TOP:80;Z-INDEX:8; CURSOR:HAND;" BORDER=0>
+	<IMG ID=display4 SRC="images/idle.jpg"    ALT="Click the 'Add Active Channel' button to subcribe." CLASS=clickable STYLE="POSITION:absolute;LEFT:265;TOP:80;Z-INDEX:9; CURSOR:HAND;" BORDER=0>
+
+	<DIV ID=navtext1 STYLE="POSITION:absolute; VISIBILITY:hidden; LEFT:8; TOP:80; WIDTH:170; HEIGHT:15; Z-INDEX:5;  filter:dropshadow(offx=2, offy=1, color=black,enabled=1)">
+		<P ALIGN=left><FONT SIZE=+1 COLOR=MEDIUMORCHID>NBC.Comedy</FONT><BR>Laugh the night away<BR>with Jay and Conan.</P>
+	</DIV>
+
+	<DIV ID=navtext2 STYLE="POSITION:absolute; VISIBILITY:hidden; LEFT:8; TOP:80; WIDTH:170; HEIGHT:15;Z-INDEX:6;  filter:dropshadow(offx=2, offy=1, color=black,enabled=1)">
+		<P ALIGN=left><FONT SIZE=+1 COLOR=MEDIUMORCHID>Access Hollywood</FONT><BR>Find out What's What<BR>and Who's Who<BR>in entertainment.</P>
+	</DIV>
+	
+	<DIV ID=navtext3 STYLE="POSITION:absolute; VISIBILITY:hidden; LEFT:8; TOP:80; WIDTH:170; HEIGHT:15;Z-INDEX:7;  filter:dropshadow(offx=2, offy=1, color=black,enabled=1)">
+		<P ALIGN=left><FONT SIZE=+1 COLOR=MEDIUMORCHID>Must See TV</FONT><BR>News and Notes<BR>about the best<BR>in network TV.</P>
+	</DIV>
+
+	<DIV ID=navtext4 STYLE="POSITION:absolute; VISIBILITY:hidden; LEFT:8; TOP:80; WIDTH:170; HEIGHT:120;Z-INDEX:4;  filter:dropshadow(offx=2, offy=1, color=black,enabled=1)">
+		<P ALIGN=left><FONT SIZE=+1 COLOR=MEDIUMORCHID>NBC Daily</FONT><BR>Your desktop feed<BR>of the best in<BR>interactive entertainment.</P>
+	</DIV>
+
+	<DIV ID=title1 STYLE="POSITION:absolute; TOP:250; LEFT:240; WIDTH:185; HEIGHT=45; Z-INDEX:2; CURSOR:HAND; COLOR:MEDIUMORCHID; LETTER-SPACING:0.2em; filter:dropshadow(offx=2, offy=1, color=black,enabled=1)" onMouseOver="initTextObj(1)">
+		<P ALIGN=right>NBC.Comedy</P>
+	</DIV>
+
+	<DIV ID=title2 STYLE="POSITION:absolute; TOP:265; LEFT:240; WIDTH:185; HEIGHT=45; Z-INDEX:2; CURSOR:HAND; COLOR:MEDIUMORCHID; LETTER-SPACING:0.2em; filter:dropshadow(offx=2, offy=1, color=black,enabled=1)" onMouseOver="initTextObj(2)">
+		<P ALIGN=right>Access Hollywood</P>
+	</DIV>
+
+	<DIV ID=title3 STYLE="POSITION:absolute; TOP:280; LEFT:240; WIDTH:185; HEIGHT=45; Z-INDEX:2; CURSOR:HAND; COLOR:MEDIUMORCHID; LETTER-SPACING:0.2em; filter:dropshadow(offx=2, offy=1, color=black,enabled=1)" onMouseOver="initTextObj(3)">
+		<P ALIGN=right>Must See TV</P>
+	</DIV>
+									
+	<DIV ID=title4>
+	</DIV>
+
+	<IMG ID=subscribe SRC="images/addchan.gif" CLASS=clickable STYLE="POSITION:absolute;TOP:271; LEFT:60;Z-INDEX:22; CURSOR:HAND;" BORDER=0 onMouseOver="lensflare(1)" onMouseOut="lensflare(0)" >
+	<IMG ID="subscribe2" SRC="images/bird.gif" STYLE="POSITION:absolute;LEFT:10;TOP:270;Z-INDEX:5;" BORDER=0>
+
+	<DIV ID=DISPLAY5>
+	</DIV>
+
+	<OBJECT ID=subscribe1
+		STYLE="position:absolute; LEFT:47; TOP:282; HEIGHT:20; WIDTH:200;Z-INDEX:9; CURSOR:HAND;" 
+		CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6">
+		<PARAM NAME="Line0001" VALUE="SetFillStyle(0)">
+		<PARAM NAME="Line0002" VALUE="SetLineColor(150,150,150)">
+		<PARAM NAME="Line0003" VALUE="SetFont('Arial',20,600,0,0,0)">
+		<PARAM NAME="Line0004" VALUE="Text('S u b s c r i b e  n o w !', -100, 5, 0)">
+	</object>
+
+	<OBJECT ID=daily
+		STYLE="position:absolute; LEFT:150; TOP:0; HEIGHT:52; WIDTH:120; Z-INDEX:8; CURSOR:HAND;" 
+		CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6">
+		<PARAM NAME="Line0001" VALUE="SetFillStyle(0)">
+		<PARAM NAME="Line0002" VALUE="SetLineColor(150,150,150)">
+		<PARAM NAME="Line0003" VALUE="SetFillColor(255,0,0)">
+		<PARAM NAME="Line0004" VALUE="SetFont('Arial',50,600,0,0,0)">
+		<PARAM NAME="Line0005" VALUE="Text('Daily', -60, 16, 0)">
+	</object>
+
+</DIV>
+
+</CENTER>
+
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+' Get a pointer to the library
+Set m = peacockaroo.MeterLibrary
+
+sub Window_OnLoad()
+	Boo = 0
+	set curTextObject = document.all("navtext4")
+	set curImageObject = document.all("display5")
+	curTextObject.style.visibility = "visible"
+	curImageObject.style.visibility = "visible"
+
+	Call makeButton( peacockaroo, "peacock")
+  	peacockaroo.Start()
+	
+	subscribe1.style.filter = "alpha(opacity=40, enabled=1)"
+	Daily.style.filter = "alpha(opacity=55, enabled=1)"
+	'filk = window.setTimeout("blink", 0100, "vbscript")
+end sub
+
+sub makeButton(control, callbackFunction)
+  Set buttonSnd = m.ImportSound("guitar.wav").Sound.Duration(3)
+  Set buttonEv  = m.ScriptCallback(callbackFunction, m.LeftButtonDown,"VBScript")
+  control.Sound = m.Until(m.Silence, buttonEv, buttonSnd).RepeatForever()
+end sub
+
+sub blink
+	initTextObj(1)
+	filk = window.setTimeout("blink2", 0100, "vbscript")
+end sub
+
+sub blink2
+	initTextObj(2)
+	filk = window.setTimeout("blink3", 0100, "vbscript")
+end sub
+
+sub blink3
+	initTextObj(3)
+	filk = window.setTimeout("blink", 0100, "vbscript")
+end sub
+-->
+</SCRIPT>
+
+</BODY>
+</HTML>

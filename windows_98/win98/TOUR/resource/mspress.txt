@@ -1,0 +1,33 @@
+%<a id=a1 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress" target="_blank" onmouseover="over(1)" onmouseout="out(1)" onfocus="over(1)" onblur="out(1)">Microsoft Press<sup>&#174;</sup></a> is your
+source for up-to-date, technically accurate books and training materials about Microsoft products.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+As with <i>Microsoft Windows 98 Starts Here&#153;</i>, all titles in the Microsoft Press
+<b>Starts Here</b> series offer the very best in interactive training with Microsoft Press
+products, including Microsoft Windows 95, Microsoft Windows NT<sup>&#174;</sup> Workstation 4.0, and
+Microsoft Office 97.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+<i>Running Microsoft Windows 98</i> provides clear, comprehensive answers about Windows 98.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+<i>Microsoft Windows 98 At a Glance</i>, an illustrated reference guide, shows "at a glance" how to
+accomplish various tasks.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+<i>Microsoft Windows 98 Step by Step</i> offers self-paced training with easy-to-follow lessons,
+exercises, and practice files on CD.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+The <i>Field Guide to Microsoft Windows 98</i> is a compact, portable guide designed for quick
+lookups and quick answers.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+Visit Microsoft Press to <b><a id=a2 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress&ar=win98tour&sba=buy" target="_blank" onmouseover="over(2)" onmouseout="out(2)" onfocus="over(2)" onblur="out(2)">
+order</a></b> online (North America only), or to <b><a id=a3 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress&ar=win98tour&sba=intl" target="_blank" onmouseover="over(3)" onmouseout="out(3)" onfocus="over(3)" onblur="out(3)">
+locate</a></b> a distributor in your country.
+%|%
+Back
+%|%
+Close
+%|%Discover Windows 98%

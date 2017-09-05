@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<SCRIPT FOR=document EVENT="onclick()" LANGUAGE="javascript">
+	//disable shift-leftclick
+	if (window.event.shiftKey){window.event.returnValue=false}
+	//and if there is a click, continue
+	parent.location="../default.htm"
+</SCRIPT>
+
+<SCRIPT FOR=document EVENT=onkeypress LANGUAGE="javascript">
+	//if there is a key hit, continue
+	parent.location="../default.htm"
+</SCRIPT>
+
+<SCRIPT FOR=window EVENT=onerror() LANGUAGE="javascript">
+	//This is an error handler to make up for some problems with ActiveMovie
+	//The first error causes the images and text to begin playing.
+	//To prevent infinite loops, more than two errors or getting past the first step causes the page to quit.
+	if ((!triedOnce)&&(numErrors<2)){
+		numErrors++
+		startSeries()
+		return true
+	}
+	else{parent.location="../default.htm";return true}
+</SCRIPT>
+
+<script language="javascript">
+IR=parent.introdata.recordset
+var triedOnce=false
+var numErrors=0
+var oldTime=0
+
+function startSeries(){
+	IR.movefirst();
+	mainimg.src=(IR.fields('column1'))
+	maintxt.innerHTML=IR.fields('column2')
+	waitTime=(IR.fields('column3')-oldTime)
+	setTimeout("moveForward()",waitTime)
+}
+
+function moveForward(){
+	triedOnce=true
+	if (IR.AbsolutePosition!=IR.RecordCount) {
+		oldTime=(0+IR.fields('column3'))
+		IR.movenext();
+		waitTime=(IR.fields('column3')-oldTime)
+		mainimg.src=(IR.fields('column1'))
+		maintxt.innerHTML=IR.fields('column2')
+		setTimeout("moveForward()",waitTime)
+	}
+	else{
+		parent.location="../default.htm"
+	}
+}
+</script>
+
+<script for=window event=onload()>
+	if (snd.IsSoundCardEnabled()==false){startSeries()}
+</script>
+
+<script for=snd event="ReadyStateChange(val)">
+	//if the soundcard is there, start the wav, text, and graphics when wav is loaded
+	if (snd.IsSoundCardEnabled()==true){
+		if (val==4) {snd.Run();startSeries()}
+	}
+</script>
+
+<LINK REL='STYLESHEET' TYPE='text/css' HREF='CSel.css'>
+</head>
+<body topmargin=0 leftmargin=0 style="background: url(csel02bg.gif) no-repeat white">
+<OBJECT ID=snd width=0 height=0 CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+	<PARAM NAME="AutoStart" VALUE="false">
+	<PARAM NAME="ShowControls" VALUE="0">
+	<PARAM NAME="ShowTracker" VALUE="0">
+	<PARAM NAME="ShowDisplay" VALUE="0">
+	<PARAM NAME="BorderStyle" VALUE="0">
+	<PARAM NAME="FileName" VALUE="opening.wav">
+</OBJECT>
+<table width=100% height=85% cellspacing=7>
+<tr>
+	<td><img style="visibility:'hidden'" id=mainimg onload="this.style.visibility='';window.focus()"></td>
+	<td><span id=maintxt style="font:12pt verdana bold;color:black;"></span></td>
+</tr>
+</table>
+</BODY>
+</HTML>

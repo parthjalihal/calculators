@@ -1,0 +1,379 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- document created and programmed by Charles Herold
+     * further hacked by Josh Hochman starting 8/11/97
+ -->
+<HTML>
+<HEAD>
+	<TITLE>Time Active Desktop</TITLE>
+<!-- set up some styles for the text stuff -->
+<STYLE "type=text/css">
+	.text	{
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-size: 9pt;
+		}
+	.date	{
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-size: 6pt;
+		}
+	.headline{
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-weight: bold;
+		font-size: 13pt;
+		}
+	.author	{
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-weight: bold;
+		font-size: 9pt;
+		}
+	.abstract{
+		font-family: verdana,arial,helvetica,sans-serif; 
+		font-size: 9pt;
+		}
+	.sectionHeader	{
+		font-family: arial,helvetica,sans-serif; 
+		font-weight: bold;
+		font-size: 26pt;
+		}
+</STYLE>
+<!-- load in the multimedia control functions -->
+<SCRIPT LANGUAGE="JavaScript" src="scripts/eyecandy.js"></SCRIPT>
+<!-- local javascript stuff -->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+// set the document domain, and check to see if the document
+// was loaded 
+document.all.domain = "pathfinder.com";
+pickedSection = 0;
+pickedSectionText = 0;
+globject = 0;
+globject02 = 0;
+moving = 0;
+
+//  "hot" items will be in a list "for easy access, baby"
+var clickItems = new Array(10);
+
+// fade in each text object
+function init() {
+	clickItems[0] = topStorySection;
+	clickItems[1] = topStory;
+	clickItems[2] = coverStorySection;
+	clickItems[3] = coverStory;
+	clickItems[4] = timeLink;
+	clickItems[5] = timeLinkText;
+	clickItems[6] = subscribeSection;
+	clickItems[7] = topStorySectionText;
+	clickItems[8] = coverStorySectionText;
+	clickItems[9] = timeLinkSectionText;
+	image_timeHeader.filters.item(0).apply();		
+	image_timeHeader.style.visibility = "visible";
+	image_timeHeader.filters.item(0).play();
+	imageArea.filters.item(0).apply();
+	imageArea.style.visibility = "visible";
+	imageArea.filters.item(0).play();
+	for (var i=0;i<clickItems.length-3;i++){
+		clickItems[i].defaultColor = clickItems[i].style.color;
+		clickItems[i].defaultLeft = clickItems[i].style.left;
+		clickItems[i].defaultTop = clickItems[i].style.top;
+		clickItems[i].style.color = 'black';
+		if (i==0) {
+			setTimeout('showItem('+i+')',500);
+		} else {
+			setTimeout('showItem('+i+')',i*750);
+		}
+	}
+}
+
+function showItem(theItem){
+	clickItems[theItem].style.visibility = "";
+	setTimeout('greyItem('+theItem+')',750); 
+}
+
+function greyItem(theItem){
+	clickItems[theItem].style.zIndex = -1;	
+	clickItems[theItem].style.color = clickItems[theItem].defaultColor;
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY onload="init();" LEFTMARGIN0 TOPMARGIN=0 bgcolor=white>
+<!--NoAd-->
+<!-- generic mover thing that we will use to move stuff around -->
+
+<OBJECT id="mover"
+	 CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+<OBJECT id="otherMover"
+	 CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+<DIV	id="image_leftStrip"
+	style="position:absolute;
+	top:0;
+	left:0;
+	width:12;
+	height:365;">
+<img src="images/lftStrip.gif" height=600 width=13>
+</DIV>
+
+<DIV 	id="image_timeHeader"
+	STYLE="position:absolute;
+	top: 2;
+	left:16;
+	width:219;
+	height:79;
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=5);">
+
+<img src="images/header.gif">
+</DIV>
+
+<DIV 	id="sectionText"
+	STYLE="position:absolute;
+	top: -4;
+	left: 240;
+	width: 220;
+	height: 85;
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=5);
+	background-image: url(images/disbox.gif)">
+</DIV>
+
+<!-- imageArea is where the covers of time magazine will (gif animation?) will go -->
+<DIV 	id="imageArea"
+	STYLE="position:absolute;
+	padding-top: 4;
+	padding-left: 6;
+	top: 220;
+	left: 276;
+	width: 184;
+	height:125;
+	background-image: url(images/picture.gif);
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=12)">
+<img src="images/default.gif">
+</DIV>
+
+<!-- these spans are initially hidden, and will fade in one at a time from the "start" function. --> 
+
+<div 	id="topStory"
+ 	onMouseOver="if (!moving && topStorySection != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && topStorySection != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && topStorySection != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && topStorySection != pickedSection) { 	lowerAllSectionText();
+										lowerAllArticleText();
+										imageArea.innerHTML = '<img src=images/hongkong.gif>';
+										raiseSection(topStory,topStorySection,topStorySectionText);}"}"
+	STYLE="position: absolute;
+	color: #f2f2f2;
+	left: 45;
+	top: 120;
+	width: 180;
+	height: 220;
+	visibility: hidden;
+	cursor: hand;">
+
+<span class=text style="font-size: 8">SAMPLE STORY</span><br>
+<span class=headline >Police Chief Predicts Tranquility</span><br>
+<span class=author>By Jenifer Mattos</span><br>
+<span class=text>
+TIME's Hong Kong Bureau Chief Sandra
+Burton reports that Eddie Hui, the
+well-regarded commander of Hong Kong's
+27,000 police officers, expects handover
+day to go smoothly, and intends to handle
+the expected deluge of protestors gently.
+</span>
+</div>
+
+
+<div 	id="coverStory"
+ 	onMouseOver="if (!moving && coverStorySection != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && coverStorySection != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && coverStorySection != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && coverStorySection != pickedSection) { 	lowerAllSectionText();
+								lowerAllArticleText();
+								imageArea.innerHTML = '<img src=images/mars.gif>';
+								raiseSection(coverStory,coverStorySection,coverStorySectionText);}"
+	STYLE="position: absolute;
+	color: #f2f2f2;
+	left: 97;
+	top: 160;
+	width: 175;
+	height: 185;
+	visibility: hidden;
+	cursor: hand;">
+
+<span class=text style="font-size: 8">SAMPLE STORY</span><br>
+<span class=headline id=coverStoryHeadline>Earth Invades Mars!</span><br>
+<span class=text>
+With several bounces (and a couple of glitches),
+the latest encounter with the Red Planet has begun.
+Earth's representative is Sojourner, a microwave
+oven-size vehicle designed to send back the sharpest
+pictures yet.
+</span>
+
+</div>
+
+<div 	id="timeLinkText"
+ 	onMouseOver="if (!moving && timeLink != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && timeLink != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && timeLink != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && timeLink != pickedSection) { 	lowerAllSectionText();
+							lowerAllArticleText();
+							imageArea.innerHTML = '<img src=images/timecom.gif>';
+							raiseSection(timeLinkText,timeLink,timeLinkSectionText);}"
+	STYLE="position: absolute;
+	color: #f2f2f2;
+	left: 70;
+	top: 140;
+	width: 175;
+	height: 175;
+	visibility: hidden;
+	cursor: hand;">
+
+<span class=text style="font-size: 8">SAMPLE STORY</span><br>
+<span class=headline>A Photographer's Journey Home</span><br>
+<span class=author>Havana M&#239a</span><br>
+<span class=text>
+Alexis Rodriguez-Duarte's family left Cuba in 1968 when he was seven
+years old. This past April, he returned to the Havana his parents knew
+and found that the splendor had faded.
+</span>
+
+</div>
+
+<div 	id="topStorySection"
+ 	onMouseOver="if (!moving && this != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && this != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && this != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && this != pickedSection) { 	lowerAllSectionText();
+							lowerAllArticleText();
+							imageArea.innerHTML = '<img src=images/hongkong.gif>';
+							raiseSection(topStory,topStorySection,topStorySectionText);}"
+	STYLE="position: absolute;
+	border-width: 10;
+	top: 130;
+	left: 161;
+	width: 180;
+	color: #e8e8e8;
+	visibility: hidden;
+	cursor: hand;"
+	class=sectionHeader>
+
+Top Story
+
+</div>
+
+<div 	id="coverStorySection"
+	onMouseOver="if (!moving && this != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && this != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && this != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && this != pickedSection) {	lowerAllSectionText();
+							lowerAllArticleText();
+							imageArea.innerHTML = '<img src=images/mars.gif>';
+							raiseSection(coverStory,coverStorySection,coverStorySectionText);}"
+	STYLE="position: absolute;
+	color: #e8e8e8;
+	top: 170;
+	left: 247;
+	width: 200;
+	visibility: hidden;
+	cursor: hand;"
+	class=sectionHeader>
+	
+Cover Story
+
+</div>
+
+<div 	id="timeLink"
+	onMouseOver="if (!moving && this != pickedSection) { fadeIn(this) }"
+	onMouseOut ="if (!moving && this != pickedSection) { fadeOut(this)}"
+	onMouseDown="if (!moving && this != pickedSection) { this.style.color = 'black' }"
+	onMouseUp  ="if (!moving && this != pickedSection) { 	lowerAllSectionText();
+							lowerAllArticleText();
+							imageArea.innerHTML = '<img src=images/timecom.gif>';
+							raiseSection(timeLinkText,timeLink,timeLinkSectionText);}"
+	STYLE="position: absolute;
+	color: #e8e8e8;	
+	top: 258;
+	left: 17;
+	width: 200;
+	visibility: hidden;
+	cursor: hand;"
+	class=sectionHeader>
+
+time.com
+
+</div>
+
+<div 	id="subscribeSection"
+	STYLE="position: absolute;
+	color: #e8e8e8;
+	top: 335;
+	left: 320;
+	width: 136;
+	height: 20;
+	visibility: hidden;
+	cursor: hand;"
+	class=sectionHeader>
+
+<a href="javascript:window.external.addChannel('http://www.pathfinder.com/time/channel/channel.cdf')"><img src="images/addchl.gif" border=0></a>
+
+</div>
+
+<span 	id="coverStorySectionText"
+	STYLE="position: absolute;
+	color: black;
+	top: 10;
+	left: 250;
+	width: 200;
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=5);"
+	class=abstract>
+
+Get TIME magazine's complete cover story
+automatically dowloaded to your desktop each week.
+
+</span>
+
+<span 	id="topStorySectionText"
+	STYLE="position: absolute;
+	color: black;
+	top: 10;
+	left: 250;
+	width: 200;
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=5);"
+	class=abstract>
+
+TIME Online brings you the top news
+of the day with the insights of TIME magazine
+correspondents.
+
+</span>
+
+<span 	id="timeLinkSectionText"
+	STYLE="position: absolute;
+	color: black;
+	top: 10;
+	left: 250;
+	width: 200;
+	visibility: hidden;
+	filter: revealtrans(duration=.5,transition=5);"
+	class=abstract>
+
+Features and top news, updated throughout the day,
+from the writers and editors of TIME magazine.
+
+</span>
+
+</Body>
+</HTML>
+
+
+
+

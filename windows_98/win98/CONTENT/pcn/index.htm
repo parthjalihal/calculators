@@ -1,0 +1,455 @@
+<HTML>
+<head>
+
+<script language="vbscript">
+<!--
+
+const INTRO_HEIGHT = 300
+const INTRO_WIDTH = 447
+const FPS = 0.067
+const FPS2 = 0.050
+const g_strSubscribeURL = "http://ie.pointcast.net/ie40/ie4cd.html"
+dim INFORMATION
+dim COMINGATYOU
+dim LINE1
+dim MAN_S1
+dim TV
+
+INFORMATION = Array(1,30)	' static
+COMINGATYOU = Array(31,70)	' static
+LINE1		= Array(71,129)	' static
+MAN_S1		= Array(71,100)	' static
+TV			= Array(71,129)
+pTV			= Array(-468,99,-69,99,-67,101,59,129,212,77,259,82,360,63,460,63,671,63)
+MANUFACTURER = Array(90,129)
+pMANUFACTURER = Array(-468,75,-268,153,280,330,468,220,671,170)
+PCST		= Array(71,118)
+pPCST		= Array(-468,231,-76,231,458,91,671,91)
+NASDAQ150	= Array(71,124)
+pNASDAQ150	= Array(-468,6,-210,6,412,300,671,300)
+DFA1 		= Array(90,128)
+pDFA1		= Array(-468,40,150,220,320,40,671,200)
+POLLS_CLOSE = Array(103,129)
+pPOLLS_CLOSE = Array(-468,168,-146,309,466,69,671,69)
+MAN_DUCK1	= Array(100,129) ' static
+BUTGETTING	= Array(130,180) ' static
+LINE2		= Array(181,224) ' static
+MAN_S2		= Array(181,189) ' static
+DFA2		= Array(182,214)
+pDFA2		= Array(-468,40,150,220,320,40,671,200)
+RADIO1		= Array(181,200)
+pRADIO1		= Array(-300,110,671,60)
+RECORDBLUE  = Array(189,220)
+pRECORDBLUE = Array(-144,240,671,-300)
+MTAQUOTE    = Array(181,208)
+pMTAQUOTE   = Array(63,22,421,299,671,299)
+NASDAQ2		= Array(199,220)
+pNASDAQ2	= Array(-18,0,352,120,671,120)
+MAN_REACH   = Array(189,200) ' static
+MAN_ARM		= Array(189,200) ' static
+DESK1		= Array(192,205)
+pDESK1		= Array(62,277,62,135)
+DESK2		= Array(205,224) ' static
+PCNLOGO1	= Array(209,224) ' static
+MAN_S3		= Array(200,224) ' static
+
+sub Window_onLoad()
+	call Window_OnResize()
+	call Setup_Seq()
+end sub
+
+sub Setup_Seq()
+	Call Seq("PCN").At(INFORMATION(0)*FPS,"Show_GIF(gINFORMATION)")
+	Call Seq("PCN").At(INFORMATION(1)*FPS,"Hide_GIF(gINFORMATION)")
+	Call Seq("PCN").At(COMINGATYOU(0)*FPS,"Show_GIF(gCOMINGATYOU)")
+	Call Seq("PCN").At(COMINGATYOU(1)*FPS,"Hide_GIF(gCOMINGATYOU)")
+	'Call Seq("PCN").At(LINE1(0)*FPS,"Show_GIF(gLINE)")
+	'Call Seq("PCN").At(LINE1(1)*FPS,"Show_GIF(gLINE)")
+	Call Seq("PCN").At(MAN_S1(0)*FPS,"Show_GIF(gMAN)")
+	Call Seq("PCN").At(MAN_S1(1)*FPS,"Hide_GIF(gMAN)")
+	Call Seq("PCN").At(TV(0)*FPS+0.001,"Show_GIF(gTV)")
+	Call Seq("PCN").At(TV(1)*FPS,"Hide_GIF(gTV)")
+
+	Call Seq("PCN").At(TV(0)*FPS,"Start_Image(""gTV"", Path1, TV, pTV)")
+	
+	Call Seq("PCN").At(MANUFACTURER(0)*FPS+0.001,"Show_GIF(gMANUFACTURER)")
+	Call Seq("PCN").At(MANUFACTURER(1)*FPS,"Hide_GIF(gMANUFACTURER)")
+	Call Seq("PCN").At(MANUFACTURER(0)*FPS,"Start_Image(""gMANUFACTURER"", Path2, MANUFACTURER, pMANUFACTURER)")
+
+	Call Seq("PCN").At(PCST(0)*FPS+0.001,"Show_GIF(gPCST)")
+	Call Seq("PCN").At(PCST(1)*FPS,"Hide_GIF(gPCST)")
+	Call Seq("PCN").At(PCST(0)*FPS,"Start_Image(""gPCST"", Path3, PCST, pPCST)")
+
+	Call Seq("PCN").At(NASDAQ150(0)*FPS+0.001,"Show_GIF(gNASDAQ150)")
+	Call Seq("PCN").At(NASDAQ150(1)*FPS,"Hide_GIF(gNASDAQ150)")
+	Call Seq("PCN").At(NASDAQ150(0)*FPS,"Start_Image(""gNASDAQ150"", Path4, NASDAQ150, pNASDAQ150)")
+
+	Call Seq("PCN").At(DFA1(0)*FPS+0.001,"Show_GIF(gDFA)")
+	Call Seq("PCN").At(DFA1(1)*FPS,"Hide_GIF(gDFA)")
+	Call Seq("PCN").At(DFA1(0)*FPS,"Start_Image(""gDFA"", Path5, DFA1, pDFA1)")
+
+	Call Seq("PCN").At(POLLS_CLOSE(0)*FPS+0.001,"Show_GIF(gPOLLS_CLOSE)")
+	Call Seq("PCN").At(POLLS_CLOSE(1)*FPS,"Hide_GIF(gPOLLS_CLOSE)")
+	Call Seq("PCN").At(POLLS_CLOSE(0)*FPS,"Start_Image(""gPOLLS_CLOSE"", Path6, POLLS_CLOSE, pPOLLS_CLOSE)")
+
+	Call Seq("PCN").At(MAN_DUCK1(0)*FPS,"Show_GIF(gMAN_DUCK)")
+	Call Seq("PCN").At(MAN_DUCK1(1)*FPS,"Hide_GIF(gMAN_DUCK)")
+	Call Seq("PCN").At(BUTGETTING(0)*FPS,"Show_GIF(gBUTGETTING)")
+	Call Seq("PCN").At(BUTGETTING(1)*FPS,"Hide_GIF(gBUTGETTING)")
+
+	'Call Seq("PCN").At(LINE2(0)*FPS,"Show_GIF(gLINE2)")
+	'Call Seq("PCN").At(LINE2(1)*FPS,"Hide_GIF(gLINE2)")
+
+	Call Seq("PCN").At(MAN_S2(0)*FPS,"Show_GIF(gMAN)")
+	Call Seq("PCN").At(MAN_S2(1)*FPS,"Hide_GIF(gMAN)")
+
+	'Call Seq("PCN").At(DFA2(0)*FPS+0.001,"Show_GIF(gDFA)")
+	'Call Seq("PCN").At(DFA2(1)*FPS,"Hide_GIF(gDFA)")
+	'Call Seq("PCN").At(DFA2(0)*FPS,"Start_Image(""gDFA"", Path1, DFA2, pDFA2)")
+
+	Call Seq("PCN").At(RADIO1(0)*FPS+0.001,"Show_GIF(gRADIO)")
+	Call Seq("PCN").At(RADIO1(1)*FPS,"Hide_GIF(gRADIO)")
+	Call Seq("PCN").At(RADIO1(0)*FPS,"Start_Image(""gRADIO"", Path2, RADIO1, pRADIO1)")
+
+	Call Seq("PCN").At(RECORDBLUE(0)*FPS+0.001,"Show_GIF(gRECORDBLUE)")
+	Call Seq("PCN").At(RECORDBLUE(1)*FPS,"Hide_GIF(gRECORDBLUE)")
+	Call Seq("PCN").At(RECORDBLUE(0)*FPS,"Start_Image(""gRECORDBLUE"", Path3, RECORDBLUE, pRECORDBLUE)")
+
+	Call Seq("PCN").At(MTAQUOTE(0)*FPS+0.001,"Show_GIF(gMTAQUOTE)")
+	Call Seq("PCN").At(MTAQUOTE(1)*FPS,"Hide_GIF(gMTAQUOTE)")
+	Call Seq("PCN").At(MTAQUOTE(0)*FPS,"Start_Image(""gMTAQUOTE"", Path4, MTAQUOTE, pMTAQUOTE)")
+
+	Call Seq("PCN").At(NASDAQ2(0)*FPS+0.001,"Show_GIF(gNASDAQ150)")
+	Call Seq("PCN").At(NASDAQ2(1)*FPS,"Hide_GIF(gNASDAQ150)")
+	Call Seq("PCN").At(NASDAQ2(0)*FPS,"Start_Image(""gNASDAQ150"", Path5, NASDAQ2, pNASDAQ2)")
+
+	Call Seq("PCN").At(MAN_REACH(0)*FPS,"Show_GIF(gMAN_REACH)")
+	Call Seq("PCN").At(MAN_REACH(1)*FPS,"Hide_GIF(gMAN_REACH)")
+
+	Call Seq("PCN").At(MAN_ARM(0)*FPS,"Show_GIF(gMAN_ARM)")
+	Call Seq("PCN").At(MAN_ARM(1)*FPS,"Hide_GIF(gMAN_ARM)")
+
+	Call Seq("PCN").At(MAN_ARM(0)*FPS+0.001,"FixUpJumpingMan()")
+	Call Seq("PCN").At(MAN_ARM(0)*FPS+1.000,"FixUpJumpingMan2()")
+
+	Call Seq("PCN").At(DESK1(0)*FPS+0.001,"Show_GIF(gDESK)")
+	'Call Seq("PCN").At(DESK1(1)*FPS,"Hide_GIF(gDESK)")
+	Call Seq("PCN").At(DESK1(0)*FPS,"Start_Image(""gDESK"", Path1, DESK1, pDESK1)")
+
+	'Call Seq("PCN").At(DESK2(0)*FPS,"Show_GIF(gDESK)")
+	Call Seq("PCN").At(DESK2(1)*FPS,"Hide_GIF(gDESK)")
+
+	Call Seq("PCN").At(PCNLOGO1(0)*FPS,"Show_GIF(gPCNLOGO1)")
+	Call Seq("PCN").At(PCNLOGO1(1)*FPS,"Hide_GIF(gPCNLOGO1)")
+
+	Call Seq("PCN").At(MAN_S3(0)*FPS,"Show_GIF(gMAN)")
+	Call Seq("PCN").At(MAN_S3(1)*FPS,"Hide_GIF(gMAN)")
+
+	'Call Seq("PCN").At(MAN_S3(1)*FPS,"FadeOutGMAN()")
+
+	' man sitting, pointcast logo, make it easy
+	call Seq("PCN").At(224*FPS,"Show_GIF(pcnS21)")
+	call Seq("PCN").At(224*FPS,"Show_GIF(pcnS22)")
+	call Seq("PCN").At(255*FPS,"Show_GIF(pcnS23)")
+
+	call Seq("PCN").At(310*FPS,"Hide_GIF(pcnS21)")
+	call Seq("PCN").At(310*FPS,"Hide_GIF(pcnS22)")
+	call Seq("PCN").At(310*FPS,"Hide_GIF(pcnS23)")
+
+	' monitor, channel viewer, breaking news
+	call Seq("PCN").At(310*FPS,"Show_GIF(pcnS24)")
+	call Seq("PCN").At(310*FPS,"Show_GIF(pcnS25)")
+	call Seq("PCN").At(310*FPS,"Show_GIF(pcnS26)")
+	call Seq("PCN").At(367*FPS,"Hide_GIF(pcnS26)")
+	call Seq("PCN").At(380*FPS,"Show_GIF(pcnS25b)")
+	call Seq("PCN").At(417*FPS,"Hide_GIF(pcnS25)")
+	call Seq("PCN").At(417*FPS,"Hide_GIF(pcnS25b)")
+
+	' personalize and create-your-own-personalize
+	call Seq("PCN").At(417*FPS,"Show_GIF(pcnS27)")
+	call Seq("PCN").At(422*FPS,"Show_GIF(pcnS28)")
+	call Seq("PCN").At(502*FPS,"Hide_GIF(pcnS28)")
+	call Seq("PCN").At(515*FPS,"Hide_GIF(pcnS27)")
+	call Seq("PCN").At(515*FPS,"Show_GIF(pcnS27b)")
+	call Seq("PCN").At(530*FPS,"Show_GIF(pcnS27c)")
+	call Seq("PCN").At(542*FPS,"Hide_GIF(pcnS27b)")
+	call Seq("PCN").At(542*FPS,"Hide_GIF(pcnS27c)")
+
+	' zdnet smartscreen
+	'call Seq("PCN").At(542*FPS,"Show_GIF(pcnS211)")
+	'call Seq("PCN").At(650*FPS,"Hide_GIF(pcnS211)")
+	call Seq("PCN").At(547*FPS,"Show_GIF(pcnS210)")
+	call Seq("PCN").At(647*FPS,"Hide_GIF(pcnS210)")
+	call Seq("PCN").At(542*FPS,"Show_GIF(pcnS211b)")
+	call Seq("PCN").At(670*FPS,"Hide_GIF(pcnS211b)")
+
+	' cnn smartscreen
+	call Seq("PCN").At(670*FPS,"Show_GIF(pcnS29)")
+	call Seq("PCN").At(695*FPS,"Show_GIF(pcnS29b)")
+	call Seq("PCN").At(725*FPS,"Hide_GIF(pcnS29)")
+	call Seq("PCN").At(725*FPS,"Hide_GIF(pcnS29b)")
+
+	' monitor goes away
+	call Seq("PCN").At(725*FPS,"Hide_GIF(pcnS24)")
+
+	' man sitting, broadcast news copy
+	call Seq("PCN").At(725*FPS,"Show_GIF(pcnS21)")
+	call Seq("PCN").At(725*FPS,"Show_GIF(pcnS22)")
+	call Seq("PCN").At(729*FPS,"Show_GIF(pcnS212)")
+
+	' man smiling
+	call Seq("PCN").At(760*FPS,"Hide_GIF(pcnS21)")
+	call Seq("PCN").At(760*FPS,"Show_GIF(mansmile)")
+	call Seq("PCN").At(760*FPS,"Show_GIF(pcnlogo2)")
+	call Seq("PCN").At(835*FPS,"Hide_GIF(mansmile)")
+	call Seq("PCN").At(835*FPS,"Hide_GIF(pcnS22)")
+	call Seq("PCN").At(835*FPS,"Hide_GIF(pcnS212)")
+
+	' final logo
+	call Seq("PCN").At(835*FPS,"Show_GIF(final)")
+
+	Call Seq("PCN").At(836*FPS,"StartActivateLoop()")
+
+	Call Seq("PCN").Play
+end sub
+
+sub StartActivateLoop
+	' setup looping sequence
+	call Seq("PCNFinal").At(0,"Show_GIF2(ActivateNow)")
+	call Seq("PCNFinal").At(1.50,"Hide_GIF2(ActivateNow)")
+	call Seq("PCNFinal").At(1.83,"Show_GIF2(ActivateNow)")
+	call Seq("PCNFinal").Play
+end sub
+
+sub FixUpJumpingMan()
+	gMAN_REACH.style.top = gMAN_REACH.style.pixeltop - 10
+	gMAN_ARM.style.top = gMAN_ARM.style.pixeltop - 10
+end sub
+
+sub FixUpJumpingMan2()
+	gMAN_REACH.style.top = gMAN_REACH.style.pixeltop + 10
+	gMAN_ARM.style.top = gMAN_ARM.style.pixeltop + 10
+end sub
+
+sub FadeOutGMAN()
+	gMan.style.display = ""
+	gMAN.filters.revealTrans.Apply()
+	gMan.style.visibility = "visible"
+	gMAN.filters.revealTrans.Play()
+end sub
+
+sub Seq_OnStop(strActionSet)
+	if (strActionSet = "PCNFinal") then
+		call Seq("PCNFinal").Play		
+	end if
+end sub
+
+sub Window_OnResize()
+	Intro.style.display = "none"
+	Intro.style.top = (document.body.offsetHeight - INTRO_HEIGHT)/2 - 15
+	Intro.style.left = (document.body.offsetWidth - INTRO_WIDTH)/2
+
+	const ONEBIGDIVHEIGHT = 70
+
+	if ((document.body.offsetHeight - Intro.style.pixeltop + INTRO_HEIGHT) < ONEBIGDIVHEIGHT) then
+		OneBigDIV.style.top = document.body.offsetHeight - ONEBIGDIVHEIGHT
+	else
+		OneBigDIV.style.top = Intro.style.pixeltop + INTRO_HEIGHT + ((document.body.offsetHeight - Intro.style.pixeltop - INTRO_HEIGHT) / 2) - ONEBIGDIVHEIGHT/2
+	end if
+
+	'ActivateNow.style.top = ((document.body.offsetHeight - INTRO_HEIGHT)/2) + INTRO_HEIGHT + 20
+	'ActivateNow.style.left = (document.body.offsetWidth - 201)/2
+	'LegalText.style.top = (((document.body.offsetHeight - INTRO_HEIGHT)/2) + INTRO_HEIGHT + 20) + 20 + 20
+
+	if (Intro.style.pixeltop/2 - 10) < 0 then
+		PCNLogo.style.top = 0
+	else
+		PCNLogo.style.top = Intro.style.pixeltop/2 - 10
+	end if
+	if (Intro.style.pixelleft/2) < 0 then
+		PCNLogo.style.left = 0
+	else
+		PCNLogo.style.left = Intro.style.pixelleft/2
+	end if
+
+	Intro.style.display = ""
+	ActivateNow.style.display = ""
+	PCNLogo.style.display = ""
+	OneBigDIV.style.display = ""
+end sub
+
+sub Intro_OnClick()
+	call ActivateNow_OnClick()
+end sub
+
+sub ActivateNow_OnClick()
+	top.navigate(g_strSubscribeURL)
+end sub
+
+sub Show_GIF(objGIF)
+	objGIF.style.display = ""
+end sub
+
+sub Hide_GIF2(objGIF)
+	objGIF.style.visibility = "hidden"
+end sub
+
+sub Show_GIF2(objGIF)
+	objGIF.style.visibility = "visible"
+end sub
+
+sub Hide_GIF(objGIF)
+	objGIF.style.display = "none"
+end sub
+
+sub Start_Image(strGIF, objPath, aryTime, aryPath)
+	objPath.Stop
+	objPath.Repeat = "1"
+	objPath.Bounce = "0"
+	objPath.Duration = ( (aryTime(1) - aryTime(0)) * FPS)
+	objPath.Target = strGIF
+	call objPath.PolyLine((UBound(aryPath)+1)/2,aryPath)
+	objPath.Play
+end sub
+
+-->
+</script>
+</head>
+
+<body bgcolor="white" topmargin=0 leftmargin=0 bottommargin=0 rightmargin=0 scroll=no>
+
+<OBJECT id="Seq"
+		STYLE=""
+		CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+</OBJECT>
+
+<OBJECT ID="Path1"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<OBJECT ID="Path2"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<OBJECT ID="Path3"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<OBJECT ID="Path4"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<OBJECT ID="Path5"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<OBJECT ID="Path6"
+		CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+		<PARAM NAME="Relative" VALUE="0"> 
+</OBJECT>
+
+<DIV ID="INTRO" STYLE="position:absolute;top:0;left:0;width:447;height:300;display:none;cursor:hand">
+
+<!-- information -->
+<IMG ID="gINFORMATION" STYLE="position:absolute;top:144;left:134;display:none;z:-index:-1" SRC="pcn1.gif" WIDTH=160 HEIGHT=17>
+<!-- its coming -->
+<IMG ID="gCOMINGATYOU" STYLE="position:absolute;left:101;top:122;display:none;z-index:-1" SRC="pcn7.gif" WIDTH=247 HEIGHT=41>
+<!-- standing man -->
+<IMG ID="gMAN" STYLE="position:absolute;top:139;left:314;display:none;z:-index:1" SRC="pcn2.gif" WIDTH=47 HEIGHT=155>			
+<!-- TV -->
+<IMG ID="gTV" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn8.gif" WIDTH=69 HEIGHT=59>
+<!-- manufacturers -->
+<IMG ID="gMANUFACTURER" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn9.gif" WIDTH=266 HEIGHT=15>
+<!-- PCST -->
+<IMG ID="gPCST" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn10.gif" WIDTH=73 HEIGHT=17>
+<!-- NASDAQ up 150 -->
+<IMG ID="gNASDAQ150" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn11.gif" WIDTH=210 HEIGHT=16>
+<!-- DFA -->
+<IMG ID="gDFA" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn12.gif" WIDTH=75 HEIGHT=17>
+<!-- polls close -->
+<IMG ID="gPOLLS_CLOSE" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn13.gif" WIDTH=163 HEIGHT=12>
+<!-- man ducking -->
+<IMG ID="gMAN_DUCK" STYLE="position:absolute;left:296;top:157;display:none;z-index:-1" SRC="pcn14.gif" WIDTH=76 HEIGHT=136>
+<!-- but getting a hold -->
+<IMG ID="gBUTGETTING" STYLE="position:absolute;left:19;top:122;display:none;z:-index:-1" SRC="pcn15.gif" WIDTH=411 HEIGHT=41>
+<!-- radio -->
+<IMG ID="gRADIO" STYLE="position:absolute;left:-27;top:144;display:none;z-index:-1" SRC="pcn6.gif" WIDTH=47 HEIGHT=55>
+<!-- record blue chip stocks -->
+<IMG ID="gRECORDBLUE" STYLE="position:absolute;left:0;top:0;display:none;z-index:-1" SRC="pcn16.gif" WIDTH=283 HEIGHT=14>
+<!-- MTA stock quote -->
+<IMG ID="gMTAQUOTE" STYLE="position:absolute;left:-34;top:71;display:none;z-index:-1" SRC="pcn3.gif" WIDTH=57 HEIGHT=16>
+<!-- man reaching -->
+<IMG ID="gMAN_REACH" STYLE="position:absolute;left:310;top:115;display:none;z-index:-1" SRC="pcn17.gif" WIDTH=41 HEIGHT=175>
+<!-- mans arm -->
+<IMG ID="gMAN_ARM" STYLE="position:absolute;left:305;top:117;display:none;z-index:-1" SRC="pcn18.gif" WIDTH=18 HEIGHT=64>
+<!-- desk and chair -->
+<IMG ID="gDESK" STYLE="position:absolute;left:62;top:300;display:none;z-index:-1" SRC="pcn19.gif" WIDTH=127 HEIGHT=140>
+<!-- small pointcast logo -->
+<IMG ID="gPCNLOGO1" STYLE="position:absolute;left:110;top:147;display:none;z-index:-1" SRC="pcn20.gif" WIDTH=30 HEIGHT=30>
+
+<!-- man sitting -->
+<IMG ID="pcnS21" STYLE="position:absolute;left:118;top:84;display:none;z:-index:-1" SRC="pcns21.gif" WIDTH=216 HEIGHT=215>
+<!-- pointcast logo -->
+<IMG ID="pcnS22" STYLE="position:absolute;left:176;top:101;display:none;z:-index:1" SRC="pcns22.gif" WIDTH=70 HEIGHT=45>
+<!-- makes-it-easy text -->
+<IMG ID="pcnS23" STYLE="position:absolute;left:19;top:13;display:none;z:-index:-1" SRC="pcns23.gif" WIDTH=406 HEIGHT=52>
+<!-- moniter-with-person -->
+<IMG ID="pcnS24" STYLE="position:absolute;left:25;top:5;display:none;z:-index:-1" SRC="pcns24.gif" WIDTH=423 HEIGHT=295>
+<!-- screenshot: channelviewer -->
+<IMG ID="pcnS25" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns25.gif" WIDTH=299 HEIGHT=224>
+<!-- screenshot: channelviewer -->
+<IMG ID="pcnS25b" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns25c.gif" WIDTH=299 HEIGHT=224>
+<!-- breaking news yellow box -->
+<IMG ID="pcnS26" STYLE="position:absolute;left:10;top:199;display:none;z:-index:1" SRC="pcns26.gif" WIDTH=311 HEIGHT=85>
+<!-- personalize -->
+<IMG ID="pcnS27" STYLE="position:absolute;left:73;top:44;display:none;z:-index:-1" SRC="pcns27.gif" WIDTH=299 HEIGHT=225>
+<!-- personalize -->
+<IMG ID="pcnS27b" STYLE="position:absolute;left:73;top:44;display:none;z:-index:2" SRC="pcns27b.gif" WIDTH=299 HEIGHT=225>
+<!-- personalize -->
+<IMG ID="pcnS27c" STYLE="position:absolute;left:73;top:44;display:none;z:-index:2" SRC="pcns27c.gif" WIDTH=299 HEIGHT=225>
+<!-- create your own personalize yellow box -->
+<IMG ID="pcnS28" STYLE="position:absolute;left:8;top:187;display:none;z:-index:1" SRC="pcns28.gif" WIDTH=329 HEIGHT=99>
+<!-- CNN smartscreen -->
+<IMG ID="pcnS29" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns29a.gif" WIDTH=299 HEIGHT=224>
+<!-- CNN smartscreen -->
+<IMG ID="pcnS29b" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns29b.gif" WIDTH=299 HEIGHT=224>
+<!-- ZDNet smartscreen -->
+<IMG ID="pcnS211" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns211a.gif" WIDTH=299 HEIGHT=224>
+<!-- ZDNet smartscreen -->
+<IMG ID="pcnS211b" STYLE="position:absolute;left:73;top:45;display:none;z:-index:-1" SRC="pcns211b.gif" WIDTH=299 HEIGHT=224>
+<!-- transform your idle (SS) -->
+<IMG ID="pcnS210" STYLE="position:absolute;left:4;top:168;display:none;z:-index:1" SRC="pcns210.gif" WIDTH=332 HEIGHT=119>
+<!-- broadcast news (man smiling) -->
+<IMG ID="pcnS212" STYLE="position:absolute;left:11;top:11;display:none;z:-index:-1" SRC="pcns212.gif" WIDTH=424 HEIGHT=54>
+<!-- man smiling -->
+<IMG ID="mansmile" STYLE="position:absolute;left:118;top:84;display:none;z:-index:-1" SRC="mansmile.gif" WIDTH=215 HEIGHT=215>
+<!-- pointcast logo -->
+<IMG ID="pcnlogo2" STYLE="position:absolute;left:176;top:101;display:none;z:-index:1" SRC="pcns22.gif" WIDTH=70 HEIGHT=45>
+<!-- final -->
+<IMG ID="final" STYLE="position:absolute;left:0;top:0;display:none;z:-index:-1" SRC="final.gif" WIDTH=451 HEIGHT=303>
+
+</DIV>
+
+<IMG ID="PCNLogo"
+STYLE="position:absolute;top:0;left:0;display:none;cursor:hand"
+SRC="pcnlogo.gif" ALT="Click Here to Subscribe" WIDTH=155 HEIGHT=20>
+
+<CENTER>
+<DIV ID="OneBigDIV" STYLE="position:absolute;top:0;left:0;display:none;line-height:60%">
+<IMG ID="ActivateNow"
+STYLE="display:none;cursor:hand"
+SRC="button.gif" ALT="Click Here to Subscribe" WIDTH=201 HEIGHT=29>
+
+<p align="center"><small><font face="Arial"><small><small>© Copyright 1997.&nbsp; All
+rights reserved.&nbsp; PointCast is a registered trademark and <br>
+the PointCast Logo is a trademark of PointCast Inc.</small></small></font></small></p>
+</DIV>
+</CENTER>
+
+</body>
+</HTML>

@@ -1,0 +1,23 @@
+Index of \\Drivers\Audio:
+
+
+· Acer AW32 Pro PnP Audio System =\acer\aw32
+· Aureal Vortex =\aureal
+· Cyrix Xpress AUDIO =\cyrix
+· Ensoniq AudioPCI =\ensoniq
+· ESS Maestro =\ess\legacy
+· NeoMagic MagicWave =\neomagic
+· OPTi 931 =\opti\opti931
+· OPTi 933 =\opti\opti933
+
+Please note: 
+
+FOR THE ACER AUDIO DRIVER:  ONLY USE THIS FILE IF MICROSOFT TECHNICAL SUPPORT
+                            RECOMMENDS THIS UPDATE.  IT MAY NOT CONTAIN THE 
+                            SAME SUPPORT AS YOUR ORIGINAL AUDIO DRIVER.
+
+FOR THE CYRIX AUDIO DRIVER:  THIS DRIVER WORKS BEST WITH AN UPDATED BIOS, WHICH
+                             SHOULD BE AVAILABLE FROM YOUR COMPUTER'S MANUFACTURER.
+                             YOU SHOULD INSTALL THE BIOS UPDATE PRIOR TO INSTALLING
+                             THIS DRIVER ON YOUR SYSTEM.
+

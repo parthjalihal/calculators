@@ -1,0 +1,193 @@
+;
+; LJOY.INF
+;
+; Copyright 1995-1996, Logitech, Inc.
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+Provider=%Logitech%
+
+[DestinationDirs]
+DefaultDestDir = 11		; LDID_SYS
+
+[SourceDisksNames]
+51=%DiskDesc%,,1
+
+; Manufacturer Sections
+; ---------------------------------------------------------
+[Manufacturer]
+%Logitech%=LogiMfg
+
+[LogiMfg]
+%JoystickEnumDesc%=All,LogitechJoystickEnum
+%WingManWarriorDesc%=All,SERENUM\LGI8082
+%WingManWarriorDesc%=All,LJOYENUM\LogitechWingManWarrior
+%WingManWarriorATDesc%=All,LJOYENUM\LogitechWingManWarriorAT
+%WingManWarriorAHDesc%=All,LJOYENUM\LogitechWingManWarriorAH
+%ThunderPadDesc%=All,LJOYENUM\LogitechThunderPad
+%ThunderPadDigitalDesc%=All,LJOYENUM\LogitechThunderPadDigital
+%WingManDesc%=All,LJOYENUM\LogitechWingMan
+%WingManExtremeDesc%=All,LJOYENUM\LogitechWingManExtreme
+%WingManLightDesc%=All,LJOYENUM\LogitechWingManLight
+%WingManExtremeDigitalDesc%=All,LJOYENUM\LogitechWingManExtremeDigital
+%CyberMan2Desc%=All,LJOYENUM\LogitechCyberMan2
+
+[All]
+AddReg=ThunderPad.AddReg, WingMan.AddReg, WingManExtreme.AddReg, WingManLight.AddReg, WingManWarrior.AddReg, WingManWarriorAT.AddReg, WingManWarriorAH.AddReg, PnP.AddReg, WingManExtremeDigital.AddReg, ThunderPadDigital.AddReg CyberMan2.AddReg
+CopyFiles=All.Copy
+
+[ThunderPad.AddReg]
+HKLM,%KEY_OEM%\%ThunderPadName%,OEMName,,%ThunderPadDesc%
+HKLM,%KEY_OEM%\%ThunderPadName%,OEMData, 1, 20,00,00,00,04,00,00,00
+HKLM,%KEY_OEM%\%ThunderPadName%,OEMCalWinCap,, %TPCalWinCap%
+HKLM,%KEY_OEM%\%ThunderPadName%,OEMTestWinCap,,%TPTestWinCap%
+HKLM,%KEY_OEM%\%ThunderPadName%,OEMCallout,, ljoy.vxd
+
+[ThunderPadDigital.AddReg]
+HKLM,%KEY_OEM%\%ThunderPadDigitalName%,OEMName,,%ThunderPadDigitalDesc%
+HKLM,%KEY_OEM%\%ThunderPadDigitalName%,OEMData, 1, 20,00,00,00,08,00,00,00
+HKLM,%KEY_OEM%\%ThunderPadDigitalName%,OEMCalWinCap,, %TPDCalWinCap%
+HKLM,%KEY_OEM%\%ThunderPadDigitalName%,OEMTestWinCap,,%TPDTestWinCap%
+HKLM,%KEY_OEM%\%ThunderPadDigitalName%,OEMCallout,, ljoy.vxd
+
+[WingMan.AddReg]
+HKLM,%KEY_OEM%\%WingManName%,OEMName,,%WingManDesc%
+HKLM,%KEY_OEM%\%WingManName%,OEMData, 1, 01,00,00,00,02,00,00,00
+HKLM,%KEY_OEM%\%WingManName%,OEMCalWinCap,, %WMCalWinCap%
+HKLM,%KEY_OEM%\%WingManName%,OEMTestWinCap,,%WMTestWinCap%
+HKLM,%KEY_OEM%\%WingManName%,OEMCallout,, ljoy.vxd
+
+[WingManExtreme.AddReg]
+HKLM,%KEY_OEM%\%WingManExtremeName%,OEMName,,%WingManExtremeDesc%
+HKLM,%KEY_OEM%\%WingManExtremeName%,OEMData, 1, 0a,00,00,00,04,00,00,00
+HKLM,%KEY_OEM%\%WingManExtremeName%,OEMCalWinCap,, %WMECalWinCap%
+HKLM,%KEY_OEM%\%WingManExtremeName%,OEMTestWinCap,,%WMETestWinCap%
+HKLM,%KEY_OEM%\%WingManExtremeName%,OEMCallout,, ljoy.vxd
+
+[WingManLight.AddReg]
+HKLM,%KEY_OEM%\%WingManLightName%,OEMName,,%WingManLightDesc%
+HKLM,%KEY_OEM%\%WingManLightName%,OEMData, 1, 00,00,00,00,02,00,00,00
+HKLM,%KEY_OEM%\%WingManLightName%,OEMCalWinCap,, %WMLCalWinCap%
+HKLM,%KEY_OEM%\%WingManLightName%,OEMTestWinCap,,%WMLTestWinCap%
+HKLM,%KEY_OEM%\%WingManLightName%,OEMCallout,, ljoy.vxd
+
+
+[WingManWarrior.AddReg]
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMName,,%WingManWarriorDesc%
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMData, 1, 07,00,08,00,04,00,00,00
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMCallout,, lwarrior.vxd
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMCalWinCap,, %WMWCalWinCap%
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMTestWinCap,,%WMWTestWinCap%
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMZLabel,,%WMWZLabel%
+HKLM,%KEY_OEM%\%WingManWarriorName%,OEMRLabel,,%WMWRLabel%
+
+[WingManWarriorAT.AddReg]
+HKLM,%KEY_OEM%\%WingManWarriorATName%,OEMName,,%WingManWarriorATDesc%
+HKLM,%KEY_OEM%\%WingManWarriorATName%,OEMData, 1, 01,00,00,00,04,00,00,00
+HKLM,%KEY_OEM%\%WingManWarriorATName%,OEMCallout,, ljoy.vxd
+HKLM,%KEY_OEM%\%WingManWarriorATName%,OEMCalWinCap,, %WMWCalWinCap%
+HKLM,%KEY_OEM%\%WingManWarriorATName%,OEMTestWinCap,,%WMWTestWinCap%
+
+[WingManWarriorAH.AddReg]
+HKLM,%KEY_OEM%\%WingManWarriorAHName%,OEMName,,%WingManWarriorAHDesc%
+HKLM,%KEY_OEM%\%WingManWarriorAHName%,OEMData, 1, 0A,00,00,00,04,00,00,00
+HKLM,%KEY_OEM%\%WingManWarriorAHName%,OEMCallout,, ljoy.vxd
+HKLM,%KEY_OEM%\%WingManWarriorAHName%,OEMCalWinCap,, %WMWCalWinCap%
+HKLM,%KEY_OEM%\%WingManWarriorAHName%,OEMTestWinCap,,%WMWTestWinCap%
+
+[WingManExtremeDigital.AddReg]
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMName,,%WingManExtremeDigitalDesc%
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMData, 1, 07,00,00,00,06,00,00,00
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMCalWinCap,, %WMEDigitalCalWinCap%
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMTestWinCap,,%WMEDigitalTestWinCap%
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMCallout,, ljoy.vxd
+HKLM,%KEY_OEM%\%WingManExtremeDigitalName%,OEMZLabel,,%WMEDigitalZLabel%
+
+[CyberMan2.AddReg]
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMName,,%CyberMan2Desc%
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMData, 1, 01,00,88,01,08,00,00,00
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMCallout,, LCyBrMn2.vxd
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMCalWinCap,, %CyberMan2CalWinCap%
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMTestWinCap,,%CyberMan2TestWinCap%
+HKLM,%KEY_OEM%\%CyberMan2Name%,OEMRLabel,,%CyberMan2RLabel%
+
+[PnP.AddReg]
+HKR,,DevLoader,,ljoypnp.vxd
+
+[All.Copy]
+ljoy.vxd
+ljoyv.vxd
+ljoypnp.vxd
+lCyBrMn2.vxd
+lwarrior.vxd
+
+[ControlFlags]
+ExcludeFromSelect=SERENUM\LGI8082
+ExcludeFromSelect=LJOYENUM\LogitechWingManWarrior
+ExcludeFromSelect=LJOYENUM\LogitechWingManWarriorAT
+ExcludeFromSelect=LJOYENUM\LogitechWingManWarriorAH
+ExcludeFromSelect=LJOYENUM\LogitechThunderPad
+ExcludeFromSelect=LJOYENUM\LogitechThunderPadDigital
+ExcludeFromSelect=LJOYENUM\LogitechWingMan
+ExcludeFromSelect=LJOYENUM\LogitechWingManExtreme
+ExcludeFromSelect=LJOYENUM\LogitechWingManLight
+ExcludeFromSelect=LJOYENUM\LogitechWingManExtremeDigital
+ExcludeFromSelect=LJOYENUM\LogitechCyberMan2
+
+; Strings
+; ---------------------------------------------------------
+[Strings]
+Logitech ="Logitech"
+DiskDesc="Logitech Joystick Driver Disk"
+KEY_OEM="System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM"
+KEY_GWARE="Software\Logitech\GameWare\CurrentVersion"
+
+JoystickEnumDesc="Logitech Joysticks"
+
+WingManWarriorDesc="Logitech WingMan Warrior"
+WingManWarriorName="LogitechWingManWarrior"
+WMWCalWinCap="WingMan Warrior Calibration"
+WMWTestWinCap="WingMan Warrior Test"
+WMWRLabel="Spin"
+WMWZLabel="Throt"
+
+WingManWarriorATDesc="Logitech WingMan Warrior (GamePort Throttle)"
+WingManWarriorATName="LogitechWingManWarriorAT"
+
+WingManWarriorAHDesc="Logitech WingMan Warrior (GamePort Hat)"
+WingManWarriorAHName="LogitechWingManWarriorAH"
+
+ThunderPadDesc="Logitech ThunderPad"
+ThunderPadName="LogitechThunderPad"
+TPCalWinCap="ThunderPad Calibration"
+TPTestWinCap="ThunderPad Test"
+ThunderPadDigitalDesc="Logitech ThunderPad Digital"
+ThunderPadDigitalName="LogitechThunderPadDigital"
+TPDCalWinCap="ThunderPad Digital Calibration"
+TPDTestWinCap="ThunderPad Digital Test"
+WingManDesc="Logitech WingMan"
+WingManName="LogitechWingMan"
+WMCalWinCap="WingMan Calibration"
+WMTestWinCap="WingMan Test"
+WingManExtremeDesc="Logitech WingMan Extreme"
+WingManExtremeName="LogitechWingManExtreme"
+WMECalWinCap="WingMan Extreme Calibration"
+WMETestWinCap="WingMan Extreme Test"
+WingManLightDesc="Logitech WingMan Light"
+WingManLightName="LogitechWingManLight"
+WMLCalWinCap="WingMan Light Calibration"
+WMLTestWinCap="WingMan Light Test"
+
+WingManExtremeDigitalDesc="Logitech WingMan Extreme Digital"
+WingManExtremeDigitalName="LogitechWingManExtremeDigital"
+WMEDigitalZLabel="Throt"
+WMEDigitalCalWinCap="WingMan Extreme Digital Calibration"
+WMEDigitalTestWinCap="WingMan Extreme Digital Test"
+
+CyberMan2Desc="Logitech CyberMan 2"
+CyberMan2Name="LogitechCyberMan2"
+CyberMan2CalWinCap="CyberMan 2 Calibration"
+CyberMan2TestWinCap="CyberMan 2 Test"
+CyberMan2RLabel="Rudder"

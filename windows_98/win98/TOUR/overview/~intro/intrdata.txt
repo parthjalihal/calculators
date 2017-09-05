@@ -1,0 +1,25 @@
+%open001.gif%|%Welcome to the <I>Windows Overview</I>. In the next few minutes, we will show you how to have the best learning experience with this innovative tutorial.%|%10750%
+%open002.gif%|%Unlike other training programs, with the <I>Windows Overview</I> you have the benefit of working with the actual Windows program, not a simulation.%|%20450%
+%open001.gif%|%You can choose lessons in any order. When you see the lesson list, simply click a lesson title to begin.%|%28850%
+%open003.gif%|%When you select a lesson, the lesson window becomes smaller to show you more of your Windows desktop.%|%36550%
+%open002.gif%|%You will actually be running two programs: Windows in the background, and the Windows tutorial on top.%|%38850%
+%open004.gif%|%You will actually be running two programs: Windows in the background, and the Windows tutorial on top.%|%40350%
+%open005.gif%|%You will actually be running two programs: Windows in the background, and the Windows tutorial on top.%|%44350%
+%open006.gif%|%Step-by-step instructions are shown in a step window.%|%48350%
+%open006.gif%|%The step window contains tools to help you navigate through each lesson.%|%55150%
+%open007.gif%|%Clicking the <B>Next</B> button will move you to the next step.%|%59350%
+%open008.gif%|%Clicking the <B>Back</B> button will take you back to the previous step. Because each step depends on the one before it, it's not a good idea to skip steps.%|%70100%
+%open009.gif%|%Clicking the <B>Lessons</B> button will return you to the list of lessons.%|%75900%
+%open010.gif%|%The Step Counter tracks your progress through a lesson.%|%80700%
+%open011.gif%|%If you are stuck or unsure of the instructions, you can click the <B>Show Me</B> button to view a demonstration of the step.%|%85200%
+%open012.gif%|%If you are stuck or unsure of the instructions, you can click the <B>Show Me</B> button to view a demonstration of the step.%|%90000%
+%open006.gif%|%Clicking anywhere on the screen will close the <B>Show Me</B> window. You can then try the step yourself.%|%96700%
+%open013.gif%|%You cannot click pictures within the step text. These pictures are included to assist you in locating the real button or object.%|%106300%
+%open014.gif%|%You can click an underlined blue word to see its definition. Clicking anywhere on the screen will close the definition window.%|%108300%
+%open015.gif%|%You can click an underlined blue word to see its definition. Clicking anywhere on the screen will close the definition window.%|%111800%
+%open006.gif%|%You can click an underlined blue word to see its definition. Clicking anywhere on the screen will close the definition window.%|%113800%
+%open016.gif%|%When you click a Tip!, you view additional helpful information. Clicking anywhere on the screen will close the Tip! window.%|%117400%
+%open017.gif%|%When you click a Tip!, you view additional helpful information. Clicking anywhere on the screen will close the Tip! window.%|%121200%
+%open006.gif%|%When you click a Tip!, you view additional helpful information. Clicking anywhere on the screen will close the Tip! window.%|%124400%
+%open018.gif%|%After you have completed a lesson, a check mark will appear next to the lesson title.%|%130400%
+%open001.gif%|%That's it. You're now ready to begin learning the basics of Windows!%|%138400%

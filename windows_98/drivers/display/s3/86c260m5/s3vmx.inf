@@ -1,0 +1,184 @@
+; INF file for S3 display driver.
+; Copyright 1997, S3 Inc.
+
+[Version]
+Class=Display
+Signature="$CHICAGO$"
+Provider=%Mfg%
+
+[DestinationDirs]
+DefaultDestDir=11
+S3-Sync.Copy=11
+S3SWITCHcopy.sys=11
+S3SWITCHcopy.hlp=18
+REFcopy.inf=17
+
+[SourceDisksNames]
+51="Windows 95 S3 Driver Disk",,1
+
+[SourceDisksFiles]
+s3_3.drv=51
+s3vdd2.vxd=51
+s3_32v.dll=51
+s3dtkw.dll=51
+s3kernel.vxd=51
+S3SWITCH.dll=51
+S3SWITCH.vxd=51
+S3SWITCH.hlp=51
+S3VMX.INF=51
+version.txt=51
+
+;----------------------------------------
+; Manufacturers
+
+[Manufacturer]
+"%Mfg%"=Mfg
+
+;----------------------------------------
+; Driver sections
+
+[Mfg]
+%S3VirgeM5.DeviceDesc%=     S3_9, PCI\VEN_5333&DEV_8C01
+
+;----------------------------------------
+
+[S3SWITCHRemove]
+DelReg = S3SWITCH.AddReg
+DelFiles =S3SWITCHcopy.sys, S3SWITCHcopy.hlp
+;---------------------------------
+[S3SWITCH.AddReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\S3SWITCH,DisplayName,,"%ShortDesc%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\S3SWITCH,UninstallString,,"RunDll setupx.dll,InstallHinfSection S3SWITCHRemove 4 S3VMX.INF"
+HKLM,SOFTWARE\Classes\CLSID\{d5ddefa2-d866-11d0-9a83-00aa00bbc085},"",,"Property Sheet Extension for S3 Display Configuration Utility"
+HKLM,SOFTWARE\Classes\CLSID\{d5ddefa2-d866-11d0-9a83-00aa00bbc085}\InProcServer32,"",,"S3SWITCH.dll
+HKLM,SOFTWARE\Classes\CLSID\{d5ddefa2-d866-11d0-9a83-00aa00bbc085}\InProcServer32,ThreadingModel,,"Apartment"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\%1%\Display\shellex\PropertySheetHandlers\S3SWITCH,"",,"{d5ddefa2-d866-11d0-9a83-00aa00bbc085}"
+
+
+HKLM,SOFTWARE\S3\SWITCH,,,
+HKLM,SOFTWARE\S3\SWITCH,TimingOptionSupport,,"ON"
+HKLM,SOFTWARE\S3\SWITCH,MultiImageSupport,,"OFF"
+HKLM,SOFTWARE\S3\SWITCH,UnderscanSupport,,"OFF"
+HKLM,SOFTWARE\S3\SWITCH,Evaluation,,"OFF"
+HKLM,SOFTWARE\S3\SWITCH,DuoViewIn8Bpp,,"OFF"
+HKLM,SOFTWARE\S3\SWITCH,ShowALLModes,,"OFF"
+
+;-------------------------------------------------------------
+; Install sections
+
+[S3_9]
+DelReg = S3SWITCH.AddReg, S3_9_DelReg, DEL_CURRENT_REG
+DelFiles = S3SWITCHcopy.sys, S3SWITCHcopy.hlp
+CopyFiles=S3_4_CopyFiles, S3-Sync.Copy, S3SWITCHcopy.sys, S3SWITCHcopy.hlp,REFcopy.inf
+AddReg=S3_9_AddReg, S3SWITCH.AddReg, S3_M5_AddReg
+
+;----------------------------------------
+; Model AddReg sections
+
+[S3_M5_AddReg]
+HKLM,Config\0001\Display\Settings,DuoView_In_8Bpp,,"OFF"
+HKLM,Config\0001\Display\Settings,DuoView_Flip,,"YES"
+HKLM,Config\0001\Display\Settings,CommandDMA,,"OFF"
+
+;----------------------------------------
+[DEL_CURRENT_REG]
+HKR,,DevLoader,0,
+HKR,,Ver,0,
+HKR,DEFAULT,,0,
+HKR,MODES,,0,
+HKR,CURRENT,,0,
+
+[S3_9_DelReg]
+HKR,"MODES\8\1152,864"  ,,,"60"
+
+;----------------------------------------
+; Model AddReg sections
+
+[S3_9_AddReg]
+;----------------------------------------ViRGE M5
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_3.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd2.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\8\640,480"       ,,,
+HKR,"MODES\8\800,600"       ,,,
+HKR,"MODES\8\1024,768"      ,,,
+HKR,"MODES\8\1280,1024"     ,,,
+HKR,"MODES\8\1600,1200"     ,,,
+HKR,"MODES\16\640,480"      ,,,
+HKR,"MODES\16\800,600"      ,,,
+HKR,"MODES\16\1024,768"     ,,,
+HKR,"MODES\16\1280,1024"    ,,,
+HKR,"MODES\16\1600,1200"    ,,,
+HKR,"MODES\24\640,480"      ,,,
+HKR,"MODES\24\800,600"      ,,,
+HKR,"MODES\24\1024,768"     ,,,
+
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_640x480x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_640x480x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_640x480x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_800x600x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_800x600x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_800x600x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1024x768x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1024x768x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1024x768x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1280x1024x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1280x1024x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1600x1200x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Ref_1600x1200x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\DDC\Settings,Resolution,,"640,480"
+
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_640x480x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_640x480x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_640x480x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_800x600x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_800x600x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_800x600x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1024x768x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1024x768x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1024x768x24,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1280x1024x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1280x1024x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1600x1200x8,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Ref_1600x1200x16,,"60"
+HKLM,System\CurrentControlSet\Services\Class\Display\S3\Other\Settings,Resolution,,"640,480"
+
+
+[S3_4_CopyFiles]
+s3_32v.dll
+s3vdd2.vxd
+s3_3.drv
+
+[S3-Sync.Copy]
+s3dtkw.dll
+s3kernel.vxd
+
+[S3SWITCHcopy.sys]
+S3SWITCH.dll
+S3SWITCH.vxd
+
+[S3SWITCHcopy.hlp]
+S3SWITCH.hlp
+
+[REFcopy.inf]
+S3VMX.INF
+
+;----------------------------------------
+; User visible strings
+
+[Strings]
+ClassName="Display"
+Mfg="S3"
+1	    = "Controls Folder"
+ShortDesc   = "S3 Display Configuration Utility"
+LongDesc    = "S3 Display Configuration Utility"
+S3	    = "S3 Incorporated"
+
+S3VirgeM5.DeviceDesc=   "S3 Inc. ViRGE/MX"
+
+;----------------------------------------------

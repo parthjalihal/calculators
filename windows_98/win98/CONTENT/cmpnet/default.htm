@@ -1,0 +1,86 @@
+
+<HTML>
+<HEAD>
+<title>CMP</title>
+
+<SCRIPT language="javascript">
+<!--
+
+var timeoutIDs = new Array();
+var timeoutCount = 0;
+
+function AddTimeout(timeoutID) {
+ timeoutCount++;
+ timeoutIDs[timeoutCount-1] = timeoutID;
+}
+
+function ClearAllTimeouts() {
+ var i;
+ for (i=0; i<timeoutCount; i++)
+  clearTimeout(timeoutIDs[i]);
+}
+
+function doAddChannel() {
+  ClearAllTimeouts();
+  window.external.addChannel('http://msie.cmpnet.com/CMPnet.cdf');
+}
+
+function showObj(objname) {
+	var obj = document.all.item(objname);
+	obj.filters.item(0).Apply();
+	obj.style.visibility= "visible";
+	obj.filters.item(0).Play();
+}
+
+function startTimeline(){
+	showObj("cmp");
+	AddTimeout(setTimeout('arrowPath.Play();', 1750));
+	AddTimeout(setTimeout("showNextPage()",5000));
+}
+
+function showNextPage() {
+	window.location="cmp2.htm"
+}
+
+//-->
+</script>
+
+
+<STYLE TYPE="text/css">
+#cmp { POSITION: absolute; TOP: 10px; LEFT: 50px; width:12; height:12; 
+ Z-INDEX: 10; visibility:hidden;
+ filter:revealTrans(transition=19,duration=1.25);
+}
+#arrowgif {POSITION: absolute; TOP: -10px; LEFT: -10px; width:16; height:16; Z-INDEX: 30; }
+#addchanbut {POSITION: absolute; TOP: 330px; LEFT:550px; width:10;height:10; Z-INDEX: 15; }
+</style>
+
+
+</HEAD>
+<BODY bg color="white" onload="startTimeline();">
+
+<div id="cmp">
+<IMG border=0 SRC="gifs/cmplb.gif" WIDTH="630" height="299">
+</div>
+
+<OBJECT ID="arrowPath" STYLE="display:none;position:absolute;top:0;left:0;width:10;height:10;"
+CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="0">
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="0">
+	<PARAM NAME="Duration" VALUE="2.0">
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -20,-20, 595,365)">
+	<PARAM NAME="Target" VALUE="arrowgif">
+</OBJECT>
+
+
+<div id="arrowgif">
+<IMG border=0 SRC="gifs/cursor_t.gif">
+</div>
+
+<div id="addchanbut">
+<IMG border=0 SRC="gifs/addchan.gif" WIDTH="136" height="20" onclick="doAddChannel();" onMouseover='this.style.cursor="hand";'>
+</div>
+
+</body>
+</html>

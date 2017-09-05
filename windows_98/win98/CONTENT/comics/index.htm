@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<script language="JavaScript">
+     
+function bringup()
+{
+        window.focus()
+}
+     
+</script>
+
+<TITLE>Comics Channel Splash!</TITLE>
+<!-- pizey, toms, shorter, blair and the big M -->
+<SCRIPT Language="VBScript">
+	dim words, rs, collImg, curImg
+
+sub Window_onload()
+	set collImg = document.all.item("Image1")
+	curImg = 0
+	SetTimeout "Call change()",1000,"VBScript"
+end sub
+
+sub change()
+	divAB.filters(0).Apply()
+	collImg(curImg).style.visibility = "hidden"
+	curImg = curImg + 1
+	if (curImg = collImg.length) then
+		curImg = 0
+	end if
+	collImg(curImg).style.visibility = "visible"
+	divAB.filters(0).Play()
+End sub
+
+Sub subscribe_onClick()
+	Window.Open "http://www.comicschannel.net/comics_channel/select.html","subscribe_dialog","toolbar=no,scrollbars=yes,menubar=no,status=no,width=300,height=400"
+end sub
+
+Sub divAB_onfilterchange
+	SetTimeout "Call change()",1000,"VBScript"
+end sub
+
+sub fix()
+        bringup()
+	window.external.addChannel("http://www.comicschannel.net/cgi-bin/comics_channel/comics.cdf")
+end sub
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY bgcolor="#000080" link="#FFFFFF" vlink="yellow" background=blue_bg.gif>
+
+<CENTER>
+<DIV ID="divAB" STYLE="POSITION:relative;  WIDTH:400; height=200; filter:revealTrans(duration=10, transition=12)">
+	<IMG ID="Image1" STYLE="Position:absolute; TOP:0; LEFT:0" SRC="main1.gif">
+	<IMG ID="Image1" STYLE="Position:absolute;visibility:hidden; TOP:0; LEFT:0" SRC="main2.gif">
+	<IMG ID="Image1" STYLE="Position:absolute;visibility:hidden; TOP:0; LEFT:0" SRC="main3.gif">
+	<IMG ID="Image1" STYLE="Position:absolute;visibility:hidden; TOP:0; LEFT:0" SRC="main4.gif">
+	<IMG ID="Image1" STYLE="Position:absolute;visibility:hidden; TOP:0; LEFT:0" SRC="main5.gif">
+	<IMG ID="Image1" STYLE="Position:absolute;visibility:hidden; TOP:0; LEFT:0" SRC="main6.gif">
+</DIV>
+<BR>
+<CENTER>
+<TABLE WIDTH=380 CELLPADDING=0 CELLSPACING=0 BORDER=0>
+	<TR><TD VALIGN=top>
+		<FONT SIZE=4 COLOR=yellow>Welcome to the The Comics Channel, the virtual home to your favorite funnies, sent directly to your computer's desktop. Click the "Subscribe" button to go online and visit comics, select screen savers, choose a comic as your desktop component or catch-up on current comics news.
+  <P>
+<STRONG>Check out an off-line <A HREF="super.htm">sample</A> of the comics page then subscribe today!</STRONG>
+	</FONT>
+	</TD></TR>
+</TABLE><BR>
+<TABLE WIDTH=380 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+        <TR ALIGN=center VALIGN=top>
+                <TD>
+                <IMG ID=subscribe SRC="subscrb.gif" HEIGHT=30 WIDTH=120 ALT=Subscribe BORDER=0>
+                </TD>
+        </TR>
+</TABLE>
+<P>
+<CENTER>
+<A HREF="info.htm"><IMG SRC="amulogo.gif" WIDTH=123 HEIGHT=64 BORDER=0 ALT="About AMU"></A>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+;
+; Remove "AutoLogon"
+;
+; Copyright 1992-1998 Microsoft Corporation
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+DelReg    = Del_AutoLog.Reg
+
+[SourceDisksNames]
+55="Remove AutoLogon","",1
+
+[SourceDisksFiles]
+AutoLog.INF=55
+
+[DestinationDirs]
+AutoLog.Files.Inf = 17
+
+[AutoLog.Files.Inf]
+AutoLog.INF
+
+[Del_AutoLog.Reg]
+HKLM,%Location%,AutoLogon,,
+
+[Strings]
+Location="Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net"

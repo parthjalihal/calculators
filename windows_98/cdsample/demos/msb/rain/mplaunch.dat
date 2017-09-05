@@ -1,0 +1,98 @@
+; MPLAUNCH.DAT -- the INI file for MPLAUNCH.EXE
+
+[General]
+DebugFlag=0
+AuxDirectory=c:\msbdemo
+CDPath=\cdsample\msb\
+
+[EscapingMonkey]
+Command=rain\msbrain.exe $msbrain.ini #24200
+Directory=rain\
+
+[NiteStrat]
+Command=rain\msbrain.exe $msbrain.ini #23100
+Directory=rain\
+
+[MeteorMeltdown]
+Command=dinos\msbdinos.exe #20000
+Directory=dinos\
+0=dinos\200\bd20085.wav
+1=dinos\200\bd20094.wav
+2=dinos\200\bd20098.wav
+3=dinos\200\bd20099.wav
+
+[Skeleton]
+Command=dinos\msbdinos.exe #20700
+Directory=dinos\
+0=dinos\207\bd20783.wav
+1=dinos\207\bd20786.wav
+2=dinos\207\bd20788.wav
+3=dinos\207\bd20789.wav
+4=dinos\207\bd20790.wav
+5=dinos\207\bd20791.wav
+6=dinos\207\bd20792.wav
+7=dinos\207\bd20793.wav
+8=dinos\207\bd20794.wav
+9=dinos\207\bd20795.wav
+10=dinos\207\bd20796.wav
+11=dinos\207\bd20797.wav
+12=dinos\207\bd20798.wav
+13=dinos\207\bd20799.wav
+;14=dinos\207\bd20784.wav
+;15=dinos\207\bd20785.wav
+;16=dinos\207\bd20787.wav
+
+[CrabChase]
+Command=sea\msbsea.exe #600
+Directory=sea\
+0=sea\3\bd310.wav
+1=sea\6\bd690.wav
+2=sea\6\bd691.wav
+3=sea\6\bd602.wav
+4=sea\6\bd601.wav
+5=sea\6\bd610.wav
+
+[SandCastle]
+Command=sea\msbsea.exe #770
+Directory=sea\
+0=sea\7\bd700.wav
+1=sea\7\bd701.wav
+2=sea\50\bd5099.cwv
+
+[PanningForGold]
+Command=geo\msbearth.exe #3200
+Directory=geo\
+0=geo\32\bd3292.wav
+1=geo\32\bd3293.wav
+2=geo\32\bd3294.wav
+3=geo\32\bd3295.wav
+4=geo\32\bd3296.wav
+5=geo\32\bd3297.wav
+6=geo\32\bd3298.wav
+7=geo\32\bd3299.wav
+
+[CreateAVolcano]
+Command=geo\msbearth.exe #6200
+Directory=geo\
+0=geo\62\bd6295.wav
+1=geo\62\bd6296.wav
+2=geo\62\bd6297.wav
+3=geo\62\bd6298.wav
+4=geo\62\bd6299.wav
+5=geo\62\bd6290.wav
+
+[HeartPinball]
+Command=bod\msbhuman.exe !.\ #150
+Directory=bod\
+
+[Chatterbox]
+Command=bod\msbhuman.exe #1050
+Directory=bod\
+
+
+;---------------------------------------------------
+; MPLAUNCH.DAT -- the INI file for MPLAUNCH.EXE
+; written for Microsoft by PHK 
+;
+
+

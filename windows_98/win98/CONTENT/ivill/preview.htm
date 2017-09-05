@@ -1,0 +1,335 @@
+<html>
+
+<head>
+<link rel="STYLESHEET" href="master.css" type="text/css">
+
+<script language="javascript">
+  
+  function makeCool() {
+        src = event.toElement;
+        if (src.tagName == "A") {
+            var temp = src.className;
+            src.className = "cool";
+            src.oldClass = temp;
+        }
+    }
+
+function makeNormal() {
+        src=event.fromElement;
+        if (src.tagName == "A") {
+            src.className = src.oldClass;
+        }
+    }
+    
+</script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!-- 
+
+Sub Window_OnLoad
+	btnWhat.style.visibility="visible"
+	pthWhat.Play()
+end sub
+
+Sub pthWhat_onstop()
+	btnWould.style.visibility="visible"
+	pthWould.Play()
+End Sub
+
+Sub pthWould_onstop()
+	btnYou.style.visibility="visible"
+	pthYou.Play()
+End Sub
+
+Sub pthYou_onstop()
+	btnDo.style.visibility="visible"
+	pthDo.Play()
+End Sub
+
+Sub pthDo_onstop()
+	call Transition1()
+	call Transition2()
+	call Transition3()
+End Sub
+	
+
+
+
+
+Sub Transition1()
+	On Error Resume Next
+	IMAGE1.style.filter = "revealTrans(Transition=12)"
+	IMAGE1.filters.item(0).Apply
+	IMAGE1.style.visibility= "visible"
+	IMAGE1.filters.item(0).Play(3.0)
+End Sub
+
+Sub Transition2()
+	On Error Resume Next
+	IMAGE2.style.filter = "revealTrans(Transition=12)"
+	IMAGE2.filters.item(0).Apply
+	IMAGE2.style.visibility= "visible"
+	IMAGE2.filters.item(0).Play(3.0)
+End Sub
+
+Sub Transition3()
+	On Error Resume Next
+	IMAGE3.style.filter = "revealTrans(Transition=12)"
+	IMAGE3.filters.item(0).Apply
+	IMAGE3.style.visibility= "visible"
+	IMAGE3.filters.item(0).Play(3.0)
+End Sub
+
+Sub Transition5()
+	
+	On Error Resume Next
+	if (IMAGE2.style.visibility = "hidden") then  
+		call Transition8()
+		IMAGE1.style.visibility = "hidden"
+		text1.style.visibility = ""
+		text1.style.filter = "revealTrans(Transition=12)"
+		text1.filters.item(0).Apply()
+		text1.filters.item(0).Play(2.5)
+		
+	else 
+		if (IMAGE3.style.visibility = "hidden") then 
+			call Transition10()
+			IMAGE1.style.visibility = "hidden"
+			text1.style.visibility = ""
+			text1.style.filter = "revealTrans(Transition=12)"
+			text1.filters.item(0).Apply()
+			text1.filters.item(0).Play(2.5)
+		else
+		    if not (IMAGE1.style.visibility = "hidden") then
+				IMAGE1.style.visibility = "hidden"
+				text1.style.visibility = ""
+				text1.style.filter = "revealTrans(Transition=12)"
+				text1.filters.item(0).Apply()
+				text1.filters.item(0).Play(2.5)
+			end if
+		end if
+		
+	end if
+	
+End Sub
+
+Sub Transition6()
+	On Error Resume Next
+	text1.style.visibility = "hidden"
+	IMAGE1.style.visibility = ""
+	IMAGE1.style.filter = "revealTrans(Transition=12)"
+	IMAGE1.filters.item(0).Apply()
+	IMAGE1.filters.item(0).Play(2.5)
+End Sub
+
+Sub Transition7()
+
+	On Error Resume Next
+	if (IMAGE1.style.visibility = "hidden") then  
+		call Transition6()
+		IMAGE2.style.visibility = "hidden"
+		text2.style.visibility = ""
+		text2.style.filter = "revealTrans(Transition=12)"
+		text2.filters.item(0).Apply()
+		text2.filters.item(0).Play(2.5)
+		
+	else 
+		if (IMAGE3.style.visibility = "hidden") then 
+			call Transition10()
+			IMAGE2.style.visibility = "hidden"
+			text2.style.visibility = ""
+			text2.style.filter = "revealTrans(Transition=12)"
+			text2.filters.item(0).Apply()
+			text2.filters.item(0).Play(2.5)
+		else
+		    if not (IMAGE2.style.visibility = "hidden") then
+				IMAGE2.style.visibility = "hidden"
+				text2.style.visibility = ""
+				text2.style.filter = "revealTrans(Transition=12)"
+				text2.filters.item(0).Apply()
+				text2.filters.item(0).Play(2.5)
+			end if
+		end if
+		
+	end if
+	
+End Sub
+
+Sub Transition8()
+	On Error Resume Next
+	text2.style.visibility = "hidden"
+	IMAGE2.style.visibility = ""
+	IMAGE2.style.filter = "revealTrans(Transition=12)"
+	IMAGE2.filters.item(0).Apply()
+	IMAGE2.filters.item(0).Play(2.5)
+End Sub
+
+Sub Transition9()
+	On Error Resume Next
+	if (IMAGE1.style.visibility = "hidden") then  
+		call Transition6()
+		IMAGE3.style.visibility = "hidden"
+		text3.style.visibility = ""
+		text3.style.filter = "revealTrans(Transition=12)"
+		text3.filters.item(0).Apply()
+		text3.filters.item(0).Play(0.5)
+		
+	else 
+		if (IMAGE2.style.visibility = "hidden") then 
+			call Transition8()
+			IMAGE3.style.visibility = "hidden"
+			text3.style.visibility = ""
+			text3.style.filter = "revealTrans(Transition=12)"
+			text3.filters.item(0).Apply()
+			text3.filters.item(0).Play(2.5)
+		else
+		    if not (IMAGE3.style.visibility = "hidden") then
+				IMAGE3.style.visibility = "hidden"
+				text3.style.visibility = ""
+				text3.style.filter = "revealTrans(Transition=12)"
+				text3.filters.item(0).Apply()
+				text3.filters.item(0).Play(2.5)
+			end if
+		end if
+		
+	end if
+	
+End Sub
+
+Sub Transition10()
+	On Error Resume Next
+	text3.style.visibility = "hidden"
+	IMAGE3.style.visibility = ""
+	IMAGE3.style.filter = "revealTrans(Transition=12)"
+	IMAGE3.filters.item(0).Apply()
+	IMAGE3.filters.item(0).Play(2.5)
+End Sub
+
+
+
+--> 
+</SCRIPT>
+
+
+
+</head>
+<BODY bgcolor=white>
+
+<DIV Style="position: absolute; top: 0; left:100; width: 402; z-index:1;"><IMG SRC="art/psoupy2.gif" WIDTH="402" height="32"></DIV>
+
+<DIV class=menu  onmouseover='if ("A"==event.toElement.tagName) event.toElement.style.color ="darkblue"' onmouseout='if ("A"==event.fromElement.tagName) event.fromElement.style.color = "#990000"'>
+
+<DIV ID=btnWhat STYLE="position:absolute; visibility: hidden; left:800; TOP:32; z-index:0"><H2>What</H2></DIV>
+<DIV ID=btnWould STYLE="position:absolute; visibility: hidden; left:800; TOP:32; z-index:0"><H2>Should</DIV>
+<DIV ID=btnYou STYLE="position:absolute; visibility: hidden; left:800; TOP:32; z-index:0"><H2>You</DIV>
+<DIV ID=btnDo STYLE="position:absolute; visibility: hidden; left:800; TOP:32; z-index:0"><H2>Do?</H2></DIV>
+
+
+
+
+<OBJECT ID="pthWhat"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+	<PARAM NAME="Shape" VALUE="Polyline(2,650,32,170,32)">
+	<PARAM NAME="Target" VALUE="btnWhat">
+	<PARAM NAME="Duration" VALUE="2.0">
+</OBJECT>
+
+<OBJECT ID="pthWould"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+	<PARAM NAME="Shape" VALUE="Polyline(2,650,32,242,32)">
+	<PARAM NAME="Target" VALUE="btnWould">
+	<PARAM NAME="Duration" VALUE="2.0">
+</OBJECT>
+
+<OBJECT ID="pthYou"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+	<PARAM NAME="Shape" VALUE="Polyline(2,650,32,327,32)">
+	<PARAM NAME="Target" VALUE="btnYou">
+	<PARAM NAME="Duration" VALUE="2.0">
+</OBJECT>
+
+<OBJECT ID="pthDo"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	style="Position: absolute; top: 300; left: 300; Height:300; Width:300;">
+	<PARAM NAME="Shape" VALUE="Polyline(2,650,32,380,32)">
+	<PARAM NAME="Target" VALUE="btnDo">
+	<PARAM NAME="Duration" VALUE="2.0">
+</OBJECT>
+
+
+
+
+<!-- ******************  the first scenario ***************** -->
+<DIV ID=IMAGE1 Style="position: absolute; top: 67; left:60; width: 140; visibility: hidden"><IMG SRC="art/ww0808.JPG"></DIV>
+<DIV ID=aroo Style="position: absolute; top: 200; left:60;"><A href="scenar1a.htm"><IMG border=0 SRC="art/arro.gif"></a></DIV>
+ 
+
+<DIV ID=scenario1 Style="position: absolute; top: 198; left:80;">
+<A href="scenar1a.htm" onmouseover="Transition5()">Dilemma</a></div>
+
+<DIV ID=text1 Style="position: absolute; top: 67; left:60; width: 140; visibility: hidden">
+<table cellpadding= cellslpacing=0 width=140>
+<tr>
+<td>
+<A HREF="scenar1a.htm"><FONT>"My son, who is now 4, is a difficult child. He's hot-tempered,
+won't pay attention, and won't do what he is told. . ."</FONT></A>
+</td></tr></table>
+</div>
+
+
+
+<!-- ******************  the second  scenario ***************** -->
+<DIV ID=IMAGE2 Style="position: absolute; top: 67; left:227; width:140; visibility: hidden"><IMG SRC="art/ww0805.JPG" ALIGN=LEFT></DIV>
+<DIV ID=aroo Style="position: absolute; top: 200; left:227;"><A href="scenar2a.htm"><IMG border=0 SRC="art/arro.gif"></a></DIV>
+<DIV ID=scenario Style="position: absolute; top: 198; left:247;">
+<A CLASS=BOLD Href="scenar2a.htm" onmouseover="Transition7()">Dilemma</a></DIV>
+
+<DIV ID=text2 Style="position: absolute; top: 67; left:227; width: 140; visibility: hidden">
+<table cellpadding= cellslpacing=0 width=140>
+<tr>
+<td>
+<A HREF="scenar2a.htm"><FONT>"My mother said she was going to change her will and leave
+her money to my sister, 'because she needs it and you don't. . .' " </FONT></A>
+</td></tr></table>
+</div>
+
+
+
+<!-- ******************  the third  scenario ***************** -->
+<DIV ID=IMAGE3 Style="position: absolute; top: 67; left:394; width:140; visibility: hidden"><IMG SRC="art/ww0822.JPG" ALIGN=LEFT></DIV>
+<DIV ID=aroo Style="position: absolute; top: 200; left:394;"><A href="scenar3b.htm"><IMG border=0 SRC="art/arro.gif"></a></DIV>
+<DIV ID=scenario Style="position: absolute; top: 198; left:407;">
+<A CLASS=BOLD Href="scenar3b.htm" onmouseover="Transition9()">Dilemma</a></DIV>
+
+
+<DIV ID=text3 Style="position: absolute; top: 67; left:387; width: 140; visibility: hidden">
+<table cellpadding= cellslpacing=0 width=140>
+<tr>
+<td>
+<A HREF="scenar3b.htm"><FONT>"My mother-in-law wants to babysit.
+I am worried that when we tell her no, it will be World War III. . ."  </FONT></A>
+</td></tr></table>
+</div>
+
+
+
+<!--<DIV Style="position: absolute; top: 220; left:110"><FONT>Every week, Parent Soup members share their real-life stories </FONT></DIV>
+<DIV Style="position: absolute; top: 235; left:85"><FONT>and ask for your help with thorny parenting and personal situations.</FONT></DIV>
+<DIV ID=TREE Style="position: absolute; top: 250 ; left:220"><a href="javascript:window.external.addChannel('http://channel.parentsoup.com/cdf/parentsoup.cdf')">Subscribe to Parent Soup</a> 
+</DIV>-->
+
+<DIV Style="position: absolute; top: 220; left:90"><FONT>iVillage's "What Should You Do?" is a series of semi-weekly,</font></div>
+<DIV Style="position: absolute; top: 235; left:140"><FONT> dilemmas from the real-life concerns of members </font></div>
+<DIV Style="position: absolute; top: 250; left:185"><FONT>from the Parent Soup community.</FONT></DIV>
+
+<!--<div ID=ADD Style="position: absolute; top: 265; left:255; width: 110;"><A HREF="javascript:window.external.addChannel('http://channel.parentsoup.com/cdf/parentsoup.cdf')"><IMG WIDTH="110" HEIGHT="24" SRC="art/add.gif" border=0></A></div>-->
+<div ID=ADD Style="position: absolute; top: 275; left:225; width: 136;"><A HREF="javascript:window.external.addChannel('http://channel.parentsoup.com/cdf/parentsoup.cdf')"><IMG WIDTH="136" HEIGHT="20" SRC="art/addchan.gif" border=0></A></div>
+<div ID=ADD2 Style="position: absolute; top: 300; left:265; width: 61;">
+<IMG WIDTH="61" HEIGHT="47" SRC="art/splash.gif" border=0></div>
+
+</BODY>
+</HTML>
+

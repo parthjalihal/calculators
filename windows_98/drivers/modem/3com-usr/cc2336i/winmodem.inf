@@ -1,0 +1,99 @@
+; WINMODEM.INF
+; Copyright 1997, 3Com Corp.
+; This file is the master device information file for the Winmodem
+; hardware installation.
+; Version 1.0.02
+
+; Comment starting with semicolon should not be added at the end of a line.
+
+[version]
+signature="$CHICAGO$"
+
+Class=Winmodem
+; install hardware with both port and modem capabilities.                        
+
+Provider=%USR%
+; name of the hardware provider
+
+[DestinationDirs]
+ClassInstall.CopyWin=11
+; SYSTEM subdirectory
+ComPort.CopyWin=11,winmodem.101
+; SYSTEM\winmodem.101 subdirectory
+
+[SourceDisksFiles]
+winmodem.exe=1
+winmodem.drv=1
+worldprt.exe=1
+worldprt.hlp=1
+worldprt.ini=1
+modem.ini=1
+uninstal.exe=1
+uninstal.ini=1
+usr_wuns.vxd=1
+
+; Source disk : disk one
+
+[SourceDisksNames]
+1="MEGAHERTZ International Modem for Windows",DISK1,2345-16E8
+; this is the install disk description
+
+;----------------------------------------------------------
+; Install class "Winmodem"
+; Windows will probably use these entries, because the USRProduct class
+; is not installed.
+
+[ClassInstall]
+CopyFiles=ClassInstall.CopyWin
+AddReg=PortsClass.AddReg
+
+[ClassInstall.CopyWin]
+winmodem.cpl,winmodem.cp_
+; this files will be copied in the SYSTEM directory
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+HKR,,Icon,,2
+HKR,,Installer,,winmodem.cpl
+HKR,,NoUseClass,,1
+HKR,,NoInstallClass,,1
+HKR,,NoDisplayClass,,1
+HKR,,SilentInstall,,1
+HKR,AdditionalIDs,0000,,"PCMCIA\MEGAHERTZ-CC2336I-98FC"
+
+;----------------------------------------------------------
+; Drivers
+; Winmodem hardware declaration
+
+[Manufacturer]
+%Std%=Std
+
+[Std]
+%Winmodem.DeviceDesc% = ComPort,PCMCIA\MEGAHERTZ-CC2336I-98FC
+
+;----------------------------------------------------------
+; COM sections
+
+[ComPort]
+CopyFiles=ComPort.CopyWin
+; copy Winmodem files
+
+[ComPort.CopyWin]
+winmodem.drv,winmodem.dr_
+winmodem.exe,winmodem.ex_
+worldprt.exe,worldprt.exe
+worldprt.hlp,worldprt.hlp
+worldprt.ini,worldprt.ini
+modem.ini,modem.ini
+uninstal.exe,uninstal.exe
+uninstal.ini,uninstal.ini
+usr_wuns.vxd,usr_wuns.vxd
+; this file will be copied in the SYSTEM\winmodem.101 directory
+
+;----------------------------------------------------------
+; User readable strings
+[Strings]
+USR = "3Com Corp."
+Std = "3Com Corp."
+PortsClassName = "Winmodem"
+Winmodem.DeviceDesc  ="MEGAHERTZ International Modem for Windows"

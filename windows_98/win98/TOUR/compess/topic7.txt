@@ -1,0 +1,8 @@
+value:string
+If you have a question about how something works, most software applications include a built-in Help feature that provides information and suggestions.@
+On the Windows desktop, Help is available from the <B>Start</B> menu.@
+Most applications have a Help button or a Help icon on the toolbar. This button usually looks like a question mark.@
+In most software, the F1 function key opens the Help feature.@
+No matter where you are working in Windows, help is never far away.@
+<P><BR><P>Congratulations! You've just successfully completed the <B>Computer Essentials</B> tutorial.<P>If you'd like to review any of the material, please click one of the topics in the list on the left side of your window.<P>To learn more about Microsoft Windows, click the <B>Contents</B> button, and take the <B>Microsoft Windows 98 Overview</B> tutorial.@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

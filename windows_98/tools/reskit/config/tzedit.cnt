@@ -1,0 +1,6 @@
+:Base TZEDIT.HLP
+:Title Time Zone Editor Online Help
+1 About Time Zone Editor=tzedit_main
+1 Creating New Time Zone Entries=tzedit_create
+1 Editing a Time Zone Entry=tzedit_edit
+1 Editing the Time Zone Entry for the Current Time Zone=tzedit_current

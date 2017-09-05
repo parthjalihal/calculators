@@ -1,0 +1,415 @@
+; name and version number:@(#)tosmodem.inf      1.15.02*/
+; date of get: 		  31 Mar 1997 17:56:07*/
+; date of delta:	  03 Mar 1997 13:07:53*/
+; name and version number:@(#)tosmodem.inf	5.43B*/
+; date of get: 		  11 Mar 1996 17:15:00*/
+; date of delta:	  19 Feb 1996 15:21:25*/
+;
+; Windows Modem Setup File
+; Copyright 1995 AT&T
+;
+; Manufacturer:  AT&T Microelectronics
+;
+;----------------------------------------------------------------------------
+[Version]
+Signature	= "$CHICAGO$"
+Class   	= Modem
+ClassGUID	={4D36E96D-E325-11CE-BFC1-08002BE10318}
+Provider	= %Mfg%
+
+;----------------------------------------------------------------------------
+;	 Manufacturer
+;----------------------------------------------------------------------------
+[Manufacturer]
+%Mfg% = Models
+
+;----------------------------------------------------------------------------
+; Strings
+;----------------------------------------------------------------------------
+[Strings]
+Mfg = "TOSHIBA"
+TOSHIBA = "TOSHIBA INTERNAL MODEM SUPPORT DISK"
+
+;----------------------------------------------------------------------------
+; Modem model names - uncomment only one modem
+;----------------------------------------------------------------------------
+;	Toshiba Internal Modem + Cell
+Modem4  = "TOSHIBA Internal 33.6Data+14.4Fax+Voice Modem"
+
+
+;----------------------------------------------------------------------------
+; Modem ExcludeFromSelect and NoResDup
+;----------------------------------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect = *TOS700F
+
+;----------------------------------------------------------------------------
+; Modem models
+;----------------------------------------------------------------------------
+[Models]
+;	Internal Controller less  modem
+%Modem4%        = Modem_PNP_NOCONTROLLER, UNIMODEM61E780DA
+%Modem4%        = Modem_PNP_NOCONTROLLER, *TOS700F
+
+;----------------------------------------------------------------------------
+; Installation sections
+;----------------------------------------------------------------------------
+
+[Modem_PNP_NOCONTROLLER]
+AddReg=All, MfgATT, Modem.AddReg, INTERNAL, BANZAI, VerboseResultCodes, Voice, Parallel_Voice
+CopyFiles  = ATT_drivers
+UpdateInis = Wave.UpdateInis
+Uninstall=Wave.Remove
+
+[ATT_drivers]
+attmodem.vxd
+attcom.vxd
+attvcd.vxd
+attwave.drv
+
+[Wave.UpdateInis]
+system.ini,drivers,,"WAVE1=ATTWAVE.DRV"
+system.ini,drivers,,"AUX1=ATTWAVE.DRV"
+
+[Wave.Remove]
+UpdateInis=Wave.RemoveInis
+
+[Wave.RemoveInis]
+system.ini,drivers,"WAVE1=ATTWAVE.DRV",,1
+system.ini,drivers,"AUX1=ATTWAVE.DRV",,1
+
+
+[DestinationDirs]
+DefaultDestDir = 11     ; LDID_SYS
+ATT_drivers = 11
+
+[SourceDisksNames]
+1 = %TOSHIBA%, TOSHIBA1, 0000-0000
+
+[SourceDisksFiles]
+attcom.vxd      = 1
+attvcd.vxd      = 1
+attmodem.vxd    = 1
+attwave.drv	= 1
+
+
+;----------------------------------------------------------------------------
+; Modem form factor
+;----------------------------------------------------------------------------
+
+
+[INTERNAL]
+HKR,, DeviceType, 1, 02
+
+
+[BANZAI]
+HKR,, PortDriver,, attcom.vxd
+HKR,, Contention,, attvcd.vxd
+HKR,, ModemDriver,, attmodem.vxd
+HKR,,Driver,,attmodem.vxd
+HKR,,CountryID,1,19
+
+
+;----------------------------------------------------------------------------
+; AddReg sections
+;----------------------------------------------------------------------------
+[Modem.AddReg]
+; for V.34bis  use: 33.6 with CELL
+HKR,, Properties, 1, 80,01,00,00, ff,00,00,00, 00,00,00,00, 07,00,00,00, 0f,00,00,00, ff,03,00,00, 00,c2,01,00, 40,83,00,00
+
+;----------------------------------------------------------------------------
+; Common Voice Section
+;----------------------------------------------------------------------------
+[Voice]
+HKR,,Enumerator,,serwave.vxd
+
+HKR,, ForwardDelay,             1, 88,13    
+HKR,, SpeakerPhoneSpecs,        1, ff,00,00,00,  01,00,00,00,  ff,00,00,00,  00,00,00,00
+HKR,  SpeakerPhoneEnable,       1,, "at<cr>"
+HKR,  SpeakerPhoneDisable,      1,, "at+fclass=8<cr>"
+HKR,  SpeakerPhoneDisable,      2,, "at+vls=1<cr>"
+HKR,  SpeakerPhoneUnMute,       1,, "at+vls=7<cr>"
+HKR,  SpeakerPhoneMute,         1,, "at+vls=5<cr>"
+HKR,  SpeakerPhoneSetVolumeGain,  1,, "at+vgt=<Vol><cr>"
+
+HKR, EnableCallerID, 1,, "at+vcid=1<cr>"
+HKR, EnableDistinctiveRing, 1,, "at+vdr=1,10<cr>"
+
+HKR,  GenerateDigit,            1,, "at+vtd=10<cr>"
+HKR,  GenerateDigit,            2,, "at+vts=<Digit><cr>"
+HKR,  VoiceToDataAnswer,        1,, "at+fclass=0<cr>"
+HKR,  VoiceToDataAnswer,        2,, "ata<cr>"
+HKR,  VoiceAnswer,              1,, "at+fclass=8<cr>"
+HKR,  VoiceAnswer,              2,, "ata<cr>"
+HKR,  VoiceDialNumberSetup,     1,, "at+fclass=8<cr>"
+HKR,  VoiceDialNumberSetup,     2,, "at+vls=0<cr>"
+HKR,  VoiceDialNumberSetup,     3,, "at+vrn=10<cr>"
+HKR,  VoiceDialNumberSetup,     4,, "at+vra=0<cr>"
+HKR,, CallerIDPrivate,,         "P"
+HKR,, CallerIDOutside,,         "O"
+HKR,, VariableTerminator,,      "<cr><lf>"
+
+HKR,  Responses, "<cr><lf>DATE=", 1, 93, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "TIME=",         1, 94, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "NMBR=",         1, 95, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "NAME=",         1, 96, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "MESG=",         1, 97, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "DRON=",         1, 91, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "DROF=",         1, 92, 00, 00,00,00,00, 00,00,00,00
+HKR,  Responses, "RING<cr><lf>",  1, 08, 00, 00,00,00,00, 00,00,00,00
+;----------------------------------------------------------------------------
+; Parallel Voice Section
+;----------------------------------------------------------------------------
+[Parallel_Voice]
+HKR,, VoiceProfile,             1, 05,a1,00,00
+
+HKR,  LineSetPlayFormat,        1,, "None"
+HKR,  LineSetPlayFormat,        2,, "NoResponse"
+HKR,  LineSetRecordFormat,      1,, "None"
+HKR,  LineSetRecordFormat,      2,, "NoResponse"
+HKR,  SpeakerPhoneUnMute,       1,, "at+a8e=,5<cr>"
+HKR,  SpeakerPhoneUnMute,       2,, "at+vls=7<cr>"
+HKR,  StartPlay,                1,, "at+fclass=8<cr>"
+HKR,  StartPlay,                2,, "at+vsd=128,0<cr>"
+HKR,  StopPlay,                 1,, "None"
+HKR,  StopPlay,                 2,, "NoResponse"
+HKR,  StartRecord,              1,, "at+fclass=8<cr>"
+HKR,  StartRecord,              2,, "at+vsd=128,50<cr>"
+HKR,  StopRecord,               1,, "None"
+HKR,  StopRecord,               2,, "NoResponse"
+
+
+;----------------------------------------------------------------------------
+; Common Registry Sections
+;
+; The [All] section is installed for all modems.
+;
+;----------------------------------------------------------------------------
+[All]
+HKR,,FriendlyDriver,,Unimodem.vxd
+HKR,,DevLoader,,*vcomm
+HKR,,PortSubClass,1,02
+HKR,,ConfigDialog,,modemui.dll
+HKR,,EnumPropPages,,"modemui.dll,EnumPropPages"
+
+;----------------------------------------------------------------------------
+; The [MfgATT] section contains the first modem's Init,
+; Settings, and Responses keys.  It is installed for all
+; modems in the INF.
+;----------------------------------------------------------------------------
+[MfgATT] 
+; made changes for Voice View
+HKR, Init,      1,, "AT<cr>" ; do an "AT" to get autobaud correct (start other init strings with 2)
+HKR, Init,      2,, "AT &F E0 &C1 &D2 V1 S0=0\V1<cr>"
+
+HKR,, FClass, 1, c3,00,00,00
+HKR, Fax, CL1FCS,, "2"
+
+HKR, Monitor, 1,, "ATS0=0<cr>"
+HKR, Monitor, 2,, "None"
+
+HKR, Answer,    1,, "ATA<cr>"
+HKR, Hangup,    1,, "ATH<cr>"
+
+HKR,, Reset,, "AT&F<cr>"    ; slam in a reset before closing
+
+HKR, Settings, Prefix,, "AT"
+HKR, Settings, Terminator,, "<cr>"
+HKR, Settings, DialPrefix,, "D"
+HKR, Settings, DialSuffix,, ";"
+HKR, Settings, CallSetupFailTimer,, "S7=<#>"
+HKR, Settings, SpeakerVolume_Low,, "L0"
+HKR, Settings, SpeakerVolume_Med,, "L2"
+HKR, Settings, SpeakerVolume_High,, "L3"
+HKR, Settings, SpeakerMode_Off,, "M0"
+HKR, Settings, SpeakerMode_Dial,, "M1"
+HKR, Settings, SpeakerMode_On,, "M2"
+HKR, Settings, SpeakerMode_Setup,, "M3"
+HKR, Settings, FlowControl_Off,, "&K0"
+HKR, Settings, FlowControl_Hard,, "&K3"
+HKR, Settings, FlowControl_Soft,, "&K4"
+HKR, Settings, ErrorControl_On,, "\N3"
+HKR, Settings, ErrorControl_Off,, "\N1"
+HKR, Settings, ErrorControl_Forced,, "\N4"
+HKR, Settings, ErrorControl_Cellular,, "&F5 S39=22 \N3"
+HKR, Settings, ErrorControl_Cellular_Forced,, "&F5 S39=22 \N4"
+HKR, Settings, Compression_Off,, "%%C0"
+HKR, Settings, Compression_On,, "%%C1"
+HKR, Settings, Modulation_CCITT,, "B0B15"
+HKR, Settings, Modulation_Bell,, "B1B16"
+HKR, Settings, SpeedNegotiation_Off,, "N0"
+HKR, Settings, SpeedNegotiation_On,, "N1"
+HKR, Settings, Pulse,, "P"
+HKR, Settings, Tone,, "T"
+HKR, Settings, Blind_Off,, "X4"
+HKR, Settings, Blind_On,, "X3"
+
+;----------------------------------------------------------------------------
+; Verbose result codes
+;----------------------------------------------------------------------------
+[VerboseResultCodes]
+HKR, Responses, "<cr>",   1, 01, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<lf>",   1, 01, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "0<cr>",  1, 00, 00, 00,00,00,00, 00,00,00,00 ; OK - Command executed
+HKR, Responses, "1<cr>",  1, 02, 00, 00,00,00,00, 00,00,00,00 ; CONNECT - Connection
+HKR, Responses, "2<cr>",  1, 08, 00, 00,00,00,00, 00,00,00,00 ; RING - Ring signal indicated
+HKR, Responses, "3<cr>",  1, 04, 00, 00,00,00,00, 00,00,00,00 ; NO CARRIER 
+HKR, Responses, "4<cr>",  1, 03, 00, 00,00,00,00, 00,00,00,00 ; ERROR - Invalid command
+HKR, Responses, "5<cr>",  1, 02, 00, B0,04,00,00, 00,00,00,00 ; CONNECT 1200
+HKR, Responses, "6<cr>",  1, 05, 00, 00,00,00,00, 00,00,00,00 ; NO DIALTONE - No dial tone detected
+HKR, Responses, "7<cr>",  1, 06, 00, 00,00,00,00, 00,00,00,00 ; BUSY - Engaged (busy) signal
+HKR, Responses, "8<cr>",  1, 07, 00, 00,00,00,00, 00,00,00,00 ; NO ANSWER
+HKR, Responses, "<cr><lf>OK<cr><lf>",          1, 00, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>RING<cr><lf>",        1, 08, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>ERROR<cr><lf>",       1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO DIALTONE<cr><lf>", 1, 05, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO DIAL TONE<cr><lf>",1, 05, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>BUSY<cr><lf>",        1, 06, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO CARRIER<cr><lf>",  1, 04, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO ANSWER<cr><lf>",   1, 07, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>FAX<cr><lf>",         1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>DATA<cr><lf>",        1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>VOICE<cr><lf>",       1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>RINGING<cr><lf>",     1, 01, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>DELAYED<cr><lf>",     1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>BLACKLISTED<cr><lf>", 1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>+FCERROR<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00
+
+HKR, Responses, "<cr><lf>CONNECT<cr><lf>",                 1, 02, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 300 NoEC<cr><lf>",        1, 02, 00, 2C,01,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 300 MNP4<cr><lf>",        1, 02, 02, 2C,01,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 300 MNP5<cr><lf>",        1, 02, 03, 2C,01,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 300 V42<cr><lf>",         1, 02, 02, 2C,01,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 300 V42bis<cr><lf>",      1, 02, 03, 2C,01,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 600 NoEC<cr><lf>",        1, 02, 00, 58,02,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 600 MNP4<cr><lf>",        1, 02, 02, 58,02,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 600 MNP5<cr><lf>",        1, 02, 03, 58,02,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 600 V42<cr><lf>",         1, 02, 02, 58,02,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 600 V42bis<cr><lf>",      1, 02, 03, 58,02,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200 NoEC<cr><lf>",       1, 02, 00, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200 MNP4<cr><lf>",       1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200 MNP5<cr><lf>",       1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200 V42<cr><lf>",        1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200 V42bis<cr><lf>",     1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200/75<cr><lf>",         1, 02, 00, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200/75 MNP4<cr><lf>",    1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200/75 MNP5<cr><lf>",    1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200/75 V42<cr><lf>",     1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200/75 V42bis<cr><lf>",  1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200TX/75RX<cr><lf>",     1, 02, 00, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200TX/75RX MNP4<cr><lf>",1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200TX/75RX MNP5<cr><lf>",1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200TX/75RX V42<cr><lf>", 1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1200TX/75RX V42bis<cr><lf>",1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75/1200 NoEC<cr><lf>",    1, 02, 00, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75/1200 MNP4<cr><lf>",    1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75/1200 MNP5<cr><lf>",    1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75/1200 V42<cr><lf>",     1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75/1200 V42bis<cr><lf>",  1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75TX/1200RX<cr><lf>",     1, 02, 00, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75TX/1200RX MNP4<cr><lf>",1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75TX/1200RX MNP5<cr><lf>",1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75TX/1200RX V42<cr><lf>", 1, 02, 02, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 75TX/1200RX V42bis<cr><lf>",1, 02, 03, B0,04,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 NoEC<cr><lf>",       1, 02, 00, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 MNP4<cr><lf>",       1, 02, 02, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 MNP5<cr><lf>",       1, 02, 03, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 V42<cr><lf>",        1, 02, 02, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 V42bis<cr><lf>",     1, 02, 03, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 V42 Cellular Protocol<cr><lf>",     1, 02, 0a, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400 V42bis Cellular Protocol<cr><lf>",     1, 02, 0b, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 NoEC<cr><lf>",       1, 02, 00, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 MNP4<cr><lf>",       1, 02, 02, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 MNP5<cr><lf>",       1, 02, 03, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 V42<cr><lf>",        1, 02, 02, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 V42bis<cr><lf>",     1, 02, 03, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 V42 Cellular Protocol<cr><lf>",     1, 02, 0a, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800 V42bis Cellular Protocol<cr><lf>",     1, 02, 0b, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 NoEC<cr><lf>",       1, 02, 00, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 MNP4<cr><lf>",       1, 02, 02, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 MNP5<cr><lf>",       1, 02, 03, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 V42<cr><lf>",        1, 02, 02, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 V42bis<cr><lf>",     1, 02, 03, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 V42 Cellular Protocol<cr><lf>",     1, 02, 0a, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200 V42bis Cellular Protocol<cr><lf>",     1, 02, 0b, 20,1C,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 NoEC<cr><lf>",       1, 02, 00, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 MNP4<cr><lf>",       1, 02, 02, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 MNP5<cr><lf>",       1, 02, 03, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 V42<cr><lf>",        1, 02, 02, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 V42bis<cr><lf>",     1, 02, 03, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 V42 Cellular Protocol<cr><lf>",     1, 02, 0a, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600 V42bis Cellular Protocol<cr><lf>",     1, 02, 0b, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 NoEC<cr><lf>",      1, 02, 00, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 MNP4<cr><lf>",      1, 02, 02, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 MNP5<cr><lf>",      1, 02, 03, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 V42<cr><lf>",       1, 02, 02, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 V42bis<cr><lf>",    1, 02, 03, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 12000 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, E0,2E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 NoEC<cr><lf>",      1, 02, 00, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 MNP4<cr><lf>",      1, 02, 02, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 MNP5<cr><lf>",      1, 02, 03, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 V42<cr><lf>",       1, 02, 02, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 V42bis<cr><lf>",    1, 02, 03, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 NoEC<cr><lf>",      1, 02, 00, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 MNP4<cr><lf>",      1, 02, 02, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 MNP5<cr><lf>",      1, 02, 03, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 V42<cr><lf>",       1, 02, 02, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 V42bis<cr><lf>",    1, 02, 03, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16800 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, A0,41,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 NoEC<cr><lf>",      1, 02, 00, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 MNP4<cr><lf>",      1, 02, 02, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 MNP5<cr><lf>",      1, 02, 03, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 V42<cr><lf>",       1, 02, 02, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 V42bis<cr><lf>",    1, 02, 03, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 21600 NoEC<cr><lf>",      1, 02, 00, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 MNP4<cr><lf>",      1, 02, 02, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 MNP5<cr><lf>",      1, 02, 03, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 V42<cr><lf>",       1, 02, 02, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 V42bis<cr><lf>",    1, 02, 03, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 21600 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 60,54,00,00, 00,00,00,00 
+HKR, Responses, "<cr><lf>CONNECT 24000 NoEC<cr><lf>",      1, 02, 00, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 MNP4<cr><lf>",      1, 02, 02, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 MNP5<cr><lf>",      1, 02, 03, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 V42<cr><lf>",       1, 02, 02, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 V42bis<cr><lf>",    1, 02, 03, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 24000 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, C0,5D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 NoEC<cr><lf>",      1, 02, 00, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 MNP4<cr><lf>",      1, 02, 02, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 MNP5<cr><lf>",      1, 02, 03, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 V42<cr><lf>",       1, 02, 02, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 V42bis<cr><lf>",    1, 02, 03, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 26400 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 20,67,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 NoEC<cr><lf>",      1, 02, 00, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 MNP4<cr><lf>",      1, 02, 02, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 MNP5<cr><lf>",      1, 02, 03, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 V42<cr><lf>",       1, 02, 02, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 V42bis<cr><lf>",    1, 02, 03, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 NoEC<cr><lf>",      1, 02, 00, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 MNP4<cr><lf>",      1, 02, 02, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 MNP5<cr><lf>",      1, 02, 03, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 V42<cr><lf>",       1, 02, 02, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 V42bis<cr><lf>",    1, 02, 03, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 31200 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, e0,79,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 NoEC<cr><lf>",      1, 02, 00, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 MNP4<cr><lf>",      1, 02, 02, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 MNP5<cr><lf>",      1, 02, 03, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 V42<cr><lf>",       1, 02, 02, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 V42bis<cr><lf>",    1, 02, 03, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 V42 Cellular Protocol<cr><lf>",    1, 02, 0a, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600 V42bis Cellular Protocol<cr><lf>",    1, 02, 0b, 40,83,00,00, 00,00,00,00
+
+
+
+

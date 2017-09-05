@@ -1,0 +1,77 @@
+
+<HTML>
+<HEAD>
+    <TITLE>Microsoft Investor Version 4.0</TITLE>
+    <META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "Microsoft Network" for "http://investor.msn.com" on "1996.09.17T13:00-0500" r (n 0 s 0 v 0 l 0))'>
+
+<STYLE TEXT="text/css">
+<!--
+@import url(styles.css);		
+-->
+</STYLE>
+
+<SCRIPT LANGUAGE="javascript">
+<!--//
+
+function Init()
+{
+	parent.demonav.update(6);
+	
+	document.all.Callout1.style.left = document.all.Backgd.offsetLeft + 435;
+	document.all.Callout1.style.top = document.all.Backgd.offsetTop + 104;
+	document.all.Callout2.style.left = document.all.Backgd.offsetLeft + 538;
+	document.all.Callout2.style.top = document.all.Backgd.offsetTop + 0;
+}
+
+function runSeq()
+{
+	Seq("ActionSet1").At(0.000,"Seq1_Action(Backgd)");
+	Seq("ActionSet1").At(1.500,"Seq1_Action(Callout1)");
+	Seq("ActionSet1").At(3.200,"Seq1_Action(Callout2)");
+	Seq("ActionSet1").play();
+}	
+	
+function Seq1_Action(img)
+{
+	img.filters.revealTrans.Apply();
+	img.style.visibility = "visible";
+	img.filters.revealTrans.Play();
+}
+
+//-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JScript" FOR="Seq" EVENT="oninit">
+<!--//
+	runSeq();
+//-->
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="Init();">
+
+<OBJECT ID="Seq"
+CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+STYLE="TOP:0pt;LEFT:0pt;WIDTH:0pt;HEIGHT:0pt">
+</OBJECT>
+
+<CENTER>
+
+<DIV ID=Backgd CLASS="Bgimage">
+<A HREF="javascript:parent.demonav.goNext();"><IMG SRC="images/article.jpg" BORDER=0></A>
+</DIV>
+
+<DIV ID=Callout1 CLASS="Callout" STYLE="width:257; height:86; filter: revealTrans(duration=2, transition=5);">
+<IMG SRC="images/article1.jpg">
+</DIV>
+
+<DIV ID=Callout2 CLASS="Callout" STYLE="width:181; height:64; filter: revealTrans(duration=2, transition=5);">
+<IMG SRC="images/article2.jpg">
+</DIV>
+
+</CENTER>
+
+</BODY>
+</HTML>
+

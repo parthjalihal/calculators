@@ -1,0 +1,1043 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+
+
+sub window_onload
+
+	Seq("Intro").Play
+
+end sub
+
+
+
+Sub Seq_onInit
+
+	call Seq("Intro").at(1.000, "SlideBtn1")
+
+	call Seq("Intro").at(2.250, "SlideBtn2")
+
+	call Seq("Intro").at(3.500, "SlideBtn3")
+
+	call Seq("Intro").at(4.750, "SlideBtn4")
+
+End Sub
+
+
+
+Sub SlideBtn1
+
+	pthbtn1.play
+
+End Sub
+
+
+
+Sub SlideBtn2
+
+	pthbtn2.play
+
+End Sub
+
+
+
+Sub SlideBtn3
+
+	pthbtn3.play
+
+End Sub
+
+
+
+Sub SlideBtn4
+
+	pthbtn4.play
+
+End Sub
+
+
+
+sub pthbtn1_onStop
+
+	playSlideSnd
+
+End Sub
+
+
+
+sub pthbtn2_onStop
+
+	playSlideSnd
+
+End Sub
+
+
+
+sub pthbtn3_onStop
+
+	playSlideSnd
+
+End Sub
+
+
+
+sub pthbtn4_onStop
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub playSlideSnd
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelA.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playTabSnd
+
+	If ChannelB.IsSoundCardEnabled = true and ChannelB.ReadyState > 0 then
+
+		ChannelB.Stop
+
+		ChannelB.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playBtnSnd
+
+	If ChannelC.IsSoundCardEnabled = true and ChannelC.ReadyState > 0 then
+
+		ChannelC.Stop
+
+		ChannelC.Run
+
+	End If
+
+End Sub
+
+
+
+sub document_onclick()
+
+dim clicked_obj, obj
+
+set clicked_obj = window.event.srcElement 
+
+    Select case clicked_obj.classname
+
+    case "hspots"
+
+        select case clicked_obj.id
+
+	    case "tab1"
+
+			playTabSnd
+
+			showPres0()		
+
+        case "tab2"
+
+			playTabSnd
+
+			showPres1()
+
+        case "tab3"
+
+			playTabSnd
+
+			showPres2()
+
+        case "tab4"
+
+			playTabSnd
+
+			showPres3()
+
+        case "tab5"
+
+			playTabSnd
+
+			showPres4()
+
+        case "btn1a"
+
+			playBtnSnd
+
+			showPres1()
+
+        case "btn2"
+
+			playBtnSnd
+
+			showPres2()
+
+        case "btn3"
+
+			playBtnSnd
+
+			showPres3()
+
+        case "btn4"
+
+			playBtnSnd
+
+			showPres4()
+
+		end select
+
+	end select
+
+end sub
+
+
+
+sub document_onmouseover()
+
+dim clicked_objTB
+
+set clicked_objTB = window.event.srcElement 
+
+    Select case clicked_objTB.classname
+
+    case "TBhspots"
+
+		select case clicked_objTB.id
+
+	    	case "tbr_dom1"
+
+				tbr_dom1.style.borderWidth = 2
+
+			case "tbr_dom2"
+
+				tbr_dom2.style.borderWidth = 2
+
+		     case "tbr_dom3"
+
+				tbr_dom3.style.borderWidth = 2
+
+		end select
+
+    case "TBButtons"
+
+		select case clicked_objTB.id
+
+			case "tbr_btn1"
+
+				tbr_btn1a.style.visibility="visible"
+
+			case "tbr_btn2"
+
+				tbr_btn2a.style.visibility="visible"
+
+		     case "tbr_btn3"
+
+				tbr_btn3a.style.visibility="visible"
+
+		     case "tbr_btn4"
+
+				tbr_btn4a.style.visibility="visible"
+
+				tbr_btn4a.style.borderWidth = 2
+
+		end select
+
+	end select
+
+end sub
+
+
+
+sub document_onmouseout()
+
+dim clicked_objTB1
+
+set clicked_objTB1 = window.event.srcElement 
+
+    Select case clicked_objTB1.classname
+
+    case "TBhspots"
+
+		select case clicked_objTB1.id
+
+	    		case "tbr_dom1"
+
+				tbr_dom1.style.borderWidth = 0
+
+			case "tbr_dom2"
+
+				tbr_dom2.style.borderWidth = 0
+
+	        	case "tbr_dom3"
+
+				tbr_dom3.style.borderWidth = 0
+
+		end select
+
+    case "TBButtons"
+
+		select case clicked_objTB1.id
+
+	    		case "tbr_btn1a"
+
+				tbr_btn1a.style.visibility="hidden"
+
+	    		case "tbr_btn2a"
+
+				tbr_btn2a.style.visibility="hidden"
+
+	    		case "tbr_btn3a"
+
+				tbr_btn3a.style.visibility="hidden"
+
+	    		case "tbr_btn4a"
+
+				tbr_btn4a.style.visibility="hidden"
+
+				tbr_btn4a.style.borderWidth = 0
+
+		end select
+
+	end select
+
+end sub
+
+
+
+Sub showPres0()
+
+	Window.Status="Hot Picks"
+
+	'activate tab
+
+	tab1.style.visibility="hidden"
+
+	atab1.style.visibility="visible"
+
+	tab2.style.visibility="visible"
+
+	atab2.style.visibility="hidden"
+
+	tab3.style.visibility="visible"
+
+	atab3.style.visibility="hidden"
+
+	tab4.style.visibility="visible"
+
+	atab4.style.visibility="hidden"
+
+	tab5.style.visibility="visible"
+
+	atab5.style.visibility="hidden"
+
+
+
+	btn1a.style.visibility="visible"
+
+	btn2.style.visibility="visible"
+
+	btn3.style.visibility="visible"
+
+	btn4.style.visibility="visible"
+
+	monitor_display.document.location="u_td_pr0.htm"
+
+End Sub
+
+
+
+Sub showPres1()
+
+	Window.Status="Shows"
+
+
+
+	'activate tab
+
+	tab1.style.visibility="visible"
+
+	atab1.style.visibility="hidden"
+
+	tab2.style.visibility="hidden"
+
+	atab2.style.visibility="visible"
+
+	tab3.style.visibility="visible"
+
+	atab3.style.visibility="hidden"
+
+	tab4.style.visibility="visible"
+
+	atab4.style.visibility="hidden"
+
+	tab5.style.visibility="visible"
+
+	atab5.style.visibility="hidden"
+
+
+
+	btn1a.style.visibility="visible"
+
+	btn2.style.visibility="visible"
+
+	btn3.style.visibility="visible"
+
+	btn4.style.visibility="visible"
+
+
+
+	monitor_display.document.location="u_td_pr1.htm"
+
+End Sub
+
+
+
+Sub showPres2()
+
+	Window.Status="Comics"
+
+
+
+	'activate tab
+
+	tab1.style.visibility="visible"
+
+	atab1.style.visibility="hidden"
+
+	tab2.style.visibility="visible"
+
+	atab2.style.visibility="hidden"
+
+	tab3.style.visibility="hidden"
+
+	atab3.style.visibility="visible"
+
+	tab4.style.visibility="visible"
+
+	atab4.style.visibility="hidden"
+
+	tab5.style.visibility="visible"
+
+	atab5.style.visibility="hidden"
+
+
+
+	btn1a.style.visibility="visible"
+
+	btn2.style.visibility="visible"
+
+	btn3.style.visibility="visible"
+
+	btn4.style.visibility="visible"
+
+	monitor_display.document.location="u_td_pr2.htm"
+
+End Sub
+
+
+
+Sub showPres3()
+
+    Window.Status="Fun Stuff"
+
+
+
+	'activate tab
+
+	tab1.style.visibility="visible"
+
+	atab1.style.visibility="hidden"
+
+	tab2.style.visibility="visible"
+
+	atab2.style.visibility="hidden"
+
+	tab3.style.visibility="visible"
+
+	atab3.style.visibility="hidden"
+
+	tab4.style.visibility="hidden"
+
+	atab4.style.visibility="visible"
+
+	tab5.style.visibility="visible"
+
+	atab5.style.visibility="hidden"
+
+
+
+	btn1a.style.visibility="visible"
+
+	btn2.style.visibility="visible"
+
+	btn3.style.visibility="visible"
+
+	btn4.style.visibility="visible"
+
+	monitor_display.document.location="u_td_pr3.htm"
+
+End Sub
+
+
+
+
+
+
+
+Sub showPres4()
+
+   Window.Status="Hip Clip"
+
+
+
+	'activate tab
+
+	tab1.style.visibility="visible"
+
+	atab1.style.visibility="hidden"
+
+	tab2.style.visibility="visible"
+
+	atab2.style.visibility="hidden"
+
+	tab3.style.visibility="visible"
+
+	atab3.style.visibility="hidden"
+
+	tab4.style.visibility="visible"
+
+	atab4.style.visibility="hidden"
+
+	tab5.style.visibility="hidden"
+
+	atab5.style.visibility="visible"
+
+
+
+	btn1a.style.visibility="visible"
+
+	btn2.style.visibility="visible"
+
+	btn3.style.visibility="visible"
+
+	btn4.style.visibility="visible"
+
+	monitor_display.document.location="u_td_pr4.htm"
+
+End Sub
+
+
+
+Sub transPres(idx)
+
+	select case idx
+
+	case "Intro"
+
+		Seq("Intro").Play
+
+	case "Pres1"
+
+		Seq("Intro").Stop
+
+		Seq("Pres1").Play
+
+	case "Pres2"
+
+		Seq("Pres1").Stop
+
+		Seq("Pres2").Play
+
+	case "Pres3"
+
+		Seq("Pres2").Stop
+
+		Seq("Pres3").Play
+
+	case "Pres4"
+
+		Seq("Pres3").Stop
+
+		Seq("Pres4").Play
+
+	end select
+
+End Sub
+
+-->
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. TOONDOM: Home (preview)</TITLE>
+
+</HEAD>
+
+<body bgcolor=black background="img/funpat.gif" text=ffffff link=ffffff alink=ffffff vlink=ffffff>
+
+<!--MAIN COMPONENTS*************************************************-->
+
+
+
+
+
+<center>
+
+<DIV ID=centeringDiv STYLE="POSITION:relative; WIDTH:640; top:0">
+
+
+
+
+
+<img src="img/funbar.gif" border=0 class=hspots ID=marquee_bg STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:30">
+
+
+
+<img src="img/tv.gif" border=0 class=hspots ID=monitor_frame STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:172">
+
+
+
+<IFRAME ID=monitor_display STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:211; TOP:45; LEFT:182; BACKGROUND:black" SRC="u_td_pr0.htm" SCROLLING=NO>
+
+</IFRAME>
+
+
+
+
+
+<img src="img/f3.gif" border=0 class=hspots ID=btn1b STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:62; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/f4.gif" border=0 class=hspots ID=btn1c STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:62; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/f5.gif" border=0 class=hspots ID=btn1d STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:62; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/f2.gif" border=0 class=hspots ID=btn1a STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:-120; VISIBILITY:VISIBLE">
+
+
+
+<img src="img/f3.gif" border=0 class=hspots ID=btn2 STYLE="POSITION:ABSOLUTE; TOP:67; LEFT:-120">
+
+
+
+<img src="img/f4.gif" border=0 class=hspots ID=btn3 STYLE="POSITION:ABSOLUTE; TOP:133; LEFT:-120">
+
+
+
+<img src="img/f5.gif" border=0 class=hspots ID=btn4 STYLE="POSITION:ABSOLUTE; TOP:199; LEFT:-120">
+
+
+
+<DIV ID=blocker STYLE="POSITION:ABSOLUTE; WIDTH:180; HEIGHT:300; TOP:0; LEFT:-150; BACKGROUND:00b5ff">
+
+</div>
+
+
+
+<img src="img/hpicks_a.gif" border=0 class=hspots ID=atab1 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:8; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/hpicks.gif" border=0 class=hspots ID=tab1 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:8">
+
+
+
+
+
+<img src="img/gtab2.gif" border=0 class=hspots ID=atab2 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:30; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/gtab3.gif" border=0 class=hspots ID=atab3 STYLE="POSITION:ABSOLUTE; TOP:67; LEFT:30; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/gtab4.gif" border=0 class=hspots ID=atab4 STYLE="POSITION:ABSOLUTE; TOP:133; LEFT:30; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/gtab5.gif" border=0 class=hspots ID=atab5 STYLE="POSITION:ABSOLUTE; TOP:199; LEFT:30; VISIBILITY:HIDDEN">
+
+
+
+<img src="img/tab2.gif" border=0 class=hspots ID=tab2 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:30">
+
+
+
+<img src="img/tab3.gif" border=0 class=hspots ID=tab3 STYLE="POSITION:ABSOLUTE; TOP:67; LEFT:30">
+
+
+
+<img src="img/tab4.gif" border=0 class=hspots ID=tab4 STYLE="POSITION:ABSOLUTE; TOP:133; LEFT:30">
+
+
+
+<img src="img/tab5.gif" border=0 class=hspots ID=tab5 STYLE="POSITION:ABSOLUTE; TOP:199; LEFT:30">
+
+
+
+<DIV ID=toolbar STYLE="POSITION:ABSOLUTE; TOP:267; LEFT:25">
+
+
+
+<img ID=left src="img/tbr_left.jpg" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0">
+
+
+
+<img src="img/tbr_rd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:2">
+
+	<a href="../rhythmdm/rd_unsub.htm">
+
+	<img ID=tbr_dom1 class="TBhspots" src="img/tbr_rdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:16; width:28" TITLE="Go to RHYTHMDOM!">
+
+	</a>
+
+
+
+<img src="img/tbr_sd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:60">
+
+	<a href="../screendm/sd_unsub.htm">
+
+	<img ID=tbr_dom2 class="TBhspots" src="img/tbr_sdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:74" TITLE="Go to SCREENDOM!">
+
+	</a>
+
+
+
+<img src="img/tbr_pd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:118">
+
+	<a href="../playdom/pd_unsub.htm">
+
+	<img ID=tbr_dom3 class="TBhspots" src="img/tbr_pdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:132" TITLE="Go to PLAYDOM!">
+
+	</a>
+
+
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1 class="TBButtons" src="img/tbr_ed.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1a class="TBButtons" src="img/tbr_eda.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176;visibility:hidden" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2 class="TBButtons" src="img/tbr_ss.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176" TITLE="Go to STUDIO PLAZA!"></a>
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2a class="TBButtons" src="img/tbr_ssa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176;visibility:hidden" TITLE="Go to STUDIO PLAZA!"></a>
+
+
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3 class="TBButtons" src="img/tbr_wbc.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176" TITLE="Go to WarnerBros.Com!"></a>
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3a class="TBButtons" src="img/tbr_wbca.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176;visibility:hidden" TITLE="Go to WarnerBros.Com!"></a>
+
+
+
+<img src="img/tbr_go2.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:305">
+
+<img CLASS=TBButtons ID=tbr_btn4 src="img/tbr_go2l.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+<img CLASS=TBButtons ID=tbr_btn4a src="img/tbr_goa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312;visibility:hidden" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+
+
+</DIV>
+
+
+
+
+
+
+
+
+
+<DIV ID=ad1 STYLE="POSITION:ABSOLUTE; WIDTH:234; HEIGHT:60; TOP:267; LEFT:380">
+
+<A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><IMG SRC="img/pb234x60.jpg" BORDER=0></A>
+
+</DIV>
+
+
+
+<img src="img/playbar.jpg" border=0 ID=median STYLE="POSITION:ABSOLUTE; TOP:325; LEFT:8">
+
+
+
+
+
+
+
+<DIV ID=cat1 STYLE="POSITION:ABSOLUTE; WIDTH:155; HEIGHT:350; TOP:350; LEFT:15; BACKGROUND:63c618">
+
+<table border=0 width=140 CELLPADDING=5>
+
+<tr><td align=center>
+
+<font size=4 face=Arial><b>Shows</b></font>
+
+<hr>
+
+
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=cat2 STYLE="POSITION:ABSOLUTE; WIDTH:155; HEIGHT:350; TOP:350; LEFT:170; BACKGROUND:18a5c6">
+
+<table border=0 width=140 CELLPADDING=5>
+
+<tr><td align=center>
+
+<font size=4 face=Arial><b>Comics</b></font>
+
+<hr>
+
+
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=cat3 STYLE="POSITION:ABSOLUTE; WIDTH:155; HEIGHT:350; TOP:350; LEFT:325; BACKGROUND:3918c6">
+
+<table border=0 width=140 CELLPADDING=5>
+
+<tr><td align=center>
+
+<font size=4 face=Arial><b>Fun Stuff</b></font>
+
+<hr>
+
+
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=cat4 STYLE="POSITION:ABSOLUTE; WIDTH:140; HEIGHT:350; TOP:350; LEFT:480; BACKGROUND:de0818">
+
+<table border=0 width=140 CELLPADDING=5>
+
+<tr><td align=center>
+
+<font size=4 face=Arial><b>Hip Clip</b></font>
+
+<hr>
+
+
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+
+
+<DIV ID=copy STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:500; TOP:400; LEFT:60">
+
+<center>
+
+<font size=4 face=Arial>
+
+Add TOONDOM to your channels for a comprehensive daily index of the world of cartoons and comics featuring the world-famous Looney Tunes and brand new characters created just for online.  For cartoon fun, TOONDOM is the only partner you'll need.
+
+<br>
+
+<a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><img src="../img/atc_btn.gif" border=0 vspace=10></a>
+
+</font>
+
+<br><br><br>
+
+<h5>TM & &copy 1997 Warner Bros.</h5>
+
+</center>
+
+</DIV>
+
+
+
+
+
+</DIV>
+
+</center>
+
+
+
+<OBJECT ID="Seq"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn1"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,0, 62,0)">
+
+	<PARAM NAME="Target" VALUE="btn1a">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn2"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,66, 62,66)">
+
+	<PARAM NAME="Target" VALUE="btn2">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn3"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,132, 62,132)">
+
+	<PARAM NAME="Target" VALUE="btn3">
+
+</OBJECT>
+
+
+
+
+
+<OBJECT ID="pthbtn4"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,198, 62,198)">
+
+	<PARAM NAME="Target" VALUE="btn4">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/pop.wav"">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelB"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/block.wav">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelC"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/swooz.wav">
+
+</OBJECT>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+;
+; Remove "NOIDE"
+;
+; Copyright 1992-1998 Microsoft Corporation
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+DelReg    = Del_IDE.Reg
+
+[SourceDisksNames]
+55="Remove NOIDE","",1
+
+[SourceDisksFiles]
+NoIDE.INF=55
+
+[DestinationDirs]
+NoIDE.Files.Inf = 17
+
+[NoIDE.Files.Inf]
+NoIDE.INF
+
+[Del_IDE.Reg]
+HKLM,%Location%,NOIDE,,
+
+[Strings]
+Location="System\CurrentControlSet\Services\VxD\IOS"

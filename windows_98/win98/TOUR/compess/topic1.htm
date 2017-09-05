@@ -1,0 +1,292 @@
+<HTML>
+<HEAD>
+<TITLE>Welcome to Windows</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="topic1.txt">
+</OBJECT>
+<SCRIPT LANGUAGE=JavaScript>
+rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function initarry(){
+	for(i=0;i<24;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+	divEnter.innerHTML = txtary[23];
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE="VBScript">
+dim currentQ, currentseq, ingame
+currentQ = "null"
+currentseq = 1
+ingame = 0
+
+Sub window_onload()
+	window.focus()
+	initarry()
+	if parent.backwards then
+		currentseq=19
+		call seq("19").Play()
+		parent.backwards = false
+	else
+		call seq("1").Play()
+	end if
+end sub
+
+Sub seq_OnInit
+	Call seq("1").at(0.00, "parent.sound('./waves/topic1/top1_1.mpa')")
+	Call seq("1").at(0.00, "parent.hideall()")
+	Call seq("1").at(0.00, "parent.dotext(0)")
+	Call seq("1").at(2.00, "parent.doShowt(imgWriteDocs,23,1)")
+	Call seq("1").at(3.00, "parent.doShowt(imgCheckbook,23,1)")
+	Call seq("1").at(4.00, "parent.doShowt(imgReadMail,23,1)")
+	Call seq("1").at(5.00, "parent.doShowt(imgFiles,23,1)")
+	Call seq("1").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("2").at(0.00, "parent.sound('./waves/topic1/top1_2.mpa')")
+	Call seq("2").at(0.00, "parent.hideall()")
+	Call seq("2").at(0.20, "parent.doShowt(imgComputer)")
+	Call seq("2").at(0.00, "parent.dotext(1)")
+	Call seq("2").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("3").at(0.00, "parent.sound('./waves/topic1/top1_3.mpa')")
+	Call seq("3").at(0.00, "parent.hideall('MainC', 'cpug')")
+	Call seq("3").at(1.00, "parent.dotext(2)")
+	Call seq("3").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("4").at(0.00, "parent.sound('./waves/topic1/top1_4.mpa')")
+	Call seq("4").at(0.00, "parent.dotext(3)")
+	Call seq("4").at(0.00, "parent.hideall('MainC', 'cpug')")
+	Call seq("4").at(0.50, "parent.doShowt(imgGuts,12,2)")
+	Call seq("4").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("5").at(0.00, "parent.sound('./waves/topic1/top1_9.mpa')")
+	Call seq("5").at(0.00, "parent.hideall('MainC', 'mong')")
+	Call seq("5").at(0.00, "parent.dotext(4)")
+	Call seq("5").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("6").at(0.00, "parent.sound('./waves/topic1/top1_10.mpa')")
+	Call seq("6").at(0.00, "parent.hideall('MainC')")
+	Call seq("6").at(0.00, "parent.dotext(5)")
+	Call seq("6").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("7").at(0.00, "parent.sound('./waves/topic1/top1_11.mpa')")
+	Call seq("7").at(0.00, "parent.dotext(6)")
+	Call seq("7").at(0.00, "parent.hideall('MainC')")
+	Call seq("7").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("8").at(0.00, "parent.sound('./waves/topic1/top_00.mpa')")
+	Call seq("8").at(0.00, "parent.dotext(7)")
+	Call seq("8").at(0.00, "parent.hideall('MainC', 'kbdg')")
+	Call seq("8").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("9").at(0.00, "parent.sound('./waves/topic1/top1_13.mpa')")
+	Call seq("9").at(0.00, "parent.hideall('MainC', 'mseg')")
+	Call seq("9").at(0.00, "parent.dotext(8)")
+	Call seq("9").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("10").at(0.00, "parent.sound('./waves/topic1/top_1a.mpa')")
+	Call seq("10").at(0.00, "parent.hideall('MainC')")
+	Call seq("10").at(0.00, "parent.dotext(9)")
+	Call seq("10").at(0.50, "parent.doShowt(imgPerif1,12,1.5)")
+	Call seq("10").at(0.70, "parent.doShowt(imgPerif2,12,1.5)")
+	Call seq("10").at(0.90, "parent.doShowt(imgPerif4,12,1.5)")
+	Call seq("10").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+	
+	Call seq("11").at(0.00, "parent.sound('./waves/topic1/top_2b.mpa')")
+	Call seq("11").at(0.00, "parent.dotext(10)")
+	Call seq("11").at(0.00, "parent.hideall('MainC', 'perf')")
+	Call seq("11").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("12").at(0.00, "parent.sound('./waves/topic1/top1_18.mpa')")
+	Call seq("12").at(0.00, "parent.dotext(11)")
+	Call seq("12").at(0.00, "parent.hideall('MainC', 'perf', 'perf1g')")
+	Call seq("12").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("13").at(0.00, "parent.sound('./waves/topic1/top1_19.mpa')")
+	Call seq("13").at(0.00, "parent.dotext(12)")
+	Call seq("13").at(0.00, "parent.hideall('MainC', 'perf', 'perf2g')")
+	Call seq("13").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("14").at(0.00, "parent.sound('./waves/topic1/top1_20.mpa')")
+	Call seq("14").at(0.00, "parent.dotext(13)")
+	Call seq("14").at(0.00, "parent.hideall('MainC', 'perf', 'perf4g')")
+	Call seq("14").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("15").at(0.50, "parent.sound('./waves/topic1/top1_22.mpa')")
+	Call seq("15").at(0.00, "parent.hideall('MainC')")
+	Call seq("15").at(0.50, "parent.dotext(14)")
+	Call seq("15").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("16").at(0.00, "parent.sound('./waves/topic1/top1_23.mpa')")
+	Call seq("16").at(1.00, "initex(0)")
+	Call seq("16").at(0.00, "parent.dotext(15)")
+	Call seq("16").at(0.00, "parent.hideall('MainC', 'qzlbl')")
+	Call seq("16").at(1.00, "parent.doShow(imgMonText)")
+	Call seq("16").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+
+	Call seq("17").at(0.00, "parent.dotext(16)")
+	Call seq("17").at(0.00, "parent.sound('./waves/topic1/top_3c.mpa')")
+	Call seq("17").at(0.00, "parent.hideall('MainC')")
+	Call seq("17").at(1.00, "initex(1)")
+	Call seq("17").at(1.00, "parent.doShow(imgTwo)")
+	Call seq("17").at(2.00, "parent.doShow(imgOne)")	
+	Call seq("17").at(3.00, "parent.doShow(imgThree)")
+	Call seq("17").at(4.00, "parent.doShow(imgFour)")
+	Call seq("17").at(0, "seq('mvmt').play")
+
+	Call seq("18").at(0.10, "parent.dotext(21)")
+	Call seq("18").at(0.10, "parent.sound('./waves/topic1/Top1_4d.mpa')")
+	Call seq("18").at(1.00, "initex(0)")
+	Call seq("18").at(0.00, "parent.hideall('MainC')")
+	Call seq("18").at(30.0, "parent.sound('./waves/misc/mvmt.mpa')")
+	
+	Call seq("19").at(0.00, "parent.dotext(22)")
+	Call seq("19").at(0.00, "parent.sound('./waves/topic1/top1_36.mpa')")
+	Call seq("19").at(0.00, "parent.hideall('MainC')")
+	Call seq("19").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("mvmt").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+End Sub
+sub initex(inout)
+	ingame = inout
+end sub
+
+Sub document_onkeydown()
+	whatkey = window.event.keycode
+	keyhandle(whatkey)
+End Sub
+
+Sub keyhandle(whatkey)
+	if ingame then
+		Call seq("mvmt").stop()
+		Call seq("mvmt").play()
+		select case whatkey
+			case 37
+				prevseq
+			case 39
+				nextseq
+			case 49
+				parent.dotext(17)
+				parent.sound("./waves/topic1/T1_ans6.mpa")
+			case 50
+				parent.dotext(18)
+				parent.sound("./waves/topic1/T1_ans12.mpa")
+			case 51
+				parent.dotext(19)
+				parent.sound("./waves/topic1/T1_ans18.mpa")
+			case 52
+				parent.dotext(20)
+				parent.sound("./waves/topic1/T1_ans24.mpa")
+			case 97
+				parent.dotext(17)
+				parent.sound("./waves/topic1/T1_ans6.mpa")
+			case 98
+				parent.dotext(18)
+				parent.sound("./waves/topic1/T1_ans12.mpa")
+			case 99
+				parent.dotext(19)
+				parent.sound("./waves/topic1/T1_ans18.mpa")
+			case 100
+				parent.dotext(20)
+				parent.sound("./waves/topic1/T1_ans24.mpa")
+		end select
+	else
+		select case whatkey
+			case 13
+				nextseq
+			case 37
+				prevseq
+			case 38
+				parent.location.href = "../default.htm"
+			case 39
+				nextseq
+		end select
+	end if
+end sub
+
+sub nextseq()
+	call seq("mvmt").stop()
+	if currentseq < 19 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq + 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.nav.spanUseKey.click
+	end if
+end sub
+
+sub prevseq()
+	call seq("mvmt").stop()
+	if currentseq > 1 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq - 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.backwards = true
+		parent.nav.spanIntro.click
+	end if
+end sub
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR=#E3E3E3>
+
+<!--sequencer object-->
+<OBJECT ID="seq" 
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+</OBJECT>
+
+<!--manual analogs-->
+<IMG class="S1" ID="imgWriteDocs" SRC="images/letter.gif" STYLE="position:absolute; top:300; left:298;visibility:hidden">
+<IMG class="S1" ID="imgCheckbook"  SRC="images/chckbook.gif" STYLE="position:absolute; top:200; left:173;visibility:hidden;">
+<IMG class="S1" ID="imgReadMail" SRC="images/envelope.gif" STYLE="position:absolute; top:135; left:293;visibility:hidden;">
+<IMG class="S1" ID="imgFiles" SRC="images/files.gif" STYLE="position:absolute; top:25; left:175;visibility:hidden;">
+
+<!--computer image-->
+<IMG class="MainC" ID="imgComputer" SRC="images/comp1.gif" STYLE="position:absolute;left:96;top:48;visibility:hidden;">
+<IMG class="imgGuts" ID="imgGuts" SRC="images/guts.gif" STYLE="position:absolute;left:96;top:48;visibility:hidden">
+
+<!--peripheral variety-->
+<IMG class="perf" ID="imgPerif1" SRC="images/printer.gif" STYLE="position:absolute; top:120; left:190;visibility:hidden;">
+<IMG class="perf" ID="imgPerif2" SRC="images/modem.gif" STYLE="position:absolute; top:30; left:310;visibility:hidden;">
+<IMG class="perf" ID="imgPerif4" SRC="images/speakers.gif" STYLE="position:absolute; top:160; left:314;visibility:hidden;">
+<IMG class="perf1g" ID="imgPerif1Glow" SRC="images/circles/c_perif.gif" STYLE="position:absolute; top:100; left:180;visibility:hidden;">
+<IMG class="perf2g" ID="imgPerif2Glow" SRC="images/circles/c_perif1.gif" STYLE="position:absolute; top:10; left:290;visibility:hidden;">
+<IMG class="perf4g" ID="imgPerif4Glow" SRC="images/circles/c_perif1.gif" STYLE="position:absolute; top:140; left:294;visibility:hidden;">
+
+<!--glows-->
+<IMG class="cpug" ID="imgCPUGlow" SRC="images/circles/c_cpu.gif" STYLE="position:absolute; top:230; left:184; visibility:hidden;">
+<IMG class="mong" ID="imgMonitorGlow" SRC="images/circles/c_mon.gif" STYLE="position:absolute; top:50; left:195; visibility:hidden;">
+<IMG class="kbdg" ID="imgKbdGlow" SRC="images/circles/c_kbd.gif" STYLE="position:absolute; top:265; left:150; visibility:hidden;">
+<IMG class="mseg" ID="imgMouseGlow" SRC="images/circles/c_mouse.gif" STYLE="position:absolute; top:300; left:365; visibility:hidden;">
+
+<!--summary overview text-->
+<IMG class="qzlbl" ID="imgMonText" SRC="images/lbl_mon.gif" STYLE="position:absolute; top:158; left:260; visibility:hidden;">
+<IMG class="qzlbl" ID="imgCPUText" SRC="images/lbl_cpu.gif" STYLE="position:absolute; top:290; left:260; visibility:hidden;">
+<IMG class="qzlbl" ID="imgMouseText" SRC="images/lbl_mse.gif" STYLE="position:absolute; top:355; left:390; visibility:hidden;">
+<IMG class="qzlbl" ID="imgKbdText" SRC="images/lbl_kbd.gif" STYLE="position:absolute; top:335; left:238; visibility:hidden;">
+
+<DIV CLASS="clsHolder" ID="divHolderText" STYLE="position:absolute; top:25; left:10; width:180; height:275;">
+</DIV>
+
+<!--back and forward directions-->
+<DIV CLASS="clsEnter" ID="divEnter" STYLE="position:absolute; top:410; left:10; width:460;">
+</DIV>
+
+<!--lesson 1 exercise numbers-->
+<IMG class="nums" ID="imgOne" SRC="images/Num2.gif" STYLE="position:absolute; top:158; left:258;visibility:hidden;cursor:hand" onclick="keyhandle(50)">
+<IMG class="nums" ID="imgTwo" SRC="images/Num1.gif" STYLE="position:absolute; top:270; left:258;visibility:hidden;cursor:hand" onclick="keyhandle(49)">
+<IMG class="nums" ID="imgThree" SRC="images/Num3.gif" STYLE="position:absolute; top:335; left:208;visibility:hidden;cursor:hand" onclick="keyhandle(51)">
+<IMG class="nums" ID="imgFour" SRC="images/Num4.gif" STYLE="position:absolute; top:335; left:410;visibility:hidden;cursor:hand" onclick="keyhandle(52)">
+</body>
+</html>

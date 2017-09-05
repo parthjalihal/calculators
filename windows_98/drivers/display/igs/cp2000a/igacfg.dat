@@ -1,0 +1,121 @@
+[OEMINFO]
+ChipID=IGA2000
+Date=12061996
+
+[DefaultVideoReg]
+DDrawEnable=1
+CaptureEnable=1
+DropPixel=0
+VFilterOn=1
+Reg74=0x10ff
+Reg75=0x10ff
+RegD9=0x3cff
+RegDA=0x08ff
+RegDD=0x00ff
+
+[DCI]
+MaxOverlay=1
+DD2Support=1
+DropPixel=0
+DDrawEnable=1
+CaptureEnable=1
+
+[DCI0]
+VFilterOn=1
+Reg74=0x10ff
+Reg75=0x10ff
+RegD9=0x3cff
+RegDA=0x08ff
+RegDD=0x00ff
+
+[DCI1]
+VFilterOn=1
+Reg74=0x10ff
+Reg75=0x10ff
+RegD9=0x3cff
+RegDA=0x08ff
+RegDD=0x00ff
+
+[DCI2]
+VFilterOn=1
+Reg74=0x10ff
+Reg75=0x10ff
+RegD9=0x3cff
+RegDA=0x08ff
+RegDD=0x00ff
+
+[DCI3]
+VFilterOn=1
+Reg74=0x10ff
+Reg75=0x10ff
+RegD9=0x3cff
+RegDA=0x08ff
+RegDD=0x00ff
+
+;New tables
+[Tab0]
+VFilterOn=0
+Reg74=0x10FF
+Reg75=0x10FF
+RegD9=0xF8FF
+RegDA=0x7CFF
+RegDD=0x02FF
+
+[Tab1]
+VFilterOn=1
+Reg74=0x10FF
+Reg75=0x10FF
+RegD9=0x3CFF
+RegDA=0x08FF
+RegDD=0x02FF
+
+[Tab2]
+VFilterOn=0
+Reg74=0x1CFF
+Reg75=0x1CFF
+RegD9=0xF8FF
+RegDA=0x7CFF
+RegDD=0x02FF
+
+[Tab3]
+VFilterOn=0
+Reg74=0x10FF
+Reg75=0x10FF
+RegD9=0x6FFF
+RegDA=0xF8FF
+RegDD=0x06FF
+
+[Tab4]
+VFilterOn=0
+Reg74=0x10FF
+Reg75=0x10FF
+RegD9=0x7CFF
+RegDA=0xF8FF
+RegDD=0x06FF
+
+[FIFOTableIndex]
+;Maximum [Tabx] tables can be 10
+MaxTable=5
+
+;MPEG1 for 1MB at 67 MHz or above MClk
+;	   24 16 8 Bpp
+M640x1 =0x00010101
+M800x1 =0x00FFFF01
+M1024x1=0x00FFFF00
+M1280x1=0x00FFFFFF
+M1600x1=0x00FFFFFF
+
+;MPEG1 for 2MB/4MB at 67 MHz or above MClk
+M640x2 =0x00010101
+M800x2 =0x00000101
+M1024x2=0x00020001
+M1280x2=0x00FFFF00
+M1600x2=0x00FFFF00
+
+;MPEG2 for 2MB/4MB at 75 MHz or above MClk
+M640x0 =0x00030303
+M800x0 =0x00FFFF03
+M1024x0=0x00FFFF04
+M1280x0=0x00FFFFFF
+M1600x0=0x00FFFFFF
+

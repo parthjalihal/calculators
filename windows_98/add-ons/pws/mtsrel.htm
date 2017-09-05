@@ -1,0 +1,1546 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="DESCRIPTION"
+content="Microsoft Transaction Server Release Notes">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Microsoft Transaction Server Release Notes</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<script language="JavaScript">
+	TempString = navigator.appVersion
+	if (navigator.appName == "Microsoft Internet Explorer"){	
+// Check to see if browser is Microsoft
+		if (TempString.indexOf ("4.") >= 0){
+// Check to see if it is IE 4
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+		}
+		else {
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+		}
+	}
+	else if (navigator.appName == "Netscape") {						
+// Check to see if browser is Netscape
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+	}
+	else
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+</script>
+
+<h1><font face="Verdana,Arial,Helvetica">Microsoft Transaction
+Server Release Notes</font></h1>
+
+<p><font face="Verdana,Arial,Helvetica">This document contains
+late-breaking information for Microsoft® Transaction Server
+(MTS). For further information, see the following topics:<br>
+<br>
+</font><a href="../../../mts/html/settingup.htm"><font
+face="Verdana,Arial,Helvetica">Setting Up Microsoft Transaction
+Server</font></a><font face="Verdana,Arial,Helvetica"><br>
+</font><a href="../../../mts/html/gettingstarted.htm"><font
+face="Verdana,Arial,Helvetica">What&#146;s New in MTS 2.0?</font></a><font
+face="Verdana,Arial,Helvetica"><br>
+</font><a href="../../../mts/html/MTSWelcome.html"><font
+face="Verdana,Arial,Helvetica">MTS Product Documentation</font></a><font
+face="Verdana,Arial,Helvetica"><br>
+</font></p>
+
+<hr>
+
+<h1><a name="asconlatebreakinginformationandknownlimitations"><font
+face="Verdana,Arial,Helvetica"></font></a><font
+face="Verdana,Arial,Helvetica">Late-Breaking Information and
+Known Limitations</font></h1>
+
+<p><font face="Verdana,Arial,Helvetica">The following sections
+contain late-breaking information that is not covered in the
+regular documentation, as well as known bugs and limitations.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Setting System Package
+Identity</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">When installing MTS, set
+the System package identity before creating any new packages as
+follows: </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Create a new local
+        Windows NT</font><font face="Symbol"><span style="font-family:Symbol">Ò</span></font><font
+        face="Verdana,Arial,Helvetica"> group named &#147;MTS
+        Administrators&#148; and a new local user named &#147;MTS
+        Administrator&#148;.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Add the &#147;MTS
+        Administrator&#148; user to the &#147;MTS
+        Administrators&#148; and &quot;Administrators&quot;
+        groups.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Set the identity of
+        the System package to &#147;MTS Administrator&#148;.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Shut down the System
+        package so that it will be restarted with the new
+        identity.</font></li>
+</ol>
+
+<h4><font face="Verdana,Arial,Helvetica">User Rights for MTS
+Packages</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Make sure the user
+account for the identities of the System package and other MTS
+packages have the Windows NT &quot;Log on as a service&quot; user
+right. You can verify this by using the Windows NT User Manager: </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">From the <b>Policies</b>
+        menu, choose <b>User Rights</b>.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Click <b>Show
+        Advanced User Rights</b>.</font></li>
+</ol>
+
+<h2><font face="Verdana,Arial,Helvetica">Setting Up MTS to Access
+Oracle Databases</font></h2>
+
+<p><font face="Verdana,Arial,Helvetica">This information entirely
+replaces earlier documentation that described how to use Oracle
+with Microsoft Transaction Server, including that in the
+Microsoft Transaction Server 2.0 online Help documentation.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You can enable
+transactional MTS components to access an Oracle 7.3.3 database
+through ODBC. MTS works with Oracle 7 Workgroup Server for
+Windows NT, Oracle 7 Enterprise Server for Windows NT, Oracle 7
+Enterprise Servers on UNIX, and Oracle Parallel Server on UNIX.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Your MTS component may
+access an Oracle 8 database on either Windows NT or Unix provided
+your Microsoft Transaction Server component uses the Oracle 7.3.3
+client software. MTS does not support Oracle 8 client software.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">This section includes the
+following topics: </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">Required Software<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Setting Up Oracle
+        Support<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Testing Installation
+        and Configuration of MTS Support for Oracle<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Validating Oracle
+        Installation and Configuration Using the Sample Bank
+        Application<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Administering Oracle
+        and Microsoft Distributed Transaction Coordinator<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Known Limitations of
+        MTS Support for Oracle</font></li>
+</ul>
+
+<h3><font face="Verdana,Arial,Helvetica">Required Software</font></h3>
+
+<p><font face="Verdana,Arial,Helvetica">The following software is
+required to access an Oracle database from MTS components.</font></p>
+
+<table border="0">
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"><b>Component</b></font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"><b>Version</b></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"></font>&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        Database on Windows NT</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3
+        (with patch 4 or later)</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        Database on UNIX</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3
+        (with patches)</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        SQL*Net</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">2.3.3
+        (with patch 2.3.3.0.3 or later)</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        OCIW32.DLL </font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">1.0.0.5
+        or later</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        SQLLIB18.DLL</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">1.8.3.0.1
+        or later</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        XA73.LIB</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3.2.0
+        or later</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Microsoft
+        Transaction Server 2.0</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">2.0</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Microsoft
+        ODBC Driver for Oracle (MSORCL32.DLL)</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">02.73.7283.1
+        or later</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">ActiveX
+        Data Objects (ADO)</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">1.5</font></td>
+    </tr>
+</table>
+
+<p><font face="Verdana,Arial,Helvetica"><br>
+</font></p>
+
+<p><font face="Verdana,Arial,Helvetica"><b>Important Note:</b>
+Earlier versions of the software will not work properly. Please
+ensure you install these or later versions of the software.
+Failing to do this is by far the most common source of problems
+when trying to use Microsoft Transaction Server with Oracle.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle Database on
+Windows NT</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your Oracle database
+resides on Windows NT, you may install either the Oracle 7.3.3
+Workgroup Server release for Windows NT or the Oracle 7.3.3
+Enterprise Server release for Windows NT. The Oracle 7.3.2 and
+earlier releases of Oracle for Windows NT are not supported and
+will not work in conjunction with MTS transactions.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You must install the
+Oracle 7.3.3 patch release that is listed in the table above. The
+Oracle 7.3.3 release will not work with MTS unless this patch
+release is installed.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You must submit a problem
+report to the Oracle Customer Support Organization to obtain the
+Oracle patch release. This patch release was not available from
+the Oracle public web site at the time this note was written.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You may install Oracle 8
+on Windows NT provided your Microsoft Transaction Server
+components use Oracle 7.3.3 client software. MTS does not support
+Oracle 8 client software.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle Database on UNIX</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your Oracle database
+resides on UNIX, you must install the Oracle 7.3.3 release (or
+later) for that UNIX platform. In most cases, you will also be
+required to install an Oracle 7.3.3 patch release for Oracle on
+UNIX. </font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You must check with
+Oracle Customer Support to determine if an Oracle 7.3.3 patch
+release is required for your UNIX platform. Explain that you are
+going to access your Oracle database on UNIX using the new XA
+transaction support that is now included in the Oracle 7.3.3
+release on Windows NT.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">The following patch
+releases are known to work:</font></p>
+
+<table border="0">
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"><b>Platform</b></font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"><b>Oracle
+        Patch</b></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"></font>&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">HP
+        9000</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3.3</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">IBM
+        AIX</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3.2</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Sun
+        Solaris</font></td>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">7.3.3.2</font></td>
+    </tr>
+</table>
+
+<p><font face="Verdana,Arial,Helvetica"><br>
+</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You may install Oracle 8
+on Unix provided your Microsoft Transaction Server components use
+Oracle 7.3.3 client software. MTS does not support Oracle 8
+client software.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle Clients on
+Windows NT or Windows&nbsp;98</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your Microsoft
+Transaction Server components access an Oracle database on a
+remote Windows NT or Unix system, ensure that the following
+Oracle client software is present on your Microsoft Transaction
+Server system. Ensure that the client software is at the proper
+version level. The table at the beginning of the Required
+Software section specifies which versions are needed.</font></p>
+
+<table border="0">
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica"><b>Component</b></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        SQL*Net</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        OCIW32.DLL</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        SQLLIB18.DLL</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font face="Verdana,Arial,Helvetica">Oracle
+        XA73.LIB</font></td>
+    </tr>
+</table>
+
+<p><font face="Verdana,Arial,Helvetica"><br>
+</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle SQL*Net</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must install the
+specified version of Oracle SQL*Net on your Microsoft Transaction
+Server system. </font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle OCIW32.DLL</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must install the
+specified version of Oracle OCIW32.DLL on your Microsoft
+Transaction Server system.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">The following version of
+the Oracle OCIW32.DLL is known to work:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">Version 1, 0, 0, 5
+Tuesday, March 18, 1997 2:47:52 PM
+Size 18KB. </font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">The following version of
+the Oracle OCIW32.DLL is known to fail:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">Version 7.x
+Thursday, February 01, 1996 12:50:06 AM
+Size 36 KB</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">We obtained the correct
+version of this DLL from the Oracle 7.3.3 installation CD from
+the \WIN32\V7\RSF73 directory.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle SQLLIB18.DLL</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must install the
+specified version of Oracle SQLLIB18.DLL on your Microsoft
+Transaction Server system.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle XA73.LIB</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must install the
+specified version of Oracle XA73.LIB on your Microsoft
+Transaction Server system.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Microsoft Transaction
+Server 2.0</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must install
+Microsoft Transaction Server 2.0 if you wish to access an Oracle
+database using Microsoft Transaction Server under transaction
+control. </font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Microsoft ODBC Driver<i>
+</i>for Oracle</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">The Microsoft ODBC Driver
+2.0 for Oracle (MSORCL32.DLL) version 02.73.7283.1 or later is
+required. The Windows NT 4.0 Option Pack program automatically
+installs this DLL.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">If you wish to access an
+Oracle database, we strongly suggest that you use the new Oracle
+2.0 driver even if you do not require transaction support. This
+new driver offers better performance than the Oracle 1.0 driver
+it replaced The Oracle 1.0 driver serialized all activity at the
+driver level; requests were single-threaded through the driver.
+The Oracle 2.0 driver serializes all activities at the connection
+level. This allows different database connections to be used in
+parallel.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">ActiveX Data Objects
+(ADO)</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your applications use
+ADO, you must install the ADO version 1.5. Earlier ADO releases
+will not work with the new ODBC 3.5 Driver Manager. ADO 1.5 is
+included in the Windows NT 4.0 Option Pack.</font></p>
+
+<h3><font face="Verdana,Arial,Helvetica">Setting up Oracle
+Support</font></h3>
+
+<p><font face="Verdana,Arial,Helvetica"><b>To set up Oracle
+support for MTS transactional components</b> </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Install the Oracle
+        7.3.3 release on your Oracle database server system.</font><p><font
+        face="Verdana,Arial,Helvetica">If your Oracle database is
+        located on a Windows NT system, install the Oracle 7.3.3
+        release on Windows NT.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If your Oracle
+        database is located on a UNIX system, install the Oracle
+        7.3.3 release on that system.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">Ensure that the
+        correct version of the Oracle OCIW32.DLL is installed as
+        described in the Required Software section.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Install the required
+        Oracle 7.3.3 patch release on your Oracle database server
+        system.</font><p><font face="Verdana,Arial,Helvetica">If
+        your Oracle database is located on a Windows NT system,
+        install the Oracle 7.3.3 patch release that is listed in
+        the Required Software section.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If your Oracle
+        database is located on a UNIX system, install the Oracle
+        7.3.3 patch release that is required for your version of
+        UNIX. </font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Install Oracle 7.3.3
+        Client software.</font></li>
+    <li><font face="Verdana,Arial,Helvetica">If your Microsoft
+        Transaction Server components access an Oracle database
+        on a remote Windows NT or Unix system, ensure that the
+        correct Oracle client software is present on your
+        Microsoft Transaction Server system.</font><p><font
+        face="Verdana,Arial,Helvetica">Install the specified
+        Oracle patch release on your Microsoft Transaction Server
+        system and ensure that the client software matches the
+        version levels listed in the table in the Required
+        Software section.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Install Microsoft
+        Transaction Server 2.0</font><p><font
+        face="Verdana,Arial,Helvetica">When you install Microsoft
+        Transaction Server 2.0, the following software will be
+        installed.<br>
+        <br>
+        </font></p>
+        <ul>
+            <li><font face="Verdana,Arial,Helvetica">Microsoft
+                Transaction Server 2.0, including the Microsoft
+                OCI Interface<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">Microsoft
+                ODBC 3.5 Driver Manager<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">Microsoft
+                ODBC Driver for Oracle<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">ADO 1.5<br>
+                <br>
+                </font></li>
+        </ul>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Delete the
+        DTCXATM.LOG.</font><p><font
+        face="Verdana,Arial,Helvetica">If you have never
+        installed the Microsoft Transaction Server 2.0 Beta
+        release, skip this step.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If you previously
+        installed the Microsoft Transaction Server 2.0 Beta
+        release, use the Windows Explorer to determine if the
+        DTCXATM.LOG file is present on your system. If so, stop
+        the Microsoft DTC service and delete the DTCXATM.LOG
+        file.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">You should only
+        delete the DTCXATM.LOG file once when you first upgrade
+        from the Microsoft Transaction Server 2.0 beta release.
+        You should never delete the DTCXATM.LOG file thereafter,
+        because it may contain vital recovery information.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Enable Oracle XA
+        Support</font><p><font face="Verdana,Arial,Helvetica">Perform
+        the following steps to enable Oracle XA transaction
+        support:<br>
+        <br>
+        </font></p>
+        <ol>
+            <li><font face="Verdana,Arial,Helvetica">The Oracle
+                system administrator must create views known as
+                V$XATRANS$. To do this, the administrator must
+                run an Oracle-supplied script, named
+                &quot;xaview.sql&quot;. This file can usually be
+                found in C:\ORANT\RDBMS73\ADMIN.<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">The Oracle
+                system administrator must grant SELECT access to
+                the public on these views.</font><pre><font
+face="Verdana,Arial,Helvetica">Grant Select on V$XATRANS$ to public.</font></pre>
+            </li>
+            <li><font face="Verdana,Arial,Helvetica">In the
+                Oracle Instance Manager, click <b>Advanced Mode</b>
+                on the <b>View</b> menu and select <b>Initialization
+                Parameters</b> in the left pane. In the right
+                pane, select <b>Advanced Tuning</b> and increase
+                the &quot;distributed_transactions&quot;
+                parameter to allow more concurrent MTS
+                transactions to update the database at a single
+                time.</font></li>
+        </ol>
+        <p><font face="Verdana,Arial,Helvetica">Consult your
+        Oracle Server documentation for more information about
+        configuring Oracle XA transaction support.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Configure Integrated
+        Security</font><p><font face="Verdana,Arial,Helvetica">Oracle
+        databases have integrated security that uses Windows NT
+        authentication to validate database users. This allows a
+        user to log on to Oracle without supplying a separate
+        user account or password. Users can maintain one user
+        account and password for both Windows NT and Oracle.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If your MTS
+        components always supply a user account and password when
+        connecting to Oracle databases, then you are not using
+        integrated security. This is true whether your
+        applications specify the user account and password
+        directly or indirectly through an ODBC DSN. In either
+        event, you are not using integrated security and can
+        ignore this step.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If you use
+        integrated security, you must configure MS DTC to run
+        under a user name and password authorized to connect to
+        your Oracle database. This is required because during
+        database recovery, MS DTC opens your Oracle database to
+        report the outcome of in-doubt transactions. See
+        &quot;Changing the User Account Under Which Microsoft
+        Distributed Transaction Coordinator Runs&quot; below. Use
+        the Oracle security administration tools to ensure that
+        the user name you specify is authorized to open your
+        Oracle database.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">For more
+        information on Oracle's integrated Windows NT security
+        facilities, consult your Oracle documentation.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Configure Oracle to
+        support more connections</font><p><font
+        face="Verdana,Arial,Helvetica">If you want to create more
+        than a few dozen connections to an Oracle database, you
+        must configure the Oracle server to support additional
+        database connections. See &#147;Configuring Oracle to
+        Support a Large Number of Connections&#148; below for
+        more information.</font></p>
+    </li>
+</ol>
+
+<h3><font face="Verdana,Arial,Helvetica">Testing Installation and
+Configuration of MTS Support for Oracle</font></h3>
+
+<p><font face="Verdana,Arial,Helvetica">After installing and
+configuring Oracle support, you must validate your Oracle
+installation using the Oracle test program installed with MTS.
+The Oracle test program uses Oracle's OCI XA interfaces in much
+the same way that MTS uses them.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">The Oracle test program
+determines whether you can connect to an Oracle database using
+Oracle's XA facility. The Oracle test program uses standard
+Oracle interfaces and transaction facilities. It makes no use of
+Microsoft Transaction Server or Microsoft Distributed Transaction
+Coordinator. Therefore, failure of the test program indicates
+that your Oracle system is improperly installed or configured. If
+the Oracle test program fails, reinstall and reconfigure Oracle,
+or contact the Oracle Support Organization for assistance</font></p>
+
+<p><font face="Verdana,Arial,Helvetica"><b>To run the Oracle test
+program</b> </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Verify that you have
+        installed all of the correct versions of the software as
+        described in Required Software.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Create an ODBC DSN
+        that refers to your Oracle database. Ensure that your DSN
+        uses the new Microsoft Oracle ODBC 2.0 driver.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Ensure that you have
+        enabled Oracle XA support.</font><p><font
+        face="Verdana,Arial,Helvetica">Delete all existing Oracle
+        trace files from the machine containing the MTS
+        components that access the Oracle database. The easiest
+        way to do this is to use the Windows Explorer to locate
+        and delete all *.TRC files.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">If the Oracle
+        test program fails, the trace files may help you
+        determine the source of the problem. By deleting all
+        obsolete trace files, you make it easier to find any
+        newly created ones.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">If you previously
+        installed the Microsoft Transaction Server 2.0 beta
+        release, use the Windows Explorer to determine if the
+        DTCXATM.LOG file is present on your system. If so, stop
+        the Microsoft DTC service and delete the DTCXATM.LOG
+        file.</font><p><font face="Verdana,Arial,Helvetica">If
+        you have never installed the Microsoft Transaction Server
+        2.0 beta release, you can skip this step.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">You should only
+        delete the DTCXATM.LOG file once when you first upgrade
+        from the Microsoft Transaction Server 2.0 beta release.
+        You should never delete the DTCXATM.LOG file thereafter,
+        because it may contain vital recovery information.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">From the MS-DOS
+        Command prompt run the Oracle test program
+        (TestOracleXaConfig.exe) and supply your Oracle server
+        user ID, password, and service_name. For example:</font><pre><font
+face="Verdana,Arial,Helvetica">c:&gt;TestOracleXaConfig.exe  -U&lt;user id&gt; -P&lt;Password&gt;
+-S&lt;Service_Name as contained in the TNS file&gt;.</font></pre>
+        <p><font face="Verdana,Arial,Helvetica">If you run the
+        test program with no parameters, the program will display
+        help information that describes the required parameters.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">The test program
+        will display information about each Oracle operation it
+        performs and will indicate whether each operation was
+        successful.</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">If the Oracle test
+        program is able to connect to your Oracle database server
+        without error, then it is very likely that MTS will work
+        with Oracle also. If the Oracle test program reports any
+        errors, follow these steps:<br>
+        <br>
+        </font><ul>
+            <li><font face="Verdana,Arial,Helvetica">Document the
+                exact error message that the Oracle test program
+                displays.<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">Examine the
+                Oracle trace file produced when running the
+                Oracle test program. The Oracle trace information
+                is located in the *.TRC file. The Oracle trace
+                file contains extended error information that is
+                extremely helpful in diagnosing problems.<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">Contact your
+                Oracle support representative for assistance.</font></li>
+        </ul>
+    </li>
+</ol>
+
+<h3><font face="Verdana,Arial,Helvetica">Validating Oracle
+Installation and Configuration Using the Sample Bank Application</font></h3>
+
+<p><font face="Verdana,Arial,Helvetica">After you have validated
+your Oracle installation and configuration using the Oracle test
+program, you should use the Sample Bank Application supplied with
+Microsoft Transaction Server to ensure that Microsoft Transaction
+Server can access your Oracle database.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica"><b>To validate Oracle
+support using Sample Bank</b> </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Ensure that you have
+        verified that your Oracle system is installed and
+        configured correctly using the Oracle test program
+        provided by MTS. If the Oracle test programs reports any
+        error, you must correct that problem before proceeding.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">On the Oracle
+        database server, create a table named
+        &quot;Account&quot;. The following example demonstrates
+        how to set up the Account table. </font><p><font
+        face="Verdana,Arial,Helvetica">Owner <b>scott</b></font></p>
+        <p><font face="Verdana,Arial,Helvetica">Name of Table <b>Account</b></font></p>
+        <p><font face="Verdana,Arial,Helvetica">Column 1 Name <b>AccountNo</b>
+        of type <b>NUMBER</b></font></p>
+        <p><font face="Verdana,Arial,Helvetica">Column 2 Name <b>Balance</b>
+        of type <b>NUMBER</b></font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Populate the table
+        with at least two rows. The following table illustrates
+        how to populate the table.</font><p><font
+        face="Verdana,Arial,Helvetica">AccountNo Balance</font></p>
+        <p><font face="Verdana,Arial,Helvetica">1 1000</font></p>
+        <p><font face="Verdana,Arial,Helvetica">2 1000</font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Create a file DSN
+        using the ODBC configuration utility. Name the file DSN
+        &quot;MTSSamples&quot;. Then manually update the DSN file
+        to add the user&#146;s password. The following example
+        demonstrates how to add the user&#146;s password to a
+        file DSN.</font><p><font face="Verdana,Arial,Helvetica">[ODBC]</font></p>
+        <p><font face="Verdana,Arial,Helvetica">DRIVER=Microsoft
+        ODBC for Oracle</font></p>
+        <p><font face="Verdana,Arial,Helvetica">UID=scott</font></p>
+        <p><font face="Verdana,Arial,Helvetica">PWD=<i>mypassword</i></font></p>
+        <p><font face="Verdana,Arial,Helvetica">ConnectString=<i>myserver</i></font></p>
+        <p><font face="Verdana,Arial,Helvetica">SERVER=<i>myserver</i></font></p>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Save the file DSN
+        and run the Sample Bank client.</font></li>
+</ol>
+
+<h3><font face="Verdana,Arial,Helvetica">Administering Oracle and
+Microsoft Distributed Transaction Coordinator</font></h3>
+
+<h4><font face="Verdana,Arial,Helvetica">DLL Name Changes in
+Future Releases of Oracle</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Oracle sometimes changes
+DLL names when they release new versions of their product.
+Microsoft Transaction Server relies upon knowing the names of
+some Oracle DLLs. MTS currently looks for the DLL names provided
+with the Oracle 7.3.3 release. If Oracle renames these DLLs, you
+must modify the values of the following registry keys:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Transaction Server\Local Computer\My Computer</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">Under this key there are
+two string-named values. </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">OracleXaLib
+        &quot;xa73.dll&quot;<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">OracleSqlLib
+        &quot;sqllib18.dll&quot;</font></li>
+</ul>
+
+<h4><font face="Verdana,Arial,Helvetica">Changing the User
+Account under Which Microsoft Distributed Transaction Coordinator
+Runs</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If you configure the
+Microsoft</font><font face="Symbol"><span style="font-family:Symbol">Ò</span></font><font
+face="Verdana,Arial,Helvetica"> Distributed Transaction
+Coordinator (MS DTC) to run under an account other than the
+System account, you must specify an account that is a member of
+the Administrators group. If not, MS DTC may fail to start, and
+you will see the following message in the Windows NT event log.</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">XATM log object failed to set log encryption key</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">You can configure the
+user ID for MS DTC as follows: </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Stop MS DTC.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">From the <b>Start</b>
+        menu select <b>Settings</b> and then <b>Control Panel</b>.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Double-click the <b>Services</b>
+        icon in the control panel.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Double click on <b>MS
+        DTC</b> in the Service list box.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Select <b>Log On As</b>
+        and specify a user name and password.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Restart MS DTC.</font></li>
+</ol>
+
+<h4><font face="Verdana,Arial,Helvetica">Configuring Oracle to
+Support a Large Number of Connections</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If you want to create
+more than a few dozen connections to an Oracle database, you must
+configure the Oracle server to support additional database
+connections. </font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You may experience one or
+more of the following errors if you fail to do this: </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">Failures on <b>SQLConnect</b>
+        calls.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Failures to enlist
+        on the calling object&#146;s transaction, which may
+        result in any of the following errors in the Oracle trace
+        file:<br>
+        <br>
+        </font><ul>
+            <li><font face="Verdana,Arial,Helvetica">Too many
+                sessions<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">TNS server
+                failed to locate the server name<br>
+                <br>
+                </font></li>
+            <li><font face="Verdana,Arial,Helvetica">Too many
+                distributed transactions<br>
+                <br>
+                </font></li>
+        </ul>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Timeouts while
+        waiting for database locks. This is likely to occur if
+        the configured number of locks is insufficient for the
+        number of concurrently active transactions.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Record collision due
+        to locks held by in-doubt transactions.</font></li>
+</ul>
+
+<p><font face="Verdana,Arial,Helvetica">If you experience any of
+these problems, consider increasing the following Oracle server
+configuration parameters: </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">sessions<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">distributed_lock_timeout<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">distributed_transactions<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">dml_locks<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">max_transaction_branches<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">open_cursors<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">processes<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">queuesize</font></li>
+</ul>
+
+<p><font face="Verdana,Arial,Helvetica"><b><u>Sessions</u></b></font></p>
+
+<p><font face="Verdana,Arial,Helvetica">The value for <code>sessions</code>
+should typically be three times the total number of database
+connections that you expect your applications to make.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica"><b><u>Queuesize</u></b></font></p>
+
+<p><font face="Verdana,Arial,Helvetica">If the <code>queue size</code>
+for the Oracle Listener process is inadequate, the Listener
+sometimes falls behind and rejects database open requests. This
+happens if the Oracle Listener receives too many connection
+requests and its queue overflows. A client that encounters this
+error reportsthe error message &#145;ORA-12541: No Listener&#146;
+and the client log or trace fileswill show the ECONREFUSED
+message.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">To correct this problem: </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Stop the Oracle
+        listener on the system containing the Oracle database
+        server.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Increase the
+        QUEUESIZE parameter in the LISTENER.ORA, TNSNET.ORA, or
+        NAMES.ORA files on the Oracle database server system.
+        Choose the queue size based on the number of
+        simultaneous, or nearly simultaneous, connection requests
+        you anticipate.</font><p><font
+        face="Verdana,Arial,Helvetica">We suggest that you select
+        a generous value for <code>QUEUESIZE </code>because the
+        Oracle system typically opens more than one database
+        connection for each transactional database connection
+        that your application opens. As a result, the Oracle
+        listener queue may become full and overflow.</font></p>
+        <p><font face="Verdana,Arial,Helvetica">To accommodate
+        100 requests, change the LISTENER.ORA file as follows:</font></p>
+        <pre><font face="Verdana,Arial,Helvetica">QUEUESIZE = 100</font></pre>
+    </li>
+    <li><font face="Verdana,Arial,Helvetica">Restart the Oracle
+        listener.</font></li>
+</ol>
+
+<h3><font face="Verdana,Arial,Helvetica">Known Limitations of MTS
+Support for Oracle</font></h3>
+
+<h4><font face="Verdana,Arial,Helvetica">ADO 1.5 Release Is
+Required When Using ODBC 3.5</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your applications use
+ADO, make certain that you install ADO 1.5. Refer to the Required
+Software section for more information.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">No Oracle Support on
+Digital Alpha Platform</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Oracle database
+connectivity is not supported for Microsoft Transaction Server
+components running on the Digital Alpha platform. Support for
+Oracle on the Digital Alpha platform will be added in a future
+release.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Oracle OCIW32.DLL
+Version Problem</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">It is important that the
+correct version of the OCIW32.DLL is installed on your computer.
+You should check the version of this DLL any time you reinstall
+Oracle or Microsoft Transaction Server.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">No Oracle Access from
+MSCS (Wolfpack) Clusters</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Microsoft Transaction
+Server applications that reside on MSCS (Wolfpack) clusters
+cannot access XA databases, including Oracle databases. This is
+the result of a limitation in Microsoft Distributed Transaction
+Coordinator.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Currently, Microsoft
+Distributed Transaction Coordinator stores encryption information
+related to XA recovery in the Windows NT registry. This
+information cannot currently be replicated between the two nodes
+in an MSCS cluster. As a result, Microsoft DTC cannot be used
+with any XA-compliant database in clustered environment. We
+intend to eliminate this restriction in a future release.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Security and
+Communication Between Remote MS DTC Computers</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your application
+performs transactions spanning two or more computers, you must
+ensure that the MS DTCs on these computers are configured to
+communicate with each other. MS DTC runs under the identity of
+the System account by default. The MS DTC on one computer can
+communicate with the MS DTC on another computer, only if the
+Guest accounts on both computers are enabled. If you disable the
+Guest account on either machine or in the Windows NT domain to
+which they belong, you must configure MS DTC to run under some
+other user name that can communicate with the remote computer.
+See &quot;Changing the User Account Under Which Microsoft
+Distributed Transaction Coordinator Runs&quot; above.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">MS DTC with MSCS
+Requires QFE</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Customers who use MS DTC
+in an MSCS environment should install Windows NT QFE Q116844.
+This QFE fixes a Remote Procedure Call (RPC) problem that can
+cause an MS DTC client to hang when attempting to connect to MS
+DTC on a clustered server. This fix is also part of Windows NT
+QFE1, available at the Windows NT Option Pack Web download site.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Remote Server Name Must
+Specify a Virtual Server on MSCS Servers</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Clustered servers must
+set the <b>Remote Server Name</b> property to a virtual server
+name using the MTS Explorer. This enables remote clients to
+access MTS components within the cluster, and, in the event of
+failure, ensures that clients are referencing the cluster, not a
+specific node within that cluster.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">MTS Package Identities
+Must Be in Administrator Group on MSCS Clusters</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">For MTS packages on MSCS
+clusters, the user account associated with the package identity
+must be a system administrator or must have Full Control cluster
+access permissions (as set in cluadmin). If you do not run the
+package under the identity of a system administrator, MTS will be
+unable to connect to MS DTC.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">MTS on MSCS Clusters
+Requires Same Windows NT Directory Path on All Nodes</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">MTS requires that both
+the Windows NT directory have the same path on all nodes within
+an MSCS cluster (for example, c:\winnt).</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Shut Down MSCS Cluster
+Resources Before Installing MTS</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You must shut down all
+MSCS cluster resources (such as SQL Server) that are affected by
+MTS setup prior to running the MTS setup program.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Installing SQL Server
+6.5 After Installing MTS</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You can install SQL
+Server 6.5 after installing MTS. It is recommended that you
+install SQL Server 6.5 before installing MTS. If you install SQL
+Server 6.5 after installing MTS, MTS Setup will attempt to ensure
+that MS DTC works properly.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Run the INSTCAT.SQL
+Script</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">As a convenience, MTS
+includes the INSTCAT.SQL script. This script updates the catalog
+stored procedures for the SQL Server ODBC driver. If you have not
+done so already, run this script using the SQL Server <b>isql</b>
+utility.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Documentation Errata on
+Security</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Security authorization is
+not enabled by default.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">You cannot set a
+package's identity to a group.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">When setting package
+identity, MTS validates the password that you enter. However, if
+you change the password for the account without updating the
+password in the MTS Explorer, the package cannot run.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">MS DTC Log File Can Be
+Compressed</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">The MS DTC log file can
+now be located in a compressed directory. However, for optimum
+performance, do not compress the Microsoft DTC log file or store
+it in a compressed directory. MS DTC must decompress the log file
+before it can be used.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Problems Resetting the
+MS DTC Log File on Windows&nbsp;98</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">When resetting the MS DTC
+log file on Microsoft Windows&nbsp;98, you may see a dialog box
+labeled &quot;MTxOCI&quot; followed by a second dialog box
+labeled &quot;&quot;Failed to create the MS DTC log file.&quot;
+If this occurs, you must disable automatic startup of MS DTC as
+described in &quot;Monitoring MTS Transactions on
+Windows&nbsp;98.&quot; Restart your computer and reset the log
+file. You can then re-enable automatic startup of MS DTC.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Other problems resetting
+the MS DTC log file can be fixed by closing the MTS Explorer,
+restarting MTS Explorer, and attempting the reset again. In some
+instances, this may take several tries before succeeding.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Monitoring MTS
+Transactions on Windows&nbsp;98</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">The documentation for
+starting and stopping MS DTC on Microsoft</font><font
+face="Symbol"><span style="font-family:Symbol">Ò</span></font><font face="Verdana,Arial,Helvetica">
+Windows</font><font face="Symbol"><span style="font-family:Symbol">Ò</span></font><font
+face="Verdana,Arial,Helvetica"> 98 should read as follows:</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">By default, the Microsoft
+Distributed Transaction Coordinator (MS DTC) is configured to
+start automatically when a Windows NT or Windows&nbsp;98 system
+starts. To prevent MS DTC from automatically starting after
+rebooting a Windows&nbsp;98 computer, use the registry editor to
+find the <b>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices</b>
+registry key and then delete the value entry named <b>MSDTC</b>.
+If you want to enable automatic startup of MS DTC again, use the
+registry editor to create a value entry named <b>MSDTC </b>with
+the string value &quot;<code>msdtcw -start&quot;</code> under the
+<b>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+</b>registry key.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Note that the name of the
+service is &quot;<code>msdtcw&quot;</code>, not &quot;<code>msdtc&quot;</code>,
+and that there is a space before the hyphen.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">No Remote Administration
+of MTS 2.0 Computers from MTS 1.<i>x</i> Computers</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">You cannot remotely
+administer an MTS 2.0 installation from a computer running a
+previous version of MTS. Attempting to do so will return an error
+code or cause the MTS Explorer to terminate unexpectedly.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">No Individual Package
+Shutdown when Remotely Administering an MTS 1.<i>x</i> Computer</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Individual package
+shutdown is not supported when remotely administering an MTS 1.<i>x</i>
+computer.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Visual Basic 5.0
+Shutdown with MTS 2.0</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">After installing MTS 2.0,
+you may see an Access Violation when shutting down Microsoft</font><font
+face="Symbol"><span style="font-family:Symbol">Ò</span></font><font face="Verdana,Arial,Helvetica">
+Visual Basic</font><font face="Symbol"><span style="font-family:Symbol">Ò</span></font><font
+face="Verdana,Arial,Helvetica"> 5.0. This is a known Visual Basic
+5.0 bug that can be fixed by installing Visual Studio</font><font
+face="Symbol"><span style="font-family:Symbol">Ô</span></font><font face="Verdana,Arial,Helvetica">
+Service Pack 2 from http://www.microsoft.com/vstudio. Refer to
+Knowledge Base article Q167213 for more information about this
+problem.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Multiple Server
+Processes on Windows&nbsp;98</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">There is a known problem
+that occurs when, if an MTS server process terminates
+unexpectedly (because of a failfast, an assert, or an access
+violation), subsequent attempts to restart the application create
+multiple MTS processes. (The correct behavior should be only one
+MTS process per package.) In case of unexpected server process
+termination, you must reboot your Windows&nbsp;98 computer.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Deadlocks on
+Windows&nbsp;98 When Using Named Pipes</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">There is a known problem
+that may cause deadlocks when using more than approximately 40
+Named Pipe connections from a Windows&nbsp;98 client to MS
+Distributed Transaction Coordinator (DTC). To fix this problem,
+change the protocol between the ODBC driver and SQL Server to
+TCP/IP.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Components and TreatAs
+and AutoTreatAs Registry Keys</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">COM allows one server to
+emulate another using the <b>TreatAs</b> or <b>AutoTreatAs</b>
+registry keys. Suppose a client creates a component of a given
+CLSID using <b>CoCreateInstance</b>. If the <b>TreatAs</b> or <b>AutoTreatAs</b>
+key is present under that CLSID in the registry, COM will instead
+create the component indicated by this key. This effectively
+routes client requests to the emulating server. (The same routing
+is possible using the ProgID if the client refers to its servers
+by ProgID instead of CLSID.)</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Components being emulated
+using <b>TreatAs</b> or <b>AutoTreatAs</b> are not valid MTS
+components and cannot be imported. If the emulation is to be
+added after the component is imported, the component must be
+deleted from the MTS catalog, then replaced with the emulating
+component.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Mixed Threading Models
+in a Server Process</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Within a server process,
+objects in the same activity must be registered with compatible
+threading models. The following combinations are valid: </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">Any combination of
+        apartment, both, or free<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Single-threaded only</font></li>
+</ul>
+
+<p><font face="Verdana,Arial,Helvetica">Note that this means that
+single-threaded MTS components cannot be created by an Active
+Server Page running in-process with IIS or in-process with an IIS
+application using process isolation.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Do Not Create Non-MTS
+Local Servers Using CreateInstance</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Creating non-MTS local
+servers using the context object's <b>CreateInstance</b> method
+is strongly discouraged. Such servers will not scale well and may
+result in additional server instances that are not shut down by
+MTS. If you need to create a non-MTS local server, use <b>CoCreateInstance</b>.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Do not use COM surrogates
+within MTS. Instead, load in-process servers into MTS server
+processes.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">MTS Security Does Not
+Work With IIS Impersonation</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">MTS role-based package
+access control does not work properly when packages are
+front-ended by mutliplexers that impersonate multiple clients
+(for example, Internet Information Server). MTS packages used in
+these environments should be configured with security disabled.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">This can be fixed by
+installing Windows NT QFE1, available at the Windows NT Option
+Pack Web download site. After installing this QFE, role-based
+security will work properly with IIS.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">When you create secure
+IIS applications that use process isolation, IIS creates an MTS
+package that is set to run as IWAM_&lt;<i>computer name</i>&gt;.
+If you wish to change the identity of these packages, you should
+also add the new package identity to the &quot;MTS Trusted
+Impersonators&quot; group or security will not work properly in
+other out-of-process MTS components called by your package. If
+this is not done, the caller will appear to be IWAM_&lt;<i>computer
+name</i>&gt; rather than the actual client of IIS.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Using ErrorInfo with ADO</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">ADO erases any
+information that you might have put in the ErrorInfo object.
+There is a code work-around for this problem that needs to be
+implemented in your error handler.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">For Visual Basic, the
+code is similar to the following:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">ErrorHandler:
+    ' cleanup
+    If Not adoRS Is Nothing Then
+        Set adoRS = Nothing
+    End If
+    If Not adoConn Is Nothing Then
+        Set adoConn = Nothing
+    End If
+    
+    Err.Raise Err.Number, &quot;Bank.Accout.Post&quot;, Err.Description
+
+Exit Function</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">For Visual C++, the code
+is similar to the following:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">//
+// ErrorInfo is saved here because the following 
+// ADO cleanup code may clear it.
+//
+IErrorInfo * pErrorInfo = NULL;
+GetErrorInfo(NULL, &amp;pErrorInfo);
+
+if (adoRsBalance) adoRsBalance-&gt;Release();
+if (adoCoConnection) adoCoConnection-&gt;Release();
+
+AtlReportError( CLSID_CAccount, pErrMsg, IID_IAccount, hr);
+
+//
+// put the error back in TLS
+//
+SetErrorInfo(NULL, pErrorInfo);</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica">For Visual J++, the code
+is similar to the following:</font></p>
+
+<pre><font face="Verdana,Arial,Helvetica">if (adoRsBalance != null) {
+	if (adoRsBalance.getState() == ObjectStateEnum.adStateOpen)
+		adoRsBalance.Close();
+	ComLib.release (adoRsBalance);
+}
+
+if (adoConn != null) {
+	if (adoConn.getState() == ObjectStateEnum.adStateOpen)
+		adoConn.Close();
+	ComLib.release (adoConn);
+}</font></pre>
+
+<p><font face="Verdana,Arial,Helvetica"><b>Note</b> In Java you
+must explicitly close recordsets and/or connections as well as
+explicitly release the ADO objects.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">No Sample Bank ASP
+Client</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">The documentation
+incorrectly states that an Active Server Page (ASP) version of
+the Sample Bank client is provided.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Maximum Number of
+Methods on MTS 2.0 Components Is 1024</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">MTS 1.0 had a limit of
+100 methods per component. In MTS 2.0 this limit is now 1024
+methods.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Components Using RDO 2.0
+on Multiprocessor Computers May Experience Access Violations</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Components that use RDO
+2.0 and are accessed concurrently by multiple clients may
+experience access violations. This has been observed on servers
+that have multiple processors. This problem has not been observed
+for components that use ADO.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Location of Visual Basic
+Script Samples</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">The Visual Basic
+Scripting (VBScript) samples for automating MTS administration
+are located in \Program Files\Mts\Samples, not \Program
+Files\Mtx\Samples\WSH as stated in the documentation.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Java Sample Bank Does
+Not Compile on Windows&nbsp;98</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">To compile the Java
+Sample Bank components on Windows&nbsp;98, run midl.exe on the
+Account.idl file, then run SetJavaDev.bat.</font></p>
+
+<h2><font face="Verdana,Arial,Helvetica">Using the Microsoft
+Transaction Server API to Develop Applications</font></h2>
+
+<h3><font face="Verdana,Arial,Helvetica">Developing Components
+with Microsoft Visual C++</font></h3>
+
+<h4><font face="Verdana,Arial,Helvetica">MFC Extension DLLs</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">MTS components should not
+be built as MFC Extension DLLs because such DLLs can be loaded
+only by MFC applications. A COM component, and therefore an MTS
+component, should be built so that it can be loaded into any
+process, regardless of the type of application that started the
+process.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">For more information on
+MFC Extension DLLs, see the Microsoft Visual C++
+Programmer&#146;s Guide.</font></p>
+
+<h3><font face="Verdana,Arial,Helvetica">Developing Components
+with Microsoft Visual Basic</font></h3>
+
+<h4><font face="Verdana,Arial,Helvetica">ObjectControl</font></h4>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">The <b>ObjectControl</b>
+        interface is the Automation counterpart of the C++ <b>IObjectControl</b>
+        interface. The <b>ObjectControl</b> interface is not
+        supported unless you have installed Microsoft Windows NT
+        4.0 Service Pack version 2 or later.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">The current
+        Microsoft Transaction Server run-time implementation will
+        call the <b>CanBePooled </b>method of a Transaction
+        Server object, as specified in the Transaction Server
+        online documentation. However, the return value is
+        currently ignored. Returning TRUE does not stop
+        Transaction Server from releasing your object. </font></li>
+</ul>
+
+<h4><font face="Verdana,Arial,Helvetica">Known Problem with
+Mtx.exe Shutdown When Using Visual Basic 4.0 Components</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">When an Mtx.exe process
+running Visual Basic 4.0 components is &quot;Shutdown because
+idle for <i>x</i> minutes&quot;, there is a known problem that
+results in a Read Access Violation. Currently there is no known
+solution to this problem. It is thought that if more than two
+Visual Basic 4.0 components are used in a process it is more
+likely to happen. One workaround is to set your package to
+&quot;Leave running when idle&quot;. This is only a problem when
+using components built with Visual Basic 4.0 -- no such problem
+exists with Visual Basic 5.0.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Avoiding Visual Basic
+4.0/RDO Deadlocks</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">If your server component
+uses RDO, never let an <b>rdoConnection</b> with an active <b>rdoResultset</b>
+fall out of scope or a deadlock may result. You must manually
+close the <b>rdoResultset</b> or <b>rdoConnection</b> to avoid
+the deadlock. The following sequence produces a deadlock: </font></p>
+
+<ol>
+    <li><font face="Verdana,Arial,Helvetica">Create an instance
+        of the server component. Call a method which creates <b>rdoConnection</b>
+        and then <b>rdoResultset</b>. You may fetch from, but do
+        not exhaust or close the <b>rdoResultset</b>.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Release this
+        instance. (As this connection and resultset go out of
+        scope, the ODBC calls required are not immediately made.
+        Instead, a message is posted to a hidden window to do the
+        <b>SQLFreeStmt+SQLDisconnect+SQLFreeConnect</b>).<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Create a second
+        instance of the server component. Create an <b>rdoConnection</b>
+        and attempt to update a row which was included in the
+        resultset from Step 1 above. This is now a deadlock
+        because the locks held for the resultset created in Step
+        1 have not been released. And the message pump which will
+        process the message posted in Step 2 above will now never
+        have a chance to run.</font></li>
+</ol>
+
+<p><font face="Verdana,Arial,Helvetica">The deadlock is avoided
+by manually closing the resultset (or connection) at the end of
+Step 1, which immediately makes the ODBC calls to close the
+statement (and connection). The root of the problem is the delay
+introduced by the message posted to the hidden window to do the
+ODBC closes.</font></p>
+
+<h4><font face="Verdana,Arial,Helvetica">Maintaining the MTS
+Catalog when Developing Components with Visual Basic</font></h4>
+
+<p><font face="Verdana,Arial,Helvetica">Whenever you recompile an
+OLE DLL project in Visual Basic 4.0, Visual Basic rewrites all of
+the registry entries for all of the components (Visual Basic
+classes) that live in that DLL. Additionally, Visual Basic may
+generate new GUIDs (depending on your project configuration) to
+identify the components in that DLL. This means that your MTS
+components are no longer properly registered in the MTS catalog.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">There are two solutions
+to this problem. First, there is a <b>Refresh</b> button in the
+Transaction Server Explorer, as well as the <b>Refresh All
+Components </b>command on the <b>Tools</b> menu. If you use this
+command Microsoft Transaction Server will repair all
+inconsistencies in registry entries of components currently in
+the right pane of the Explorer. </font></p>
+
+<p><font face="Verdana,Arial,Helvetica">If you install the
+development version of Microsoft Transaction Server, check the <b>VB
+Addin</b> option to enable a feature that will automatically
+refresh your components after recompiling them. The next time you
+run Visual Basic 4.0, the add-in will be automatically installed
+in your Visual Basic IDE. You can also turn the feature on and
+off on a per-project basis by selecting or deselecting the <b>MTxServer
+RegRefresh | AutoRefresh after compile </b>command on the Visual
+Basic <b>Add-Ins </b>menu. If you decide you want to refresh all
+of your Microsoft Transaction Server components at any given
+time, you can use the <b>MTxServer RegRefresh | Refresh all
+components</b> <b>now</b> command on the <b>Add-Ins </b>menu. </font></p>
+
+<p><font face="Verdana,Arial,Helvetica"><b>Important</b> The
+Visual Basic Add-in has been updated to work with both Visual
+Basic versions 4.0 and 5.0. Once installed, it will automatically
+refresh the Transaction Server catalog with the changes made
+during each compile. The add-in menu option to enable and disable
+the automatic refresh is no longer supported.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Using the add-in will
+properly refresh the MTS catalog, even after Visual Basic
+compilations that generate new component GUIDs. Note also that
+the <b>Compatible OLE Server</b> setting in the Visual Basic <b>Project
+Options </b>dialog box can be used to stop Visual Basic from
+generating new component GUIDs. </font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Refreshing the MTS
+catalog depends on you not changing the ProgIDs of your
+components. In Visual Basic 4.0, a component&#146;s ProgID is
+formed by the following concatenation: <i>project name</i>.<i>class
+name</i>. If you change either of these items, you will have to
+reinstall your component(s) in the MTS Explorer.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Building your component
+in Visual Basic 4.0 without selecting the <b>Compatible OLE
+Server</b> option<b> </b>replaces your old CLSID and IID on each
+compile. This has disadvantages when developing an MTS component,
+even with the Visual Basic add-in enabled. </font></p>
+
+<ul>
+    <li><font face="Verdana,Arial,Helvetica">Roles you assigned
+        to the interface using the MTS Explorer are lost, since
+        the interface IID is obsolete.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Proxies and registry
+        configurations you distributed to remote machines no
+        longer refer to your component and must all be updated.<br>
+        <br>
+        </font></li>
+    <li><font face="Verdana,Arial,Helvetica">Packages you
+        exported which contain your component require
+        re-exporting since the package definition file GUIDs are
+        now out of sync.</font></li>
+</ul>
+
+<hr>
+
+<h1><a name="CopyrightInformation"><font
+face="Verdana,Arial,Helvetica">Copyright Information</font></a></h1>
+
+<p><font face="Verdana,Arial,Helvetica">© 1997 Microsoft
+Corporation</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">These materials are
+provided &#147;as-is,&#148; for informational purposes only.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Neither Microsoft nor its
+suppliers makes any warranty, express or implied with respect to
+the content of these materials or the accuracy of any information
+contained herein, including, without limitation, the implied
+warranties of merchantability or fitness for a particular
+purpose. Because some states/jurisdictions do not allow
+exclusions of implied warranties, the above limitation may not
+apply to you.</font></p>
+
+<p><font face="Verdana,Arial,Helvetica">Neither Microsoft nor its
+suppliers shall have any liability for any damages whatsoever
+including consequential, incidental, direct, indirect, special,
+and lost profits. Because some states/jurisdictions do not allow
+exclusions of implied warranties, the above limitation may not
+apply to you. In any event, Microsoft&#146;s and its
+suppliers&#146; entire liability in any manner arising out of
+these materials, whether by tort, contract, or otherwise shall
+not exceed the suggested retail price of these materials.</font></p>
+
+<hr size="1" class="iis">
+
+<p align="center"><a href="/iishelp/common/colegal.htm"><font
+face="Verdana,Arial,Helvetica"><em>© 1998 by Microsoft
+Corporation. All rights reserved.</em></font></a></p>
+</body>
+</html>

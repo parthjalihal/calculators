@@ -1,0 +1,78 @@
+; PWLEDIT.INF
+
+; This is the Setup information file to install the Password List Editor
+
+; Copyright (c) 1993-1995 Microsoft Corporation
+
+
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DestinationDirs]
+Register.Copy    = 17    ; LDID_INF
+PWLEDIT.Win.Copy = 25    ; LDID_SHARED 
+
+[BaseWinOptions]
+Register_PWLEDIT
+
+[Register_PWLEDIT]
+AddReg=Register.AddReg
+CopyFiles=Register.Copy
+
+[Register.Copy]
+PWLEDIT.inf
+
+[Register.AddReg]
+
+[Optional Components]
+PWLEDIT
+
+[PWLEDIT]
+OptionDesc  = %PWLEDIT_DESC%
+Tip         = %PWLEDIT_TIP%
+CopyFiles   = PWLEDIT.Win.Copy, Register.Copy
+AddReg      = PWLEDIT.install.reg
+UpdateInis  = PWLEDIT.Inis
+InstallType = 0             ;Manual only
+IconIndex   = 11	    ;Default (diamond) mini-icon for dialogs
+Uninstall   = PWLEDIT_remove
+
+[PWLEDIT_remove]
+DelFiles    = PWLEDIT.Win.Copy, Register.Copy
+DelReg      = PWLEDIT.remove.reg
+
+[PWLEDIT.Win.Copy]
+pwledit.exe
+
+[PWLEDIT.Inis]
+setup.ini, progman.groups,, "group11=%SYSTOOLS_DESC%"         ;creates folder
+setup.ini, group11,, """%Pwledit_Desc%"", PWLEDIT.EXE,,, pwledit"       ;creates link
+
+[PWLEDIT.Rem.Inis]
+setup.ini, progman.groups,, "group11=%SYSTOOLS_DESC%"         ;creates folder
+setup.ini, group11,, """%Pwledit_Desc%"""                      ;deletes link
+
+[PWLEDIT.install.reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PWLEDIT,DisplayName,,"%PWLEDIT_Desc%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PWLEDIT,UninstallString,,"RunDll setupx.dll,InstallHinfSection PWLEDIT_remove 4 pwledit.inf"
+
+[PWLEDIT.remove.reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PWLEDIT
+
+;****************************************************************************
+; SourceDisks
+;****************************************************************************
+[SourceDisksNames]
+73=%DSK%, "", 0001
+
+[SourceDisksFiles]
+PWLEDIT.inf   =73,,1024
+pwledit.exe   =73,,10240
+
+[Strings]
+SYSTOOLS_DESC   = "Accessories\System Tools"
+PWLEDIT_Desc    = "Password List Editor"
+PWLEDIT_TIP     = "Utility to remove items from your password list file"
+DSK = "Windows 95 resource kit"

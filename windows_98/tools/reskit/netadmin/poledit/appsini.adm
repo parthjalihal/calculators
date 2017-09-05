@@ -1,0 +1,20 @@
+CLASS MACHINE
+
+CATEGORY !!NetAppInst0  ; Network Install Applications
+KEYNAME Software\Microsoft\Windows\CurrentVersion
+        CATEGORY !!NetAppInst1
+                POLICY !!NetAppInst2
+                        PART !!NetAppInst3 EDITTEXT REQUIRED
+                        VALUENAME "AppInstallPath"
+                        END PART
+                        PART !!NetAppInst4 TEXT END PART
+                END POLICY
+        END CATEGORY
+END CATEGORY            ; Network Install Applications
+
+[strings]
+NetAppInst0="Network Install"
+NetAppInst1="Use APPS.INI for Network Installs"
+NetAppInst2="Enable Add/Remove Programs, Network Install tab."
+NetAppInst3="Network path to APPS.INI"
+NetAppInst4="Example: \\MyServer\MyShare\Apps.ini"

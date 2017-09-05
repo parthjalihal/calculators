@@ -1,0 +1,160 @@
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+Class=Net
+provider=%V_ETHERNET%
+
+[Manufacturer]
+%V_ETHERNET%=CONTEC
+
+[CONTEC]
+%*CON0071.devicedesc%=*CON0071.ndi, *CON0071             ; CONTEC PnP ISA
+%*CON0072.devicedesc%=*CON0072.ndi, *CON0072             ; CONTEC ISA
+
+
+[*CON0071.ndi]
+AddReg=*CON0071.ndi.reg, CON0071.ndi.reg, CON0071.params.reg
+LogConfig=*CON0071.LogConfig
+
+[*CON0071.ndi.reg]
+HKR,Ndi,DeviceID,,"*CON0071"
+
+[*CON0071.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=20@200-3FF%FFE0(3FF::)
+IRQConfig=3,4,5,9,10,11,12,15
+
+
+
+[*CON0072.ndi]
+AddReg=*CON0072.ndi.reg, CON0072.ndi.reg, CON0072.params.reg
+LogConfig=*CON0072.LogConfig
+
+[*CON0072.ndi.reg]
+HKR,Ndi,DeviceID,,"*CON0072"
+
+[*CON0072.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=20@200-3FF%FFE0(3FF::)
+IRQConfig=3,4,5,9,10,11,12,15
+
+
+[CON0071.ndi.reg]
+; key,subkey,valuname,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,cnetp.sys
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+; NDIS Info
+HKR,NDIS,LogDriverName,,"CNETP"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+
+; Install sectioins
+HKR,Ndi\Install,ndis3,,"cnetp.ndis3"
+
+; Install NDIS3
+[cnetp.ndis3]
+CopyFiles=cnetp.ndis3.CopyFiles
+[cnetp.ndis3.CopyFiles]
+cnetp.sys
+
+
+[DestinationDirs]
+DefaultDestDir              =11 ; LDID_SYS
+cnetp.ndis3.CopyFiles       =11
+
+
+[CON0071.params.reg]
+; Resources
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IOBaseAddress,1,02,00,00,00
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,Ndi\params\InterruptNumber,ParamDesc,,"Interrupt Level"
+HKR,NDI\params\InterruptNumber,flag,1,60,00,00,00
+HKR,Ndi\params\IoBaseAddress,resc,1,02,00,00,00
+HKR,Ndi\params\IoBaseAddress,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\IoBaseAddress,flag,1,20,00,00,00
+;ndis2
+HKR,NDI\params\interrupt,resc,1,04,00,00,00
+HKR,Ndi\params\interrupt,ParamDesc,,"Interrupt Level"
+HKR,NDI\params\interrupt,flag,1,10,00,00,00
+HKR,Ndi\params\ioaddress,resc,1,02,00,00,00
+HKR,Ndi\params\ioaddress,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\ioaddress,flag,1,10,00,00,00
+
+
+
+[CON0072.ndi.reg]
+; key,subkey,valuname,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,cnetatp.sys
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+; NDIS Info
+HKR,NDIS,LogDriverName,,"cnetatp"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"cntatp$"
+HKR,NDIS\NDIS2,FileName,,"cntatp.dos"
+
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis2,ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+;HKR,Ndi\Interfaces,UpperRange,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,UpperRange,,"ndis2,ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+
+; Install sectioins
+HKR,Ndi\Install,ndis3,,"cnetatp.ndis3"
+HKR,Ndi\Install,ndis2,,"cnetatp.ndis2"
+
+; Install NDIS3
+[cnetatp.ndis3]
+CopyFiles=cnetatp.ndis3.CopyFiles
+[cnetatp.ndis3.CopyFiles]
+cnetatp.sys
+
+; Install NDIS2
+[cnetatp.ndis2]
+CopyFiles=cnetatp.ndis2.CopyFiles
+[cnetatp.ndis2.CopyFiles]
+cntatp.dos
+
+[DestinationDirs]
+DefaultDestDir              =11 ; LDID_SYS
+cnetatp.ndis3.CopyFiles       =11
+cnetatp.ndis2.CopyFiles       =26 ; LDID_WINBOOT
+
+
+[CON0072.params.reg]
+; Resources
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IOBaseAddress,1,02,00,00,00
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,Ndi\params\InterruptNumber,ParamDesc,,"Interrupt Level"
+HKR,NDI\params\InterruptNumber,flag,1,60,00,00,00
+HKR,Ndi\params\IoBaseAddress,resc,1,02,00,00,00
+HKR,Ndi\params\IoBaseAddress,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\IoBaseAddress,flag,1,20,00,00,00
+;ndis2
+HKR,NDI\params\interrupt,resc,1,04,00,00,00
+HKR,Ndi\params\interrupt,ParamDesc,,"Interrupt Level"
+HKR,NDI\params\interrupt,flag,1,10,00,00,00
+HKR,Ndi\params\ioaddress,resc,1,02,00,00,00
+HKR,Ndi\params\ioaddress,ParamDesc,,"I/O Base Address"
+HKR,NDI\params\ioaddress,flag,1,10,00,00,00
+
+
+[strings]
+; Provider
+; Manufacturers
+V_ETHERNET="CONTEC"
+; PNP Devices
+*CON0071.DeviceDesc="CONTEC C-NET(AT)P Adapters (PnP Mode)"
+*CON0072.DeviceDesc="CONTEC C-NET(AT)P Adapters (NON-PnP Mode)"
+

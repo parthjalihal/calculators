@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="Jscript">
+<!--
+  var engine = window.external;
+// -->
+</SCRIPT>
+
+<script language="VBScript" src="data/sm1.vbs"></script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+loadnum = -1
+
+SUB Window_Onload
+  demotext.innerText = dt
+  demotext.style.top = document.body.offsetHeight - document.all.demotext.offsetHeight - 10
+  playstep = engine.GetShortName()
+  Select Case playstep
+    Case 3
+      loadnum = 9
+      img1.src="images/002stdep.gif"
+      img2.src="images/003stmen.gif"
+      img3.src="images/004prhi.gif"
+      img4.src="images/005prmen.gif"
+      img5.src="images/006achi.gif"
+      img6.src="images/007acmen.gif"
+      img7.src="images/008wphi.gif"
+      img8.src="images/009wptsk.gif"
+      last.src="images/010wpwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(0),xy(1), xy(2),xy(3), xy(2),xy(3), xy(4),xy(5), xy(4),xy(5), xy(6),xy(7), xy(6),xy(7), xy(8),xy(9), xy(10),xy(11), xy(10),xy(11) )
+      t = Array(2.7, 1.0, 1.5, 0.4, 1.0, 1.0, 0.8, 1.0, 2.0)
+      P1.KeyFrame 10, k, t
+      P1.AddTimeMarker 3.0, 1
+      P1.AddTimeMarker 5.1, 2
+      P1.AddTimeMarker 5.5, 3
+      P1.AddTimeMarker 6.6, 4
+      P1.AddTimeMarker 7.0, 5
+      P1.AddTimeMarker 9.4, 6
+      P1.AddTimeMarker 10.4, 7
+      P1.AddTimeMarker 11.0, 8
+
+    Case 4
+      loadnum = 3
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      last.src="images/011wpclo.gif"
+      P1.Target = "arrow"
+      k = Array( xy(10),xy(11), xy(12),xy(13), xy(12),xy(13) )
+      t = Array(2.7, 1.8)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 3.0, 9
+      P1.AddTimeMarker 3.4, 10
+      P1.AddTimeMarker 3.8, 11
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+  End Select
+End Sub
+
+Sub P1_onplaymarker(m)
+  Select Case m
+    Case 1 ' --------------- MOUSE MOVES TO PROGRAMS
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+    Case 2 ' ------------ PROGRAMS HIGHLIGHTS IN RED
+      img3.style.visibility="visible"
+    Case 3 ' ---------------- PROGRAMS MENU POPS UP
+      img4.style.visibility="visible"
+    Case 4 ' --------- ACCESSORIES HIGHLIGHTS IN RED
+      img5.style.visibility="visible"
+    Case 5 ' --------------- ACCESSORIES MENU POPS UP
+      img6.style.visibility="visible"
+    Case 6 ' ----------- WORDPAD HIGHLIGHTS IN RED
+      img7.style.visibility="visible"
+    Case 7 ' ----------- HIGHLIGHTS, MENUS DISAPPEAR
+      img7.style.visibility="hidden"
+      img6.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img1.style.visibility="hidden"
+    Case 8 ' -------------- WORDPAD OPENS, SOUND PLAYS
+      img8.style.visibility="visible"
+      last.style.visibility="visible"
+
+    Case 9 ' --------- SOUND PLAYS, WORPDAD CLOSE BUTTON PRESSED
+      last.style.visibility="visible"
+    Case 10 ' ----------- WORPDAD CLOSE BUTTON DISAPPEARS
+      last.style.visibility="hidden"
+    Case 11 ' ----------- WORDPAD CLOSES
+      img1.style.visibility="hidden"
+      img2.style.visibility="hidden"
+  End Select
+End Sub
+
+' -->
+</SCRIPT>
+
+<script language="JScript" for="P1" event="onStop">
+<!--
+  timeout1 = window.setTimeout("showmedone();",500);
+//-->
+</script>
+
+<script language="javaScript" src="data/sm.js"></script>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" style="border:ridge;border-width:5;">
+
+<!-- ----------------------------- PLACE ALL IMAGES ON PAGE ----------------------- -->
+<div id="l" STYLE="visibility:hidden;">
+  <IMG ID=desktop SRC="images/001deskt.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:visible;">
+
+  <IMG ID=img1 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img2 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img3 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img4 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img5 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img6 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img7 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img8 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=last SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID="arrow" SRC="images/012arrow.gif" STYLE="position:absolute;LEFT: 220; TOP: 250;visibility:hidden;">
+  <div id="demotext" align="center"
+    style="color:#000000; position:relative; left:0; width:540; font-family:verdana, arial, helvetica, sans-serif; font-size:10pt; font-weight:bold; line-height:98%; visibility: visible; FILTER:revealTrans(Duration=1.2, Transition=6);">
+  </div>
+</div>
+
+<div id="loading" style="visibility:visible; position:absolute; top:0; left:0; width:100%; height:100%; background-color:ffffff; z-index:10" align=center>
+<img src="../../images/loading.gif" style="position:relative; top:200; visibility:visible;">
+</div>
+
+<!-- ----------------------------- OBJECTS ----------------------- -->
+<OBJECT ID="P1" width=0 height=0
+    CLASSID="clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+</BODY>
+</HTML>

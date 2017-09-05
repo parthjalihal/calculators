@@ -1,0 +1,840 @@
+;NETSKF.INF==================================================================
+;	v1.01 (950209)
+;
+;    ========================
+;    ========================
+;
+;	   _/_/_/    _/	 _/
+;	 _/	    _/ _/
+;	  _/_/	   _/_/
+;	     _/	  _/ _/
+;      _/_/_/	 _/   _/
+;
+;    ========================
+;	    SysKonnect
+;    Network Interface Cards
+;    ========================
+;    ========================
+;
+; (C)Copyright 1994-1995 SysKonnect,
+; a business unit of Schneider & Koch & Co. Datensysteme GmbH.
+; All rights reserved
+;
+;============================================================================
+
+[version]
+Signature="$CHICAGO$"
+Class=Net
+Provider=%V_SK%
+LayoutFile=layout.inf
+
+[Manufacturer]
+%V_SK%=SysKonnect
+
+
+[SysKonnect]
+;					SK-NET Flash,Flash/TP (PnP)
+%*SKD8000.DeviceDesc%=*SKD8000.ndi, *SKD8000
+
+%*SKD0100.DeviceDesc%=*SKD0100.ndi, *SKD0100	; SK-NET FDDI-FE
+%MCA_0083.DeviceDesc%=MCA_0083.ndi, MCA_0083	; SK-NET FDDI-FM
+%*PNPf000.DeviceDesc%=*PNPf000.ndi, *PNPf000	; SK-NET FDDI-FI
+
+%*SKD0200.DeviceDesc%=*SKD0200.ndi, *SKD0200	; SK-NET G32+
+%*PNPe000.DeviceDesc%=*PNPe000.ndi, *PNPe000	; SK-NET G16, G16/TP
+
+%*PNPd300.DeviceDesc%=*PNPd300.ndi, *PNPd300	; SK-NET TR4/16+,TR4/16,TR16,TR4
+
+
+
+;****************************************************************************
+;****************************************************************************
+;				Install Section
+;****************************************************************************
+;****************************************************************************
+
+
+; =============================== EISA ======================================
+
+;****************************************************************************
+; *SKD0100 "SK-NET FDDI-FE" Install Section
+;****************************************************************************
+
+[*SKD0100.ndi]
+AddReg=*SKD0100.ndi.reg,SKFEW95.ndi.reg,EISASlot,FDDI.params
+
+[*SKD0100.ndi.reg]
+HKR,NDI,DeviceID,,"*SKD0100"
+HKR,NDI,CardType,,PNP
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+;****************************************************************************
+; *SKD0200 "SK-NET G32+" Install Section
+;****************************************************************************
+
+[*SKD0200.ndi]
+AddReg=*SKD0200.ndi.reg,SKETHW95.ndi.reg,SKD_Transceiver,EISASlot
+
+[*SKD0200.ndi.reg]
+HKR,NDI,DeviceID,,"*SKD0200"
+HKR,NDI,CardType,,PNP
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+; =========================== Plug&Play ISA =================================
+
+;****************************************************************************
+;  *SKD8000 "SK-NET Flash, Flash/TP (ISA-PnP)" Install Section
+;****************************************************************************
+
+[*SKD8000.ndi]
+AddReg=*SKD8000.ndi.reg,Flash.ndi.reg,Flash.params
+
+[*SKD8000.ndi.reg]
+HKR,NDI,DeviceID,,"*SKD8000"
+HKR,NDI,CardType,,PNP
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+; ================================ ISA ======================================
+
+;****************************************************************************
+; *PNPf000 "SK-NET FDDI-FI (ISA)" Install Section
+;****************************************************************************
+
+[*PNPf000.ndi]
+AddReg=*PNPf000.ndi.reg,SKFIW95.ndi.reg,FI.resources,FDDI.params
+LogConfig=FI.LogConfig
+
+[*PNPf000.ndi.reg]
+HKR,NDI,DeviceID,,"*PNPf000"
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+;****************************************************************************
+;  *PNPe000 "SK-NET G16, G16/TP (ISA)" Install Section
+;****************************************************************************
+
+[*PNPe000.ndi]
+AddReg=*PNPe000.ndi.reg,SKETHW95.ndi.reg,LANCE.resources
+LogConfig=G16.LogConfig
+
+[*PNPe000.ndi.reg]
+HKR,NDI,DeviceID,,"*PNPe000"
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+
+;****************************************************************************
+;  *PNPd300 "SK-NET TR4, TR16, TR4/16, TR4/16+ (ISA)" Install Section
+;****************************************************************************
+
+[*PNPd300.ndi]
+AddReg=*PNPd300.ndi.reg,SKTOKW95.ndi.reg,TOK.params,TOK.resources
+LogConfig=TOK.LogConfig,TOKPseudo.LogConfig
+; alternate config is pseudo-DMA (I/O)
+
+[*PNPd300.ndi.reg]
+HKR,NDI,DeviceID,,"*PNPd300"
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+; ================================ MCA ======================================
+
+;****************************************************************************
+; MCA_0083 "SK-NET FDDI-FM (MCA)" Install Section
+;****************************************************************************
+
+[MCA_0083.ndi]
+AddReg=MCA_0083.ndi.reg,SKFMW95.ndi.reg,MCASlot,FDDI.params
+
+[MCA_0083.ndi.reg]
+HKR,NDI,DeviceID,,"MCA_0083"
+HKR,NDI,CardType,,PNP
+HKR,NDI,HelpText,,%HELPTEXT%
+
+
+
+;****************************************************************************
+;****************************************************************************
+;			General Resources Section
+;****************************************************************************
+;****************************************************************************
+
+
+;	----- SK-NET G16, G16/TP Resources Section -----
+
+[G16.LogConfig]
+ConfigPriority=HARDRECONFIG
+;	I/O set by dip switch
+IOConfig=100-107(3FF::),180-187(3FF::),208-20F(3FF::),220-227(3FF::),288-28F(3FF::),320-327(3FF::),328-32F(3FF::),390-39F(3FF::)
+IRQConfig=3,5,9,11
+;	16k SRAM
+MemConfig=4000@C0000-EFFFF%FFFFC000
+
+
+[LANCE.resources]
+;	General LANCE Resources: I/O, MEM, IRQ.
+;	Defaults are IRQ 5, Mem CC000, I/O 390.
+HKR,,MemoryMappedBaseAddress,1,01,00,00,00
+HKR,,IoBaseAddress,1,02,00,00,00
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,NDI\params\MemoryMappedBaseAddress,ParamDesc,,%KEY_SRAM%
+HKR,NDI\params\MemoryMappedBaseAddress,resc,1,01,00,00,00
+HKR,NDI\params\MemoryMappedBaseAddress,flag,1,20,00,00,00
+HKR,NDI\params\IoBaseAddress,ParamDesc,,%KEY_IO%
+HKR,NDI\params\IoBaseAddress,resc,1,02,00,00,00
+HKR,NDI\params\IoBaseAddress,flag,1,20,00,00,00
+HKR,NDI\params\InterruptNumber,ParamDesc,,%KEY_IRQ%
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,NDI\params\InterruptNumber,flag,1,20,00,00,00
+
+
+;	----- SK-NET TR4/16+, TR4/16, TR16, TR4 Resources Section -----
+
+[TOK.LogConfig]
+ConfigPriority=HARDRECONFIG
+;	I/O set by dip switch
+IOConfig=A20-A3F(FFFF::),1A20-1A3F(FFFF::),B20-B3F(FFFF::),1B20-1B3F(FFFF::),980-99F(FFFF::),1980-199F(FFFF::),900-91F(FFFF::),1900-191F(FFFF::)
+IRQConfig=3,5,9,10,11,12,15
+DMAConfig=W:5,6,7
+
+[TOKPseudo.LogConfig]
+;	"Pseudo DMA"
+ConfigPriority=HARDRECONFIG
+;	I/O set by dip switch
+IOConfig=A20-A3F(FFFF::),1A20-1A3F(FFFF::),B20-B3F(FFFF::),1B20-1B3F(FFFF::),980-99F(FFFF::),1980-199F(FFFF::),900-91F(FFFF::),1900-191F(FFFF::)
+IRQConfig=3,5,9,10,11,12,15
+
+[TOK.resources]
+;	General Token-Ring Resources: I/O, DMA, IRQ.
+;	Defaults are I/O A20, DMA 6, IRQ 11
+HKR,,IoBaseAddress,1,02,00,00,00
+HKR,,DmaChannel,1,03,00,00,00
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,NDI\params\IoBaseAddress,ParamDesc,,%KEY_IO%
+HKR,NDI\params\IoBaseAddress,resc,1,02,00,00,00
+HKR,NDI\params\IoBaseAddress,flag,1,20,00,00,00
+HKR,NDI\params\DmaChannel,ParamDesc,,%KEY_DMA%
+HKR,NDI\params\DmaChannel,resc,1,03,00,00,00
+HKR,NDI\params\DmaChannel,flag,1,20,00,00,00
+HKR,NDI\params\InterruptNumber,ParamDesc,,%KEY_IRQ%
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,NDI\params\InterruptNumber,flag,1,20,00,00,00
+
+
+;	----- SK-NET FDDI-FI Resources Section -----
+
+[FI.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=100-10F(FFFF:400:),120-12F(FFFF:400:),180-18F(FFFF:400:),1A0-1AF(FFFF:400:),220-22F(FFFF:400:),240-24F(FFFF:400:),320-32F(FFFF:400:),340-34F(FFFF:400:)
+IRQConfig=3,4,5,9,10,11,12,15
+DMAConfig=W:3,5,6,7
+
+[FI.resources]
+;	General FI Resources: I/O, DMA, IRQ.
+;	Default values are I/O 100, DMA 5, IRQ 9
+HKR,,IoBaseAddress,1,02,00,00,00
+HKR,,DmaChannel,1,03,00,00,00
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,NDI\params\IoBaseAddress,ParamDesc,,%KEY_IO%
+HKR,NDI\params\IoBaseAddress,resc,1,02,00,00,00
+HKR,NDI\params\IoBaseAddress,flag,1,20,00,00,00
+HKR,NDI\params\DmaChannel,ParamDesc,,%KEY_DMA%
+HKR,NDI\params\DmaChannel,resc,1,03,00,00,00
+HKR,NDI\params\DmaChannel,flag,1,20,00,00,00
+HKR,NDI\params\InterruptNumber,ParamDesc,,%KEY_IRQ%
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,NDI\params\InterruptNumber,flag,1,20,00,00,00
+
+
+
+;****************************************************************************
+;****************************************************************************
+;			General PARAMS sections
+;****************************************************************************
+;****************************************************************************
+
+
+;	----- Token-Ring params -----
+[TOK.params]
+;	Token-Ring Maximum Packet Size
+HKR,NDI\params\MaximumPacketSize,ParamDesc,,%KEY_MAXPKT%
+HKR,NDI\params\MaximumPacketSize,type,,enum
+HKR,NDI\params\MaximumPacketSize\enum,548,,00548
+HKR,NDI\params\MaximumPacketSize\enum,1502,,01502
+HKR,NDI\params\MaximumPacketSize\enum,2084,,02084
+HKR,NDI\params\MaximumPacketSize\enum,4504,,04504
+HKR,NDI\params\MaximumPacketSize\enum,8176,,08176
+HKR,NDI\params\MaximumPacketSize\enum,11439,,11439
+HKR,NDI\params\MaximumPacketSize\enum,17832,,17832
+HKR,NDI\params\MaximumPacketSize,default,,4504
+HKR,NDI\params\MaximumPacketSize,flag,1,20,00,00,00
+;	Token-Ring Data Rate
+HKR,NDI\params\DataRate,ParamDesc,,%KEY_DATART%
+HKR,NDI\params\DataRate,type,,enum
+HKR,NDI\params\DataRate\enum,16,,%KEY_16Mbps%
+HKR,NDI\params\DataRate\enum,4,,%KEY_4Mbps%
+HKR,NDI\params\DataRate,default,,16
+HKR,NDI\params\DataRate,flag,1,20,00,00,00
+;	Token-Ring Early Token Release
+HKR,NDI\params\EarlyTokenRelease,ParamDesc,,%KEY_TOKREL%
+HKR,NDI\params\EarlyTokenRelease,type,,enum
+HKR,NDI\params\EarlyTokenRelease\enum,On,,%KEY_ON%
+HKR,NDI\params\EarlyTokenRelease\enum,Off,,%KEY_OFF%
+HKR,NDI\params\EarlyTokenRelease,default,,On
+HKR,NDI\params\EarlyTokenRelease,flag,1,20,00,00,00
+
+
+;	----- FDDI parameters -----
+;
+;	----- general FDDI params -----
+[FDDI.params]
+;	buffer / DMA usage
+HKR,,FastSend,,1
+;
+;	----- FDDI SMT params; optional -----
+;
+;	Refer to driver DOC file and/or FDDI standard MIB.
+;	PMF Set Request Password: 8 ASCII characters, upper case
+HKR,NDI\params\PmfPasswd,ParamDesc,,%SMT_PWD%
+;;;;;HKR,Ndi\params\PmfPasswd,optional,,1
+HKR,NDI\params\PmfPasswd,type,,edit
+HKR,NDI\params\PmfPasswd,default,,""
+HKR,NDI\params\PmfPasswd,LimitText,,8
+HKR,NDI\params\PmfPasswd,UpperCase,,1
+HKR,NDI\params\PmfPasswd,flag,1,20,00,00,00
+;	fddiSMTUserData(17): ASCII Text
+HKR,NDI\params\UserData,ParamDesc,,%SMT_UDATA%
+;;;;;HKR,Ndi\params\UserData,optional,,1
+HKR,NDI\params\UserData,type,,edit
+HKR,NDI\params\UserData,default,,""
+HKR,NDI\params\UserData,LimitText,,32
+HKR,NDI\params\UserData,flag,1,20,00,00,00
+;	fddiportLer-Cutoff(58) Port A:
+;		10**(-4) to 10**(-15), default 10**(-7)
+HKR,NDI\params\LerCutoffA,ParamDesc,,%SMT_LEROFFA%
+;;;;;HKR,Ndi\params\LerCutoffA,optional,,1
+HKR,NDI\params\LerCutoffA,type,,enum
+HKR,NDI\params\LerCutoffA\enum,4,,"1E-4"
+HKR,NDI\params\LerCutoffA\enum,5,,"1E-5"
+HKR,NDI\params\LerCutoffA\enum,6,,"1E-6"
+HKR,NDI\params\LerCutoffA\enum,7,,"1E-7"
+HKR,NDI\params\LerCutoffA\enum,8,,"1E-8"
+HKR,NDI\params\LerCutoffA\enum,9,,"1E-9"
+HKR,NDI\params\LerCutoffA\enum,10,,"1E-10"
+HKR,NDI\params\LerCutoffA\enum,11,,"1E-11"
+HKR,NDI\params\LerCutoffA\enum,12,,"1E-12"
+HKR,NDI\params\LerCutoffA\enum,13,,"1E-13"
+HKR,NDI\params\LerCutoffA\enum,14,,"1E-14"
+HKR,NDI\params\LerCutoffA\enum,15,,"1E-15"
+HKR,NDI\params\LerCutoffA,default,,7
+HKR,NDI\params\LerCutoffA,flag,1,20,00,00,00
+;	fddiportLer-Cutoff(58) Port B:
+;		10**(-4) to 10**(-15), default 10**(-7)
+HKR,NDI\params\LerCutoffB,ParamDesc,,%SMT_LEROFFB%
+;;;;;HKR,Ndi\params\LerCutoffB,optional,,1
+HKR,NDI\params\LerCutoffB,type,,enum
+HKR,NDI\params\LerCutoffB\enum,4,,"1E-4"
+HKR,NDI\params\LerCutoffB\enum,5,,"1E-5"
+HKR,NDI\params\LerCutoffB\enum,6,,"1E-6"
+HKR,NDI\params\LerCutoffB\enum,7,,"1E-7"
+HKR,NDI\params\LerCutoffB\enum,8,,"1E-8"
+HKR,NDI\params\LerCutoffB\enum,9,,"1E-9"
+HKR,NDI\params\LerCutoffB\enum,10,,"1E-10"
+HKR,NDI\params\LerCutoffB\enum,11,,"1E-11"
+HKR,NDI\params\LerCutoffB\enum,12,,"1E-12"
+HKR,NDI\params\LerCutoffB\enum,13,,"1E-13"
+HKR,NDI\params\LerCutoffB\enum,14,,"1E-14"
+HKR,NDI\params\LerCutoffB\enum,15,,"1E-15"
+HKR,NDI\params\LerCutoffB,default,,7
+HKR,NDI\params\LerCutoffB,flag,1,20,00,00,00
+;	fddiportLer-Alarm(59) Port A:
+;		10**(-4) to 10**(-15), default 10**(-8)
+HKR,NDI\params\LerAlarmA,ParamDesc,,%SMT_LERALA%
+;;;;;HKR,Ndi\params\LerAlarmA,optional,,1
+HKR,NDI\params\LerAlarmA,type,,enum
+HKR,NDI\params\LerAlarmA\enum,4,,"1E-4"
+HKR,NDI\params\LerAlarmA\enum,5,,"1E-5"
+HKR,NDI\params\LerAlarmA\enum,6,,"1E-6"
+HKR,NDI\params\LerAlarmA\enum,7,,"1E-7"
+HKR,NDI\params\LerAlarmA\enum,8,,"1E-8"
+HKR,NDI\params\LerAlarmA\enum,9,,"1E-9"
+HKR,NDI\params\LerAlarmA\enum,10,,"1E-10"
+HKR,NDI\params\LerAlarmA\enum,11,,"1E-11"
+HKR,NDI\params\LerAlarmA\enum,12,,"1E-12"
+HKR,NDI\params\LerAlarmA\enum,13,,"1E-13"
+HKR,NDI\params\LerAlarmA\enum,14,,"1E-14"
+HKR,NDI\params\LerAlarmA\enum,15,,"1E-15"
+HKR,NDI\params\LerAlarmA,default,,8
+HKR,NDI\params\LerAlarmA,flag,1,20,00,00,00
+;	fddiportLer-Alarm(59) Port B:
+;		10**(-4) to 10**(-15), default 10**(-8)
+HKR,NDI\params\LerAlarmB,ParamDesc,,%SMT_LERALB%
+;;;;;HKR,Ndi\params\LerAlarmB,optional,,1
+HKR,NDI\params\LerAlarmB,type,,enum
+HKR,NDI\params\LerAlarmB\enum,4,,"1E-4"
+HKR,NDI\params\LerAlarmB\enum,5,,"1E-5"
+HKR,NDI\params\LerAlarmB\enum,6,,"1E-6"
+HKR,NDI\params\LerAlarmB\enum,7,,"1E-7"
+HKR,NDI\params\LerAlarmB\enum,8,,"1E-8"
+HKR,NDI\params\LerAlarmB\enum,9,,"1E-9"
+HKR,NDI\params\LerAlarmB\enum,10,,"1E-10"
+HKR,NDI\params\LerAlarmB\enum,11,,"1E-11"
+HKR,NDI\params\LerAlarmB\enum,12,,"1E-12"
+HKR,NDI\params\LerAlarmB\enum,13,,"1E-13"
+HKR,NDI\params\LerAlarmB\enum,14,,"1E-14"
+HKR,NDI\params\LerAlarmB\enum,15,,"1E-15"
+HKR,NDI\params\LerAlarmB,default,,8
+HKR,NDI\params\LerAlarmB,flag,1,20,00,00,00
+;	fddiMACT-Min(55): 5 to 165 milliseconds, default 5 ms
+HKR,NDI\params\TMin,ParamDesc,,%SMT_TMIN%
+;;;;;HKR,Ndi\params\TMin,optional,,1
+HKR,NDI\params\TMin,type,,int
+HKR,NDI\params\TMin,base,,10
+HKR,NDI\params\TMin,min,,5
+HKR,NDI\params\TMin,max,,165
+HKR,NDI\params\TMin,step,,1
+HKR,NDI\params\TMin,default,,5
+HKR,NDI\params\TMin,flag,1,20,00,00,00
+;	fddiMACT-Max(53): 5 to 165 milliseconds, default 5 ms
+HKR,NDI\params\TMax,ParamDesc,,%SMT_TMAX%
+;;;;;HKR,Ndi\params\TMax,optional,,1
+HKR,NDI\params\TMax,type,,int
+HKR,NDI\params\TMax,base,,10
+HKR,NDI\params\TMax,min,,5
+HKR,NDI\params\TMax,max,,165
+HKR,NDI\params\TMax,step,,1
+HKR,NDI\params\TMax,default,,165
+HKR,NDI\params\TMax,flag,1,20,00,00,00
+;	fddiMACT-Req(51): 5 to 165 milliseconds, default 5 ms
+HKR,NDI\params\TReq,ParamDesc,,%SMT_TREQ%
+;;;;;HKR,Ndi\params\TReq,optional,,1
+HKR,NDI\params\TReq,type,,int
+HKR,NDI\params\TReq,base,,10
+HKR,NDI\params\TReq,min,,5
+HKR,NDI\params\TReq,max,,165
+HKR,NDI\params\TReq,step,,1
+HKR,NDI\params\TReq,default,,165
+HKR,NDI\params\TReq,flag,1,20,00,00,00
+;	fddiMACTvxValue(54): 2500 to 10000 microseconds
+;	default 2700 us
+HKR,NDI\params\Tvx,ParamDesc,,%SMT_TVX%
+;;;;;HKR,Ndi\params\Tvx,optional,,1
+HKR,NDI\params\Tvx,type,,int
+HKR,NDI\params\Tvx,base,,10
+HKR,NDI\params\Tvx,min,,2500
+HKR,NDI\params\Tvx,max,,10000
+HKR,NDI\params\Tvx,step,,1
+HKR,NDI\params\Tvx,default,,2700
+HKR,NDI\params\Tvx,flag,1,20,00,00,00
+;
+;
+;	----- FDDI SBA params; optional -----
+;
+;	Refer to driver DOC file and/or FDDI standard MIB.
+;	SbaCommand: "START", "STOP"
+HKR,NDI\params\SbaCommand,ParamDesc,,%SBA_CMD%
+;;;;;HKR,Ndi\params\SbaCommand,optional,,1
+HKR,NDI\params\SbaCommand,type,,enum
+HKR,NDI\params\SbaCommand\enum,START,,"START"
+HKR,NDI\params\SbaCommand\enum,STOP,,"STOP"
+HKR,NDI\params\SbaCommand,default,,STOP
+HKR,NDI\params\SbaCommand,flag,1,20,00,00,00
+;	fddiPATHSbaAvailable(20): 0-100%, default 50%
+HKR,NDI\params\SbaAvailable,ParamDesc,,%SBA_AVAIL%
+;;;;;HKR,Ndi\params\SbaAvailable,optional,,1
+HKR,NDI\params\SbaAvailable,type,,int
+HKR,NDI\params\SbaAvailable,base,,10
+HKR,NDI\params\SbaAvailable,min,,0
+HKR,NDI\params\SbaAvailable,max,,100
+HKR,NDI\params\SbaAvailable,step,,1
+HKR,NDI\params\SbaAvailable,default,,50
+HKR,NDI\params\SbaAvailable,flag,1,20,00,00,00
+;
+;
+;	----- FDDI ESS params; optional -----
+;
+;	Refer to driver DOC file and/or FDDI standard MIB.
+;	SMT-P0017 SBA PayLoad: 0-1562 bytes per 125 microseconds
+;	default 0
+HKR,NDI\params\SbaPayLoad,ParamDesc,,%ESS_PAYLOAD%
+;;;;;HKR,Ndi\params\SbaPayLoad,optional,,1
+HKR,NDI\params\SbaPayLoad,type,,int
+HKR,NDI\params\SbaPayLoad,base,,10
+HKR,NDI\params\SbaPayLoad,min,,0
+HKR,NDI\params\SbaPayLoad,max,,1562
+HKR,NDI\params\SbaPayLoad,step,,1
+HKR,NDI\params\SbaPayLoad,default,,0
+HKR,NDI\params\SbaPayLoad,flag,1,20,00,00,00
+;	SMT-P0018 SBA Overhead: 50-5000 bytes, default 50
+HKR,NDI\params\SbaOverHead,ParamDesc,,%ESS_OVER%
+;;;;;HKR,Ndi\params\SbaOverHead,optional,,1
+HKR,NDI\params\SbaOverHead,type,,int
+HKR,NDI\params\SbaOverHead,base,,10
+HKR,NDI\params\SbaOverHead,min,,50
+HKR,NDI\params\SbaOverHead,max,,5000
+HKR,NDI\params\SbaOverHead,step,,1
+HKR,NDI\params\SbaOverHead,default,,50
+HKR,NDI\params\SbaOverHead,flag,1,20,00,00,00
+;	SMT-P001A SBA Category: 0-65535
+HKR,NDI\params\SbaCategory,ParamDesc,,%ESS_CATEG%
+;;;;;HKR,Ndi\params\SbaCategory,optional,,1
+HKR,NDI\params\SbaCategory,type,,int
+HKR,NDI\params\SbaCategory,base,,10
+HKR,NDI\params\SbaCategory,min,,0
+HKR,NDI\params\SbaCategory,max,,65535
+HKR,NDI\params\SbaCategory,step,,1
+;	There is no default value on this parameter.
+HKR,NDI\params\SbaCategory,default,,1
+HKR,NDI\params\SbaCategory,flag,1,20,00,00,00
+;	SMT-P001B Max. T_Neg: 5-165 milliseconds; default 25 ms
+HKR,NDI\params\MaxTNeg,ParamDesc,,%ESS_TNEG%
+;;;;;HKR,Ndi\params\MaxTNeg,optional,,1
+HKR,NDI\params\MaxTNeg,type,,int
+HKR,NDI\params\MaxTNeg,base,,10
+HKR,NDI\params\MaxTNeg,min,,5
+HKR,NDI\params\MaxTNeg,max,,165
+HKR,NDI\params\MaxTNeg,step,,1
+HKR,NDI\params\MaxTNeg,default,,25
+HKR,NDI\params\MaxTNeg,flag,1,20,00,00,00
+;	SMT-P001C MinSegmentSize: 1-4478 bytes
+HKR,NDI\params\MinSegmentSize,ParamDesc,,%ESS_SEGSIZE%
+;;;;;HKR,Ndi\params\MinSegmentSize,optional,,1
+HKR,NDI\params\MinSegmentSize,type,,int
+HKR,NDI\params\MinSegmentSize,base,,10
+HKR,NDI\params\MinSegmentSize,min,,1
+HKR,NDI\params\MinSegmentSize,max,,4478
+HKR,NDI\params\MinSegmentSize,step,,1
+;;;;HKR,NDI\params\MinSegmentSize,default,,????????
+HKR,NDI\params\MinSegmentSize,flag,1,20,00,00,00
+;	SBA SynchTxMode: "ALL", "SPLIT", default "SPLIT"
+HKR,NDI\params\SynchTxMode,ParamDesc,,%ESS_TXMODE%
+;;;;;HKR,Ndi\params\SynchTxMode,optional,,1
+HKR,NDI\params\SynchTxMode,type,,enum
+HKR,NDI\params\SynchTxMode\enum,SPLIT,,"SPLIT"
+HKR,NDI\params\SynchTxMode\enum,ALL,,"ALL"
+HKR,NDI\params\SynchTxMode,default,,SPLIT
+HKR,NDI\params\SynchTxMode,flag,1,20,00,00,00
+
+
+;	----- SK-NET Flash params -----
+[Flash.params]
+;	BUS_TO_SCAN: ISAPNP
+HKR,,BUS_TO_SCAN,,PNP
+
+
+;	----- Transceiver -----
+[SKD_Transceiver]
+HKR,NDI\params\Transceiver,ParamDesc,,%KEY_TRANS%
+HKR,NDI\params\Transceiver,Default,,"Card Setting"
+HKR,NDI\params\Transceiver,Type,,enum
+HKR,NDI\params\Transceiver\Enum,"Card Setting",,%KEY_EISA%
+HKR,NDI\params\Transceiver\Enum,"Cheapernet",,%KEY_BNC%
+HKR,NDI\params\Transceiver\Enum,"10BASET",,%KEY_TP%
+HKR,NDI\params\Transceiver\Enum,"Thick wire",,%KEY_AUI%
+HKR,NDI\params\Transceiver,Flag,1,20,00,00,00
+
+
+;	----- EISA Slot params -----
+[EISASlot]
+HKR,NDI\params\Slot,ParamDesc,,%KEY_SLOT%
+HKR,NDI\params\Slot,type,,int
+HKR,NDI\params\Slot,base,,10
+HKR,NDI\params\Slot,default,,1
+HKR,NDI\params\Slot,min,,1
+HKR,NDI\params\Slot,max,,15
+HKR,NDI\params\Slot,step,,1
+HKR,Ndi\params\Slot,optional,,1
+HKR,NDI\params\Slot,flag,1,20,00,00,00
+
+
+;	----- MCA Slot params -----
+[MCASlot]
+HKR,NDI\params\SlotNumber,ParamDesc,,%KEY_SLOT%
+HKR,NDI\params\SlotNumber,type,,int
+HKR,NDI\params\SlotNumber,base,,10
+HKR,NDI\params\SlotNumber,default,,1
+HKR,NDI\params\SlotNumber,min,,1
+HKR,NDI\params\SlotNumber,max,,8
+HKR,NDI\params\SlotNumber,step,,1
+HKR,Ndi\params\SlotNumber,optional,,1
+HKR,NDI\params\SlotNumber,flag,1,20,00,00,00
+
+
+
+
+;****************************************************************************
+;****************************************************************************
+;			Base Driver Section
+;****************************************************************************
+;****************************************************************************
+
+
+;	----- SKETHW95.VXD Driver Section -----
+;	SK-NET G32+, G16, G16/TP, MC2, MC2+, G8
+
+[SKETHW95.ndi.reg]
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,skethw95.vxd
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"SKETHW95"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+;	Interfaces
+HKR,NDI\Interfaces,DefUpper,,"ndis3"
+HKR,NDI\Interfaces,DefLower,,"ethernet"
+HKR,NDI\Interfaces,UpperRange,,"ndis3"
+HKR,NDI\Interfaces,LowerRange,,"ethernet"
+;	Install sections
+HKR,NDI\Install,ndis3,,"SKETHW95.ndis3"
+
+;	Install NDIS3
+[SKETHW95.ndis3]
+CopyFiles=SKETHW95.ndis3.CopyFiles
+[SKETHW95.ndis3.CopyFiles]
+skethw95.vxd
+
+
+;	----- SKTOKW95.VXD Driver Section -----
+;	SK-NET TR4/16+, TR/MC2, TR4/16, TR4, TR16
+
+[SKTOKW95.ndi.reg]			; Add Registry Section
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,sktokw95.vxd
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"SKTOKW95"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+;	Interfaces
+HKR,NDI\Interfaces,DefUpper,,"ndis3"
+HKR,NDI\Interfaces,DefLower,,"tokenring"
+HKR,NDI\Interfaces,UpperRange,,"ndis3"
+HKR,NDI\Interfaces,LowerRange,,"tokenring"
+;	Install sections
+HKR,NDI\Install,ndis3,,"SKTOKW95.ndis3"
+
+; Install NDIS3
+[SKTOKW95.ndis3]
+CopyFiles=SKTOKW95.ndis3.CopyFiles
+[SKTOKW95.ndis3.CopyFiles]
+sktokw95.vxd
+
+
+;	----- SKFEW95.VXD Driver Section -----
+
+[SKFEW95.ndi.reg]
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,skfew95.vxd
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"SKFEW95"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+;	Interfaces
+HKR,NDI\Interfaces,DefUpper,,"ndis3"
+HKR,NDI\Interfaces,DefLower,,"ethernet"
+HKR,NDI\Interfaces,UpperRange,,"ndis3"
+HKR,NDI\Interfaces,LowerRange,,"ethernet"
+;	Install sections
+HKR,NDI\Install,ndis3,,"SKFEW95.ndis3"
+
+;	Install NDIS3
+[SKFEW95.ndis3]
+CopyFiles=SKFEW95.ndis3.CopyFiles
+[SKFEW95.ndis3.CopyFiles]
+skfew95.vxd
+
+
+;	----- SKFMW95.VXD Driver Section -----
+
+[SKFMW95.ndi.reg]
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,skfmw95.vxd
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"SKFMW95"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+;	Interfaces
+HKR,NDI\Interfaces,DefUpper,,"ndis3"
+HKR,NDI\Interfaces,DefLower,,"ethernet"
+HKR,NDI\Interfaces,UpperRange,,"ndis3"
+HKR,NDI\Interfaces,LowerRange,,"ethernet"
+;	Install sections
+HKR,NDI\Install,ndis3,,"SKFMW95.ndis3"
+
+;	Install NDIS3
+[SKFMW95.ndis3]
+CopyFiles=SKFMW95.ndis3.CopyFiles
+[SKFMW95.ndis3.CopyFiles]
+skfmw95.vxd
+
+
+;	----- SKFIW95.VXD Driver Section -----
+
+[SKFIW95.ndi.reg]
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,skfiw95.vxd
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"SKFIW95"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+;	Interfaces
+HKR,NDI\Interfaces,DefUpper,,"ndis3"
+HKR,NDI\Interfaces,DefLower,,"ethernet"
+HKR,NDI\Interfaces,UpperRange,,"ndis3"
+HKR,NDI\Interfaces,LowerRange,,"ethernet"
+;	Install sections
+HKR,NDI\Install,ndis3,,"SKFIW95.ndis3"
+
+;	Install NDIS3
+[SKFIW95.ndis3]
+CopyFiles=SKFIW95.ndis3.CopyFiles
+[SKFIW95.ndis3.CopyFiles]
+skfiw95.vxd
+
+
+;	----- PCNTN3 Driver Section -----
+
+[Flash.ndi.reg]
+;	key,subkey,valuename,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,pcntn3.386
+;	NDIS Info
+HKR,NDIS,LogDriverName,,"PCNTN3"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"PCNTND$"
+HKR,NDIS\NDIS2,FileName,,"pcntnd.dos"
+HKR,NDIS\ODI,DriverName,,"PCNTNW"
+HKR,NDIS\ODI,FileName,,"pcntnw.com"
+;	Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis2,ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+;	Install sections
+HKR,Ndi\Install,ndis3,,"Flash.ndis3"
+HKR,Ndi\Install,ndis2,,"Flash.ndis2"
+HKR,Ndi\Install,odi,,"Flash.odi"
+
+;	Install NDIS3
+[Flash.ndis3]
+CopyFiles=Flash.ndis3.CopyFiles
+[Flash.ndis3.CopyFiles]
+pcntn3.386
+
+;	Install NDIS2
+[Flash.ndis2]
+CopyFiles=Flash.ndis2.CopyFiles
+[Flash.ndis2.CopyFiles]
+pcntnd.dos
+
+;	Install ODI
+[Flash.odi]
+CopyFiles=Flash.odi.CopyFiles
+[Flash.odi.CopyFiles]
+pcntnw.com
+
+
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+
+[DestinationDirs]
+DefaultDestDir			=11	; LDID_SYS
+SKETHW95.ndis3.CopyFiles	=11
+SKTOKW95.ndis3.CopyFiles	=11
+SKFEW95.ndis3.CopyFiles		=11
+SKFMW95.ndis3.CopyFiles		=11
+SKFIW95.ndis3.CopyFiles		=11
+Flash.ndis3.CopyFiles		=11
+Flash.ndis2.CopyFiles		=26	; LDID_WINBOOT
+Flash.odi.CopyFiles		=26
+
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+
+[Strings]
+;	Provider
+;	Manufacturer
+V_SK="SysKonnect"
+
+;	Adapter names
+*SKD0200.DeviceDesc="SK-NET G32+ 32-Bit Ethernet Adapter"
+*PNPe000.DeviceDesc="SK-NET G16, G16/TP Ethernet Adapter"
+*PNPd300.DeviceDesc="SK-NET TR4/16+ Token-Ring Adapter"
+*SKD0100.DeviceDesc="SK-NET FDDI-FE 32-Bit FDDI LAN Adapter"
+MCA_0083.DeviceDesc="SK-NET FDDI-FM FDDI LAN Adapter"
+*PNPf000.DeviceDesc="SK-NET FDDI-FI FDDI LAN Adapter"
+
+*SKD8000.DeviceDesc="SK-NET Flash Ethernet Adapter"
+
+
+
+HELPTEXT="This SysKonnect network adapter connects you to the network."
+
+;	Adapter Slot Number String
+KEY_SLOT	="Adapter Slot Number"
+
+;	Base Resource Strings
+KEY_SRAM	="Shared Memory Base Address"
+KEY_IO		="IO Base Address"
+KEY_IRQ		="Interrupt Level"
+KEY_DMA		="DMA Channel"
+
+;	Token-Ring Params Strings
+KEY_MAXPKT	="Maximum Packet Size"
+KEY_DATART	="Data Rate (4 or 16 Mbps)"
+KEY_16Mbps	="16 Mbps"
+KEY_4Mbps	="4 Mbps"
+KEY_TOKREL	="Early Token Release Option"
+KEY_ON		="On"
+KEY_OFF		="Off"
+
+;	Transceiver Switching
+KEY_TRANS	="Transceiver/Cabling/Connector"
+KEY_EISA	="Default (EISA Config)"
+KEY_BNC		="Cheapernet (10BASE2-BNC)"
+KEY_TP		="TwistedPair (10BASET-RJ45)"
+KEY_AUI		="Thick Cable (10BASE5-AUI)"
+
+;	SMT parameter strings
+SMT_PWD		="PMF Password (8 chars)"
+SMT_UDATA	="UserData fddiSMT 17"
+SMT_LEROFFA	="LerCutoff A fddiPORT 58"
+SMT_LEROFFB	="LerCutoff B fddiPORT 58"
+SMT_LERALA	="LerAlarm A fddiPORT 59"
+SMT_LERALB	="LerAlarm B fddiPORT 59"
+SMT_TMIN	="T-Min fddiMAC 55"
+SMT_TMAX	="T-Max fddiMAC 53"
+SMT_TREQ	="T-Req fddiMAC 51"
+SMT_TVX		="TvxValue fddiMAC 54"
+
+;	SBA paramter strings
+SBA_CMD		="SbaCommand (Start SBA)"
+SBA_AVAIL	="SbaAvailable fddiPATH 20"
+
+;	ESS parameter strings
+ESS_PAYLOAD	="SBA Payload SMT-P0017"
+ESS_OVER	="SBA Overhead SMT-P0018"
+ESS_CATEG	="SBA Category SMT-P001A"
+ESS_TNEG	="Max. T_Neg SMT-P001B"
+ESS_SEGSIZE	="MinSegmentSize SMT-P001C"
+ESS_TXMODE	="SBA SynchTxMode"
+
+
+

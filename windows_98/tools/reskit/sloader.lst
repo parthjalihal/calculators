@@ -1,0 +1,39 @@
+[Windows 95 Params]
+	WndTitle   = Microsoft Windows 98 Resource Kit Setup
+	WndMess    = Starting Setup, please wait...
+	TmpDirSize = 2000
+	TmpDirName = ~RKT
+	CmdLine    = acmsetup /T reskit.stf /S %s %s
+	DrvModName = ACMSETUP
+	Require31  = This program requires Microsoft Windows 98 or higher.
+	DrvWinClass	= Stuff-Shell
+
+[Windows 95 Files]
+	setup\acmsetup.exe = acmsetup.exe
+	setup\acmsetup.hlp = acmsetup.hlp
+    	setup\mscpydis.dll = mscpydis.dll
+	setup\mssetup.dll  = mssetup.dll
+	setup\rksetup.dll  = rksetup.dll
+	setup\msvcrt.dll   = msvcrt.dll
+	setup\ResKit.stf   = ResKit.stf
+	setup\ResKit.inf   = ResKit.inf
+
+[NT Intel Params]
+	WndTitle   = Microsoft Windows 98 Resource Kit Setup
+	WndMess    = Starting Setup, please wait...
+	TmpDirSize = 2000
+	TmpDirName = ~RKT
+	CmdLine    = acmsetup /T reskit.stf /S %s %s
+	DrvModName = ACMSETUP
+	Require31  = This program requires Microsoft Windows 98 or higher.
+	DrvWinClass	= Stuff-Shell
+
+[NT Intel Files]
+	setup\acmsetup.exe = acmsetup.exe
+	setup\acmsetup.hlp = acmsetup.hlp
+    	setup\mscpydis.dll = mscpydis.dll
+	setup\mssetup.dll  = mssetup.dll
+	setup\rksetup.dll  = rksetup.dll
+	setup\msvcrt.dll   = msvcrt.dll
+	setup\ResKit.stf   = ResKit.stf
+	setup\ResKit.inf   = ResKit.inf

@@ -1,0 +1,118 @@
+; WMPORT.INF
+; Copyright 1997, 3Com Corp.
+; This is the device information file for the Winmodem port installation.
+
+; Comment starting with a semicolon should not be added at the end of a line.
+; Version 1.0.03
+
+[version]
+signature="$CHICAGO$"
+
+Class=Ports
+; install hardware with port capabilities only.
+
+Provider=%USR%
+; name of the hardware provider
+
+[DestinationDirs]
+ComPort.CopySys=11
+; SYSTEM subdirectory
+
+[SourceDisksFiles]
+usr_wmdm.vx_=1
+usr_wcss.vx_=1
+; Source disk : disk one
+
+[SourceDisksNames]
+1="PC Card Install",DISK1,0000-0000
+; this is the install disk description
+
+;----------------------------------------------------------
+; Install class "Ports"
+; Windows will probably not use these entries, because the port class
+; is already installed
+
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+
+;----------------------------------------------------------
+; Drivers
+; USR_WMDM hardware declaration
+
+[Manufacturer]
+%USR% = USR
+                            
+;----------------------------------------------------------
+; COM sections
+
+[ComPort]
+AddReg=ComPort.AddReg
+; add registry entries
+
+UpdateIniFields=ComPort.AddIniField
+; add new entries to system.ini
+
+CopyFiles=ComPort.CopySys
+; copy USR_WMDM files
+
+[ComPort.CopySys]
+usr_wmdm.vxd,usr_wmdm.vx_
+usr_wcss.vxd,usr_wcss.vx_
+
+; this file will be copied in the SYSTEM directory
+
+[ControlFlags]
+ExcludeFromSelect=USR_WMDM
+;ExcludeFromSelect=WINMODEM
+
+[ComPort.AddReg]
+; system keys
+HKR,,ConfigDialog,,serialui.dll
+; the DLL containing the baud rate/data bits/stop bits configuration dialog
+
+HKR,,DevLoader,,*vcomm
+; device loader. Must be vcomm
+
+HKR,,PortDriver,,usr_wmdm.vxd
+; driver name
+
+HKLM, system\CurrentControlSet\Services\VxD\usr_wcss, StaticVxD, 0, "usr_wcss.vxd"
+; Card and Socket Interface
+
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 09,40,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+; Default DCB
+
+HKR,,PortSubClass,1,01
+; May be useless
+
+HKR,,EnumPropPages,,"usr_wmdm.cpl,EnumPropPages"
+; Coordinates of the property provider
+
+; Winmodem specific keys. Required. See VxD external specifications
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\AutomaticPortSelection,,,TRUE
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\Base,,,270
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\ComAlias,,,COM4
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\ComPort,,,COM4
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\ForceCOM1To4,,,TRUE
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\IRQ,,,7
+HKLM,SOFTWARE\USRobotics\USR_WMDM\1.0\EnablePCMCIA,,,TRUE
+
+[ComPort.AddIniField]
+;%10%\SYSTEM.INI,Boot,drivers,"winmodem.100\usr_wmdm.drv",
+; this entry deletes the reference to an old Winmodem driver.
+
+;%10%\SYSTEM.INI,Boot,drivers,"winmodem.101\usr_wmdm.drv"
+; this entry deletes the reference to an old Winmodem driver.
+
+%10%\SYSTEM.INI,Boot,drivers,,"PCCard\usr_wmdm.drv"
+; this entry add the Winmodem driver to the list of preloaded drivers.
+
+;----------------------------------------------------------
+; User readable strings
+[Strings]
+USR = "3Com Corp."
+PortsClassName = "Ports (COM & LPT)"
+

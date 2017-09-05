@@ -1,0 +1,113 @@
+; POLEDIT.INF
+
+; This is the Setup information file to install the system policy editor
+
+; Copyright (c) 1993,1994 Microsoft Corporation
+
+
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DestinationDirs]
+Register.Copy    = 17    ; LDID_INF
+POLEDIT.Win.Copy = 25    ; LDID_SHARED 
+POLEDIT.HLP.Copy = 18    ; LDID_HELP 
+POLEDIT.INF.Copy = 17    ; LDID_INF
+
+[BaseWinOptions]
+Register_POLEDIT
+
+[Register_POLEDIT]
+AddReg=Register.AddReg
+CopyFiles=Register.Copy
+
+[Register.Copy]
+poledit.inf
+
+[Register.AddReg]
+;Create entries for Maint Mode Setup
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PolEdit,DisplayName,,"%Poledit_DESC%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PolEdit,UninstallString,,"RunDll setupx.dll,InstallHinfSection POLEDIT_remove 4 poledit.inf"
+
+[UnRegister.DelReg]
+;Remove entries for Maint Mode Setup
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\PolEdit 
+HKCU,Software\Microsoft\Windows\CurrentVersion\Applets\PolEdit 
+
+[Optional Components]
+Poledit
+
+[Poledit]
+OptionDesc  = %Poledit_DESC%
+Tip         = %POLEDIT_TIP%
+CopyFiles   = POLEDIT.Win.Copy, POLEDIT.HLP.Copy, POLEDIT.INF.Copy, Register.Copy
+UpdateInis  = POLEDIT.Inis
+AddReg      = Register.AddReg
+InstallType = 0             ;Manual only
+IconIndex   = 11	    ;Default (diamond) mini-icon for dialogs
+Uninstall   = POLEDIT_remove
+
+[POLEDIT_remove]
+DelFiles    = POLEDIT.Win.Copy, POLEDIT.HLP.Copy,Register.Copy
+DelReg      = UnRegister.DelReg
+UpdateInis  = POLEDIT.Rem.Inis
+
+[POLEDIT.Win.Copy]
+poledit.exe
+
+[POLEDIT.HLP.Copy]
+poledit.chm
+poledit.cnt
+poledit.hlp
+
+[POLEDIT.INF.Copy]
+windows.adm
+common.adm
+chat.adm
+conf.adm
+inetresm.adm
+inetsetm.adm
+oem.adm
+shellm.adm
+subsm.adm
+appsini.adm
+
+[POLEDIT.Inis]
+setup.ini, progman.groups,, "group11=%SYSTOOLS_DESC%"         ;creates folder
+setup.ini, group11,, """%Poledit_Desc%"", POLEDIT.EXE,,, poledit"       ;creates link
+
+[POLEDIT.Rem.Inis]
+setup.ini, progman.groups,, "group11=%SYSTOOLS_DESC%"         ;creates folder
+setup.ini, group11,, """%Poledit_Desc%"""                      ;deletes link
+
+
+;****************************************************************************
+; SourceDisks
+;****************************************************************************
+[SourceDisksNames]
+72=%DSK%, "", 0001
+
+[SourceDisksFiles]
+poledit.inf   =72,,1024
+poledit.exe   =72,,108000
+poledit.cnt   =72,,322
+poledit.hlp   =72,,10000
+poledit.chm   =72
+windows.adm   =72
+common.adm    =72
+chat.adm      =72
+conf.adm      =72
+inetresm.adm  =72
+inetsetm.adm  =72
+oem.adm       =72
+shellm.adm    =72
+subsm.adm     =72
+appsini.adm   =72
+
+[Strings]
+SYSTOOLS_DESC   = "Accessories\System Tools"
+Poledit_Desc    = "System Policy Editor"
+POLEDIT_TIP     = "Allows you to set system policies for your network"
+DSK="Windows 98 Resource Kit"

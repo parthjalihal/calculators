@@ -1,0 +1,525 @@
+; inetadv.adm
+;
+CLASS USER
+CATEGORY !!COLORS
+KEYNAME "Software\Microsoft\Internet Explorer\Settings"
+	POLICY !!GeneralColors
+		PART !!BackgroundColor EDITTEXT
+		VALUENAME "Background Color" 
+		DEFAULT !!BGColorDef
+		END PART
+
+		PART !!TextColor     EDITTEXT
+		VALUENAME "Text Color" 
+		DEFAULT !!TextColorDef
+		END PART
+
+		PART !!UseWindowsColors     CHECKBOX
+		KEYNAME "Software\Microsoft\Internet Explorer\Main"
+		VALUENAME Use_DlgBox_Colors 
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+	END POLICY
+
+	POLICY !!LinkColors
+		PART !!LinkColor    EDITTEXT
+		VALUENAME "Anchor Color" 
+		DEFAULT !!LinkColorDef
+		END PART
+
+		PART !!LinkColorVisited   EDITTEXT
+		VALUENAME "Anchor Color Visited" 
+		DEFAULT !!LinkColorVisitedDef
+		END PART
+
+		PART !!UseHoverColor CHECKBOX
+		VALUENAME "Use Anchor Hover Color" 
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART
+
+		PART !!AnchorColorHover    EDITTEXT
+		VALUENAME "Anchor Color Hover" 
+		DEFAULT !!AnchorColorHoverDef
+		END PART
+	END POLICY
+END CATEGORY
+
+CLASS USER
+CATEGORY !!FONTS
+KEYNAME "Software\Microsoft\Internet Explorer\International\1252"
+    POLICY !!FONTS
+	PART !!PropFont EDITTEXT
+	VALUENAME IEPropFontName 
+	DEFAULT !!PropFontDef
+	END PART
+	
+	PART !!FixedFont EDITTEXT
+	VALUENAME IEFixedFontName 
+	DEFAULT !!FixedFontDef
+	END PART
+
+    END POLICY
+END CATEGORY
+
+CLASS MACHINE
+CATEGORY !!Languages
+KEYNAME "Software\Microsoft\Internet Explorer\International"
+    POLICY !!Languages
+	PART !!LanguagePreference       EDITTEXT
+	VALUENAME AcceptLanguage 
+	DEFAULT !!DefLanguage
+	END PART
+    END POLICY
+END CATEGORY
+
+CLASS MACHINE
+CATEGORY !!ModemSettings
+KEYNAME "Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+    POLICY !!ModemSettings
+	PART !!ConnectionType DROPDOWNLIST
+	VALUENAME "EnableAutoDial"
+	ITEMLIST
+		NAME !!UseLAN VALUE 0
+		NAME !!UseModem VALUE 1
+	END ITEMLIST
+;       DEFAULT !!UseLAN
+	END PART        
+
+	PART !!NumTries TEXT END PART
+	PART !!NumTries1 NUMERIC REQUIRED
+	VALUENAME RedialAttempts
+	DEFAULT 05
+	END PART
+
+	PART !!NumSeconds TEXT END PART
+	PART !!NumSeconds1 NUMERIC REQUIRED
+	VALUENAME RedialWait
+	DEFAULT 05
+	END PART
+
+	PART !!DisconnectMinutes TEXT END PART
+	PART !!DisconnectMinutes1 NUMERIC REQUIRED
+	VALUENAME DisconnectIdleTime
+	DEFAULT 14
+	END PART
+
+	PART !!EnableAutoDial CHECKBOX
+	VALUENAME EnableAutodial
+	DEFCHECKED
+	END PART
+
+	PART !!ConnectWOIntervention CHECKBOX
+	VALUENAME EnableUnattended
+	END PART
+
+	PART !!DisconnectIfIdle CHECKBOX
+	VALUENAME EnableAutoDisconnect
+	VALUEON 01
+	DEFCHECKED
+	END PART
+
+	PART !!DoSecCheck CHECKBOX
+	VALUENAME EnableSecurityCheck
+	VALUEON 01
+	DEFCHECKED
+	END PART
+    END POLICY
+END CATEGORY
+
+CLASS MACHINE
+CATEGORY !!Programs
+KEYNAME Software\Clients
+  POLICY !!Programs
+	PART !!Calendar EDITTEXT
+	KEYNAME Software\Clients\Calendar
+	VALUENAME "(Default)"
+	DEFAULT !!CalendarDef
+	END PART
+
+	PART !!Contacts EDITTEXT
+	KEYNAME Software\Clients\Contacts
+	VALUENAME "(Default)"
+	DEFAULT !!ContactsDef
+	END PART
+
+	PART !!InternetCall EDITTEXT
+	KEYNAME "Software\Clients\Internet Call"
+	VALUENAME "(Default)"
+	DEFAULT !!InternetCallDef
+	END PART
+  END POLICY
+END CATEGORY
+
+CLASS USER
+CATEGORY !!Advanced
+KEYNAME "Software\Microsoft\Internet Explorer\Main"
+	POLICY !!Browsing
+		PART !!DisableDebugger CHECKBOX
+		VALUENAME "Disable Script Debugger"
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART
+		
+
+		PART !!UseChannelsFullscreen CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Internet Explorer\Channels"
+		VALUENAME FullScreen 
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+
+		PART !!UseBrowserFullscreen CHECKBOX
+		VALUENAME FullScreen 
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART        
+
+		PART !!Autocomplete CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete"
+		VALUENAME "Use AutoComplete" 
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART        
+
+		PART !!FriendlyURLs CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Internet Explorer"
+		VALUENAME "Show_FullURL" 
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		END PART
+
+		PART !!SmoothScrolling CHECKBOX
+		VALUENAME "Smoothscroll" 
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		DEFCHECKED
+		END PART
+
+		PART !!PageTransitions CHECKBOX
+		VALUENAME "Page_Transitions" 
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		DEFCHECKED
+		END PART
+
+		PART !!BrowseNewProcess CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess"
+		VALUENAME "BrowseNewProcess"  
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART        
+
+		PART !!EnablePageHitCounting CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Webcheck"
+		VALUENAME "NoChannelLogging"
+		VALUEON NUMERIC 0
+		VALUEOFF NUMERIC 1
+		DEFCHECKED
+		END PART        
+
+		PART !!ScheduledSubUpdates CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Webcheck"
+		VALUENAME "NoScheduledUpdates" 
+		VALUEON NUMERIC 0
+		VALUEOFF NUMERIC 1
+		DEFCHECKED
+		END PART        
+	
+		PART !!UnderlineLinks DROPDOWNLIST
+		VALUENAME "Anchor Underline"
+		ITEMLIST
+			NAME !!Always VALUE !!Yes
+			NAME !!Never VALUE !!No
+			NAME !!Hover VALUE !!Hover
+		END ITEMLIST
+;               DEFAULT !!Yes
+		END PART        
+	END POLICY
+	POLICY !!Multimedia
+		PART !!ShowPictures CHECKBOX
+		VALUENAME "Display Inline Images"
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+
+		PART !!ShowAnimations CHECKBOX
+		VALUENAME "Play_Animations"
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+
+		PART !!ShowVideos CHECKBOX
+		VALUENAME "Display Inline Videos"
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+
+		PART !!PlaySounds CHECKBOX
+		VALUENAME "Play_Background_Sounds"
+		VALUEON !!Yes
+		VALUEOFF !!No
+		DEFCHECKED
+		END PART
+
+		PART !!SmartImageDithering CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Internet Explorer"
+		VALUENAME "SmartDithering"
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0
+		DEFCHECKED
+		END PART
+	END POLICY
+	
+	POLICY !!Security
+		PART !!ProfileAssistant CHECKBOX
+		KEYNAME "Software\Microsoft\Internet Explorer\Security\P3Global"
+		VALUENAME "Enabled"
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0
+		DEFCHECKED
+		END PART
+
+		PART !!DELETESAVED CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache"
+		VALUENAME "Persistent"
+		VALUEON NUMERIC 0
+		VALUEOFF NUMERIC 1
+		END PART
+
+		PART !!DNSaveEncrypted CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME DisableCachingOfSSLPages
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0
+		END PART        
+
+		PART !!WarnifSubmitRedirected CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME WarnOnPostRedirect
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0
+		DEFCHECKED
+		END PART        
+
+		PART !!WarnifChanging CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME WarnonZoneCrossing
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0
+		DEFCHECKED
+		END PART        
+
+		PART !!Cookies DROPDOWNLIST
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME AllowCookies
+		ITEMLIST
+			NAME !!AlwaysCookie VALUE NUMERIC 1
+			NAME !!PromptCookie VALUE NUMERIC 0
+			NAME !!NeverCookie VALUE NUMERIC 2
+		END ITEMLIST
+;               DEFAULT !!AlwaysCookie
+		END PART        
+	END POLICY
+	
+	POLICY !!Java
+		PART !!JIT CHECKBOX
+		KEYNAME "Software\Microsoft\Java VM"
+		VALUENAME EnableJIT
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		DEFCHECKED
+		END PART
+
+		PART !!JavaLogging CHECKBOX
+		KEYNAME "Software\Microsoft\Java VM"
+		VALUENAME EnableLogging
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		END PART
+	END POLICY
+
+	POLICY !!Printing
+		PART !!BackgroundColors CHECKBOX
+		VALUENAME Print_Background
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART        
+	END POLICY
+
+	POLICY !!Searching
+		PART !!Autoscan CHECKBOX
+		VALUENAME SearchForExtensions
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		DEFCHECKED
+		END PART
+
+		PART !!URLFails DROPDOWNLIST
+		VALUENAME Do404Search
+		ITEMLIST
+			NAME !!AlwaysSearch VALUE NUMERIC 2
+			NAME !!AlwaysAskSearch VALUE NUMERIC 1
+			NAME !!NeverSearch VALUE NUMERIC 0
+		END ITEMLIST
+;               DEFAULT !!AlwaysSearch
+		END PART        
+	END POLICY
+	POLICY !!Toolbars
+		PART !!ShowFonts CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Internet Explorer\Toolbar"
+		VALUENAME ShowFonts
+		VALUEON !!Yes
+		VALUEOFF !!No
+		END PART        
+
+		PART !!SmallIcons CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SmallIcons"
+		VALUENAME SmallIcons
+		VALUEON !!Yes
+		VALUEOFF !!No   
+		END PART
+	END POLICY
+
+	POLICY !!HTTP
+		PART !!EnableHTTP CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME EnableHttp1_1
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		DEFCHECKED
+		END PART
+
+		PART !!HTTP11Proxy CHECKBOX
+		KEYNAME "SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+		VALUENAME "ProxyHttp1.1"
+		VALUEON NUMERIC 1
+		VALUEOFF NUMERIC 0      
+		END PART
+	END POLICY
+END CATEGORY
+
+[strings]
+GeneralColors="General Colors"
+COLORS="Colors"
+BackgroundColor="Background color"
+BGColorDef="192,192,192"
+TextColor="Text color"
+TextColorDef="0,0,0"
+UseWindowsColors="Use Windows colors"
+Yes="yes"
+No="no"
+YesText="Yes"
+NoText="No"
+LinkColors="Link colors"
+LinkColor="Link color"
+LinkColorDef="0,0,255"
+LinkColorVisited="Visited link color"
+LinkColorVisitedDef="96,100,32"
+UseHoverColor="Use hover color"
+AnchorColorHover="Hover color"
+AnchorColorHoverDef="255,0,0"
+FONTS="Fonts"
+PropFont="Western Proportional Font"
+PropFontDef="Times New Roman"
+FixedFont="Western Fixed Font"
+FixedFontDef="Courier New"
+Fontsize="Font Size (0 smallest - 4 largest)"
+Languages="Languages"
+DefLanguage="English"
+LanguagePreference="Choose the default language preference(s)"
+ModemSettings="Modem settings"
+ConnectionType="Connection Type"
+UseLAN="Connect using LAN"
+UseModem="Connect using a modem"
+DUN="Dial-Up Networking Connection"
+NumTries="Number of times to attempt connection"
+NumTries1="                          "
+NumSeconds="Number of seconds to wait between attempts"
+NumSeconds1="                          "
+DisconnectIfIdle="Disconnect if idle after specified number of minutes"
+DisconnectMinutes="Minutes to wait before disconnecting"
+DisconnectMinutes1="                          "
+DoSecCheck="Perform system security check before dialing"
+EnableAutodial="Enable Autodialing"
+ConnectWOIntervention="Connect without user intervention"
+Programs="Programs"
+Mail="Mail"
+MailDef="Outlook Express"
+News="News"
+NewsDef="Outlook Express"
+Calendar="Program to use for Calendar"
+CalendarDef="Outlook"
+Contacts="Program to use for Contacts"
+ContactsDef="Address Book"
+InternetCall="Program to use for Internet call"
+InternetCallDef="Netmeeting"
+Advanced="Advanced settings"
+Browsing="Browsing"
+DisableDebugger="Disable Script debugger"
+UseBrowserFullscreen="Launch browser in full screen mode"
+UseChannelsFullscreen="Launch channels in full screen mode" 
+Autocomplete="Use autocomplete"
+FriendlyURLs="Show friendly URLs"
+SmoothScrolling="Enable smooth scrolling"
+PageTransitions="Enable page transitions"
+BrowseNewProcess="Browse in a new process"
+EnablePageHitCounting="Enable page hit counting"
+ScheduledSubUpdates="Enable scheduled subscription updates"
+UnderlineLinks="Underline links"
+Always="Always"
+Never="Never"
+Hover="hover"
+Multimedia="Multimedia"
+ShowPictures="Show pictures"
+ShowAnimations="Play animations"
+ShowVideos="Play videos"
+PlaySounds="Play sounds"
+SmartImageDithering="Smart image dithering"
+Security="Security"
+ProfileAssistant="Enable Profile Assistant"
+PCT10="PCT 1.0"
+SSL20="SSL 2.0"
+SSL30="SSL 3.0"
+DELETESAVED="Delete saved pages when browser closed"
+DNSaveEncrypted="Do not save encrypted pages to disk"
+WarnifSubmitRedirected="Warn if forms submit is being redirected"
+WarnifChanging="Warn if changing between secure and insecure mode"
+Cookies="Cookies"
+AlwaysCookie="Always accept cookies"
+NeverCookie="Disable all cookie use"
+PromptCookie="Prompt before accepting cookies"
+Java="Java VM"
+JIT="JIT compiler enabled"
+JavaLogging="Java logging enabled"
+Printing="Printing"
+BackgroundColors="Print background colors and images"
+Searching="Searching"
+Toolbars="Toolbars"
+AutoScan="Autoscan common root domains"
+URLFails="Search when URL fails"
+AlwaysSearch="Always search"
+AlwaysAskSearch="Always ask"
+NeverSearch="Never search"
+ShowFonts="Show font button"
+SmallIcons="Small icons"
+HTTP="HTTP 1.1 settings"
+EnableHTTP="Use HTTP 1.1"
+HTTP11Proxy="Use HTTP 1.1 through proxy connections"
+
+IEAK_Title=Internet Settings
+IEAK_DescriptionTitle=Internet Settings
+IEAK_Description1=Allows you to set defaults for Internet Explorer settings which are not set via the IEAK Wizard.
+
+[IEAK]
+Lock=1
+Roles=111
+NumOfDescLines=1
+Platform=111

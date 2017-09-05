@@ -1,0 +1,80 @@
+"ESS GAMEPORT, Version ?.?.?"
+[Version]
+layoutfile=layout.inf, layout1.inf, layout2.inf
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%ESS%
+
+[SourceDisksNames]
+99="ESS Installation Disk","ESS", 0
+
+[SourceDisksFiles]
+essgjoy.vxd=99
+
+;----------------------------------------------------------------------------;
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%ClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=ESS
+
+[ESS]
+%*ESS0005.DeviceDesc%=ESSGAMPORT, *ESS0005, *PNPB02F
+
+[DestinationDirs]
+ESSGAMPORT.CopyList = 11        ; LDID_SYS
+
+;----------------------------------------------------------------------------;
+
+[ESSGAMPORT]
+LogConfig=ESSGAMPORT.LC0,ESSGAMPORT.LC1
+CopyFiles=ESSGAMPORT.CopyList
+AddReg=ESSGAMPORT.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+
+[ESSGAMPORT.CopyList]
+msjstick.drv,,
+vjoyd.vxd,,
+essgjoy.vxd,,
+
+[ESSGAMPORT.LC0]
+ConfigPriority=HARDWIRED
+IOConfig=201-201(3ff::)
+
+[ESSGAMPORT.LC1]
+ConfigPriority=HARDWIRED
+IOConfig=200-207(3ff::)
+
+[MSJSTICK.UpdateInis]
+system.ini,drivers,"joystick="
+
+[ESSGAMPORT.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+HKR,Drivers\joystick\msjstick.drv,Description,,%*ESS0005.DeviceDesc%
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+HKLM,%KEY_OEM%,OEMData,1,00,00,00,0c,00,00,00,00
+HKLM,%KEY_OEM%,OEMName,0,%*ESS0005.DeviceDesc%
+HKLM,%KEY_OEM%,OEMCallout,0,essgjoy.vxd
+
+
+;----------------------------------------------------------------------------;
+
+[Strings]
+
+; Non-localized
+ESS="ESS"
+MfgName="ESS Technology, Inc."
+ClassName="Sound, video and game controllers"
+KEY_OEM="System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\ESS Game Port"
+
+*ESS0005.DeviceDesc="ESS Gameport"

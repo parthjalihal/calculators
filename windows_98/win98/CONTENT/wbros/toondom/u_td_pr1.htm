@@ -1,0 +1,833 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+
+
+sub window_onload
+
+	Seq1("Pres1").Play
+
+end sub
+
+
+
+Sub Seq1_onInit
+
+	call Seq1("Pres1").at(1.000, "swapIntro(1)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(3.000, "swapIntro(2)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(5.000, "swapIntro(3)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(7.000, "swapIntro(4)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(9.000, "swapIntro(5)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(9.999, "swapWakko(1)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(10.000, "changeCountry(1)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(10.500, "changeCountry(2)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(11.000, "changeCountry(3)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(11.500, "changeCountry(4)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(12.000, "changeCountry(5)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(12.500, "changeCountry(6)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(13.000, "changeCountry(7)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(13.500, "changeCountry(8)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(14.000, "changeCountry(9)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(14.500, "changeCountry(10)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(15.000, "changeCountry(11)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(15.500, "changeCountry(12)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(16.000, "changeCountry(13)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(16.500, "changeCountry(14)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(17.000, "changeCountry(15)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(17.500, "changeCountry(16)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(18.000, "changeCountry(17)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(18.500, "changeCountry(18)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(19.500, "changeCountry(20)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(20.000, "changeCountry(21)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(20.500, "changeCountry(22)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(21.000, "changeCountry(23)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(21.500, "changeCountry(24)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(22.000, "changeCountry(25)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(22.500, "changeCountry(26)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(22.511, "swapWakko(2)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(23.000, "swapIntro(6)",1, 0.0, 1)
+
+	call Seq1("Pres1").at(28.000, "ShowPres",1, 0.0, 1)
+
+
+
+End Sub
+
+
+
+Sub ShowPres
+
+	call parent.showPres2()
+
+End Sub
+
+
+
+Sub changeCountry(idx)
+
+	Select Case idx
+
+		Case "1"
+
+			country1.style.visibility="visible"
+
+		Case "2"
+
+			country1.style.visibility="hidden"
+
+			country2.style.visibility="visible"
+
+		Case "3"
+
+			country2.style.visibility="hidden"
+
+			country3.style.visibility="visible"
+
+		Case "4"
+
+			country3.style.visibility="hidden"
+
+			country4.style.visibility="visible"
+
+		Case "5"
+
+			country4.style.visibility="hidden"
+
+			country5.style.visibility="visible"
+
+		Case "6"
+
+			country5.style.visibility="hidden"
+
+			country6.style.visibility="visible"
+
+		Case "7"
+
+			country6.style.visibility="hidden"
+
+			country7.style.visibility="visible"
+
+		Case "8"
+
+			country7.style.visibility="hidden"
+
+			country8.style.visibility="visible"
+
+		Case "9"
+
+			country8.style.visibility="hidden"
+
+			country9.style.visibility="visible"
+
+		Case "10"
+
+			country9.style.visibility="hidden"
+
+			country10.style.visibility="visible"
+
+		Case "11"
+
+			country10.style.visibility="hidden"
+
+			country11.style.visibility="visible"
+
+		Case "12"
+
+			country11.style.visibility="hidden"
+
+			country12.style.visibility="visible"
+
+		Case "13"
+
+			country12.style.visibility="hidden"
+
+			country13.style.visibility="visible"
+
+		Case "14"
+
+			country13.style.visibility="hidden"
+
+			country14.style.visibility="visible"
+
+		Case "15"
+
+			country14.style.visibility="hidden"
+
+			country15.style.visibility="visible"
+
+		Case "16"
+
+			country15.style.visibility="hidden"
+
+			country16.style.visibility="visible"
+
+		Case "17"
+
+			country16.style.visibility="hidden"
+
+			country17.style.visibility="visible"
+
+		Case "18"
+
+			country17.style.visibility="hidden"
+
+			country18.style.visibility="visible"
+
+		Case "20"
+
+			country18.style.visibility="hidden"
+
+			country19.style.visibility="visible"
+
+		Case "21"
+
+			country19.style.visibility="hidden"
+
+			country20.style.visibility="visible"
+
+		Case "22"
+
+			country20.style.visibility="hidden"
+
+			country21.style.visibility="visible"
+
+		Case "23"
+
+			country21.style.visibility="hidden"
+
+			country22.style.visibility="visible"
+
+		Case "24"
+
+			country22.style.visibility="hidden"
+
+			country23.style.visibility="visible"
+
+		Case "25"
+
+			country23.style.visibility="hidden"
+
+			country24.style.visibility="visible"
+
+		Case "26"
+
+			country24.style.visibility="hidden"
+
+	End Select
+
+End Sub
+
+
+
+Sub swapWakko(idx)
+
+	Select Case idx
+
+		Case "1"
+
+			wakko.style.visibility="hidden"
+
+			wakko2.style.visibility="visible"
+
+		Case "2"
+
+			wakko2.style.visibility="hidden"
+
+			wakko.style.visibility="visible"			
+
+	End Select
+
+End Sub
+
+
+
+Sub swapIntro(idx)
+
+	Select Case idx
+
+		Case "1"
+
+			intro1.style.visibility="visible"
+
+		Case "2"
+
+			intro1.style.visibility="hidden"
+
+			intro2.style.visibility="visible"
+
+		Case "3"
+
+			intro2.style.visibility="hidden"
+
+			intro3.style.visibility="visible"
+
+		Case "4"
+
+			intro3.style.visibility="hidden"
+
+			intro4.style.visibility="visible"
+
+		Case "5"
+
+			intro4.style.visibility="hidden"
+
+		Case "6"
+
+			URL.style.visibility="visible"			
+
+	End Select
+
+End Sub
+
+--> 
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. TOONDOM: Shows</TITLE>
+
+</HEAD>
+
+
+
+<body bgcolor=black background="img/animania.jpg" text=000000 link=000000 alink=000000 vlink=000000>
+
+
+
+<DIV ID=midiDiv STYLE="POSITION:absolute; TOP:0; LEFT:0">
+
+<bgsound src="med/animania.mid">
+
+</DIV>
+
+
+
+<img ID=wakko src="img/an_wakko.gif" STYLE="POSITION:ABSOLUTE; TOP:59; LEFT:250; VISIBILITY:visible">
+
+
+
+<img ID=wakko2 src="img/an_wako2.gif" STYLE="POSITION:ABSOLUTE; TOP:59; LEFT:250; VISIBILITY:hidden">
+
+
+
+<DIV ID=country1 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=5 face="Comic Sans MS" color=red><b>
+
+United States
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country2 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Canada
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country3 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Mexico
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country4 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Panama
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country5 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Haiti
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country6 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Jamaica
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country7 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Peru
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country8 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Republic Dominican
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country9 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Cuba
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country10 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Carribean
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country11 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Greenland
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country12 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+El Salvador, too.
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country13 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Puerto Rico
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country14 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Colombia
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country15 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Venezuela
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country16 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Honduras
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country17 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Guianna
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country18 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+and still...
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country19 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Gutemala
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country20 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Bolivia
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country21 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+then Argentina
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country22 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Ecuador
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country23 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Chile
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=country24 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font ID=text size=5 face="Comic Sans MS" color=red><b>
+
+Brazil
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=intro1 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=5 face="Comic Sans MS" color=red><b>
+
+And now...
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=intro2 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=5 face="Comic Sans MS" color=red><b>
+
+the nations of the world
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=intro3 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=5 face="Comic Sans MS" color=red><b>
+
+brought to you by
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=intro4 STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=6 face="Comic Sans MS" color=red><b>
+
+Yakko Warner!
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=URL STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:180; TOP:130; LEFT:0; VISIBILITY:hidden">
+
+<center>
+
+<font size=3 face="Comic Sans MS" color=red><b>
+
+Want more...?<br>
+
+<font size=4><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a></font>
+
+</b></font>
+
+</center>
+
+</DIV>
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:290; Filter:alpha(opactiy=60)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<OBJECT ID="Seq1"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+
+</OBJECT>
+
+</body>
+
+</html>

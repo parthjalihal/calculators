@@ -1,0 +1,31 @@
+%<!-- lesson1.htm --><!-- Starting a Program -->
+In this lesson, you'll learn how to quickly open and close a program in Windows.
+<P>
+<br>
+<p>
+Click the <b>Next</b> button, above, to continue.
+%~%
+Many of the <a id=a1 href="javascript:;" onclick="javascript:popup('Column1', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>programs</a> stored on your computer can be opened from the <b>Start</b> menu.
+%~%
+To open a program, click the <b>Start</b> button <img src="images/stdstart.gif" align=absmiddle>
+on the Windows <a id=a1 href="javascript:;" onclick="javascript:popup('Column2', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>taskbar</a>, point to <b>Programs</b>, point to <b>Accessories</b>, and click <b>WordPad</b>.
+<p>
+You can use WordPad, a Windows word-processing program, to write letters, reports, and other documents.
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%~%
+To close WordPad, click the <b>Close</b> button <img src="images/stdclose.gif">
+on the <b>WordPad</b> window
+<a id=a1 href="javascript:;" onclick="javascript:popup('Column3', window.event.x, window.event.y+65);" class=glossary onfocus="this.style.color='red'" onblur="this.style.color='blue'"
+>title bar</a>.
+<p>
+You now know how to open and close a program in Windows.
+<p>
+<a id=a2 href="javascript:;" onclick="javascript:LaunchShowMe();" onfocus="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onblur="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onkeypress="showmegif.src='images/show_dep.gif'" onmouseover="showmelabel.style.color='red';showmegif.src='images/show_ovr.gif'" onmouseout="showmelabel.style.color='black';showmegif.src='images/show_def.gif'" onmousedown="showmegif.src='images/show_dep.gif'" onmouseup="showmegif.src='images/show_def.gif'"><img src="images/show_def.gif" name="showmegif" border=0 align=absmiddle hspace=0><span class=Select id="showmelabel">
+Show Me</span></a>
+%
+
+

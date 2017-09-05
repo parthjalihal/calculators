@@ -1,0 +1,117 @@
+; WMPORT.INF
+; Copyright 1997, 3Com Corp.
+; This is the device information file for the Winmodem port installation.
+
+; Comment starting with a semicolon should not be added at the end of a line.
+; Version 1.0.02
+
+[version]
+signature="$CHICAGO$"
+
+Class=Ports
+; install hardware with port capabilities only.                        
+
+Provider=%USR%
+; name of the hardware provider
+
+[DestinationDirs]
+ComPort.CopySys=11
+; SYSTEM subdirectory
+
+[SourceDisksFiles]
+winmodem.vxd=1
+wmaudio.386=1
+; Source disk : disk one
+
+[SourceDisksNames]
+1="MEGAHERTZ International Modem for Windows",DISK1,2345-16E8
+; this is the install disk description
+
+;----------------------------------------------------------
+; Install class "Ports"
+; Windows will probably not use these entries, because the port class
+; is already installed
+
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+
+;----------------------------------------------------------
+; Drivers
+; Winmodem hardware declaration
+
+[Manufacturer]
+%Std%=Std
+             
+[Std]
+%Winmodem.DeviceDesc% = ComPort,WINMODEM
+
+;----------------------------------------------------------
+; COM sections
+
+[ComPort]
+AddReg=ComPort.AddReg
+; add registry entries
+
+UpdateIniFields=ComPort.AddIniField
+; add new entries to system.ini
+
+CopyFiles=ComPort.CopySys
+; copy Winmodem files
+
+[ComPort.CopySys]
+winmodem.vxd,winmodem.vx_
+wmaudio.386,wmaudio.38_
+; this file will be copied in the SYSTEM directory
+
+[ControlFlags]
+ExcludeFromSelect=WINMODEM
+
+[ComPort.AddReg]
+; system keys
+HKR,,ConfigDialog,,serialui.dll
+; the DLL containing the baud rate/data bits/stop bits configuration dialog
+
+HKR,,DevLoader,,*vcomm
+; device loader. Must be vcomm
+
+HKR,,PortDriver,,winmodem.vxd
+; driver name
+
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 09,40,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+; Default DCB
+
+HKR,,PortSubClass,1,01
+; May be useless
+
+HKR,,EnumPropPages,,"winmodem.cpl,EnumPropPages"
+; Coordinates of the property provider
+
+; Winmodem specific keys. Required. See VxD external specifications
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\AutomaticPortSelection,,,TRUE
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\Base,,,270
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\ComAlias,,,COM4
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\ComPort,,,COM4
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\ForceCOM1To4,,,TRUE
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\IRQ,,,7
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\EnablePCMCIA,,,TRUE
+HKLM,SOFTWARE\USRobotics\Winmodem\1.0\AllowIRQSharing,,,TRUE
+HKLM,System\CurrentControlSet\Services\VxD\VCOMM,EnablePowerManagement,REG_DWORD,0x00000000
+
+[ComPort.AddIniField]
+%10%\SYSTEM.INI,Boot,drivers,"winmodem.100\winmodem.drv",
+; this entry delete the reference to an old Winmodem driver.
+
+%10%\SYSTEM.INI,Boot,drivers,,"winmodem.101\winmodem.drv"
+; this entry add the Winmodem driver to the list of preloaded drivers.
+
+;----------------------------------------------------------
+; User readable strings
+[Strings]
+USR = "3Com Corp."
+Std = "3Com Corp."
+PortsClassName = "Ports (COM & LPT)"
+Winmodem.DeviceDesc = "MEGAHERTZ International Modem for Windows"
+

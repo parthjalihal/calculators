@@ -1,0 +1,420 @@
+<HTML>
+<HEAD>
+<TITLE>Microsoft Computer Essentials</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="topic5.txt">
+</OBJECT>
+<SCRIPT LANGUAGE=JavaScript>
+rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function initarry(){
+	for(i=0;i<32;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+	divEnter.innerHTML = txtary[31];
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE="VBScript">
+Dim PthArray,ImgArray,n,currentseq,currentQ, g_timedout
+currentseq = 1
+currentQ = "null"
+
+sub window_onload()
+	window.focus()
+	initarry()
+	if parent.backwards then
+		currentseq=15
+		call seq("15").Play()
+		parent.backwards = false
+	else
+		call seq("1").Play()
+	end if
+end sub
+
+sub nextseq()
+	call seq("mvmt").stop()
+	if currentseq < 15 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq + 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.nav.spanWorkWin.click
+	end if
+end sub
+
+sub prevseq()
+	call seq("mvmt").stop()
+	if currentseq > 1 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq - 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.backwards=true
+		parent.nav.spanMeetDesk.click
+	end if
+end sub
+
+sub timedout(caller)
+	if caller = currentQ then
+	if g_timedout <> 2 then
+	call seq("mvmt").stop()
+		select case currentQ
+			case "Q1"
+				call parent.dotext(16)
+				parent.sound("waves/topic5/T5_Ans5.mpa")
+			case "Q2"
+				call parent.dotext(22)
+				parent.sound("waves/topic5/T5_Ans10.mpa")
+			case "Q3"
+				call parent.dotext(28)
+				parent.sound("waves/topic5/T5_Ans15.mpa")
+		end select
+	call seq("mvmt").play()
+	'currentQ = "null"
+	end if
+	end if
+end sub
+
+Sub document_onkeydown()
+	keyhandle(window.event.keycode)
+End Sub
+
+Sub keyhandle(whatkey)
+	call seq("mvmt").stop()
+	if currentQ  <> "null" then
+		select case whatkey
+			case 37
+				currentQ = "null"
+				g_timedout = 0
+				prevseq
+			case 39
+				currentQ = "null"
+				g_timedout = 0
+				nextseq
+			case 97
+				select case currentQ
+					case "Q1"
+						call parent.dotext(12)
+						parent.sound("waves/topic5/T5_Ans1.mpa")
+						currentQ = "null"
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(18)
+						parent.sound("waves/topic5/T5_Ans3c.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(24)
+						parent.sound("waves/topic5/T5_Ans3c.mpa")
+						g_timedout = 2
+					end select
+			case 49
+				select case currentQ
+					case "Q1"
+						call parent.dotext(12)
+						parent.sound("waves/topic5/T5_Ans1.mpa")
+						currentQ = "null"
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(18)
+						parent.sound("waves/topic5/T5_Ans3c.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(24)
+						parent.sound("waves/topic5/T5_Ans3c.mpa")
+						g_timedout = 2
+					end select
+			case 98
+				select case currentQ
+					case "Q1"
+						call parent.dotext(13)
+						parent.sound("waves/topic5/T5_Ans2.mpa")
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(19)
+						currentQ = "null"
+						parent.sound("waves/topic5/T5_Ans6.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(25)
+						parent.sound("waves/topic5/T5_Ans2.mpa")
+						g_timedout = 2
+				end select
+			case 50
+				select case currentQ
+					case "Q1"
+						call parent.dotext(13)
+						parent.sound("waves/topic5/T5_Ans2.mpa")
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(19)
+						currentQ = "null"
+						parent.sound("waves/topic5/T5_Ans6.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(25)
+						parent.sound("waves/topic5/T5_Ans2.mpa")
+						g_timedout = 2
+				end select
+			case 99
+				select case currentQ
+					case "Q1"
+						call parent.dotext(14)
+						parent.sound("waves/topic5/T5_Ans3.mpa")
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(20)
+						parent.sound("waves/topic5/T5_Ans8.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(26)
+						parent.sound("waves/topic5/T5_Ans11.mpa")
+						currentQ = "null"
+						g_timedout = 2
+				end select
+			case 51
+				select case currentQ
+					case "Q1"
+						call parent.dotext(14)
+						parent.sound("waves/topic5/T5_Ans3.mpa")
+						g_timedout = 2
+					case "Q2"
+						call parent.dotext(20)
+						parent.sound("waves/topic5/T5_Ans8.mpa")
+						g_timedout = 2
+					case "Q3"
+						call parent.dotext(26)
+						parent.sound("waves/topic5/T5_Ans11.mpa")
+						currentQ = "null"
+						g_timedout = 2
+				end select
+		end select
+		call seq("mvmt").play()
+	else
+		select case whatkey
+			case 37
+				prevseq
+			case 38
+				parent.location.href = "../default.htm"
+			case 39
+				nextseq
+		end select
+	end if
+end sub
+
+Sub seq_OnInit
+	Call seq("1").at(0.00, "parent.hideall('srtup')")
+	Call seq("1").at(0.00, "parent.dotext(0)")
+	Call seq("1").at(0.00, "parent.sound('waves/topic5/top5_2.mpa')")
+	Call seq("1").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("2").at(0.00, "parent.dotext(1)")
+	Call seq("2").at(0.00, "parent.hideall('srtup')")
+	Call seq("2").at(0.50, "parent.sound('waves/topic5/top5_2a.mpa')")
+	Call seq("2").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("3").at(0.00, "parent.hideall('srtup', 'lowg')")
+	Call seq("3").at(0.00, "parent.dotext(2)")
+	Call seq("3").at(0.50, "parent.sound('waves/topic5/top5_1a.mpa')")
+	Call seq("3").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("4").at(0.00, "parent.hideall('srtup', 'midg')")
+	Call seq("4").at(0.00, "parent.dotext(3)")
+	Call seq("4").at(0.50, "parent.sound('waves/topic5/top5_2b.mpa')")
+	Call seq("4").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("5").at(0.00, "parent.hideall('srtup', 'topg')")
+	Call seq("5").at(0.00, "parent.dotext(4)")
+	Call seq("5").at(0.50, "parent.sound('waves/topic5/top5_6.mpa')")
+	Call seq("5").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("6").at(0.00, "parent.hideall('srtup', 'arrg')")
+	Call seq("6").at(0.00, "parent.dotext(5)")
+	Call seq("6").at(0.50, "parent.sound('waves/topic5/top5_7.mpa')")
+	Call seq("6").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("7").at(0.00, "parent.hideall('srtup', 'arrg', 'progmenu')")
+	Call seq("7").at(0.00, "parent.dotext(6)")
+	Call seq("7").at(0.50, "parent.sound('waves/topic5/top5_8.mpa')")
+	Call seq("7").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("8").at(0.00, "PlayPath('stop',1)")
+	Call seq("8").at(0.00, "parent.hideall()")
+	Call seq("8").at(0.00, "parent.dotext(7)")
+	Call seq("8").at(0.50, "parent.sound('waves/topic5/top5_9.mpa')")
+	Call seq("8").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'animation of start menu
+	Call seq("9").at(0.00, "parent.dotext(8)")
+	Call seq("9").at(0.00, "parent.hideall('curs')")
+	Call seq("9").at(0.50, "parent.sound('waves/topic5/top5_10.mpa')")
+	Call seq("9").at(0.75, "PlayPath('play', 1)")
+	Call seq("9").at(3.25, "parent.doShow(imgStartBtnDown)")
+	Call seq("9").at(3.25, "parent.doShow(imgStartMenu)")
+	Call seq("9").at(3.50, "parent.doShow(imgShutHi)")
+	Call seq("9").at(4.00, "parent.doShowNHide(imgShutHi,imgLogHi)")
+	Call seq("9").at(4.25, "parent.doShowNHide(imgLogHi,imgRunHi)")
+	Call seq("9").at(4.50, "parent.doShowNHide(imgRunHi,imgHelpHi)")
+	Call seq("9").at(5.00, "parent.doShowNHide(imgHelpHi,imgFindHi)")
+	Call seq("9").at(5.25, "parent.doShowNHide(imgFindHi,imgSetHi)")
+	Call seq("9").at(5.50, "parent.doShowNHide(imgSetHi,imgDocHi)")
+	Call seq("9").at(5.75, "parent.doShowNHide(imgDocHi,imgFavHi)")
+	Call seq("9").at(6.00, "parent.doShowNHide(imgFavHi,imgProgHi)")
+	Call seq("9").at(6.25, "parent.doShow(imgProgMenu)")
+
+	Call seq("9").at(10.25, "PlayPath('play', 2)")
+	Call seq("9").at(10.25, "parent.dotext(9)")
+	Call seq("9").at(10.25, "parent.sound('waves/topic5/top5_10a.mpa')")
+	Call seq("9").at(10.25, "parent.doShow(imgProgMenu)")
+	Call seq("9").at(11.00, "parent.doShow(imgAccHi)")
+	Call seq("9").at(12.00, "parent.doShow(imgAccMenu)")
+	Call seq("9").at(12.75, "parent.doShow(imgMultiHi)")
+	Call seq("9").at(13.50, "parent.doShowNHide(imgMultiHi,imgSystemHi)")
+	Call seq("9").at(13.75, "parent.doShowNHide(imgSystemHi,imgCalcHi)")
+	Call seq("9").at(14.00, "parent.doShowNHide(imgCalcHi,imgDialHi)")
+	Call seq("9").at(14.25, "parent.doShowNHide(imgDialHi,imgWordHi)")
+	Call seq("9").at(14.50, "parent.doHide(imgWordHi)")
+	Call seq("9").at(14.75, "parent.doShow(imgWordHi)")
+	Call seq("9").at(15.00, "parent.doHide(imgWordHi)")
+	Call seq("9").at(15.25, "parent.doShow(imgWordHi)")
+	Call seq("9").at(16.00, "parent.hideall('curs')")
+	Call seq("9").at(16.25, "parent.doShow(imgWordPad)")
+	Call seq("9").at(17.00, "parent.doHide(imgCursor)")
+	Call seq("9").at(37.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("10").at(0.00, "PlayPath('stop', 1)")
+	Call seq("10").at(0.00, "parent.hideall('srtup')")
+	Call seq("10").at(0.00, "parent.dotext(10)")
+	Call seq("10").at(0.00, "parent.sound('waves/topic5/top5_11.mpa')")
+	Call seq("10").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+'start game
+	Call seq("11").at(0.00, "parent.hideall('srtup')")
+	Call seq("11").at(0.25, "parent.doShow(img1)")
+	Call seq("11").at(1.25, "parent.doShow(img2)")
+	Call seq("11").at(2.25, "parent.doShow(img3)")
+	Call seq("11").at(0.00, "parent.dotext(11)")
+	Call seq("11").at(0.00, "parent.iterateGame('Q1')")
+	Call seq("11").at(0.00, "parent.sound('waves/topic5/t5_qst1.mpa')")
+	Call seq("11").at(25.00, "timedout('Q1')")
+
+	Call seq("12").at(0.00, "seq('mvmt').stop()")
+	Call seq("12").at(0.00, "parent.hideall('srtup', 'nums')")
+	Call seq("12").at(0.00, "parent.dotext(17)")
+	Call seq("12").at(0.00, "parent.iterateGame('Q2')")
+	Call seq("12").at(0.00, "parent.sound('waves/topic5/t5_qst2.mpa')")
+	Call seq("12").at(25.00, "timedout('Q2')")
+
+	Call seq("13").at(0.00, "seq('mvmt').stop()")
+	Call seq("13").at(0.00, "parent.hideall('srtup', 'nums')")
+	Call seq("13").at(0.00, "parent.dotext(23)")
+	Call seq("13").at(0.00, "parent.iterateGame('Q3')")
+	Call seq("13").at(0.00, "parent.sound('waves/topic5/t5_qst3.mpa')")
+	Call seq("13").at(25.00, "timedout('Q3')")
+'end game
+
+	Call seq("14").at(0.00, "seq('mvmt').stop()")
+	Call seq("14").at(0.00, "parent.hideall()")
+	Call seq("14").at(0.00, "parent.dotext(29)")
+	Call seq("14").at(0.00, "parent.sound('waves/topic5/top5_15.mpa')")
+	Call seq("14").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("15").at(0.00, "parent.dotext(30)")
+	Call seq("15").at(0.00, "parent.hideall()")
+	Call seq("15").at(0.00, "parent.sound('waves/topic5/top5_4d.mpa')")
+	Call seq("15").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("mvmt").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+end sub
+
+Sub PlayPath(how, which)
+	if how = "play" then
+		if which = 1 then
+			Call pthCursor.Play
+		else
+			Call pthCursor2.Play
+		end if
+	else
+		Call pthCursor.Stop
+		Call pthCursor2.Stop
+	end if
+End Sub
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR=#E3E3E3>
+
+<!--computer with big monitor image and Start menu images-->
+<IMG class="always" ID="imgComputer" SRC="images/Monclose.gif" STYLE="position:absolute;left:0;top:0; visibility:hidden">
+<IMG class="always" ID="imgIcons" SRC="images/icons.gif" STYLE="position:absolute; left: 95; top: 40; visibility:hidden">
+<IMG class="always" ID="imgTaskbar" SRC="images/taskbar.gif" STYLE="position:absolute; left:87; top:253; visibility:hidden">
+
+<IMG class="srtup" ID="imgStartBtnDown" SRC="images/st_btn_d.gif" STYLE="position:absolute; left:89; top:254; visibility:hidden">
+<IMG class="curs" ID="imgCursor" SRC="images/cursor.gif" STYLE="position:absolute; left:200; top:200; visibility:hidden;z-index:50">
+<IMG class="srtup" ID="imgStartMenu" SRC="images/st_menu.gif" STYLE="position:absolute; left:88; top:118; visibility:hidden">
+
+<IMG class="lowg" ID="imgStartMenuBtmHi" SRC="images/circles/c_sbott.gif" STYLE="position:absolute; left:90; top:205; visibility:hidden">
+<IMG class="midg" ID="imgStartMenuMidHi" SRC="images/circles/c_smid.gif" STYLE="position:absolute; left:90; top:130; visibility:hidden">
+<IMG class="topg" ID="imgStartMenuTopHi" SRC="images/circles/c_stop.gif" STYLE="position:absolute; left:93; top:100; visibility:hidden">
+<IMG class="arrg" ID="imgArrowHi" SRC="images/circles/c_sarrow.gif" STYLE="position:absolute; z-index:2; left:105; top:130; visibility:hidden;">
+
+<IMG class="progmenu" ID="imgProgMenu" SRC="images/menuprog.GIF" STYLE="position:absolute; left:164; top:134; visibility:hidden">
+<IMG ID="imgProgHi" SRC="images/ProgHi.GIF" STYLE="position:absolute; left:88; top:138; visibility:hidden">
+<IMG ID="imgAccMenu" SRC="images/acc_sub.gif" STYLE="position:absolute; left:258; top:132; visibility:hidden">
+<IMG ID="imgAccHi" SRC="images/AccessHi.gif" STYLE="position:absolute; left:166; top:136; visibility:hidden">
+<IMG ID="imgMultiHi" SRC="images/MultiHi.gif" STYLE="position:absolute; left:260; top:133; visibility:hidden">
+<IMG ID="imgSystemHi" SRC="images/SystemHi.gif" STYLE="position:absolute; left:260; top:145; visibility:hidden">
+<IMG ID="imgCalcHi" SRC="images/CalcHi.gif" STYLE="position:absolute; left:260; top:157; visibility:hidden">
+<IMG ID="imgDialHi" SRC="images/DialupHi.gif" STYLE="position:absolute; left:260; top:169; visibility:hidden">
+<IMG ID="imgWordHi" SRC="images/wphi.gif" STYLE="position:absolute; left:260; top:181; visibility:hidden">
+<IMG ID="imgLogHi" SRC="images/loghi.gif" STYLE="position:absolute; left:88; top:228; visibility:hidden">
+<IMG ID="imgShutHi" SRC="images/shuthi.gif" STYLE="position:absolute; left:88; top:240; visibility:hidden">
+<IMG ID="imgRunHi" SRC="images/RunHi.gif" STYLE="position:absolute; left:88; top:210; visibility:hidden">
+<IMG ID="imgHelpHi" SRC="images/HelpHi.gif" STYLE="position:absolute; left:88; top:198; visibility:hidden">
+<IMG ID="imgFindHi" SRC="images/FindHi.gif" STYLE="position:absolute; left:88; top:186; visibility:hidden">
+<IMG ID="imgDocHi" SRC="images/docHi.gif" STYLE="position:absolute; left:88; top:162; visibility:hidden">
+<IMG ID="imgFavHi" SRC="images/FavHi.gif" STYLE="position:absolute; left:88; top:150; visibility:hidden">
+<IMG ID="imgSetHi" SRC="images/setHi.GIF" STYLE="position:absolute; left:88; top:174; visibility:hidden">
+<IMG ID="imgWordPad" SRC="images/WordPad.gif" STYLE="position:absolute; left:122; top:81; visibility:hidden">
+
+<IMG class="nums" ID="img1" SRC="images/Num1.gif" STYLE="position:absolute; left:97; top:233; visibility:hidden;cursor:hand" onclick="keyhandle(49)">
+<IMG class="nums" ID="img2" SRC="images/Num2.gif" STYLE="position:absolute; left:97; top:168; visibility:hidden;cursor:hand" onclick="keyhandle(50)">
+<IMG class="nums" ID="img3" SRC="images/Num3.gif" STYLE="position:absolute; left:97; top:118; visibility:hidden;cursor:hand" onclick="keyhandle(51)">
+
+<!--sequencer object-->
+<OBJECT ID="seq" 
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+</OBJECT>
+
+<!--Path object-->
+<OBJECT ID="pthCursor"  
+CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="0">
+	<PARAM NAME="Duration" VALUE="5">
+	<PARAM NAME="Shape" VALUE="PolyLine(12,	200,200, 125,262, 125,260, 125,247, 125,235, 125,217, 125,205, 125,193, 125,181, 125,169, 125,157, 125,145)">
+	<PARAM NAME="Target" VALUE="imgCursor">
+</OBJECT>
+<OBJECT ID="pthCursor2"  
+CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="0">
+	<PARAM NAME="Duration" VALUE="4">
+	<PARAM NAME="Shape" VALUE="PolyLine(7, 125,145, 200,142, 300,148, 300,152, 300,164, 300,176, 300,188)">
+	<PARAM NAME="Target" VALUE="imgCursor">
+</OBJECT>
+<DIV STYLE="position:absolute; top: 315; left:10; width:460; height: 128">
+	<!--holder div for text-->	
+	<DIV CLASS="clsHolder" ID="divHolderText">
+	</DIV>
+
+	<!--back and forward directions-->
+	<DIV CLASS="clsEnter" ID="divEnter">
+	</DIV>
+</DIV>
+</body>
+</html>

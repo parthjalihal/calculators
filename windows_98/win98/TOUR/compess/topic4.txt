@@ -1,0 +1,33 @@
+value:string
+Your computer is comprised of two main parts: hardware and software.@
+The instructions that tell your computer what to do are called software.@
+Your main software, called the operating system, controls and manages your computer by translating your instructions into a language your hardware can understand.@
+This is the Windows desktop. It's the workspace of your screen on which icons, desktop components, application windows, and dialog boxes appear.@
+The taskbar is one element of the Windows desktop. The taskbar is a gray rectangular bar located, by default, across the bottom of the Windows desktop.@
+The taskbar includes the <B>Start</B> button, a button for each program that is open, and the system clock.@
+One of the most useful items on the taskbar is the <B>Start</B> button.@
+From here, you can quickly start a program, find or open a document, change your computer's settings, shut down the computer, and much more.@
+Your Windows desktop includes several small pictures. These are called icons.@
+Icons provide an easy way to open the programs or documents you use on a daily basis.@
+Ready to show what you've learned about your Windows desktop? Press the appropriate number in response to the questions.@
+Can you find the taskbar?@
+<IMG SRC="images/num1.gif" align="bottom"> Great! You selected the taskbar, the rectangular bar usually on the bottom of the Windows desktop.@
+You selected the <B>Start</B> button, which is one item on the taskbar. Now try to select the entire taskbar.@
+This is an icon: a graphic representation of a program, command, or Web page.  Now select the taskbar.@
+You selected a different area of the Windows desktop. Try again.@
+The taskbar is usually located across the bottom of the Windows desktop. It includes the <B>Start</B> button, a button for each open program, and a system clock.@
+Where is the <B>Start</B> button?@
+You selected the taskbar, which includes the <B>Start</B> button, a button for each open program, and a system clock. Now select the <b>Start</b> button.@
+<IMG SRC="images/num2.gif" align="bottom"> Yes! You selected the <B>Start</B> button. Clicking this button brings up a list of software and documents you can open.@
+This is an icon: a graphic representation of a program, command, or Web page. Now select the <B>Start</B> button.@
+You selected a different area of the Windows desktop. Try again.@
+Clicking the <B>Start</B> button brings up a list of software and documents you can open, as well as tasks you can perform.@
+Find an icon on your Windows desktop.@
+You selected the taskbar, which includes the <B>Start</B> button, a button for each open program, and a system clock. Now select an icon.@
+You selected the <B>Start</B> button, which is one item on the taskbar. Now select an icon.@
+<IMG SRC="images/num3.gif" align="bottom"> Correct! This is an icon, a graphic representation of a program, a command, or a Web page.@
+You selected a different area of the Windows Desktop. Try again.@
+There are many different types of icons. Icons are graphic images that represent a program, command, or Web page.@
+As you've learned, the basic Microsoft Windows screen is called the desktop.@
+The next topic focuses on where you usually go to start any activity: the <B>Start</B> menu.@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

@@ -1,0 +1,294 @@
+[Source Media Descriptions]
+	"1", "Microsoft Windows 98 Resource Kit","Setup.Exe", "."
+
+[Default File Settings]
+"STF_BACKUP"	 = ""
+"STF_COPY"	 = "YES"
+"STF_DATE"	 = "1997-01-01"
+"STF_DECOMPRESS"	 = ""
+"STF_OVERWRITE"	 = "ALWAYS"
+"STF_READONLY"	 = ""
+"STF_ROOT"	 = "YES"
+"STF_SETTIME"	 = "YES"
+"STF_TIME"	 = "0"
+"STF_VITAL"	 = ""
+
+
+[BATCH]
+"AsycFilt.dl_"=	1, BATCH\AsycFilt.dl_,,,COPY,1997-05-19,,,,,,,,,SHARED,74553,SYSTEM,,,,
+"batch.ex_"=	1, BATCH\batch.ex_,,,COPY,1998-04-27,,,,,,,,,SHARED,350501,SYSTEM,,,,
+"batch98.ch_"=	1, BATCH\batch98.ch_,,,COPY,1998-04-22,,,,,,,,,SHARED,120642,SYSTEM,,,,
+"ComCat.dl_"=	1, BATCH\ComCat.dl_,,,COPY,1996-10-30,,,,,,,,,SHARED,10146,SYSTEM,,,,
+"COMCTL32.OC_"=	1, BATCH\COMCTL32.OC_,,,COPY,1997-07-19,,,,,,,,,SHARED,315585,SYSTEM,,,,
+"COMDLG32.OC_"=	1, BATCH\COMDLG32.OC_,,,COPY,1997-07-19,,,,,,,,,SHARED,66924,SYSTEM,,,,
+"Ctl3d32.dl_"=	1, BATCH\Ctl3d32.dl_,,,COPY,1996-08-20,,,,,,,,,SHARED,15600,SYSTEM,,,,
+"msmask32.oc_"=	1, BATCH\msmask32.oc_,,,COPY,1997-07-19,,,,,,,,,SHARED,95496,SYSTEM,,,,
+"MSVBVM50.dl_"=	1, BATCH\MSVBVM50.dl_,,,COPY,1997-07-19,,,,,,,,,SHARED,863705,SYSTEM,,,,
+"OleAut32.dl_"=	1, BATCH\OleAut32.dl_,,,COPY,1997-05-19,,,,,,,,,SHARED,320739,SYSTEM,,,,
+"OlePro32.dl_"=	1, BATCH\OlePro32.dl_,,,COPY,1997-05-19,,,,,,,,,SHARED,67142,SYSTEM,,,,
+"Optional.in_"=	1, BATCH\Optional.in_,,,COPY,1998-04-21,,,,,,,,,SHARED,1821,SYSTEM,,,,
+"SETUP.EXE"=	1, BATCH\SETUP.EXE,,,COPY,1997-01-15,,,,,,,,,SHARED,89600,SYSTEM,,,,
+"SETUP.LST"=	1, BATCH\SETUP.LST,,,COPY,1998-03-30,,,,,,,,,SHARED,7866,SYSTEM,,,,
+"setup1.ex_"=	1, BATCH\setup1.ex_,,,COPY,1997-03-05,,,,,,,,,SHARED,73501,SYSTEM,,,,
+"ST5UNST.EX_"=	1, BATCH\ST5UNST.EX_,,,COPY,1997-01-15,,,,,,,,,SHARED,37850,SYSTEM,,,,
+"StdOle2.tl_"=	1, BATCH\StdOle2.tl_,,,COPY,1997-05-19,,,,,,,,,SHARED,7134,SYSTEM,,,,
+"SYSINFO.OC_"=	1, BATCH\SYSINFO.OC_,,,COPY,1997-07-19,,,,,,,,,SHARED,34805,SYSTEM,,,,
+"TABCTL32.OC_"=	1, BATCH\TABCTL32.OC_,,,COPY,1997-07-19,,,,,,,,,SHARED,118781,SYSTEM,,,,
+"VB5StKit.dl_"=	1, BATCH\VB5StKit.dl_,,,COPY,1997-01-15,,,,,,,,,SHARED,16457,SYSTEM,,,,
+"win.tl_"=	1, BATCH\win.tl_,,,COPY,1998-01-26,,,,,,,,,SHARED,286482,SYSTEM,,,,
+"batch.exe"=	1, BATCH\batch.exe,,,COPY,1998-04-27,,,,,,,,,SHARED,884736,SYSTEM,,,,
+"batch98.chm"=	1, BATCH\batch98.chm,,,COPY,1998-04-22,,,,,,,,,SHARED,113822,SYSTEM,,,,
+"optional.ini"=	1, BATCH\optional.ini,,,COPY,1998-04-21,,,,,,,,,SHARED,3559,SYSTEM,,,,
+
+[CONFIG\CHDOSCP\CODEPAGE]
+"1251.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\1251.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,6473,SYSTEM,,,,
+"1252.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\1252.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,20433,SYSTEM,,,,
+"1253.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\1253.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,6035,SYSTEM,,,,
+"437.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\437.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"737.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\737.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"850.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\850.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"855.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\855.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"860.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\860.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"861.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\861.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"862.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\862.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"863.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\863.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"865.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\865.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"866.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\866.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"869.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\869.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,524,SYSTEM,,,,
+"app737.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app737.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,35920,SYSTEM,,,,
+"app850.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app850.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"app855.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app855.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,37296,SYSTEM,,,,
+"app860.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app860.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"app861.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app861.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"app863.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app863.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"app865.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app865.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"app866.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app866.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,37328,SYSTEM,,,,
+"app869.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\app869.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,35920,SYSTEM,,,,
+"baltic.dat"=	1, CONFIG\CHDOSCP\CODEPAGE\baltic.dat,,,COPY,1997-11-11,,,,,,,,,SHARED,1046,SYSTEM,,,,
+"cp_1251.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_1251.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,6868,SYSTEM,,,,
+"cp_1252.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_1252.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,9390,SYSTEM,,,,
+"cp_1253.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_1253.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,6824,SYSTEM,,,,
+"cp_437.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_437.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,9586,SYSTEM,,,,
+"cp_737.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_737.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,6568,SYSTEM,,,,
+"cp_850.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_850.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,10022,SYSTEM,,,,
+"cp_852.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_852.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,9376,SYSTEM,,,,
+"cp_855.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_855.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,7316,SYSTEM,,,,
+"cp_860.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_860.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,8428,SYSTEM,,,,
+"cp_861.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_861.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,8444,SYSTEM,,,,
+"cp_863.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_863.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,8460,SYSTEM,,,,
+"cp_865.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_865.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,9202,SYSTEM,,,,
+"cp_866.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_866.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,7316,SYSTEM,,,,
+"cp_869.nls"=	1, CONFIG\CHDOSCP\CODEPAGE\cp_869.nls,,,COPY,1997-11-11,,,,,,,,,SHARED,7272,SYSTEM,,,,
+"dosapp.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\dosapp.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,44336,SYSTEM,,,,
+"ega.cpi"=	1, CONFIG\CHDOSCP\CODEPAGE\ega.cpi,,,COPY,1997-11-11,,,,,,,,,SHARED,58870,SYSTEM,,,,
+"ega2.cpi"=	1, CONFIG\CHDOSCP\CODEPAGE\ega2.cpi,,,COPY,1997-11-11,,,,,,,,,SHARED,58870,SYSTEM,,,,
+"ega3.cpi"=	1, CONFIG\CHDOSCP\CODEPAGE\ega3.cpi,,,COPY,1997-11-11,,,,,,,,,SHARED,58753,SYSTEM,,,,
+"Readme.txt"=	1, CONFIG\CHDOSCP\CODEPAGE\Readme.txt,,,COPY,1997-11-11,,,,,,,,,SHARED,2449,SYSTEM,,,,
+"unicode.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\unicode.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,29562,SYSTEM,,,,
+"vga737.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga737.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5216,SYSTEM,,,,
+"vga850.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga850.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5232,SYSTEM,,,,
+"vga855.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga855.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5120,SYSTEM,,,,
+"vga860.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga860.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5232,SYSTEM,,,,
+"vga861.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga861.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5232,SYSTEM,,,,
+"vga863.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga863.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5232,SYSTEM,,,,
+"vga865.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga865.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5232,SYSTEM,,,,
+"vga866.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga866.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5152,SYSTEM,,,,
+"vga869.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vga869.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5136,SYSTEM,,,,
+"vgaoem.fon"=	1, CONFIG\CHDOSCP\CODEPAGE\vgaoem.fon,,,COPY,1997-11-11,,,,,,,,,SHARED,5168,SYSTEM,,,,
+"xlat737.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat737.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,324,SYSTEM,,,,
+"xlat850.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat850.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,407,SYSTEM,,,,
+"xlat855.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat855.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,324,SYSTEM,,,,
+"xlat860.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat860.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,407,SYSTEM,,,,
+"xlat861.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat861.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,407,SYSTEM,,,,
+"xlat863.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat863.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,407,SYSTEM,,,,
+"xlat865.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat865.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,407,SYSTEM,,,,
+"xlat866.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat866.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,324,SYSTEM,,,,
+"xlat869.bin"=	1, CONFIG\CHDOSCP\CODEPAGE\xlat869.bin,,,COPY,1997-11-11,,,,,,,,,SHARED,324,SYSTEM,,,,
+
+[CONFIG\CHDOSCP]
+"chdoscp.exe"=	1, CONFIG\CHDOSCP\chdoscp.exe,,,COPY,1998-04-14,,,,,,,,,SHARED,205824,SYSTEM,,,,
+
+[CONFIG]
+"tzedit.exe"=	1, CONFIG\tzedit.exe,,,COPY,1998-04-03,,,,,,,,,SHARED,41984,SYSTEM,,,,
+"tzedit.hlp"=	1, CONFIG\tzedit.hlp,,,COPY,1998-04-02,,,,,,,,,SHARED,9759,SYSTEM,,,,
+"fat32win.exe"=	1, CONFIG\fat32win.exe,,,COPY,1998-03-09,,,,,,,,,SHARED,99328,SYSTEM,,,,
+"tzedit.cnt"=	1, CONFIG\tzedit.cnt,,,COPY,1998-04-02,,,,,,,,,SHARED,254,SYSTEM,,,,
+
+[DEPLOY]
+"batchs.exe"=	1, DEPLOY\batchs.exe,,,COPY,1998-01-28,,,,,,,,,SHARED,115200,SYSTEM,,,,
+
+[DESKTOP\MINITEL]
+"arialals.ttf"=	1, DESKTOP\MINITEL\arialals.ttf,,,COPY,1997-08-27,,,,,,,,,SHARED,16880,SYSTEM,,,,
+"arialalt.ttf"=	1, DESKTOP\MINITEL\arialalt.ttf,,,COPY,1997-08-27,,,,,,,,,SHARED,24232,SYSTEM,,,,
+
+[DESKTOP]
+"chklnks.exe"=	1, DESKTOP\chklnks.exe<Checklinks.exe>,,,COPY,1998-02-22,,,,,,,,,,364304,,,,,
+"quiktray.exe"=	1, DESKTOP\quiktray.exe,,,COPY,1998-03-24,,,,,,,,,SHARED,27136,SYSTEM,,,,
+"cliptray.exe"=	1, DESKTOP\cliptray.exe,,,COPY,1998-03-25,,,,,,,,,SHARED,104960,SYSTEM,,,,
+"cliptray.hlp"=	1, DESKTOP\cliptray.hlp,,,COPY,1998-03-05,,,,,,,,,SHARED,11808,SYSTEM,,,,
+"cliptray.cnt"=	1, DESKTOP\cliptray.cnt,,,COPY,1998-03-05,,,,,,,,,SHARED,603,SYSTEM,,,,
+
+[DIAGNOSE]
+"usbview.exe"=	1, DIAGNOSE\usbview.exe,,,COPY,1998-03-10,,,,,,,,,SHARED,69120,SYSTEM,,,,
+"win98.mfi"=	1, DIAGNOSE\win98.mfi,,,COPY,1998-04-17,,,,,,,,,SHARED,1554432,SYSTEM,,,,
+"fileinfo.exe"=	1, DIAGNOSE\fileinfo.exe,,,COPY,1998-04-17,,,,,,,,,SHARED,225280,SYSTEM,,,,
+
+[FILE\LFNBACK]
+"lfnbk.exe"=	1, FILE\LFNBACK\lfnbk.exe,,,COPY,1998-04-09,,,,,,,,,SHARED,19795,SYSTEM,,,,
+
+[FILE]
+"textview.exe"=	1, FILE\textview.exe,,,COPY,1998-03-25,,,,,,,,,SHARED,184592,SYSTEM,,,,
+"windiff.exe"=	1, FILE\windiff.exe,,,COPY,1996-10-21,,,,,,,,,SHARED,147680,SYSTEM,,,,
+"windiff.hlp"=	1, FILE\windiff.hlp,,,COPY,1996-08-21,,,,,,,,,SHARED,17357,SYSTEM,,,,
+"gutils.dll"=	1, FILE\gutils.dll,,,COPY,1996-10-21,,,,,,,,,SHARED,67984,SYSTEM,,,,
+"where.exe"=	1, FILE\where.exe,,,COPY,1998-03-25,,,,,,,,,SHARED,53248,SYSTEM,,,,
+
+[HELP]
+"win98rk.hlp"=	1, HELP\win98rk.hlp,,,COPY,1998-04-28,,,,,,,,,SHARED,171302,SYSTEM,,,,
+"win98rk.cnt"=	1, HELP\win98rk.cnt,,,COPY,1998-04-02,,,,,,,,,SHARED,1878,SYSTEM,,,,
+"poledit.cnt"=	1, HELP\poledit.cnt,,,COPY,1998-03-10,,,,,,,,,SHARED,574,SYSTEM,,,,
+"poledit.hlp"=	1, HELP\poledit.hlp,,,COPY,1998-03-10,,,,,,,,,SHARED,13690,SYSTEM,,,,
+"rk98book.chm"=	1, HELP\rk98book.chm,,,COPY,1998-04-27,,,,,,,,,SHARED,3213518,SYSTEM,,,,
+"readme.doc"=	1, HELP\readme.doc,,,COPY,1998-04-28,,,,,,,,,SHARED,24064,SYSTEM,,,,
+
+[INFINST]
+"infinst.chm"=	1, INFINST\infinst.chm,,,COPY,1998-02-27,,,,,,,,,SHARED,60507,SYSTEM,,,,
+"infinst.exe"=	1, INFINST\infinst.exe,,,COPY,1998-03-30,,,,,,,,,SHARED,138752,SYSTEM,,,,
+"readme.txt"=	1, INFINST\readme.txt,,,COPY,1998-04-28,,,,,,,,,SHARED,4321,SYSTEM,,,,
+
+[NETADMIN\NETMON]
+"bhnetb.dll"=	1, NETADMIN\NETMON\bhnetb.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,25488,SYSTEM,,,,
+"bhsupp.dll"=	1, NETADMIN\NETMON\bhsupp.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,22816,SYSTEM,,,,
+"mstcp.dll"=	1, NETADMIN\NETMON\mstcp.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,26832,SYSTEM,,,,
+"nal.dll"=	1, NETADMIN\NETMON\nal.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,16896,SYSTEM,,,,
+"ndis30.dll"=	1, NETADMIN\NETMON\ndis30.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,11024,SYSTEM,,,,
+"netmon.386"=	1, NETADMIN\NETMON\netmon.386,,,COPY,1997-12-29,,,,,,,,,SHARED,43596,SYSTEM,,,,
+"netmon.inf"=	1, NETADMIN\NETMON\netmon.inf,,,COPY,1997-12-29,,,,,,,,,SHARED,3556,SYSTEM,,,,
+"netmon.txt"=	1, NETADMIN\NETMON\netmon.txt,,,COPY,1998-03-13,,,,,,,,,SHARED,1827,SYSTEM,,,,
+"nm95setp.dll"=	1, NETADMIN\NETMON\nm95setp.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,11008,SYSTEM,,,,
+"nmagent.exe"=	1, NETADMIN\NETMON\nmagent.exe,,,COPY,1997-12-29,,,,,,,,,SHARED,14336,SYSTEM,,,,
+"nmagent.inf"=	1, NETADMIN\NETMON\nmagent.inf,,,COPY,1997-12-29,,,,,,,,,SHARED,2548,SYSTEM,,,,
+"nmsupp4.386"=	1, NETADMIN\NETMON\nmsupp4.386,,,COPY,1997-12-29,,,,,,,,,SHARED,9295,SYSTEM,,,,
+"nmthunk.dll"=	1, NETADMIN\NETMON\nmthunk.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,1152,SYSTEM,,,,
+"rnal.dll"=	1, NETADMIN\NETMON\rnal.dll,,,COPY,1997-12-29,,,,,,,,,SHARED,71296,SYSTEM,,,,
+
+[NETADMIN\REMOTREG]
+"regserv.exe"=	1, NETADMIN\REMOTREG\regserv.exe,,,COPY,1997-11-17,,,,,,,,,SHARED,33792,SYSTEM,,,,
+"regserv.txt"=	1, NETADMIN\REMOTREG\regserv.txt,,,COPY,1998-03-13,,,,,,,,,SHARED,1055,SYSTEM,,,,
+"regsrv.inf"=	1, NETADMIN\REMOTREG\regsrv.inf,,,COPY,1997-11-17,,,,,,,,,SHARED,2596,SYSTEM,,,,
+"winreg.dll"=	1, NETADMIN\REMOTREG\winreg.dll,,,COPY,1997-11-17,,,,,,,,,SHARED,24576,SYSTEM,,,,
+
+[NETADMIN\POLEDIT]
+"grouppol.reg"=	1, NETADMIN\POLEDIT\grouppol.reg,,,COPY,1998-01-22,,,,,,,,,SHARED,350,SYSTEM,,,,
+"common.adm"=	1, NETADMIN\POLEDIT\common.adm,,,COPY,1998-01-22,,,,,,,,,SHARED,42,SYSTEM,,,,
+"conf.adm"=	1, NETADMIN\POLEDIT\conf.adm,,,COPY,1998-01-29,,,,,,,,,SHARED,7864,SYSTEM,,,,
+"grouppol.dll"=	1, NETADMIN\POLEDIT\grouppol.dll,,,COPY,1997-01-27,,,,,,,,,SHARED,11776,SYSTEM,,,,
+"grouppol.inf"=	1, NETADMIN\POLEDIT\grouppol.inf,,,COPY,1998-01-16,,,,,,,,,SHARED,1815,SYSTEM,,,,
+"chat.adm"=	1, NETADMIN\POLEDIT\chat.adm,,,COPY,1998-01-29,,,,,,,,,SHARED,2911,SYSTEM,,,,
+"inetresm.adm"=	1, NETADMIN\POLEDIT\inetresm.adm,,,COPY,1998-02-27,,,,,,,,,SHARED,9641,SYSTEM,,,,
+"inetsetm.adm"=	1, NETADMIN\POLEDIT\inetsetm.adm,,,COPY,1998-02-27,,,,,,,,,SHARED,13175,SYSTEM,,,,
+"maximum.pol"=	1, NETADMIN\POLEDIT\maximum.pol,,,COPY,1998-01-22,,,,,,,,,SHARED,8192,SYSTEM,,,,
+"oem.adm"=	1, NETADMIN\POLEDIT\oem.adm,,,COPY,1998-02-27,,,,,,,,,SHARED,3414,SYSTEM,,,,
+"poledit.chm"=	1, NETADMIN\POLEDIT\poledit.chm,,,COPY,1998-01-22,,,,,,,,,SHARED,21584,SYSTEM,,,,
+"poledit.cnt"=	1, NETADMIN\POLEDIT\poledit.cnt,,,COPY,1998-01-22,,,,,,,,,SHARED,574,SYSTEM,,,,
+"poledit.exe"=	1, NETADMIN\POLEDIT\poledit.exe,,,COPY,1998-01-22,,,,,,,,,SHARED,123152,SYSTEM,,,,
+"poledit.hlp"=	1, NETADMIN\POLEDIT\poledit.hlp,,,COPY,1998-01-22,,,,,,,,,SHARED,13690,SYSTEM,,,,
+"poledit.inf"=	1, NETADMIN\POLEDIT\poledit.inf,,,COPY,1998-03-23,,,,,,,,,SHARED,2920,SYSTEM,,,,
+"poledit.txt"=	1, NETADMIN\POLEDIT\poledit.txt,,,COPY,1998-01-22,,,,,,,,,SHARED,808,SYSTEM,,,,
+"shellm.adm"=	1, NETADMIN\POLEDIT\shellm.adm,,,COPY,1998-03-10,,,,,,,,,SHARED,7485,SYSTEM,,,,
+"standard.pol"=	1, NETADMIN\POLEDIT\standard.pol,,,COPY,1998-01-22,,,,,,,,,SHARED,8192,SYSTEM,,,,
+"SUBSm.ADM"=	1, NETADMIN\POLEDIT\SUBSm.ADM,,,COPY,1998-02-27,,,,,,,,,SHARED,3522,SYSTEM,,,,
+"windows.adm"=	1, NETADMIN\POLEDIT\windows.adm,,,COPY,1998-02-27,,,,,,,,,SHARED,52653,SYSTEM,,,,
+"APPSINI.ADM"=	1, NETADMIN\POLEDIT\APPSINI.ADM,,,COPY,1998-03-23,,,,,,,,,SHARED,755,SYSTEM,,,,
+
+[NETADMIN\PWLEDIT]
+"pwledit.exe"=	1, NETADMIN\PWLEDIT\pwledit.exe,,,COPY,1998-03-10,,,,,,,,,SHARED,22016,SYSTEM,,,,
+"pwledit.inf"=	1, NETADMIN\PWLEDIT\pwledit.inf,,,COPY,1998-03-10,,,,,,,,,SHARED,2189,SYSTEM,,,,
+
+[NETADMIN\SNMP]
+"snmp.exe"=	1, NETADMIN\SNMP\snmp.exe,,,COPY,1998-03-10,,,,,,,,,SHARED,17920,SYSTEM,,,,
+"snmp.inf"=	1, NETADMIN\SNMP\snmp.inf,,,COPY,1998-03-10,,,,,,,,,SHARED,3008,SYSTEM,,,,
+"snmp.txt"=	1, NETADMIN\SNMP\snmp.txt,,,COPY,1998-03-13,,,,,,,,,SHARED,1337,SYSTEM,,,,
+"snmp.dll"=	1, NETADMIN\SNMP\snmp.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,20480,SYSTEM,,,,
+
+[NETADMIN\RPCPP]
+"rpcpp.dll"=	1, NETADMIN\RPCPP\rpcpp.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,48640,SYSTEM,,,,
+"rpcpp.inf"=	1, NETADMIN\RPCPP\rpcpp.inf,,,COPY,1998-03-10,,,,,,,,,SHARED,2246,SYSTEM,,,,
+"rpcpp.txt"=	1, NETADMIN\RPCPP\rpcpp.txt,,,COPY,1998-03-24,,,,,,,,,SHARED,1046,SYSTEM,,,,
+
+[POWERTOY]
+"tweakui.cnt"=	1, POWERTOY\tweakui.cnt,,,COPY,1997-12-02,,,,,,,,,SHARED,4569,SYSTEM,,,,
+"tweakui.hlp"=	1, POWERTOY\tweakui.hlp,,,COPY,1998-03-25,,,,,,,,,SHARED,45020,SYSTEM,,,,
+"tweakui.cpl"=	1, POWERTOY\tweakui.cpl,,,COPY,1998-04-07,,,,,,,,,SHARED,159744,SYSTEM,,,,
+"tweakui.inf"=	1, POWERTOY\tweakui.inf,,,COPY,1997-08-05,,,,,,,,,SHARED,2694,SYSTEM,,,,
+
+[SCRPTING]
+"waitfor.exe"=	1, SCRPTING\waitfor.exe,,,COPY,1998-02-22,,,,,,,,,SHARED,6416,SYSTEM,,,,
+"timethis.exe"=	1, SCRPTING\timethis.exe,,,COPY,1998-02-22,,,,,,,,,SHARED,4880,SYSTEM,,,,
+"winset.exe"=	1, SCRPTING\winset.exe,,,COPY,1997-11-17,,,,,,,,,SHARED,22528,SYSTEM,,,,
+"wshadmin.hlp"=	1, SCRPTING\wshadmin.hlp,,,COPY,1998-03-11,,,,,,,,,SHARED,24904,SYSTEM,,,,
+"wshadmin.cnt"=	1, SCRPTING\wshadmin.cnt,,,COPY,1998-03-11,,,,,,,,,SHARED,863,SYSTEM,,,,
+
+[SETUP\MMC]
+"immc.exe"=	1, SETUP\MMC\immc.exe,,,COPY,1997-11-25,,,,,,,,,SHARED,1215720,SYSTEM,,,,
+
+[SETUP]
+"acmsetup.exe"=	1, SETUP\acmsetup.exe,,,COPY,1998-03-04,,,,,,,,,SHARED,331776,SYSTEM,,,,
+"acmsetup.hlp"=	1, SETUP\acmsetup.hlp,,,COPY,1998-03-04,,,,,,,,,SHARED,19066,SYSTEM,,,,
+"cdsetup.exe"=	1, SETUP\cdsetup.exe,,,COPY,1998-03-12,,,,,,,,,SHARED,1818112,SYSTEM,,,,
+"eula.exe"=	1, SETUP\eula.exe,,,COPY,1998-03-04,,,,,,,,,SHARED,33792,SYSTEM,,,,
+"mscpydis.dll"=	1, SETUP\mscpydis.dll,,,COPY,1998-03-04,,,,,,,,,SHARED,22016,SYSTEM,,,,
+"mssetup.dll"=	1, SETUP\mssetup.dll,,,COPY,1998-03-04,,,,,,,,,SHARED,249344,SYSTEM,,,,
+"msvcrt.dll"=	1, SETUP\msvcrt.dll,,,COPY,1998-03-04,,,,,,,,,SHARED,267536,SYSTEM,,,,
+"reskit.inf"=	1, SETUP\reskit.inf,,,COPY,1998-04-17,,,,,,,,,SHARED,22175,SYSTEM,,,,
+"rksetup.dll"=	1, SETUP\rksetup.dll,,,COPY,1998-04-20,,,,,,,,,SHARED,146944,SYSTEM,,,,
+"reskit.stf"=	1, SETUP\reskit.stf,,,COPY,1998-04-21,,,,,,,,,SHARED,6684,SYSTEM,,,,
+"License.txt"=	1, SETUP\License.txt,,,COPY,1998-04-28,,,,,,,,,SHARED,12648,SYSTEM,,,,
+
+[SYSFILES]
+"comdlg32.ocx"=	1, SYSFILES\comdlg32.ocx,,,COPY,1998-03-05,,,,,,,,,SHARED,129808,SYSTEM,,,,
+"msgblast.ocx"=	1, SYSFILES\msgblast.ocx,,,COPY,1998-03-05,,,,,,,,,SHARED,60928,SYSTEM,,,,
+"vb40032.dll"=	1, SYSFILES\vb40032.dll,,,COPY,1998-03-05,,,,,,,,,SHARED,722192,SYSTEM,,,,
+"msjet35.dll"=	1, SYSFILES\msjet35.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,1048576,SYSTEM,,,,
+"msjint35.dll"=	1, SYSFILES\msjint35.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,135168,SYSTEM,,,,
+"msjter35.dll"=	1, SYSFILES\msjter35.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,36864,SYSTEM,,,,
+"msrd2x35.dll"=	1, SYSFILES\msrd2x35.dll,,,COPY,1998-03-05,,,,,,,,,SHARED,252176,SYSTEM,,,,
+"msrepl35.dll"=	1, SYSFILES\msrepl35.dll,,,COPY,1998-03-05,,,,,,,,,SHARED,407312,SYSTEM,,,,
+"odbcji32.dll"=	1, SYSFILES\odbcji32.dll,,,COPY,1998-03-05,,,,,,,,,SHARED,37888,SYSTEM,,,,
+"odbcjt32.dll"=	1, SYSFILES\odbcjt32.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,245760,SYSTEM,,,,
+"odbctl32.dll"=	1, SYSFILES\odbctl32.dll,,,COPY,1998-03-05,,,,,,,,,SHARED,73216,SYSTEM,,,,
+"vb5db.dll"=	1, SYSFILES\vb5db.dll,,,COPY,1998-03-04,,,,,,,,,SHARED,90112,SYSTEM,,,,
+"vb5stkit.dll"=	1, SYSFILES\vb5stkit.dll,,,COPY,1997-01-15,,,,,,,,,SHARED,29696,SYSTEM,,,,
+"vbajet32.dll"=	1, SYSFILES\vbajet32.dll,,,COPY,1998-03-04,,,,,,,,,SHARED,28672,SYSTEM,,,,
+"dao350.dll"=	1, SYSFILES\dao350.dll,,,COPY,1998-03-10,,,,,,,,,SHARED,593920,SYSTEM,,,,
+"msvbvm50.dll"=	1, SYSFILES\msvbvm50.dll,,,COPY,1997-07-19,,,,,,,,,SHARED,1347344,SYSTEM,,,,
+"win.tlb"=	1, SYSFILES\win.tlb,,,COPY,1998-01-26,,,,,,,,,SHARED,621140,SYSTEM,,,,
+"tabctl32.ocx"=	1, SYSFILES\tabctl32.ocx,,,COPY,1997-07-19,,,,,,,,,SHARED,192784,SYSTEM,,,,
+"sysinfo.ocx"=	1, SYSFILES\sysinfo.ocx,,,COPY,1997-07-19,,,,,,,,,SHARED,60688,SYSTEM,,,,
+"msmask32.ocx"=	1, SYSFILES\msmask32.ocx,,,COPY,1997-07-19,,,,,,,,,SHARED,166160,SYSTEM,,,,
+"comctl32.ocx"=	1, SYSFILES\comctl32.ocx,,,COPY,1997-07-19,,,,,,,,,SHARED,604432,SYSTEM,,,,
+
+[TMC]
+"SAMPLER.INF"=	1, TMC\SAMPLER.INF,,,COPY,1998-04-06,,,,,,,,,SHARED,6321,SYSTEM,,,,
+"win98tmc.dll"=	1, TMC\win98tmc.dll,,,COPY,1998-03-20,,,,,,,,,SHARED,201216,SYSTEM,,,,
+"win98tmc.msc"=	1, TMC\win98tmc.msc,,,COPY,1998-02-04,,,,,,,,,SHARED,5120,SYSTEM,,,,
+"NTdisk.gif"=	1, TMC\NTdisk.gif,,,COPY,1997-06-03,,,,,,,,,SHARED,4591,SYSTEM,,,,
+"document.gif"=	1, TMC\document.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1149,SYSTEM,,,,
+"gui.gif"=	1, TMC\gui.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1082,SYSTEM,,,,
+"help.gif"=	1, TMC\help.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1126,SYSTEM,,,,
+"html.gif"=	1, TMC\html.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1081,SYSTEM,,,,
+"console.gif"=	1, TMC\console.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1028,SYSTEM,,,,
+"NTtile.gif"=	1, TMC\NTtile.gif,,,COPY,1997-03-13,,,,,,,,,SHARED,3733,SYSTEM,,,,
+"pc32.gif"=	1, TMC\pc32.gif,,,COPY,1997-06-03,,,,,,,,,SHARED,294,SYSTEM,,,,
+"service.gif"=	1, TMC\service.gif,,,COPY,1997-09-08,,,,,,,,,SHARED,1131,SYSTEM,,,,
+"tmctkpad.dll"=	1, TMC\tmctkpad.dll,,,COPY,1998-03-20,,,,,,,,,SHARED,27648,SYSTEM,,,,
+"access.htm"=	1, TMC\access.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,2307,SYSTEM,,,,
+"config.htm"=	1, TMC\config.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,5910,SYSTEM,,,,
+"deploy.htm"=	1, TMC\deploy.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,4575,SYSTEM,,,,
+"desktop.htm"=	1, TMC\desktop.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,7983,SYSTEM,,,,
+"dxtshoot.htm"=	1, TMC\dxtshoot.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,4707,SYSTEM,,,,
+"filetool.htm"=	1, TMC\filetool.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,6841,SYSTEM,,,,
+"netadmin.htm"=	1, TMC\netadmin.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,8208,SYSTEM,,,,
+"perform.htm"=	1, TMC\perform.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,2288,SYSTEM,,,,
+"regtool.htm"=	1, TMC\regtool.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,2299,SYSTEM,,,,
+"scriptol.htm"=	1, TMC\scriptol.htm,,,COPY,1998-04-06,,,,,,,,,SHARED,7003,SYSTEM,,,,

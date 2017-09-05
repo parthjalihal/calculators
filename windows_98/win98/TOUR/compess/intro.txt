@@ -1,0 +1,7 @@
+value:string
+Welcome to Computer Essentials, a hands-on introduction to your computer.<P>Press the <B>RIGHT ARROW</B> key on your keyboard to continue.@
+On the left part of your screen is a list of topics you will learn about.<P>Press the <B>RIGHT ARROW</B> key on your keyboard to continue.@
+If you want to review the material in the previous screen, press the <B>LEFT ARROW</B> key on your keyboard to go back.@
+When you're ready to exit Computer Essentials and return to the <B>Discover Windows 98 Contents</B> screen, press the <B>UP ARROW</B> on your keyboard.@
+Using the number keys directly above the letter keys and below the function keys on your keyboard, press the corresponding section number.<OL><LI>If you have never used a computer before, press <B>1</B> to begin with 	<B>Meeting Your Computer</B>. <LI>If you have some computer experience, but are not yet comfortable using a mouse, press <B>2</B> to begin with the <B>Using Your Mouse</B> lesson.<LI>If you know the parts of your computer and how to use a mouse, but are not familiar with Windows, press <B>3</B> to begin with the <B>Exploring the Windows Desktop</B> lesson. @
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

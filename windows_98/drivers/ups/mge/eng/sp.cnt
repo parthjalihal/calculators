@@ -1,0 +1,32 @@
+:Base SP.HLP
+1 General Information
+2 General Information=General_Information
+1 Monitoring
+2 Main Window=Main_Window
+2 Communication status viewer=View_Communication
+2 Device power consumption viewer=View_Load
+2 Battery information viewer=View_Battery
+2 Utility power status viewer=View_Input
+2 UPS receptacle status viewer=View_Plugs
+2 Device power status viewer=View_Output
+2 View Events Window=View_Events
+2 Log Files Window=Log_Files
+1 Configuration
+2 Current Device Selection
+3 Select Device Window=Select_Application
+3 Define Local Device Window=Define_Local_Application
+3 Define Distant Device Window=Define_Distant_Application
+2 Actions and Events Definition
+3 Define Action Window=Define_Action
+3 Define Events Window=Define_Events
+3 Action Options Window=Action_Option
+3 New Driver Window=Install_Driver
+3 What to do after installing Jericho=After_Jericho
+2 UPS Configuration
+3 Device Configuration Window=Output_Configuration
+3 Schedule Window=Schedule
+2 UPS Control and Test
+3 Device Control Window=Output_Control
+3 Diagnostics Window=Diagnostics
+1 Advanced Usage
+2 Modify Password Window=Define_Password

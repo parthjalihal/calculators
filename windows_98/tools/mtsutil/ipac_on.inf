@@ -1,0 +1,12 @@
+; IPAC_ON.INF
+; Copyright (c) 1993-1998, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg=Enable.Autonet
+
+[Enable.Autonet]
+HKLM,System\CurrentControlSet\Services\VxD\DHCP,IPAutoConfigurationEnabled,1,01,00,00,00
+

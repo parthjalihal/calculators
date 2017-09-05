@@ -1,0 +1,135 @@
+; NETM16B.INF
+;
+; Intel EtherExpress(TM) PRO/100 LAN/Modem PC Card Adapter
+;
+; $Revision$
+;
+;----------------------------------------------------------------------------
+[Version]
+LayoutFile = layout.inf
+Signature  = "$CHICAGO$"
+Class      = Net
+Provider   = %PMfg%
+
+[Manufacturer]
+%Mfg%=Models
+
+[Strings]
+PMfg			= "Intel"
+Mfg			= "Intel"
+Model1			= "Intel EtherExpress PRO/100 LAN/Modem PC Card (Network)"
+
+[Models]
+%Model1%=Mfg56.ndi,MF\INTELM16B_DEV1
+
+[Mfg56.ndi]
+AddReg=ADDREG_Net56.ndi.reg,Net56.ndi.reg,ADDREG_Mfg56.ndi.reg
+
+[ADDREG_Net56.ndi.reg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,M16B.SYS
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+HKR,NDIS,LogDriverName,,M16B
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+
+HKR,Ndi,CardType,,"PCMCIA"
+
+;
+; These are the user-configurable parameters which the driver parses.
+;
+HKR,Ndi\params\DirectEnable,ParamDesc,,"DirectEnable"
+HKR,Ndi\params\DirectEnable,default,,0
+HKR,Ndi\params\DirectEnable,type,,enum
+HKR,Ndi\params\DirectEnable\enum,0,, "OFF"
+HKR,Ndi\params\DirectEnable\enum,1,, "ON"
+HKR,Ndi\params\DirectEnable,flag,1,20,00,00,00
+
+HKR,Ndi\Params\EarlyTransmit,ParamDesc,,"Early Transmit"
+HKR,Ndi\Params\EarlyTransmit,default,,1
+HKR,Ndi\Params\EarlyTransmit,type,,enum
+HKR,Ndi\Params\EarlyTransmit\enum,0,,"OFF"
+HKR,Ndi\Params\EarlyTransmit\enum,1,,"ON"
+HKR,NDI\Params\EarlyTransmit,flag,1,20,00,00,00
+
+HKR,Ndi\Params\FullDuplex,ParamDesc,,"Full Duplex"
+HKR,Ndi\Params\FullDuplex,default,,0
+HKR,Ndi\Params\FullDuplex,type,,enum
+HKR,Ndi\Params\FullDuplex\enum,0,,"OFF"
+HKR,Ndi\Params\FullDuplex\enum,1,,"ON"
+HKR,NDI\Params\FullDuplex,flag,1,20,00,00,00
+
+HKR,Ndi\params\FunctionEnable,ParamDesc,,"Function(s)"
+HKR,Ndi\params\FunctionEnable,default,,0
+HKR,Ndi\params\FunctionEnable,type,,enum
+HKR,Ndi\params\FunctionEnable\enum,0,, "Network & Modem"
+HKR,Ndi\params\FunctionEnable\enum,1,, "Network only"
+HKR,Ndi\params\FunctionEnable\enum,2,, "Modem only"
+HKR,Ndi\params\FunctionEnable,flag,1,20,00,00,00
+
+HKR,Ndi\params\LineSpeed,ParamDesc,,"LineSpeed"
+HKR,Ndi\params\LineSpeed,default,,0
+HKR,Ndi\params\LineSpeed,type,,enum
+HKR,Ndi\params\LineSpeed\enum,0,, "AutoDetect"
+HKR,Ndi\params\LineSpeed\enum,1,, "10 Mbps"
+HKR,Ndi\params\LineSpeed\enum,2,, "100 Mbps"
+HKR,Ndi\params\LineSpeed,flag,1,20,00,00,00
+
+HKR,Ndi\Params\LinkIntegrity,ParamDesc,,"LinkIntegrity"
+HKR,Ndi\Params\LinkIntegrity,default,,1
+HKR,Ndi\Params\LinkIntegrity,type,,enum
+HKR,Ndi\Params\LinkIntegrity\enum,0,,"OFF"
+HKR,Ndi\Params\LinkIntegrity\enum,1,,"ON"
+HKR,NDI\Params\LinkIntegrity,flag,1,20,00,00,00
+
+HKR,Ndi\Params\Mode,ParamDesc,,"Mode"
+HKR,Ndi\Params\Mode,default,,0
+HKR,Ndi\Params\Mode,type,,enum
+HKR,Ndi\Params\Mode\enum,0,,"I/O"
+HKR,Ndi\Params\Mode\enum,1,,"Memory Mapped"
+HKR,NDI\Params\Mode,flag,1,20,00,00,00
+
+HKR,Ndi\params\NetworkAddress,ParamDesc,,"NetworkAddress"
+HKR,Ndi\params\NetworkAddress,default,,""
+HKR,Ndi\params\NetworkAddress,type,,edit
+HKR,Ndi\params\NetworkAddress,LimitText,,12
+HKR,Ndi\params\NetworkAddress,UpperCase,,1
+HKR,Ndi\params\NetworkAddress,optional,,1
+HKR,Ndi\params\NetworkAddress,flag,1,20,00,00,00
+
+;This tells Miniport driver that we are running under Win95, not NT
+;This parameter is NOT user configurable.
+HKR,,PlatformType,,1
+
+; Default = 7K; 1K-29K step 1K
+HKR,Ndi\params\TransmitBufferSize,ParamDesc,,"TransmitBufferSize"
+HKR,Ndi\params\TransmitBufferSize,default,,11264
+HKR,Ndi\params\TransmitBufferSize,type,,word
+HKR,Ndi\params\TransmitBufferSize,min,,1024
+HKR,Ndi\params\TransmitBufferSize,max,,29696
+HKR,Ndi\params\TransmitBufferSize,step,,1024
+HKR,Ndi\params\TransmitBufferSize,flag,1,20,00,00,00
+
+[Net56.ndi.reg]
+HKR,Ndi,DeviceID,,"MF\INTELM16B_DEV1"
+
+[ADDREG_Mfg56.ndi.reg]
+;
+; The following 3 keywords are resources maintained by the system.
+; The system allocates values to these according to what is available.
+; The system allocated values are then put into the registry for querying
+; by the miniport driver.
+;
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IoBaseAddress,1,02,00,00,00
+HKR,,MemoryBaseAddress,1,01,00,00,00
+
+[DestinationDirs]
+DefaultDestDir               =11 ; Windows system directory
+
+

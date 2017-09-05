@@ -1,0 +1,492 @@
+<html>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!-- 
+
+Dim ftSize
+
+
+
+sub window_onload
+
+	Seq("Main").Play
+
+end sub
+
+
+
+Sub Seq_onInit
+
+	call Seq("Main").at(1.000, "moveHonor",25, 0.001, 1)
+
+	call Seq("Main").at(2.900, "swapType(1)",1, 0.000, 1)
+
+	call Seq("Main").at(3.000, "moveLoyalty",25, 0.001, 1)
+
+	call Seq("Main").at(4.900, "swapType(2)",1, 0.000, 1)
+
+	call Seq("Main").at(5.000, "moveTruth",25, 0.001, 1)
+
+	call Seq("Main").at(6.900, "swapType(3)",1, 0.000, 1)
+
+	call Seq("Main").at(7.000, "moveJustice",25, 0.001, 1)
+
+	call Seq("Main").at(8.900, "swapType(4)",1, 0.000, 1)
+
+	call Seq("Main").at(9.000, "swapTitle(0)",1, 0.000, 1)
+
+	call Seq("Main").at(13.000, "swapTitle(1)",25, 0.001, 1)
+
+	call Seq("Main").at(14.000, "swapTitle(2)",25, 0.001, 1)
+
+	call Seq("Main").at(16.000, "swapTitle(3)",25, 0.001, 1)
+
+	call Seq("Main").at(18.000, "swapTitle(4)",25, 0.001, 1)
+
+	call Seq("Main").at(20.000, "swapTitle(5)",25, 0.001, 1)
+
+	call Seq("Main").at(22.000, "swapTitle(6)",25, 0.001, 1)
+
+	call Seq("Main").at(26.000, "swapTitle(7)",25, 0.001, 1)
+
+	call Seq("Main").at(30.000, "parent.showPres2()",25, 0.001, 1)
+
+End Sub
+
+
+
+ftSize=1
+
+
+
+Sub moveHonor
+
+	ftSize=ftSize+2
+
+	honor.style.fontSize= ftSize & "px"	
+
+End Sub
+
+
+
+Sub moveLoyalty
+
+	ftSize=ftSize+2
+
+	loyalty.style.fontSize= ftSize & "px"	
+
+End Sub
+
+
+
+Sub moveTruth
+
+	ftSize=ftSize+2
+
+	truth.style.fontSize= ftSize & "px"	
+
+End Sub
+
+
+
+Sub moveJustice
+
+	ftSize=ftSize+2
+
+	justice.style.fontSize= ftSize & "px"	
+
+End Sub
+
+
+
+sub swapType(idx) 
+
+	select case idx
+
+		case "1"
+
+			honorDiv.style.visibility="hidden"
+
+			loyaltyDiv.style.visibility="visible"
+
+			ftSize=1
+
+        case "2"
+
+			loyaltyDiv.style.visibility="hidden"
+
+			truthDiv.style.visibility="visible"
+
+			ftSize=1
+
+       	case "3"
+
+			truthDiv.style.visibility="hidden"
+
+			justiceDiv.style.visibility="visible"
+
+			ftSize=1
+
+       	case "4"
+
+			justiceDiv.style.visibility="hidden"
+
+   	end select
+
+end sub
+
+
+
+sub swapTitle(idx) 
+
+   	select case idx
+
+       	case "0"
+
+			logoDiv.style.visibility="visible"
+
+       	case "1"
+
+			logoDiv.style.visibility="hidden"
+
+			starringDiv.style.visibility="visible"
+
+       	case "2"
+
+			starringDiv.style.visibility="hidden"
+
+			batmanDiv.style.visibility="visible"
+
+       	case "3"
+
+			batmanDiv.style.visibility="hidden"
+
+			robinDiv.style.visibility="visible"
+
+       	case "4"
+
+			robinDiv.style.visibility="hidden"
+
+			ivyDiv.style.visibility="visible"
+
+       	case "5"
+
+			ivyDiv.style.visibility="hidden"
+
+			batgirlDiv.style.visibility="visible"
+
+       	case "6"
+
+			batgirlDiv.style.visibility="hidden"
+
+			freezeDiv.style.visibility="visible"
+
+       	case "7"
+
+			freezeDiv.style.visibility="hidden"
+
+			URLDiv.style.visibility="visible"
+
+   	end select
+
+end sub
+
+--> 
+
+</SCRIPT>
+
+
+
+<HEAD>
+
+<TITLE>Warner Bros. SCREENDOM: Film</TITLE>
+
+</HEAD>
+
+<body bgcolor="#000000" text=ffffff link=ff2020 alink=ff2020 vlink=ff2020>
+
+
+
+<!--MAIN COMPONENTS*************************************************-->
+
+
+
+<DIV ID=starringDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font id=starring color=white style="font-size:25px;visibility:visible">starring</font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=logoDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<img src="img/p1_blogo.gif">
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=URLDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<img src="img/p1_blogo.gif" border=0>
+
+<br>
+
+<font size=3 color=ff2020 face=Arial><b>Find out more when you <a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels for FREE!</a></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=batmanDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=top><img src="img/p1_batmn.jpg"></td><td align=center valign=center>
+
+<font id=batmanCopy color=white style="visibility:visible"><b>
+
+<font size=5>George Clooney</font>
+
+<br>
+
+as
+
+<br>
+
+<font size=6>Batman</font></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=robinDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=top><img src="img/p1_robin.jpg"></td><td align=center valign=center>
+
+<font id=robinCopy color=white style="visibility:visible"><b>
+
+<font size=5>Chris O'Donnell</font>
+
+<br>
+
+as
+
+<br>
+
+<font size=6>Robin</font></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=ivyDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=top><img src="img/p1_ivy.jpg"></td><td align=center valign=center>
+
+<font id=ivyCopy color=white style="visibility:visible"><b>
+
+<font size=5>Uma Thurman</font>
+
+<br>
+
+as
+
+<br>
+
+<font size=6>Poison Ivy</font></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=batgirlDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=top><img src="img/p1_batgr.jpg"></td><td align=center valign=center>
+
+<font id=batgirlCopy color=white style="visibility:visible"><b>
+
+<font size=5>Alicia Silverstone</font>
+
+<br>
+
+as
+
+<br>
+
+<font size=6>Batgirl</font></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=freezeDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0; VISIBILITY:HIDDEN">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=top><img src="img/p1_freez.jpg"></td><td align=center valign=center>
+
+<font id=freezeCopy color=white style="visibility:visible"><b>
+
+<font size=5>Arnold Schwarzenegger</font>
+
+<br>
+
+as
+
+<br>
+
+<font size=6>Mr. Freeze</font></b></font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=honorDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font id=honor color=white style="font-size:1px;visibility:visible">Honor</font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=loyaltyDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font id=loyalty color=white style="font-size:1px;visibility:visible">Loyalty</font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+<DIV ID=truthDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font id=truth color=white style="font-size:1px;visibility:visible">Truth</font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=justiceDiv STYLE="POSITION:absolute; WIDTH:435; HEIGHT:211; TOP:0; LEFT:0">
+
+<table border=0 width=100% height=100%>
+
+<tr><td align=center valign=center>
+
+<font id=justice color=white style="font-size:1px;visibility:visible">Justice</font>
+
+</td></tr>
+
+</table>
+
+</DIV>
+
+
+
+<DIV ID=midiDiv STYLE="POSITION:absolute; TOP:0; LEFT:0">
+
+<bgsound src="med/batman.mid">
+
+</DIV>
+
+
+
+<DIV ID=linkDiv STYLE="POSITION:absolute; WIDTH:200; TOP:2; LEFT:300; Filter: Alpha(opacity=30)">
+
+<font color=white size=2 face=Arial><b><a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')">Add To Channels</a></b></font>
+
+</DIV>
+
+
+
+<!--***************************************************-->
+
+
+
+<OBJECT ID="Seq"
+
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+
+</OBJECT>
+
+
+
+</body>
+
+</html>
+

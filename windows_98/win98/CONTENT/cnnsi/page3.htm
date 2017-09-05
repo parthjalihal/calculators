@@ -1,0 +1,567 @@
+<HTML> 
+<HEAD>
+<TITLE>CNN/SI from CNN and Sports Illustrated</TITLE>
+<BGSOUND SRC="sound/theme3.wav" VOLUME=0 LOOP=0>
+
+<script language="JavaScript">
+<!--
+function isMsie4orGreater() {
+   var ua = window.navigator.userAgent;
+   var msie = ua.indexOf ("MSIE ");
+   
+   if (msie > 0)  {
+      return (parseInt (ua.substring (msie + 5, ua.indexOf (".", msie))) >= 4) && (ua.indexOf ("MSIE 4.0b") < 0);
+   } else {
+      return false;
+   }
+}
+-->
+</script>
+
+</HEAD>	 
+<BODY BGCOLOR=WHITE TOPMARGIN=0 LEFTMARGIN=0 onLoad="runPage()" STYLE="background-color: #000066;">
+
+<DIV ID="mainBody" STYLE="position: absolute; top: 0; left: 0; height:100%; width:100%;">
+<OBJECT ID="DASeq" STYLE="position: absolute; top: 0; left: 0;"
+CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+</OBJECT>
+</DIV>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+dim width, height
+height = 400
+width = 550
+
+Randomize
+
+sub showPic(imageObj)
+   imageObj.style.pixelTop = Rnd * (height - imageObj.style.pixelHeight)
+   imageObj.style.pixelLeft = Rnd * (width - imageObj.style.pixelWidth)
+   
+   ' Call imageObj.filters(0).Apply
+   imageObj.style.visibility = "visible"
+   ' Call imageObj.filters(0).Play
+end sub
+
+sub showDiv(imageObj)
+   Call imageObj.filters(0).Apply
+   imageObj.style.visibility = "visible"
+   Call imageObj.filters(0).Play
+end sub
+
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JScript">
+<!--
+
+function hideDiv(divObj) {
+   divObj.filters[0].Apply();
+   divObj.style.visibility = "hidden";
+   divObj.filters[0].Play();
+}
+
+function hidePic(imageObj) {
+   imageObj.filters[0].Apply();
+   imageObj.style.visibility = "hidden";
+   imageObj.filters[0].Play();
+}
+
+function runPage () {
+   winHeight = document.body.clientHeight;
+   buttons.style.pixelTop = winHeight - 90;
+   DASeq.item("1").Play();
+}
+//-->
+</SCRIPT>
+
+<script language="javascript" for="DASeq" event="oninit">
+<!--	script
+
+   for (i = 1; i <= 8; i++) {
+      DASeq.item("1").At((i - 1), "showPic(txt" + i + ")");
+      DASeq.item("1").At(i, "hideDiv(txt" + i + ")");
+   }
+   
+   DASeq.item("1").At(7.000, "showPic(features0)");
+
+   for (i = 1; i <= 6; i++) {
+      DASeq.item("1").At(7.500, "showPic(features" + i + ")");
+   }
+   
+   DASeq.item("1").At(9.000, "hideDiv(features0)");
+
+   for (i = 1; i <= 6; i++) {
+      DASeq.item("1").At(9.000, "hideDiv(features" + i + ")");
+   }
+   
+   DASeq.item("1").At(9.000, "showPic(scores0)");
+
+   for (i = 1; i <= 1; i++) {
+      DASeq.item("1").At(9.500, "showPic(scores" + i + ")");
+   }
+   
+   DASeq.item("1").At(11.000, "hideDiv(scores0)");
+
+   for (i = 1; i <= 1; i++) {
+      DASeq.item("1").At(11.000, "hideDiv(scores" + i + ")");
+   }
+   
+   DASeq.item("1").At(11.000, "showPic(stats0)");
+
+   for (i = 1; i <= 3; i++) {
+      DASeq.item("1").At(11.500, "showPic(stats" + i + ")");
+   }
+   
+   DASeq.item("1").At(13.000, "hideDiv(stats0)");
+
+   for (i = 1; i <= 3; i++) {
+      DASeq.item("1").At(13.000, "hideDiv(stats" + i + ")");
+   }
+   
+   DASeq.item("1").At(13.000, "showPic(history0)");
+
+   for (i = 1; i <= 4; i++) {
+      DASeq.item("1").At(13.500, "showPic(history" + i + ")");
+   }
+   
+   DASeq.item("1").At(15.000, "hideDiv(history0)");
+
+   for (i = 1; i <= 4; i++) {
+      DASeq.item("1").At(15.000, "hideDiv(history" + i + ")");
+   }
+   
+   DASeq.item("1").At(15.000, "showPic(exclusive0)");
+   DASeq.item("1").At(16.500, "hideDiv(exclusive0)");
+   
+   DASeq.item("1").At(16.500, "showPic(live0)");
+   DASeq.item("1").At(18.000, "hideDiv(live0)");
+   
+   DASeq.item("1").At(18.000, "showPic(city0)");
+
+   for (i = 1; i <= 10; i++) {
+      DASeq.item("1").At(18.500, "showPic(city" + i + ")");
+   }
+   
+   DASeq.item("1").At(20.000, "hideDiv(city0)");
+   
+
+   for (i = 1; i <= 10; i++) {
+      DASeq.item("1").At(20.000, "hideDiv(city" + i + ")");
+   }
+   
+   DASeq.item("1").At(20.000, "showPic(games0)");
+   DASeq.item("1").At(22.000, "hideDiv(games0)");
+   
+   DASeq.item("1").At(22.000, "showDiv(txt9)");
+   DASeq.item("1").At(22.000, "showDiv(cnnsiLogo)");
+   DASeq.item("1").At(22.000, "showDiv(ultimate)");
+   DASeq.item("1").At(22.000, "showDiv(forSports)");
+   DASeq.item("1").At(22.000, "showDiv(buttons)");
+   
+   DASeq.item("1").At(24.000, "hideDiv(txt9)");
+
+//-->
+</script>
+
+<DIV ID="txt1" STYLE="position:absolute; top:0; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Baseball</b></font>
+</DIV>
+
+<DIV ID="txt2" STYLE="position:absolute; top:15; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Football</b></font>
+</DIV>
+
+<DIV ID="txt3" STYLE="position:absolute; top:30; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Hockey</b></font>
+</DIV>
+
+<DIV ID="txt4" STYLE="position:absolute; top:45; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Tennis</b></font>
+</DIV>
+
+<DIV ID="txt5" STYLE="position:absolute; top:60; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Golf</b></font>
+</DIV>
+
+<DIV ID="txt6" STYLE="position:absolute; top:75; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>World Sport</b></font>
+</DIV>
+
+<DIV ID="txt7" STYLE="position:absolute; top:90; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Motor Sports</b></font>
+</DIV>
+
+<DIV ID="txt8" STYLE="position:absolute; top:105; left: 0; width: 200; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Women's Sport</b></font>
+</DIV>
+
+<DIV ID="txt9" STYLE="position:absolute; top:30; left: 0; width: 100%; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER>
+<font size="9" color="#ffffff" face="Arial, Helvetica"><b>Complete Coverage</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Sports Illustrated Features</b></font>
+</center>
+</DIV>
+
+<DIV ID="features1" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>College Football Preview</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features2" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Pro Football Preview</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features3" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Jock Schools</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features4" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Swimsuit</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features5" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Sportsman of the Year</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="features6" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Year in Pictures</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="scores0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Up-to-the-minute Scores</b></font>
+</center>
+</DIV>
+
+<DIV ID="scores1" STYLE="background-color: #FFFFFF; position:absolute; top:0; left: 0; width: 420; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0" WIDTH="420">
+<TR>
+<TD BGCOLOR="#CC9966">
+<CENTER>
+<FONT SIZE="3" FACE="Helvetica,arial"><B>SUNDAY'S NATIONAL FOOTBALL LEAGUE SCOREBOARD</B></FONT>
+</CENTER>
+</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#FFFFCC">
+&nbsp;
+</TD>
+</TR>
+</TABLE>
+<BR>
+<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0" WIDTH="420">
+<TR>
+<TD WIDTH="140"><FONT SIZE="2" COLOR="#000099"><u>Denver Broncos</u></FONT></TD> 
+<TD WIDTH="10" ALIGN=RIGHT><FONT SIZE="2">35</FONT></TD>
+<TD WIDTH="270"><FONT SIZE="2" COLOR="#CC3333">Final</FONT></TD>
+</TR>
+<TR>
+<TD WIDTH="140"><FONT SIZE="2" COLOR="#000099"><u>Seattle Seahawks</u></FONT></TD>	
+<TD WIDTH="10" ALIGN=RIGHT><FONT SIZE="2">14</FONT></TD> 
+<TD WIDTH="270">&nbsp;</TD>
+<TR>
+<TD COLSPAN="4" BGCOLOR="#FFFFCC">&nbsp;
+<IMG SRC="graphics/bullet.gif"><FONT SIZE="-1" COLOR="#000099"><U>Preview</U></FONT>
+<IMG SRC="graphics/bullet.gif"><FONT SIZE="-1" COLOR="#000099"><U>Recap</U></FONT>
+<IMG SRC="graphics/bullet.gif"><FONT SIZE="-1" COLOR="#000099"><U>Box Score</U></FONT>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<DIV ID="stats0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Stats Galore</b></font>
+</center>
+</DIV>
+
+<DIV ID="stats1" STYLE="position:absolute; top:0; left: 0; width: 350; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<CENTER>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3>
+<TR>
+<TD ALIGN="CENTER" BGCOLOR="#CC9966" COLSPAN=6>
+<FONT FACE="Helvetica" SIZE="+1">Scoring</FONT>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;NAME&nbsp;</FONT>
+</TD>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;TD&nbsp;</FONT>
+</TD>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;FG&nbsp;</FONT>
+</TD>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;XP&nbsp;</FONT>
+</TD>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;PTS&nbsp;</FONT>
+</TD>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#CCFFCC">
+<FONT FACE="Helvetica" SIZE="-2">&nbsp;TEAM&nbsp;</FONT>
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+</DIV>
+
+<DIV ID="stats2" STYLE="position:absolute; top:0; left: 0; width: 350; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<CENTER>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3 WIDTH=350>
+<TR><TD BGCOLOR="CC9966" COLSPAN=3><CENTER><FONT FACE="Helvetica,Arial" SIZE=+1><B>Rushing Yards Per Carry</B></FONT></CENTER></TD></TR>
+<TR BGCOLOR="FFFFCC">
+<TD ALIGN=left   WIDTH=46%><FONT FACE="Helvetica,Arial" SIZE=-1 COLOR="000000"><B>Name</B></FONT></TD>
+<TD ALIGN=left   WIDTH=46%><FONT FACE="Helvetica,Arial" SIZE=-1 COLOR="000000"><B>Team</B></FONT></TD>
+<TD ALIGN=right  WIDTH= 8%><FONT FACE="Helvetica,Arial" SIZE=-1 COLOR="000000"><B>Yds/C</B></FONT></TD>
+</TR>
+<TR>
+</TABLE>
+</CENTER>
+</DIV>
+
+<DIV ID="stats3" STYLE="position:absolute; top:0; left: 0; width: 350; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<CENTER>
+<table border=1 cellspacing=0 cellpadding=3>
+<tr bgcolor="#66cc00">
+<td align=center colspan=3><font face="helvetica,arial" size=4><b>NL&nbsp;ERA at Home</b></font></td>
+</tr>
+<tr bgcolor="#cccc99">
+<td align=left><font face="helvetica,arial"><b>Player</b></font></td>
+<td align=left><font face="helvetica,arial"><b>Team</b></font></td>
+<td align=right><font face="helvetica,arial"><b>ERA</b></font></td>
+</tr>
+</table>
+</CENTER>
+</DIV>
+
+<DIV ID="history0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Historical Stats</b></font>
+</center>
+</DIV>
+
+<DIV ID="history1" STYLE="position:absolute; top:0; left: 0; width: 440; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<table width="440" border=0 cellpadding=0 cellspacing=0>
+<tr bgcolor="#66cc00">
+<td height=25><font size=5 face="helvetica,arial"><b>Hank Aaron</b></font></td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Career Statistics:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>Batting</u></b></font>
+</td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Special Batting:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>All-Star</u></b></font>
+<font size=1 face="helvetica,arial"> | </font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>LCS</u></b></font>
+<font size=1 face="helvetica,arial"> | </font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>World Series</u></b></font>
+</td>
+</tr>
+</table>
+</DIV>
+
+<DIV ID="history2" STYLE="position:absolute; top:0; left: 0; width: 440; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<table width="440" border=0 cellpadding=0 cellspacing=0>
+<tr bgcolor="#66cc00">
+<td height=25><font size=5 face="helvetica,arial"><b>Moonlight Graham</b></font></td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Career Statistics:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>Batting</u></b></font>
+</td>
+</tr>
+</table>
+</DIV>
+
+<DIV ID="history3" STYLE="position:absolute; top:0; left: 0; width: 440; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<table width="440" border=0 cellpadding=0 cellspacing=0>
+<tr bgcolor="#66cc00">
+<td height=25><font size=5 face="helvetica,arial"><b>Bob Gibson</b></font></td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Career Statistics:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>Pitching</u></b></font>
+<font size=1 face="helvetica,arial" color="#000099"> | <b><u>Batting</u></b></font>
+</td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Special Pitching:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>All-Star</u></b></font>
+<font size=1 face="helvetica,arial"> | </font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>World Series</u></b></font>
+</td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Special Batting:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u">All-Star</u></b></font>
+<font size=1 face="helvetica,arial"> | </font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>World Series</u></b></font>
+</td>
+</tr>
+</table>
+</DIV>
+
+<DIV ID="history4" STYLE="position:absolute; top:0; left: 0; width: 440; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index: -1">
+<table width="440" border=0 cellpadding=0 cellspacing=0>
+<tr bgcolor="#66cc00">
+<td height=25><font size=5 face="helvetica,arial"><b>Ty Cobb</b></font></td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Career Statistics:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>Pitching</u></b></font>
+<font size=1 face="helvetica,arial" color="#000099"> | <b><u>Batting</u></b></font>
+</td>
+</tr>
+<tr bgcolor="#cccc99">
+<td>
+<font size=2 face="helvetica,arial"><B>Special Batting:</b></font>
+<font size=1 face="helvetica,arial" color="#000099"><b><u>World Series</u></b></font>
+</td>
+</tr>
+</table>
+</DIV>
+
+<DIV ID="exclusive0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Exclusive SI Photos</b></font>
+</center>
+</DIV>
+
+<DIV ID="live0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>Live Video of Breaking News</b></font>
+</center>
+</DIV>
+
+<DIV ID="city0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<center>
+<font size="7" color="#ffff00" face="Arial, Helvetica"><b>More Than 150 City Pages</b></font>
+</center>
+</DIV>
+
+<DIV ID="city1" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Atlanta, GA</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city2" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Charlotte, NC</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city3" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Jacksonville, FL</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city4" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Laramie, WY</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city5" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Huntsville, AL</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city6" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Iowa City, IA</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city7" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Los Angeles, CA</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city8" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Pittsburgh, PA</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city9" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Storrs, CT</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="city10" STYLE="background-color: #C6C694; position:absolute; top:0; left: 0; width: 225; visibility: hidden; filter: revealTrans(transition=12,duration=0.5); z-index:-1">
+<CENTER>
+<font size="3" color="#000000" face="Arial, Helvetica"><b>Vancouver, BC</b></font>
+</CENTER>
+</DIV>
+
+<DIV ID="games0" STYLE="position:absolute; top:120; left: 0; width: 400; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER><font size="7" color="#ffff00" face="Arial, Helvetica"><b>Fantasy Games</b></font></CENTER>
+</DIV>
+
+<DIV ID="cnnsiLogo" STYLE="position:absolute; top:135; left: 0; width: 100%; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER><IMG SRC="graphics/cnnsi.gif"></CENTER>
+</DIV>
+
+<DIV ID="ultimate" STYLE="position:absolute; top:265; left: 0; width: 100%; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER><IMG SRC="graphics/ulti3.gif"></CENTER>
+</DIV>
+
+<DIV ID="forSports" STYLE="position:absolute; top:305; left: 0; width: 100%; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER><IMG SRC="graphics/4sports.gif"></CENTER>
+</DIV>
+
+<DIV ID="buttons" STYLE="position:absolute; top:0; left: 0; height:80; width:100%; visibility: hidden; filter: revealTrans(transition=12,duration=0.5)">
+<CENTER>
+<FONT SIZE=3 COLOR=FFFFFF FACE=Helvetica><b>Subscribe Now!</b></FONT><BR>
+<A NAME="addChannel" HREF="http://www.microsoft.com/ie/ie40/download/?/ie/ie40/download/redirect.htm"><IMG SRC="graphics/ieaddcha.gif" BORDER=0></A><BR>
+<script language="JavaScript">
+   if (isMsie4orGreater()) {
+      addChannel.href = "javascript:window.external.addChannel('http://cnnsi.com/ie/subscribe/cnnsi.cdf')";
+   }
+</script>
+<FONT SIZE=3 COLOR=FFFFFF FACE=Helvetica><b>Desktop Scoreboard!</b></FONT><BR>
+<A NAME="addDesktop" HREF="http://www.microsoft.com/ie/ie40/download/?/ie/ie40/download/redirect.htm"><IMG SRC="graphics/ieadddes.gif" BORDER=0></A>
+<script language="JavaScript">
+   if (isMsie4orGreater()) {
+      addDesktop.href = "http://cnnsi.com/ie/subscribe/desktop.cdf";
+   }
+</script>
+</CENTER>
+</DIV>
+
+</BODY>
+</HTML>

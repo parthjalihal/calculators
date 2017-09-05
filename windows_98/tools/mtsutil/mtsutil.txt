@@ -1,0 +1,692 @@
+------------------------------------------------------
+         Microsoft Windows 98 README for the          
+        MTSutil directory on the Windows 98 CD        
+                    
+------------------------------------------------------
+
+(c) Copyright Microsoft Corporation, 1998
+
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view MTSutil.txt on-screen in Notepad, maximize 
+the Notepad window.
+
+To print MTSutil.txt, open the file in Notepad or 
+another word processor, then on the File menu, click Print.
+
+--------
+CONTENTS
+--------
+
+ AUTOLOG.INF - REMOVE THE AUTOLOGON REGISTRY ENTRY
+  DEFRAG.INF - DEFRAGMENT ALL DRIVES ON SUBSEQUENT WINDOWS STARTUP
+IPAC_OFF.INF - DISABLE TCP/IP IP AUTOCONFIGURATION
+ IPAC_ON.INF - ENABLE TCP/IP IP AUTOCONFIGURATION
+    JAVA.INF - REINSTALL JAVA VIRTUAL MACHINE
+MAPC_OFF.INF - DISABLE MAPPING OF CACHED PAGES
+ MAPC_ON.INF - ENABLE MAPPING OF CACHED PAGES
+     NNT.INF - REMOVE THE NAMENUMERICTALE VALUE FROM THE REGISTRY
+   NOIDE.INF - REMOVE THE NOIDE REGISTRY ENTRY
+ PINBALL.EXE - INSTALL 3D PINBALL FROM MICROSOFT PLUS! FOR WINDOWS 95
+ PTXT_ON.INF - SENDS PLAIN TEXT PASSWORDS TO YOUR NETWORK SERVER
+PTXT_OFF.INF - SENDS ENCRYPTED PASSWORDS TO YOUR NETWORK SERVER
+ REMFDMA.INF - DISABLES FDMA ON PCI-ISA BRIDGE DEVICES
+ ADDFDMA.INF - ENABLES FDMA ON (SOME) PCI-ISA BRIDGE DEVICES
+CHNGINBX.EXE - DISABLE THE MICROSOFT NETWORK DETECTED MESSAGE
+
+
+=================================================
+AUTOLOG.INF - REMOVE THE AUTOLOGON REGISTRY ENTRY
+=================================================
+
+When you start Windows 98 you may not receive a Windows or Network
+logon dialog box.  You may also receive one of the following error
+messages:
+
+ - No network provider accepted the given network path.
+
+ - The operation being requested was not performed because the
+   user has not logged on to the network. The specified service
+   does not exist.
+
+In addition, the Change Passwords tab may be missing from the
+Passwords Properties dialog box.
+
+This behavior can occur if the AutoLogon entry appears in the
+following registry key:
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net 
+
+      AutoLogon=<x>
+
+   where <x> is a number.
+
+------------------------------------------------
+To remove the AutoLogon entry from the registry:
+------------------------------------------------
+
+1. Select AUTOLOG.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click AUTOLOG.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to remove the AutoLogon entry.
+
+
+================================================================
+DEFRAG.INF - DEFRAGMENT ALL DRIVES ON SUBSEQUENT WINDOWS STARTUP
+================================================================
+
+The Disk Defragmenter for Windows 98 (DEFRAG.EXE) may start and
+not complete its task. If repeated attempts to defragment the drive
+are unsuccessful, it may be because an application is writing to the 
+disk. The Disk Defragementer cannot share access
+to a drive with other tasks. 
+
+An application loading automatically at startup may interfere
+with DEFRAG. Run DEFRAG before applications load at startup by adding
+a value for DEFRAG.EXE /ALL to the RunServicesOnce key in the
+registry.
+
+--------------------------------------------------------------
+To add a value for DEFRAG.EXE /ALL to the RunServicesOnce key:
+--------------------------------------------------------------
+
+1. Select DEFRAG.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click DEFRAG.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to add the value for DEFRAG.EXE /ALL.
+
+
+==================================================
+IPAC_OFF.INF - DISABLE TCP/IP IP AUTOCONFIGURATION
+==================================================
+
+The Windows 98 TCP/IP stack supports a new mechanism for automatic
+address assignment of IP addresses for simple LAN-based network
+configurations. IP Autoconfiguration Addressing is an extension of
+dynamic IP address assignment for LAN adapters. It enables
+configuration of IP addresses without using static IP address
+assignment or installing a Dynamic Host Configuration Protocol
+DHCP) server. 
+
+If a network LAN adapter is configured for TCP/IP, and if "Obtain
+an IP address automatically" is selected on the IP Address tab in
+the TCP/IP Properties dialog box, Windows 98 TCP/IP attempts to find
+and use a DHCP service on the attached network to obtain a
+dynamically assigned IP address. If it does not find a DHCP service,
+Windows 98 uses IP Autoconfiguration Addressing by assigning the
+adapter an Class B IP address out of the network number 169.254.x.x
+IP address space. In this way, two PCs can be plugged into a LAN hub
+and can start without any IP address configuration, and can use
+TCP/IP networking for internetworking. Each computer that uses IP
+Autoconfiguration Addressing gets an IP address and tests to
+determine that the IP address is unique and not already in use on the
+LAN.
+
+IP Autoconfiguration Addressing is enabled by default. IP
+Autoconfiguration Addressing can be controlled by setting the value
+of IPAutoconfigurationEnabled (type DWORD) in the registry key
+ 
+	HKEY_LOCAL_MACHINE\System
+	   \CurrentControlSet
+	      \Services
+	         \VXD
+	            \DHCP
+	               
+If the value of IPAutoconfigurationEnabled is nonzero or if the
+registry key is absent, IP Autoconfiguration Addressing is enabled.
+An IPAutoconfigurationEnabled value of 0 disables the IP
+Autoconfiguration Addressing feature. 
+
+If Windows 98 initially does not detect a DHCP service and configures
+an IP Autoconfiguration IP address, and then it subsequently
+discovers a DHCP service on the network, Windows 98 uses the DHCP
+service and switches from 169.254.x.x addressing to IP addresses
+assigned by a DHCP server.
+
+--------------------------------------------------------------------
+To set the registry value for IPAutoconfigurationEnabled value to 0:
+--------------------------------------------------------------------
+
+1. Select IPAC_OFF.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click IPAC_OFF.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to modify the IPAutoconfigurationEnabled value.
+
+
+================================================
+IPAC_ON.INF - ENABLE TCP/IP IP AUTOCONFIGURATION
+================================================
+
+Refer to the previous section for information concerning
+IP Autoconfiguration.
+
+IP Autoconfiguration Addressing is enabled if the value of
+IPAutoconfigurationEnabled is nonzero or if the registry key
+is absent.
+ 
+--------------------------------------------------------------------
+To set the registry value for IPAutoconfigurationEnabled value to 1:
+--------------------------------------------------------------------
+
+1. Select IPAC_ON.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click IPAC_ON.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to modify the IPAutoconfigurationEnabled value.
+
+
+=========================================
+JAVA.INF - REINSTALL JAVA VIRTUAL MACHINE
+=========================================
+
+When you start your computer, you may receive the following error
+message: 
+
+   Unable to install java packages. The command line is invalid.
+
+   Cannot find file specified - Win32.cab
+   Cannot find file specified - xmldso4.cab
+   Cannot find file specified - dajava.cab
+   Cannot find file specified - iejava.cab
+   Cannot find file specified - osp.zip
+
+This behavior can occur for any of the following reasons: 
+
+ - You used the System.1st file to test or correct issues with the
+   registry. 
+
+ - Setup stopped responding and you restarted your computer. 
+
+To work around this behavior, use the appropriate method. 
+
+   NOTE: If you restarted your computer to finish Setup, once Setup
+         is complete the Microsoft Virtual Machine (VM) for Java is
+         functional and the error message is not displayed. 
+
+--------------------------------------
+To reinstall the Java Virtual Machine:
+--------------------------------------
+
+1. Select JAVA.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click JAVA.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to reinstall the Java VM.
+
+
+==============================================
+MAPC_OFF.INF - DISABLE MAPPING OF CACHED PAGES
+==============================================
+
+Windows 98 supports the mapping of cached pages to increase the
+amount of memory available to running applications. The Windows 98
+memory manager architecture divides memory into 2 parts:
+
+ - Protected-mode disk cache (VCACHE)
+
+ - Memory allocated to run programs and hold data (VMM) 
+
+Reading from memory is much faster than reading from the hard disk.
+VCACHE improves performance by reducing the number of times the hard
+disk is accessed.  A process in memory will demand a particular
+section of code; if that section of code is in VCACHE, it can be
+accessed and used much more quickly than if that section of code
+needs to be read from a file on disk. For example, if you were to
+launch an application, close it, and then shortly thereafter launch
+it a second time, the application's launch time would now be
+noticeably reduced. This is a result of copying much of the
+application from VCACHE instead of the hard disk.
+
+Memory allocated to the disk cache is not available to executing
+processes. Reducing the amount of memory available to running
+applications negatively impacts performance by increasing the amount
+of data swapped from memory to the hard disk. Once again, reading
+from memory is much faster than reading from the swap file on the
+hard disk. 
+
+In Windows 95, there are two instances of some code in physical
+memory; one instance stored in the disk cache to reduce the time
+required to load the application should it be invoked again, and
+another instance in VMM for the running application. Eliminating the
+instance of the data in the cache would increase the amount of memory
+available to VMM, but would negatively impact application reload
+times.
+
+Windows 98 supports the mapping of cached pages to increase the
+amount of memory available to running applications. Memory mapped
+I/O from the cache eliminates needless duplication of data while
+the application is running. Application code is loaded into VCACHE,
+and then executes out of the cache rather than having to be copied
+to another part of memory before it executes. When the application is
+closed, the memory manager labels the space that application was
+using as not currently being used to maintain the benefits of
+caching--if the application is not restarted, that space is given to
+other tasks. If the application is restarted, the application still
+exists in the cache, maintaining improved application reload times.
+
+Windows 98 maps cached pages by default. This performance enhancement
+can be disable by creating a MapCache entry in the registry key
+ 
+	HKEY_LOCAL_MACHINE\System
+	   \CurrentControlSet
+	      \Services
+	         \VXD
+	            \VMM
+	               
+If the MapCache entry does not exist, Windows 98 will map cached
+pages. Creating the MapCache entry will disable the mapping of
+cached pages.  
+
+------------------------------------------
+To create the registry entry for MapCache:
+------------------------------------------
+
+1. Select MAPC_OFF.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click MAPC_OFF.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to create the entry for MapCache.
+
+
+============================================
+MAPC_ON.INF - ENABLE MAPPING OF CACHED PAGES
+============================================
+
+Refer to the previous section for information concerning the mapping
+of cached pages.
+
+Windows 98 will map cached pages if the entry for MapCache is
+absent.
+ 
+------------------------------------------
+To remove the registry entry for MapCache:
+------------------------------------------
+
+1. Select MAPC_ON.INF found in the \Tools\MTSutil folder on the
+   Windows 98 CD.
+
+2. Right-Click MAPC_ON.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to remove the entry for MapCache.
+
+
+============================================================
+NNT.INF - REMOVE THE NAMENUMERICTALE VALUE FROM THE REGISTRY
+============================================================
+
+If you add the "NameNumericTail=0" value to the registry (as
+documented on page 688 of the Microsoft Windows 95 Resource Kit)
+and then run Windows 98 Setup, Microsoft Plus! 98 Setup, or the
+Add/Remove Programs tool in Control Panel, programs in the Program
+Files folder may no longer work correctly.
+
+When you add the "NameNumericTail=0" value to the registry,
+Windows 98 Setup, Microsoft Plus! Setup, or the Add/Remove Programs
+tool may change the short name for the Program Files folder. For
+example, if you run the Add/Remove Programs tool after you add the
+"NameNumericTail=0" value to the registry, the short name for the
+Program Files folder may be changed from Progra~1 to Programf.
+
+If the short name for the Program Files folder is different from
+the name that the program you are trying to run expects, the program
+may not be able to locate the folders and files it needs.
+
+Various tools and components installed in the Program Files folder
+may use short file names internally or during installation. If the
+short name for the Program Files folder is different from the short
+name expected by a tool or component, the problems described in this
+article may occur. This problem can affect any program installed
+in the Program Files folder.
+
+The "NameNumericTail=0" value is not supported in Windows 98.
+Although this registry value works as expected, it can cause 
+problems for Windows 98 components.
+
+To correct this problem, follow these steps:
+
+1. Delete the value "NameNumericTail=0" from the following registry
+   key:
+
+      Hkey_Local_Machine\System\CurrentControlSet\Control\FileSystem
+
+2. Using Windows Explorer or My Computer, rename the Program Files
+   folder to Programs.fld.
+
+3. Rename the Programs.fld folder to Program Files.
+
+   Note: renaming the folder forces a new short name for the folder
+         to be generated.
+
+------------------------------------------------------
+To remove the NameNumericTail value from the registry:
+------------------------------------------------------
+
+1. Select NNT.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click NNT.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to remove the NameNumericTail value.
+
+
+=========================================
+NOIDE.INF - REMOVE THE NOIDE REGISTRY KEY
+=========================================
+
+If your computer contains a PCI-IDE hard disk controller that
+employs serialization between the two IDE channels, you may
+experience the following problems:
+
+ - 32-bit file system access and 32-bit virtual memory are
+   not available.
+
+ - Device Manager displays an exclamation point in a yellow
+   circle for the primary and secondary IDE channels.
+
+Removing and reinstalling the hard disk controller does not
+resolve the problem.
+
+This can occur if the protected-mode driver for the hard disk 
+controller was not properly initialized when you started
+Windows 98 previously. When this occurs, a NOIDE entry is placed
+in the  registry, preventing Windows 98 from making future attempts
+to initialize the protected-mode driver.
+
+This problem can occur with an IDE controller that requires
+serialization between the primary and secondary IDE channels. 
+The protected-mode drivers for these IDE controllers can fail to
+be initialized if one of the following situations occurs:
+
+ - One IDE channel has a supported hard disk, and the second channel
+   has a CD-ROM or other type of drive that requires real-mode
+   drivers to be loaded. Because of the serialization between the two
+   IDE channels, it is impossible to access the hard disk in
+   protected mode and use the other device in real mode. This causes
+   the protected-mode driver to fail initialization, and the NOIDE
+   switch is placed in the registry to prevent future errors. Both
+   disk devices then operate in real-mode.
+
+ - The driver for the IDE controller is manually removed from
+   Device Manager and then reinstalled, or the protected-mode driver
+   is disabled and then re-enabled. Some PCI controller drivers are
+   not designed for dynamic enabling and disabling, and can cause the
+   protected-mode driver to fail initialization.
+
+To cause Windows 98 to attempt to reinitialize the protected-mode IDE
+driver, remove the NOIDE entry from the following registry key:
+
+   HKEY_LOCAL_MACHINE\SYSTEM\CURRENTCONTROLSET\SERVICES\VXD\IOS
+
+--------------------------------------------
+To remove the NOIDE entry from the registry:
+--------------------------------------------
+
+1. Select NOIDE.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click NOIDE.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to remove the NOIDE entry.
+
+After you update the registry, restart Windows 98. Windows 98 will
+then attempt to initialize the protected-mode driver for the
+controller. If no problems are encountered, the file system and 
+virtual memory will operate in 32-bit mode, and Device Manager will
+not display an exclamation point in a yellow circle for the
+IDE channels.
+
+If the protected-mode driver is not initialized properly, an error
+message will be displayed and the NOIDE registry entry will be
+re-created. Windows 98 will use the MS-DOS compatibility mode file
+system the next time you start the computer.
+
+
+====================================================================
+PINBALL.EXE - INSTALL 3D PINBALL FROM MICROSOFT PLUS! FOR WINDOWS 95
+====================================================================
+
+When you attempt to run setup for Microsoft Plus! for Windows 95,
+the following error is displayed:
+
+   Setup has detected that you are running a version of Windows
+   that already includes the updated files or enhancements you are
+   attempting to install.
+
+Microsoft Plus! for Windows 95 contains older versions of some
+Windows files. The enhancements it installs have already been 
+incorporated into Windows 98. However, the 3D Pinball game from Plus!
+for Windows 95 is not included with Microsoft Windows 98. 
+
+PINBALL.EXE will install the 3D Pinball game included with Plus! for
+Windows 95 on to your Windows 98 system.
+
+------------------------------------------------------------------
+To install 3D Pinball from Plus! for Windows 95 on to your system:
+------------------------------------------------------------------
+
+1. Select PINBALL.EXE found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Double-Click PINBALL.EXE.
+	-or-
+   Press the ENTER key.
+
+3. Choose Yes to add 3D Pinball to the system.
+
+4. Insert the CD into the CD drive when prompted and enter the CD
+   ROM Drive letter into the dialog box. 
+
+   Note: If a Plus! for Windows 95 message offers to run
+         setup, close that window.
+
+----------------------------------------------------------------
+To remove 3D Pinball from Plus! for Windows 95 from your system:
+----------------------------------------------------------------
+
+1. Go to the Control Panel and choose Add/Remove Programs
+
+2. Select "3D Pinball from Microsoft Plus! for Windows 95"
+
+3. Click on the Add/Remove button.
+
+
+===============================================================
+PTXT_ON.INF - SENDS PLAIN-TEXT PASSWORDS TO YOUR NETWORK SERVER
+===============================================================
+
+For security reasons, Windows 98 will not allow you to send plain-
+text passwords. The password is encrypted by default. However,
+Samba servers require plain-text passwords, so you will not be able
+to connect to Samba servers unless you change a Registry entry to
+enable plain-text passwords.
+
+   Caution: Enabling plain-text passwords could compromise security.
+
+To enable plain-text passwords, add the Registry entry for
+EnablePlainTextPassword (as a Dword) and set the value to 1 in the
+following Registry location:
+
+	HKEY_LOCAL_MACHINE\System
+	   \CurrentControlSet\Services\VxD\Vnetsup
+
+--------------------------------------------------
+To set the value for EnablePlainTextPassword to 1:
+--------------------------------------------------
+
+1. Select PTXT_ON.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click PTXT_ON.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to add the EnablePlainTextPassword entry and set
+   its value to 1.
+
+
+===============================================================
+PTXT_OFF.INF - SENDS ENCRYPTED PASSWORDS TO YOUR NETWORK SERVER
+===============================================================
+
+To re-enable the sending of encrypted passwords to your network
+server, add the Registry entry EnablePlainTextPassword (as a Dword)
+and set the value to 0 in the following Registry location:
+
+	HKEY_LOCAL_MACHINE\System
+	   \CurrentControlSet\Services\VxD\Vnetsup
+
+--------------------------------------------------
+To set the value for EnablePlainTextPassword to 0:
+--------------------------------------------------
+
+1. Select PTXT_OFF.INF found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Right-Click PTXT_OFF.INF.
+	-or-
+   Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to add the EnablePlainTextPassword entry and set
+   its value to 0.
+
+
+=====================================================
+REMFDMA.INF - DISABLES FDMA ON PCI-ISA BRIDGE DEVICES
+=====================================================
+
+Having FDMA capability enabled on some PCI-ISA bridge devices can
+result in loss of audio when recording using an Aztech 2320 based
+audio device and the Aztech 2320 WDM audio driver.  REMFDMA.INF will
+disable FDMA capability on the PCI-ISA bridge, allowing audio
+recording to function properly.  However, with FDMA disabled, digital
+joysticks may not operate properly.
+
+----------------
+To disable FDMA:
+----------------
+
+1. Select REMFDMA.INF found in the \Tools\MTSutil folder on the
+    Windows98 CD.
+
+2. Right-Click REMFDMA.INF
+	-or-
+    Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to disable FDMA capability.
+
+4. Reboot to have the changes take effect.
+
+
+===========================================================
+ADDFDMA.INF - ENABLES FDMA ON (SOME) PCI-ISA BRIDGE DEVICES
+===========================================================
+
+Having FDMA capability disabled on some PCI-ISA bridge devices can
+result in the degradation, or loss, of digital joysticks' operability
+when audio is playing. ADDFDMA.INF restores FDMA capabilities that
+were disabled with REMFDMA.INF. 
+
+   Note: Not all PCI-ISA bridge devices are able to take advantage of
+         FDMA, regardless of whether or not ADDFDMA.INF or
+         REMFDMA.INF are used.  Also, enabling FDMA on some PCI-ISA
+         bridge devices may result in loss of audio during record
+         operations when using an Aztech 2320 based audio device and
+         its WDM audio driver.
+
+---------------
+To enable FDMA:
+---------------
+
+1. Select ADDFDMA.INF found in the \Tools\MTSutil folder on the
+    Windows98 CD.
+
+2. Right-Click ADDFDMA.INF
+	-or-
+    Hold down the SHIFT key and press the function key, F10.
+
+3. Choose INSTALL to enable FDMA capability.
+
+4. Reboot to have the changes take effect.
+
+
+=============================================================
+CHNGINBX.EXE - DISABLE THE MICROSOFT NETWORK DETECTED MESSAGE
+=============================================================
+
+After upgrading to Windows 98, the following message may be displayed
+when you double-click an icon on the desktop:
+
+   The Microsoft Network Detected
+
+   We have detected that MSN has previously been installed on this
+   computer.
+
+   If you currently subscribe to MSN (or wish to), you must click "MSN
+   Setup" below before you can connect to MSN via Internet Explorer.
+
+   To continue using Internet Explorer for purposes other than
+   accessing MSN, click "Internet Explorer" below.
+
+   [ ] Don't show me this dialog again.
+
+   [Cancel] [Internet Explorer] [MSN Setup]
+
+Windows 98 adds this message as a service to MSN customers. This 
+message is added to icons on the desktop if a previous version
+of The Microsoft Network (MSN) client is detected, or if the second
+stage of the MSN setup process has not been completed. Windows 98
+does not automatically upgrade the MSN client. 
+
+To disable the warning, upgrade the MSN client by clicking the "MSN
+Setup" button, or when the message is displayed, click the checkbox
+for, "Don't show me this dialog again." 
+
+If the Outlook 98 desktop icon continues to prompt you to update the
+MSN client, run the file CHNGINBX.EXE to disable the message.
+
+----------------------------------------------------------------------------------
+To disable The Microsoft Network Detected message for the Outlook 98 desktop icon:
+----------------------------------------------------------------------------------
+
+1. Select CHNGINBX.EXE found in the \Tools\MTSutil folder on the 
+   Windows 98 CD.
+
+2. Double-Click CHNGINBX.EXE.
+	-or-
+   Press the ENTER key.
+
+3. Choose Yes to change your Inbox icon to the Microsoft Outlook 98 icon.

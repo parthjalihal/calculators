@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+    <TITLE>Microsoft Investor: Home - investor, quotes, stocks, investing, mutual funds, personal finance</TITLE>
+	<META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "Microsoft Network" for "http://investor.msn.com" on "1996.09.17T13:00-0500" r (n 0 s 0 v 0 l 0))'>
+	<META NAME="keywords" CONTENT="AMEX, business news, currencies, currency, dividend, finance, financial, foreign markets, historical data, Investing, Investments, markets, Microsoft Investor, mutual funds, NASDAQ, NYSE, portfolio, quotes, securities, split, stock quotes, stocks, ticker, trading">
+	<META NAME="description" CONTENT="Microsoft Investor -  the best place on the web to invest. With free and premium services, Investor offers portfolio tracking, charting, an investment finder, stock and mutual fund research, email alerts, daily editorial, and access to trading.">
+	
+	<script language=javascript>
+	<!--//
+	
+	var iMax = 8;
+	var iCurrent = 0; 
+	var aPage = new Array(iMax);
+
+	function doLoad()
+	{
+		aPage[0] = "page1.htm";
+		aPage[1] = "demohome.htm";
+		aPage[2] = "pm.htm";
+		aPage[3] = "chart.htm";
+		aPage[4] = "analyst.htm";
+		aPage[5] = "finder.htm";
+		aPage[6] = "article.htm";
+		aPage[7] = "trading.htm";
+	}
+	
+	function goPrev()
+	{
+		iCurrent--;
+		if (iCurrent < 0)
+			iCurrent = 0;
+		parent.demohome.location.href = aPage[iCurrent];
+		return;
+	}
+
+	function goNext()
+	{
+		iCurrent++;
+		if (iCurrent == iMax)
+		{
+			path = "http://investor.msn.com/external/ie4/cdpromo.asp";
+			top.location.href = path;
+		}
+		else
+		{
+			path = aPage[iCurrent];
+			parent.demohome.location.href = path;
+		}
+	}
+	
+	function update(newpage)
+	{
+		iCurrent = newpage;
+	}
+
+	//-->
+	</script>
+
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR="White" onLoad="doLoad();">
+<CENTER>
+<A HREF="javascript:goPrev();">
+	<IMG SRC="images/prevbt.gif" VSPACE=12 HSPACE=12 WIDTH=103 HEIGHT=16 ALT="Previous" BORDER=0></A>
+</A>
+<A HREF="javascript:goNext();">
+	<IMG SRC="images/nextbt.gif" VSPACE=12 HSPACE=12 WIDTH=103 HEIGHT=16 ALT="Next" BORDER=0></A>
+</A>
+<A HREF="javascript:window.external.addChannel('http://investor.msn.com/channel/cdf/investor.cdf')" TARGET="_top">
+	<IMG SRC="images/addchan.gif" VSPACE=12 HSPACE=12 WIDTH=136 HEIGHT=20 ALT="Add Active Channel" BORDER=0></A>
+</A>
+</CENTER>
+</BODY>
+</HTML>

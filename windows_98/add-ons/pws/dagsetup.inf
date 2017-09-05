@@ -1,0 +1,1639 @@
+;=====================================================================
+;
+; Master OCM INF for the DAG Stack
+;
+;=====================================================================
+
+[Version]
+Signature="$Chicago$"
+Platform=W95
+Provider=%MS%
+LayoutFile=DAGSETUP.INF
+
+[Private]
+StandAlone=0
+
+[Strings]
+; setup version
+DACSV="1.50.07.0045"
+REG_CPTIMEOUT="Software\ODBC\ODBCINST.INI\SQL Server"
+REG_BRAZOSCPTIMEOUT="SOFTWARE\ODBC\ODBCINST.INI\Microsoft Access Driver (*.mdb)"
+REG_UNINSTALL="Software\Microsoft\Windows\CurrentVersion\Uninstall\DataAccess"
+REG_DATAACCESS="Software\Microsoft\DataAccess"
+REG_RUNONCE="Software\Microsoft\Windows\CurrentVersion\RunOnce"
+
+;=====================================================================
+; LOCALIZE HERE
+;=====================================================================
+Title="Microsoft Data Access Components 1.5"
+MS="Microsoft Corporation"
+
+DAC="Microsoft Data Access Components 1.5"
+DAC_Tip="Install Microsoft Data Access Components 1.5"
+DAC_ADO_Opt="MDAC: ADO, ODBC, and OLE DB" 
+DAC_ADO_Tip="Install ActiveX Data Objects (ADO) plus required OLE DB and ODBC files."
+DAC_ADO_CORE_Opt="MDAC Core Files: ADO, ODBC, and OLE DB"
+DAC_ADO_CORE_Tip="Install ActiveX Data Objects (ADO) plus required OLE DB and ODBC files."
+DAC_ADO_DOC_Opt="ADO Documentation"
+DAC_ADO_DOC_Tip="Install ADO Documentation"
+DAC_RDS_Opt="Remote Data Service 1.5 (RDS/ADC)" 
+DAC_RDS_Tip="Install Remote Data Service (formerly Advanced Data Connector)"
+DAC_RDS_CORE_Opt="RDS Core Files"
+DAC_RDS_CORE_Tip="RDS Minimum Install"
+DAC_RDS_SAMPLE_Opt="RDS Samples"
+DAC_RDS_SAMPLE_Tip="Install RDS Samples. These are referenced by the documentation."
+DAC_RDS_DOC_Opt="RDS Documents"
+DAC_RDS_DOC_Tip="Install RDS Documents"
+DAC_RDS_11_Opt="RDS v1.1 Files"
+DAC_RDS_11_Tip="RDS v1.1 Install"
+DAC_DRV_Opt="Data Sources"
+DAC_DRV_Tip="Install Drivers and Providers for accessing common data sources"
+DAC_DRV_ACCESS_Opt="Jet and Access (OLE DB)"
+DAC_DRV_ACCESS_Tip="Install Access OLE DB Provider 3.51"
+DAC_DRV_BRAZOS_Opt="Jet and Access (ODBC)"
+DAC_DRV_BRAZOS_Tip="Install Access ODBC Driver 3.5"
+DAC_DRV_SQLSRV_Opt="SQL Server"
+DAC_DRV_SQLSRV_Tip="Install Microsoft SQL Server ODBC Driver"
+DAC_DRV_ORACLE_Opt="Oracle"
+DAC_DRV_ORACLE_Tip="Install Microsoft ODBC Driver for Oracle 2.0"
+; End localize
+
+;=====================================================================
+;
+; Page specifications.
+;
+;=====================================================================
+[PageTitles]
+SetupPage=%Title%
+
+[PageReplace]
+welcome = default
+mode = default
+final = default
+
+[PageAdd]
+early = 
+prenet = 
+postnet = 
+late = 
+
+;=====================================================================
+;
+; Components
+;
+;=====================================================================
+
+[Optional Components]
+DAC
+DAC_ADO
+DAC_ADO_CORE
+DAC_ADO_DOC
+DAC_RDS
+DAC_RDS_11
+DAC_RDS_CORE
+DAC_RDS_DOC
+DAC_RDS_SAMPLE
+DAC_DRV
+DAC_DRV_BRAZOS
+; DAC_DRV_ACCESS
+DAC_DRV_SQLSRV
+DAC_DRV_ORACLE
+
+[DAC]
+OptionDesc = %DAC%
+Tip = %DAC_Tip%
+IconIndex = 9
+
+[DAC_DRV]
+Parent=DAC
+OptionDesc = %DAC_DRV_Opt%
+Tip = %DAC_DRV_Tip%
+IconIndex = 9
+
+; [DAC_DRV_ACCESS]
+; Parent=DAC_DRV
+; Needs=DAC_ADO_CORE, DAC_DRV_BRAZOS
+; OptionDesc = %DAC_DRV_ACCESS_Opt%
+; Tip = %DAC_DRV_ACCESS_Tip%
+; IconIndex = 9
+
+[DAC_DRV_BRAZOS]
+Parent=DAC_DRV
+Needs=DAC_ADO_CORE
+OptionDesc = %DAC_DRV_BRAZOS_Opt%
+Tip = %DAC_DRV_BRAZOS_Tip%
+IconIndex = 9
+Modes = 0,1,3
+
+[DAC_DRV_SQLSRV]
+Parent=DAC_DRV
+Needs=DAC_ADO_CORE
+OptionDesc = %DAC_DRV_SQLSRV_Opt%
+Tip = %DAC_DRV_SQLSRV_Tip%
+IconIndex = 9
+Modes = 0,1,3
+
+[DAC_DRV_ORACLE]
+Parent=DAC_DRV
+Needs=DAC_ADO_CORE
+OptionDesc = %DAC_DRV_ORACLE_Opt%
+Tip = %DAC_DRV_ORACLE_Tip%
+IconIndex = 9
+; Modes line blank.  Item will be unchecked by default.
+
+;=====================================================================
+;
+; Setup actions
+;
+;=====================================================================
+
+[DAC_DRV_BRAZOS_INSTALL]
+CopyFiles=DAC_JET_FILES, DAC_BRAZOS_FILES
+AddReg=DAC_BRAZOS_REGISTER
+
+[DAC_DRV_BRAZOS_UNINSTALL]
+DelFiles=
+
+[DAC_BRAZOS_REGISTER]
+HKLM, %REG_BRAZOSCPTIMEOUT%,"CPTimeout",0x00000000,"60"
+
+[DAC_DRV_ACCESS_INSTALL]
+;CopyFiles=DAC_JOLT_FILES
+
+[DAC_DRV_ACCESS_UNINSTALL]
+;DelFiles=DAC_JOLT_FILES
+
+[DAC_DRV_SQLSRV_INSTALL]
+CopyFiles=DAC_SQLSRV_FILES
+AddReg=DAC_SQLSRV_REGISTER
+
+[DAC_DRV_SQLSRV_UNINSTALL]
+DelFiles=
+
+[DAC_SQLSRV_REGISTER]
+HKLM, %REG_CPTIMEOUT%,"CPTimeout",0x00000000,"60"
+
+[DAC_DRV_ORACLE_INSTALL]
+CopyFiles=DAC_ORACLE_FILES
+
+[DAC_DRV_ORACLE_UNINSTALL]
+DelFiles=
+
+[DAC_RDS]
+Parent=DAC
+OptionDesc = %DAC_RDS_Opt%
+Tip = %DAC_RDS_Tip%
+IconIndex = 9
+
+[DAC_RDS_CORE]
+OptionDesc = %DAC_RDS_CORE_Opt%
+Tip = %DAC_RDS_CORE_Tip%
+Parent = DAC_RDS
+Needs = DAC_ADO_CORE, IIS_WWW
+IconIndex = 9
+Modes = 0,1,3
+
+[DAC_RDS_11]
+OptionDesc = %DAC_RDS_11_Opt%
+Tip = %DAC_RDS_11_Tip%
+Parent = DAC_RDS
+Needs = DAC_ADO_CORE, IIS_WWW
+IconIndex = 9
+; Modes line blank.  Item will be unchecked by default.
+
+[DAC_RDS_DOC]
+OptionDesc = %DAC_RDS_DOC_Opt%
+Tip = %DAC_RDS_DOC_Tip%
+Parent = DAC_RDS
+Needs = DAC_RDS_CORE
+IconIndex = 49
+; Modes line blank.  Item will be unchecked by default.
+
+[DAC_RDS_SAMPLE]
+OptionDesc = %DAC_RDS_SAMPLE_Opt%
+Tip = %DAC_RDS_SAMPLE_Opt%
+Parent = DAC_RDS
+Needs = DAC_RDS_CORE, DAC_DRV_BRAZOS
+IconIndex = 11
+; Modes line blank.  Item will be unchecked by default.
+
+[DAC_RDS_CORE_INSTALL]
+CopyFiles=DAC_RDS_FILES, DAC_RDS_SYS_FILES
+AddReg=DAC_RDS_CORE_REGISTER
+
+[DAC_RDS_CORE_REGISTER]
+HKLM,System\CurrentControlSet\Services\W3SVC\Parameters\ADCLaunch\AdvancedDataFactory
+HKLM,System\CurrentControlSet\Services\W3SVC\Parameters\ADCLaunch\RDSServer.DataFactory
+HKLM,System\CurrentControlSet\Services\W3SVC\Parameters\Virtual Roots,"/MSADC",,"%32772%\System\MSADC,,5"
+
+[DAC_RDS_CORE_UNINSTALL]
+; DelFiles=DAC_RDS_FILES, DAC_RDS_SYS_FILES
+; DelReg=DAC_RDS_CORE_UNREGISTER
+DelFiles=
+
+[DAC_RDS_CORE_UNREGISTER]
+HKLM,System\CurrentControlSet\Services\W3SVC\Parameters\ADCLaunch
+HKLM,System\CurrentControlSet\Services\W3SVC\Parameters\Virtual Roots,"/MSADC"
+
+[DAC_RDS_11_INSTALL]
+CopyFiles=DAC_RDS_11_FILES, DAC_RDS_DOC11_FILES, DAC_RDS_S11_FILES, DAC_RDS_S11A_FILES
+
+[DAC_RDS_11_UNINSTALL]
+; DelFiles=DAC_RDS_11_FILES, DAC_RDS_DOC11_FILES, DAC_RDS_S11_FILES, DAC_RDS_S11A_FILES
+DelFiles=DAC_RDS_DOC11_FILES, DAC_RDS_S11_FILES, DAC_RDS_S11A_FILES
+
+[DAC_RDS_DOC_INSTALL]
+CopyFiles=DAC_RDS_DOC_FILES
+
+[DAC_RDS_DOC_UNINSTALL]
+DelFiles=DAC_RDS_DOC_FILES
+
+[DAC_RDS_SAMPLE_INSTALL]
+CopyFiles=DAC_RDS_ST_FILES, DAC_RDS_SS_FILES, DAC_RDS_SSCI_FILES, DAC_RDS_SSCVA_FILES, DAC_RDS_SSCVAS_FILES, DAC_RDS_SSCVV_FILES, DAC_RDS_SSCVVS_FILES, DAC_RDS_SSMV_FILES,DAC_RDS_S_FILES, DAC_RDS_SA_FILES
+; These are empty: CopyFiles=DAC_RDS_SSC_FILES, DAC_RDS_SSCV_FILES, DAC_RDS_SSM_FILES, 
+; NO query builder CopyFiles=DAC_RDS_SQ_FILES, DAC_RDS_SQI_FILES, DAC_RDS_SQM_FILES, DAC_RDS_SQS_FILES, DAC_RDS_SQV_FILES
+AddReg=DAC_RDS_SAMPLE_REGISTER
+
+[DAC_RDS_SAMPLE_REGISTER]
+HKEY_CLASSES_ROOT,CLSID\{C9FC0DB1-C814-11D0-9D83-00AA0057430D}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}
+HKEY_CLASSES_ROOT,CLSID\{C9FC0DB1-C814-11D0-9D83-00AA0057430D}\Implemented Categories\{7DD95802-9882-11CF-9FA9-00AA006C42C4}
+HKEY_LOCAL_MACHINE,SYSTEM\CurrentControlSet\Services\W3SVC\Parameters\ADCLaunch\VbBusObj.VbBusObjCls
+
+[DAC_RDS_SAMPLE_UNINSTALL]
+DelFiles=DAC_RDS_S_FILES, DAC_RDS_SA_FILES, DAC_RDS_SS_FILES, DAC_RDS_SSCI_FILES, DAC_RDS_SSCVA_FILES, DAC_RDS_SSCVAS_FILES, DAC_RDS_SSCVV_FILES, DAC_RDS_SSCVVS_FILES, DAC_RDS_SSMV_FILES, DAC_RDS_ST_FILES
+; These are empty: DelFiles=DAC_RDS_SSC_FILES, DAC_RDS_SSCV_FILES, DAC_RDS_SSM_FILES, 
+; NO query builder: DelFiles=DAC_RDS_SQ_FILES, DAC_RDS_SQI_FILES, DAC_RDS_SQM_FILES, DAC_RDS_SQS_FILES, DAC_RDS_SQV_FILES
+DelReg=DAC_RDS_SAMPLE_UNREGISTER
+
+[DAC_RDS_SAMPLE_UNREGISTER]
+HKEY_CLASSES_ROOT,CLSID\{C9FC0DB1-C814-11D0-9D83-00AA0057430D}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}
+HKEY_CLASSES_ROOT,CLSID\{C9FC0DB1-C814-11D0-9D83-00AA0057430D}\Implemented Categories\{7DD95802-9882-11CF-9FA9-00AA006C42C4}
+HKEY_LOCAL_MACHINE,SYSTEM\CurrentControlSet\Services\W3SVC\Parameters\ADCLaunch\VbBusObj.VbBusObjCls
+
+[DAC_ADO]
+Parent=DAC
+OptionDesc = %DAC_ADO_Opt%
+Tip = %DAC_ADO_Tip%
+IconIndex = 9		
+
+[DAC_ADO_CORE]
+OptionDesc = %DAC_ADO_CORE_Opt%
+Tip = %DAC_ADO_CORE_Tip%
+Parent = DAC_ADO
+IconIndex = 9		
+Modes = 0,1,3	
+Needs = IIS_COMMON
+
+[DAC_ADO_DOC]
+OptionDesc = %DAC_ADO_DOC_Opt%
+Tip = %DAC_ADO_DOC_Tip%
+Parent = DAC_ADO
+Needs = DAC_ADO_CORE
+IconIndex = 49
+; Modes line blank.  Item will be unchecked by default.
+
+[DAC_ADO_CORE_INSTALL]
+CopyFiles=DAC_ODBC_FILES, DAC_OLEDB_FILES, DAC_ADO_FILES, DAC_OCM_FILES, DAC_DAG_FILES
+AddReg=DAC_OCM_REGISTER
+
+[DAC_ADO_CORE_UNINSTALL]
+; DelFiles=DAC_OLEDB_FILES, DAC_ADO_FILES
+DelReg=DAC_OCM_UNREGISTER
+DelFiles=
+
+[DAC_ADO_DOC_INSTALL]
+CopyFiles=DAC_ADO_DOC_FILES
+
+[DAC_ADO_DOC_UNINSTALL]
+DelFiles=DAC_ADO_DOC_FILES
+
+[DAC_OCM_REGISTER]
+HKLM, %REG_DATAACCESS%,"Version",0x00000000,%DACSV%
+; HKLM, %REG_UNINSTALL%,"DisplayName",0x00000000,%DAC%
+; HKLM, %REG_UNINSTALL%,"UninstallString",0x00000000,"%11%\sysocmgr -i:%11%\setup\iisv4.inf -c"
+HKLM, %REG_RUNONCE%,"DAC_RegOLEDB1",0x00000000,"%11%\regsvr32 /s ""%32772%\System\OLE DB\msdadc.dll"""
+HKLM, %REG_RUNONCE%,"DAC_RegOLEDB2",0x00000000,"%11%\regsvr32 /s ""%32772%\System\OLE DB\msdaenum.dll"""
+HKLM, %REG_RUNONCE%,"DAC_RegOLEDB3",0x00000000,"%11%\regsvr32 /s ""%32772%\System\OLE DB\msdaer.dll"""
+HKLM, %REG_RUNONCE%,"DAC_RegOLEDB4",0x00000000,"%11%\regsvr32 /s ""%32772%\System\OLE DB\msdatt.dll"""
+
+[DAC_OCM_UNREGISTER]
+HKLM, %REG_DATAACCESS%,"Version"
+; HKLM, %REG_UNINSTALL%,"DisplayName"
+; HKLM, %REG_UNINSTALL%,"UninstallString"
+
+;=====================================================================
+; Directories section, generated by infutil, will be appended below
+;=====================================================================
+
+; 18 ===> Windows\help directory (%windir%)
+; 20 ===> windows\fonts directory
+; 11 ===> system directory (%windir%\system on Win95, %windir%\system32 on NT)
+; 12 ===> drivers directory (%windir%\system32\drivers on NT)
+; 32772 ===> "Program Files\Common Files"
+
+[DestinationDirs]
+DAC_OCM_FILES=11
+DAC_DAG_FILES=11, "Setup"
+DAC_ADO_FILES=32772, "System\ADO"
+DAC_ADO_DOC_FILES=32772, "System\ADO\Docs"
+DAC_RDS_FILES=32772, "System\MSADC"
+DAC_RDS_SYS_FILES=11
+DAC_RDS_DOC_FILES=32772, "System\MSADC\Docs"
+DAC_RDS_S_FILES=32772, "System\MSADC\Samples"
+DAC_RDS_SALPHA_FILES=32772, "System\MSADC\Samples"
+DAC_RDS_SA_FILES=32772, "System\MSADC\Samples\AddressBook"
+DAC_RDS_SS_FILES=32772, "System\MSADC\Samples\SELECTOR"
+DAC_RDS_SSCI_FILES=32772, "System\MSADC\Samples\SELECTOR\CLIENT\IE"
+DAC_RDS_SSCVA_FILES=32772, "System\MSADC\Samples\SELECTOR\CLIENT\VB\VBTOADF"
+DAC_RDS_SSCVAS_FILES=32772, "System\MSADC\Samples\SELECTOR\CLIENT\VB\VBTOADF\SETUP"
+DAC_RDS_SSCVV_FILES=32772, "System\MSADC\Samples\SELECTOR\CLIENT\VB\VBTOVB"
+DAC_RDS_SSCVVS_FILES=32772, "System\MSADC\Samples\SELECTOR\CLIENT\VB\VBTOVB\SETUP"
+DAC_RDS_SSMV_FILES=32772, "System\MSADC\Samples\SELECTOR\MIDDLE_TIER\VBBUSOBJ"
+DAC_RDS_ST_FILES=32772, "System\MSADC\Samples\Tutorial"
+DAC_RDS_11_FILES=32772, "System\MSADC"
+DAC_RDS_DOC11_FILES=32772, "System\MSADC\Doc11"
+DAC_RDS_S11_FILES=32772, "System\MSADC\Samples11"
+DAC_RDS_S11A_FILES=32772, "System\MSADC\Samples11\AddressBook"
+DAC_OLEDB_FILES=32772, "System\OLE DB"
+; DAC_JOLT_FILES=32772, "System\OLE DB"
+DAC_JET_FILES=11
+DAC_BRAZOS_FILES=11
+DAC_ODBC_FILES=11
+DAC_SQLSRV_FILES=11
+DAC_ORACLE_FILES=11
+
+;=====================================================================
+; File section, generated by infutil, will be appended below
+;=====================================================================
+
+[dac_ado_doc_files]
+adoobj01.htm 
+adoobj01_1.htm 
+adoobj01_2.htm 
+adoobj01_3.htm 
+adoobj01_4.htm 
+adoobj01_5.htm 
+adoobj01_6.htm 
+adomthx1_17.htm 
+adoidx02_2.htm 
+adoidx02_3.htm 
+adoidx02_4.htm 
+adopro02.htm 
+adopro02_1.htm 
+adopro02_2.htm 
+adopro02_3.htm 
+adopro02_4.htm 
+adopro02_5.htm 
+adopro02_6.htm 
+adopro02_7.htm 
+adopro03.htm 
+adopro03_1.htm 
+adopro03_2.htm 
+adopro03_3.htm 
+adopro03_4.htm 
+adopro03_5.htm 
+adopro03_6.htm 
+adopro03_7.htm 
+adopro04.htm 
+adopro04_1.htm 
+adopro04_2.htm 
+adopro04_3.htm 
+adopro04_4.htm 
+adoobj02.htm 
+adoobj02_1.htm 
+adoobj02_2.htm 
+adoobj02_3.htm 
+adopro01.htm 
+adopro01_1.htm 
+adopro01_2.htm 
+adopro01_3.htm 
+adopro01_4.htm 
+adopro01_5.htm 
+adopro01_6.htm 
+adopro06_2.htm 
+adopro06_3.htm 
+adopro06_4.htm 
+adopro06_5.htm 
+adopro06_6.htm 
+adopro06_7.htm 
+adopro06_8.htm 
+adopro07.htm 
+adopro07_1.htm 
+adopro07_2.htm 
+adoprox1.htm 
+adoprox1_1.htm 
+adoprox1_10.htm 
+adoprox1_11.htm 
+adoprox1_12.htm 
+adoprox1_13.htm 
+adoprox1_14.htm 
+adoprox1_15.htm 
+adoprox1_16.htm 
+adoprox1_17.htm 
+adoprox1_18.htm 
+adoprox1_19.htm 
+adoprox1_2.htm 
+adoprox1_20.htm 
+adoprox1_21.htm 
+adoprox1_22.htm 
+adoprox1_23.htm 
+adoprox1_24.htm 
+adoprox1_3.htm 
+adoprox1_4.htm 
+adoprox1_5.htm 
+adoprox1_6.htm 
+adoprox1_7.htm 
+adoprox1_8.htm 
+adoprox1_9.htm 
+adorlnts.htm 
+adowelc.htm 
+colerror.gif 
+colfield.gif 
+colparam.gif 
+colprope.gif 
+cont.gif 
+contents.htm 
+daccbanr.gif 
+default.htm 
+index.gif 
+index.htm 
+mdacgstr.htm 
+mdacovrv.htm 
+mdacwelc.htm 
+ms_logo.gif 
+navbar.htm 
+nocont.gif 
+noindex.gif 
+objcomma.gif 
+objconn.gif 
+objerror.gif 
+objfield.gif 
+objparam.gif 
+objprope.gif 
+objrecor.gif 
+paracros.gif 
+parchild.gif 
+parlower.gif 
+parmult.gif 
+parshare.gif 
+readme.txt,readme.txt5 
+space.gif 
+adomth01_1.htm 
+adomth01_2.htm 
+adomth01_3.htm 
+adomth01_4.htm 
+adomth01_5.htm 
+adomth01_6.htm 
+adomth01_7.htm 
+adomth01_8.htm 
+adomth01_9.htm 
+adomth02.htm 
+adomth02_1.htm 
+adomth02_2.htm 
+adomth02_3.htm 
+adomth02_4.htm 
+adomth02_5.htm 
+adomth02_6.htm 
+adomth02_7.htm 
+adomth02_8.htm 
+adomth03.htm 
+adomth03_1.htm 
+adomth03_2.htm 
+adomth03_3.htm 
+adomth03_4.htm 
+adomth03_5.htm 
+adomth03_6.htm 
+adomth03_7.htm 
+adomth04.htm 
+adomth04_1.htm 
+adomthx1.htm 
+adomthx1_1.htm 
+adomthx1_10.htm 
+adomthx1_11.htm 
+adomthx1_12.htm 
+adoidx01_1.htm 
+adoidx02.htm 
+ado15a.hhc 
+ado15b.hhc 
+adoidx01.htm 
+ado15.hhk 
+ado15.gif 
+adopro04_5.htm 
+adopro04_6.htm 
+adopro05.htm 
+adopro05_1.htm 
+adopro05_2.htm 
+adopro05_3.htm 
+adopro05_4.htm 
+adopro05_5.htm 
+adopro05_6.htm 
+adopro06.htm 
+adopro06_1.htm 
+adomthx1_8.htm 
+adomthx1_9.htm 
+adomthx1_6.htm 
+adomthx1_2.htm 
+adomthx1_3.htm 
+adomthx1_4.htm 
+adomthx1_5.htm 
+adomthx1_7.htm 
+adomthx1_16.htm 
+adoidx02_1.htm 
+adomthx1_13.htm 
+adomthx1_14.htm 
+adomthx1_15.htm 
+adointro.htm 
+adointro_1.htm 
+adointro_2.htm 
+adointro_3.htm 
+adointro_4.htm 
+adolegal.htm 
+adomth01.htm 
+
+[dac_ado_files]
+adovbs.inc 
+makapt15.bat 
+adoapt15.reg 
+adofre15.reg 
+adojavas.inc 
+makfre15.bat 
+msador15.dll 
+msadrh15.dll 
+readme.txt 
+msader15.dll 
+msado15.dll 
+
+[dac_brazos_files]
+odbcjet.hlp 
+odbcjet.cnt 
+odbctl32.dll 
+odbcji32.dll 
+odbcjt32.dll 
+
+[dac_dag_files]
+dagsetup.inf 
+dagsetup.dll 
+odbccp32.dll 
+readme.txt,readme.txt4 
+odbcint.dll 
+
+[dac_jet_files]
+msrepl35.dll 
+msjter35.dll 
+msjint35.dll 
+msjet35.dll 
+msrd2x35.dll 
+vbajet32.dll 
+vbar332.dll 
+
+[dac_ocm_files]
+regsvr32.exe 
+msvbvm50.dll 
+
+[dac_odbc_files]
+odbc32gt.dll 
+odbc16gt.dll 
+odbccr32.dll 
+odbcad32.exe 
+odbccu32.dll 
+odbcinst.cnt 
+odbc32.dll 
+odbccp32.dll,odbccp32.dll1 
+odbcint.dll,odbcint.dll1 
+ds16gt.dll 
+ds32gt.dll 
+mtxdm.dll 
+odbctrac.dll 
+odbcinst.hlp 
+odbccp32.cpl 
+
+[dac_oledb_files]
+msdaerr.dll 
+msdatl.dll 
+msdaer.dll 
+msdaenum.dll 
+msdasqlr.dll 
+msdadc.dll 
+msdatt.dll 
+msdasql.dll 
+msdaps.dll 
+
+[dac_oracle_files]
+msorcl32.cnt 
+msorcl32.hlp 
+msoracle32readme.txt 
+msorcl32.dll 
+
+[dac_rds_11_files]
+msadc11.cab 
+
+[dac_rds_doc11_files]
+adcrefx_9.htm 
+adcdef01_11.htm 
+adcrefx_5.htm 
+adcdef01_20.htm 
+adcdef01_21.htm 
+adcdef01_22.htm 
+adcrefx_8.htm 
+adcdef01_39.htm 
+adcdef01_4.htm 
+adcdef01_40.htm 
+adcdef01_41.htm 
+adcdef01_42.htm 
+adcdef01_43.htm 
+adcdef01_44.htm 
+adcdef01_45.htm 
+adcdef01_46.htm 
+adcdef01_47.htm 
+adcdef01_5.htm 
+adcdef01_6.htm 
+adcdef01_7.htm 
+adcdef01_8.htm 
+adcdef01_9.htm 
+adcdg01.htm 
+adcdef01_12.htm 
+adcdef01_13.htm 
+adcdef01_14.htm 
+adcdef01_15.htm 
+adcdef01_16.htm 
+adcdef01_29.htm 
+adcdef01_3.htm 
+adcrefx_3.htm 
+adcrefx_4.htm 
+adctut02_7.htm 
+ad001.gif 
+adcdgapb.htm 
+adcgs01.htm 
+adcgs01_1.htm 
+adcgs01_2.htm 
+adcgs01_3.htm 
+adcgs01_4.htm 
+adcgs01_5.htm 
+adcgs01_6.htm 
+adclegal.htm 
+adcref01.htm 
+adcref01_1.htm 
+adcref01_10.htm 
+adcref01_11.htm 
+adcref01_12.htm 
+adcref01_13.htm 
+adcref01_14.htm 
+adcref01_15.htm 
+adcref01_16.htm 
+adcref01_17.htm 
+adcref01_18.htm 
+adcref01_19.htm 
+adcref01_2.htm 
+adcref01_3.htm 
+adcref01_4.htm 
+adcref01_5.htm 
+adcref01_6.htm 
+adcref01_7.htm 
+adcref01_8.htm 
+adcref01_9.htm 
+adcref02.htm 
+adcref02_1.htm 
+adcref02_2.htm 
+adcrefx.htm 
+adcrefx_1.htm 
+adcrefx_10.htm 
+adcrefx_11.htm 
+adcrefx_2.htm 
+adcdg02_5.htm 
+adcdg03.gif 
+adcdgapa.htm 
+adcdgapa_1.htm 
+odbcshot.gif 
+prcarrow.gif 
+adcdg01_1.htm 
+adctut02.htm 
+adctut02_1.htm 
+adctut02_10.htm 
+adctut02_11.htm 
+adctut02_12.htm 
+adctut02_13.htm 
+adctut02_2.htm 
+adctut02_3.htm 
+adctut02_4.htm 
+adctut02_5.htm 
+adctut02_6.htm 
+adcdg02_1.htm 
+adctut02_8.htm 
+adctut02_9.htm 
+adcwtnu.htm 
+contents.htm,contents.htm2 
+default.htm,default.htm2 
+ms_logo.gif,ms_logo.gif2 
+msadc11.hhc 
+navbar.htm,navbar.htm2 
+adcdg02_3.htm 
+adcdg02_4.htm 
+rds1_1.gif 
+readme.txt,readme.txt3 
+adcdef01_17.htm 
+adcdef01_18.htm 
+adcdef01_19.htm 
+adcdef01_2.htm 
+adcdg02.htm 
+adcdg02.gif 
+adcdg02_2.htm 
+adcdef01_23.htm 
+adcdef01_24.htm 
+adcdef01_25.htm 
+adcdef01_26.htm 
+adcdef01_27.htm 
+adcdef01_28.htm 
+ad003.gif 
+adcdef01.htm 
+adcdef01_30.htm 
+adcdef01_31.htm 
+adcdef01_32.htm 
+adcdef01_33.htm 
+adcdef01_34.htm 
+adcdef01_35.htm 
+adcdef01_36.htm 
+adcdef01_37.htm 
+adcdef01_38.htm 
+adcdef01_1.htm 
+adcrefx_6.htm 
+ad002.gif 
+adcdef01_10.htm 
+adcrefx_7.htm 
+
+[dac_rds_doc_files]
+adcref01_7.htm,adcref01_7.htm1 
+adcref01_29.htm 
+adcref01_3.htm,adcref01_3.htm1 
+adcref01_4.htm,adcref01_4.htm1 
+msadc15b.hhc 
+navbar.htm,navbar.htm1 
+prcarrow.gif,prcarrow.gif1 
+readme.txt,readme.txt1 
+adcdef01_31.htm,adcdef01_31.htm1 
+adcdef01_32.htm,adcdef01_32.htm1 
+adcdg02.gif,adcdg02.gif1 
+adcdg02.htm,adcdg02.htm1 
+adcdg02_1.htm,adcdg02_1.htm1 
+adctut02.htm,adctut02.htm1 
+adctut02_13.htm,adctut02_13.htm1 
+adctut02_1.htm,adctut02_1.htm1 
+adctut02_9.htm,adctut02_9.htm1 
+adcwtnu.htm,adcwtnu.htm1 
+adcdef01_3.htm,adcdef01_3.htm1 
+adcdef01_30.htm,adcdef01_30.htm1 
+adctut02_3.htm,adctut02_3.htm1 
+adctut02_4.htm,adctut02_4.htm1 
+adcdef01_21.htm,adcdef01_21.htm1 
+adcdef01_22.htm,adcdef01_22.htm1 
+adcdef01_23.htm,adcdef01_23.htm1 
+adcdef01_24.htm,adcdef01_24.htm1 
+adcdef01_25.htm,adcdef01_25.htm1 
+adcdef01_26.htm,adcdef01_26.htm1 
+adcdef01_27.htm,adcdef01_27.htm1 
+adcdef01_28.htm,adcdef01_28.htm1 
+adcdef01_29.htm,adcdef01_29.htm1 
+adcdef01_15.htm,adcdef01_15.htm1 
+adctut01_7.htm 
+adctut01_8.htm 
+adcdef01_44.htm,adcdef01_44.htm1 
+ad001.gif,ad001.gif1 
+ad002.gif,ad002.gif1 
+ad003.gif,ad003.gif1 
+adc15.gif 
+adccodeex.htm 
+adcdef01.htm,adcdef01.htm1 
+adcdef01_1.htm,adcdef01_1.htm1 
+adcdef01_10.htm,adcdef01_10.htm1 
+adcdef01_11.htm,adcdef01_11.htm1 
+adcdef01_12.htm,adcdef01_12.htm1 
+adcdef01_13.htm,adcdef01_13.htm1 
+adcdef01_14.htm,adcdef01_14.htm1 
+adctut02_2.htm,adctut02_2.htm1 
+adcdef01_16.htm,adcdef01_16.htm1 
+adcdef01_17.htm,adcdef01_17.htm1 
+adcdef01_18.htm,adcdef01_18.htm1 
+adcdef01_19.htm,adcdef01_19.htm1 
+adcdef01_2.htm,adcdef01_2.htm1 
+adcdef01_20.htm,adcdef01_20.htm1 
+adctut02_10.htm,adctut02_10.htm1 
+adctut02_11.htm,adctut02_11.htm1 
+adctut02_12.htm,adctut02_12.htm1 
+adcref01_8.htm,adcref01_8.htm1 
+adcref01_9.htm,adcref01_9.htm1 
+adcref02.htm,adcref02.htm1 
+adcref02_1.htm,adcref02_1.htm1 
+adcref02_2.htm,adcref02_2.htm1 
+adcrefx.htm,adcrefx.htm1 
+adcrefx_1.htm,adcrefx_1.htm1 
+adcrefx_10.htm,adcrefx_10.htm1 
+adcrefx_11.htm,adcrefx_11.htm1 
+adcrefx_12.htm 
+adcrefx_13.htm 
+adcrefx_14.htm 
+adcrefx_15.htm 
+adcrefx_2.htm,adcrefx_2.htm1 
+adcrefx_3.htm,adcrefx_3.htm1 
+adcrefx_4.htm,adcrefx_4.htm1 
+adcrefx_5.htm,adcrefx_5.htm1 
+adcrefx_6.htm,adcrefx_6.htm1 
+adcrefx_7.htm,adcrefx_7.htm1 
+adcrefx_8.htm,adcrefx_8.htm1 
+adcrefx_9.htm,adcrefx_9.htm1 
+adctut01.htm 
+adctut01_1.htm 
+adctut01_2.htm 
+adctut01_3.htm 
+adctut01_4.htm 
+adctut01_5.htm 
+adctut01_6.htm 
+adcgs01_2.htm,adcgs01_2.htm1 
+adcdef01_45.htm,adcdef01_45.htm1 
+adcdef01_46.htm,adcdef01_46.htm1 
+adcdef01_47.htm,adcdef01_47.htm1 
+adcdef01_5.htm,adcdef01_5.htm1 
+adcdef01_6.htm,adcdef01_6.htm1 
+adcdef01_7.htm,adcdef01_7.htm1 
+adcdef01_8.htm,adcdef01_8.htm1 
+adcdef01_9.htm,adcdef01_9.htm1 
+adcdg01.htm,adcdg01.htm1 
+adcdg01_1.htm,adcdg01_1.htm1 
+adctut02_5.htm,adctut02_5.htm1 
+adctut02_6.htm,adctut02_6.htm1 
+adctut02_7.htm,adctut02_7.htm1 
+adctut02_8.htm,adctut02_8.htm1 
+adcref01_21.htm 
+adcref01_22.htm 
+adcref01_23.htm 
+adcref01_24.htm 
+adcref01_25.htm 
+adcref01_26.htm 
+adcref01_27.htm 
+adcref01_28.htm 
+adcdef01_33.htm,adcdef01_33.htm1 
+adcdef01_36.htm,adcdef01_36.htm1 
+adcdef01_35.htm,adcdef01_35.htm1 
+adcdef01_38.htm,adcdef01_38.htm1 
+adcdef01_39.htm,adcdef01_39.htm1 
+adcdef01_4.htm,adcdef01_4.htm1 
+adcdef01_40.htm,adcdef01_40.htm1 
+adcdef01_41.htm,adcdef01_41.htm1 
+adcdef01_42.htm,adcdef01_42.htm1 
+adcdef01_43.htm,adcdef01_43.htm1 
+adcdef01_34.htm,adcdef01_34.htm1 
+contents.htm,contents.htm1 
+default.htm,default.htm1 
+ms_logo.gif,ms_logo.gif1 
+msadc15a.hhc 
+adcref01_15.htm,adcref01_15.htm1 
+adcref01_16.htm,adcref01_16.htm1 
+adcref01_17.htm,adcref01_17.htm1 
+adcref01_18.htm,adcref01_18.htm1 
+adcref01_19.htm,adcref01_19.htm1 
+adcref01_2.htm,adcref01_2.htm1 
+adcref01_20.htm 
+adcref01_5.htm,adcref01_5.htm1 
+adcref01_6.htm,adcref01_6.htm1 
+adcdg02_2.htm,adcdg02_2.htm1 
+adcdg02_3.htm,adcdg02_3.htm1 
+adcdg02_4.htm,adcdg02_4.htm1 
+adcdg02_5.htm,adcdg02_5.htm1 
+adcdg03.gif,adcdg03.gif1 
+adcdgapa.htm,adcdgapa.htm1 
+adcdgapa_1.htm,adcdgapa_1.htm1 
+adcdgapb.htm,adcdgapb.htm1 
+adcgs01.htm,adcgs01.htm1 
+adcgs01_1.htm,adcgs01_1.htm1 
+adcdef01_37.htm,adcdef01_37.htm1 
+adcgs01_3.htm,adcgs01_3.htm1 
+adcgs01_4.htm,adcgs01_4.htm1 
+adcgs01_5.htm,adcgs01_5.htm1 
+adcgs01_6.htm,adcgs01_6.htm1 
+adclegal.htm,adclegal.htm1 
+adcref01.htm,adcref01.htm1 
+adcref01_1.htm,adcref01_1.htm1 
+adcref01_10.htm,adcref01_10.htm1 
+adcref01_11.htm,adcref01_11.htm1 
+adcref01_12.htm,adcref01_12.htm1 
+adcref01_13.htm,adcref01_13.htm1 
+adcref01_14.htm,adcref01_14.htm1 
+
+[dac_rds_files]
+adcvbs.inc 
+msadce.dll 
+msadcs.dll 
+msadcer.dll 
+msadco.dll 
+readme.txt,readme.txt2 
+adcjavas.inc 
+msadcor.dll 
+msadcf.dll 
+
+[dac_rds_s11_files]
+adctest.asp 
+
+[dac_rds_s11a_files]
+sampleemp.sql 
+arcadia.gif 
+addrbook.asp 
+
+[dac_rds_s_files]
+adctest.asp,adctest.asp1 
+ssdatb32.cab 
+advworks.mdb 
+
+[dac_rds_sa_files]
+sampleemp.sql,sampleemp.sql1 
+addrbook.asp,addrbook.asp1 
+arcadia.gif,arcadia.gif1 
+
+[dac_rds_ss_files]
+sampstart.asp 
+asp.gif 
+showcode.asp 
+
+[dac_rds_ssci_files]
+adctoadf.asp 
+adcauto.asp 
+adctovb.asp 
+srcform.inc 
+
+[dac_rds_sscva_files]
+mssccprj.scc 
+setup.swt 
+vbtoadf.dll 
+vbtoadf.dob 
+vbtoadf.vbp 
+vbtoadfdoc.vbd 
+
+[dac_rds_sscvas_files]
+vbtoadf.htm 
+vbtoadfdoc.vbd,vbtoadfdoc.vbd1 
+vbtoadf.cab 
+
+[dac_rds_sscvv_files]
+vbtovb.dob 
+vbtovbdoc.vbd 
+vbtovb.vbp 
+mssccprj.scc,mssccprj.scc2 
+setup.swt,setup.swt1 
+vbtovb.dll 
+
+[dac_rds_sscvvs_files]
+vbtovb.cab 
+vbtovbdoc.vbd,vbtovbdoc.vbd1 
+vbtovb.htm 
+
+[dac_rds_ssmv_files]
+vbbusobjcls.cls 
+vbbusobj.vbp 
+vbbusobj.dll 
+vbbusobjmod.bas 
+dcom_safe.reg 
+launch_safe.reg 
+mssccprj.scc,mssccprj.scc1 
+
+[dac_rds_st_files]
+tutorial.asp 
+
+[dac_rds_sys_files]
+msdatsrc.tlb 
+
+[dac_sqlsrv_files]
+instcat.sql 
+mscpxl32.dll 
+odbcbcp.dll 
+sqlsodbc.hlp 
+sqlsrdme.txt 
+sqlsrv32.dll 
+windbver.exe 
+dbmssocn.dll 
+dbnmpntw.dll 
+12520437.cpx 
+12520850.cpx 
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Thu Mar 05 15:57:45 1998           **
+;**                                                                **
+;** Diamond Version: (32) 1.00.0508 (08/12/94)                     **
+;**                                                                **
+;*** BEGIN **********************************************************
+;LAYOUT.INF
+;Disk Layout file for Microsoft Data Access Components 1.5 Setup
+;Copyright (c) 1993-1997 Microsoft Corporation
+
+
+
+[SourceDisksNames]
+; Cabinet file names and associated disks
+; <cab#> = <disk#>,<cabinet filename>, ID (Unused, must be 0)
+0="Microsoft Data Access Components 1.5","",0
+1="Microsoft Data Access Components 1.5","ado.cab",0
+2="Microsoft Data Access Components 1.5","brazos.cab",0
+3="Microsoft Data Access Components 1.5","dag.cab",0
+4="Microsoft Data Access Components 1.5","jet.cab",0
+5="Microsoft Data Access Components 1.5","odbc.cab",0
+6="Microsoft Data Access Components 1.5","oledb.cab",0
+7="Microsoft Data Access Components 1.5","oracle.cab",0
+8="Microsoft Data Access Components 1.5","rds.cab",0
+9="Microsoft Data Access Components 1.5","sqlsrv.cab",0
+[SourceDisksFiles]
+;<file> = <cabinet number>,<subdir>,<size>
+;Note: File is not in a cabinet if cab# is 0
+
+dagsetup.inf=0,,8
+dagsetup.dll=0,,565760
+msvbvm50.dll=0,,1334032
+regsvr32.exe=0,,30720
+odbcint.dll=0,,69120
+odbccp32.dll=0,,83072
+makfre15.bat=1,,26
+msador15.dll=1,,149776
+msadrh15.dll=1,,42256
+readme.txt=1,,6510
+msader15.dll=1,,6144
+msado15.dll=1,,170256
+adojavas.inc=1,,7294
+adovbs.inc=1,,7455
+makapt15.bat=1,,26
+adoapt15.reg=1,,665
+adofre15.reg=1,,640
+adopro02.htm=1,,3265
+adopro02_1.htm=1,,3101
+adopro02_2.htm=1,,3220
+adopro02_3.htm=1,,3372
+adopro02_4.htm=1,,4728
+adopro02_5.htm=1,,2737
+adopro02_6.htm=1,,2506
+adopro02_7.htm=1,,5311
+adopro03.htm=1,,2870
+adopro03_1.htm=1,,2398
+adopro03_2.htm=1,,2490
+adopro03_3.htm=1,,3190
+adopro03_4.htm=1,,3163
+adopro03_5.htm=1,,7268
+adopro03_6.htm=1,,2525
+adopro03_7.htm=1,,4058
+adopro04.htm=1,,3723
+adopro04_1.htm=1,,2262
+adopro04_2.htm=1,,3439
+adopro04_3.htm=1,,2894
+adopro04_4.htm=1,,2311
+adoobj02.htm=1,,4296
+adoobj02_1.htm=1,,2461
+adoobj02_2.htm=1,,3816
+adoobj02_3.htm=1,,2971
+adopro01.htm=1,,3491
+adopro01_1.htm=1,,4124
+adopro01_2.htm=1,,5544
+adopro01_3.htm=1,,2748
+adopro01_4.htm=1,,7105
+adopro01_5.htm=1,,5404
+adopro01_6.htm=1,,3521
+adopro06_2.htm=1,,3124
+adopro06_3.htm=1,,2526
+adopro06_4.htm=1,,5040
+adopro06_5.htm=1,,7573
+adopro06_6.htm=1,,2819
+adopro06_7.htm=1,,2589
+adopro06_8.htm=1,,2032
+adopro07.htm=1,,3820
+adopro07_1.htm=1,,2897
+adopro07_2.htm=1,,2442
+adoprox1.htm=1,,3159
+adoprox1_1.htm=1,,2957
+adoprox1_10.htm=1,,3433
+adoprox1_11.htm=1,,5052
+adoprox1_12.htm=1,,3526
+adoprox1_13.htm=1,,4421
+adoprox1_14.htm=1,,2458
+adoprox1_15.htm=1,,2683
+adoprox1_16.htm=1,,3982
+adoprox1_17.htm=1,,3500
+adoprox1_18.htm=1,,2653
+adoprox1_19.htm=1,,3622
+adoprox1_2.htm=1,,3988
+adoprox1_20.htm=1,,2811
+adoprox1_21.htm=1,,3049
+adoprox1_22.htm=1,,3046
+adoprox1_23.htm=1,,3010
+adoprox1_24.htm=1,,1388
+adoprox1_3.htm=1,,2619
+adoprox1_4.htm=1,,3134
+adoprox1_5.htm=1,,4621
+adoprox1_6.htm=1,,3670
+adoprox1_7.htm=1,,3721
+adoprox1_8.htm=1,,2929
+adoprox1_9.htm=1,,3724
+adorlnts.htm=1,,7577
+adowelc.htm=1,,1896
+colerror.gif=1,,987
+colfield.gif=1,,996
+colparam.gif=1,,1019
+colprope.gif=1,,1018
+cont.gif=1,,992
+contents.htm=1,,712
+daccbanr.gif=1,,2074
+default.htm=1,,531
+index.gif=1,,957
+index.htm=1,,798
+mdacgstr.htm=1,,4879
+mdacovrv.htm=1,,7267
+mdacwelc.htm=1,,3118
+ms_logo.gif=1,,1231
+navbar.htm=1,,683
+nocont.gif=1,,1015
+noindex.gif=1,,974
+objcomma.gif=1,,1007
+objconn.gif=1,,1022
+objerror.gif=1,,978
+objfield.gif=1,,988
+objparam.gif=1,,1014
+objprope.gif=1,,1008
+objrecor.gif=1,,1018
+paracros.gif=1,,835
+parchild.gif=1,,857
+parlower.gif=1,,857
+parmult.gif=1,,861
+parshare.gif=1,,858
+readme.txt5=1,,6510
+space.gif=1,,829
+adomth01_1.htm=1,,3341
+adomth01_2.htm=1,,4248
+adomth01_3.htm=1,,5432
+adomth01_4.htm=1,,4147
+adomth01_5.htm=1,,2745
+adomth01_6.htm=1,,2793
+adomth01_7.htm=1,,3308
+adomth01_8.htm=1,,4622
+adomth01_9.htm=1,,3728
+adomth02.htm=1,,2429
+adomth02_1.htm=1,,3932
+adomth02_2.htm=1,,4980
+adomth02_3.htm=1,,4579
+adomth02_4.htm=1,,3728
+adomth02_5.htm=1,,4180
+adomth02_6.htm=1,,5157
+adomth02_7.htm=1,,4277
+adomth02_8.htm=1,,4827
+adomth03.htm=1,,4207
+adomth03_1.htm=1,,9036
+adomth03_2.htm=1,,4259
+adomth03_3.htm=1,,2909
+adomth03_4.htm=1,,3909
+adomth03_5.htm=1,,5022
+adomth03_6.htm=1,,4178
+adomth03_7.htm=1,,4139
+adomth04.htm=1,,2678
+adomth04_1.htm=1,,8504
+adomthx1.htm=1,,10304
+adomthx1_1.htm=1,,3738
+adomthx1_10.htm=1,,2703
+adomthx1_11.htm=1,,9343
+adomthx1_12.htm=1,,2330
+adoidx01_1.htm=1,,3278
+adoidx02.htm=1,,3756
+ado15a.hhc=1,,41732
+ado15b.hhc=1,,35888
+adoidx01.htm=1,,11222
+ado15.hhk=1,,16429
+ado15.gif=1,,2722
+adopro04_5.htm=1,,2079
+adopro04_6.htm=1,,2443
+adopro05.htm=1,,3142
+adopro05_1.htm=1,,2557
+adopro05_2.htm=1,,2502
+adopro05_3.htm=1,,2360
+adopro05_4.htm=1,,2760
+adopro05_5.htm=1,,2957
+adopro05_6.htm=1,,2706
+adopro06.htm=1,,3309
+adopro06_1.htm=1,,2614
+adomthx1_8.htm=1,,10039
+adomthx1_9.htm=1,,11461
+adoobj01.htm=1,,5941
+adoobj01_1.htm=1,,5879
+adoobj01_2.htm=1,,6008
+adoobj01_3.htm=1,,4771
+adoobj01_4.htm=1,,4658
+adoobj01_5.htm=1,,4344
+adoobj01_6.htm=1,,10221
+adomthx1_17.htm=1,,3644
+adoidx02_2.htm=1,,7183
+adoidx02_3.htm=1,,7545
+adoidx02_4.htm=1,,5426
+adointro.htm=1,,1519
+adointro_1.htm=1,,1535
+adointro_2.htm=1,,1519
+adointro_3.htm=1,,1531
+adointro_4.htm=1,,1678
+adolegal.htm=1,,2553
+adomth01.htm=1,,4982
+adoidx02_1.htm=1,,13770
+adomthx1_13.htm=1,,3578
+adomthx1_14.htm=1,,2750
+adomthx1_15.htm=1,,5017
+adomthx1_16.htm=1,,5702
+adomthx1_6.htm=1,,11753
+adomthx1_2.htm=1,,4862
+adomthx1_3.htm=1,,4198
+adomthx1_4.htm=1,,6328
+adomthx1_5.htm=1,,9676
+adomthx1_7.htm=1,,5216
+odbcjet.hlp=2,,162850
+odbcjet.cnt=2,,6870
+odbctl32.dll=2,,73216
+odbcji32.dll=2,,37888
+odbcjt32.dll=2,,246784
+readme.txt4=3,,33
+msjint35.dll=4,,123664
+msjet35.dll=4,,1045776
+msrd2x35.dll=4,,252176
+vbajet32.dll=4,,18192
+msjter35.dll=4,,24848
+vbar332.dll=4,,368912
+msrepl35.dll=4,,407312
+odbc32gt.dll=5,,9728
+odbc16gt.dll=5,,26224
+odbccr32.dll=5,,198656
+odbcad32.exe=5,,10752
+odbccu32.dll=5,,177136
+odbcinst.cnt=5,,244
+odbc32.dll=5,,171792
+odbccp32.dll1=5,,83072
+odbcint.dll1=5,,69120
+ds16gt.dll=5,,4656
+ds32gt.dll=5,,8704
+mtxdm.dll=5,,31232
+odbctrac.dll=5,,137424
+odbcinst.hlp=5,,26858
+odbccp32.cpl=5,,11056
+msdaerr.dll=6,,12560
+msdatl.dll=6,,60048
+msdaer.dll=6,,30432
+msdaenum.dll=6,,17264
+msdasqlr.dll=6,,17920
+msdadc.dll=6,,47600
+msdatt.dll=6,,39632
+msdasql.dll=6,,262976
+msdaps.dll=6,,14336
+msorcl32.cnt=7,,1657
+msorcl32.hlp=7,,46083
+msoracle32readme.txt=7,,2524
+msorcl32.dll=7,,129808
+msadc11.cab=8,,370195
+adcrefx_9.htm=8,,771
+adcdef01_11.htm=8,,673
+adcrefx_5.htm=8,,1131
+adcdef01_20.htm=8,,568
+adcdef01_21.htm=8,,771
+adcdef01_22.htm=8,,552
+adcrefx_8.htm=8,,820
+adcdef01_39.htm=8,,380
+adcdef01_4.htm=8,,530
+adcdef01_40.htm=8,,709
+adcdef01_41.htm=8,,542
+adcdef01_42.htm=8,,613
+adcdef01_43.htm=8,,484
+adcdef01_44.htm=8,,529
+adcdef01_45.htm=8,,532
+adcdef01_46.htm=8,,519
+adcdef01_47.htm=8,,2848
+adcdef01_5.htm=8,,568
+adcdef01_6.htm=8,,930
+adcdef01_7.htm=8,,521
+adcdef01_8.htm=8,,520
+adcdef01_9.htm=8,,392
+adcdg01.htm=8,,1178
+adcdef01_12.htm=8,,704
+adcdef01_13.htm=8,,750
+adcdef01_14.htm=8,,427
+adcdef01_15.htm=8,,673
+adcdef01_16.htm=8,,899
+adcdef01_29.htm=8,,709
+adcdef01_3.htm=8,,856
+adcrefx_3.htm=8,,578
+adcrefx_4.htm=8,,1030
+adctut02_7.htm=8,,1125
+ad001.gif=8,,8008
+adcdgapb.htm=8,,5541
+adcgs01.htm=8,,835
+adcgs01_1.htm=8,,1476
+adcgs01_2.htm=8,,9734
+adcgs01_3.htm=8,,1425
+adcgs01_4.htm=8,,4646
+adcgs01_5.htm=8,,3025
+adcgs01_6.htm=8,,2409
+adclegal.htm=8,,1733
+adcref01.htm=8,,1348
+adcref01_1.htm=8,,8006
+adcref01_10.htm=8,,2920
+adcref01_11.htm=8,,2966
+adcref01_12.htm=8,,1776
+adcref01_13.htm=8,,5808
+adcref01_14.htm=8,,2810
+adcref01_15.htm=8,,3645
+adcref01_16.htm=8,,323
+adcref01_17.htm=8,,313
+adcref01_18.htm=8,,319
+adcref01_19.htm=8,,296
+adcref01_2.htm=8,,2966
+adcref01_3.htm=8,,2466
+adcref01_4.htm=8,,2296
+adcref01_5.htm=8,,3438
+adcref01_6.htm=8,,2439
+adcref01_7.htm=8,,1731
+adcref01_8.htm=8,,1915
+adcref01_9.htm=8,,2266
+adcref02.htm=8,,555
+adcref02_1.htm=8,,3826
+adcref02_2.htm=8,,3471
+adcrefx.htm=8,,786
+adcrefx_1.htm=8,,767
+adcrefx_10.htm=8,,1135
+adcrefx_11.htm=8,,1203
+adcrefx_2.htm=8,,982
+adcdg02_5.htm=8,,2889
+adcdg03.gif=8,,5541
+adcdgapa.htm=8,,497
+adcdgapa_1.htm=8,,11408
+odbcshot.gif=8,,8809
+prcarrow.gif=8,,821
+adcdg01_1.htm=8,,25084
+adctut02.htm=8,,2713
+adctut02_1.htm=8,,2074
+adctut02_10.htm=8,,4132
+adctut02_11.htm=8,,3658
+adctut02_12.htm=8,,1396
+adctut02_13.htm=8,,7913
+adctut02_2.htm=8,,2438
+adctut02_3.htm=8,,2003
+adctut02_4.htm=8,,2457
+adctut02_5.htm=8,,3340
+adctut02_6.htm=8,,3981
+adcdg02_1.htm=8,,29792
+adctut02_8.htm=8,,3815
+adctut02_9.htm=8,,8885
+adcwtnu.htm=8,,2644
+contents.htm2=8,,950
+default.htm2=8,,481
+ms_logo.gif2=8,,1231
+msadc11.hhc=8,,25373
+navbar.htm2=8,,1104
+adcdg02_3.htm=8,,3761
+adcdg02_4.htm=8,,2616
+rds1_1.gif=8,,3714
+readme.txt3=8,,14201
+adcdef01_17.htm=8,,529
+adcdef01_18.htm=8,,588
+adcdef01_19.htm=8,,520
+adcdef01_2.htm=8,,494
+adcdg02.htm=8,,1148
+adcdg02.gif=8,,5838
+adcdg02_2.htm=8,,6324
+adcdef01_23.htm=8,,691
+adcdef01_24.htm=8,,455
+adcdef01_25.htm=8,,457
+adcdef01_26.htm=8,,611
+adcdef01_27.htm=8,,427
+adcdef01_28.htm=8,,378
+ad003.gif=8,,9114
+adcdef01.htm=8,,586
+adcdef01_30.htm=8,,538
+adcdef01_31.htm=8,,519
+adcdef01_32.htm=8,,831
+adcdef01_33.htm=8,,445
+adcdef01_34.htm=8,,666
+adcdef01_35.htm=8,,546
+adcdef01_36.htm=8,,470
+adcdef01_37.htm=8,,535
+adcdef01_38.htm=8,,538
+adcdef01_1.htm=8,,705
+adcrefx_6.htm=8,,496
+ad002.gif=8,,6064
+adcdef01_10.htm=8,,481
+adcrefx_7.htm=8,,471
+adctest.asp=8,,2657
+sampleemp.sql=8,,4527
+arcadia.gif=8,,1913
+addrbook.asp=8,,6053
+adcvbs.inc=8,,589
+msadce.dll=8,,172816
+msadcs.dll=8,,42256
+msadcer.dll=8,,5632
+msadco.dll=8,,94480
+readme.txt2=8,,19470
+adcjavas.inc=8,,596
+msadcor.dll=8,,4608
+msadcf.dll=8,,23312
+adctut02.htm1=8,,3859
+adctut02_13.htm1=8,,9152
+adctut02_1.htm1=8,,3221
+adctut02_9.htm1=8,,10047
+adcwtnu.htm1=8,,9286
+adcdef01_3.htm1=8,,1995
+adcdef01_30.htm1=8,,1677
+adctut02_3.htm1=8,,3152
+adctut02_4.htm1=8,,3606
+adcdef01_21.htm1=8,,1910
+adcdef01_22.htm1=8,,1691
+adcdef01_23.htm1=8,,1830
+adcdef01_24.htm1=8,,1594
+adcdef01_25.htm1=8,,1596
+adcdef01_26.htm1=8,,1750
+adcdef01_27.htm1=8,,1566
+adcdef01_28.htm1=8,,1517
+adcdef01_29.htm1=8,,1848
+adcdef01_15.htm1=8,,1812
+adctut01_7.htm=8,,2943
+adctut01_8.htm=8,,2362
+adcdef01_44.htm1=8,,1665
+ad001.gif1=8,,8328
+ad002.gif1=8,,7508
+ad003.gif1=8,,10672
+adc15.gif=8,,2740
+adccodeex.htm=8,,1616
+adcdef01.htm1=8,,1725
+adcdef01_1.htm1=8,,1844
+adcdef01_10.htm1=8,,1620
+adcdef01_11.htm1=8,,1809
+adcdef01_12.htm1=8,,1843
+adcdef01_13.htm1=8,,1889
+adcdef01_14.htm1=8,,1566
+adctut02_2.htm1=8,,3535
+adcdef01_16.htm1=8,,2038
+adcdef01_17.htm1=8,,1668
+adcdef01_18.htm1=8,,1727
+adcdef01_19.htm1=8,,1659
+adcdef01_2.htm1=8,,1633
+adcdef01_20.htm1=8,,1707
+adctut02_10.htm1=8,,5279
+adctut02_11.htm1=8,,4899
+adctut02_12.htm1=8,,2545
+adcref01_8.htm1=8,,3657
+adcref01_9.htm1=8,,4541
+adcref02.htm1=8,,1697
+adcref02_1.htm1=8,,6063
+adcref02_2.htm1=8,,2807
+adcrefx.htm1=8,,5198
+adcrefx_1.htm1=8,,3995
+adcrefx_10.htm1=8,,5867
+adcrefx_11.htm1=8,,5410
+adcrefx_12.htm=8,,4017
+adcrefx_13.htm=8,,1828
+adcrefx_14.htm=8,,2287
+adcrefx_15.htm=8,,4819
+adcrefx_2.htm1=8,,2795
+adcrefx_3.htm1=8,,4237
+adcrefx_4.htm1=8,,5078
+adcrefx_5.htm1=8,,5149
+adcrefx_6.htm1=8,,4841
+adcrefx_7.htm1=8,,2959
+adcrefx_8.htm1=8,,1812
+adcrefx_9.htm1=8,,3582
+adctut01.htm=8,,2069
+adctut01_1.htm=8,,3249
+adctut01_2.htm=8,,2447
+adctut01_3.htm=8,,3374
+adctut01_4.htm=8,,2986
+adctut01_5.htm=8,,2110
+adctut01_6.htm=8,,2085
+adcgs01_2.htm1=8,,9686
+adcdef01_45.htm1=8,,1671
+adcdef01_46.htm1=8,,1655
+adcdef01_47.htm1=8,,3989
+adcdef01_5.htm1=8,,1707
+adcdef01_6.htm1=8,,2069
+adcdef01_7.htm1=8,,1660
+adcdef01_8.htm1=8,,1659
+adcdef01_9.htm1=8,,1531
+adcdg01.htm1=8,,2309
+adcdg01_1.htm1=8,,26178
+adctut02_5.htm1=8,,4496
+adctut02_6.htm1=8,,5126
+adctut02_7.htm1=8,,2274
+adctut02_8.htm1=8,,4932
+adcref01_21.htm=8,,3668
+adcref01_22.htm=8,,2915
+adcref01_23.htm=8,,7782
+adcref01_24.htm=8,,3449
+adcref01_25.htm=8,,4670
+adcref01_26.htm=8,,1525
+adcref01_27.htm=8,,1491
+adcref01_28.htm=8,,1499
+adcdef01_33.htm1=8,,1584
+adcdef01_36.htm1=8,,1609
+adcdef01_35.htm1=8,,1685
+adcdef01_38.htm1=8,,1674
+adcdef01_39.htm1=8,,1519
+adcdef01_4.htm1=8,,1669
+adcdef01_40.htm1=8,,1848
+adcdef01_41.htm1=8,,1681
+adcdef01_42.htm1=8,,1752
+adcdef01_43.htm1=8,,1623
+adcdef01_34.htm1=8,,1805
+contents.htm1=8,,469
+default.htm1=8,,532
+ms_logo.gif1=8,,1231
+msadc15a.hhc=8,,30029
+msadc15b.hhc=8,,27311
+navbar.htm1=8,,678
+prcarrow.gif1=8,,821
+readme.txt1=8,,19470
+adcdef01_31.htm1=8,,1658
+adcdef01_32.htm1=8,,1970
+adcdg02.gif1=8,,6972
+adcdg02.htm1=8,,2556
+adcdg02_1.htm1=8,,37096
+adcdg02_2.htm1=8,,7878
+adcdg02_3.htm1=8,,4898
+adcdg02_4.htm1=8,,5001
+adcdg02_5.htm1=8,,4092
+adcdg03.gif1=8,,6089
+adcdgapa.htm1=8,,1643
+adcdgapa_1.htm1=8,,13339
+adcdgapb.htm1=8,,6644
+adcgs01.htm1=8,,1992
+adcgs01_1.htm1=8,,2633
+adcdef01_37.htm1=8,,1674
+adcgs01_3.htm1=8,,2582
+adcgs01_4.htm1=8,,5816
+adcgs01_5.htm1=8,,4176
+adcgs01_6.htm1=8,,3502
+adclegal.htm1=8,,2788
+adcref01.htm1=8,,2362
+adcref01_1.htm1=8,,6787
+adcref01_10.htm1=8,,3593
+adcref01_11.htm1=8,,3136
+adcref01_12.htm1=8,,3429
+adcref01_13.htm1=8,,3170
+adcref01_14.htm1=8,,2146
+adcref01_15.htm1=8,,2911
+adcref01_16.htm1=8,,3174
+adcref01_17.htm1=8,,3437
+adcref01_18.htm1=8,,4610
+adcref01_19.htm1=8,,4124
+adcref01_2.htm1=8,,3599
+adcref01_20.htm=8,,4175
+adcref01_5.htm1=8,,3101
+adcref01_6.htm1=8,,3501
+adcref01_7.htm1=8,,3037
+adcref01_29.htm=8,,1382
+adcref01_3.htm1=8,,3560
+adcref01_4.htm1=8,,3818
+adctest.asp1=8,,7282
+ssdatb32.cab=8,,319032
+advworks.mdb=8,,350208
+sampleemp.sql1=8,,4527
+addrbook.asp1=8,,6484
+arcadia.gif1=8,,1913
+sampstart.asp=8,,3651
+asp.gif=8,,1964
+showcode.asp=8,,4689
+adctoadf.asp=8,,6236
+adcauto.asp=8,,4652
+adctovb.asp=8,,6375
+srcform.inc=8,,153
+mssccprj.scc=8,,135
+setup.swt=8,,1403
+vbtoadf.dll=8,,16896
+vbtoadf.dob=8,,4985
+vbtoadf.vbp=8,,1005
+vbtoadfdoc.vbd=8,,1536
+vbtoadf.htm=8,,365
+vbtoadfdoc.vbd1=8,,1536
+vbtoadf.cab=8,,12839
+vbtovb.dob=8,,6464
+vbtovbdoc.vbd=8,,1536
+vbtovb.vbp=8,,932
+mssccprj.scc2=8,,133
+setup.swt1=8,,1396
+vbtovb.dll=8,,20992
+vbtovb.cab=8,,14491
+vbtovbdoc.vbd1=8,,1536
+vbtovb.htm=8,,362
+vbbusobjcls.cls=8,,2228
+vbbusobj.vbp=8,,1251
+vbbusobj.dll=8,,13312
+vbbusobjmod.bas=8,,203
+dcom_safe.reg=8,,328
+launch_safe.reg=8,,118
+mssccprj.scc1=8,,139
+tutorial.asp=8,,875
+msdatsrc.tlb=8,,2492
+instcat.sql=9,,654612
+mscpxl32.dll=9,,17408
+odbcbcp.dll=9,,12800
+sqlsodbc.hlp=9,,15787
+sqlsrdme.txt=9,,11516
+sqlsrv32.dll=9,,417792
+windbver.exe=9,,30720
+dbmssocn.dll=9,,10752
+dbnmpntw.dll=9,,22016
+12520437.cpx=9,,2151
+12520850.cpx=9,,2233
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Thu Mar 05 15:57:45 1998           **
+;**                                                                **
+;*** END ************************************************************
+

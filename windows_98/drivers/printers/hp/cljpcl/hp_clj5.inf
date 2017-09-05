@@ -1,0 +1,93 @@
+; HP Color LaserJet and  Color LaserJet 5/5M driver installation file for Windows 95/98
+; Copyright Hewlett-Packard 1996
+;
+;
+; /* --------------------------------------------------------------- *\
+;  |
+;  | hppcl5f.drv  = HP Color LaserJet and Color LaserJet 5/5M Printer driver
+;  | hppcl5f.hlp  = Help file for HP Color LaserJet and Color LaserJet 5/5M Printers
+;  | hppcl5f1.dll = DLL for HP-GL/2 graphics
+;  | hppcl5f2.dll = DLL for bit color
+;  | hppcl5f3.dll = DLL for text
+;  | hppcl5f4.dll = DLL for building PCLETTO's
+;  |----------------------------------------------------------------
+;  | hpcljui.dll  = DLL for User Interface
+;  | hpcafd16.dll = DLL with the app flags.
+;  |----------------------------------------------------------------
+;  | ctl3dv2.dll  = DLL needed for User Interface
+;  | hpclj5.icm   = ICC profile used for Win95/98 ICM
+;  | hpcljdm.dll  = DLL for color brute routines
+;  | finstall.dll = Font Installer for HP LaserJet Printer Drivers
+;  | finstall.hlp = Help file for Font Installer for HP LaserJet Printer Drivers
+;  |
+; \* --------------------------------------------------------------- */
+
+[Version]
+Signature="$CHICAGO$"
+Class=Printer
+InfVersion=1.0.1
+Provider=%M1%
+
+[Manufacturer]
+%M1%=HPLaserPrinter
+
+[HPLaserPrinter]
+%Printer% = HPPCL5F.DRV,LPTENUM\Hewlett-Packard71C4
+%Printer1% = HPPCL5F.DRV
+
+
+[HPPCL5F.DRV]
+Copyfiles=HPPCLDriverFiles,ICMFile
+DataSection=HPPCLDriverData
+
+[DestinationDirs]
+HPPCLDriverFiles=11
+ICMFile=23
+   
+[SourceDisksNames]
+1 = %DiskID1%, Disk1, 0000-0000
+
+[SourceDisksFiles]
+readclj5.wri = 1
+hppcl5f.hl_  = 1
+hppcl5f1.dl_ = 1
+hppcl5f2.dl_ = 1
+hppcl5f3.dl_ = 1
+hppcl5f4.dl_ = 1
+hpcafd16.dl_ = 1
+hpcljdm.dl_  = 1
+hppcl5f.dr_  = 1
+hpcljui.dl_  = 1
+hpclj5.ic_   = 1
+finstall.dl_ = 1
+finstall.hl_ = 1
+hpcafd16.dl_ = 1
+
+[HPPCLDriverFiles]
+readclj5.wri
+hppcl5f.drv, hppcl5f.dr_
+HPPCL5f.hlp, hppcl5f.hl_
+HPPCL5f1.dll, hppcl5f1.dl_
+HPPCL5f2.dll, hppcl5f2.dl_
+HPPCL5f3.dll, hppcl5f3.dl_
+HPPCL5f4.dll, hppcl5f4.dl_
+hpcljui.dll, hpcljui.dl_ 
+hpcljdm.dll, hpcljdm.dl_
+finstall.dll, finstall.dl_
+finstall.hlp, finstall.hl_
+hpcafd16.dll, hpcafd16.dl_
+
+[ICMFile]
+hpclj5.icm, hpclj5.ic_
+
+[HPPCLDriverData]
+DriverFile=hppcl5f.drv
+HelpFile=hppcl5f.hlp
+;DefaultDataType=EMF
+
+[Strings]
+M1="Hewlett-Packard"
+DiskID1="HP Color LaserJet 5/5M Printing System Disk 1"
+Printer="HP Color LaserJet 5/5M (HP)"
+Printer1="HP Color LaserJet"
+

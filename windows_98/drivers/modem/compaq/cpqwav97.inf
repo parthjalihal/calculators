@@ -1,0 +1,249 @@
+; Copyright 1995-98, Compaq Computer Corporation.  All rights reserved.
+; Copyright 1995-98, AT&T, Lucent Technologies, Inc.
+;
+; Modem Audio information file for 1997 Compaq Presario Modems
+;
+; Last Revised: 3/5/98
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%PROV%
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=Compaq
+
+[Compaq]
+; the device id's (MODEMWAVE\LT_Win_Modem)
+; correspond EXACTLY to the modem name with underscores in place of spaces.
+; the names must be an exact match or installer won't find device.
+; this scheme is because of the way the serial wave device enumeration occurs.
+
+%Wavewrap.DeviceDesc1%=MSWRAPPER1, MODEMWAVE\Compaq_Presario_336-VSCi_56K_Upgradeable
+%Wavewrap.DeviceDesc2%=MSWRAPPER2, MODEMWAVE\Compaq_Presario_336-DF
+%Wavewrap.DeviceDesc3%=MSWRAPPER3, MODEMWAVE\Compaq_Presario_336-DFi
+
+%Wavewrap.DeviceDesc4%=MSWRAPPER4, MODEMWAVE\Compaq_Presario_336-VSCi
+%Wavewrap.DeviceDesc5%=MSWRAPPER5, MODEMWAVE\Compaq_Presario_336-DF_56K_Upgradeable
+%Wavewrap.DeviceDesc6%=MSWRAPPER6, MODEMWAVE\Compaq_Presario_336-DFi_56K_Upgradeable
+
+%Wavewrap.DeviceDesc7%=MSWRAPPER7, MODEMWAVE\Compaq_Presario_56K-VSC
+%Wavewrap.DeviceDesc8%=MSWRAPPER8, MODEMWAVE\Compaq_Presario_56K-DF
+%Wavewrap.DeviceDesc9%=MSWRAPPER9, MODEMWAVE\Compaq_Presario_56K-DFi
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[MSWRAPPER1]
+AddReg=MSWRAPPER1.AddReg
+Reboot=1
+
+[MSWRAPPER1.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc1%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+[MSWRAPPER2]
+AddReg=MSWRAPPER2.AddReg
+Reboot=1
+
+[MSWRAPPER2.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc2%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+[MSWRAPPER3]
+AddReg=MSWRAPPER3.AddReg
+Reboot=1
+
+[MSWRAPPER3.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc3%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+[MSWRAPPER4]
+AddReg=MSWRAPPER4.AddReg
+Reboot=1
+
+[MSWRAPPER4.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc4%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+[MSWRAPPER5]
+AddReg=MSWRAPPER5.AddReg
+Reboot=1
+
+[MSWRAPPER5.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc5%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+[MSWRAPPER6]
+AddReg=MSWRAPPER6.AddReg
+Reboot=1
+
+[MSWRAPPER6.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc6%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+[MSWRAPPER7]
+AddReg=MSWRAPPER7.AddReg
+Reboot=1
+
+[MSWRAPPER7.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc7%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+[MSWRAPPER8]
+AddReg=MSWRAPPER8.AddReg
+Reboot=1
+
+[MSWRAPPER8.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc8%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+[MSWRAPPER9]
+AddReg=MSWRAPPER9.AddReg
+Reboot=1
+
+[MSWRAPPER9.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc9%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+PROV="Compaq"
+MfgName="Compaq"
+
+Wavewrap.DeviceDesc1="Compaq Presario 336-VSCi 56K Upgradeable Modem Wave Device"
+Wavewrap.DeviceDesc2="Compaq Presario 336-DF Modem Wave Device"
+Wavewrap.DeviceDesc3="Compaq Presario 336-DFi Modem Wave Device"
+
+Wavewrap.DeviceDesc4="Compaq Presario 336-VSCi Modem Wave Device"
+Wavewrap.DeviceDesc5="Compaq Presario 336-DF 56K Upgradeable Modem Wave Device"
+Wavewrap.DeviceDesc6="Compaq Presario 336-DFi 56K Upgradeable Modem Wave Device"
+
+Wavewrap.DeviceDesc7="Compaq Presario 56K-VSC Modem Wave Device"
+Wavewrap.DeviceDesc8="Compaq Presario 56K-DF Modem Wave Device"
+Wavewrap.DeviceDesc9="Compaq Presario 56K-DFi Modem Wave Device"
+
+MediaClassName="Sound, video and game controllers"

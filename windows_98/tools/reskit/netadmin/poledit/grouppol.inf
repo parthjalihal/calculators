@@ -1,0 +1,64 @@
+; GROUPPOL.INF
+;
+; This is the Setup information file to install group-based policies
+; as an Optional Component.
+;
+; Copyright (c) 1993-1998 Microsoft Corporation
+;
+
+[version]
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+signature="$CHICAGO$"
+SetupClass=BASE
+
+;Destination Directories for CopyFiles Sections
+[DestinationDirs]
+Grouppol.Win.Copy     = 11    ; LDID_SYS
+Grouppol.Inf.Copy     = 17    ; LDID_SYS
+
+[BaseWinOptions]
+GroupPol_Reg
+
+[GroupPol_Reg]
+Copyfiles       = Grouppol.Inf.Copy
+AddReg          = Grouppol_Inst
+
+[Grouppol.Inf.Copy]
+grouppol.inf
+
+[Grouppol_Inst]
+HKLM,%KEY_OPTIONAL%,"GroupPol",,"GroupPol"
+HKLM,%KEY_OPTIONAL%\GroupPol,INF,,"grouppol.inf"
+HKLM,%KEY_OPTIONAL%\GroupPol,Section,,"Group_Pol"
+HKLM,%KEY_OPTIONAL%\GroupPol,Installed,,"0"
+
+[Optional Components]
+Group_Pol
+
+[Group_Pol]
+CopyFiles      = Grouppol.Win.Copy
+AddReg         = Grouppol.reg
+DelReg         = Grouppol.install.delreg
+Parent         = DiskToolTop
+OptionDesc     = %GROUPPOLOPT_DESC%
+Tip            = %GROUPPOLOPT_TIP%
+InstallType    = 0      ; manual only
+IconIndex      = 11     ; default (diamond) mini-icon for dialogs
+
+[Grouppol.Win.Copy]
+grouppol.dll,,,1
+
+[Grouppol.reg]
+HKLM,Network\Logon,PolicyHandler,,"GROUPPOL.DLL,ProcessPolicies"
+HKLM,System\CurrentControlSet\Services\MSNP32\NetworkProvider,GroupFcn,,"GROUPPOL.DLL,NTGetUserGroups"
+HKLM,System\CurrentControlSet\Services\NWNP32\NetworkProvider,GroupFcn,,"GROUPPOL.DLL,NWGetUserGroups"
+
+[Grouppol.install.delreg]
+HKLM,%KEY_OPTIONAL%\GroupPol
+HKLM,%KEY_OPTIONAL%,"GroupPol"
+
+; User-visible strings
+[Strings]
+GROUPPOLOPT_DESC = "Group Policies"
+GROUPPOLOPT_TIP  = "Group-based support for system policies"
+KEY_OPTIONAL     = "SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents"

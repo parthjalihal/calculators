@@ -1,0 +1,281 @@
+;	Legal Notice	: Copyright (c) 1997 Eggplant Systems Corporation.  All Rights Reserved.
+;
+;	Support for installing the following audio subsystems:
+;		CRX0002	: Cyrix XpressAUDIO(TM) 16-bit Sound
+;		CTL0001	: 3rd Party XpressAUDIO(TM) Device
+;		CTL0031	: 3rd Party XpressAUDIO(TM) Device
+;		CTL0041	: 3rd Party XpressAUDIO(TM) Device
+;		CTL0043	: 3rd Party XpressAUDIO(TM) Device
+;		CTL0047	: 3rd Party XpressAUDIO(TM) Device
+;		PNPB003	: Legacy XpressAUDIO(TM) Device
+
+[Version]
+Signature="$Windows 95$"
+Class=MEDIA
+InfVersion=%VersionNumber%
+Provider=%EggplantMfgName%
+;*use this when on Windows CD* LayoutFile=layout.inf
+
+[InfVersion]
+InfName=MGXSB16.INF
+
+[ControlFlags]
+
+[ClassInstall]
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%CyrixMfgName%=Cyrix
+%AltMfgName%=Cyrix2
+
+[Cyrix]
+%*CRX0002.DeviceDesc%=CRX0002_Device, *CRX0002
+
+[Cyrix2]
+%*CTL0001.DeviceDesc%=CTL0001_Device, *CTL0001
+%*CTL0001.DeviceDesc%=CTL0031_Device, *CTL0031
+%*CTL0001.DeviceDesc%=CTL0041_Device, *CTL0041
+%*CTL0001.DeviceDesc%=CTL0043_Device, *CTL0043
+%*CTL0001.DeviceDesc%=CTL0047_Device, *CTL0047
+%*PNPB003.DeviceDesc%=PNPB003_Device, *PNPB003
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+;================================================================================================
+
+[CRX0002_Device]
+CopyFiles=Inf.CopyList, XpressAudio.CopyList
+AddReg=CRX0002.AddReg, XpressAudio.AddReg, WAVE.AddReg, Mixer.AddReg
+
+[*CRX0002.Det]
+
+[CTL0001_Device]
+CopyFiles=SB16.CopyList
+AddReg=CTL0001.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg
+
+[CTL0031_Device]
+CopyFiles=SB16.CopyList
+AddReg=CTL0001.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg
+
+[CTL0041_Device]
+CopyFiles=SB16.CopyList
+AddReg=CTL0001.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg 
+
+[CTL0043_Device]
+CopyFiles=SB16.CopyList
+AddReg=CTL0001.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg 
+
+[CTL0047_Device]
+CopyFiles=SB16.CopyList
+AddReg=CTL0001.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg 
+
+[PNPB003_Device]
+LogConfig=SB16.LC1,SB16.LC2,SB16.LC3,SB16.LC4,SB16.LC5,SB16.LC6,SB16.LC7,SB16.LC8
+CopyFiles=SB16.CopyList
+AddReg=PNPB003.AddReg, SB16.AddReg, WAVE.AddReg, Mixer.AddReg
+Reboot=1
+
+[PNPB003_Device.FactDef]
+ConfigPriority=NORMAL
+IOConfig=220-22F
+IOConfig=330-331
+IOConfig=388-38B
+IRQConfig=5
+DMAConfig=1
+DMAConfig=5
+
+;================================================================================================
+
+[SB16.LC1]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+DMAConfig=5 , 6 , 7
+
+[SB16.LC2]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+
+[SB16.LC3]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=388-38B
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+DMAConfig=5 , 6 , 7
+
+[SB16.LC4]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=388-38B
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+
+[SB16.LC5]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=330-331, 300-301
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+DMAConfig=5 , 6 , 7
+
+[SB16.LC6]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=330-331, 300-301
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+
+[SB16.LC7]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=330-331, 300-301
+IOConfig=388-38B
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+DMAConfig=5 , 6 , 7
+
+[SB16.LC8]
+ConfigPriority=NORMAL
+IOConfig=220-22F , 240-24F , 260-26F , 280-28F
+IOConfig=330-331, 300-301
+IOConfig=388-38B
+IRQConfig=5 , 7 , 9 , 10
+DMAConfig=0 , 1 , 3
+
+[*PNPB003.Det]
+;*t* AddReg=PreCopySection
+
+[*PNPB003.KnownDrivers]
+sb16snd.drv
+
+;================================================================================================
+
+[DestinationDirs]
+Inf.CopyList=17				; \windows\inf (ie. LDID_INF)
+XpressAudio.CopyList=11			; \windows\system (ie. LDID_SYS)
+SB16.CopyList=11			; \windows\system (ie. LDID_SYS)
+
+[Inf.CopyList]
+mgxsb16.inf,,
+
+[XpressAudio.CopyList]
+mgxsb16.vxd,,
+mgxsb16w.drv,,
+mgxfm.drv,,
+mgx401.drv,,
+
+[SB16.CopyList]
+mgxsb16.vxd,,
+mgxsb16w.drv,,
+mgxfm.drv,,
+mgx401.drv,,
+
+[SourceDisksNames]
+1=%ID1%,"",0
+
+[SourceDisksFiles]
+mgxsb16.vxd=1
+mgxsb16w.drv=1
+mgxfm.drv=1
+mgx401.drv=1
+
+;================================================================================================
+
+[CRX0002.AddReg]
+HKR,Drivers\wave\mgxsb16w.drv,Description,,%*CRX0002.DeviceDesc%
+HKR,Drivers\midi\mgxfm.drv,Description,,%V_INTERNAL%
+HKR,Drivers\midi\mgx401.drv,Description,,%V_EXTERNAL%
+HKR,Drivers\mixer\mgxsb16w.drv,Description,,%*CRX0002.DeviceDesc%
+HKR,Drivers\aux\mgxsb16w.drv,Description,,%*CRX0002.DeviceDesc%
+
+[CTL0001.AddReg]
+HKR,Drivers\wave\mgxsb16w.drv,Description,,%*CTL0001.DeviceDesc%
+HKR,Drivers\midi\mgxfm.drv,Description,,%V_INTERNAL%
+HKR,Drivers\midi\mgx401.drv,Description,,%V_EXTERNAL%
+HKR,Drivers\mixer\mgxsb16w.drv,Description,,%*CTL0001.DeviceDesc%
+HKR,Drivers\aux\mgxsb16w.drv,Description,,%*CTL0001.DeviceDesc%
+
+[PNPB003.AddReg]
+HKR,Drivers\wave\mgxsb16w.drv,Description,,%*PNPB003.DeviceDesc%
+HKR,Drivers\midi\mgxfm.drv,Description,,%V_INTERNAL%
+HKR,Drivers\midi\mgx401.drv,Description,,%V_EXTERNAL%
+HKR,Drivers\mixer\mgxsb16w.drv,Description,,%*PNPB003.DeviceDesc%
+HKR,Drivers\aux\mgxsb16w.drv,Description,,%*PNPB003.DeviceDesc%
+
+;================================================================================================
+
+[XpressAudio.AddReg]
+HKR,,Driver,,mgxsb16.vxd
+HKR,Drivers\wave\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers\midi\mgxfm.drv,Driver,,mgxfm.drv
+HKR,Drivers\midi\mgx401.drv,Driver,,mgx401.drv
+HKR,Drivers\midi\mgx401.drv.drv,External,1,01,00,00,00
+HKR,Drivers\aux\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers\mixer\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+;*later* HKR,,EnumPropPages,,"mgxsb16w.drv,DrvEnumPropPages"
+
+[SB16.AddReg]
+HKR,,Driver,,mgxsb16.vxd
+HKR,Drivers\wave\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers\midi\mgxfm.drv,Driver,,mgxfm.drv
+HKR,Drivers\midi\mgx401.drv,Driver,,mgx401.drv
+HKR,Drivers\midi\mgx401.drv,External,1,01,00,00,00
+HKR,Drivers\aux\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers\mixer\mgxsb16w.drv,Driver,,mgxsb16w.drv
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+;*later* HKR,,EnumPropPages,,"mgxsb16w.drv,DrvEnumPropPages"
+
+;================================================================================================
+
+[WAVE.AddReg]
+HKR,,DriverVersion,,%VersionNumber%
+HKR,,ProviderName,,%EggplantMfgName%
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,Drivers\mixer,,,
+HKR,Drivers\aux,,,
+HKR,Drivers\midi,,,
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents\acm,,,
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents\Rec,,,
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents\MPlay,,,
+
+[MIXER.AddReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,"SysTray.Exe"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents\Vol,,,
+
+;================================================================================================
+
+[Strings]
+
+; Language-independent Strings
+
+AltMfgName=" "
+*PNPB003.DeviceDesc="XpressAUDIO(TM) 16-bit Sound"
+*CTL0001.DeviceDesc="XpressAUDIO(TM) 16-bit Sound"
+VersionNumber="4.00.0000"
+
+
+; *** Nationalized Strings ***
+
+CyrixMfgName="Cyrix Corporation"
+EggplantMfgName="Eggplant Systems Corp."
+
+MediaClassName="Sound, video and game controllers"
+
+*CRX0002.DeviceDesc="XpressAUDIO(TM) 16-bit Sound"
+V_INTERNAL="XpressAUDIO(TM) FM Synthesizer"
+V_EXTERNAL="External MIDI Port"
+ID1="XpressAUDIO(TM) Driver Disk"
+

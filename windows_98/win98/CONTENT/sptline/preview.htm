@@ -1,0 +1,375 @@
+<HTML>
+<head>
+<STYLE>
+.backwhite    {background:white}
+.backblack    {background:black} 
+.previewgeneral {font-family: Arial; font-weight: bold; font-size: 14px; line-height: 22px; color: White;"}
+.previewtext  {font-family: Arial; font-weight: bold; font-size: 14px; line-height: 16px; color: White;"}
+.previewbold  {font-family: Arial; font-weight: bold; font-size: 16px; line-height: 18px; color: Yellow;"}
+</STYLE>
+
+<TITLE>Screen Saver</TITLE>
+<SCRIPT LANGUAGE="VBScript">
+
+rem This sub creates the Loop 
+ Sub seq_onstop(ActionSet)
+   Call Seq("ActionSet").Play
+ End Sub
+
+Sub Seq_OnInit
+  Call seq("ActionSet").At(00.000, "FlyingStuff(0)",1)
+  Call seq("ActionSet").At(10.000, "FlyingStuff(1)",1)
+  Call seq("ActionSet").At(13.000, "FlyingStuff(2)",1)
+  Call seq("ActionSet").At(23.000, "FlyingStuff(3)",1)
+  Call seq("ActionSet").At(26.000, "FlyingStuff(4)",1)
+  Call seq("ActionSet").At(36.000, "FlyingStuff(5)",1)
+  Call seq("ActionSet").At(39.000, "FlyingStuff(6)",1)
+  Call seq("ActionSet").At(49.000, "FlyingStuff(7)",1)
+  Call seq("ActionSet").At(52.000, "FlyingStuff(8)",1)
+  Call seq("ActionSet").At(62.000, "FlyingStuff(9)",1)
+  Call seq("ActionSet").At(65.000, "FlyingStuff(10)",1)
+  Call seq("ActionSet").At(75.000, "FlyingStuff(11)",1)
+  Call seq("ActionSet").At(78.000, "FlyingStuff(12)",1)
+  Call seq("ActionSet").At(88.000, "FlyingStuff(13)",1)
+  Call seq("ActionSet").At(91.000, "FlyingStuff(14)",1)
+  Call seq("ActionSet").At(101.000, "FlyingStuff(15)",1)
+  Call seq("ActionSet").At(103.000, "FlyingStuff(16)",1)
+  Call seq("ActionSet").At(113.000, "FlyingStuff(17)",1)
+  Call seq("ActionSet").At(115.000, "FlyingStuff(18)",1)
+  Call seq("ActionSet").At(125.000, "FlyingStuff(19)",1)
+  Call seq("ActionSet").At(128.000, "FlyingStuff(20)",1)
+  Call seq("ActionSet").At(138.000, "FlyingStuff(21)",1)
+  Call seq("ActionSet").At(141.000, "FlyingStuff(22)",1)
+  Call seq("ActionSet").At(151.000, "FlyingStuff(23)",1)
+  Call seq("ActionSet").At(154.000, "FlyingStuff(24)",1)
+  Call Seq("ActionSet").Play
+End Sub
+
+Sub noop(A)
+  Select Case A
+    Case 0
+      Call Seq("ActionSet").stop
+   End Select
+End Sub
+
+Sub reposition(goodbye,hello,hello2)
+  goodbye.Style.Top=77
+  goodbye.Style.Left=650
+  goodbye.Style.Visibility="hidden"
+  textmovein.Target=hello
+  hello2.style.visibility="visible"
+  textmovein.Play
+End Sub
+
+Sub repo_out(hello)
+  textmoveout.Target=hello
+  textmoveout.Play
+End Sub
+
+Sub updateImg(turnoff,turnon)
+   turnoff.style.visibility="hidden"
+   turnon.style.visibility="visible"
+End Sub
+
+Sub FlyingStuff(A)
+  Select Case A
+    Case 0
+      textGeneral.style.visibility="visible"
+      img_basket2.style.visibility="hidden" 
+      textmovein.Target="textGeneral"
+      textmovein.Play
+    Case 1
+      repo_out("textGeneral")      
+    Case 2
+      img_newsroom.style.visibility="visible"
+      Call reposition(textgeneral,"textNews",textNews)
+    Case 3
+      repo_out("textNews")
+    Case 4
+      Call updateImg(img_newsroom,img_baseball)
+      Call reposition(textNews,"textBaseball",textBaseball)
+    Case 5
+      repo_out("textBaseball")
+    Case 6
+      Call updateImg(img_baseball,img_football)
+      Call reposition(textBaseball,"textFootball",textFootball)
+    Case 7
+      repo_out("textFootball")
+    Case 8
+      Call updateImg(img_football,img_superstar)
+      Call reposition(textFootball,"textSuperStars",textSuperStars)
+    Case 9 
+      repo_out("textSuperStars")
+    Case 10
+      Call updateImg(img_superstar,img_contests)
+      Call reposition(textSuperStars,"textContests",textContests)
+    Case 11
+      repo_out("textContests")
+    Case 12
+      Call updateImg(img_contests,img_superstore)
+      Call reposition(textContests,"textSuperStore",textSuperStore)
+    Case 13
+      repo_out("textSuperStore")
+    Case 14
+      Call updateImg(img_superstore,img_radio)
+      Call reposition(textSuperStore,"textRadio",textRadio)
+    Case 15
+      repo_out("textRadio")
+    Case 16
+      Call updateImg(img_radio,img_bask1)
+      Call reposition(textRadio,"textFinalFour",textFinalFour)
+    Case 17
+      repo_out("textFinalFour")
+    Case 18
+      Call updateImg(img_bask1,img_soccer)
+      Call reposition(textFinalFour,"textSoccer",textSoccer)
+    Case 19
+      repo_out("textSoccer")
+    Case 20
+      Call updateImg(img_soccer,img_auto)
+      Call reposition(textSoccer,"textAuto",textAuto)
+    Case 21
+      repo_out("textAuto")
+    Case 22
+      Call updateImg(img_auto,img_basket2)
+      Call reposition(textAuto,"textBasketball",textBasketball)
+    Case 23
+      repo_out("textBasketball")
+    Case 24
+      wasteTime=0
+
+    End Select
+End Sub
+
+</SCRIPT>
+</HEAD>
+<BODY ID=saverbody CLASS=backblack>
+<!---------------------------- Sequencer Controls ---------------------------->
+
+<OBJECT ID="Seq"
+        CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+        STYLE="WIDTH:2;HEIGHT:2">
+</OBJECT>
+
+<!---------------------------- prev path controlls ---------------------------->
+
+<!-- this is the path control for the text move in  start time 0 -->
+<OBJECT ID=textmovein
+ CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+  <PARAM NAME="Duration" VALUE="4">
+  <PARAM NAME="Shape" VALUE="Polyline(2,55,370,55,110)">
+  <PARAM NAME="Bounce" VALUE="0">
+</OBJECT>
+
+<!-- this is the path control for the text move out  start time 10  -->
+<OBJECT ID=textmoveout
+ CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+  <PARAM NAME="Duration" VALUE="2">
+  <PARAM NAME="Shape" VALUE="Polyline(2,55,110,-370,110)">
+  <PARAM NAME="Bounce" VALUE="0">
+</OBJECT>
+
+
+<!-- this is the path control for the ball move in  start-time=10  -->
+<OBJECT ID=ballmovein CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+  <PARAM NAME="Duration" VALUE="3">
+  <PARAM NAME="Shape" VALUE="Polyline(2,300,-110,300,73)">
+</OBJECT>
+
+<!-- this is the path control for the ball move out   start time=0 -->
+<OBJECT ID=ballmoveout CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+  <PARAM NAME="Duration" VALUE="7">
+  <PARAM NAME="Shape" VALUE="Polyline(2,300,73,650,73)">
+</OBJECT>
+<!---------------------------- prev layer1 ---------------------------->
+
+<DIV ID=background 
+ STYLE="POSITION:absolute; TOP:0; LEFT:0; WIDTH: 460; HEIGHT: 370; VISIBILITY: visible; CLIP: rect(0 460 370 0)">
+
+ <IMG ID=prev_bg SRC="images/back.jpg"
+  STYLE="POSITION: absolute; WIDTH:460; HEIGHT:365; TOP: 0; LEFT: 0">
+
+ <A HREF="http://cbs.sportsline.com/u/iechannel/subscribe.html" Target=_top>
+   <IMG ID=prev_subscribe SRC="images/subscrib.gif" BORDER="0"
+    STYLE="POSITION: absolute; WIDTH:136; HEIGHT:20; TOP: 327; LEFT:35; VISIBILITY:visible">
+ </A>
+</DIV>
+
+<DIV ID=preview_layer1 
+ STYLE="POSITION:absolute; TOP:0; LEFT:0; WIDTH:460; HEIGHT:370; VISIBILITY:visible; CLIP:rect(110 410 323 32)">
+
+<!---------------- General           ------------------------------> 
+ <DIV ID=textGeneral CLASS=previewgeneral
+  STYLE="POSITION:absolute; TOP:130; LEFT:650; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+  <B CLASS=previewbold>SportsLine</B> is your first choice for<BR>sports news and entertainment. <BR>Check out the latest scores, standings, statistics, exclusive columns and Superstar Web sites. Win cash and prizes in our contests and giveaways. Purchase souvenirs and memorabilia at our Superstore – plus a whole lot more… </DIV>
+
+<!---------------- News              ------------------------------> 
+ <DIV ID=textNews CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:1; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+    <B CLASS=previewbold>Get the News When it Happens</B>
+    <UL>
+     <LI>Access real-time scores with Java ScoreCenter
+     <LI>Hot off the wire: Associated Press, Reuters and SportsTicker
+     <LI>In-depth local coverage
+     <LI>Read exclusive columnists and interviews
+    </UL>
+ </DIV>
+
+<!---------------- Baseball                 ------------------------------> 
+ <DIV ID=textBaseball CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:1; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+    <B CLASS=previewbold>Who's on First? CBS SportsLine<BR>Covers All the Bases</B><BR>
+    <UL>
+     <LI>See all the action with Baseball LIVE!
+     <LI>Get the latest scores with our live scoreboards
+     <LI>Track your favorite player's progress with up-to-the-minute stats
+     <LI>Team up with Cal Ripken Jr. and Mike Schmidt on their official Web sites
+     <LI>Take a swing at Fantasy Baseball
+    </UL>
+ </DIV>
+
+<!---------------- Football                 ------------------------------>
+ <DIV ID=textFootball CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+    <B CLASS=previewbold>Football Fanatics, Get Your Fix!</B>
+    <UL>    
+     <LI>Hear live radio broadcasts
+     <LI>Visit Joe Montana, Jerry Rice, Keyshawn Johnson and Joe Namath on their Web sites.
+     <LI>Win cash when you play Fantasy Football Challenge
+     <LI>Be a part of the action with Football LIVE!
+     <LI>Get up-to-the-minute news and team reports
+    </UL>
+ </DIV>
+
+<!---------------- Superstars               ------------------------------>
+ <DIV ID=textSuperStars CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>The Brightest Stars Call CBS<BR>SportsLine, 'Home'</B>
+   <UL>
+    <LI>Talk one-on-one with other fans on Michael Jordan's Home Page
+    <LI>Send e-mail to Shaq
+    <LI>Get up-close and personal with Tiger Woods
+    <LI>Touch down on the San Francisco 49ers Home Page
+  </UL>
+ </DIV>
+
+<!---------------- Contests                 ------------------------------>
+ <DIV ID=textContests CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>WIN Cold Cash and Cool Prizes</B>
+   <UL>
+     <LI>Test your knowledge of sports trivia
+     <LI>Challenge the experts in games for every season
+     <LI>Win fantastic sports weekend getaways
+   </UL>
+ </DIV>
+
+<!---------------- SuperStore               ------------------------------>
+ <DIV ID=textSuperstore CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>Shop With Ease at Our SuperStore</B>
+   <UL>
+     <LI>Get the lowest prices on valuable merchandise
+     <LI>See the best selection of autographed photos and memorabilia
+     <LI>Official team hats and jerseys
+     <LI>Special discounts on sporting goods and more
+  </UL>
+ </DIV>
+
+<!---------------- Radio                    ------------------------------>
+ <DIV ID=textRadio CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>Hear What You've Been Missing:<BR>Tune into Live Radio</B>
+   <UL>
+     <LI>Listen to exclusive interviews with special guests
+     <LI>Opinions, facts and big-name guests on, The Drive
+     <LI>Sports Byline USA with Emmy Winner, Ron Barr
+     <LI>Sports Overnight America with David Brody
+     <LI>Get Fantasy Sports information on Fantasy Fever
+   </UL>
+ </DIV>
+
+<!---------------- FinalFour                ------------------------------>
+ <DIV ID=textFinalFour CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>Follow the Road to the Final Four</B>
+   <UL>
+    <LI>Check out detailed statistics, standings and schedules
+    <LI>Get fast-breaking news and exclusive expert commentary
+    <LI>Extensive recruiting news
+    <LI>Features from coach and CBS analyst George Raveling
+   </UL>
+ </DIV>
+
+<!---------------- Soccer                   ------------------------------>
+ <DIV ID=textSoccer CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>You'll Get a Real Kick Out of<BR>Our Superior Soccer Coverage</B>
+   <UL>
+    <LI>Access standings and statistics from around the world
+    <LI>Get country-by-country reports
+    <LI>World Cup updates
+    <LI>Audio interviews with the biggest stars
+   </UL>
+ </DIV>
+
+<!---------------- Auto Racing              ------------------------------>
+ <DIV ID=textAuto CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>Gear Up for the Most Complete <BR>Auto Racing News</B>
+   <UL>
+    <LI>NASCAR, CART, IRL, Formula One and NHRA coverage
+    <LI>See vintage video highlights
+    <LI>Updated driver standings
+    <LI>Park it at Emerson Fittipaldi's Web site
+   </UL>
+ </DIV>
+
+<!---------------- Basketball                ------------------------------>
+ <DIV ID=textBasketball CLASS=previewtext
+  STYLE="POSITION:absolute; TOP:1; LEFT:01; WIDTH:350; HEIGHT:200; VISIBILITY:hidden;">
+   <B CLASS=previewbold>Drive the Lane with CBS SportsLine<BR>Basketball Coverage</B>
+   <UL>
+    <LI>Official Home Pages of Michael Jordan and Shaquille O'Neal
+    <LI>Exclusive commentary from Bill Walton
+    <LI>Total statistical analysis
+    <LI>Scoreboard Central
+   </UL>
+ </DIV>
+</DIV>
+
+<IMG ID=img_auto SRC="images/auto.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_baseball SRC="images/baseball.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_bask1 SRC="images/bask1.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_basket2 SRC="images/basket2.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_contests SRC="images/contests.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_football SRC="images/football.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_newsroom SRC="images/newsroom.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_radio SRC="images/radio.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_soccer SRC="images/soccer.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_superstar SRC="images/sprstar.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+<IMG ID=img_superstore SRC="images/sprstore.jpg"
+ STYLE="POSITION:absolute; TOP: 23; LEFT: 343; WIDTH:97; HEIGHT:114; visibility:hidden">
+
+</BODY>
+</HTML>

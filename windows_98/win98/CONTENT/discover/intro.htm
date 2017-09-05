@@ -1,0 +1,244 @@
+<HTML>
+
+<HEAD>
+<meta http-equiv="PICS-Label" content="'(PICS-1.0" "http://www.rsac.org/ratingsv01.html" l comment "RSACi North America Server" r (n 0 s 0 v 0 l 0))'>
+<TITLE>Discovery Channel Online</TITLE>
+
+<SCRIPT LANGUAGE="VBSCRIPT">
+<!--
+Sub Window_onload()
+	Call Seq("1").Play
+End Sub
+
+Sub Seq_OnInit()
+	Call seq("1").at(0.200, "wav_play", 1, 0.000, 1)
+	Call seq("1").at(1.500, "tech_t_Show", 1, 0.000, 1)
+	Call seq("1").at(4.000, "tech_1_Show", 1, 0.000, 1)
+	Call seq("1").at(7.000, "scie_t_Show", 1, 0.000, 1)
+	Call seq("1").at(9.000, "scie_1_Show", 1, 0.000, 1)
+	Call seq("1").at(11.200, "tech_Hide", 1, 0.000, 1)
+	Call seq("1").at(12.100, "natu_t_Show", 1, 0.000, 1)
+	Call seq("1").at(14.200, "natu_1_Show", 1, 0.000, 1)
+	Call seq("1").at(16.700, "scie_Hide", 1, 0.000, 1)
+	Call seq("1").at(18.000, "expl_pl_Show", 1, 0.000, 1)
+	Call seq("1").at(18.700, "expl_t_Show", 1, 0.000, 1)
+	Call seq("1").at(19.200, "exPl_mov", 1, 0.000, 1)
+	Call seq("1").at(21.200, "exPl_fade", 1, 0.000, 1)
+	Call seq("1").at(22.200, "natu_Hide", 1, 0.000, 1)
+	Call seq("1").at(22.600, "expl_1_Show", 1, 0.000, 1)
+	Call seq("1").at(23.700, "hist_t_Show", 1, 0.000, 1)
+	Call seq("1").at(24.620, "hist_pl_Show", 1, 0.000, 1)
+	Call seq("1").at(25.300, "hsPl_mov", 1, 0.000, 1)
+	Call seq("1").at(28.400, "hist_Hide", 1, 0.000, 1)
+	Call seq("1").at(28.500, "xploryor_Show", 1, 0.000, 1)
+	Call seq("1").at(29.900, "expl_1_Hide", 1, 0.000, 1)
+End Sub
+
+Sub wav_play()
+	if discwav.isSoundCardEnabled() then discwav.run
+End Sub
+
+Sub tech_t_Show()
+	tech_t.filters(0).apply()
+	tech_t.style.visibility = "visible"
+	tech_t.filters(0).play()
+End Sub
+
+Sub tech_1_Show()
+	tech_1.filters(0).apply()
+	tech_1.style.visibility = "visible"
+	tech_1.filters(0).play()
+End Sub
+
+Sub scie_t_Show()
+	scie_t.filters(0).apply()
+	scie_t.style.visibility = "visible"
+	scie_t.filters(0).play()
+End Sub
+
+Sub tech_Hide()
+	tech_t.style.visibility = "hidden"
+	tech_1.filters(0).apply()
+	tech_1.style.visibility = "hidden"
+	tech_1.filters(0).play()
+End Sub
+
+Sub scie_1_Show()
+	scie_1.filters(0).apply()
+	scie_1.style.visibility = "visible"
+	scie_1.filters(0).play()
+End Sub
+
+Sub natu_t_Show()
+	natu_t.filters(0).apply()
+	natu_t.style.visibility = "visible"
+	natu_t.filters(0).play()
+End Sub
+
+Sub natu_1_Show()
+	natu_1.filters(0).apply()
+	natu_1.style.visibility = "visible"
+	natu_1.filters(0).play()
+End Sub
+
+Sub scie_Hide()
+	scie_t.style.visibility = "hidden"
+	scie_1.filters(0).apply()
+	scie_1.style.visibility = "hidden"
+	scie_1.filters(0).play()
+End Sub
+
+Sub expl_pl_Show()
+	expl_pl.filters(0).apply()
+	expl_pl.style.visibility = "visible"
+	expl_pl.filters(0).play()
+End Sub
+
+Sub expl_t_Show()
+	expl_t.filters(0).apply()
+	expl_t.style.visibility = "visible"
+	expl_t.filters(0).play()
+End Sub
+
+Sub exPl_mov()
+	pthexPl.play
+End Sub
+
+Sub exPl_fade()
+	expl_pl.filters(1).apply()
+	expl_pl.style.visibility = "hidden"
+	expl_pl.filters(1).play()
+End Sub
+
+Sub natu_Hide()
+	natu_t.style.visibility = "hidden"
+	natu_1.style.visibility = "hidden"
+End Sub
+
+Sub hist_pl_Show()
+	hist_pl.filters(0).apply()
+	hist_pl.style.visibility = "visible"
+	hist_pl.filters(0).play()
+End Sub
+
+Sub expl_1_Show()
+	expl_1.filters(0).apply()
+	expl_1.style.visibility = "visible"
+	expl_1.filters(0).play()
+End Sub
+
+Sub hsPl_mov()
+	pthhsPl.play
+End Sub
+
+Sub hist_t_Show()
+	hist_t.filters(0).apply()
+	hist_t.style.visibility = "visible"
+	hist_t.filters(0).play()
+End Sub
+
+Sub hist_Hide()
+	expl_t.style.visibility = "hidden"
+	hist_t.style.visibility = "hidden"
+End Sub
+
+Sub xploryor_Show()
+	xploryor.filters(0).apply()
+	xploryor.style.visibility = "visible"
+	xploryor.filters(0).play()
+End Sub
+
+Sub expl_1_Hide()
+	expl_1.filters(1).apply()
+	expl_1.style.visibility = "hidden"
+	expl_1.filters(1).play()
+End Sub
+
+-->
+</SCRIPT>
+
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0" bgcolor="#FFFFFF">
+
+<CENTER>
+
+<DIV style="position:relative; width: 620; height: 424">
+
+<IMG SRC="images/base.gif" WIDTH="620" HEIGHT="424" BORDER="0" style="position: absolute; left: 0; top: 0; z-index: 1">
+
+<IMG SRC="images/pcbutton.gif" WIDTH="94" HEIGHT="26" BORDER="0" style="position: absolute; left: 0; top: 398; z-index: 1" usemap="#pcbutton">
+
+<a href="javascript:window.external.addChannel('http://www.discovery.com/ie/discover.cdf')">
+<IMG SRC="images/addchan.gif" WIDTH="136" HEIGHT="20" BORDER="0" style="position: absolute; left: 4; top: 4; z-index: 1"></a>
+
+<a href="http://www.discovery.com/ie/dadc.cdf">
+<IMG SRC="images/adddesk.gif" WIDTH="136" HEIGHT="20" BORDER="0" style="position: absolute; left: 4; top: 30; z-index: 1"></a>
+
+<IMG id="tech_t" SRC="images/techtype.gif" WIDTH="225" HEIGHT="30" BORDER="0" style="position: absolute; left: 253; top: 175; z-index: 1; visibility: hidden; filter:blendTrans(duration=2.50)">
+
+<IMG id="tech_1" SRC="images/tech1.jpg" WIDTH="67" HEIGHT="100" BORDER="0" style="position: absolute; left: 222; top: 208; z-index: 1; visibility: hidden; filter:blendTrans(duration=1.4)">
+
+<IMG id="scie_t" SRC="images/scitype.gif" WIDTH="22" HEIGHT="211" BORDER="0" style="position: absolute; left: 295; top: 144; z-index: 1; visibility: hidden; filter:revealTrans(duration=1.0,transition=5)">
+
+<IMG id="scie_1" SRC="images/sci1.jpg" WIDTH="298" HEIGHT="196" BORDER="0" style="position: absolute; left: 322; top: 209; z-index: 1; visibility: hidden; filter:blendTrans(duration=1.3)">
+
+<IMG id="natu_t" SRC="images/natutype.gif" WIDTH="134" HEIGHT="29" BORDER="0" style="position: absolute; left: 182; top: 235; z-index: 1; visibility: hidden; filter:revealTrans(duration=1.0,transition=6)">
+
+<IMG id="natu_1" SRC="images/natu2.jpg" WIDTH="147" HEIGHT="96" BORDER="0" style="position: absolute; left: 146; top: 135; z-index: 1; visibility: hidden; filter:revealTrans(duration=1.4,transition=4)">
+
+<IMG id="expl_pl" SRC="images/expl_pl.gif" WIDTH="100" HEIGHT="34" BORDER="0" style="position: absolute; left: 253; top: 229; z-index: 11; visibility: hidden; filter:blendTrans(duration=0.9) blendTrans(duration=0.3)">
+
+<IMG id="expl_t" SRC="images/expltype.gif" WIDTH="276" HEIGHT="29" BORDER="0" style="position: absolute; left: 297; top: 235; z-index: 1; visibility: hidden; filter:blendTrans(duration=0.4)">
+
+<IMG id="expl_1" SRC="images/explora1.jpg" WIDTH="128" HEIGHT="126" BORDER="0" style="position: absolute; left: 395; top: 109; z-index: 11; visibility: hidden; filter:blendTrans(duration=1.4) blendTrans(duration=0.7)">
+
+<IMG id="hist_pl" SRC="images/hist_pl.gif" WIDTH="142" HEIGHT="77" BORDER="0" style="position: absolute; left: 425; top: 300; z-index: 11; visibility: hidden; filter:blendTrans(duration=0.9)">
+
+<IMG id="hist_t" SRC="images/histype.gif" WIDTH="24" HEIGHT="209" BORDER="0" style="position: absolute; left: 522; top: 115; z-index: 1; visibility: hidden; filter:revealTrans(duration=0.7,transition=5)">
+
+<IMG id="xploryor" SRC="images/yourworl.gif" WIDTH="306" HEIGHT="203" BORDER="0" style="position: absolute; left: 185; top: 109; z-index: 1; visibility: hidden; filter:blendTrans(duration=1.4)">
+
+<OBJECT ID="Seq" CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+</OBJECT>
+
+<OBJECT ID="pthexPl" CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="0">
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="0">
+	<PARAM NAME="Duration" VALUE="2.8">
+	<PARAM NAME="Shape" VALUE="polyline(2, 253,229,530,211)">
+	<PARAM NAME="Target" VALUE="expl_pl">
+</OBJECT>
+
+<OBJECT ID="pthhsPl" CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+	<PARAM NAME="AutoStart" VALUE="0">
+	<PARAM NAME="Repeat" VALUE="1">
+	<PARAM NAME="Bounce" VALUE="0">
+	<PARAM NAME="Duration" VALUE="3.1">
+	<PARAM NAME="Shape" VALUE="polyline(2, 425,300, 15,-152)">
+	<PARAM NAME="Target" VALUE="hist_pl">
+</OBJECT>
+
+<OBJECT ID="discwav"
+	STYLE = "visibility:hidden"
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+<PARAM NAME="ShowDisplay" VALUE="-1">
+<PARAM NAME="AutoStart" VALUE="0">
+<PARAM NAME="AutoRewind" VALUE="0">
+<PARAM NAME="PlayCount" VALUE="1">
+<PARAM NAME="FileName" VALUE="sounds/discvr8.wav">
+</OBJECT>
+
+</DIV>
+
+</CENTER>
+
+<MAP name="pcbutton">
+<area shape="rect" coords="7,0,92,19" href="credits.htm">
+<area shape="default" nohref>
+</MAP>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,345 @@
+<html>
+<head>
+<title>The MTV Online Checkup</title>
+
+<style>
+.question {color:black;position:absolute;font-family:Arial;font-weight:bold;font-size:14}
+.answer {font-size:12;width:300;height:45;color:black;position:absolute;cursor:hand;font-family:Arial;font-weight:bold;text-align:left}
+.correct {font-size:12;width:300;height:30;color:green;position:absolute;cursor:hand;font-family:Arial;font-weight:bold;text-align:left}
+.tag {font-size:12;width:300;height:30;color:green;position:absolute;font-family:Arial;font-weight:bold;text-align:left}
+</style>
+
+<script language="javascript">
+
+var nCurQuest = 1;
+var nWrong = 0;
+var bAnswering = false;
+
+var nImgs;
+var nShot = 0;
+var scrtimeout;
+
+function loadQuestion(nQuest)
+{
+	document.all.a1.style.color = "black"; 
+	document.all.a2.style.color = "black";
+	document.all.a3.style.color = "black";
+	document.all.a4.style.color = "black";
+	document.all.a1.style.display = "";
+	document.all.a2.style.display = "";
+	document.all.a3.style.display = "";
+	document.all.a4.style.display = "";
+	document.all.question.innerText = document.all("q"+nQuest).text;
+	document.all.a1.innerText = document.all("q"+nQuest+"a1").text;
+	document.all.a2.innerText = document.all("q"+nQuest+"a2").text;
+	document.all.a3.innerText = document.all("q"+nQuest+"a3").text;
+	document.all.a4.innerText = document.all("q"+nQuest+"a4").text;
+	document.all("i"+nQuest+"bad").style.visibility = "visible";
+
+	switch(nQuest)
+	{
+	case 1: 
+		pthCircle.Oval(65,130,20,20); 
+		document.all.redx.style.left = 80; document.all.redx.style.top = 142;
+		document.all.logo.style.left = 60; document.all.logo.style.top = 135;
+		break;
+	case 2: 
+		pthCircle.Oval(45,0,20,20); 
+		document.all.redx.style.left = 60; document.all.redx.style.top = 10;
+		document.all.logo.style.left = 60; document.all.logo.style.top = 10;
+		break;
+	case 3: 
+		pthCircle.Oval(40,80,20,90); 
+		document.all.redx.style.left = 45; document.all.redx.style.top = 170;
+		document.all.logo.style.left = 40; document.all.logo.style.top = 140;
+		break;
+	case 4: 
+		pthCircle.Oval(30,70,50,50); 
+		document.all.redx.style.left = 60; document.all.redx.style.top = 90;
+		document.all.logo.style.left = 60; document.all.logo.style.top = 90;
+		break;
+	case 5: 
+		pthCircle.Oval(40,165,30,30); 
+		document.all.redx.style.left = 60; document.all.redx.style.top = 190;
+		document.all.logo.style.left = 60; document.all.logo.style.top = 200;
+		break;
+	}
+}
+
+function loadPage()
+{
+	loadQuestion(1);
+}
+
+var xcnt = 0;
+function xcallback()
+{
+	switch(++xcnt)
+	{
+	case 1: document.all.redx.style.visibility = "hidden"; break;
+	case 2: document.all.redx.style.visibility = "visible"; break;
+	case 3: document.all.redx.style.visibility = "hidden"; break;
+	case 4: document.all.redx.style.visibility = "visible"; break;
+	case 5: document.all.redx.style.visibility = "hidden"; break;
+	}
+	if (xcnt <= 5) 
+		answer = setTimeout("xcallback();",500);
+	else
+		xcnt = 0; 
+}
+
+function cured() 
+{
+	document.all("i"+nCurQuest+"bad").src = document.all("i"+nCurQuest).src;
+	return;
+}
+
+function nextQuest()
+{
+	clearTimeout(scrtimeout);
+	document.all.tagline.innerText = "";
+	document.all.logo.style.visibility = "hidden";
+	document.all.arrow.style.visibility = "hidden";
+	document.all.bwlogo.style.visibility = "visible";
+	document.all("scrshot"+nCurQuest).style.visibility = "hidden";
+	document.all("i"+nCurQuest+"bad").style.visibility = "hidden";
+
+	nCurQuest++;
+	if (nCurQuest <= 5)
+		loadQuestion(nCurQuest);
+	else
+	{
+		document.all.finalline1.innerHTML = document.all("endGood").text;
+		document.all.finalline2.innerHTML = document.all("endGood2").text;
+		document.all.iedesktop.style.visibility = "visible";
+		document.all.iechannel.style.visibility = "visible";
+	}
+}
+
+var answer;
+
+function answerClicked(cAns)
+{
+	bAnswering = true;
+
+	if (nCurQuest > 5)
+		return;
+
+	// See if they got it right.
+	//
+	if (eval("document.all.q"+nCurQuest+".ans") == cAns)
+	{
+		clearTimeout(answer);
+		document.all.question.innerText = "";
+		document.all.a1.innerText = "";
+		document.all.a2.innerText = "";
+		document.all.a3.innerText = "";
+		document.all.a4.innerText = "";
+		document.all.a1.style.display = "none";
+		document.all.a2.style.display = "none";
+		document.all.a3.style.display = "none";
+		document.all.a4.style.display = "none";
+		pthCircle.Play();
+		scrtimeout = setTimeout("nextImgAuto();",2000);
+		if (sigh.isSoundCardEnabled()) {document.all.sigh.run();}
+		document.all.tagline.innerText = document.all("q"+nCurQuest+"tag").text;
+		answer = setTimeout("cured();",1000);
+		nImgs = document.all("scrShot"+nCurQuest).imgCnt;
+		document.all.redx.style.visibility = "hidden";
+		document.all.logo.style.visibility = "visible";
+		document.all.bwlogo.style.visibility = "hidden";
+		document.all.arrow.style.visibility = "visible";
+		document.all("scrshot"+nCurQuest).style.visibility = "visible";
+		nShot = 0;
+	}
+	else   // wrong answer
+	{
+		nWrong++;
+		if (horn.isSoundCardEnabled()) {document.all.horn.run();}
+		switch(cAns) {
+		case 'a': document.all.a1.style.color = "gray"; break;
+		case 'b': document.all.a2.style.color = "gray"; break;
+		case 'c': document.all.a3.style.color = "gray"; break;
+		case 'd': document.all.a4.style.color = "gray"; break;
+		}
+		clearTimeout(answer);
+		setTimeout("xcallback();",500);
+		document.all.redx.style.visibility = "visible";
+	}
+	bAnswering = false;
+}
+
+function nextImgAuto()
+{
+	if (++nShot > nImgs)
+	{
+		clearTimeout(scrtimeout);
+		return;
+	}
+	nextShot();
+	scrtimeout = setTimeout("nextImgAuto();",2000);
+}
+
+function nextShot(imgCnt)
+{
+	imgStr = 'document.all("scrshot'+nCurQuest+'").img'+nShot+';'
+	document.all("scrshot"+nCurQuest).src = eval(imgStr);
+}
+
+</script>
+
+</head>
+
+<body bgcolor=#FFFFFF onload="loadPage();">
+<img src="pictobg.jpg">
+
+<!-- QUESTION 1 -->
+<span id="q1" ans="c" text="1. Which of the following will help you avoid developing a rotted-out liver?"></span>
+<span id="q1a1" text="a. Drink a fifth of vodka every day"></span>
+<span id="q1a2" text="b. Use a high-quality tequila in your breakfast cereal instead of whole milk"></span>
+<span id="q1a3" text="c. Read the record and concert reviews in MTV Online's Music area"></span>
+<span id="q1a4" text="d. Wet lunch!"></span>
+<span id="q1tag" text="Correct!  MTV Online is an effective deterrent against most degenerative disorders."></span>
+
+<!-- QUESTION 2 -->
+<span id="q2" ans="d" text="2. You have the shakes from too much caffeine, but you're still tired. You should:"></span>
+<span id="q2a1" text="a. Order a double espresso, but with a straw (in case you can't hold the cup anymore)"></span>
+<span id="q2a2" text="b. Take several of those over-the-counter 'wake-up' pills -- that's not the same as coffee, right?"></span>
+<span id="q2a3" text="c. Clip your eyelids open like they did in A Clockwork Orange"></span>
+<span id="q2a4" text="d. Pay a visit to the tantalizing Jenny McCarthy Show in MTV Online's Tubescan area"></span>
+<span id="q2tag" text="Right-O!  MTV Online is a proven mind and body stimulant."></span>
+
+<!-- QUESTION 3 -->
+<span id="q3" ans="d" text="3. You've just eaten way too much... again. What should you do?"></span>
+<span id="q3a1" text="a. Suck down some orange juice with a little castor oil thrown in -- that'll fix ya"></span>
+<span id="q3a2" text="b. Talk on the big white phone"></span>
+<span id="q3a3" text="c. Go on that seven-corn-nuts-a-day diet -- we hear it really works!"></span>
+<span id="q3a4" text="d. Relax, digest, and surf through the day's music news on MTV Online"></span>
+<span id="q3tag" text="Yes!  Making permanent lifestyle changes, like regularly visiting MTV Online, is the best way to combat weight gain."></span>
+
+<!-- QUESTION 4 -->
+<span id="q4" ans="b" text="4. You're out of breath and coughing up solid matter from walking up half a flight of stairs. It's time to:"></span>
+<span id="q4a1" text="a. Take a rest and light up a butt"></span>
+<span id="q4a2" text="b. Stop with the cigarettes and keep those fingers busy typing in MTV Online's celebrity chats"></span>
+<span id="q4a3" text="c. Switch to unfiltered cigs -- you always suspected those filters were evil"></span>
+<span id="q4a4" text="d. Paste 'the patch' on your arm and continue smoking -- the excellent buzz will make you forget about those pesky lungs!"></span>
+<span id="q4tag" text="You got it!  MTV Online really works to help you beat those nicotine cravings."></span>
+
+<!-- QUESTION 5 -->
+<span id="q5" ans="a" text="5. What's the best way to find a potential new mate who has similar interests as you?"></span>
+<span id="q5a1" text="a. Consult MTV Online Local to find a good club to go to in your area -- you're bound to find other cool music fans there!"></span>
+<span id="q5a2" text="b. Make kissy noises at random people in the street"></span>
+<span id="q5a3" text="c. Frequent a country western bar and latch on to the person with the wackiest cowboy boots"></span>
+<span id="q5a4" text="d. Hang around in chat rooms for several hours every night-- who cares if you ever actually meet the person you're chatting with? They're probably a disappointment in real life."></span>
+<span id="q5tag" text="All right!  There's nothing like MTV Online to help turn your fantasies into reality."></span>
+
+<!-- Final quips -->
+<span id="endGood" text="Congratulations! You're in fine health. Just be sure to go to www.mtv.com or keyword MTV on AOL for regular check-ups."></span>
+<span id="endGood2" text="Tired of having to turn your head and cough whenever you need your dose of MTV Online? Then get a daily house call by subscribing to the MTV Online Active Channel."></span>
+<span id="endBad" text="Oh boy. You're in sorry shape, my friend. Better get yourself to MTV.com, on the double."></span>
+
+<!-- path object for the MTV logo rub -->
+<OBJECT ID="pthCircle"
+CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+        <PARAM NAME="AutoStart" VALUE="0">
+        <PARAM NAME="Repeat" VALUE="2">
+        <PARAM NAME="Bounce" VALUE="0">
+        <PARAM NAME="Duration" VALUE="1">
+        <PARAM NAME="Direction" VALUE="0">
+        <PARAM NAME="Shape" VALUE="Oval(0,0,20,20)">
+        <PARAM NAME="Target" VALUE="logo">
+</OBJECT>
+
+<!-- ActiveMovie control to play audio -->
+<OBJECT ID="sigh" WIDTH=0 HEIGHT=0
+        CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+                <PARAM NAME="showcontrols" VALUE="false">
+                <PARAM NAME="showdisplay" VALUE="false">
+                <PARAM NAME="AutoStart" VALUE="false">
+                <PARAM NAME="AutoRewind" VALUE="false">
+                <PARAM NAME="FileName" VALUE="sigh.wav">
+</OBJECT>
+<OBJECT ID="horn" WIDTH=0 HEIGHT=0
+        CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+                <PARAM NAME="showcontrols" VALUE="false">
+                <PARAM NAME="showdisplay" VALUE="false">
+                <PARAM NAME="AutoStart" VALUE="false">
+                <PARAM NAME="AutoRewind" VALUE="false">
+                <PARAM NAME="FileName" VALUE="horn.wav">
+</OBJECT>
+
+<!-- PICTOMAN div -->
+<div id=PicmanDiv style="position:absolute;top:30;left:30" >
+<IMG ID=man SRC="pictoman.gif" 
+	STYLE="position:absolute;LEFT:0;TOP:0;WIDTH:153;HEIGHT:389" border=0>
+<IMG ID=i1 SRC="liver.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:33;TOP:140;WIDTH:86;HEIGHT:41" border=0>
+<IMG ID=i1bad SRC="liverani.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:33;TOP:140;WIDTH:86;HEIGHT:41" border=0>
+<IMG ID=i2 SRC="brain.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:35;TOP:0;WIDTH:83;HEIGHT:69" border=0>
+<IMG ID=i2bad SRC="brainani.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:35;TOP:0;WIDTH:83;HEIGHT:69" border=0>
+<IMG ID=i3 SRC="stomach.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:73;WIDTH:153;HEIGHT:155" border=0>
+<IMG ID=i3bad SRC="stomacha.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:73;WIDTH:153;HEIGHT:155" border=0>
+<IMG ID=i4 SRC="lungs.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:70;WIDTH:153;HEIGHT:93" border=0>
+<IMG ID=i4bad SRC="lungani.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:70;WIDTH:153;HEIGHT:93" border=0>
+<IMG ID=i5 SRC="rex.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:184;WIDTH:153;HEIGHT:57" border=0>
+<IMG ID=i5bad SRC="rexani.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:184;WIDTH:153;HEIGHT:57" border=0>
+<IMG ID=logo SRC="mtv_logo.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:0;WIDTH:52;HEIGHT:41" border=0>
+<IMG ID=redx SRC="red_x.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:0;TOP:0;WIDTH:33;HEIGHT:33" border=0>
+<IMG ID=arrow SRC="nextq.gif" onClick="nextQuest();"
+	STYLE="position:absolute;visibility:hidden;LEFT:490;TOP:15;WIDTH:118;HEIGHT:41;cursor:hand" border=0>
+<IMG ID=scrshot1 SRC="under.gif" imgCnt=1 img1="bio.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:190;TOP:110;WIDTH:378;HEIGHT:284" border=0>
+<IMG ID=scrshot2 SRC="amp.gif"  imgCnt=4 img1="bb.gif" img2="road.gif" img3="top20.gif" img4="yo.gif"
+	STYLE="position:absolute;visibility:hidden;LEFT:190;TOP:110;WIDTH:378;HEIGHT:284;filter:revealTrans(Duration=1.0,Transition=12)" border=0>
+<IMG ID=scrshot3 SRC="wir.gif" imgCnt=1 img1="new.gif" 
+	STYLE="position:absolute;visibility:hidden;LEFT:190;TOP:110;WIDTH:378;HEIGHT:284;filter:revealTrans(Duration=1.0,Transition=12)" border=0>
+<IMG ID=scrshot4 SRC="arena.gif" imgCnt=0
+	STYLE="position:absolute;visibility:hidden;LEFT:190;TOP:110;WIDTH:378;HEIGHT:284;filter:revealTrans(Duration=1.0,Transition=12)" border=0>
+<IMG ID=scrshot5 SRC="local.gif" imgCnt=0
+	STYLE="position:absolute;visibility:hidden;LEFT:190;TOP:110;WIDTH:378;HEIGHT:284;filter:revealTrans(Duration=1.0,Transition=12)" border=0>
+</div>
+
+<!-- JM: QUESTION & ANSWERS div -->
+<div id=QuestionsDiv style="position:absolute;top:50;left:210" >
+
+<span ID="question" align="left" class=question STYLE="top:60;width:300;height:50"></span>
+<p>
+<span ID="a1" align="left" class="answer" onClick="answerClicked('a');" style="top:130"></span>
+<span ID="a2" align="left" class="answer" onClick="answerClicked('b');" style="top:180"></span>
+<span ID="a3" align="left" class="answer" onClick="answerClicked('c');" style="top:230"></span>
+<span ID="a4" align="left" class="answer" onClick="answerClicked('d');" style="top:280"></span>
+
+<span ID="tagline" align="left" class="tag" STYLE="left:20;top:50;width:350;text-align:center"> </span>
+<span ID="finalline1" align="left" class="tag" STYLE="top:80;width:300"> </span>
+<span ID="finalline2" align="left" class="tag" STYLE="top:150;width:300"> </span>
+
+</div>
+
+<span id=innoc style="position:absolute;top:30;left:230;width:460;color:black;font-family:Arial;font-weight:bold;font-size:12" >
+Inoculate yourself with MTV Online:
+</span>
+
+<span id=bwlogodiv style="position:absolute;top:50;left:320" >
+<IMG ID=bwlogo SRC="bwlogo.gif" STYLE="position:absolute;LEFT:210;TOP:0;WIDTH:100;HEIGHT:78" border=0>
+</span>
+
+<span id=addchandiv style="position:absolute;top:55;left:195" >
+<a href="http://www.mtv.com/push/desktop/mtvitem.cdf"><IMG ID=iedesktop SRC="ieadd_dt.gif" STYLE="position:absolute;visibility:visible;LEFT:10;TOP:0;WIDTH:135;HEIGHT:20" border=0></a>
+<a href="javascript:window.external.addChannel('http://www.mtv.com/push/mtv.cdf')"><IMG ID=iechannel SRC="ieadd_ch.gif" STYLE="position:absolute;visibility:visible;LEFT:160;TOP:0;WIDTH:136;HEIGHT:20" border=0></a>
+</span>
+
+<br>
+</body>
+</html>
+

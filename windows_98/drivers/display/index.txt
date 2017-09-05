@@ -1,0 +1,30 @@
+Index of \\Drivers\Display:
+
+· ATI VPE Update = \ATI
+· Cirrus Logic 5465 AGP = \cirrus\5465agp
+· Cirrus Logic 5465 PCI = \cirrus\5465pci
+· Cyrix XpressGRAPHICS(TM) = \cyrix
+· IGS CyberPro2000A PCI = \Igs\CP2000a
+· Matrox MGA Millennium PowerDesk = \matrox
+· Matrox Mystique PowerDesk = \matrox
+· Matrox Mystique AGP PowerDesk = \matrox
+· Matrox Millennium II PowerDesk = \matrox
+· Matrox Millennium II AGP PowerDesk = \matrox
+· NEC PowerVR = \nec
+· NeoMagic MagicGraph 128XD = \neomagic
+· S3 Inc. ViRGE/MX (M5 - LAPTOP ONLY) = \s3
+· Silicon Motion SM910 PCI = \smotion\lynx910
+· STB Velocity 128 (Riva)= \stb\vel1283d
+· Trident 9382 = \trident\9382
+· Trident 9385 = \trident\9385
+· Trident Image 975 Linear Accelerated for PCI = \trident\jag975
+
+Please note: 
+
+ONLY USE THIS FILE IF MICROSOFT TECHNICAL SUPPORT RECOMMENDS THIS FIX.
+
+If you have a problem booting to safe mode Windows 98 and your PCI chipset
+is an early version of the triton chipset, please read the README.TXT file in the 
+\vga directory for instructions on how to install and use this vga driver.
+
+Alternate VGA Driver for Early Triton based MB's = \vga

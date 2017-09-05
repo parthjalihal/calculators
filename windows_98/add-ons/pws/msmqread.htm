@@ -1,0 +1,746 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>Message Queue Server Release Notes</title>
+
+<script language="JavaScript">
+	TempString = navigator.appVersion
+	if (navigator.appName == "Microsoft Internet Explorer"){	
+// Check to see if browser is Microsoft
+		if (TempString.indexOf ("4.") >= 0){
+// Check to see if it is IE 4
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+		}
+		else {
+			document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+		}
+	}
+	else if (navigator.appName == "Netscape") {						
+// Check to see if browser is Netscape
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/coua.css">');
+	}
+	else
+		document.writeln('<link rel="stylesheet" type="text/css" href="/iishelp/common/cocss.css">');
+</script>
+
+<meta name="DESCRIPTION" content="Release Notes"></head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Verdana,Arial,Helvetica">
+
+<h1>Microsoft Message Queue Server 1.0 Release Notes</h1>
+
+<p>Welcome to Microsoft&reg; Message Queue Server (MSMQ) version 1.0 for  Windows&reg;&nbsp;98.
+This document supplements the MSMQ documentation.</p>
+
+<p>This document includes:<br>
+
+<a href="#LatestMSMQInformation">Latest MSMQ Information</a><br>
+<a href="#AdditionalDocumentation">Additional Documentation</a><br>
+<a href="#KnownProblems">Known Problems</a><br>
+<a href="#CopyrightInformation">Copyright Information</a>
+</p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;
+This version of MSMQ differs from the version for Windows&nbsp;NT Server/E (Enterprise Edition).
+The HTML MSMQ <em>Administrator's Guide</em> has been authored for the Windows&nbsp;NT Server/E version of MSMQ. Under
+&quot;Microsoft Message Queue Server,&quot; click &quot;Before You Begin,&quot; which describes the differences between the two
+versions of MSMQ. The information in this document supersedes the information in &quot;Before You Begin&quot; and in
+the MSMQ <em>Administrator's Guide</em>.</p>
+
+<hr>
+<h1><a name="LatestMSMQInformation">Latest MSMQ Information</a></h1>
+
+<p>Up-to-date information about MSMQ can be found on the Microsoft MSMQ Web site 
+at <a href="http://www.microsoft.com/msmq" target="_top">http://www.microsoft.com/msmq/</a>.</p>
+
+
+
+<hr>
+<h1><a name="AdditionalDocumentation">Additional Documentation</a></h1>
+
+<p>This section contains installation and configuration documentation not found in the 
+HTML MSMQ <em>Administrator's Guide</em>. </p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;
+For Software Development Kit (SDK) issues, see the HTML MSMQ <em>Programmer's Reference</em>. In particular, for ActiveX issues see &quot;Changes in ActiveX Components&quot; in the HTML documentation.</p>
+
+<h2><a name="MSMQSetupwithWindowsNTOptionPack">MSMQ Setup with Windows&nbsp;98</a></h2>
+
+<p>MSMQ is not installed by default during installation of Windows&nbsp;98.
+You must click <strong>Custom</strong> on the <strong>Personal Web Server for Windows&nbsp;98 Setup</strong> dialog box to
+install MSMQ. You will then be presented with a list of components to install.
+Select the <strong>Microsoft Message Queue</strong> check box to install MSMQ. By default, all
+components of MSMQ (Core, Admin, Docs, and SDK) are automatically installed during a Custom
+installation. If you do not want specific MSMQ components installed, click to clear the  check boxes of the components you do not want to install.</p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;If you install only the MSMQ Core component on a computer running Windows&nbsp;98,
+you will not see an MSMQ entry on the <strong>Start</strong> menu under <strong>Programs</strong>.</p>
+
+<p>You must install Personal Web Server (PWS) in order to view the MSMQ documentation. MSMQ does not automatically install PWS when the MSMQ documentation component is installed.</p>
+
+<h2><a name="UnattendedMSMQSetupwithWindowsNTOptionPack">Unattended MSMQ Setup</a></h2>
+
+<p>If you want to run unattended MSMQ Setup, you must create a new folder on your server computer and perform
+unattended installations from that folder. This is useful for performing installations without remaining at the computer and stepping through the installation options. Use the following procedure to perform unattended MSMQ
+setup. You can use a text editor, such as Microsoft Notepad, to create the necessary
+files.</p>
+
+<big>To perform unattended MSMQ Setup</big>
+
+<ol>
+<li>Create a new folder on your server hard disk.</li>
+<li>Create a new file named Msmqinst.ini&#59; copy and paste the
+sample file contents (below) into the Msmqinst.ini file that you created&#59; edit all section
+headings and entry settings appropriately&#59; and then save the file to the folder you created.</li>
+<li>Create a new file (such as <em>Mysetup.txt</em>)&#59; copy and paste the
+sample file contents (below) into the Mysetup.txt file that you created&#59; edit all section
+headings and entry settings appropriately&#59; and then save the file to the folder you created:<br>
+<li>At a command prompt, change to the \add-ons\pws\ folder on the Windows&nbsp;98 compact disc containing Setup.exe, by typing: 
+<br><strong>setup.exe/u:<em>full path to Mysetup.txt</em></strong>
+<br> where <em>full path to Mysetup.txt</em>
+is the drive and path on the local computer where Mysetup.txt is located. For example:
+setup.exe/u:c:\temp\Mysetup.txt.
+<p>Or, if you have previously installed MSMQ and now want to add or remove components, you must use maintenance
+mode during unattended installation. Type:<br>
+<strong>%windir%\system\sysocmgr.exe /I:%windir%\system\setup\iisv4.inf /c /u:<em>full path to
+Mysetup.txt</em></strong><br> where <em>full path to Mysetup.txt</em> is the drive and path on the local computer
+where Mysetup.txt is located. </li>
+</ol>
+
+<p>For step 2 (above), use the following sample Msmqinst.ini file as a template for step 2 . Be careful to edit the
+section headings and entry settings appropriately.</p>
+
+<pre>
+[Common Parameters]
+ControllerServer=Myservername
+SupportingServer=Myservername
+ExistingDatabase=Delete
+StopServices=Allow
+IPAddresses=Myipaddress
+
+[MyPEC]
+ServerType=PEC
+DataDevice=c:\msmq,80
+LogDevice=c:\msmq,20
+EnterpriseName=Myenterprise
+IPCNs=Myipnetwork
+IPXCNs=Myipxnetwork
+SiteName=Mysite
+IPXAddresses=Myipxaddress
+
+[MyPSC]
+ServerType=PSC
+DataDevice=c:\msmq,80
+LogDevice=c:\msmq,20
+ControllerServer=MyPEC
+SiteName=Mysite
+SiteLinks=Mylink
+IPXAddresses=Myipxaddress
+
+[MyBSC]
+ServerType=BSC
+DataDevice=c:\msmq,80
+LogDevice=c:\msmq,20
+ControllerServer=MyPEC
+</pre>
+
+<p class="note"><strong><span style="color: #0000FF"><font color="#0000FF">
+Important</font></span></strong>&nbsp;&nbsp;&nbsp;You must use the file name Msmqinst.ini. For more information on the Msmqinst.ini file, see &quot;Unattended Setup&quot;
+in &quot;Installing MSMQ&quot; in the MSMQ <em>Administrator's Guide</em>.</p>
+
+<p>For step 3 of an unattended MSMQ Setup (above), you can use the following sample Mysetup.txt as a template. You can also use the unattend.txt
+file included on the Windows&nbsp;98 compact disc as a template. Be sure to edit the
+section headings and entry settings appropriately.</p>
+
+<pre>
+[Version]
+Signature=&quot;$Windows&nbsp;NT$&quot;
+
+[Global]
+FreshMode=Custom|Minimal|Typical
+MaintanenceMode=AddRemove|ReinstallFile|ReinstallComplete|RemoveAll 
+UpgradeMode=AddExtraComps|UpgradeOnly 
+
+;NOTE: Windows&nbsp;98 Setup sets the [Global] section above
+;automatically. You can also specify the installation mode that unattended
+;MSMQ Setup runs in, based on the configuration of your target computer.
+;For example, if your target computer will:
+
+;* receive a new MSMQ installation (fresh mode), but no &quot;FreshMode=&quot;
+;line is specified, then Typical is the default value.
+
+;* receive a MSMQ re-installation or uninstallation (maintenance mode), but no
+;&quot;MaintanenceMode=&quot; line is specified, then ReinstallComplete is the
+;default value.
+
+;* receive an upgrade of MSMQ (upgrade mode), but no &quot;UpgradeMode=&quot;
+;line is specified, then UpgradeOnly is the default value.
+ 
+
+[Components]
+Iis_common=ON
+Iis_www=OFF
+Iis_ftp=OFF
+
+Mts_Core=ON
+Mts_Mmc=ON
+
+Msmq_Client_Core=ON
+Msmq_Admin=OFF|ON
+Msmq_Doc=OFF|ON
+Msmq_SDK=OFF|ON
+
+;NOTE: the [Components] section is valid only when
+;FreshMode = Custom,
+;MaintanenceMode = AddRemove, and
+;UpgradeMode = AddExtraComps
+;for the [Global] section above
+
+[iis]
+Path=c:\myunatten\myiis
+PathFTPRoot=c:\myunatten\myinetpub\ftproot
+PathWWWRoot=c:\myunatten\myinetpub\wwwroot
+PathPROGRoot=c:\myunatten\myprogroot
+
+[mts_core]
+Path=c:\myunatten\mymtx
+USERID=myuserid
+PASSWORD=mypassword
+
+[Msmq_Server]
+Path=c:\myunatten\msmq
+ServerType=RS
+</pre>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;Valid settings for the ServerType entry above include: PEC (primary enterprise controller, PSC (primary site controller), BSC (backup site controller), RS (Routing Server), RAS (Remote Access Service), IND
+(independent client), and DEP (dependent client).
+</p>
+
+<p>
+If you install an MSMQ client on a computer running Windows&nbsp;98, you
+must replace the [Msmq_Server] section with [Msmq_Client], and the ServerType entry with ClientType. ClientType
+values include IND (independent client) and DEP (dependent client).</p>
+
+<p>Be sure to test your unattended installation script before deployment. </p>
+
+<h2><a name="CreatinganMSMQInstallationShare">Creating an MSMQ Installation Share</a></h2>
+
+<p>You can create an MSMQ installation share if you want to provide the ability to install MSMQ client software from a server computer. Use the procedure described later in this section to manually create an MSMQ installation share. You can use a text editor, such as Microsoft Notepad, to create the necessary files. You should copy the contents of the \add-ons\pws\ folder in the Windows&nbsp;98 compact disc to your server computer.</p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;
+If you install the version of MSMQ provided with Personal Web Server for Windows&nbsp;98 over a version of MSMQ provided
+with Windows&nbsp;NT Server/E that has an existing MSMQ installation share, the shared folder is removed but the shared
+files are not. You must manually delete the shared files. 
+</p>
+
+<p>For the following procedure, you can use two computers: one to store the contents of the \add-ons\pws\ folder in the Windows&nbsp;98 compact disc and another computer to store the .bat  and .ini files you have created.</p>
+
+<big>To create an MSMQ installation share</big>
+
+<ol>
+<li>Create a new shared folder on your server hard disk.</li>
+<li>Create a new file named Mqsetup.bat&#59; copy and paste the
+sample file contents (below) into the Mqsetup.bat file that you created&#59; edit the names and paths appropriately&#59; and save the file to the folder you created, such as:</li>
+
+<pre>
+copy \\Myservername\Mysetupshare\Setup\Msmqoptp.ini %windir%
+\\Myservername\Myshare\Setup
+</pre>
+
+<li>Create a new file named Msmqoptp.ini, copy and paste the
+sample file contents below into the Msmqoptp.ini file that you created, edit the name setting appropriately, and save the file to the folder you have created:</li>
+
+<pre>
+[Common Parameters]
+ControllerServer=myservername
+SupportingServer=myservername
+ServerAuthenticationOnly=True
+</pre>
+</ol>
+
+<p class="note"><strong><span style="color: #0000FF"><font color="#0000FF">
+Important</font></span></strong>&nbsp;&nbsp;&nbsp;You must use the file name Msmqoptp.ini.</p>
+
+<p>A client computer can download and install MSMQ client software by connecting to the shared 
+public folder, running <strong>Mqsetup.bat</strong>, and following the on-screen instructions.</p>
+
+<h2><a name="InstallingMSMQonaCluster">Installing MSMQ on a Cluster</a></h2>
+
+<p>You can upgrade any existing version of MSMQ on a computer that is running Microsoft Cluster Server (MSCS)
+with the version of MSMQ provided with Personal Web Server for Windows&nbsp;98.</p>
+
+<p>However, on a computer running MSCS, you can install a MSMQ Routing server, Independent client,
+or Dependent client only with the version of MSMQ provided with Personal Web Server for Windows&nbsp;98. 
+To install a PEC, PSC, or BSC on a cluster, you must first install the version of MSMQ provided with Windows&nbsp;NT
+Server/E before you can upgrade and install these server types with the version of MSMQ provided with Personal Web Server for 
+Windows&nbsp;98.</p>
+
+<p>You can install MSMQ on one computer (node) of the cluster, and then install MSMQ on the
+second computer (node) of the cluster. The cluster will continue to operate even when one computer
+in the cluster has been upgraded and the other computer has not. To install MSMQ on the second node of a
+cluster, you must first install Internet Information Server (IIS) and Microsoft Transaction Server (MTS) from the Windows
+NT Option Pack&#59; you can then install MSMQ from the Windows&nbsp;98 CD.</p>
+
+<h2>MSMQ Setup: Server Authentication</h2>
+
+<p>When specifying the name of the MSMQ server during MSMQ setup, you can specify whether or not you want to use a secured
+connection. If you choose to use a secured connection, and the MSMQ server does not have a trusted server
+certificate, the following warning message can appear when you install an MSMQ server or 
+independent client:</p>
+
+<p>&quot;<strong>No Server Authentication</strong>. Setup cannot initiate a secured communications channel with the
+MSMQ server. Either the server or the computer on which you are installing 
+MSMQ is not configured for secure communication, or there is an unauthorized 
+server on your MSMQ network. As a result, all further communications with this 
+server and other servers will not be secure until the servers and the computer on 
+which you are installing MSMQ are properly configured.</p>
+
+<p>For more information, contact your MSMQ administrator or see &quot;Securing 
+Communication Between Controller Servers&quot; in the MSMQ Release Notes...&quot;</p>
+
+<p>You can control how unattended MSMQ Setup deals with this warning using the 
+ServerAuthenticationOnly entry in the Msmqoptp.ini file (discussed in a previous section).
+If ServerAuthenticationOnly=True, unattended MSMQ Setup will exit if it cannot 
+initiate a secured communications channel with the MQIS server, and attended Setup 
+will show the above warning. </p>
+
+<p>If ServerAuthenticationOnly=False, MSMQ Setup 
+will continue even if it cannot initiate a secured communications channel with the 
+MQIS server. If Setup cannot find the ServerAuthenticationOnly entry in the 
+Msmqoptp.ini file, Setup functions as if ServerAuthenticationOnly is set to True.</p>
+
+<p>For more information on configuring servers for secure communication either before 
+or after installing MSMQ, see &quot;Securing Controller Server Communications&quot; in 
+&quot;Managing Your MSMQ Enterprise,&quot; in the MSMQ <em>Administrator's 
+Guide</em>. For general information on securing controller server communication, see 
+&quot;Securing Communication with Controller Servers&quot; in &quot;Securing Your 
+MSMQ Enterprise.&quot; </p>
+
+<h2>Supported Platforms and Configurations</h2>
+
+<p>All computers running Windows 98 must have the network access control set to <strong>User 
+Level Access Control</strong>. You can verify this in Control Panel with <strong>Network</strong>, on the 
+<strong>Access Control</strong> tab.</p>
+
+<p>These issues are covered in &quot;Installing MSMQ,&quot; in the MSMQ 
+<em>Administrator's Guide</em>.<p>
+
+
+<h2>MQIS Server Administrators Have Wide-Ranging Access</h2>
+
+<p>Make sure all your MQIS administrators can be trusted to appropriately access 
+information on all MQIS servers. With administrative access to just one MQIS server, 
+an administrator can potentially obtain full access to any object in the MSMQ 
+enterprise. This can be done for example, by taking ownership on the object and then 
+changing its access permissions.</p>
+
+<h2>MSMQ and Windows&nbsp;NT Server CALs</h2>
+
+<p>MSMQ counts Windows&nbsp;NT Server client access licenses (CALs). If no CALs are 
+available, MSMQ-based applications fail to: send messages, open queues on remote 
+computers, and open queues from clients. MSMQ enforces the following rules for 
+counting CALs:</p>
+
+<ul>
+<li>All MSMQ sessions, remote-read sessions, and queues opened by dependent 
+clients are counted.</li>
+<li>All items used by a single computer are counted only once. For example, if a 
+computer running Windows&nbsp;NT Workstation or Windows 98 has an MSMQ session 
+and a remote-read session with a computer running Windows&nbsp;NT Server, the 
+server counts these as one CAL.</li>
+<li>An independent client computer running Windows&nbsp;NT Workstation or Windows 98 can have no more 
+than 10 concurrent sessions (MSMQ and remote-read combined) with other 
+independent client computers running Windows&nbsp;NT Workstation or Windows 98.</li>
+<li>Computers running Windows&nbsp;NT Workstation or Windows&nbsp;98 do not count 
+sessions with computers running Windows&nbsp;NT Server, although servers count 
+sessions with computers running Windows&nbsp;NT Workstation or Windows 98.</li>
+<li>A dependent client computer does not count CALs, but its hosting server computer counts any sessions opened on the dependent client's behalf. The number of dependent clients that are supported is limited by the number of CALs, but cannot be greater than 25 dependent clients. Also counted as a CAL is if a dependent client computer opens a queue on the server computer.</li>
+</ul>
+
+<p class="note"><strong><span style="color: #0000FF"><font color="#0000FF">
+Important</font></span></strong>&nbsp;&nbsp;&nbsp;MSMQ-based applications tend to communicate with a larger number of servers than traditional network-based applications do. For this reason, per seat licensing may be more cost effective for your enterprise.</p>
+
+<p>For more information on CALs and changing CALs, see &quot;Licensing and 
+License Manager,&quot; in <em>Windows&nbsp;NT Server 4.0 Concepts and Planning</em>.</p>
+
+<h2>MSMQ and SQL Server Service Packs</h2>
+
+
+<p>MSMQ requires the use of Microsoft SQL Server 6.5 Service Pack 1 or Service Pack 
+3. MSMQ is not compatible with Microsoft SQL Server 6.5 Service Pack 2.</p>
+
+<h2>Securing Communication Between Controller Servers</h2>
+
+<p>&quot;Securing Your MSMQ Enterprise,&quot;
+in &quot;Securing Communication with Controller Servers&quot;, in the MSMQ <em>Administrator’s Guide</em>, states:</p>
+<blockquote>
+&quot;Communication between MSMQ controller servers is inherently secure because 
+all the messages are signed and verified, based on information found in the MQIS 
+database.&quot;
+</blockquote>
+
+<p>Although this is true, it does not explain that by default the initial communications are not secure between the MQIS server you are installing and its &quot;parent&quot; MQIS server (the PEC in case of a PSC; the  PSC in case of a BSC). This initial communication (done through remote procedure call (RPC)) is not secure unless you configure the server for secure communication before installing MSMQ. For example, you can unknowingly install the MQIS server from an unauthorized MQIS server. However, once you install an MQIS server from an authentic server, all further communications with other MQIS servers are secure. To prevent the installation of MQIS servers from other unauthorized MQIS servers, configure the servers for secure communication before installing MSMQ on them. </p>
+ 
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;Configuring MQIS servers for secure communication (even though communication between MSMQ controller servers is inherently secure) can also simplify the renewal of cryptographic keys. For example, if you renew the cryptographic keys of an MQIS server that has been configured for secure communication, the child server can automatically obtain the new public keys. However, if the parent MQIS server is not configured for secure communication, you must manually make changes to allow MQIS replication to resume between the two servers.
+</p>
+
+<p>For more information on configuring servers for secure communication either before 
+or after installing MSMQ, see &quot;Securing Controller Server Communications&quot; in 
+&quot;Managing Your MSMQ Enterprise,&quot; in the MSMQ <em>Administrator's 
+Guide</em>. For general information on securing controller server communication, see 
+&quot;Securing Communication with Controller Servers&quot; in &quot;Securing Your 
+MSMQ Enterprise.&quot; </p>
+
+<h2>Renewing Cryptographic Keys</h2>
+
+<p>All MSMQ computers except dependent clients use cryptographic keys. These 
+cryptographic keys are used for various security operations in MSMQ. Users 
+can renew the cryptographic keys using <strong>MS Message Queue</strong> in Control Panel.</p>
+
+<p>For independent clients and MSMQ routing servers, the only implication of renewing 
+the cryptographic keys is that private (encrypted) messages, which were encrypted 
+according to the previous keys and were then sent to the computer, are rejected. This 
+happens until the new public keys are propagated to all MQIS servers and the 
+sending computers start using the new public key.</p>
+
+<p>If you renew the cryptographic keys for a PEC, the enterprise PSCs reject any MQIS replication messages sent
+from the PEC. If you renew the cryptographic keys for a PSC, all its BSCs reject any MQIS replication messages sent from the PSC. This problem occurs only if the MQIS servers are not configured for secure communication.</p>
+
+<p>If you renew the cryptographic keys of an MQIS server and all your MQIS servers are not configured for secure communication, use the following procedure to correct the problem:</p>
+
+<ol>
+<li>On the MQIS server on which you change the cryptographic keys, click <strong>Start</strong>, click
+<strong>Run</strong>, and then type <strong>mqsrvkey</strong> <em>newkey.key</em>, where <em>newkey.key</em> is the output file
+name you want to use. The <strong>mqsrvkey</strong> 
+command line utility is installed in the MSMQ folder by default (typically 
+C:\Program Files\MSMQ).</li>
+<li>If you changed the cryptographic keys on a PEC, copy the file you created to each PSC. If you changed the
+cryptographic keys on a PSC, copy the file you created to each BSC. </li>
+<li>On each PSC or BSC to which you copied the file, run <strong>mqsrvkey</strong> and specify the name of the
+file you copied.</li>
+</ol>
+
+<h2>Dependent Clients Do Not Use Secure Communication with MQIS Servers, by Default</h2>
+
+<p>If you want your MSMQ dependent clients to use secure communication with MQIS 
+servers, you must override the default setting, which does not use secure 
+communication between these computers.</p>
+
+<big>To configure dependent clients to use secure communication with MQIS servers</big>
+<ol>
+<li>In Control Panel, double-click <strong>MS Message Queue</strong>.
+<li>On the <strong>Security</strong> tab, select the <strong>Use only secured connections when communicating 
+with an MSMQ controller server</strong> check box.
+</ol>
+
+<h2>Messages are Sent as Plain Text when Read Remotely</h2>
+
+<p>The MSMQ Security feature guarantees full security of  messages from the sending 
+application to the destination queue. To guarantee full security, the receiving 
+application and the queue must reside on the same computer (local read). </p>
+
+<p>In the case of a remote read (such as reading a message from computer A when the 
+queue is on computer B), only authorized users are able to open a queue for read. That 
+is, the user must have the right access permissions for the queue. However, the 
+message is not encrypted or authenticated when read by the receiving application over 
+the network.</p>
+
+<h3>How to Enable Message Integrity and Authentication When Reading Remotely</h3>
+
+<p>Message are not encrypted or authenticated when read remotely by the receiving application. To ensure integrity checking for each message sent to a remote reader, use <strong>Services</strong> in Control Panel to configure the Microsoft Message Queue Service of the reading computer to run under a domain user account (not the local system account).</p>
+
+<h2>MQIS Servers Require at Least One Network Adapter</h2>
+
+<p>Each MQIS server (the PEC, all PSCs, and all BSCs) must have at least one network 
+adapter. The network adapter is required even if the server is a laptop computer or 
+connects to the network only by modem through RAS.</p>
+
+<h2>Installing MSMQ Dependent Clients Before Installing Their Supporting Server</h2>
+
+<p>The MSMQ <em>Administrator's Guide</em> states that &quot;both the supporting server and the site 
+controller server (PSC or PEC) must be online when you install an MSMQ dependent 
+client.&quot; However, if the supporting server is not online, or if it has not yet been 
+installed, you can still install the client.</p>
+
+<p>The MSMQ dependent client Setup attempts to communicate with the specified 
+supporting server. If the server does not respond, Setup displays a message telling you 
+that the server is not reachable. You can either specify another server or click 
+<strong>Cancel</strong>.  If you click <strong>Cancel</strong>, Setup completes successfully, using the server name you 
+entered. Using this feature, you can install dependent clients before you install the 
+supporting server. However, you cannot configure the MS DTC service on computers 
+running Windows 98 when the supporting server is offline.</p>
+
+<p>For more information on configuring computers running Windows 98 to use the 
+MS DTC service, see &quot;MSMQ Dependent Client Configuration Procedure&quot; in &quot;Installing MSMQ,&quot;
+in the MSMQ <em>Administrator’s Guide</em>.</p>
+
+<h2>Managing Certification Authorities (CAs) for MSMQ when IE4 is Installed</h2>
+
+<p>MSMQ uses its own certificate store to keep certification authorities (CA) certificates. At installation time,
+MSMQ will copy the list of CAs trusted by Microsoft Internet Explorer 4 (IE4) into its own certificate store.</p>
+
+<big>To manage which CA is trusted by MSMQ</big><br> 
+
+<ol>
+<li>In Control Panel, double-click <strong>MS Message Queue</strong>, and then click the
+<strong>Security</strong> tab.</li>
+<li>Under <strong>Controller Server Communications</strong>, select the <strong>Use only secured connections when
+communicating with an MSMQ controller server</strong> check box, and then click
+<strong>Certification Authorities</strong>.</li>
+<li>In the <strong>Certification Authorities</strong>s dialog box, select or click to clear the applicable check boxes,
+click <strong>OK</strong>, and then click <strong>OK</strong> again.</li>
+<li>In the <strong>MSMQ - Restart System</strong> dialog box, click <strong>Restart Windows Now</strong>.</li>
+</ol>
+  
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;If you add a new CA into the IE4 certificate store, and you want the CA to be trusted by MSMQ, click
+<strong>System Certificates</strong> to import IE4 certificates into the MSMQ store.</p>
+
+<h2>Deleting User Certificates from MSMQ Explorer</h2>
+
+<p>Each user can use <strong>MS Message Queue</strong> in Control Panel to delete only her own 
+certificates. However, administrators can use the <strong>Remove User Certificates</strong> option on the MSMQ Explorer <strong>Tools</strong> menu to delete other user certificates. To delete certificates of other users, the administrator  must have Set Properties permission for the MSMQ enterprise.
+</p>
+
+
+<h2>MSMQ Explorer Find Options</h2>
+
+<p>MSMQ Explorer Help incorrectly states that you can search for computers using the 
+following options: <strong>All Types</strong>, <strong>MSMQ routing servers</strong>, <strong>Backup site controllers</strong>, and 
+<strong>Primary site controllers</strong>. The valid options are: <strong>All Types</strong>, <strong>MSMQ Servers</strong>, <strong>Site 
+Controllers</strong>, and <strong>Primary Site Controllers</strong>.</p>
+
+<p><strong>All Types</strong> returns all MSMQ computers. <strong>MSMQ Servers</strong> returns all MSMQ servers. 
+<strong>Site Controllers</strong> returns all BSCs, PSCs, and the PEC. <strong>Primary Site Controllers</strong> returns all PSCs and the PEC.</p>
+
+<h2>Messaging Problems with Multihomed, Independent Clients</h2>
+
+<p>Do not use any multihomed, MSMQ independent client with two network cards on two 
+different IP CNs if there is an MSMQ server with two network cards on the same two 
+IP CNs in the same site. Otherwise, the MSMQ independent client may fail to send or 
+receive messages.</p>
+
+<h2>Sending to Queues with Restricted Send Access</h2>
+
+<p>Visual Basic&reg; scripts under Active Server Pages (ASP) run under the security of the 
+account running the IIS service (w3svc). If that account is a local account, MSMQ 
+messages sent by Visual Basic scripts under ASP on that computer are sent with no 
+Security Identifier (SID). Therefore, the message successfully arrives at its target only 
+if the target queue does not restrict incoming messages. </p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;This programming consideration applies to any service or process running 
+under a local account. Local accounts do not have valid credentials on other machines 
+and therefore can access MSMQ queues only if the access requested is granted to all 
+accounts.</p>
+
+<h2>Configuring MSMQ Servers that use RAS</h2>
+
+<p>RAS IP addresses of MSMQ Servers (PEC, PSC, BSC, and Routing Servers) must not 
+be published in MQIS. Only LAN addresses should be published in MQIS.</p>
+
+<p>After you set up MSMQ servers that use RAS, you should use MSMQ 
+Explorer to verify that no RAS IP addresses are listed in the MQIS.</p>
+
+<p>Define an additional static (non-DHCP) IP address on your LAN in the same IP 
+subnet as the RAS address. This applies only if you do not have an IP LAN address in 
+the same CN as your RAS IP address. </p>
+
+<big>To define an additional static IP address in the same IP subnet</big>
+<ol>
+<li>In Control Panel, double-click <strong>Network</strong>.
+<li>Add the IP address as a second address to the LAN adapter of the machine. <br>
+Make sure that this address is published in the MQIS (you can use the MSMQ 
+Explorer to add an IP address in the MQIS to a machine and associate it with a 
+CN).
+</ol>
+
+<h2>MSMQ Explorer Displays Only 20,000 Messages</h2>
+
+<p>MSMQ Explorer can display only 20,000 messages in a queue. If there are more than 
+20,000 messages in a queue, MSMQ displays the following message below the last 
+message displayed:</p>
+<blockquote>
+&quot;Additional messages cannot be displayed&quot;
+</blockquote>
+
+<h2>MSMQ Setup on Computers Running the MSMQ Exchange Connector</h2>
+
+<p>You must stop the MSMQ Exchange connector service before you run Setup. If you run MSMQ Setup from the <strong>Start</strong> menu to add or remove components, reinstall MSMQ, or remove MSMQ, and if the MSMQ Exchange connector service is running on that computer, Setup displays a message stating that an MSMQ-based application is running, and then Setup exits. </p>
+
+<big>To stop the MSMQ Exchange connector service</big>
+<ol>
+<li>In Control Panel, double-click <strong>Services</strong>.
+<li>Click the MSMQ Exchange connector (<em>queue label</em>) service, and then click <strong>Stop</strong>.
+</ol>
+
+<h2>Removing a MQIS Server and Installing an MSMQ Routing Server</h2>
+
+<p>If you install an MQIS server (PEC, PSC, or BSC), remove it, install an MSMQ 
+routing server, and then remove SQL Server, the MSMQ routing server will be unable 
+to process coordinated transactions. This problem occurs because SQL Server Setup, 
+when used to remove SQL Server, also removes MS DTC.</p>
+
+<p>To avoid this situation, remove SQL Server before installing the MSMQ routing 
+server. </p>
+
+<h2>Message-based RPC and the MSMQ Transport for RPC</h2>
+
+<p>Windows&nbsp;NT 4.0 Service Pack 3 includes an enhanced version of the Microsoft remote procedure call (RPC)
+facility, which includes a new message-based asynchronous model and support for running RPC over MSMQ. </p>
+
+<h2>Disabling Automatic Control of Site Controller Switching</h2>
+
+<p>If your enterprise consists of a large number of site controller (PSC or BSC) servers, you may want to disable
+automatic switching of site controller servers by MSMQ Routing servers or clients for performance reasons.</p>
+
+<p>You can control which site controller server is accessed by an MSMQ Routing server or client by adding
+a value entry to the Windows&nbsp;NT registry using the Registry Editor. To start the Registry Editor, open an MS-DOS
+command-prompt window, and then type <strong>regedit</strong> or <strong>regedt32</strong>.</p>
+
+<p>The new registry entry name is <strong>StaticMQISServer</strong>, the data type is <strong>REG_SZ</strong>, and
+the value is a list of site controller server names, each prefixed with two protocol flags. The path you should
+add the entry under is as follows:</p>
+
+<pre>HKEY_LOCAL_MACHINE\SYSTEM
+     \CurrentControlSet
+       \Services
+         \MSMQ
+           \Parameters
+             \MachineCache
+</pre>				
+
+<p>As an example, see the <strong>MQISServer</strong> entry under the same path.</p>
+
+<p class="note"><a name="P_2267633907"></a><a name="P_43464310"></a><strong><span style="color: #0000FF"><font color="#0000FF">
+Important</font></span></strong>&nbsp;&nbsp;&nbsp;Before editing the registry, it is recommended that you create a backup of your configuration file.
+If you introduce an error in the registry and your computer becomes nonfunctional, you can use the backup
+configuration file to restore your computer settings.</p>
+
+<hr>
+<h1><a name="KnownProblems">Known Problems</a></h1>
+
+<p>This section documents problems known at the time of release of MSMQ.</p>
+
+<h2><a name="UpgradingMSMQ">Upgrading MSMQ</a></h2>
+
+<p>If you are upgrading from the version of MSMQ provided with Windows&nbsp;NT Server/E to the version of MSMQ
+provided with the Windows&nbsp;98 CD, the following events can occur during Setup:</p>
+<ul>
+<li>Setup can fail if you have previously used MSMQ in conjunction with Internet Information Server (such as for Active Server Pages). You will need to restart your computer first before proceeding with Setup. This also applies if you are removing (instead of upgrading) MSMQ through Setup.</li>
+<li>Setup can fail if Windows&nbsp;NT Performance Monitor is running. Before running Setup, make sure
+Performance Monitor is not running.</li>
+<li>A message can appear, asking you for the associations between your connected network (CN) names
+and IDs. You should have a written list of your CN associations when you start Setup.</li>
+<li>If you upgrade an MQIS server and then uninstall the upgrade, the database files Mqisdata.dat and Mqislog.dat
+may not be removed. This does not have an adverse effect on the functioning of MSMQ.</li>
+</ul>
+
+<h2><a name="MSMQServerNaming">MSMQ Server Naming</a></h2>
+
+<p>The section &quot;MSMQ Server Naming&quot; in &quot;Before You Begin&quot; is incorrect. MSMQ servers are called routing servers for both the Windows&nbsp;98 and  for Windows&nbsp;NT Server/E.</p> 
+
+<h2>Default Database Size is 80/20</h2>
+
+<p>&quot;Determining the Size of the Information Store&quot;, in &quot;Deploying MSMQ,&quot; in the MSMQ
+<em>Administrator's Guide</em> describes the default MQIS database size as 50 MB, with an 8-MB log file.
+This is incorrect. This is incorrect. The default MQIS database size is 80 MB, with a 20-MB log file.</p>
+<h2>MSMQ Server Can Support More than 15 Dependent Clients</h2>
+
+<p>The &quot;MSMQ Dependent Clients&quot; section in &quot;Understanding MSMQ&quot; in the MSMQ <em>Administrator's 
+Guide</em> states:</p>
+<blockquote>
+&quot;MSMQ servers can support up to 15 dependent clients.&quot;
+</blockquote>
+
+<p>This is incorrect. The number of dependent clients that an MSMQ server can support 
+is based on the number of CALs available on the server. For more information, see &quot;MSMQ and Windows&nbsp;NT Server CALs&quot; earlier in this document.</p>
+
+<h2>MSMQ Setup: Installation of Independent Client on a Server</h2>
+
+<p>The &quot;MSMQ Setup&quot; section in &quot;Before You Begin&quot; states:</p>
+
+<blockquote> 
+&quot;You can install MSMQ independent clients and dependent clients on computers running Windows 
+NT Workstation 4.0 or Windows 98. You cannot install MSMQ clients on computers running 
+Windows&nbsp;NT Server.&quot;</blockquote>
+
+<p>This is incorrect. You can install MSMQ independent and dependent clients on computers running Windows&nbsp;NT Server, Windows&nbsp;NT Workstation, or Windows&nbsp;98.</p>
+
+<h2><a name="InstallingMSMQonaComputerRunningWindowsNTServerE">Installing MSMQ on a Computer Running Windows&nbsp;NT
+Server/E</a></h2>
+
+<p>The &quot;MSMQ Setup&quot; section in &quot;Before You Begin&quot; states:</p>
+<blockquote>
+&quot;You should not install the version of MSMQ provided with the Windows&nbsp;NT Option Pack on a computer
+running Windows&nbsp;NT Server/E. You should instead install the version of MSMQ that is provided with Windows&nbsp;NT
+Server/E. &quot;</blockquote>
+
+<p>This is incorrect. You can install any version of MSMQ (including the version provided with Windows&nbsp;98) on a
+computer running Windows&nbsp;NT Server/E. However, you forfeit the use of the limited edition of SQL Server
+6.5 that is provided with Windows&nbsp;NT Server/E if you install the version of MSMQ provided with Windows 98.</p>
+
+<h2>Renaming a Computer Running MSMQ</h2>
+
+<p>&quot;Managing Your MSMQ Enterprise,&quot; in the MSMQ <em>Administrator's Guide</em> 
+describes the renaming of MSMQ dependent clients, independent clients, and
+routing servers. This is supported only for dependent clients.</p>
+
+<p><strong>Note</strong>&nbsp;&nbsp;&nbsp;To rename a computer running MSMQ, you must uninstall MSMQ, rename the 
+computer, and reinstall MSMQ. This procedure deletes all the queues that are on 
+the computer. You must re-create the queues after you reinstall MSMQ.</p>
+
+<h2>Create Server Access: Permissions and Auditing</h2>
+
+<p>&quot;Securing MSMQ,&quot; in the MSMQ <em>Administrator's Guide</em>, documents the 
+<strong>Create Route Server</strong> special access permission. This is not the correct name for the 
+permission. The special access permission is <strong>Create Routing Server</strong>. This error 
+appears in table 5.2, table 5.6, and in &quot;Auditing a Site&quot; in that section.
+
+<h2>Cannot Use ActiveX Controls to Create a Custom Managing Application</h2>
+
+<p>&quot;Creating a Custom Managing Application&quot; in &quot;Managing Your MSMQ Enterprise&quot; in the MSMQ <em>Administrator's
+Guide</em> states:</p>
+<blockquote>
+&quot;The ActiveX controls provided by MSMQ can be used to:<br>
+
+<ul>
+<li>Create sites, CNs, and computers</li>
+<li>Change CNs, InRSs, and OutRSs for computers</li>
+<li>Change site gate settings for the PEC and PSCs</li>
+<li>View enterprise settings&quot;</li>
+</ul>
+</blockquote>
+
+<p>This functionality is not available in MSMQ version 1.0.</p>
+
+<h2><a name="Installing the SDK">Installing the SDK</a></h2>
+
+<p>The procedure for installing the MSMQ Software Development Kit (SDK) is incorrect in the MSMQ
+<Em>Programmer's Reference</Em>. The correct procedure for installing the SDK after MSMQ is 
+installed is as follows:</p>
+<ol>
+<li>In Control Panel, double-click <Strong>Add/Remove Programs</Strong>.
+<li>On the <Strong>Install/Uninstall</Strong> tab, click <Strong>Microsoft Personal Web Server</Strong> on the list,
+and then click <Strong>Add/Remove</Strong>.
+<li>In the <Strong>Personal Web Server Setup</Strong> dialog box, click <Strong>Next</Strong>,
+and then click <Strong>Add/Remove</Strong>.
+<li>Under <Strong>Components</Strong>, select the <Strong>Microsoft Message Queue</Strong> check box.
+<li>Click <Strong>Show Subcomponents</Strong>, select the <Strong>Software Development Kit</Strong> check box,
+and then click <Strong>OK</Strong> to close all dialog boxes.
+</ol>
+
+<hr>
+<h1><a name="CopyrightInformation">Copyright Information</a></h1>
+
+<p>&copy; 1997 Microsoft Corporation. All rights reserved.</p>
+
+<p>These materials are provided &quot;as-is,&quot; for informational purposes only.</p>
+
+<p>Neither Microsoft nor its suppliers makes any warranty, express or implied with respect to the content of these materials or the accuracy of any information contained herein, including, without limitation, the implied warranties of merchantability or fitness for a particular purpose. Because some states/jurisdictions do not allow exclusions of implied warranties, the above limitation may not apply to you.</p>
+
+<p>Neither Microsoft nor its suppliers shall have any liability for any damages whatsoever including consequential, incidental, direct, indirect, special, and lost profits. Because some states/jurisdictions do not allow exclusions of implied warranties, the above limitation may not apply to you. In any event, Microsoft's and its suppliers' entire liability in any manner arising out of these materials, whether by tort, contract, or otherwise shall not exceed the suggested retail price of these materials.</p>
+
+<hr class="iis" size="1">
+<p align="center"><em><a href="/iishelp/common/colegal.htm">&copy; 1997 by Microsoft Corporation. All rights reserved.</a></em></p>
+
+</font>
+</body>
+</html>

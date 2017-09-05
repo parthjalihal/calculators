@@ -1,0 +1,78 @@
+; NETCTO.INF
+;
+; CONTEC Network Interface Card C-NET(PC)C Serice
+;
+; NDIS 3 Driver
+;
+
+[version]
+Signature="$Windows95$"
+Class=Net
+Provider=%V_CONTEC%
+LayoutFile=layout.inf
+
+[Manufacturer]
+%V_CONTEC%=CONTEC
+
+[CONTEC]
+%*pnpCPCC.DeviceDesc%=*CPCC.ndi, PCMCIA\CONTEC_Co._Ltd.-C-NET(PC)C-DDBD
+
+;****************************************************************************
+; *CPCC  CONTEC C-NET(PC)C Series
+;****************************************************************************
+[*CPCC.ndi]
+AddReg=*CPCC.ndi.reg,CNETPCCO.ndi.reg,CONTEC.ndi.reg
+
+[*CPCC.ndi.reg]
+HKR,Ndi,DeviceID,,"PCMCIA\CONTEC_Co._Ltd.-C-NET(PC)C-DDBD"
+
+;****************************************************************************
+; C-NET(PC)C depending section
+;****************************************************************************
+[CNETPCCO.ndi.reg]
+HKR,,DevLoader,,ndis.vxd
+HKR,,DeviceVxDs,,cnetpcc.sys
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+; NDIS Info
+HKR,NDIS,LogDriverName,,"CNETPCC"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+; Install sections
+HKR,Ndi\Install,ndis3,,"CNETPCC.ndis3"
+
+;****************************************************************************
+; CNET series common section
+;****************************************************************************
+[CONTEC.ndi.reg]
+; Resources
+HKR,,MEMBASE,1,01,00,00,00
+HKR,,IOBASE,1,02,00,00,00
+HKR,,INTERRUPT,1,04,00,00,00
+
+; Install NDIS3
+[CNETPCC.ndis3]
+CopyFiles=CNETPCC.ndis3.CopyFiles
+[CNETPCC.ndis3.CopyFiles]
+cnetpcc.sys
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+DefaultDestDir            = 11
+CNETPCC.ndis3.CopyFiles   = 11
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_CONTEC="CONTEC"
+*pnpCPCC.DeviceDesc="CONTEC C-NET(PC)C Series"
+
+

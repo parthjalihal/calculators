@@ -1,0 +1,35 @@
+Network Monitor Agent (NMAGENT.* and related files)
+
+The NETMON folder includes the software for a protocol driver and 
+agent for Microsoft Network Monitor. The protocol driver provides 
+performance counters that can be viewed by using System Monitor 
+if you want to assess certain network traffic statistics for 
+NDIS 3.1 protected-mode network adapters. 
+
+The Network Monitor agent, which can run either as a Windows 95 or 
+Windows 98 service, works with the protocol driver for use with the 
+Microsoft Network Monitor application. You can use this application 
+to detect and troubleshoot problems on LANs, WANs, and Microsoft Remote
+Access Service (RAS) connections.
+
+NOTE: The Network Monitor application is provided with Microsoft 
+Systems Management Server, which is a client-server system that 
+allows administrators to perform key management functions for 
+distributed computers from a central location. 
+
+To use Network Monitor Agent to troubleshoot problems on the network, 
+you must install it (NMAGENT.EXE) on each computer you want 
+to monitor on the network. 
+
+To install Network Monitor Agent on a computer already running 
+Windows 95 or Windows 98, use the Network icon in Control Panel, 
+click the Add button, select Service as the type of network component
+to install, click the Add button, click the Have Disk button, and 
+install from the TOOLS\RESKIT\NETADMIN\NETMON directory.
+ 
+You can also install Network Monitor Agent using statements in 
+setup scripts. For more information about Network Monitor Agent, 
+see that topic in the Windows 98 Resource Kit or in the 
+Windows 98 Resource Kit tools online help (WIN98RK.HLP). You can 
+access this help by installing the Windows 98 Resource Kit tools 
+sampler from the TOOLS\RESKIT directory of the Windows 98 compact disc.

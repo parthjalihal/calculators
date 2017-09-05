@@ -1,0 +1,479 @@
+<META
+  HTTP-EQUIV = "Page-Enter"
+  CONTENT    = "revealTrans( Duration=1.5, Transition=19 )"
+
+  HTTP-EQUIV = "Page-Exit"
+  CONTENT    = "revealTrans( Duration=1.5, Transition=19 )"
+>
+
+<html>
+
+<SCRIPT LANGUAGE="VBScript" src="shell.src">
+'This is the generic script, found at the same level as the current source
+</SCRIPT>
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+' Written By: 		Franco Ruggeri - franco_ruggeri@zd.com
+' Initial Release:	08/14/97
+
+ dim cur_head
+ dim cur_headb
+ dim cur_article
+ dim cur_articleb
+
+
+Sub Window_onResize 
+
+new_win_width = document.body.clientWidth
+new_win_height = document.body.clientHeight 
+
+if new_win_width > 658 Then 
+   c_width = new_win_width - win_width 
+   aborder.style.width = cint(left(aborder.style.width, len(aborder.style.width)-2)) + c_width
+   aiborder.style.width = cint(left(aiborder.style.width, len(aiborder.style.width)-2)) + c_width
+   call cWidth(article1, article1b, c_width)
+   call cWidth(article2, article2b, c_width)
+   call cWidth(article3, article3b, c_width)
+   call cWidth(article4, article4b, c_width)
+   call cWidth(article5, article5b, c_width)
+   call cWidth(article6, article6b, c_width)
+Else 
+   call SetStdWidth
+end If 
+
+if new_win_height > 581 Then 
+   c_height = new_win_height - win_height 
+   aborder.style.height = cint(left(aborder.style.height, len(aborder.style.height)-2)) + c_height
+   aiborder.style.height = cint(left(aiborder.style.height, len(aiborder.style.height)-2)) + c_height
+   call cheight(article1, article1b, c_height)
+   call cheight(article2, article2b, c_height)
+   call cheight(article3, article3b, c_height)
+   call cheight(article4, article4b, c_height)
+   call cheight(article5, article5b, c_height)
+   call cheight(article6, article6b, c_height)
+Else
+   call SetStdHeight
+end If 
+
+   win_width = document.body.clientWidth
+   win_height = document.body.clientHeight 
+
+
+End Sub 
+
+
+Sub SetStdWidth 
+   aborder.style.width = 274
+   aiborder.style.width = 270
+   article1.style.width = 268
+   article2.style.width = 268
+   article3.style.width = 268
+   article4.style.width = 268
+   article5.style.width = 268
+   article6.style.width = 268
+   article1b.style.width = 264
+   article2b.style.width = 264
+   article3b.style.width = 264
+   article4b.style.width = 264
+   article5b.style.width = 264
+   article6b.style.width = 264
+End Sub 
+
+Sub SetStdHeight 
+   aborder.style.height = 390
+   aiborder.style.height = 384
+   article1.style.height = 384
+   article2.style.height = 384
+   article3.style.height = 384
+   article4.style.height = 384
+   article5.style.height = 384
+   article6.style.height = 384
+   article1b.style.height = 344
+   article2b.style.height = 344
+   article3b.style.height = 344
+   article4b.style.height = 344
+   article5b.style.height = 344
+   article6b.style.height = 344
+End Sub 
+
+
+Sub seqSubClass()
+'This is called from the shell src
+'Its purpose is to extend the shell's sequencer class
+
+	if sound3.isSoundCardEnabled then call Seq("Logo").at(5.00, "sound3.run") 
+end Sub
+-->
+</SCRIPT>
+
+
+<head>
+<title>ZDNet: The Shopping Channel Page</title>
+<link rel="STYLESHEET" href="master.css" type="text/css">
+</head>
+
+<BODY background="images/tile4.gif" onMouseMove="moveme()" onmousedown="flash()" onmouseup="unflash()" margin=0 leftmargin=0 rightmargin=0 topmargin=0 bottommargin=0  link=#cc0033 vLink=#333366> 
+
+
+<!--********** This is the Sequencer Object**********-->
+<OBJECT ID="Seq"
+	CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"
+	STYLE="TOP:0;LEFT:0;WIDTH:1;HEIGHT:1">
+</OBJECT>
+
+<!--********** This is the Click Mixer Object**********-->
+<OBJECT ID="sound"
+CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A"
+STYLE="TOP:-100;LEFT:-100;WIDTH:1;HEIGHT:1">
+<PARAM NAME="Version" VALUE="1">
+<PARAM NAME="FileName" VALUE="sounds/click.wav">
+<PARAM NAME="ShowDisplay" VALUE="0">
+<PARAM NAME="ShowControls" VALUE="0">
+<PARAM NAME="ShowTracker" VALUE="0">
+<PARAM NAME="EnableTracker" VALUE="0">
+<PARAM NAME="ShowPositionControls" VALUE="0">
+<PARAM NAME="AutoStart" VALUE="0">
+<PARAM NAME="AutoRewind" VALUE="0">
+<PARAM NAME="PlayCount" VALUE="1">
+<PARAM NAME="DisplayMode" VALUE="0">
+</OBJECT>
+
+<!--********** This is the woosh Mixer Object**********-->
+<OBJECT ID="sound2"
+CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A"
+STYLE="TOP:-100;LEFT:-100;WIDTH:1;HEIGHT:1">
+<PARAM NAME="Version" VALUE="1">
+<PARAM NAME="FileName" VALUE="sounds/deckopen.wav">
+<PARAM NAME="ShowDisplay" VALUE="0">
+<PARAM NAME="ShowControls" VALUE="0">
+<PARAM NAME="ShowTracker" VALUE="0">
+<PARAM NAME="EnableTracker" VALUE="0">
+<PARAM NAME="ShowPositionControls" VALUE="0">
+<PARAM NAME="AutoStart" VALUE="0">
+<PARAM NAME="AutoRewind" VALUE="0">
+<PARAM NAME="PlayCount" VALUE="1">
+<PARAM NAME="DisplayMode" VALUE="0">
+</OBJECT>
+
+
+<!--********** This is the woosh Mixer Object**********-->
+<OBJECT ID="sound3"
+CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A"
+STYLE="TOP:-100;LEFT:-100;WIDTH:1;HEIGHT:1">
+<PARAM NAME="Version" VALUE="1">
+<PARAM NAME="FileName" VALUE="sounds/shop.wav">
+<PARAM NAME="ShowDisplay" VALUE="0">
+<PARAM NAME="ShowControls" VALUE="0">
+<PARAM NAME="ShowTracker" VALUE="0">
+<PARAM NAME="EnableTracker" VALUE="0">
+<PARAM NAME="ShowPositionControls" VALUE="0">
+<PARAM NAME="AutoStart" VALUE="0">
+<PARAM NAME="AutoRewind" VALUE="0">
+<PARAM NAME="PlayCount" VALUE="1">
+<PARAM NAME="DisplayMode" VALUE="0">
+</OBJECT>
+
+
+<!-- Put all the path objects here -->
+<OBJECT ID="pthLogo"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(4, -600,10, 570,10, 570,105, 120,105)">
+	<PARAM NAME="Duration" VALUE=3.0>
+</OBJECT>
+
+<OBJECT ID="pthLogo2"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(3, 120,105, 180,105, 50,105)">
+	<PARAM NAME="Duration" VALUE=2.0>
+</OBJECT>
+
+<OBJECT ID="pthText1"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 65, 800,65,350)">
+	<PARAM NAME="Duration" VALUE=1.0>
+</OBJECT>
+<OBJECT ID="pthBox1"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(5, 270,130,  510,15,  615,250,  380,370, 270,130)">
+	<PARAM NAME="Duration" VALUE=8.0>
+	<PARAM NAME="Repeat" VALUE="-1">
+</OBJECT>
+<OBJECT ID="pthBox2"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -500,300,  -10,300)">
+	<PARAM NAME="Duration" VALUE=3.0>
+</OBJECT>
+<OBJECT ID="pthBox2shadow"
+	CLASSID="CLSID:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -7,1000,  -7,302)">
+	<PARAM NAME="Duration" VALUE=3.0>
+</OBJECT>
+
+<!-- End of path objects -->
+
+<!-- Control Container off screen -->
+<div style="position:absolute; left:-1000; top:0; width:500; height:500">
+</div>
+
+<div id=nada style="position:absolute;visibility:hidden; left:-100; top:-100; width:1; height:1">
+</div>
+<img id=nadaimg src=images/redarrow.gif style="position:absolute;visibility:hidden; left:-100; top:-100; width:1; height:1">
+</div>
+
+<div id=tilebar style="position:absolute; left:0; top:0; width:54; height:134; z-index:3">
+<img src="images/tile4.gif" border=0 vspace=0 hspace=0><br>
+<img src="images/tile4.gif" border=0 vspace=0 hspace=0>
+</div>
+
+<div id=topback style="position:absolute; left:0; top:0; width:652; height:100; background-color:#CC0033; z-index:2">
+</div>
+<div id=rightback style="position:absolute; left:480; top:100; width:172; height:475; background-color:#CC0033; z-index:0">
+</div>
+
+<OBJECT 
+	ID="Box1"
+	CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6"
+	STYLE="POSITION:ABSOLUTE; Visibility:visible;  WIDTH:350; z-index:3; HEIGHT:350; TOP:25; LEFT:276">
+    <PARAM NAME="Line0001" VALUE="SetLineColor(255,153,153)">
+    <PARAM NAME="Line0002" VALUE="SetLineStyle(1)">
+    <PARAM NAME="Line0003" VALUE="SetFillColor(255,255,255)">
+    <PARAM NAME="Line0004" VALUE="SetFillStyle(0)">
+    <PARAM NAME="Line0005" VALUE="Rect(-130, -130, 260, 260, -25)">
+</object>
+
+<!-- After box 1, This is the red diamond shaped box behind the navigation palette -->
+<OBJECT 
+	ID="RedBox2"
+	CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6"
+	STYLE="POSITION:ABSOLUTE; Visibility:hidden;  WIDTH:350; z-index:4; HEIGHT:280; TOP:300; LEFT:-20">
+    <PARAM NAME="Line0001" VALUE="SetLineColor(255,153,153)">
+    <PARAM NAME="Line0002" VALUE="SetLineStyle(1)">
+    <PARAM NAME="Line0003" VALUE="SetFillColor(204,0,51)">
+    <PARAM NAME="Line0004" VALUE="SetFillStyle(1)">
+    <PARAM NAME="Line0005" VALUE="Rect(-80, -80, 160, 160, -25)">
+</object>
+<OBJECT 
+	ID="RedBox2shadow"
+	CLASSID="CLSID:369303C2-D7AC-11d0-89D5-00A0C90833E6"
+	STYLE="POSITION:ABSOLUTE; Visibility:hidden;  WIDTH:350; z-index:3; HEIGHT:280; TOP:300; LEFT:-20">
+    <PARAM NAME="Line0001" VALUE="SetLineColor(51,51,102)">
+    <PARAM NAME="Line0002" VALUE="SetLineStyle(1)">
+    <PARAM NAME="Line0003" VALUE="SetFillColor(51,51,102)">
+    <PARAM NAME="Line0004" VALUE="SetFillStyle(1)">
+    <PARAM NAME="Line0005" VALUE="Rect(-80, -80, 160, 160, -25)">
+</object>
+
+
+<div id=box2 style="position:absolute; left:150; visibility:hidden; top:100; width:20; height:10; z-index:5">
+<img src=16x16new.ico>
+</div>
+
+<div id=ad class=zone style="position:absolute; visibility:hidden; left:80; top:20; width:570; height:95; z-index:5;filter:light">
+<span id=topText>
+THE SHOPPING CHANNEL
+</span>
+</div>
+
+
+<div id=wtoday align=center style="position:absolute; visibility:hidden; left:310; top:110; width:170; height:62; z-index:10">
+<hr size=1 color=#333366 width=170>
+<font style="position:relative; top:-5" face="verdana" size=1><span id=thedate>Welcome to the Shopping Channel</span></font>
+<hr style="position:relative; top:-8" size=1 color=#333366 width=170>
+</div>
+
+
+<div id=channelbanner class=logo style="position:absolute; visibility:hidden; left:84; top:110; width:100; height:59; z-index:8">
+<img src=images/zdlogo.gif>
+</div>
+<div id=compChan class=channels style="position:absolute; visibility:hidden; left:150; top:120; width:150; height:59; z-index:2">
+The Computing Channel
+</div>
+
+<div id=tilebar2 style="position:absolute; left:0; top:512; width:54; height:134; z-index:4">
+<img src="images/tile4.gif" border=0 vspace=0 hspace=0>
+</div>
+
+<div id=channelrule style="position:absolute; left:-118; top:556; width:585; height:23; z-index:1">
+<img src=images/redrule.gif border=0>
+</div>
+
+<div id=headlines style="position:absolute; left:50; top:178; width:267; height:388; z-index:2">
+
+<table border=0 cellpadding=0 cellspacing=4 width=267>
+
+<tr>
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head1 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0 onmouseover="HeadMouseOver(head1b)"  onmouseout="HeadMouseOut(head1b)" onclick="call Headck(head1b,head1,article1,article1b)"></td>
+
+<td align=left valign=top width=250>
+<font id=head1b size=2 color="#333366" style="cursor:hand" face="verdana, Arial, Helvetica" onmouseover="HeadMouseOver(head1b)"  onmouseout="HeadMouseOut(head1b)"  onclick="call Headck(head1b,head1,article1,article1b)"><b><u>Welcome!</u></b></font></td>
+</tr>
+
+</table>
+
+<!--This is where the indenting starts!!!-->
+<DIV class=Indent>
+
+<table border=0 cellpadding=0 cellspacing=4 width=267>
+
+<tr><td colspan=2><div class=channels>AT A GLANCE</div></td>
+</tr>
+
+<tr>
+
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head2 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0  onmouseover="HeadMouseOver(head2b)"  onmouseout="HeadMouseOut(head2b)"  onclick="call Headck(head2b,head2,article2,article2b)"></td>
+
+<td align=left valign=top width=250>
+<font id=head2b  size=2 color="#333366" style="cursor:hand" face="verdana, arial, Helvetica"  onmouseover="HeadMouseOver(head2b)"   onclick="call Headck(head2b,head2,article2,article2b)" onmouseout="HeadMouseOut(head2b)" ><b><u>The top vendors</u></b></font></td>
+
+</tr>
+<tr>
+
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head3 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0 onmouseover="HeadMouseOver(head3b)"  onmouseout="HeadMouseOut(head3b)" onclick="call Headck(head3b,head3,article3,article3b)" ></td>
+
+<td align=left valign=top width=250>
+<font id=head3b  size=2 color="#333366" style="cursor:hand" face="verdana, Arial, Helvetica" onmouseover="HeadMouseOver(head3b)"  onmouseout="HeadMouseOut(head3b)"  onclick="call Headck(head3b,head3,article3,article3b)" ><b><u>NetBuyer</u></b></font></td>
+
+</tr>
+<tr>
+
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head4 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0 onmouseover="HeadMouseOver(head4b)"  onmouseout="HeadMouseOut(head4b)"  onclick="call Headck(head4b,head4,article4,article4b)" ></td>
+
+<td align=left valign=top width=250>
+<font id=head4b  size=2 color="#333366" style="cursor:hand" face="verdana, Arial, Helvetica" onmouseover="HeadMouseOver(head4b)"  onmouseout="HeadMouseOut(head4b)"  onclick="call Headck(head4b,head4,article4,article4b)" ><b><u>Compare, Compare, Compare </u></b></font></td>
+
+</tr>
+<tr>
+
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head5 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0 onmouseover="HeadMouseOver(head5b)"  onmouseout="HeadMouseOut(head5b)"  onclick="call Headck(head5b,head5,article5,article5b)" ></td>
+
+<td align=left valign=top width=250>
+<font id=head5b  size=2 color="#333366" style="cursor:hand" face="verdana, Arial, Helvetica" onmouseover="HeadMouseOver(head5b)"  onmouseout="HeadMouseOut(head5b)"  onclick="call Headck(head5b,head5,article5,article5b)" ><b><u>Be an Educated Buyer </u></b></font></td>
+
+</tr>
+<tr>
+
+<td align=center valign=top width=15>
+<img style="width:13; height:7" id=head6 src="images/bluearr.gif" vspace=4 width=13 height=7 border = 0 onmouseover="HeadMouseOver(head6b)"  onmouseout="HeadMouseOut(head6b)"  onclick="call Headck(head6b,head6,article6,article6b)" ></td>
+
+<td align=left valign=top width=250>
+<font id=head6b  size=2 color="#333366" style="cursor:hand" face="verdana, Arial, Helvetica" onmouseover="HeadMouseOver(head6b)"  onmouseout="HeadMouseOut(head6b)"  onclick="call Headck(head6b,head6,article6,article6b)" ><b><u>Weekly Specials </u></b></font></td>
+
+</tr>
+
+</table>
+</div>         <!-- This is where the indenting ends!!! -->
+
+</div>
+
+<div id=vrule align=center style="position:absolute; left:317; top:144; width:12; height:400; z-index:2">
+<img src="images/zdnet.gif" border=0>
+</div>
+
+<div id=aborder style="position:absolute; visibility:visible; left:339; top:163; width:274; height:350; background-color:#333366; z-index:4">
+</div>
+
+<div id=aiborder style="position:absolute; visibility:visible; left:341; top:166; width:270; height:344; background-color:#9999CC; z-index:5">
+</div>
+
+<div id=article1 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>Welcome!</b></font><br>
+</div>
+
+<div id=article1b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<P>No matter what computer product you're shopping for, you'll find it online at ZDNet's NetBuyer Channel. This is the largest site of computers, peripherals and software anywhere. You'll not only find everything you need with just one click, but you'll also be able to comparison shop. You'll find weekly specials too -- and even the latest product news.
+</div>
+
+
+
+
+<div id=article2 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>The top vendors</b></font><br>
+</div>
+
+<div id=article2b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<P>Shop the largest site of top vendors and their full line of products
+</div>
+
+
+<div id=article3 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>NetBuyer</b></font><br>
+</div>
+
+<div id=article3b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<P>Desktops to portables, multimedia to modems, power protection to printers, the Shopping Channel has the latest models, the best prices and the widest selection. 
+</div>
+
+<div id=article4 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>Compare, Compare</b></font><br>
+</div>
+
+<div id=article4b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<P>To find the best price and the right features, you would normally have to make a lot of calls, or visit a lot of stores. With the Shopping Channel, simply outline your needs -- memory, processor speed, etc. -- and it does the rest. A wide range of options, configurations and prices are presented so you can choose the system that's right for you.
+</div>
+
+
+
+
+
+<div id=article5 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>In-depth articles</b></font><br>
+</div>
+
+<div id=article5b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<p>More than just buying, the Shopping Channel makes sure you're a savvy consumer. In depth articles help you decide whether it's time to upgrade, whether you need the latest version of a product and what the trends are. The more knowledgeable you are, the easier it is to make a decision. And that's where the Shopping Channel excels.
+</div>
+
+
+<div id=article6 style="position:absolute; visibility:hidden; left:341; top:166; width:270; height:384; z-index:6; background-color:#000099;">
+<font style="position:relative; top:6; left:6" size=5 color="white" face="verdana, arial, helvetica"><b>Weekly Specials</b></font><br>
+</div>
+
+<div id=article6b style="padding:10px; position:absolute; visibility:hidden; left:345; top:206; width:267; height:344; z-index:6; background-color:#9999CC; overflow:scroll">
+<font color=#333366 size=2 face="verdana, arial, helvetica">
+<p>Everybody loves a bargain. And that's why the Shopping Channel has weekly deals on a wide variety of products. So not only is the selection unmatched, but the price is right too.
+</div>
+
+
+
+
+<div class=selector id=checkOut style="position:absolute; left:-750; top:350; width:200 height:62; z-index:5">
+<span id=selectChan class=select>Select a Channel:</span><BR><BR>
+<DIV style="position:relative; left:40">
+  <a href="index.htm"><img border=0 style="position:relative; top:-4" src="buttons/zdnet.gif">
+  <a href="news.htm"><img border=0 style="position:relative; left:-6; top:-3" src="buttons/news.gif"></a><BR>
+  <a href="prod.htm"><img border=0 style="position:relative; top:-7" src="buttons/prods.gif">
+  <a href="web.htm"><img border=0 style="position:relative; left:-6; top:-7" src="buttons/web.gif"><BR>
+  <a href="mac.htm"><img border=0 style="position:relative; top:-11" src="buttons/mac.gif">
+  <a href="game.htm"><img border=0 style="position:relative; left:-6; top:-11" src="buttons/games.gif"><BR>
+  <a href="down.htm"><img border=0 style="position:relative; top:-15" src="buttons/down.gif">
+  <a href="mags.htm"><img border=0 style="position:relative; left:-6; top:-15" src="buttons/mags.gif"><BR>
+  <a href="comm.htm"><img border=0 style="position:relative; top:-19" src="buttons/comm.gif">
+  <a href="help.htm"><img border=0 style="position:relative; left:-6; top:-19" src="buttons/help.gif"><BR>
+  <a href="learn.htm"><img border=0 style="position:relative; top:-23" src="buttons/learn.gif">
+  <img border=0 style="position:relative; left:-6; top:-23" src="buttons/shop2.gif">
+</DIV>
+</div>
+ 
+<div id=subscribe style="visibility:hidden; position:absolute; left:339; top:139; filter:revealTrans(duration=1, transition=20)">
+<a href="javascript:window.external.addChannel('http://www1.zdnet.com/datafeed/ie4/channels/zdnet/ZDNet.cdf')">
+<img border=0 src="buttons/IEAddCh.gif"></a>
+</div>
+
+</BODY>
+
+</HTML>
+
+

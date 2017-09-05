@@ -1,0 +1,197 @@
+
+;
+; INF file for STB Windows 95 Display Support.
+;
+; Copyright 1994-1997 STB Systems, Inc.
+;
+; Version 3.0.0, "Jun 30 1997"
+;
+
+[Version]
+Class=DISPLAY
+Signature="$Windows95$"
+Provider=%STB%
+
+;
+; Manufacturer section
+;
+
+[Manufacturer]
+"%STB%"=STBSystems
+
+;
+; STB Systems section
+;
+
+[STBSystems]
+
+; Velocity 128 3D (PCI, AGP)
+
+%PRODUCT% = Install, PCI\VEN_12D2&DEV_0018
+
+[Strings]
+
+STB = "STB Systems, Inc. (OEM)"
+
+PRODUCT="STB Velocity 128"
+
+;
+; Install section
+;
+
+[Install]
+CopyFiles=CopySys, CopyWin
+DelReg=DelReg
+AddReg=AddReg
+UpdateInis=ProdINI
+UpdateIniFields=UpdateINI
+
+;
+; Source disk names section
+;
+
+[SourceDisksNames]
+51="STB Windows Display Support",,
+
+;
+; Destination directories section
+;
+
+[DestinationDirs]
+DefaultDestDir=11
+CopySys=11
+CopyWin=10
+
+;
+; Source disk files section
+;
+
+[SourceDisksFiles]
+
+stbv128d.dll=51
+stbv128.drv=51
+stbv128.vxd=51
+v128api.dll=51
+v128sys.dll=51
+v128rm.vxd=51
+vgartd.vxd=51
+;tvo16.dll=51
+;tvo32.dll=51
+;tvoutPg.dll=51
+;msvcrt.dll=51
+;mfc42.dll=51
+
+;
+; Product registry editing section
+;
+
+[AddReg]
+HKLM,System\CurrentControlSet\Services\VxD\VGARTD,StaticVxD,2,"VGARTD.VXD"
+HKLM,System\CurrentControlSet\Services\VxD\NV3RM,Start,3,0
+HKLM,System\CurrentControlSet\Services\VxD\NV3RM,StaticVxD,2,"v128rm.vxd"
+HKLM,System\CurrentControlSet\Services\VxD\NV3RM,TimingParm0,1,0
+HKLM,System\CurrentControlSet\Services\VxD\NV3RM,TimingParm1,1,0
+HKLM,System\CurrentControlSet\Services\VxD\NV3RM,TimingChecksum,1,0
+;HKLM,SOFTWARE\STBSystems\STBV128,MaxRefreshRate,0,"85"
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,DDC,,1
+HKR,DEFAULT,defaultdrv,,stbv128.drv
+HKR,DEFAULT,drv,,stbv128.drv
+HKR,DEFAULT,minivdd,,stbv128.vxd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,vdd,,"*vdd"
+HKR,DEFAULT,RefreshRate,,-1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+;HKR,"MODES\4\800,600",drv,,supervga.drv
+;HKR,"MODES\4\800,600",vdd,,*vdd
+; Following 11 modes are standard STB refresh rates
+HKR,"MODES\8\640,480",,,"60,72,75,85,100,120,140,160"
+HKR,"MODES\8\800,600",,,"56,60,72,75,85,100,120,140"
+HKR,"MODES\8\1024,768",,,"43,60,70,75,85,100,120"
+HKR,"MODES\8\1152,864",,,"60,70,75,85"
+HKR,"MODES\8\1280,1024",,,"43,60,75,85"
+HKR,"MODES\8\1600,1200",,,"48,60,65,70,75,80,85"
+HKR,"MODES\16\640,480"
+;; Following 9 modes are truncated refresh rates (85 max)
+;HKR,"MODES\8\640,480",,,"60,75,85"
+;HKR,"MODES\8\800,600",,,"60,75,85"
+;HKR,"MODES\8\1024,768",,,"60,75,85"
+;HKR,"MODES\8\1152,864",,,"60,75,85"
+;HKR,"MODES\8\1280,1024",,,"60,75,85"
+;HKR,"MODES\8\1600,1200",,,"60,75"
+;HKR,"MODES\16\640,480"
+
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1152,864"
+;
+; TV Out support
+;
+;HKCR,"CLSID\{D3CDBB04-FDC2-11D0-8B81-006097C303CE}",,,"TV Out Property Sheet"
+;HKCR,"CLSID\{D3CDBB04-FDC2-11D0-8B81-006097C303CE}\InProcServer32",,,"tvoutPg.dll"
+;HKCR,"CLSID\{D3CDBB04-FDC2-11D0-8B81-006097C303CE}\InProcServer32","ThreadingModel",,"Apartment"
+;HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\Shellex\PropertySheetHandlers\TV Out",,,"{D3CDBB04-FDC2-11D0-8B81-006097C303CE}"
+
+;
+; Product CopyFiles sections
+;
+
+[CopySys]
+stbv128.drv,stbv128.drv
+stbv128d.dll,stbv128d.dll
+stbv128.vxd,stbv128.vxd
+v128api.dll=v128api.dll
+v128sys.dll=v128sys.dll
+v128rm.vxd=v128rm.vxd
+vgartd.vxd=vgartd.vxd
+;tvo16.dll=tvo16.dll
+;tvo32.dll=tvo32.dll
+;tvoutPg.dll=tvoutPg.dll
+;msvcrt.dll=msvcrt.dll
+;mfc42.dll=mfc42.dll
+
+[CopyWin]
+
+;
+; Common registry editing sections
+;
+
+[DelReg]
+
+; Delete old driver stuff.
+
+HKR,, DevLoader
+HKR,, Ver
+HKR,  DEFAULT
+HKR,  MODES
+HKR,  CURRENT
+HKLM, System\CurrentControlSet\Services\VxD\NV3RM
+
+; Delete old Vision 95 stuff.
+
+HKLM, SOFTWARE\STBSystems\STBVision
+HKLM, SOFTWARE\STBSystems
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\Run, STBVision
+
+; Delete old property page stuff
+
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\Shellex\PropertySheetHandlers\TV Out"
+
+
+;
+; Vision INI file editing sections
+;
+
+[UpdateINI]
+
+; Delete old Vision 95 stuff.
+
+win.ini, windows, load, *stbvisn.exe, , 1

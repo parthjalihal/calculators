@@ -1,0 +1,127 @@
+<html>
+<head><title>Welcome</title>
+
+<style type="text/css">
+  a:link       {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: navy;}
+  a:visited    {font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: hand;
+                color: navy;}
+  body         {font-family: Verdana, Arial, Helvetica, sans-serif;
+                cursor:default;
+                }
+</style>
+
+<script language="JavaScript" for=window event=onLoad>
+  i4.style.left = (580 - document.all.i4.offsetWidth);
+  loader.style.visibility="hidden";
+  pagecontents.style.visibility="";
+  window.focus();
+  i1.focus();
+</script>
+
+<script language="JavaScript" for=document event=onkeydown>
+  var whatkey = window.event.keyCode - 48;
+  if (whatkey == -39) { doTab(); }
+  else if (whatkey == 19) { if (window.event.altKey) { engine.Exit(); } }
+</script>
+
+<script language="JavaScript" for=document event=onclick>
+  if (window.event.shiftKey) { return false; }
+</script>
+
+<script language="JavaScript">
+var l2 = new Image();
+l2.src="../images/loading.gif";
+
+var engine = window.external;
+var tabNum = 0;
+
+function doTab() {
+  if (window.event.shiftKey) { tabNum--; }
+  else { tabNum++; }
+  if (tabNum > 4) { tabNum = 1; window.focus(); }
+  if (tabNum < 1) { tabNum = 4; window.focus(); }
+  eval("a" + tabNum + ".focus();");
+  }
+
+function over(num) {
+  if (num == 4) {
+    i3.src='images/back_ovr.gif';
+    s3.style.textDecoration='underline';
+  } else {
+    eval("a" + num + ".style.textDecoration='underline';");
+  }
+}
+
+function out(num) {
+  if (num == 4) {
+    i3.src='images/back_def.gif';
+    s3.style.textDecoration='none';
+  } else {
+    eval("a" + num + ".style.textDecoration='none';");
+  }
+}
+
+</script>
+</head>
+
+<body background="../overview/content/images/bg_tour.jpg"
+  bgcolor="#FFFFFF" text="#000000" topmargin=0 leftmargin=0
+  style="background-repeat: no-repeat;">
+
+<OBJECT ID="Data1" WIDTH=0 HEIGHT=0
+  CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+  <PARAM NAME="TextQualifier" VALUE="%">
+  <PARAM NAME="FieldDelim" VALUE="|">
+  <PARAM NAME="DataURL" VALUE="strthere.txt">
+</OBJECT>
+
+<script language="JavaScript">engine.SetTitleText(Data1.recordset.Fields('Column6'));</script>
+
+<div id="loader" style="position:absolute; top:200; left:0; width:604;">
+<center><img src="../images/loading.gif"></center>
+</div>
+
+<div id=pagecontents style="position:absolute; top:0; left:0; width:100%; height:100%; visibility:hidden;">
+
+  <!-- LOGO --><img src="../overview/content/images/logo.gif" style="position:absolute; top:10; left:15;">
+
+  <div style="position:absolute; top:46; left:17; width:565;">
+
+    <!-- TITLE -->
+    <div align=right>
+      <span style="width:360; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-decoration:none; color:#000000; font-size:18pt; line-height:19pt;" DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column1"></span><br>
+      <img src="../overview/content/images/blueline.gif"><br>
+      <font size=2><i><span id=title DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column2"></span></i></font>
+    </div>
+    <span style="line-height:6pt;">&nbsp;<br></span>
+
+    <!-- STARTS HERE BOX --><img id=i1 src="images/sthbox.jpg" align=right hspace=0 vspace=8>
+
+    <!-- LEFT COLUMN OF TEXT -->
+    <div style="width:390; line-height:96%;">
+      <font size=2><span DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column3"></span></font>
+      <br><span style="line-height:6pt;">&nbsp;<br></span>
+      <!-- BACK BUTTON -->
+      <font size=2>
+      <a id=a4 href="default.htm" onmouseover="over(4)" onmouseout="out(4)" onfocus="over(4)" onblur="out(4)" style="color:black; width:220;">
+      <img id=i3 src="images/back_def.gif" hspace=0 border=0 align=absmiddle>
+      <span id=s3 DATASRC=#Data1 DATAFORMATAS="html" DATAFLD="Column4"></span>
+      </a></font>
+    </div>
+
+  </div>
+
+  <!-- CLOSE BUTTON -->
+  <a id=a5 href="javascript:engine.Exit();" onfocus="i4.src='../overview/content/images/clbtn2.gif'" onblur="i4.src='../overview/content/images/clbtn1.gif'"><img id=i4 style="position:absolute; top:420; left:470;" src="../overview/content/images/clbtn1.gif" border=0 onmouseover="this.src='../overview/content/images/clbtn2.gif'" onmouseout="this.src='../overview/content/images/clbtn1.gif'"></a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="Jscript">
+<!--
+  var engine = window.external;
+// -->
+</SCRIPT>
+
+<script language="VBScript" src="data/sm3.vbs"></script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+loadnum = -1
+
+SUB Window_Onload
+  demotext.innerText = dt
+  demotext.style.top = document.body.offsetHeight - document.all.demotext.offsetHeight - 10
+  playstep = engine.GetShortName()
+  Select Case playstep
+    Case 3
+      loadnum = 9
+      img1.src="images/002stdep.gif"
+      img2.src="images/003stmen.gif"
+      img3.src="images/004prhi.gif"
+      img4.src="images/005prmen.gif"
+      img5.src="images/006achi.gif"
+      img6.src="images/007acmen.gif"
+      img7.src="images/008wphi.gif"
+      img8.src="images/009wptsk.gif"
+      last.src="images/010wpwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(0),xy(1), xy(2),xy(3), xy(2),xy(3), xy(4),xy(5), xy(4),xy(5), xy(6),xy(7), xy(6),xy(7), xy(8),xy(9), xy(10),xy(11), xy(10),xy(11) )
+      t = Array(2.5, 0.6, 1.3, 0.6, 0.8, 0.5, 0.7, 1.3, 2.0)
+      P1.KeyFrame 10, k, t
+      P1.AddTimeMarker 2.7, 10 ' START BUTTON DEPRESSES, START MENU APPEARS
+      P1.AddTimeMarker 4.3, 20 ' PROGRAMS HIGHLIGHTS
+      P1.AddTimeMarker 4.6, 30 ' PROGRAMS MENU POPS UP
+      P1.AddTimeMarker 5.7, 40 ' ACCESSORIES HIGHLIGHTS
+      P1.AddTimeMarker 6.0, 50 ' ACCESSORIES MENU APPEARS
+      P1.AddTimeMarker 8.1, 60 ' WORDPAD HIGHLIGHTS
+      P1.AddTimeMarker 8.5, 70 ' CLICK, HIGHLIGHTS & MENUS DISAPPEAR
+      P1.AddTimeMarker 8.9, 80 ' WORDPAD OPENS, SOUND PLAYS
+
+    Case 4
+      loadnum = 6
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/301ty101.gif"
+      img4.src="images/302ty102.gif"
+      img5.src="images/303ty103.gif"
+      last.src="images/304ty104.gif"
+      P1.Target = "arrow"
+      k = Array( xy(10),xy(11), xy(12),xy(13), xy(12),xy(13) )
+      t = Array(1.5, 2.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.7, 90 ' CLICK SOUND PLAYS
+      P1.AddTimeMarker 2.1, 100 ' 'BOOK REPORT' TYPING, TYPING SOUND PLAYS
+      P1.AddTimeMarker 2.5, 110 ' 'BOOK REPORT' TYPING
+      P1.AddTimeMarker 2.9, 120 ' 'BOOK REPORT' TYPING
+      P1.AddTimeMarker 3.3, 130 ' 'BOOK REPORT' TYPING
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+
+    Case 5
+      loadnum = 8
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/305flhi.gif"
+      img4.src="images/306flmen.gif"
+      img5.src="images/307sahi.gif"
+      img6.src="images/308sawin.gif"
+      img7.src="images/304ty104.gif"
+      last.src="images/309wpgry.gif"
+      P1.Target = "arrow"
+      k = Array( xy(12),xy(13), xy(14),xy(15), xy(14),xy(15), xy(16),xy(17), xy(16),xy(17) )
+      t = Array(1.2, 0.8, 1.2, 1.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.2, 140 ' FILE MENU HIGHLIGHTS
+      P1.AddTimeMarker 1.6, 150 ' CLICK SOUND, FILE MENU APPEARS
+      P1.AddTimeMarker 3.2, 160 ' 'SAVE AS' HIGHLIGHTS
+      P1.AddTimeMarker 3.6, 170 ' CLICK SOUND, 'SAVE AS' DIALOG APPEARS
+      img4.style.zindex=2
+      img5.style.zindex=2
+      img6.style.zindex=2
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img7.style.visibility="visible"
+
+    Case 6
+      loadnum = 9
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/308sawin.gif"
+      img4.src="images/310sagry.gif"
+      img5.src="images/311ty201.gif"
+      img6.src="images/312ty202.gif"
+      img7.src="images/313ty203.gif"
+      img8.src="images/314ty204.gif"
+      last.src="images/309wpgry.gif"
+      P1.Target = "arrow"
+      k = Array( xy(16),xy(17), xy(18),xy(19), xy(18),xy(19) )
+      t = Array(1.2, 2.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.4, 180 ' CLICK SOUND, ACTIVE DIALOG APPEARS
+      P1.AddTimeMarker 1.9, 190 ' TYPING SOUND, THOMAS HARDY TYPING
+      P1.AddTimeMarker 2.2, 200 ' THOMAS HARDY TYPING
+      P1.AddTimeMarker 2.5, 210 ' THOMAS HARDY TYPING
+      P1.AddTimeMarker 2.8, 220 ' THOMAS HARDY TYPING
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+      last.style.visibility="visible"
+
+    Case 7
+      loadnum = 9
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/308sawin.gif"
+      img4.src="images/314ty204.gif"
+      img5.src="images/315sadep.gif"
+      img6.src="images/316wptit.gif"
+      img7.src="images/309wpgry.gif"
+      img8.src="images/304ty104.gif"
+      last.src="images/317wpts1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(18),xy(19), xy(20),xy(21), xy(20),xy(21) )
+      t = Array(1.2, 2.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.5, 230 ' CLICK SOUND, DEPRESSED 'SAVE' BUTTON APPEARS
+      P1.AddTimeMarker 1.9, 240 ' SAVE BUTTON DISAPPEARS, SAVE AS DIALOG APPEARS
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+      img7.style.visibility="visible"
+
+    Case 8
+      loadnum = 6
+      img1.src="images/009wptsk.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/011wpclo.gif"
+      img4.src="images/316wptit.gif"
+      img5.src="images/304ty104.gif"
+      last.src="images/317wpts1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(20),xy(21), xy(22),xy(23), xy(22),xy(23) )
+      t = Array(1.8, 1.5)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.0, 250 ' CLICK SOUND, DEPRESSED CLOSE BUTTON APPEARS
+      P1.AddTimeMarker 2.6, 260 ' DEPRESSED CLOSE BUTTON DISAPPEARS
+      P1.AddTimeMarker 3.0, 270 ' WORDPAD DISAPPEARS
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img4.style.visibility="visible"
+      img5.style.visibility="visible"
+      last.style.visibility="visible"
+
+    Case 9
+      loadnum = 7
+      img1.src="images/002stdep.gif"
+      img2.src="images/003stmen.gif"
+      img3.src="images/323fihi.gif"
+      img4.src="images/324fimen.gif"
+      img5.src="images/325ffhi.gif"
+      img6.src="images/326fiwin.gif"
+      last.src="images/319fits1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(22),xy(23), xy(24),xy(25), xy(24),xy(25), xy(26),xy(27), xy(26),xy(27), xy(28),xy(29), xy(28),xy(29) )
+      t = Array(2.4, 0.7, 1.2, 0.6, 1.0, 1.0)
+      P1.KeyFrame 7, k, t
+      P1.AddTimeMarker 2.6, 280 ' START BUTTON DEPRESSES
+      P1.AddTimeMarker 4.2, 290 ' 'FIND' HIGHLIGHTS
+      P1.AddTimeMarker 4.5, 300 ' FIND MENU APPEARS
+      P1.AddTimeMarker 5.8, 310 ' 'FILES OR FOLDERS' HIGHLIGHTS
+      P1.AddTimeMarker 6.2, 320 ' CLICK SOUND, MENUS DISAPPEAR, FIND FILE DIALOG APPEARS
+
+    Case 10
+      loadnum = 9
+      img1.src="images/326fiwin.gif"
+      img2.src="images/327fitab.gif"
+      img3.src="images/328figry.gif"
+      img4.src="images/329ty301.gif"
+      img5.src="images/330ty302.gif"
+      img6.src="images/331ty303.gif"
+      img7.src="images/332ty304.gif"
+      img8.src="images/333ty305.gif"
+      last.src="images/319fits1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(28),xy(29), xy(30),xy(31), xy(30),xy(31) )
+      t = Array(1.7, 2.3)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.9, 330 ' 'NAME & LOCATION' TAB HIGHLIGHTS, FINDFILE VISIBLE
+      P1.AddTimeMarker 2.4, 340 ' 'THOMAS HARDY' TYPING
+      P1.AddTimeMarker 2.7, 350 ' 'THOMAS HARDY' TYPING
+      P1.AddTimeMarker 3.0, 360 ' 'THOMAS HARDY' TYPING
+      P1.AddTimeMarker 3.3, 370 ' 'THOMAS HARDY' TYPING
+      P1.AddTimeMarker 3.7, 380 ' 'THOMAS HARDY' TYPING
+      img1.style.visibility="visible"
+      img3.style.visibility="visible"
+      last.style.visibility="visible"
+
+    Case 11
+      loadnum = 6
+      img1.src="images/326fiwin.gif"
+      img2.src="images/334filok.gif"
+      img3.src="images/335filoc.gif"
+      img4.src="images/336filo2.gif"
+      img5.src="images/333ty305.gif"
+      last.src="images/319fits1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(30),xy(31), xy(32),xy(33), xy(32),xy(33), xy(34),xy(35), xy(34),xy(35) )
+      t = Array(1.6, 0.8, 1.0, 1.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.9, 390 ' CLICK SOUND, 'LOOK IN' DROP DOWN APPEARS
+      P1.AddTimeMarker 3.6, 400 ' C: DRIVE HIGHLIGHTS
+      P1.AddTimeMarker 4.0, 410 ' DROPDOWN DISAPPEARS, C: IN 'LOOK IN' BOX
+      img1.style.visibility="visible"
+      img5.style.visibility="visible"
+      last.style.visibility="visible"
+
+    Case 12
+      loadnum = 12
+      img1.src="images/326fiwin.gif"
+      img2.src="images/336filo2.gif"
+      img3.src="images/337fndep.gif"
+      img4.src="images/338fi001.gif"
+      img5.src="images/339fi002.gif"
+      img6.src="images/340fi003.gif"
+      img7.src="images/341fi004.gif"
+      img8.src="images/342fi005.gif"
+      img9.src="images/343fi006.gif"
+      img10.src="images/333ty305.gif"
+      img11.src="images/319fits1.gif"
+      last.src="images/320fits2.gif"
+      P1.Target = "arrow"
+      k = Array( xy(34),xy(35), xy(36),xy(37), xy(36),xy(37) )
+      t = Array(1.8, 4.5)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.2, 420 ' CLICK SOUND, 'FIND NOW' DEPRESSES
+      P1.AddTimeMarker 2.8, 430 ' 'FIND NOW' UN-DEPRESSES
+      P1.AddTimeMarker 3.2, 440 ' SEARCHING ANIMATION
+      P1.AddTimeMarker 3.6, 450 ' SEARCHING ANIMATION
+      P1.AddTimeMarker 4.0, 460 ' SEARCHING ANIMATION
+      P1.AddTimeMarker 4.4, 470 ' SEARCHING ANIMATION
+      P1.AddTimeMarker 4.8, 480 ' SEARCHING ANIMATION
+      P1.AddTimeMarker 5.2, 490 ' SEARCHING ANIMATION
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img10.style.visibility="visible"
+      img11.style.visibility="visible"
+
+    Case 13
+      loadnum = 9
+      img1.src="images/343fi006.gif"
+      img2.src="images/010wpwin.gif"
+      img3.src="images/316wptit.gif"
+      img4.src="images/328figry.gif"
+      img5.src="images/304ty104.gif"
+      img6.src="images/320fits2.gif"
+      img7.src="images/344thsel.gif"
+      img8.src="images/318wpts2.gif"
+      last.src="images/321fits3.gif"
+      P1.Target = "arrow"
+      k = Array( xy(36),xy(37), xy(38),xy(39), xy(38),xy(39) )
+      t = Array(1.8, 2.8)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.1, 500 ' 'THOMAS HARDY' FILENAME HIGHLIGHTS
+      P1.AddTimeMarker 2.2, 510 ' CLICK SOUND, DOCUMENT OPENS
+      img1.style.visibility="visible"
+      img6.style.visibility="visible"
+
+    Case 14
+      loadnum = 10
+      img1.src="images/343fi006.gif"
+      img2.src="images/328figry.gif"
+      img3.src="images/010wpwin.gif"
+      img4.src="images/316wptit.gif"
+      img5.src="images/011wpclo.gif"
+      img6.src="images/346ficlo.gif"
+      img7.src="images/304ty104.gif"
+      img8.src="images/318wpts2.gif"
+      img9.src="images/321fits3.gif"
+      last.src="images/320fits2.gif"
+      P1.Target = "arrow"
+      k = Array( xy(38),xy(39), xy(40),xy(41), xy(40),xy(41), xy(42),xy(43), xy(42),xy(43) )
+      t = Array(2.2, 0.8, 1.4, 1.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 2.5, 520 ' WORDPAD CLOSE BUTTON DEPRESSES, CLICK SOUND
+      P1.AddTimeMarker 3.0, 530 ' WORDPAD DISAPPEARS
+      P1.AddTimeMarker 4.6, 540 ' FIND CLOSE BUTTON DEPRESSES, CLICK SOUND
+      P1.AddTimeMarker 5.1, 550 ' FIND DIALOG DISAPPEARS
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+      img7.style.visibility="visible"
+      img8.style.visibility="visible"
+      img9.style.visibility="visible"
+  End Select
+END SUB
+
+Sub P1_onplaymarker(m)
+  Select Case m
+' ------------------------ STEP 3
+    Case 10       ' ------------ MOUSE CLICKS START, SOUND PLAYS
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+    Case 20     ' ------------ PROGRAMS HIGHLIGHTS IN RED
+      img3.style.visibility="visible"
+    Case 30    ' ---------------- PROGRAMS MENU POPS UP
+      img4.style.visibility="visible"
+    Case 40 ' --------- ACCESSORIES HIGHLIGHTS IN RED
+      img5.style.visibility="visible"
+    Case 50 ' --------------- ACCESSORIES MENU APPEARS
+      img6.style.visibility="visible"
+    Case 60 ' ----------- WORDPAD HIGHLIGHTS
+      img7.style.visibility="visible"
+    Case 70 ' ----------- CLICK, HIGHLIGHTS & MENUS DISAPPEAR
+      img1.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img6.style.visibility="hidden"
+      img7.style.visibility="hidden"
+    Case 80 ' -------------- WORDPAD OPENS, SOUND PLAYS
+      img8.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 4
+   Case 100 ' ----------- 'BOOK REPORT' TYPING, TYPING SOUND PLAYS
+      img3.style.visibility="visible"
+    Case 110 ' ----------- 'BOOK REPORT' TYPING
+      img4.style.visibility="visible"
+      img3.style.visibility="hidden"
+    Case 120 ' ----------- 'BOOK REPORT' TYPING
+      img5.style.visibility="visible"
+      img4.style.visibility="hidden"
+    Case 130 ' ----------- 'BOOK REPORT' TYPING
+      last.style.visibility="visible"
+      img5.style.visibility="hidden"
+
+' ------------------------ STEP 5
+    Case 140 ' ----------- FILE MENU HIGHLIGHTS
+      img3.style.visibility="visible"
+    Case 150 ' -------------- CLICK SOUND, FILE MENU APPEARS
+      img3.style.visibility="hidden"
+      img4.style.visibility="visible"
+    Case 160 ' -------------- 'SAVE AS' HIGHLIGHTS
+      img5.style.visibility="visible"
+    Case 170 ' -------------- CLICK SOUND, 'SAVE AS' DIALOG APPEARS
+      img5.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img6.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 6
+    Case 180 ' ------------ CLICK SOUND, ACTIVE DIALOG APPEARS
+      img3.style.visibility="visible"
+      img4.style.visibility="hidden"
+    Case 190 ' ------------ 'THOMAS HARDY' TYPING
+      img5.style.visibility="visible"
+    Case 200 ' ------------ 'THOMAS HARDY' TYPING
+      img6.style.visibility="visible"
+      img5.style.visibility="hidden"
+    Case 210 ' ------------ 'THOMAS HARDY' TYPING
+      img7.style.visibility="visible"
+      img6.style.visibility="hidden"
+    Case 220 ' ------------ 'THOMAS HARDY' TYPING
+      img8.style.visibility="visible"
+      img7.style.visibility="hidden"
+
+' ------------------------ STEP 7
+    Case 230 ' ----------- CLICK SOUND, DEPRESSED 'SAVE' BUTTON APPEARS
+      img5.style.visibility="visible"
+    Case 240 ' ----------- DEPRESSED 'SAVE' BUTTON DISAPPEARS, SAVE AS DIALOG DISAPPEARS
+      img5.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img7.style.visibility="hidden"
+      img6.style.visibility="visible"
+      img8.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 8
+    Case 250 ' ----------- DEPRESSED CLOSE BUTTON APPEARS
+      img3.style.visibility="visible"
+    Case 260 ' ----------- DEPRESSED CLOSE BUTTON DISAPPEARS
+      img3.style.visibility="hidden"
+    Case 270 ' ----------- WORDPAD DISAPPEARS
+      last.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img1.style.visibility="hidden"
+
+' ------------------------ STEP 9
+    Case 280 ' ---------- START BUTTON DEPRESSES
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+    Case 290 ' ---------- 'FIND' HIGHLIGHTS
+      img3.style.visibility="visible"
+    Case 300 ' ---------- FIND MENU APPEARS
+      img4.style.visibility="visible"
+    Case 310 ' ---------- 'FILES OR FOLDERS' HIGHLIGHTS
+      img5.style.visibility="visible"
+    Case 320 ' ---------- CLICK SOUND, MENUS DISAPPEAR, FIND FILE DIALOG APPEARS
+      img1.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img6.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 10
+    Case 330 ' ---------- 'NAME & LOCATION' TAB HIGHLIGHTS, FINDFILE VISIBLE
+      img2.style.visibility="visible"
+      img3.style.visibility="hidden"
+    Case 340 ' ---------- 'THOMAS HARDY' TYPING
+      img4.style.visibility="visible"
+    Case 350 ' ------------ 'THOMAS HARDY' TYPING
+      img5.style.visibility="visible"
+      img4.style.visibility="hidden"
+    Case 360 ' ------------ 'THOMAS HARDY' TYPING
+      img6.style.visibility="visible"
+      img5.style.visibility="hidden"
+    Case 370 ' ------------ 'THOMAS HARDY' TYPING
+      img7.style.visibility="visible"
+      img6.style.visibility="hidden"
+    Case 380 ' ------------ 'THOMAS HARDY' TYPING
+      img8.style.visibility="visible"
+      img7.style.visibility="hidden"
+
+' ------------------------ STEP 11
+    Case 390 ' --------- CLICK SOUND, DROP DOWN APPEARS
+      img2.style.visibility="visible"
+    Case 400 ' ---------- C: DRIVE HIGHLIGHTS
+      img3.style.visibility="visible"
+    Case 410 ' ---------- DROPDOWN DISAPPEARS, C: IN 'LOOK IN' BOX
+      img3.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img4.style.visibility="visible"
+
+' ------------------------ STEP 12
+    Case 420 ' ---------- CLICK SOUND, 'FIND NOW' DEPRESSES
+      img3.style.visibility="visible"
+      last.style.visibility="visible"
+      img11.style.visibility="hidden"
+    Case 430 ' ---------- 'FIND NOW' UN-DEPRESSES
+      img3.style.visibility="hidden"
+    Case 440 ' -------- SEARCHING ANIMATION
+      img10.style.visibility="hidden"
+      img4.style.visibility="visible"
+    Case 450 ' -------- SEARCHING ANIMATION
+      img5.style.visibility="visible"
+    Case 460 ' -------- SEARCHING ANIMATION
+      img6.style.visibility="visible"
+      img5.style.visibility="hidden"
+    Case 470 ' -------- SEARCHING ANIMATION
+      img7.style.visibility="visible"
+      img6.style.visibility="hidden"
+    Case 480 ' -------- SEARCHING ANIMATION
+      img8.style.visibility="visible"
+      img7.style.visibility="hidden"
+    Case 490 ' -------- SEARCHING ANIMATION
+      img9.style.visibility="visible"
+      img8.style.visibility="hidden"
+
+' ------------------------ STEP 13
+    Case 500 ' ---- 'THOMAS HARDY' FILENAME HIGHLIGHTS
+      img7.style.visibility="visible"
+    Case 510 ' ---- CLICK SOUND, DOCUMENT OPENS
+      img7.style.visibility="hidden"
+      img2.style.visibility="visible"
+      img2.style.zindex=2
+      img4.style.visibility="visible"
+      img3.style.visibility="visible"
+      img3.style.zindex=2
+      img5.style.zindex=2
+      img5.style.visibility="visible"
+      img8.style.visibility="visible"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 14
+    Case 520 ' -------- WORDPAD CLOSE BUTTON DEPRESSES, CLICK SOUND
+      img5.style.zindex=2
+      img5.style.visibility="visible"
+    Case 530 ' ------------- WORDPAD DISAPPEARS
+      img2.style.visibility="hidden"
+      img5.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img4.style.visibility="hidden"
+      img7.style.visibility="hidden"
+      img8.style.visibility="hidden"
+      img9.style.visibility="hidden"
+      last.style.visibility="visible"
+    Case 540 ' ------------- FIND CLOSE BUTTON DEPRESSES, CLICK SOUND
+      img6.style.visibility="visible"
+    Case 550 ' ------------- FIND DIALOG DISAPPEARS
+      img6.style.visibility="hidden"
+      img1.style.visibility="hidden"
+      last.style.visibility="hidden"
+
+  End Select
+End Sub
+
+' -->
+</SCRIPT>
+
+<script language="javaScript" for="P1" event="onStop">
+<!--
+  timeout1 = window.setTimeout("showmedone();",500);
+//-->
+</script>
+
+<script language="javaScript" src="data/sm.js"></script>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" style="border:ridge;border-width:5;">
+
+<!-- ----------------------------- PLACE ALL IMAGES ON PAGE ----------------------- -->
+<div id="l" STYLE="visibility:hidden;">
+  <IMG ID=desktop SRC="images/001deskt.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:visible;">
+
+  <IMG ID=img1 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img2 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img3 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img4 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img5 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img6 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img7 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img8 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img9 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img10 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img11 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=last SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+
+  <IMG ID=arrow SRC="images/012arrow.gif" STYLE="position:absolute;LEFT: 220; TOP: 250;visibility:hidden;z-index:6;">
+  <div id="demotext" align="center"
+    style="color:#000000; position:relative; left:0; width:540; font-family:verdana, arial, helvetica, sans-serif; font-size:10pt; font-weight:bold; line-height:98%; visibility:visible; FILTER:revealTrans(Duration=1.2, Transition=6); z-index:10;">
+  </div>
+</div>
+
+<div id="loading" style="visibility:visible; position:absolute; top:0; left:0; width:100%; height:100%; background-color:ffffff; z-index:10" align=center>
+<img src="../../images/loading.gif" style="position:relative; top:200; visibility:visible;">
+</div>
+
+<!-- ----------------------------- OBJECTS ----------------------- -->
+<OBJECT ID="P1" width=0 height=0
+    CLASSID="clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+</BODY>
+</HTML>

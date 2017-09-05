@@ -1,0 +1,276 @@
+<script language = "JavaScript">
+	var nFadeIn;
+	var nZoom = 0;
+	var theNext;
+	var nWait = 0;
+</script>
+<HTML>
+<HEAD><TITLE>AudioNet Channel Preview</TITLE></HEAD>
+<style>
+	body {
+		background: black;
+		color: black;
+		font-family: verdana, arial, helvetica;
+		font-size: 20pt;
+		font-weight: 600;
+	}
+	li {
+		text-indent: 36pt;
+		font-size: 14pt;
+		font-weight: normal;
+	}
+</style>
+<BODY id=thebody>
+
+
+<OBJECT ID="NSListen" codebase="nsie4.cab"
+	CLASSID="CLSID:2179C5D3-EBFF-11CF-B6FD-00AA00B4E220">
+	<PARAM NAME="autostart" VALUE="true">
+	<PARAM NAME="ControlType" VALUE="0">
+</OBJECT>
+<script language="vbscript">
+
+Sub NSListen_error
+ 	logo.style.visibility = "hidden"
+	call window.setTimeout("FadeIn('hear', 250)", 100)
+End Sub
+
+</script>
+
+<div id=sports style="color: black; position: absolute; top: 50; left:20;">
+	Sports
+</div>
+<div id=radio style="color: black; position: absolute; top: 300; left: 150;">
+	Live Radio
+</div>
+<div id=celeb style="color: black; position: absolute; top: 380; left:500;">
+	Celebrity Interviews
+</div>
+<div id=play style="color: black; position: absolute; top: 100; left:350;">
+	Play by Play
+</div>
+<div id=tv style="color: black; position: absolute; top: 200; left: 80;">
+	Live TV
+</div>
+<div id=biz style="color: black; position: absolute; top: 380; left: 240;">
+	Business Events
+</div>
+<div id=politics style="color: black; position: absolute; top: 160; left:530;">
+	Politics
+</div>
+<div id=cds style="color: black; position: absolute; top: 130; left:135;">
+	Full Length CDs
+</div>
+<div id=books style="color: black; position: absolute; top: 280; left: 400;">
+	AudioBooks
+</div>
+<div id=music style="color: black; position: absolute; top: 40; left: 420;">
+	Continuous Music
+</div>
+<div id=hear style="color: black; visibility: visible; position: absolute; top: 180; left:300;">
+	<span id=hearspan style="font-size: 48pt;">Hear it</span>
+</div>
+<div id=logo style="color: black; visibility: visible; position: absolute; top: 150; left:0; width=100%">
+	<center>
+	<img src="300blogo.gif" border=0></img>
+	<br>
+	<br>
+	<br>
+	<a href="javascript:window.external.addChannel('http://ie40.audionet.com/audionet.cdf')"><img src="addchan.gif" border=0></img></a><br><br>
+	<a href="http://ie40.audionet.com/audionet_desk.cdf"><img src="adddesk.gif" border=0></img></a>
+	</center>
+</div>
+</BODY>
+</HTML>
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+Sub NSListen_ScriptCommand(sType, sParam)
+if sType = "CAPTION" then
+	logo.style.visibility = "hidden"
+	call window.setTimeout("FadeIn('hear', 250)", 100)
+end if
+End Sub
+
+Sub window_onLoad
+	NSListen.sendErrorEvents = "true"
+	NSListen.open 	"http://ie40.audionet.com/intro/samp288.asf"
+End Sub
+
+ -->
+</SCRIPT>
+
+<script language="JavaScript" for="window" event="onload">
+	thebody.scroll = "no";
+	nFadeIn = 0;
+	nWait = 1;
+	theNext = "showHearIt();";
+//	window.setTimeout("FadeIn('hear', 250)", 100)
+</script>
+<script language="JavaScript">
+function FadeIn(sEl, nT)
+{
+//	sEl -- element to fade in
+//	nT  -- time to wait after fadein (in half seconds)
+	if ( nFadeIn < 255) {
+		nFadeIn += 20;
+		SetTheColor(sEl, nFadeIn);
+		window.setTimeout("FadeIn('" + sEl + "', " + nT + ");", 50);
+	}
+	else
+	{
+		if(nT > 0)
+		{
+			window.setTimeout("FadeIn('" + sEl + "', " + (nT-500) + ");", nT);
+		}
+		else
+			eval(theNext);
+	}
+}
+
+function showHearIt()
+{
+	window.setTimeout("hideHearIt();", 800);	//big blurbs appear for one(1) sec.
+}
+
+function hideHearIt()
+{
+	hear.style.visibility = "hidden";	
+
+	nFadeIn = 0;
+	theNext = "goRadio();";
+	FadeIn("sports", 500);
+}
+
+function goRadio()
+{
+	sports.style.color = "#303030";
+	nFadeIn = 0;
+	nWait = 2;
+	theNext = "goCeleb();"
+	FadeIn("radio", 500);
+}
+function goCeleb()
+{
+	radio.style.color = "#303030";
+	nFadeIn = 0;
+	nWait = 2;
+	theNext = "goPlay();"
+	FadeIn("celeb", 500);
+}
+
+function goPlay()
+{
+	celeb.style.color = "#303030";
+	nFadeIn = 0;
+	theNext = "showSeeIt();"
+	FadeIn("play", 500);
+}
+
+function showSeeIt()
+{
+	sports.style.visibility = "hidden";
+	play.style.visibility = "hidden";
+	radio.style.visibility = "hidden";
+	celeb.style.visibility = "hidden";
+
+	hear.style.visibility = "visible";
+	hearspan.innerHTML = "See It";
+
+	nFadeIn = 0;
+	theNext = "hideSeeIt();"
+	FadeIn("hear", 1000);
+}
+
+function hideSeeIt()
+{
+	hear.style.visibility = "hidden";	
+
+	nFadeIn = 0;
+	theNext = "goBiz();";
+	FadeIn("tv", 750);
+}
+
+function goBiz()
+{
+	tv.style.color = "#303030";
+	nFadeIn = 0;
+	nWait = 20;
+	theNext = "goPolit();"
+	FadeIn("biz", 750);
+}
+function goPolit()
+{
+	biz.style.color = "#303030";
+	nFadeIn = 0;
+	nWait = 20;
+	theNext = "showNoMiss();"
+	FadeIn("politics", 750);
+}
+
+function showNoMiss()
+{
+	tv.style.visibility = "hidden";
+	biz.style.visibility = "hidden";
+	politics.style.visibility = "hidden";
+
+	hear.style.visibility = "visible";
+	hear.style.top = 100;
+	hear.style.left = 10;
+	hearspan.innerHTML = "<center>Don't Miss<br>It</center>";
+
+	nFadeIn = 0;
+	theNext = "hideNoMiss();"
+	FadeIn("hear", 500);
+}
+
+function hideNoMiss()
+{
+	hear.style.visibility = "hidden";	
+
+	nFadeIn = 0;
+	theNext = "goBooks();";
+	FadeIn("cds", 500);
+}
+
+function goBooks()
+{
+	cds.style.color = "#303030";
+	nFadeIn = 0;
+	theNext = "goMusic();"
+	FadeIn("books", 500);
+}
+function goMusic()
+{
+	books.style.color = "#303030";
+	nFadeIn = 0;
+	theNext = "showLogo();"
+	FadeIn("music", 500);
+}
+function showLogo()
+{
+	cds.style.visibility = "hidden";
+	books.style.visibility = "hidden";
+	music.style.visibility = "hidden";
+	
+	window.setTimeout("VisLogo();", 1000);	// 1/2 sec betw. books and logo
+//	logo.style.visibility = "visible";
+}
+function VisLogo()
+{
+	logo.style.visibility = "visible";
+}
+</script>
+
+<script language="VBScript">
+sub SetTheColor(sEl, nColor)
+	if nColor > 255 then
+		nColor = 255
+	elseif nColor < 0 then
+		 nColor = 0
+	end if
+	sHex = "" + hex(nColor)
+	if len(sHex) < 2 then sHex = "0" + sHex
+	document.all(sEl).style.color = "#" + sHex + sHex + sHex
+end sub
+</script>

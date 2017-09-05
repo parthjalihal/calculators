@@ -1,0 +1,158 @@
+; MSBATCH.INF
+;
+; Copyright (c) 1995-1997 Microsoft Corporation.
+; All rights reserved.
+;
+; This INF is used for System Recovery Only
+; When Windows was previously installed to 
+; C:\Windows and the user has made a Full
+; System Backup
+
+[BatchSetup]
+Version=3.0 (32-bit)
+SaveDate=12/03/97
+
+[Version]
+Signature = "$CHICAGO$"
+
+[Setup]
+Express=1
+InstallDir="C:\Windows"
+InstallType=3
+EBD=0
+ShowEula=0
+ChangeDir=0
+OptionalComponents=1
+Network=1
+System=0
+CCP=0
+CleanBoot=0
+Display=0
+DevicePath=0
+NoDirWarn=0
+TimeZone="Pacific"
+Uninstall=0
+VRC=0
+NoPrompt2Boot=1
+
+[System]
+Locale=L0409
+SelectedKeyboard=KEYBOARD_00000409
+
+[NameAndOrg]
+Name="System Recovery"
+Org="Preferred Customer"
+Display=0
+
+[Network]
+ComputerName="W98SysRec"
+Workgroup="WORKGROUP"
+Description="System Recovery"
+Display=0
+
+
+[VREDIR]
+LogonDomain="WORKGROUP"
+ValidatedLogon=1
+
+[OptionalComponents]
+"Accessibility Options"=0
+"Enhanced Accessibility"=0
+"Briefcase"=0
+"Calculator"=1
+"Desktop Wallpaper"=0
+"Document Templates"=0
+"Games"=0
+"Imaging"=0
+"Mouse Pointers"=0
+"Paint"=1
+"Quick View"=0
+"Windows Scripting Host"=0
+"WordPad"=1
+"Dial-Up Networking"=1
+"Dial-Up Server"=0
+"Direct Cable Connection"=0
+"HyperTerminal"=0
+"Infrared"=0
+"Microsoft Chat 2.0"=0
+"Microsoft NetMeeting"=0
+"Phone Dialer"=0
+"Virtual Private Networking"=0
+"Baseball"=0
+"Dangerous Creatures"=0
+"Inside your Computer"=0
+"Jungle"=0
+"Leonardo de Vinci"=0
+"More Windows"=0
+"Mystery"=0
+"Nature"=0
+"Science"=0
+"Space"=0
+"Sports"=0
+"The 60's USA"=0
+"The Golden Era"=0
+"Travel"=0
+"Underwater"=0
+"Windows 95"=0
+"Desktop Themes Support"=0
+"Microsoft FrontPage Express"=0
+"Microsoft VRML 2.0 Viewer"=0
+"Microsoft Wallet"=0
+"Personal Web Server"=0
+"Web Publishing Wizard"=0
+"Web-Based Enterprise Mgmt"=0
+"Microsoft Outlook Express"=0
+"Baltic"=0
+"Central European"=0
+"Cyrillic"=0
+"Greek"=0
+"Turkish"=0
+"Audio Compression"=1
+"CD Player"=0
+"DVD Player"=0
+"Macromedia Shockwave Director"=0
+"Macromedia Shockwave Flash"=0
+"Media Player"=1
+"Microsoft NetShow Player 2.0"=0
+"Multimedia Sound Schemes"=0
+"Sample Sounds"=0
+"Sound Recorder"=0
+"Video Compression"=1
+"Volume Control"=1
+"AOL"=0
+"T WorldNet Service"=0
+"CompuServe"=0
+"Prodigy Internet"=0
+"The Microsoft Network"=0
+"Additional Screen Savers"=0
+"Flying Windows"=1
+"OpenGL Screen Savers"=0
+"Backup"=1
+"Character Map"=0
+"Clipboard Viewer"=0
+"Disk compression tools"=0
+"Drive Converter (FAT32)"=0
+"Group policies"=0
+"Net Watcher"=0
+"System Monitor"=0
+"System Resource Meter"=0
+"WinPopup"=0
+"TV Viewer"=0
+
+[Printers]
+
+[InstallLocationsMRU]
+
+[Install]
+AddReg=RegistrySettings
+DelReg=DelRegistrySettings
+
+[RegistrySettings]
+HKLM,%KEY_RUN%,BatchReg1,,"%11%\srw.exe"
+
+[DelRegistrySettings]
+HKLM,%KEY_RUN%,Welcome
+
+[Strings]
+KEY_RUN="SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+

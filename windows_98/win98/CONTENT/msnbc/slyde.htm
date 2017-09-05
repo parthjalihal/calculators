@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>MSNBC</TITLE>
+
+</HEAD>   
+<BODY BGCOLOR="#cccccc">
+
+<BASE TARGET="_self">
+
+<DIV  id=text1 style="POSITION:ABSOLUTE; TOP:0; LEFT:0; WIDTH:100%; HEIGHT:100%; visibility:visible;	z-index:20;"> 
+	<HTML><BODY  bgcolor="cccccc" text="#000000">
+		<img src="106471.GIF" border=0>
+		<p><br><br>
+		<p><br><br>
+	</BODY></HTML>
+</DIV>
+
+<DIV id=text2 style="POSITION:ABSOLUTE; TOP:0; LEFT:0; WIDTH:100%; HEIGHT:100%; visibility:hidden; z-index:9;">
+
+	<HTML><BODY  bgcolor="cccccc" text="#000000">
+		
+			<center><img src="footbl.gif" border=0></center>
+		
+</BODY></HTML>
+
+</DIV>
+
+<DIV id=text3 style="POSITION:ABSOLUTE; TOP:0; LEFT:0; WIDTH:100%; HEIGHT:100%; visibility:hidden; z-index:9;">
+	<HTML><BODY  bgcolor="cccccc" text="#000000">
+	
+		<center><img src="virus.jpg" border=0></center>
+	
+</BODY></HTML>
+</DIV>
+
+<DIV id=text4 style="POSITION:ABSOLUTE; TOP:0; LEFT:0; WIDTH:100%; HEIGHT:100%; visibility:hidden; z-index:9;">
+		<HTML><BODY  bgcolor="cccccc" text="#000000">
+			
+				<center><img src="gap.jpg" hspace=0 border=0></center>
+			
+</BODY></HTML>
+</DIV>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+window.onload = doOnLoad
+var i=0;
+
+function doOnLoad() {
+	setTimeout("trImage1(2,15,text1,text2)",2500)
+	setTimeout("trImage1(2,18,text2,text3)",6500)
+	setTimeout("trImage1(2,18,text3,text4)",10500)
+	setTimeout("trImage1(2,18,text4,text1)",14500)
+	setTimeout("doOnLoad()",15000)
+      }
+
+function trImage1(fDuration,fTransition,abub,bub) {
+		abub.style.visibility = "hidden"	
+		abub.style.zIndex = "9"
+		bub.style.zIndex = "20"	
+		bub.style.visibility = "visible"
+		
+	}
+
+//-->
+</SCRIPT>
+
+
+</BODY>
+</HTML>

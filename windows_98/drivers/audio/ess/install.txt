@@ -1,0 +1,188 @@
+This file describes the normal audio driver installation procedures for
+Windows 98. The first two procedures are used when installing drivers
+for an audio device not previously installed in the system.
+
+The first of these procedures is for Plug and Play (PnP) devices. These
+devices will be detected by the system and require minimal user input. The
+system will know which device is installed in the system and which drivers
+are valid for it. (all of the drivers included in this directory are for
+PnP devices)
+
+The second procedure is for legacy audio devices. The user will need to know
+which audio device is installed, both by manufacturer and model. Take a look
+at any documentation you may have or look in the Device Manager under the
+driver's properties page. Explicit instructions are listed below.
+
+The last procedure is for upgrading or replacing the audio drivers currently
+in use.  We recommend that you use these procedures when installing the audio 
+drivers provided in this directory.
+
+DRIVER INSTALLATION PROCEDURE.  
+
+Use this procedure for installing your device drivers on an audio device not 
+previously installed on your system:
+
+      After you have installed your Audio Adapter, turn your system back on.
+      Once Windows detects your newly added audio adapter, the "Add New Hardware
+      Wizard" will appear. If it does not detect your device, it is most
+      likely not Plug and Play compatible. Use the procedure below entitled
+      "LEGACY AUDIO DEVICES".
+
+      Please note:  Choosing cancel at any point during this installation
+      could result in an inability to change the audio adapter driver.
+      If this happens, reboot the system and go to safe mode.  Follow the
+      instructions in the Troubleshooter to reinstall you device driver.
+
+    PnP AUDIO DEVICES
+
+      Read Message and then click the "Next" button.
+
+      Under "What do you want Windows to do?" choose the option that says
+      "Search for the best driver for your device." (will be the option 
+      selected by default).
+      Then click the "Next" button.
+
+      Place a check in the Check-box beside "Specify a location:" and remove
+      check-marks from all other check-boxes.
+
+      Specify the path to the new driver and then click the "Next" button.
+
+      Specify the path to the new driver and then click the "Next" button.
+      
+          Example 1: Insert the drivers disk in the A: floppy drive,
+                     and enter A:\.
+
+          Example 2: Type in the name of the directory where you copied
+                     the drivers, either on your local hard drive or
+                     on a network share.
+
+          Example 3: If you're not sure exactly where the drivers are,
+                     choose the "Browse..." button are find them.
+
+      The "Add New Hardware Wizard" will reappear with the name of the Audio
+      Adapter that you have installed in your machine. 
+      
+      Read message and then click the "Next" button.
+
+      Windows 98 will copy the audio drivers to the proper directories
+      on your system.
+
+      When Windows 98 has finished copying the drivers, click the "Finish"
+      button.
+      
+      Windows98 will prompt you to now restart your system to make the new drivers
+      active.
+
+    LEGACY AUDIO DEVICES
+
+      Please note:  Choosing cancel at any point during this installation
+      could result in an inability to change the audio adapter driver.
+      If this happens, reboot the system and go to safe mode.  Follow the
+      instructions in the Troubleshooter to reinstall you device driver.
+
+      Click Start, then Settings, then Control Panel.
+
+      Start the "Add New Hardware" applet program.
+
+      Click on "Next" which then warns you to close all programs, etc.
+
+      Click on "Next" to begin Plug and Play detection.
+
+      Select button marked "No" and click "Next" to select your hardware.
+
+      Select button marked "No" and click "Next" to see types of devices.
+
+      Select "Sound, video and game controllers" and click "Next".
+
+      Click on the "Have Disk" button so you may enter the path to the driver.
+
+      Specify the path to the new driver and then click the "OK" button.
+      
+          Example 1: Insert the drivers disk in the A: floppy drive,
+                     and enter A:\.
+
+          Example 2: Type in the name of the directory where you copied
+                     the drivers, either on your local hard drive or
+                     on a network share.
+
+          Example 3: If you're not sure exactly where the drivers are,
+                     choose the "Browse..." button are find them.
+
+      The "Add New Hardware Wizard" will reappear with the name of the Audio
+      Adapter that you have installed in your machine. 
+      
+      Read message and then click the "Next" button.
+
+      Windows 98 will copy the audio drivers to the proper directories
+      on your system.
+
+      When Windows 98 has finished copying the drivers, click the "Finish"
+      button.
+      
+      Windows98 will prompt you to now restart your system to make the new drivers
+      active.
+
+DRIVER UPGRADE PROCEDURE.
+
+Use this procedure for upgrading or replacing the existing audio driver
+in your system:
+     
+      Go to your desktop (click the desktop icon in the task bar)
+
+      Right click on "My Computer" icon.
+
+      When the pulldown menu appears, (left) click on "Properties"
+
+      The System Properties page appears. Click on the Device Manager tab.
+
+      Scroll to the bottom and locate "Sound, video and game controllers".
+
+      Click on the "+" to the left of the icon to expand. If already expanded,
+      there will be a "-" instead.
+
+      Select the device you wish to upgrade and click the "Properties" button.
+
+      The driver properties page will appear. Please click the driver tab.
+
+      Click on the "Update Driver" button.
+
+      The "Update Device Driver Wizard" will appear.
+
+      Read message and then click the "Next" button.
+
+      Under "What do you want Windows to do?" choose the option that says
+      "Search for the best driver for your device." (will be the option 
+      selected by default).
+      Then click the "Next" button.
+
+      Place a check in the Check-box beside "Specify a location:" and remove
+      check-marks from all other check-boxes.
+
+      Specify the path to the new driver and then click the "Next" button.
+      
+          Example 1: Insert the drivers disk in the A: floppy drive,
+                     and enter A:\.
+
+          Example 2: Type in the name of the directory where you copied
+                     the drivers, either on your local hard drive or
+                     on a network share.
+
+          Example 3: If you're not sure exactly where the drivers are,
+                     choose the "Browse..." button are find them.
+
+      The "Update Device Driver Wizard" will reappear with the name of the Audio
+      Adapter that you have installed in your machine.
+ 
+      Read message and then click the "Next" button.
+
+      Windows 98 will copy the audio drivers to the proper directories
+      on your system.
+
+      When Windows 98 has finished copying the drivers, click the "Finish"
+      button.
+
+      Windows98 will prompt you to now restart your system to make the new drivers
+      active.
+
+
+      

@@ -1,0 +1,52 @@
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%USR%
+LayoutFile=layout.inf
+ClassGUID={4D36E96D-E325-11CE-BFC1-08002BE10318}
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%USR%=USR
+
+[USR]
+%Winmodem.DeviceDesc%=USRVOICE,MODEMWAVE\SPORTSTER_WINMODEM_PC_CARD
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[USRVOICE]
+AddReg=MSSERWAVE.AddReg, USRVOICE.AddReg
+
+[USRVOICE.AddReg]
+HKR,Drivers\wave\serwvdrv.drv,Description,,%Winmodem.DeviceDesc%
+HKR,Config,XformModule,  , "umdmxfrm.dll"
+HKR,Config,XformID,     1, 04, 00, 00, 00
+HKR,Config,WaveDevices,  1, 01, 00
+
+[MSSERWAVE.CopyList]
+serwave.vxd,,
+serwvdrv.drv,,
+vmodctl.dll,,
+
+[MSSERWAVE.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\serwvdrv.drv,Driver,,serwvdrv.drv
+HKR,Drivers,SubClasses,,"wave"
+
+[Strings]
+USR="U.S. Robotics, Inc."
+MfgName="USR"
+Winmodem.DeviceDesc="Sportster Winmodem PC Card"
+WaveWrap.DeviceDesc="Voice Modem Wave Wrapper Device"
+MediaClassName="Sound, video and game controllers"

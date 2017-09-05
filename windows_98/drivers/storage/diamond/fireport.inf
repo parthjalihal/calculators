@@ -1,0 +1,92 @@
+;
+; FirePort.INF  - version 2.01ep5
+; This is the INF file for the FirePort based PCI SCSI Cards
+;
+
+[Version]
+Signature="$WINDOWS95$"
+Class=SCSIAdapter
+Provider=%DIAMOND%
+CatalogFile=fireport.cat
+
+[Manufacturer]
+%M1%=DIAMOND
+
+[DIAMOND]
+;%DevDesc1%=SYMC8XX,PCI\VEN_1000&DEV_0001
+;%DevDesc2%=SYMC8XX,PCI\VEN_1000&DEV_0002
+;%DevDesc3%=SYMC8XX,PCI\VEN_1000&DEV_0003
+;%DevDesc4%=SYMC8XX,PCI\VEN_1000&DEV_0004
+;%DevDesc5%=SYMC8XX,PCI\VEN_1000&DEV_0005
+;%DevDesc6%=SYMC8XX,PCI\VEN_1000&DEV_0006
+;%DevDesc7%=SYMC8XX,PCI\VEN_1000&DEV_000F
+;SUBSYS_xxxxyyyy  xxxx = device subsystem device ID, yyyy = subsystem vendor id
+; in our case subsystem device id = 0x8000 subsystem vendor id = 0x1092
+; device id = 0x008f
+%DevDesc7%=FIREPORT,PCI\VEN_1000&DEV_008F&SUBSYS_80001092
+%DevDesc8%=FIREPORT,PCI\VEN_1000&DEV_000F&SUBSYS_87601092
+
+; notes regarding other fields
+; PCI\VEN_xxxx&DEV_xxxx&SUBSYS_xxxxxxxx&REV_xx
+; PCI\VEN_xxxx&DEV_xxxx&SUBSYS_xxxxxxxx
+; PCI\VEN_xxxx&DEV_xxxx&REV_xx
+; PCI\VEN_xxxx&DEV_xxxx
+;
+
+[FIREPORT]
+Copyfiles=MoveMiniPort,MoveInf
+AddReg=FIREPORT.reg
+UpdateInis=IniUpdate
+Restart
+
+[FIREPORT.reg]
+HKR,,DevLoader,,*IOS
+HKR,,DontLoadIfConflict,,"Y"
+HKR,,PortDriver,,fireport.mpd
+
+[DestinationDirs]
+MoveMiniPort=12
+MoveInf=17
+
+[SourceDisksFiles]
+fireport.mpd=1
+fireport.inf=1
+fireport.cat=1
+
+[SourceDisksNames]
+1="Diamond Multimedia FirePort Install Disk",,0
+
+[MoveMiniPort]
+fireport.mpd
+
+[MoveInf]
+fireport.inf
+
+[IniUpdate]
+%31%\msdos.sys,Options,,"DoubleBuffer=1"
+%10%\ios.ini,SafeList,,"aspi8xx.sys     ; Symbios Logic ASPI driver PMD exists"
+%10%\ios.ini,SafeList,,"symcd.sys       ; Symbios Logic CD-ROM driver PMD exists"
+%10%\ios.ini,SafeList,,"symdisk.sys     ; Symbios Logic disk driver PMD exists"
+
+[ControlFlags]
+;CopyFilesOnly=PCI\VEN_1000&DEV_0001,PCI\VEN_1000&DEV_0002
+;CopyFilesOnly=PCI\VEN_1000&DEV_0003,PCI\VEN_1000&DEV_0004
+;CopyFilesOnly=PCI\VEN_1000&DEV_0005,PCI\VEN_1000&DEV_0006
+;CopyFilesOnly=PCI\VEN_1000&DEV_000F
+CopyFilesOnly=PCI\VEN_1000&DEV_008F,PCI\VEN_1000&DEV_000F
+
+[Strings]
+DIAMOND="Diamond Multimedia"
+MSFT="Microsoft"
+M1="Diamond Multimedia System, Inc."
+;DevDesc1="Symbios Logic 8100S PCI SCSI Adapter"
+;DevDesc2="Symbios Logic 8200S PCI SCSI Adapter"
+;DevDesc3="Symbios Logic 825XS|D PCI SCSI Adapter"
+;DevDesc4="Symbios Logic 815XS PCI SCSI Adapter"
+;DevDesc5="Symbios Logic 8100ASP PCI SCSI Adapter"
+;DevDesc6="Symbios Logic 8600SP PCI SCSI Adapter"
+;DevDesc7="Symbios Logic 875XS|D PCI SCSI Adapter"
+DevDesc7="Diamond Multimedia FirePort PCI SCSI Host Adapter"
+DevDesc8="Diamond Multimedia FirePort 40 Dual PCI SCSI Host Adapter"
+
+

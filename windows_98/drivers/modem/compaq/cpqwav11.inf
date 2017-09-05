@@ -1,0 +1,66 @@
+; Copyright 1995-98, Compaq Computer Corporation.  All rights reserved.
+; Copyright 1995-98, AT&T, Lucent Technologies, Inc.
+;
+; Modem Audio information file for Compaq Presario 336, 56K Upgradeable Modem
+;
+; Last Revised: 3/4/98
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%PROV%
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=Compaq
+
+[Compaq]
+; the device id's (MODEMWAVE\LT_Win_Modem)
+; correspond EXACTLY to the modem name with underscores in place of spaces.
+; the names must be an exact match or installer won't find device.
+; this scheme is because of the way the serial wave device enumeration occurs.
+
+%Wavewrap.DeviceDesc1%=MSWRAPPER1, MODEMWAVE\Compaq_Presario_336,_56K_Upgradeable
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+
+[MSWRAPPER1]
+AddReg=MSWRAPPER1.AddReg
+Reboot=1
+
+[MSWRAPPER1.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\tamwrap.drv,Description,,%Wavewrap.DeviceDesc1%
+HKR,Drivers\wave\tamwrap.drv,Driver,,wavewrap.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,WaveDevices,  1, 01, 00
+
+;; information about the Wave Driver being wrapped in the modem.inf file
+
+HKR,Config,LowerMid,        1,  8B,00
+HKR,Config,LowerWaveInPid,  1,  01,00
+HKR,Config,LowerWaveOutPid, 1,  02,00
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+PROV="Compaq"
+MfgName="Compaq"
+
+Wavewrap.DeviceDesc1="Compaq Presario 336, 56K Upgradeable Modem Wave Device"
+
+MediaClassName="Sound, video and game controllers"

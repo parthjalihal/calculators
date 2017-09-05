@@ -1,0 +1,64 @@
+;
+; C-Media Inc. PnP Joystick Device Information file 
+;
+[Version]
+Signature=$CHICAGO$
+layoutfile=layout.inf, layout1.inf, layout2.inf
+Class=Media
+Provider=%Microsoft%
+
+[ClassInstall]
+AddReg=Class.AddReg
+
+[DestinationDirs]
+JoyStick.CopyList=11
+JoyStick.DelList=11
+
+[Manufacturer]
+%String0%=CMedia
+
+[CMedia]
+%String1%=CMedia_JoyStick_Dev,ISAPNP\CMI0001_DEV0002
+%String1%=CMedia_JoyStick_Dev,ISAPNP\CMI8330_DEV0002
+
+[CMedia_JoyStick_Dev]
+CopyFiles=JoyStick.CopyList
+KnownFiles=CMedia_JoyStick.KnownFiles
+DelFiles=CMedia_JoyStick.DelList
+AddReg=JoyStick.AddReg
+UpdateInis=JoyStick.UpdateInis
+
+[JoyStick.CopyList]
+msjstick.drv
+vjoyd.vxd
+msanalog.vxd
+
+[CMedia_JoyStick.KnownFiles]
+cmjstick.drv.4.0.950=force
+
+[CMedia_JoyStick.DelList]
+cmjstick.drv,,,1
+
+[JoyStick.AddReg]
+HKR,,Devloader,0,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Description,0,%JOY.DeviceDesc%
+HKR,Drivers\joystick\msjstick.drv,Driver,0,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+
+[JoyStick.UpdateInis]
+system.ini,drivers,"joystick="
+
+[Class.AddReg]
+HKR,,,0,%MediaClassName%
+HKR,,Icon,0,-1
+HKR,,Installer,0,mmci.dll
+
+[Strings]
+String0="C-Media Inc."
+String1="Joystick Device"
+JOY.DeviceDesc="C-Media Inc. Joystick"
+MediaClassName="Sound, video and game controllers"
+Microsoft="Microsoft"

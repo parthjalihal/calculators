@@ -1,0 +1,5 @@
+Solution-Pac 97
+
+If your computer is powered by a MGE UPS Systems UPS, Solution-Pac 97 will shutdown gracefully your computer after an utility failure.
+Solution-Pac 97 is designed for a stand-alone computer or a LAN server, connected to an UPS with a serial link. Information exchange between
+the UPS and the computer are using the serial link.

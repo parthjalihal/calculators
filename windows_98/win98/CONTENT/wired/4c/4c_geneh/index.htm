@@ -1,0 +1,302 @@
+<html>
+
+<head>
+
+<title>LiveWIRED: Entire Human Genome Sequenced</title>
+
+
+<script language="JavaScript">
+function onStart() {
+	chronos.Item("line").Play();
+
+}
+function onStop() {
+  chronos.Item("line").Stop();
+
+}
+</script>
+
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+}
+
+</script>
+
+<style type="text/css">
+
+   BODY { margin: 0; vertical-align: middle; text-align: center}
+
+   EM { font-weight: bold; color: blue; font-style: normal }
+
+   .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+   #background {position: absolute; left: 0; top: 0; width: 100%; height: 100%; visibility: visible; z-index: -10}
+
+   #pieceHeadline { position: absolute; left: 0; top: 46%; width: 100%; font-family: Arial; font-size: 24px; color: black; background-color: white; z-index: 10; text-align: center; font-weight: bold; visibility: hidden}
+
+   #explanation {position: absolute; left: 38%; top: 72%; width: 24%; background-color: blue; font-family: Arial; font-size: 12px; color: white; text-align: left; margin: 4; font-weight: bold}
+
+   H1 {font-family: Arial; font-size: 8px; font-weight: normal; color: blue; padding: 0; margin: 0}
+
+   H5 {font-family: Arial; font-size: 12px; font-weight: bold; color: white; text-align: center}
+
+   #List {position: absolute; top: 0%; left: 15%; z-index: 10; width: 70%; margin: 0}
+
+   .jaundiced {color: black; background-color: yellow; font-size: 9; font-weight: bold; font-family: arial; margin: 4}
+
+   .blackened {color: yellow; background-color: black; font-size: 9; font-weight: bold; font-family: arial; margin: 4}
+
+	.twog {height: 85%; width: 90%; left: 5%; top: 34%; z-index:4; visibility: visible}
+	
+	#kludge {height: 40%; width: 90%; left: 5%; z-index:4; visibility: visible; top: 40%; color: red; font-size: 48}
+	
+   #workdammit {position: absolute; left: 80%; top: 90%; font-family: arial; font-size: 9; color: white; background-color: darkgray; z-index: 15; text-align: right; margin: 0; visibility: visible}
+
+</style>
+
+</head>
+
+<body style="font-size: 36pt">
+
+<script language="JavaScript">
+
+/* 
+This is the collection of routines that provide minimal functionality for
+yuor HTML document to become a presentation that fits into the context of
+liveWired.  Most of the routines cover the scaling of elements, the
+starting and stoping of the channel and the getting the "state" of the
+world; i.e. is it in the 20 second intro, or is it on the leisurely
+screensaver, or is it being viewed outside the context of the livewired and
+needs to do something to account for that. 
+
+These functions are written as objects so when calling them in there one
+should make a new instance of the object so if an individual presentation
+needs to modify any of the routines they can do so at that level.
+
+*/
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+
+</script>
+
+<script language="JavaScript">
+
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+
+</script>
+
+
+   
+   
+<OBJECT id="chronos" STYLE="display: none" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+<div id="workdammit">Sources: Human Genome Project and <cite>Nature</cite></div>
+
+
+<img id="background" src="gene.gif">
+
+<div id="pieceHeadline" class="offhold">
+
+<em>ENTIRE</em> HUMAN GENOME <em>SEQUENCED</em>
+
+</div>
+
+
+<img class="twog" src="2000.gif" vspace="100">
+
+
+
+<div id="explanation" class="onhold">
+Seventy-six percent of all currently patented human genetic data are privately held; Japan's biotech giant Takeda Corp. leads the world with 63 patents; the United States' Genentech is second with 41 patents.
+</div>
+
+
+
+
+<div id="List" class="onhold">
+
+
+<TABLE bgcolor="blue" cellpadding="0" cellspacing="0" border="0" height="50">
+
+<TR>
+	<TD rowspan=5 align="middle">
+	<H5><br>CURRENT<br> HUMAN<br> GENE<br> PATENTS,<br> WORLDWIDE</H5>
+	</TD>
+	
+	<TD  class="jaundiced">
+	<H1>GENE TYPE</H1>
+	</TD>
+	<TD class="blackened">
+	<h1>SOURCE</h1>
+	</TD>
+	<TD class="jaundiced">
+	<H1>OWNER</H1>
+	</TD>
+	<TD class="blackened">
+	<H1>COUNTRY</H1>
+	</TD>
+	<TD class="jaundiced">
+	<H1>PATENT VALUE (US$)</H1>
+	</TD>
+</TR>
+
+<TR>
+
+	<TD class="jaundiced">
+	Asthma
+	</TD>
+	<TD class="blackened">
+	Tristan de Cunha
+	</TD>
+	<TD class="jaundiced">
+	Boehringer-Ingelheim
+	</TD>
+	<TD class="blackened">
+	Germany
+	</TD>
+	<TD class="jaundiced">
+	$70,000,000
+	</TD>
+</TR>
+
+<TR>
+
+	<TD class="jaundiced">
+	Asthma
+	</TD>
+	<TD class="blackened">
+	India
+	</TD>
+	<TD class="jaundiced">
+	Smith-Kline Beecham
+	</TD>
+	<TD class="blackened">
+	US
+	</TD>
+	<TD class="jaundiced">
+	$50,000,000
+	</TD>
+</TR>
+
+<TR>
+
+	<TD class="jaundiced">
+	Leukemia
+	</TD>
+	<TD class="blackened">
+	Papua New Guinea
+	</TD>
+	<TD class="jaundiced">
+	National Institutes of Health
+	</TD>
+	<TD class="blackened">
+	US
+	</TD>
+	<TD class="jaundiced">
+	n/a
+	</TD>
+</TR>
+
+<TR>
+
+	<TD class="jaundiced">
+	Obesity
+	</TD>
+	<TD class="blackened">
+	US
+	</TD>
+	<TD class="jaundiced">
+	Imogen, Inc.
+	</TD>
+	<TD class="blackened">
+	US
+	</TD>
+	<TD class="jaundiced">
+	$20,000,000
+	</TD>
+</TR>
+
+
+</TABLE>
+
+</div>
+
+<script id="chronosCall" language="javascript" for="chronos" event="onInit">
+
+	chronos.Item("line").At(0.000,"lineUp()",-1,1.00,15);
+
+</script>
+
+<script language="javascript">
+	function lineUp() {
+		pieceHeadline.style.visibility = 'visible';
+	}	
+</script>
+<script language="JavaScript" for="window" event="onload">
+   parent.daScheduler.gramLoaded();
+</script>
+<script language="JavaScript" for="window" event="onunload">
+   parent.daScheduler.gramUnloaded();
+</script>
+
+</body>
+
+</html>
+

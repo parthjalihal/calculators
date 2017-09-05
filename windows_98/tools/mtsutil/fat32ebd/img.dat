@@ -1,0 +1,35 @@
+; String file for disk imaging tool
+
+
+[strings]
+
+st00="This utility creates a FAT32 boot disk"
+st01="Please insert a 1.44Mb floppy into the A: drive."
+st02="Warning! All files on the diskette will be erased!"
+st03="Enter 'Y' to continue, any other key to exit : "
+
+
+st04="Could not open the image file!"
+st05="Make sure the CD is in the drive and retry"
+st06="Couldn't read the CD image correctly!"
+st07="Error writing track "
+st08="There were errors writing to the diskette!"
+st09="You should create another diskette."
+st10="Unable to allocate enough memory for this application"
+st11="free some conventional memory and retry."
+
+st12="Writing track "
+st13="Boot image transfered successfully."
+
+st14="Preparing to extract utility files"
+st15="Extracting"
+st16="Error creating temp file!"
+
+st17="This program did not detect an upper memory manager"
+st18="and cannot run without one."
+st19="Please add the line 'device=<path>\himem.sys' to your config sys file"
+st20="and reboot your machine."
+st21="Done!"
+st22="This drive appears to be a Hard Disk !"
+st23="Disk is Write protected."
+st24="Insert a disk without write protection and hit enter."

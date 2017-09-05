@@ -1,0 +1,120 @@
+
+[Install profile]
+Name=Winmodem
+Version=1.40
+Language=Default
+Supported Languages=Enu,Fra,Ita,Deu,Esp
+Main directory=C:\WINMODEM
+Gauge Color=16711680
+Free disk space=1500000
+Bitmap=WINMODEM.BM_
+Flags=
+Exit request=YES
+Copy limit=1
+Display version number=Yes
+Display revision number=No
+
+[Group]
+Group name=##
+Group file=00:winmodem.grp
+Items number=2
+Item1=##,00:wmconfig.exe NOINIT,00:wmconfig.exe,0
+Item2=##,00:wmuninst.exe,00:wmuninst.exe,0
+
+[Regedit]
+Mode=
+File name=
+
+[Disk1]
+Files number=10
+File1=winmodem.dr_,00:winmodem.drv,No Version Test | Intl,##
+File2=winmodem.38_,00:winmodem.386,No Version Test | Intl,##
+File3=wmovl.38_,00:wmovl.386,No Version Test | Intl,##
+File4=wmconfig.ex_,00:wmconfig.exe,No Version Test | Intl,##
+File5=wmuninst.ex_,00:wmuninst.exe,No Version Test | Intl,##
+File6=wmexe.ex_,00:wmexe.exe,No Version Test | Intl,##
+File7=wmdiag.exe,00:wmdiag.exe,No Version Test | Intl,##
+File9=wmenable.ex_,00:wmenable.exe,No Version Test | Intl,##
+File10=wmenable.ini,00:wmenable.ini,No Version Test | Intl,##
+
+[Execute]
+
+[Init setup]
+Line1=00:winmodem.ini,Installation,Just installed,Yes,ADD
+Line2=@!:win.ini,windows,load,%00:wmexe.exe,ADDONEXIST
+Line3=@!:win.ini,windows,load,%00:wmconfig.exe,ADDONEXIST
+Line4=@!:system.ini,boot,drivers,%00:winmodem.drv,ADDONEXIST
+Line5=@!:system.ini,386Enh,device,%00:winmodem.386,ALWAYS
+Line6=@!:system.ini,386Enh,device,%00:wmovl.386,ALWAYS
+Line7=@!:system.ini,Winmodem,Dynamic,No,ADD
+Line8=@!:system.ini,Winmodem,LogFile,Yes,ADD
+Line9=@!:system.ini,386Enh,EmmExclude,D000-D0FF,ALWAYS
+
+[ConfigSys]
+Line1=00:wmenable.exe,,END
+
+[Localize]
+US.1.1=Windows Driver
+US.1.2=Windows VxD
+US.1.3=Windows VxD Overlay
+US.1.4=Card Configuration Utility
+US.1.5=Uninstall Program
+US.1.6=NVRAM Emulation Utility
+US.1.7=Diagnostic Program
+US.Icon.1=Configurator
+US.Icon.2=Uninstall
+US.Group=Gateway 2000 Telepath 3CXM356
+
+FR.1.1=Driver Windows
+FR.1.2=VxD Windows
+FR.1.3=Overlay du VxD Windows
+FR.1.4=Utilitaire de configuration de carte
+FR.1.5=Programme de désinstallation
+FR.1.6=Emulateur de NVRAM
+FR.1.7=Programme de diagnostic
+FR.Icon.1=Configurateur
+FR.Icon.2=Désinstallation
+FR.Group=Gateway 2000 Telepath 3CXM356
+
+GR.1.1=Windows-Treiber
+GR.1.2=Windows-VxD
+GR.1.3=Windows-VxD-Overlay
+GR.1.4=Kartenkonfigurations-Dienstprogramm
+GR.1.5=Deinstallationsprogramm
+GR.1.6=NVRAM-Emulations-Dienstprogramm
+GR.1.7=Diagnoseprogramm
+GR.Icon.1=Konfigurator
+GR.Icon.2=Deinstallation
+GR.Group=Gateway 2000 Telepath 3CXM356
+
+IT.1.1=Driver Windows
+IT.1.2=VxD di Windows
+IT.1.3=Sovrapposizione VxD di Windows
+IT.1.4=Programma di configurazione della scheda
+IT.1.5=Programma di disinstallazione
+IT.1.6=Programma di emulazione NVRAM
+IT.1.7=Programma di diagnostica
+IT.Icon.1=Configurazione
+IT.Icon.2=Disinstallazione
+IT.Group=Gateway 2000 Telepath 3CXM356
+
+SP.1.1=Controlador de Windows
+SP.1.2=VxD de Windows
+SP.1.3=Superposición VxD de Windows
+SP.1.4=Utilidad de configuración de tarjetas
+SP.1.5=Programa de desinstalación
+SP.1.6=Utilidad de emulación NVRAM
+SP.1.7=Programa de diagnóstico
+SP.Icon.1=Configurador
+SP.Icon.2=Desinstalar
+SP.Group=Gateway 2000 Telepath 3CXM356
+
+[LanguageUpdate]
+Update1=00:wmdiag.exe
+Update2=00:wmuninst.exe
+Update3=00:winmodem.drv
+Update4=00:wmconfig.exe
+Update5=00:wmexe.exe
+Update6=00:winmodem.386
+
+

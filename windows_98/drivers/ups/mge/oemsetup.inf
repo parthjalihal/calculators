@@ -1,0 +1,218 @@
+; Setup file for Personal Solution-Pac for Windows 95
+;                Version 1.04
+; ---------------------------------------------------
+
+[Version]
+Signature="$CHICAGO$"
+SetupClass=Base
+; Class=Unknown
+Provider=%String1%
+
+[DestinationDirs]
+DefaultDestDir=30,UPSMAN\PSP
+Copy.etc=30,ETC
+Copy.default=30,UPSMAN\PSP\DEFAULT
+Copy.default_fr=30,UPSMAN\PSP\DEFAULT
+Copy.default_en=30,UPSMAN\PSP\DEFAULT
+Copy.uninstal=30,UPSMAN\UNINSTAL
+Copy.uninstal_fr=30,UPSMAN\UNINSTAL
+Copy.uninstal_en=30,UPSMAN\UNINSTAL
+
+[Manufacturer]
+%String1%=MG
+
+; List of products
+; ----------------
+[MG]
+%String2%=Install_english,SERENUM\MGE0001
+%String3%=Install_french,SERENUM\MGE0001
+
+; Install sections
+; ----------------
+[Install_english]
+CopyFiles=Copy.common,Copy.english,Copy.default,Copy.default_en,Copy.etc,Copy.uninstal,Copy.uninstal_en
+AddReg=Autostart,Uninstall
+UpdateInis=PspInis
+Restart
+
+[Install_french]
+CopyFiles=Copy.common,Copy.french,Copy.default,Copy.default_fr,Copy.etc,Copy.uninstal,Copy.uninstal_fr
+AddReg=Autostart,Uninstall
+UpdateInis=PspInis
+Restart
+
+[PspInis]
+setup.ini, progman.groups,, "group4=""%String1%"""  ;creates MGE UPS SYSTEMS folder
+; setup.ini, group4,, """PSP Start"", ""UPSMAN\PSP\PSP.EXE -start com mon"""   ;creates link
+setup.ini, group4,, %GrpIcon1%   ;creates link
+setup.ini, group4,, %GrpIcon2%   ;creates link
+setup.ini, group4,, %GrpIcon3%   ;creates link
+setup.ini, group4,, %GrpIcon4%   ;creates link
+setup.ini, group4,, %GrpIcon5%   ;creates link
+setup.ini, group4,, %GrpIcon6%   ;creates link
+
+[Copy.common]
+PSP_REF
+DESINST.BAT
+DESINST1.BAT
+PSP_LOG.BAT
+PSP_BRDC.BAT
+PSP_SHUT.BAT
+COM.EXE
+MON.EXE
+PSP.EXE
+PSP_ED.EXE
+PSP_WLOG.EXE
+PSP_POP.EXE
+PSP_KILL.EXE
+PSP_DOWN.EXE
+SENDUPS.EXE
+GETVAR.EXE
+UMDELKEY.EXE
+U_TALK.INI
+PSP_PAR.INI
+PSP_PAR.TXT
+ACTIONS.INI
+SCHEDULE.INI
+DESINST.PIF
+PSPSTART.ICO
+PSPSTOP.ICO
+PSPCONF.ICO
+SP_BS32.EXE
+SP_BS.EXE
+J_API32.DLL
+SP32.EXE
+SP.INI
+UPS.INI
+SP_APP.INI
+
+[Copy.english]
+EVENTS.INI,ENG\EVENTS.INI
+PSP_ED.HLP,ENG\PSP_ED.HLP
+PSP_ED.INI,ENG\PSP_ED.INI
+SP_BS.INI,ENG\SP_BS.INI
+SP_BS.HLP,ENG\SP_BS.HLP
+PRESET.INI,ENG\PRESET.INI
+SP.HLP,ENG\SP.HLP
+SP.CNT,ENG\SP.CNT
+SP_LBL.INI,ENG\SP_LBL.INI
+
+[Copy.default_en]
+EVENTS.INI,ENG\EVENTS.INI
+PSP_ED.INI,ENG\PSP_ED.INI
+
+[Copy.default]
+PSP_PAR.INI
+ACTIONS.INI
+SCHEDULE.INI
+U_TALK.INI
+PSP_LOG.BAT
+PSP_BRDC.BAT
+PSP_SHUT.BAT
+SP.INI
+SP_APP.INI
+
+[Copy.french]
+EVENTS.INI,FRA\EVENTS.INI
+PSP_ED.HLP,FRA\PSP_ED.HLP
+PSP_ED.INI,FRA\PSP_ED.INI
+SP_BS.INI,FRA\SP_BS.INI
+SP_BS.HLP,FRA\SP_BS.HLP
+PRESET.INI,FRA\PRESET.INI
+SP.HLP,FRA\SP.HLP
+SP.CNT,FRA\SP.CNT
+SP_LBL.INI,FRA\SP_LBL.INI
+
+[Copy.default_fr]
+EVENTS.INI,FRA\EVENTS.INI
+PSP_ED.INI,FRA\PSP_ED.INI
+
+[Copy.etc]
+PSP_PATH
+
+[Copy.uninstal]
+UNINSTAL.EXE
+
+[Copy.uninstal_en]
+UNINSTAL.INI,ENG\UNINSTAL.INI
+UNINSTAL.HLP,ENG\UNINSTAL.HLP
+README.TXT,ENG\README.TXT
+
+[Copy.uninstal_fr]
+UNINSTAL.INI,FRA\UNINSTAL.INI
+UNINSTAL.HLP,FRA\UNINSTAL.HLP
+README.TXT,FRA\README.TXT
+
+[Autostart]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices,PSP,0,"\UPSMAN\PSP\PSP.EXE -s -h -start com mon"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"MGE Setup",0,"grpconv /o"
+
+[Uninstall]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\SP97,DisplayName,0,"Solution-Pac 97"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\SP97,UninstallString,0,"\UPSMAN\UNINSTAL\UNINSTAL.EXE PSP"
+
+[ControlFlags]
+
+[SourceDisksNames]
+1="Solution-Pac CD-ROM",SOLUTIONPAC,
+
+[SourceDisksFiles]
+PSP_REF=1
+DESINST.BAT=1
+DESINST1.BAT=1
+PSP_LOG.BAT=1
+PSP_BRDC.BAT=1
+PSP_SHUT.BAT=1
+COM.EXE=1
+MON.EXE=1
+PSP.EXE=1
+PSP_ED.EXE=1
+PSP_WLOG.EXE=1
+PSP_POP.EXE=1
+PSP_KILL.EXE=1
+PSP_DOWN.EXE=1
+SENDUPS.EXE=1
+GETVAR.EXE=1
+UMDELKEY.EXE=1
+U_TALK.INI=1
+PSP_PAR.INI=1
+PSP_PAR.TXT=1
+ACTIONS.INI=1
+SCHEDULE.INI=1
+DESINST.PIF=1
+PSPSTART.ICO=1
+PSPSTOP.ICO=1
+PSPCONF.ICO=1
+SP_BS32.EXE=1
+SP_BS.EXE=1
+J_API32.DLL=1
+SP32.EXE=1
+SP.INI=1
+UPS.INI=1
+SP_APP.INI=1
+EVENTS.INI=1
+PSP_ED.HLP=1
+PSP_ED.INI=1
+SP_BS.INI=1
+SP_BS.HLP=1
+PRESET.INI=1
+SP.HLP=1
+SP.CNT=1
+SP_LBL.INI=1
+PSP_PATH=1
+UNINSTAL.EXE=1
+UNINSTAL.INI=1
+UNINSTAL.HLP=1
+
+; User-visible Strings
+; --------------------
+[Strings]
+String1="MGE UPS Systems"
+String2="MGE UPS Systems Drivers (English)"
+String3="Pilotes MGE UPS Systems (Français)"
+GrpIcon1="""Solution-Pac 97 Start"", ""C:\UPSMAN\PSP\PSP.EXE -h -start com mon"", ""C:\UPSMAN\PSP\PSPSTART.ICO"",,,""C:\UPSMAN\PSP"""
+GrpIcon2="""Solution-Pac 97 Stop"", ""C:\UPSMAN\PSP\PSP.EXE -stop all"", ""C:\UPSMAN\PSP\PSPSTOP.ICO"",,,""C:\UPSMAN\PSP"""
+GrpIcon3="""Solution-Pac 97 Configuration"", ""C:\UPSMAN\PSP\PSP_ED.EXE"",,,,""C:\UPSMAN\PSP"""
+GrpIcon4="""Solution-Pac 97 Manager"", ""C:\UPSMAN\PSP\SP32.EXE"",,,,""C:\UPSMAN\PSP"""
+GrpIcon5="""Solution-Pac 97 Readme"", ""C:\WINDOWS\NOTEPAD.EXE README.TXT"",,,,""C:\UPSMAN\UNINSTAL"""
+GrpIcon6="""Solution-Pac 97 Uninstaller"", ""C:\UPSMAN\UNINSTAL\UNINSTAL.EXE"",,,,""C:\UPSMAN\UNINSTAL"""

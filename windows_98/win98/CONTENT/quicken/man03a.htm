@@ -1,0 +1,117 @@
+
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+<SCRIPT>
+<!--
+function mv(obj) { obj.style.visibility = "visible"; }
+function miv(obj) { obj.style.visibility = "hidden"; }
+
+
+function Start()
+{
+	count = 0;
+	mv(t1);
+	mv(t1a);
+	mv(t2);
+	setTimeout("intro();", 500);
+}
+
+function intro()
+{
+	if(count == 0) {
+		mv(t3);
+		mv(t4);
+		mv(t5);
+		mv(t6);
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 1) {
+		mv(t7);
+		mv(t8);
+		mv(t9);
+		mv(t10);
+		timer = setTimeout("intro()", 5000);
+	}
+	else
+	{
+		//next page...
+		document.location = "qfn3_1.htm";
+	}
+
+		
+	count++;
+
+}
+
+// -->
+</SCRIPT>
+
+
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" BACKGROUND="images/back.gif" onLoad = "Start();">
+<STYLE>
+.button {
+	position:absolute;
+	}
+
+.build {
+position: absolute;
+visibility: visible;
+font-weight: bold;
+font-size: 13pt;
+z-index: 2;
+}
+.building {
+position: absolute;
+visibility: hidden;
+font-weight: bold;
+font-size: 13pt;
+z-index: 2;
+}
+
+</STYLE>
+
+<!--------- ALL MAIN IMAGES ------------->
+
+<!--DIV class=button ID = "b4" STYLE="top: 0px; left: 542px; z-index: 3">
+	<a href=""><img src="images/enhance.gif" WIDTH=58 HEIGHT=40 BORDER=0></a></DIV-->
+<DIV class=button ID = "b1" STYLE="top: 0px; left: 600px; z-index: 3">
+	<a href="qfn3_1.htm"><img src="images/qtop.gif" WIDTH=40 HEIGHT=40 BORDER=0></a></DIV>
+<DIV class=button ID = "b2" STYLE="top: 79px; left: 0px; z-index: 3">
+	<IMG SRC="images/m_woman.gif" WIDTH=251 HEIGHT=361 BORDER=0></DIV>
+<DIV class=button ID = "b3" STYLE="top: 120px; left: 470px; z-index: 6">
+	<IMG SRC="images/bargraph.gif" WIDTH=74 HEIGHT=70 BORDER=0></DIV>
+	
+	
+<!-------- START OF ALL TEXT -----space between 15px---------------->
+<DIV class=building ID = "t1" STYLE="color:#ffffff; font-size: 17pt; top: 140px; left: 110px; z-index: 7">MANAGE</div>
+<DIV class=building ID = "t1a" STYLE="font-size: 17pt; top: 140px; left: 220px; z-index: 7">YOUR DAY-TO-DAY</DIV>
+<DIV class=building ID = "t2" STYLE="font-size: 17pt; top: 165px; left: 260px; z-index: 7">FINANCES EASILY</DIV>
+
+
+<DIV class=building ID = "t3" STYLE="color: #28385E; font-size: 10pt; top: 210px; left: 320px; z-index: 7">WHAT'S EVEN MORE AWESOME</DIV>
+<DIV class=building ID = "t4" STYLE="color: #28385E; font-size: 10pt; top: 225px; left: 375px; z-index: 7">IS THAT QUICKEN.COM</DIV>
+<DIV class=building ID = "t5" STYLE="color: #28385E; font-size: 10pt; top: 240px; left: 320px; z-index: 7">CAN MAKE IT EASY TO MANAGE</DIV>
+<DIV class=building ID = "t6" STYLE="color: #28385E; font-size: 10pt; top: 255px; left: 305px; z-index: 7">ALL YOUR DAY-TO-DAY FINANCES.</DIV>
+
+<DIV class=building ID = "t7" STYLE="color: #583407; font-size: 10pt; top: 280px; left: 275px; z-index: 7">BESIDES HAVING LOTS OF GREAT TIPS </DIV>
+<DIV class=building ID = "t8" STYLE="color: #583407; font-size: 10pt; top: 295px; left: 315px; z-index: 7">ON TAXES AND SAVING MONEY,</DIV>
+<DIV class=building ID = "t9" STYLE="color: #583407; font-size: 10pt; top: 310px; left: 320px; z-index: 7">QUICKEN CAN EVEN PAY YOUR</DIV>
+<DIV class=building ID = "t10" STYLE="color: #583407; font-size: 10pt; top: 325px; left: 313px; z-index: 7">BILLS ONLINE AUTOMATICALLY.</DIV>
+
+
+<!------ BOTTOM NAVIGATION ----------->
+<DIV class=button ID = "n1" STYLE="top: 439px; left: 0px; z-index: 3">
+	<IMG SRC="images/quicken.gif" BORDER=0></DIV>
+
+<!--DIV class=button ID = "n3l" STYLE="top: 439px; left: 327px; z-index: 3"><A HREF="qfn3_1.html"><IMG SRC="images/arrows_l.gif" WIDTH=30 HEIGHT=29 BORDER=0></A></DIV>
+
+<DIV class=button ID = "n3r" STYLE="top: 439px; left: 355px; z-index: 3"><A HREF="achieve01a.html"><IMG SRC="images/arrows_r.gif" WIDTH=28 HEIGHT=29 BORDER=0></A></DIV-->
+
+<DIV class=button ID = "n10" STYLE="top: 403px; left: 544px; z-index: 3"><a href="signup.htm"><IMG SRC="images/subscr.gif" WIDTH=96 HEIGHT=65 BORDER=0></a></DIV>
+
+</BODY>
+</HTML>

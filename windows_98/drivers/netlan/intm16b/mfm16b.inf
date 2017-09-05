@@ -1,0 +1,1116 @@
+; MFM16B.INF
+;
+; Intel EtherExpress(TM) PRO/100 LAN/Modem PC Card Adapter
+;
+; $Revision$
+;
+;----------------------------------------------------------------------------
+[Version]
+LayoutFile = layout.inf
+Signature  = "$CHICAGO$"
+Class      = MultiFunction
+Provider   = %PMfg%
+
+[Manufacturer]
+%Mfg%=Models
+
+[Strings]
+PMfg			= "Intel"
+Mfg			= "Intel"
+Model1			= "Intel EtherExpress PRO/100 LAN/Modem PC Card (Multi-function Parent Device)"
+
+Disk_42_Desc		= "Disk 1: Installation Disk for Intel EtherExpress PRO/100 LAN/Modem PC Card"
+
+[Models]
+%Model1%=Mfg56.mf,PCMCIA\Intel-EtherExpress(TM)_PRO/100_LAN/Modem_PC_Card_Adapter-3B00
+
+[Mfg56.mf]
+AddReg=StandardMF.Reg,ADDREG_Mfg.reg
+CopyFiles=mfg56.ndis3.CopyFiles,mfg56.inf.CopyFiles
+
+[Mfg56.mf.HW]
+AddReg=Mfg56.mf.RegHW
+
+[Mfg56.mf.RegHW]
+HKR,Child0000,HardwareID,,MF\INTELM16B_DEV0
+HKR,Child0000,ResourceMap,1,00,02
+HKR,Child0001,HardwareID,,MF\INTELM16B_DEV1
+HKR,Child0001,ResourceMap,1,00,01,02,03,04,05
+
+[StandardMF.Reg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,CMDrivFlags,1,03,00,00,00
+
+[ADDREG_Mfg.reg]
+;****************************************************************************
+; The override section is only needed if the CIS does NOT contain a proper
+; Config_Table_Entry tuple describing the necessary I\O, IRQ, & memory 
+; resources.  We need it to allow us to open two memory windows, an attribute
+; memory window and a common memory window.  We also need it to allow us
+; to open separate I/O windows for the COM port and the network adapter. 
+;****************************************************************************
+
+;
+; OVERRIDE for COM4 (2E8,3)
+;
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,30,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+E8,02, \       ; IOR_Min;          // Min port address
+EF,02, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+08,00, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+67, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM3 (3E8,4)
+;
+HKR,Override,0001,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,30,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+E8,03, \       ; IOR_Min;          // Min port address
+EF,03, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+10,00, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+5F, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM2 (2F8,3)
+;
+HKR,Override,0002,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,30,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+F8,02, \       ; IOR_Min;          // Min port address
+FF,02, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+08,00, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+32, \          ; Vpp1
+32, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+57, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM1 (3F8,4)
+;
+HKR,Override,0003,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,30,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+F8,03, \       ; IOR_Min;          // Min port address
+FF,03, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+10,00, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+4F, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM4 (2E8,xx)
+;
+HKR,Override,0004,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,50,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+E8,02, \       ; IOR_Min;          // Min port address
+EF,02, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+ff,ff, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+67, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM3 (3E8,xx)
+;
+HKR,Override,0005,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,50,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+E8,03, \       ; IOR_Min;          // Min port address
+EF,03, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+ff,ff, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+5F, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM2 (2F8,xx)
+;
+HKR,Override,0006,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,50,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+F8,02, \       ; IOR_Min;          // Min port address
+FF,02, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+ff,ff, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+57, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+;
+;
+; OVERRIDE for COM1 (3F8,xx)
+;
+HKR,Override,0007,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,50,00,00, \
+;
+; I/O Resource Descriptor 0: COM port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F8,FF, \       ; IOR_Align;        // Mask for base alignment
+08,00, \       ; IOR_nPorts;       // Number of ports
+F8,03, \       ; IOR_Min;          // Min port address
+FF,03, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; I/O Resource Descriptor 1 : network port
+;
+24,00,00,00, \ ; Total length of I/O Resource Descriptor
+02,00,00,00, \ ; ResType_IO = 0x00000002
+01,00, \       ; IOD_Count;
+0C,00, \       ; IOD_Type;         // IOType_Range = 0x000C
+00,00, \       ; IOD_Alloc_Base;
+00,00, \       ; IOD_Alloc_End;
+00,00, \       ; IOD_DesFlags;
+00, \          ; IOD_Alloc_Alias;
+00, \          ; IOD_Alloc_Decode;
+F0,FF, \       ; IOR_Align;        // Mask for base alignment
+10,00, \       ; IOR_nPorts;       // Number of ports
+00,01, \       ; IOR_Min;          // Min port address
+FF,FF, \       ; IOR_Max;          // Max port address
+00,00, \       ; IOR_RangeFlags;   // Flags
+00, \          ; IOR_Alias;        // Alias offset
+00, \          ; IOR_Decode;       // Address specified
+64,00,00,00, \ ; PCCARD flags, 0x40 = 16-bit port
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \ ; Total length of IRQ Resource Descriptor
+04,00,00,00, \ ; ResType_IRQ = 0x00000004
+00,00, \       ; IRQD_Flags;
+00,00, \       ; IRQD_Alloc_Num;   // Allocated IRQ number
+ff,ff, \       ; IRQD_Req_Mask;    // Mask of possible IRQs
+00,00, \       ; IRQD_Reserved;
+20,00,00,00, \ ; PCCARD flags, 0x20 = Level mode interrupts
+;
+; MEM Resource Descriptor 0
+; 8K attribute memory window mapped to adapter address offset F000
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;      // Mask for base alignment
+00,20,00,00, \ ; MR_nBytes;     // Count of bytes
+00,00,00,00, \ ; MR_Min;        // Min Address
+FF,FF,FF,FF, \ ; MR_Max;        // Max Address
+00,00, \       ; MR_Flags;      // Flags
+00,00, \       ; MR_Reserved;
+02,00,00,00, \  ; PC Card flags // 0x02 = attribute mem
+;                               // 0x04 = 8-bit common mem (undocumented)
+;                               // 0x08 = 16-bit common men
+00,F0,00,00, \ ; Memory card address
+;
+; MEM Resource Descriptor 1
+; 4K 16-bit common memory window mapped to adapter address offset 0
+;
+34,00,00,00, \ ; Total length of Memory Resource Descriptor
+01,00,00,00, \ ; ResType_Mem = 0x00000001
+01,00, \       ; MD_Count;
+14,00, \       ; MD_Type;          // MType_Range = 0x0014
+00,00,00,00, \ ; MD_Alloc_Base;
+00,00,00,00, \ ; MD_Alloc_End;
+00,00, \       ; MD_Flags;
+00,00, \       ; MD_Reserved;
+00,F0,FF,FF, \ ; MR_Align;         // Mask for base alignment
+00,10,00,00, \ ; MR_nBytes;        // Count of bytes = 4K
+00,00,00,00, \ ; MR_Min;           // Min Address
+FF,FF,FF,FF, \ ; MR_Max;           // Max Address
+00,00, \       ; MR_Flags;         // Flags
+00,00, \       ; MR_Reserved;
+08,00,00,00, \ ; PCCARD flags      // 0x02 = attribute mem
+;                                  // 0x04 = 8-bit common mem (undocumented)
+;                                  // 0x08 = 16-bit common mem
+00,00,00,00, \ ; Memory card address
+;
+; REQUEST_CONFIG_PKT Descriptor
+; Same as PCMCIA Card Services RequestConfiguration argument structure.
+; The Socket field in this structure does not need to be filled in.
+;
+19,00,00,00, \ ; Total length of REQUEST_CONFIG_PKT Descriptor
+7C,89,00,00, \ ; (ResType_Ignored_Bit + PCCARD_DEVICE_ID) = 0x897C
+00,00, \       ; Socket;
+02,00, \       ; Attributes;
+32, \          ; Vcc;
+00, \          ; Vpp1
+00, \          ; Vpp2
+02, \          ; IntType;
+80,FF,00,00, \ ; ConfigBase;
+00, \          ; Status;
+00, \          ; Pin;
+08, \          ; Copy;
+4F, \          ; ConfigIndex;
+03, \          ; Present;
+;
+; TERMINATOR
+;
+00,00,00,00
+
+
+[mfg56.ndis3.CopyFiles]
+M16B.SYS
+
+[mfg56.inf.CopyFiles]
+mfm16b.inf
+netm16b.inf
+mdmm16b.inf
+
+[SourceDisksNames]
+42 = %Disk_42_Desc%,,0
+
+[SourceDisksFiles]
+NETM16B.INF=42,,1024
+MDMM16B.INF=42,,1024
+MFM16B.INF =42,,1024
+M16B.SYS   =42,,1024
+
+[DestinationDirs]
+mfg56.ndis3.CopyFiles	= 11   ; LDID_SYS
+mfg56.inf.CopyFiles	= 17   ; LDID_SYS
+
+

@@ -1,0 +1,19 @@
+System Policy Editor
+
+Use this tool to create or edit system policies to 
+standardize the appearance and capabilities of Windows 95 or
+Windows 98 for a single user, a group of users, or the entire 
+network. 
+
+You can create new policy files, or use the sample policy files(.POL) 
+included in the TOOLS\RESKIT\NETADMIN\POLEDIT folder on the install media.
+
+To install this tool on your local hard disk,
+or to install support for group policies, 
+use the Add/Remove Programs option in Control Panel, select the
+Windows Setup tab, click the Have Disk button, and install from
+the TOOLS\RESKIT\NETADMIN\POLEDIT directory located on the install media.
+
+For more information about system policies and System Policy Editor, 
+see those topics in the Windows 95 Resource Kit (WIN95RK.HLP) or 
+Windows 98 Resource Kit (WIN98RK.HLP).

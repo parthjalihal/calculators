@@ -1,0 +1,205 @@
+<html>
+
+<head>
+
+<title>LiveWired: Teen Sex Drops</title>
+
+<script language="JavaScript">
+function onStart() {
+	dropShadow();
+}
+
+
+function onStop() {
+
+}
+</script>
+
+ 
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+
+
+}
+
+</script>
+
+<script language="VBScript">
+	sub dropShadow() 
+	       ' teendrop.Filter = filtration
+	end sub
+	
+</script>
+
+
+
+<style type="text/css">
+
+   BODY { margin: 0; background: white }
+   
+    .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+	#lovedodge { position: absolute; left: 0px; top: 0px; width: 100%;
+
+height: 100%; z-index:1 }
+
+	#trolls { position: absolute; left: 10%; top: 10%; width: 45%;
+
+height: 50%; z-index:3; visible: hidden }
+
+   #teendrop{ position: absolute; left: 4%; top: 15%; width: 90%;
+
+height: 7%; color: black; font-family: arial; font-size: 60px; z-index:4; font-weight: bold}
+
+   #bigsmut { color: yellow; font-family: arial; font-size: 30px; z-index:4}
+
+   #lilsmut { color: black; font-family: arial; font-size: 18px; z-index:4; font-weight: bold}
+
+   #virgin { position: absolute; left: 65%; top: 65%; width: 35%;
+
+height: 25%; color: pink;  font-family: arial; font-size: 12px; z-index:4; background-color: black; text-align: left; line-height: 1.6; font-weight: bold}
+   
+   #teenchart { position: absolute; left: 65%; top: 2%; z-index:3 }
+ 
+
+</style>
+
+</head>
+
+<body>
+<script language="JavaScript">
+
+/* 
+This is the collection of routines that provide minimal functionality for
+yuor HTML document to become a presentation that fits into the context of
+liveWired.  Most of the routines cover the scaling of elements, the
+starting and stoping of the channel and the getting the "state" of the
+world; i.e. is it in the 20 second intro, or is it on the leisurely
+screensaver, or is it being viewed outside the context of the livewired and
+needs to do something to account for that. 
+
+These functions are written as objects so when calling them in there one
+should make a new instance of the object so if an individual presentation
+needs to modify any of the routines they can do so at that level.
+
+*/
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+
+</script>
+
+
+<OBJECT 
+
+	ID="filtration"
+
+	CLASSID="CLSID:DA9E9D23-3661-11D0-BDC2-00A0C908DB96">
+
+	<PARAM NAME="Effect0.clsid" VALUE="{D68FC8F4-6B17-11d0-80E6-00AA006EC537}">
+
+	<PARAM name="Effect0.Color" value="&Hffccdd">
+
+	<PARAM name="Effect0.OffX" value="-10">
+
+	<PARAM name="Effect0.OffY" value="2">
+
+	<PARAM name="Effect0.Positive" value="true">
+
+</OBJECT>
+
+
+
+
+
+<div id="Content">
+
+
+
+<IMG id="lovedodge" SRC="teenstat.jpg" BORDER=0>
+
+
+
+<div id="teendrop">
+
+teen sex drops
+
+</div>
+
+
+
+<div id="virgin" class="onhold">
+The percentage of teenagers aged 15 to 19 who are no longer virgins has dropped for the first time in 20 years, according to a recent National Center for Health Statistics survey. This is the first decline ever reported by the survey, which began in 1970.
+</div>
+
+
+<IMG id="teenchart" SRC="teenchar.gif" BORDER=0>
+
+
+<script language="JavaScript" for="window" event="onload">
+   parent.daScheduler.gramLoaded();
+</script>
+<script language="JavaScript" for="window" event="onunload">
+   parent.daScheduler.gramUnloaded();
+</script>	
+</body>
+
+</html>
+

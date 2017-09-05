@@ -1,0 +1,1304 @@
+------------------------------------------
+  Microsoft Windows 98 README for Setup
+             April 1998
+------------------------------------------
+
+(c) Copyright Microsoft Corporation, 1998
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+CONTENTS
+
+QUICK TIPS FOR AN ERROR-FREE SETUP
+GENERAL SETUP ISSUES
+INSTALLING WINDOWS 98 FROM MS-DOS 
+ANTIVIRUS SOFTWARE
+FINDING AND FIXING HARD DISK PROBLEMS DURING SETUP 
+	(USING SCANDISK)
+REMOVING WINDOWS 98
+IF YOU HAVE A COMPRESSED DRIVE
+INSTALLING WINDOWS 98 ON A SYSTEM RUNNING WINDOWS NT 
+INSTALLING WINDOWS 98 ON A SYSTEM RUNNING OS/2
+SETUP ERROR MESSAGES
+EDITING THE CONFIG.SYS AND AUTOEXEC.BAT FILES
+HARDWARE NOTES
+MEMORY MANAGERS
+DISK-CACHE PROGRAMS
+SETTING UP A DUAL-BOOT CONFIGURATION WITH WINDOWS NT
+CREATING AN MS-DOS STARTUP PARTITION
+USING TERMINATE-AND-STAY-RESIDENT (TSR) PROGRAMS 
+	AND DRIVERS
+KNOWN POTENTIAL SETUP PROBLEMS
+
+
+QUICK TIPS FOR AN ERROR-FREE SETUP
+Disable all antivirus programs running on your system. 
+If these utilities are left running during Setup, your 
+system may stop responding. 
+
+NOTE: Some systems have antivirus capabilities built 
+into the system. If this option is left enabled in 
+BIOS/CMOS settings, you may receive a warning about 
+"virus-like activity" or "Master Boot Record" changes. 
+You must allow these changes to take place for Setup 
+to complete successfully. See your antivirus software 
+documentation for more information.
+
+Run ScanDisk to check and fix any problems with your 
+hard disk(s).
+
+Close all running programs. This includes disabling 
+any screen savers, Advanced Power Management settings, 
+and other programs that may cause Setup to stop 
+responding. To assure a clean upgrade from in 
+Windows 95, press CTRL+ALT+DEL and "End Task" on 
+all running programs except SYSTRAY and EXPLORER 
+before running Setup. See "Performing a Clean Boot" 
+for more information.
+
+GENERAL SETUP ISSUES
+If you have the Number Nine Imagine 128 Display 
+Adapter, or the STB Velocity 128 3D AGP (Nvidia 
+Riva 128), you should run Setup from MS-DOS or 
+change your display driver to VGA.
+
+Upgrade vs. Full install versions of Windows 98. 
+If you have the Upgrade version of Windows 98, 
+Setup will attempt to find a qualifying upgrade 
+product on your system. If Setup fails to find a 
+previous version of Windows, you will be prompted 
+to insert your previous media for proof of 
+compliance. 
+
+Disk Space requirements for Windows 98. 
+Because there are many factors that go into 
+calculating the amount of free space required for 
+Windows 98, these figures are only estimates based 
+on typical Windows 98 installs.
+
+Typical upgrade from Windows 95: requires approximately 
+  195 MB of free hard disk space, but may range 
+  between 120 MB to 295 MB, depending on your system 
+  configuration and the options you choose to install.
+Full install of Windows 98 on a FAT16 drive: requires 
+  225 MB of free hard disk space, but may range between 
+  165-355 MB depending on system configuration and 
+  options selected.
+Full install of Windows 98 on a FAT32 drive: requires 
+  175 MB of free hard disk space, but may range between 
+  140 MB - 255 MB, depending on system configuration and 
+  options selected.
+
+Also, if you are installing Windows 98 to a drive 
+other than C, Setup can require up to 25 MB of free 
+disk space on drive C for the system and log files 
+created during Setup.
+
+Uninstall: If you wish to back up Windows 95 before upgrading, select the Save Your System Files option during Setup. This 
+will allow you to uninstall Windows 98 in the event you 
+have problems. However, there are certain cases in which 
+you cannot do this:
+
+* Your current Windows installation is on a 
+  compressed drive.
+* You are installing to a new directory or setting 
+  up a clean install with no previous version available.
+* You are running a version of MS-DOS earlier 
+  than 5.0.
+
+MAKE A NEW STARTUP DISK! Because of changes in the 
+real-mode and protect-mode kernels to support FAT32, 
+Windows 98 startup disks are not compatible with earlier 
+versions of Windows. Therefore, when you set up 
+Windows 98 for the first time, be sure to make a 
+new Startup Disk, EVEN IF YOU ARE NOT PLANNING TO 
+USE FAT32.
+
+Program Manager from Windows 3.x.
+Program Manager is no longer supported in Windows 98. 
+Program Manager (Progman.exe) is left on the system 
+for troubleshooting purposes, but it will NOT contain 
+any groups. In addition, if you are upgrading over 
+Windows 95, your existing .grp files will be removed. 
+These are known to cause some problems when installing 
+Windows 98. If you are upgrading from Windows 3.x, 
+the old .grp files will remain on the system and 
+Program Manager will still have some functionality. 
+You should back up your existing progman.ini and *.grp 
+files before upgrading to Windows 98 if you intend to 
+use Program Manager.
+
+INSTALLING WINDOWS 98 FROM MS-DOS
+If you are starting with a clean or new hard disk or 
+if you have problems running Setup from your previous 
+version of Windows, you may have to run Windows 98 
+Setup from MS-DOS. Although installing from MS-DOS is 
+typically the slower method of installation, it is 
+often the safest and should be used when other types 
+of installations fail.
+
+MS-DOS Boot Hot Keys:
+There are several ways to boot your system to an 
+MS-DOS command prompt safely. The easiest way is by 
+using these hot keys:
+
+* Windows 98
+Hold the CTRL key down while your computer is booting. 
+This will take you directly to the Windows 98 Boot 
+Menu (the F8 key is still functional, but there is 
+no "Starting Windows 98" prompt in Windows 98, so 
+it's hard to know exactly when to press it).
+
+* Windows 95
+Press the F8 key at the "Starting Windows 95" prompt. 
+This will take you to the Windows 95 Boot Menu.
+
+* MS-DOS 6.x
+Press the F8 key at the "Starting MS-DOS" prompt. This 
+will allows you to manually choose which drivers to 
+load or to bypass your system files. 
+
+* Real-mode CD-ROM drivers
+You will need real-mode CD-ROM drivers loaded so you 
+can access the Windows 98 CD. If you have run 
+Windows 98 Setup before and have created a Startup 
+Disk, you can use the CD-ROM drivers included on that 
+disk. If you do not have a Startup Disk, you will 
+need to run the installation program that came with 
+your CD-ROM hardware.
+
+After you have access to your CD-ROM drive, you can 
+switch to the drive containing the Windows 98 CD 
+and type: SETUP. Setup should now continue.
+
+
+Tips for Installing Real-Mode CD-ROM Drivers:
+
+Currently running Windows 95:
+If you are currently running Windows 95, you may 
+already have a portion of the CD-ROM drivers loaded. 
+If you can shut down to MS-DOS mode and get access 
+to your CD-ROM drive, try the following:
+
+* Reboot and press the F8 key at "Starting Windows 95".
+* Choose "Command Prompt Only."
+* At the C:\ prompt type: DosStart.bat.
+
+You should now have access to your CD-ROM drive.
+
+Lost access to the CD-ROM drive during Setup:
+If you lose access to your CD-ROM during Windows 98 
+Setup, you can try the following:
+
+* Reboot and press the F8 key at "Starting Windows 95," 
+  and then choose the option for Command Prompt Only. If 
+  you are running MS-DOS, boot directly to command prompt.
+* Edit the Autoexec.bat file by typing: Edit Autoexec.bat
+* Delete the text "Rem by Windows 98 Setup" in front of 
+  the line that includes the reference to Mscdex.exe.
+* Exit Edit by typing ALT-F-X and save the file when 
+  prompted.
+* Reboot. Either Setup should continue on its own, or 
+  you should run Setup again, choosing Safe Recovery if 
+  prompted.
+
+Running Windows 98 Setup from Your Hard Disk:
+By copying all the Setup files to your hard disk and 
+then installing from your hard disk, you can eliminate 
+most of the problems associated with file copy and disk 
+I/O issues. You can unload your CD-ROM drivers and free 
+up conventional memory to assist with low memory errors 
+in this type of install. To copy the Setup files locally:
+
+From Windows 95:
+* Free an additional 120 MB of disk space in addition 
+  to what Setup will require. Setup will typically 
+  require 195 MB for an upgrade from Windows 95.
+* Create a temporary folder to store the Setup files 
+  on that drive.
+* Copy the contents of the Win98 folder on your 
+  Windows 98 CD to the temporary folder you just created. 
+  You should also copy the Win98 subfolders, but this is 
+  not essential if you are short on disk space.
+* Reboot. Press the F8 key at "Starting Windows 95" and 
+  choose Safe Mode Command Prompt Only.
+* Now, switch to the temporary folder containing the 
+  Windows 98 Setup files and type: SETUP.
+
+From MS-DOS:
+* Make sure you have access to your CD-ROM drive. See 
+  above for more information.
+* Free an additional 120 MB of disk space in addition 
+  to what Setup will require. Setup will typically 
+  require 195 MB for an upgrade from Windows 95.
+* Create a temporary folder on the drive with plenty 
+  of free space to store the Setup files. To create a 
+  temporary directory, switch to that drive letter and 
+  type: MD Win98tmp.
+* Now, switch to the Windows 98 CD-ROM drive and the 
+  Win98 directory by typing: <drive letter>\Win98.
+* Then copy the Windows 98 Setup file to the temporary 
+  directory you just created by typing: 
+  Copy *.* <drive letter>\Win98tmp
+* After all the files are copied, restart your system 
+  and perform a clean boot by bypassing your startup 
+  files. See "Performing a Clean Boot" for more 
+  information.
+* Switch to the temporary directory you just copied 
+  the files to and start Setup by typing: SETUP.
+
+Performing a Clean Boot:
+Third-party device drivers, utilities, or other programs 
+can prevent a successful install. Clean-booting your 
+system can fix many of these problems. You can perform 
+a clean boot by:
+
+Using a floppy disk to start your computer:
+* Boot from a Windows 98 Startup Disk. This disk allows 
+  the option for loading with or without CD-ROM drivers 
+  and is a clean environment for running Setup.
+* Boot from a previous Windows 95 or MS-DOS boot disk. 
+  This does not give access to your CD-ROM drivers, but 
+  can be used if you copy the Setup files to your hard 
+  disk as described above.
+
+Windows 95 Safe Mode Command Prompt Only:
+* Boot your system and hold the F8 key at the "Starting 
+  Windows 95" prompt.
+* Choose Safe Mode Command Prompt Only. This also does 
+  not provide access to your CD-ROM drive, but can be 
+  used if the Setup files are copied to your hard disk 
+  as described above.
+
+Windows 98 step-by-step boot:
+If you want to load some drivers manually, do this:
+* Boot your system and hold the F8 key at the "Starting 
+  Windows 95" prompt.
+* Choose the Step by Step option.
+* Now, only say YES to devices you want to be loaded. In 
+  most cases, you should say YES to Himem.sys
+
+Windows 95/MS-DOS Clean boot with more memory:
+You can increase the amount of memory available by making 
+the following modifications to your Config.sys file. You 
+can also make these changes to your Boot Disk as well. 
+NOTE: These are the only drivers you should load.
+
+Device=Himem.sys
+Device=EMM386.exe noems
+Dos=high,umb
+Device=drvspace.sys /move 
+	(Optional - only if using DriveSpace compression)
+
+Creating a Windows 98 Startup Disk:
+If Windows 98 Setup fails after copying most of the files 
+to your hard disk, you may be able to create a Startup 
+Disk by using the bootdisk.bat utility.
+* Boot to an MS-DOS prompt.
+* Change directories to your Windows\command directory.
+* Run the Bootdisk.bat program that will prompt you to 
+  create a Startup Disk.
+
+This disk contains generic real-mode CD-ROM drivers that 
+may be useful when running Setup again.
+
+ANTIVIRUS SOFTWARE
+Make sure that no antivirus program is running while you 
+are setting up Windows 98. If the program is a 
+terminate-and-stay-resident program, remove any references 
+to it in your Autoexec.bat, Config.sys, and Win.ini files.
+
+If your BIOS has built-in virus protection, disable it 
+before running Setup. To disable it, you must use the 
+CMOS setup program for your BIOS. For more information, 
+see your computer documentation.
+
+See the notes for specific antivirus programs below.
+
+CMOS/BIOS-enabled virus protection:
+Some systems come with virus protection built into the 
+system. If this is left enabled, you may be warned with 
+"Virus-like Activity" or "Master Boot Record Changed" 
+messages. You must allow these changes to take place. If 
+you choose to restore the previous settings, your system 
+may no longer boot.
+
+Norton AntiVirus:
+If Norton AntiVirus is installed, you may see the 
+following warning at the end of the initial file copy 
+procedure: 
+
+	Application Wininst0.400\Suwin.exe is 
+	attempting to update the Master Boot Record
+
+You should choose Continue (C) for Setup to finish 
+properly. If you do not allow these changes to take place, 
+Setup may stop responding.
+
+Dr. Solomon's AntiVirus:
+If you are running Dr. Solomon's AntiVirus utility, you 
+may receive a blue screen fatal exception error in Ios.vxd 
+while trying to create a Startup Disk during Setup. You 
+should click Cancel on the Startup Disk screen when the 
+progress bar is at 20%. This will allow Setup to continue. 
+Look for an update to Dr. Solomon's AntiVirus software on 
+their Web site to resolve this issue.
+
+FINDING AND FIXING HARD DISK PROBLEMS DURING SETUP 
+(USING SCANDISK)
+Finding problems during Windows 98 Setup
+The version of Scandisk run during Windows 98 Setup only 
+checks for errors. It does not fix them. If there are 
+problems, Setup cannot continue until they are fixed. 
+To fix these problems, quit Setup and run ScanDisk from 
+Windows 95 or MS-DOS. See below for more information 
+about using ScanDisk to resolve these issues.
+
+Fixing Hard Disk Problems:
+If, during Setup, you see a message telling you that you 
+must run ScanDisk to fix problems on your hard disk, 
+follow these steps to fix the problems.
+
+If you are setting up Windows 98 over MS-DOS or a 
+previous version of Windows, such as Windows 3.1:
+
+1. Quit Windows.
+
+2. If you are setting up from floppy disks, insert 
+   Setup Disk 1 into the floppy drive, and then type 
+   the following at the command prompt:
+
+	a:scandisk.exe /all
+
+   where "a" is the drive that contains the Windows disk.
+
+3. If you are setting up from a CD, insert the CD, and 
+   then type the following:
+
+        d:\win98\scandisk.exe /all
+
+   where "d" is the drive that contains the CD.
+
+4. Follow the instructions on your screen, and fix any 
+   problems that ScanDisk finds.
+
+5. Start Windows, and then run Setup again.
+
+If you are setting up Windows 98 over a previous version 
+of Windows 98 or Windows 95:
+
+1. Quit Setup.
+
+2. On the Start menu, point to  Programs, point to 
+   Accessories, point to System Tools, and then 
+   click ScanDisk.
+
+3. Check your hard disks and any host drives you have 
+   for errors, and repair any problems found. Be sure 
+   to do a complete surface scan on all your drives, 
+   or Setup may still find errors.
+
+Problems Running ScanDisk:
+There are certain cases where ScanDisk may not be able 
+to fix an issue or is producing errors. 
+
+You are running DriveSpace 3 compression:
+If Drvspace3 compression is installed on your system, 
+you may be low on conventional memory. To free up memory, 
+you may try the following:
+
+* If you are running MS-DOS 6.x, you can run Memmaker.exe 
+  to free enough memory for ScanDisk to complete. 
+* See "INSTALLING WINDOWS 98 FROM MS-DOS" on how to perform 
+  a clean boot with more memory.
+* Check your drives while running Windows 95.
+
+If you still don't have enough memory, or if you have 
+other problems while Setup is running ScanDisk, you can 
+bypass ScanDisk in Setup by running Setup with the /IS 
+option. To do this, type the following command:
+
+	setup /is
+
+NOTE: Bypassing ScanDisk during Setup is not recommended. 
+If you do, there may be problems with your hard disk 
+that could cause Windows 98 not to install or run 
+correctly.  
+
+REMOVING WINDOWS 98
+Saving System Files:
+Windows 98 Setup offers users the option of backing 
+up their previous version of Windows in case Windows 98 
+needs to be uninstalled later. To enable this option, 
+you must select the Save Your System Files option when 
+prompted during Setup. Setup will then create the 
+following hidden files necessary to uninstall Windows 98:
+  * Winundo.dat
+  * Winundo.ini
+  * Winlfn.ini
+
+NOTE: Deleting these files will prevent Windows 98 
+from being uninstalled.
+
+If any of the following apply, you will not be able 
+to Uninstall Windows 98, and Setup will not prompt you 
+to Save System Files:
+
+* Your current Windows installation is on a compressed 
+  drive.
+* You are installing to a new directory or a clean 
+  install with no previous version available.
+* You are running a version of MS-DOS earlier than 5.0.
+
+NOTE: The files necessary to remove Windows 98 must 
+be saved on a local hard drive. You cannot save them 
+to a network drive or a floppy disk. As long as two 
+or more drives have adequate free space, you can 
+select the drive to which to save the uninstall 
+information.
+
+There are also several actions that could prevent 
+Windows 98 from being uninstalled after Windows 98 
+Setup is complete. The following is a list of items 
+that will cause the uninstall information to be removed 
+from your system:
+
+* Converting your hard disk to FAT32
+* Compressing your hard disk with DriveSpace
+
+NOTE: These utilities should warn you that the Uninstall 
+information will be lost before they perform conversion or 
+compression.
+
+Removing Windows 98:
+To remove Windows 98 and completely restore your system 
+to its previous versions of MS-DOS and Windows 3.x, or 
+Windows 95:
+
+1. Click Start, point to Settings, and then click Control 
+   Panel.
+2. Double-click Add/Remove Programs.
+3. On the Install/Uninstall tab, click Uninstall Windows 98, 
+   and then click Add/Remove.
+
+Or, if you are having problems starting Windows 98, 
+use your Startup Disk to start your computer, and then 
+run UNINSTAL from the Startup Disk.
+
+NOTE: UNINSTAL needs to shut down Windows 98. If there 
+is a problem with this on your computer, restart your 
+computer and press F8 when you see the message "Starting 
+Windows 98." Then, click Command Prompt Only and run 
+UNINSTAL from the command prompt.
+
+If Setup did not complete successfully and you want to 
+restore your previous versions of MS-DOS and Windows 3.x, 
+or Windows 95, you can run UNINSTAL from the 
+\Windows\Command directory on your hard disk, or from 
+your Startup Disk.
+
+If you saved your files on a drive other than C, you 
+can use the /w option to specify the drive where the 
+files are located. For example:
+
+        uninstal /w e:
+
+where e: is the drive containing your previous system 
+files.
+
+If Windows 98 is running and you want to remove the 
+uninstall files to free disk space, follow these steps:
+
+1. Click Start, point to Settings, and then click 
+   Control Panel.
+2. Double-click Add/Remove Programs.
+3. On the Install/Uninstall tab, click Old 
+   Windows 3.x/MS-DOS System Files, and then click 
+   Remove. Or click Remove Windows 95 system files 
+   (Uninstall Info).
+
+You can no longer remove Windows 98.
+
+IF YOU HAVE A COMPRESSED DRIVE
+If you have compressed your hard disk, you
+may get a message that there is not enough space on 
+the host partition of the compressed drive. Setup may 
+have to copy some files to your startup drive, the host 
+for your startup drive, or the host for your Windows 
+drive. If you get this message, free some space on the 
+specified drive, and then run Setup again. Try one of the 
+following:
+
+* Set up Windows on an uncompressed drive if possible.
+
+* Delete any unneeded files on your host partition.
+
+* If you are running Windows 3.1 and have a permanent 
+  swap file, try making it smaller. In Control Panel, 
+  double-click 386 Enhanced, and then click Virtual 
+  Memory. Modify the size of your swap file.
+
+* Use your disk compression software to free up some space 
+  on the host drive for the compressed drive. If you 
+  compressed your drive by using DriveSpace or DoubleSpace, 
+  follow these steps:
+
+  1. Quit Windows.
+  2. Run Drvspace.exe or Dblspace.exe.
+  3. Select the compressed drive on whose host you want 
+     to free space.
+  4. On the Drive menu, click Change Size and adjust the 
+     free space as necessary.
+
+  If you compressed your drive using Windows 95 Drivespace, 
+  or Drvspace3 from Plus!, follow these steps:
+
+  1. Start Windows
+  2. Select Drivespace from 
+     Start/Programs/Accessories/System Tools/Drivespace.
+  3. Select the compressed drive on whose host you want 
+     to free space.
+  4. On the Drive menu, click Change Size, and then adjust 
+     the free space as necessary.
+
+If you used other compression software, such as Stacker, 
+consult the software documentation.
+
+NOTE: You may notice a discrepancy in the amount of free 
+space reported by Setup and the amount of space you think 
+is available on your host drive. Windows uses some space 
+for creating a swap file. This space may not appear to be 
+allocated when Windows is not running. 
+
+NOTE: If you create a Startup Disk during Setup, make 
+sure you do not use a compressed disk for the Startup Disk.
+
+INSTALLING WINDOWS 98 ON A SYSTEM RUNNING WINDOWS NT 
+You cannot install Windows 98 over any version of 
+Windows NT, but they can exist together on a single 
+system. However, for compatibility reasons, it is 
+recommended that you install each to a separate hard 
+disk or partition. If Windows NT is already installed, 
+Windows 98 Setup will add itself to the Windows NT boot 
+menu to allow the user to multi-boot between Windows 98 
+and Windows NT.
+
+If you can no longer boot Windows NT, you should boot 
+from the Windows NT recovery disks and choose the Repair 
+option to restore the Windows NT boot files.
+
+When installing Windows 98 on a system with drives 
+created with Windows NT, you may receive the following 
+error:
+
+"Setup has detected that your hard disk has a 64K-cluster 
+FAT partition. Because ScanDisk does not work on disks 
+with this cluster size, Setup cannot continue. To complete 
+Setup , you must repartition your hard disk, format the 
+partition with a FAT file system that has a cluster size 
+of 32K or less, and then restart Setup."
+
+Running Setup with the "/is" parameter (e.g., Setup /is) 
+will bypass ScanDisk and avoid this problem.
+
+INSTALLING WINDOWS 98 ON A SYSTEM RUNNING OS/2
+Setup will not run on OS/2. You need to start MS-DOS 
+and run Setup from the MS-DOS prompt.
+
+NOTE: If you are upgrading over OS/2 on an HPFS partition, 
+you must have your OS/2 disk 1 available during Setup.
+
+If you start MS-DOS from a floppy disk and then run 
+Setup, you will no longer be able to start OS/2 after 
+Windows 98 has been installed. You must delete the 
+Autoexec.bat and Config.sys files that OS/2 uses before 
+running Windows 98 Setup.
+
+If you want to remove OS/2 from your computer after you 
+have installed Windows 98:
+
+1. Back up the data files you want to keep onto a 
+   floppy disk or network drive.
+2. Delete the files in each of your OS/2 directories and 
+   subdirectories, and then delete the OS/2 directories.
+3. In My Computer or Windows Explorer, click View, click 
+   Options, and click Show All Files. Then, delete the 
+   following OS/2 files:
+
+	Ea data.sf
+	OS2ldr.msg
+	OS2krnl
+	OS2boot
+	Wp data.sf
+
+SETUP ERROR MESSAGES
+This section lists specific messages that you may 
+encounter during Setup and provides information about 
+what to do next.
+
+"Previous version of Setupx.dll" message:
+
+Setup detects that an earlier version of SetupX.dll or 
+NetDi.dll is in use. This may be because there are open 
+applications on your computer. If you want Setup to 
+replace the existing file and automatically restart 
+your system, click OK. Or, to keep your existing version 
+of SetupX.dll and NetDi.dll, click Cancel to quit Setup, 
+close any open applications, then run Setup again.
+
+Several programs are known to cause this error:
+
+* Diamond's "In Control Tools"
+* Ensonics AudioPCI sound card drivers
+* Aztech sound card drivers
+* Hayes Modem configuration utilites
+* Some Windows Printing System utilities 
+  (Canon BJ series)
+
+If Windows 98 Setup still gives this error after 
+rebooting, you should run Setup from the MS-DOS command 
+prompt. See "INSTALLING WINDOWS 98 FROM MS-DOS" for more 
+information.
+
+Message SU0018
+"Setup cannot create files on your startup drive and 
+cannot set up Windows 98. There may be too many files 
+in the root directory of your startup drive, or your 
+startup drive letter may have been remapped."
+
+The root folder of a drive holds a maximum of 512 entries 
+(files or folders). This message indicates that Setup 
+has detected too many directory entries in the root 
+folder of your computer, and Setup cannot create the 
+files it needs to set up Windows 98. Move or delete 
+some files from the root folder of your drive, and 
+then run Setup again.
+
+This error message can also appear if your startup 
+drive letter has been remapped. Several things could 
+cause this:
+* You have mapped a network drive to C. If this is the 
+  case, remap the network drive.
+* You have a LastDrive=C: statement in your Config.sys 
+  file. Remove the LastDrive statement, or set it to equal 
+  another drive.
+* A third-party partitioning or boot manager program has 
+  remapped the drive. Consult the program documentation. 
+  You may need to uninstall the program before installing 
+  Windows 98.
+
+"Unrecoverable Setup Error" Message
+"Unrecoverable Setup Error. Setup cannot continue on this 
+system configuration. Click OK to quit Setup." This error 
+could be caused by various conditions. See "General Setup 
+Notes" and "INSTALLING WINDOWS 98 FROM MS-DOS" for more 
+information.
+
+Long File Names Error Messages
+If you see the message "Setup has detected that the 
+program, Long File Names, is installed in this directory. 
+Setup cannot continue." quit Setup, and then remove Long 
+File Names from your computer by using the Uninstall feature 
+in Long File Names. See "View Software" for more information.
+
+Not Enough Memory Messages
+If you encounter an Out of Memory message, you can 
+increase conventional memory by commenting out TSRs 
+and loading device drivers into the upper memory area. 
+For information on how to perform these steps, see 
+Microsoft Knowledge Base Article Q134399, "How to 
+Increase Conventional Memory for MS-DOS-Based Programs" at 
+http://support.microsoft.com/support/kb/articles/q134/3/99.asp
+
+Not Enough Disk Space Messages
+You can recover disk space by completing any or all of 
+the following steps:
+
+* Right-click Recycle Bin, and then click Empty 
+  Recycle Bin.
+
+* Delete the contents of your Internet browser cache 
+  folder.
+
+* Delete files with the extensions .bak and .tmp.
+
+* Delete unused program folders (be sure to back up 
+  data first).
+
+* Delete the old MS-DOS folder, unless you intend to 
+  configure your computer to run both Windows 98 and 
+  MS-DOS. (First, be sure you have a start disk that 
+  supports access to the CD-ROM drive.)
+
+* Delete the hidden file Winundo.dat from the previous 
+  installation of Windows 95.
+
+* Delete the old Windows 3.1 folder, unless you intend 
+  to configure your computer to run both Windows 3.1 
+  and Windows 98.
+
+Setup Cannot Write to the Temporary Directory
+This message may appear because there is insufficient 
+disk space for the temporary directory. If space is 
+available on another drive, use the following command 
+line to change the temporary directory location:
+
+	Setup /T:<drive letter>:\TEMP
+
+If you do not have space available on another drive, 
+free some disk space, and then run Setup again. See 
+the "Not Enough Disk Space" Messages section for 
+files that can be deleted.
+
+CAB File Error Messages
+CAB file errors are most frequently caused by one or 
+more of the following: virus, low conventional memory, 
+bad media, or hardware, especially CD-ROM drives. 
+
+If you already created a Startup Disk, quit Setup, 
+shut down your computer, insert the Startup Disk, and 
+then restart the computer. This action creates a 
+controlled environment from which to run Setup. Then 
+run Setup from the MS-DOS command prompt.
+
+To recover from corrupt CAB file error messages, try 
+copying the Setup files to your hard disk and running 
+Setup from your hard disk, using these steps:
+
+1. You need an extra 200 MB free on your hard disk 
+   and a temp directory to store files.
+2. Boot off the Windows 98 Startup Disk and choose 
+   the option to load your CD-ROM drivers. If you 
+   do not have access to your CD-ROM drive when 
+   booting off the Windows 98 Startup Disk, you 
+   must load the drivers that came with your CD-ROM 
+   drive.
+3. Change drives to the CD-ROM drive letter indicated 
+   by the MSCD001 prompt on the screen and switch to 
+   the Win98 folder. Type: Copy *.* <destination drive 
+   and the temp folder you created>
+4. Change to that folder and run Setup, choosing Safe 
+   Recovery if prompted.
+
+See "INSTALLING WINDOWS 98 FROM MS-DOS" for more information.
+
+If you have Multimedia Cloaking and are installing 
+Windows 98 from floppy disks, Setup may not run 
+successfully. If you see messages about Setup not 
+being able to read .cab files, follow these steps:
+
+1. Remove the line referencing Cacheclk.exe from 
+   your Config.sys and Autoexec.bat files.
+2. Restart your computer.
+3. Run Setup again.
+
+Message SU0010, SU0012, SU0015, or SU0016
+If you receive one of these messages during Setup, 
+see  "Installing Windows 98 on a System Running 
+Windows NT" and "Installing Windows 98 on a System 
+Running OS/2" for more information.
+
+Message SU0011
+If your hard disk is password-protected, Setup will 
+not complete successfully. You must first remove the 
+password protection. For more information, see your 
+computer documentation.
+
+Message SU0013
+To set up Windows 98, your startup drive must be 
+an MS-DOS boot partition. If your startup drive is 
+formatted as HPFS or NTFS, you must create an MS-DOS 
+boot partition before running Setup. For more 
+information about creating an MS-DOS boot partition, 
+see your computer documentation.
+
+You may also receive this error if you have third-party 
+partitioning software such as EZ drive or Disk Manager 
+installed. If so, reboot your system and run Setup 
+from an MS-DOS command prompt. For more information, 
+see "Running Setup from MS-DOS."
+
+Standard Mode Messages
+If you get any of the following error messages, remove 
+any memory managers (such as EMM386.exe, QEMM, or 386Max) 
+from your Config.sys file, and then run Setup again.
+
+	Standard Mode: Invalid DPMI return.
+	Standard Mode: Fault in MS-DOS Extender.
+	Standard Mode: Bad Fault in MS-DOS Extender.
+	Standard Mode: Unknown stack in fault dispatcher.
+	Standard Mode: Stack Overflow.
+
+NOTE: If you still have problems, add EMM386.EXE back 
+into your Config.sys file and exclude all ranges. For 
+example,
+
+	device=c:\windows\emm386.exe x=A000-FFFF
+
+If you encounter these messages or if your computer stops 
+responding during Setup, turn on double-buffering in 
+SmartDrive. Several SCSI hard drives and some ESDI drives 
+require double-buffering.
+
+To turn on double buffering, add the following line to 
+the beginning of your Config.sys file:
+
+	device=c:\windows\smartdrv.exe /double_buffer+
+
+where "c:\windows" is the path to your Windows directory.
+
+"Setup Could Not Back Up Your System Files" Message
+If you see this error message while Setup is saving 
+your system files, you may not have enough disk space, 
+particularly on compressed disks. Free up space on the 
+drive you are saving your system files on (the default 
+drive is C) by removing unneeded files.
+
+Uninstall can require up to 75 MB on many systems. If 
+Setup is not offering you the choice of saving your 
+system files, you may be very low on free disk space.
+
+"Cannot Continue on This System Configuration"
+If you get this message, you may have an older, 
+incompatible disk partition. Before you run Setup, 
+you will need to back up your data and then repartition 
+your disk.
+
+Message SU0167
+A file or folder called Desktop exists on your computer. 
+Rename or move your current Desktop folder, and then 
+run Setup again.
+
+Message SU0410
+Setup cannot open a required file, possibly because the 
+file is missing or damaged, or because your computer 
+does not have enough memory. 
+
+If you have already created a Startup Disk, quit Setup, 
+shut down your computer, insert the Startup Disk, and 
+then restart the computer. Then, run Setup from the 
+MS-DOS command prompt.
+
+"Cannot Copy File" Messages
+Try skipping the file; it may not be essential. If Setup 
+does not complete successfully, or Windows 98 will not 
+run, quit Setup, shut down your computer, insert the 
+Startup Disk into the floppy drive, and restart the 
+computer. Then run Setup from the MS-DOS command prompt.
+
+SU99xxxx Messages
+SU99 is a prefix that is added to all errors that Setup 
+does not have a specific error message for. These errors 
+are often caused by low conventional memory. If you have 
+already created a Startup Disk, quit Setup, shut down your 
+computer, insert the Startup Disk, and restart the computer. 
+Then, run Setup from the MS-DOS command prompt.
+
+"Setup does not have enough conventional memory to check your 
+computer's hard disks." 
+
+-or-
+
+"Setup could not check the hard drives on your computer."
+
+If you receive either of these errors, Setup was unable to 
+run ScanDisk to check your hard drives. This could be because 
+of low conventional memory or your disk contains errors that 
+Scandisk cannot fix when run from Setup. To work around these 
+errors, reboot your system to MS-DOS mode and run ScanDisk 
+/all. Then, run Setup again. If Setup still fails, reboot 
+to MS-DOS mode and run Scandisk /all /surface. This will take 
+a little longer, but it will ensure your hard disks are in 
+good shape. If, after running ScanDisk with these options, 
+Setup still won't continue, you should run Setup /is to bypass 
+ScanDisk.
+
+NOTE: Bypassing ScanDisk is not recommened and should only be 
+used if you are positive your disk(s) contain no errors.  If 
+there are still errors, Setup may fail and your system may no 
+longer boot.
+
+EDITING THE CONFIG.SYS AND AUTOEXEC.BAT FILES
+Your computer's Config.sys and Autoexec.bat files tell 
+your computer what programs and devices to load on 
+startup (for example, a virus-scanner program to 
+Autoexec.bat file may direct your computer to automatically 
+load). Windows 98 Setup will not run properly with some 
+programs and devices. To remove or disable such a program 
+or device, you may need to edit the Config.sys and/or 
+Autoexec.bat files.
+
+To edit the Config.sys and Autoexec.bat files:
+
+1. In Windows 3.1 or 3.11, click File, click Run, type 
+   Sysedit, and then press ENTER. In Windows 95, click 
+   Start, click Run, type Sysedit, and then press ENTER.
+
+2. In the Config.sys or Autoexec.bat dialog box, type 
+   REM at the beginning of any line(s) that you want 
+   to disable.
+
+3. Save changes and restart your computer.
+
+HARDWARE NOTES
+This section includes notes on specific system 
+configurations that may prevent Setup from installing 
+Windows 98 successfully.
+
+Sager NP8200 or Wedge Technologies 466/DX2
+IMPORTANT: If you install Windows 98 on a Sager
+NP8200 or Wedge Technologies 466/DX2 laptop
+computer, you will not be able to use your 
+computer, even if you reinstall a previous
+version of Windows.
+
+Plug and Play Network Cards and 16-Bit Real-Mode Drivers
+When you need to run the 16-bit real-mode driver for 
+your network interface card (NIC) (which is common if 
+you use DLC or another real-mode protocol), your Plug 
+and Play card may appear not to function because the 
+16-bit NIC drivers load before Windows 98 has a chance 
+to turn on Plug and Play cards. In addition, some 
+16-bit NIC drivers do not recognize Plug and Play 
+cards (most NE2000 Plug and Play clones fall into 
+this category).
+
+>>>To use your Plug and Play card with a 16-bit 
+   NIC driver:
+
+1. Run the Softset utility that comes with your Plug 
+   and Play card, and then set the card to non-Plug 
+   and Play mode.
+
+2. Double-click Network in Control Panel, and then 
+   remove the network card.
+
+3. In Control Panel, double-click Add New Hardware and 
+   follow the instructions on your screen. Windows 98 
+   will detect your network card.
+
+If you change to a 32-bit protected-mode NIC driver 
+in the future, you can run Softset again to turn on 
+Plug and Play mode for your card.
+
+Intel EtherExpress 16 NICs and PCI Computers
+Your system may not respond or you may experience 
+initialization problems if you are using an Intel 
+EtherExpress 16 NIC in a PCI computer with certain 
+Diamond Speed Star PCI video cards. These problems 
+are not related to Windows 98; they occur on a variety 
+of operating system platforms. If you experience other 
+problems with your EtherExpress 16 in a PCI computer, 
+replace the card before you report the problem to 
+Microsoft.
+
+If you have one of these video cards, contact your 
+vendor about getting a new video BIOS update.
+
+- Diamond Speed Star PCI video card with BIOS 
+  version 1.01
+- Diamond Viper PCI VGA Video Adapter
+- Diamond Stealth video card, Bios v1.03
+
+IBM Thinkpad Model 750x/755x/360x
+If you have one of these models (including submodels 
+such as C, CE, CX, CS, and CSE), before you install 
+Windows 98 check the IBM bulletin board or the THINKPAD 
+forum on CompuServe for updated BIOS and/or Mwave 
+drivers for your computer.
+
+If you don't upgrade your BIOS, you may have problems 
+if you move the mouse while your computer is turning 
+suspend mode on or off.
+
+View Software
+Some utilities for Windows 3.1, such as Long File Names, 
+need to be upgraded or used differently with Windows 98. 
+To obtain a version of View Software that works with 
+Windows 98, call (800) 536-8439 in the United States. 
+Outside the United States, call (415) 856-8439.
+
+MEMORY MANAGERS
+If you have QEMM installed on your computer, it is 
+recommended that you remove it from your Config.sys 
+file before you set up Windows 98. You can add it 
+back after Windows 98 is installed.
+
+The following memory managers are incompatible with 
+or may cause problems with Windows 98. It is 
+recommended that you remove all references to them 
+from your Config.sys and Autoexec.bat files and 
+useEmm386.exe and Himem.sys, which are provided 
+with Windows 98, to manage memory instead.
+
+        Allemm4.sys - All Charge 386 Version 3.1
+        HPemm386.sys and HPemm486.sys
+        HPmm.sys - HP Memory Manager (must remove 
+            before Setup)
+        Iemm.sys Memory Manager
+        Intel(R) Expanded-Memory Emulator (Ilim386.sys)
+        Maximizer Memory Manager (Maximize.com)
+        NetRoom Memory Manager (RM386.sys)
+        QMAPS Memory Manager Version 5.16
+        UMB PRO Version 1.07
+
+NOTE: The documentation for 386MAX recommends you not 
+set the EXT parameter below 64. If you set this parameter 
+to 0, Setup will fail.
+
+NOTE: If you remove the line containing Rm386.sys from 
+your Config.sys file, you may need to install Himem.sys, 
+which comes with Windows or MS-DOS. You can do this by 
+adding the following line to your Config.sys file:
+
+        device=<path>\himem.sys                                       
+
+The <path> is the location of your Windows or MS-DOS 
+files (for example, C:\Windows).
+
+
+DISK-CACHE PROGRAMS
+Before you run Setup, it is recommended that you remove 
+any third-party disk-cache programs and replace them 
+with Smartdrv.exe, which is provided with Windows 98.
+
+If you are running one of the following disk-cache 
+utilities, remove it. In some cases, Setup will remove 
+it for you.
+
+  386MAX Disk-Cache utility (Qcache.exe) (Do not use 
+      with SmartDrive.)
+  Cache.exe Disk-Cache utility
+  Cache.sys Disk-Cache utility
+  Flash Disk-Cache utility (Flash.exe) (do not use 
+      with SmartDrive.)
+  Hyperdisk Disk-Cache utility (do not use with 
+      SmartDrive.)
+  Icache.sys Disk-Cache utility 
+  IBMcache.sys Disk-Cache utility 
+  Mace Disk-Cache Utility (Mcache.sys)
+  Norton Speed Drive Disk utility (SPEEDRV)
+  Norton Utilities Version 5.0 and 6.1 (DISKREET, NCACHE)
+  PC-Cache (PC Tools disk cache utility) (must remove 
+       before Setup)
+  PC-Kwik Disk-Cache utility (Pc-kwik.exe)
+  PC_Kwik Disk Accelerator
+  PC-Kwik Version 1.59 (Pck.exe, Pskscrn.exe, Pckey.com)
+  PC Tools(TM) Disk-Cache utility (Pc-cache.com)
+  Secretdisk II Disk-Cache utility (Fast512.sys) (Do not 
+       use with SmartDrive.)
+  Super PC-Kwik Disk-Cache utility (Superpck.exe)
+
+SETTING UP A DUAL-BOOT CONFIGURATION WITH WINDOWS NT
+To set up a dual-boot configuration on an x86 computer, 
+install the operating system in the usual way, and then 
+edit the Boot.ini file as described below. All system 
+startup info is stored in the Boot.ini file, which is 
+automatically created during Setup at the root of your 
+computer's hard disk.
+
+>>>To edit the Boot.ini file:
+
+1. In Windows Explorer, click View, click Options, and 
+   then click "Show all files."
+
+2. Make sure "Hide file extensions for known file types" 
+   is not checked, and then click OK.
+
+3. Right-click the Boot.ini file, and then click Properties.
+
+4. Click to clear the Read-only check box, and then 
+   click OK.
+
+5. Right-click the Boot.ini file, click Copy, right-click 
+   a blank area of the Explorer dialog box, and then click 
+   Paste. A backup copy with the file name "Copy of 
+   Boot.ini" will be created.
+
+6. Double-click the Boot.ini file.
+
+7. Add the name and location of the alternate system in 
+   the [operating systems] section of the file, as in the 
+   following example:
+
+	[operating systems]
+	C:\Winnt="Windows NT 4.0"
+	C:\="Microsoft Windows"
+
+8. Save and close the Boot.ini file.
+
+9. Right-click the Boot.ini file, and then click Properties.
+
+10.Select the Read-only check box, and then click OK.
+
+CREATING AN MS-DOS STARTUP PARTITION
+To set up Windows 98, your startup drive must be an 
+MS-DOS startup partition. If your startup drive is 
+formatted as HPFS or NTFS, you must create an MS-DOS 
+startup partition before you run Setup. For more 
+information about creating an MS-DOS startup partition, 
+see your computer documentation.
+
+USING TERMINATE-AND-STAY-RESIDENT (TSR) PROGRAMS 
+AND DRIVERS
+APPEND (MS-DOS)
+Do not use the APPEND utility with Windows 98. It 
+prevents Windows and Windows-based programs from 
+creating valid Well-Formed-Path (WFP) names for the 
+files they are using. (A WFP is the complete name of a
+file, including the drive letter and full path 
+specification, starting from the root directory.)
+
+Autocon Version 2.0e, Bootcon Version 1.60, and Boot.sys
+These programs enable you to select from different 
+configurations when you start your computer. Because 
+Windows 98 Setup modifies only the first sections in 
+your Config.sys and Autoexec.bat files, you may have 
+to modify these files manually after Setup. For more 
+information, see the program documentation.
+
+Cubit Version 3.01
+When you are using Cubit with Windows 98, do not 
+compress the Windows System folder or any file that 
+is loaded from your Config.sys file.
+
+Before you upgrade to Windows 98, make sure that the 
+earlier version of Windows is decompressed on your 
+hard disk. You may recompress the files after you 
+have successfully set up Windows 98.
+
+Doubledisk Version 2.5
+Windows 98 may try to access "phantom" disk drives if 
+you use it with Doubledisk. Phantom drives occur when 
+you use Doubledisk to create a compressed drive. For 
+example, if you have drives A, B, and C on your 
+computer and you use Doubledisk to create drive F, 
+Windows 98 and MS-DOS recognize drives D and E as valid 
+drives, even though they do not exist. You can use the 
+DRVOFF utility to prevent Windows from recognizing 
+phantom drives. To order a copy of the DRVOFF utility, 
+contact Vertisoft.
+
+Infinite Disk Version 2.1
+Infinite Disk version 2.1 does not work properly with 
+Windows 98. Either remove Infinite Disk software from 
+your computer before you run Setup, or contact your 
+software dealer for a version of Infinite Disk software 
+that is compatible with Windows 98.
+
+>>>To remove Infinite Disk from your computer:
+
+1. Decompress any compressed files.
+
+2. Remove the following lines from your Config.sys 
+   and Autoexec.bat files:
+
+	iddrv.sys
+	idres.exe
+	protect /c
+
+3. Restart your computer, and then run Setup again.
+
+NetWare(R) NetBIOS
+In many configurations, the NetWare NetBIOS TSR is 
+incompatible with Windows 98. In most cases, Setup 
+will detect NetWare NetBIOS and remove the startup 
+command from your computer. However, if you have
+NetWare NetBIOS set up to start from a location 
+other than your Autoexec.bat file (for example, from 
+a different batch file), Setup cannot detect it. In 
+this case, you need to remove NetWare NetBIOS manually. 
+Windows 98 includes an IPX/SPX-compatible protocol 
+that you can use instead of NetBIOS. For information 
+about configuring Windows 98 to work with it, see 
+Networks.txt.
+
+Newspace Version 1.07
+Windows 98 is incompatible with this disk-compression 
+utility.
+
+Norton Desktop for Windows (Ep.exe)
+If the data-recovery program Erase Protect (Ep.exe) is 
+loaded from your Autoexec.bat file, disable it when you 
+set up Windows, especially if you are upgrading over a 
+previous version of Windows. Because Erase Protect tries 
+to save copies of all deleted files, you can run out of 
+disk space while running Setup.
+
+It is recommended that you run Erase Protect with a 
+permanent swap file. If you are using a temporary swap 
+file, exclude files that have a .tmp or .swp extension 
+from erase protection.
+
+Norton Disklock Versions 3.01 and 3.5
+Norton Disklock versions 3.01 and 3.5 do not work 
+correctly with Windows 98. Either remove this software 
+from your computer before you run Setup, or contact 
+Symantec product support for a version of Disklock that 
+is compatible with Windows 98.
+
+For information about how to remove Disklock from your 
+computer, see the Norton Disklock documentation.
+
+PC Tools Deluxe(TM) Version 7.1 (DATAMON)
+If you load PC Tools DATAMON using the \SENTRY+ option, 
+Setup may fail if you are low on disk space. Do not use 
+the \SENTRY+ option when you are loading DATAMON.
+
+Do not load DATAMON after loading SmartDrive. If DATAMON 
+is loaded after SmartDrive, your computer may fail. See 
+the PC Tools documentation for information about how to 
+remove DATAMON.
+
+PC Tools Deluxe Version 6.0 (DESKTOP)
+If you try to start PC Tools from the command prompt 
+within Windows, your computer may fail or restart itself. 
+These problems also occur if you use MS-DOS commands 
+from a command prompt within Windows.
+
+Version 7.0 of PC Tools may correct these problems. 
+However, do not load DESKTOP from a command prompt if it 
+was loaded before you started Windows. If you do, your 
+computer may fail when you quit Windows. It is recommended 
+that you run DESKTOP from its PIF, provided with 
+Windows 98.
+
+SUBST (MS-DOS)
+You may encounter problems with SUBST during Setup, but 
+you can safely add it back after you have installed 
+Windows 98.
+
+UNDELETE
+If you are running UNDELETE with the SENTRY option, Setup 
+may have problems and you may run out of disk space during 
+Setup. It is recommended that you remove UNDELETE from 
+your Config.sys and Autoexec.bat files before running Setup.
+
+NOTE: The SENTRY option creates a hidden directory named 
+Sentry. When you delete a file, UNDELETE moves the file 
+from its current location to the Sentry directory. Before 
+you remove UNDELETE from your Config.sys or Autoexec.bat 
+file, free disk space by using the UNDELETE/PURGE command 
+on all drives.
+
+If you do not remove Undelete, Setup will disable this 
+command for you.
+
+KNOWN POTENTIAL SETUP PROBLEMS
+If you encounter problems during Setup, such as Setup 
+closing unexpectedly or error messages that do not apply, 
+increase the size of your permanent swap file. For Setup 
+to complete successfully, the size of your permanent swap 
+file plus the amount of RAM in your computer should equal 
+at least 14 MB. After you change your swap file size, 
+run Setup again.
+
+NOTE: If your hard disk is compressed, you may have to 
+increase the size of your host drive before you can 
+increase the size of your swap file.
+
+
+NOTE: Refer to the Intl.txt file to learn more about 
+installing Pan European settings.

@@ -1,0 +1,57 @@
+;========================================================
+;=  PC800.INF                                           =
+;=  --------------------------------------------------  =
+;=  This is the Windows '9x INF file for the Iomega     =
+;=  8-bit ISA adapter, PC800.				=
+;=  --------------------------------------------------  =
+;=                                        June 5, 1995  =
+;========================================================
+
+[Version]
+Signature="$CHICAGO$"
+InfVersion=01.00.01
+Class=SCSIAdapter
+Provider=%Iomega%
+
+[Manufacturer]
+%Iomega%=Iomega
+
+[Iomega]
+%*isaB703.DeviceDesc%=*isaB703.drv,*isaB703
+
+[*isaB703.drv]
+Copyfiles=@PC800.mpd
+AddReg=IOS,PC800Reg
+LogConfig=Without_IRQ, With_IRQ
+
+[PC800Reg]
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,PC800.mpd
+
+[Without_IRQ]          ;Primary Configuration, Factory default-NO IRQ's
+ConfigPriority=HARDRECONFIG
+IOConfig=280-28f(3ff::),290-29f(3ff::),300-30f(3ff::),310-31f(3ff::),3 0-33f(3ff
+::),340-34f(3ff::),348-357(3ff::),350-35f(3ff::)
+
+[With_IRQ]             ;Secondary Configuration
+ConfigPriority=HARDRECONFIG
+IOConfig=280-28f(3ff::),290-29f(3ff::),300-30f(3ff::),310-31f(3ff::),3 0-33f(3ff
+::),340-34f(3ff::),348-357(3ff::),350-35f(3ff::)
+IRQConfig = 7,3,4,5
+
+;*****************************
+[DestinationDirs]
+DefaultdestDir=12
+
+[SourceDisksNames]
+1="Iomega PC800 Install Disk","PC800.mpd",0
+
+[SourceDisksFiles]
+PC800.mpd=0,,
+
+[Strings]
+Iomega="Iomega"
+*isaB703.DeviceDesc="Iomega PC800 8-bit SCSI Host Adapter"
+
+
+

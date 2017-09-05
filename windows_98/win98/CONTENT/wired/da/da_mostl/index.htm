@@ -1,0 +1,589 @@
+<html>
+
+
+
+<head>
+
+
+
+<title>LiveWired: Technologies Americans Appreciate Most</title>
+
+
+
+<script language="JavaScript">
+
+function onStart() {
+
+	chronos.Item("visiswitch").Play();
+
+	chronos.Item("visiswitch1").Play();
+
+	chronos.Item("visiswitch2").Play();
+
+}
+
+function onStop() {
+
+	chronos.Item("visiswitch").Stop();
+
+	chronos.Item("visiswitch1").Stop();
+
+	chronos.Item("visiswitch2").Stop();
+
+}
+
+</script>
+
+
+
+
+
+<script language="Javascript">
+
+function transient() {
+
+	gramWrapper.filters.item(0).Apply();
+
+	closephoto.style.visibility = 'hidden';
+
+	gramWrapper.filters.item(0).play(3.000);
+
+	}
+
+</script>				
+
+
+
+<script language="JavaScript">
+
+
+
+function myPresentation_start() {
+
+
+
+
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+<style type="text/css">
+
+
+
+   BODY { margin: 0; background: black }
+
+   
+
+   em {color: red}
+
+   
+
+   .onhold {visibility: hidden}
+
+
+
+   .offhold {visibility: visible}
+
+   
+
+#tabular { position: absolute;
+
+			left: 28%;
+
+			top: 13%;
+
+			z-index:3;
+
+			visibility: visible
+
+			}
+
+
+
+#blurb { position: absolute;
+
+			font-family:arial;
+
+			margin-left: 6;
+
+			margin-right: 6;
+
+			color: black;
+
+			font-size:70%;
+
+			font-weight: bold;
+
+			visibility: visible
+
+			}
+
+			
+
+#appliance { position: absolute;
+
+			font-family:arial;
+
+			margin-left: 6;
+
+			margin-right: 6;
+
+			text-align: right;
+
+			color: white;
+
+			font-size:80%;
+
+			font-weight: bold;
+
+			visibility: visible
+
+			}
+
+			
+
+#percentages { position: absolute;
+
+			font-family:arial;
+
+			margin-left: 6;
+
+			margin-right: 6;
+
+			color: white;
+
+			font-size:80%;
+
+			font-weight: bold;
+
+			visibility: visible
+
+			}
+
+
+
+#microwave { position: absolute;
+
+			left: 0px;
+
+			top: 50%;
+
+			width: 100%;
+
+			height: 50%;
+
+			z-index:0;
+
+			visibility: visible
+
+			}
+
+							
+
+
+
+ #headline { position: absolute;
+
+   			left: 0;
+
+			top: 2%;
+
+			color: white;
+
+			font-family: arial;
+
+			font-size: 70%;
+
+			z-index:6;
+
+			font-weight: normal;
+
+			visibility: visible;
+
+			font-weight: bold;
+
+			margin: 4;
+
+			}
+
+
+
+  #rollover { position: absolute;
+
+   			left: 0%;
+
+			top: 65%;
+
+			width: 100%;
+
+			color: white;
+
+			font-family: arial;
+
+			font-size: 40%;
+
+			visibility: hidden;
+
+			z-index:7;
+
+			text-align: left;
+
+			font-weight: bold;
+
+			margin: 4;
+
+			background: black}
+
+			
+
+			
+
+		#source { color: white;
+
+			font-family: arial;
+
+			font-size: 55%;
+
+			}	
+
+			
+
+		#sourced { color: black;
+
+			font-family: arial;
+
+			font-size: 90%;
+
+			}
+
+			
+
+		#orangetext { color: orange;
+
+			}		
+
+				
+
+</style>
+
+
+
+</head>
+
+
+
+<body style="font-size: 40" color="black">
+
+
+
+
+
+<script language="JavaScript">
+
+// The stub for the object
+
+function presentation() {
+
+  this.onHold = presentation_onHold;
+
+  this.offHold = presentation_offHold;
+
+  this.calcScale = presentation_calcScale;
+
+  this.xFactor = document.body.offsetWidth / 800;
+
+  this.yFactor = document.body.offsetHeight / 576;
+
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+
+}
+
+
+
+function presentation_onHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_offHold() {
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'offhold') {
+
+      document.all(i).style.visibility = 'visible';
+
+    } else if (document.all(i).className == 'onhold') {
+
+      document.all(i).style.visibility = 'hidden';
+
+    }
+
+  }
+
+}
+
+
+
+function presentation_calcScale() {
+
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+
+  for (i = 0; i < document.all.length; i++) {
+
+    if (document.all(i).className == 'sg') {
+
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+
+    }
+
+  }
+
+  return;
+
+}
+
+
+
+new presentation();
+
+
+
+myPresentation = new presentation();
+
+
+
+function presentationControl() {
+
+  this.startIt = onStart;
+
+  this.stopIt = onStop;
+
+}
+
+
+
+control = new presentationControl();
+
+
+
+
+
+
+
+</script>
+
+
+
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+
+
+
+
+
+<IMG id="microwave" SRC="microwav.jpg" BORDER=0>
+
+
+
+<div id="tabular">
+
+<TABLE BORDER=2 cellpadding="0" cellspacing="0" bordercolor="lightblue">
+
+<TR>
+
+<TD>
+
+<TABLE BORDER=0 cellpadding="0" cellspacing="0">
+
+<TR>
+
+	<TD id="blurb" rowspan="10" bgcolor="lightblue" align="top" width="200">Results based on a survey that asked consumers which products have
+
+improved their lives most. <br>
+
+
+
+<span id="sourced">SOURCE: <i>Predatory Marketing: What Everyone in Business Needs to Know to
+
+Win Today's Consumer</i>, by C. Britt Beemer (William Morrow, 1997)</span></TD>
+
+	<TD id="appliance" bgcolor="red">Microwave oven </TD>
+
+	<TD id="percentages" bgcolor="orange">77.3 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Universal remote control (TV/VCR)							
+
+</TD>
+
+	<TD id="percentages" bgcolor="orange">66.6</TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Garage-door opener </TD>
+
+	<TD id="percentages" bgcolor="orange">64.6 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Home telephone answering machine </TD>
+
+	<TD id="percentages" bgcolor="orange">61.7</TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Ear thermometer </TD>
+
+	<TD id="percentages" bgcolor="orange">59.5 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Breath analyzer </TD>
+
+	<TD id="percentages" bgcolor="orange">59.2	 </TD>
+
+</TR>
+
+<TR>
+
+<TD id="appliance" bgcolor="red">Programmable home thermostat</TD>
+
+	<TD id="percentages" bgcolor="orange">58.3 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Call-waiting telephone service </TD>
+
+	<TD id="percentages" bgcolor="orange">56.4 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Automatic payroll/government check deposit </TD>
+
+	<TD id="percentages" bgcolor="orange">55.1 </TD>
+
+</TR>
+
+<TR>
+
+	<TD id="appliance" bgcolor="red">Supermarket price scanner </TD>
+
+	<TD id="percentages" bgcolor="orange">55.0 </TD>
+
+</TR>
+
+</TABLE>
+
+</TD>
+
+</TR>
+
+</TABLE>
+
+
+
+</div>
+
+
+
+<div id="headline">
+
+TECHNOLOGIES AMERICANS APPRECIATE MOST
+
+</div>
+
+
+
+<div id="rollover" class="onhold">
+
+In 1945, Raytheon Manufacturing began experimenting with an <span id="orangetext">offshoot of World
+
+War II,</span> the Magnetron. While standing by the working contraption - which created
+
+short radio waves - Percy Spencer noted that a candy bar in his pocket melted.
+
+Soon after, Spencer began to contemplate the domestic uses of the machine. Ten years
+
+later, the "radar range" became available.
+
+
+
+
+
+<span id="source">Source: <cite>World of Invention</cite>, by Gale Research </span>
+
+</div>
+
+	
+
+<script language="JavaScript" for="window" event="onload">
+
+   parent.daScheduler.gramLoaded();
+
+</script>
+
+<script language="JavaScript" for="window" event="onunload">
+
+   parent.daScheduler.gramUnloaded();
+
+</script>	
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+
+

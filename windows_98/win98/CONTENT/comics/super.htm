@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>Comics Channel!</TITLE>
+<!-- pizey, toms, shorter, blair and the big M -->
+</HEAD>
+
+<BODY id=comicsbody background=bg.gif>
+
+
+<SCRIPT Language="VBScript">
+Dim code, rs, d_s
+Dim Imgdir, mouseX, mouseY
+
+Sub Window_onLoad()
+        d_s = "sunday"
+        set rs = ImageList.Recordset
+        rs.MoveFirst
+
+	Randomize
+	rnum = Int(4 * Rnd + 1) - 1
+	rs.Move rnum	
+
+        if (comicDiv.filters(0).status = 2) then
+                comicDiv.filters(0).stop()
+        end if
+        comicDiv.filters(0).Apply()
+
+        code = rs("column1")
+        comicDiv.filters(0).Apply()
+        comic1.src =  rs("column1") + "strip.gif"
+        comichead.src =  rs("column1") + "head.gif"
+
+        marquee1.innerHTML = rs("column2")
+End Sub
+
+Sub sunday_OnClick()
+        if (comicDiv.filters(0).status = 2) then
+                comicDiv.filters(0).stop()
+        end if
+        comicDiv.filters(0).Apply()
+
+        if d_s = "sunday" then
+        	comic1.src = code + "sun.gif"
+        	d_s = "daily"
+	        sunday.src = "daily.gif"
+                sunday.alt = "Click back to the daily comic!"
+        else
+        	comic1.src = code + "strip.gif"
+        	d_s = "sunday"
+        	sunday.src = "sunday.gif"
+                sunday.alt = "Click here for the color Sunday!"
+        end if
+End Sub
+
+Sub Menu_OnClick(id)
+        if id = "news" then
+                top.Location.href="news.htm"
+        elseif id = "ptcad" then
+                if d_s = "sunday" then
+                        postit_url = code + "strip.cdf"
+                else
+                        postit_url = code + "sun.cdf"
+                end if
+                top.location.href = postit_url
+        elseif id = "contacts" then
+                top.Location.href="contacts.htm"
+        else
+                if (comicDiv.filters(0).status = 2) then
+                        comicDiv.filters(0).stop()
+                end if
+                comicDiv.filters(0).Apply()
+
+
+                k = Menu.GetItemValue(id)
+                j = k - 1
+
+                rs.MoveFirst
+                rs.Move j
+
+                code = rs("column1")
+                comic1.src =  rs("column1") + "strip.gif"
+                comichead.src =  rs("column1") + "head.gif"
+                marquee1.innerHTML = rs("column2")
+
+                sunday.src = "sunday.gif"
+                sunday.alt = "Click here for the color Sunday!"
+        end if
+End Sub
+
+Sub comic1_onLoad()
+        comic1.style.left = abs((620 - comic1.offsetWidth) / 2)
+
+        if (comicDIV.filters(0).status = 1) then
+                comicDIV.filters(0).Play()
+        end if
+End Sub
+
+Sub navigateMENU_OnClick()
+        mouseX = window.event.x
+        mouseY = window.event.y
+        set rs_temp = ImageList.Recordset.clone
+        Menu.RemoveAllItems
+        cnt=0
+        rs_temp.MoveFirst
+        for cnt = 1 to 4 
+        	Menu.AddItem rs_temp("column1"),rs_temp("column3"),cnt,""
+                rs_temp.MoveNext
+        next
+        Menu.Additem "news","Comics News","",""
+        Menu.Additem "contacts","Contact the Comics Channel","",""
+        Call Menu.Popup (mouseX - 2, mouseY + 22)
+End Sub
+
+Sub personalizeMENU_OnClick()
+        mouseX = window.event.x
+        mouseY = window.event.y
+        Menu.RemoveAllItems
+        Menu.AddItem "ptcad","Put this comic on your Active Desktop","",""
+        Call Menu.Popup (mouseX - 2, mouseY + 22)
+End Sub
+
+Sub subscribe_onClick()
+        Window.Open "http://www.comicschannel.net/comics_channel/select.html","subscribe_dialog","toolbar=no,scrollbars=yes,menubar=no,status=no,width=300,height=400"
+end sub
+
+</SCRIPT>
+
+
+<CENTER>
+
+<TABLE width=620 border=0><TR><TD>
+	<IMG id=sunday src="sunday.gif" style="height:41;width:103;border:0" align=left alt="Click here for the color Sunday">
+	<IMG id=subscribe src="subscrb.gif" style="height:30;width:120;border:0" align=right alt="Subscribe!">
+</TD></TR></TABLE>
+
+<IMG src="toptear.gif" style="height:42;width:620;border:0"><BR>
+
+<DIV id=comicDIV style="width:620;background:white;filter:revealTrans(transition=12,duration=3.2)">
+        <IMG id=comichead style="width:620;height:50"><br>
+        <IMG id=comic1 src="stripwht.gif">
+</DIV>
+
+<MARQUEE id=marquee1 style="width:620px; height:15px;font-family: helvetica; font-size: 13px;background-color:white"  Dataformatas="html"  ></MARQUEE>
+
+<IMG src="btmtear.gif" style="height:64;width:620;border:0"><BR>
+
+<IMG id="navigateMenu" src="navigate.gif" style="height:50;width:100;border:0" alt="Click here to navigate your favorite comics!">
+<A HREF="index.htm"><IMG id=channel src="chnnl_sm.gif" style="height:53;width:184;border:0" alt="Click here to learn more about the Comics Channel."></A>
+<IMG id="personalizeMenu" src="personal.gif" style="height:50;width:100;border:0" alt="Click here to personalize the Comics Channel!">
+<P>
+<A HREF="info.htm"><IMG src="amulogo.gif" style="height:64;width:123;border:0" alt="About AMU"></A>
+</CENTER>
+
+<OBJECT
+        ID="Menu" WIDTH=0 HEIGHT=0
+        CLASSID="CLSID:F5131C24-E56D-11CF-B78A-444553540000"
+        CODEBASE="ikcntrls.cab#version=1,0,0,9">
+        <PARAM NAME="_Version" VALUE="65536">
+        <PARAM NAME="_ExtentX" VALUE="2646">
+        <PARAM NAME="_ExtentY" VALUE="1323">
+        <PARAM NAME="_StockProps" VALUE="0">
+
+</OBJECT>
+
+<OBJECT ID="ImageList" WIDTH=0 HEIGHT=0
+        CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+        <PARAM NAME="TextQualifier" VALUE="%">
+        <PARAM NAME="FieldDelim" VALUE="|">
+        <PARAM NAME="DataURL" VALUE="comics.txt">
+</OBJECT>
+
+</BODY>
+</HTML>
+

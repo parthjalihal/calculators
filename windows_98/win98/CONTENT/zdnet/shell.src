@@ -1,0 +1,153 @@
+' Written By: 		Franco Ruggeri - franco_ruggeri@zd.com
+' Initial Release:	08/14/97
+
+ dim cur_head
+ dim cur_headb
+ dim cur_article
+ dim cur_articleb
+
+ dim ChannelA
+win_width = 0
+win_height = 0 
+
+Sub Window_onLoad 
+
+
+	win_width = document.body.clientWidth
+	win_height = document.body.clientHeight 
+
+	if win_width > 658 or win_height > 581 Then 
+		win_width = 658 
+		win_height = 581 
+		Call Window_onResize
+	End If 
+
+	Set cur_head = nadaimg
+	Set cur_headb = nada
+	Set cur_article = nada
+	Set cur_articleb = nada
+
+	call Headck(head1b,head1,article1, article1b)
+	call ad.filters(0).AddPoint(30,30,50,255,255,255,500)
+
+	Seq("Logo").Play
+
+End Sub
+
+
+Sub cWidth(t_article, t_articleb, t_width)
+   t_article.style.width = cint(left(t_article.style.width, len(t_article.style.width)-2)) + t_width
+   t_articleb.style.width = cint(left(t_articleb.style.width, len(t_articleb.style.width)-2)) + t_width
+End Sub 
+
+Sub cHeight(t_article, t_articleb, t_height)
+   t_articleb.style.height = cint(left(t_articleb.style.height, len(t_articleb.style.height)-2)) + t_height
+   t_article.style.height = cint(left(t_article.style.height, len(t_article.style.height)-2)) + t_height
+End Sub 
+
+
+
+Sub HeadMouseOver(t_Head)
+   If t_Head.style.color <> "#336633" Then 
+	   t_Head.style.color = "#CC0033"
+   End If 
+
+	call PlayClick()
+End Sub
+
+Sub HeadMouseOut(t_Head)
+   If t_Head.style.color <> "#336633" Then 
+	t_Head.style.color = "#333366"
+   End If 
+end sub
+
+Sub Headck(t_Head, t_button, t_article, t_articleb)
+
+   call WooshClick()
+
+   If cur_head.id <> "nadaimg" then
+     cur_head.src = "images/bluearrow.gif"
+     cur_article.style.visibility = "hidden" 
+     cur_articleb.style.visibility = "hidden" 
+     cur_headb.style.color = "#333366"
+   End If 	
+
+      t_Head.style.color = "#336633"
+      t_button.src = "images/redarrow.gif"
+      t_article.style.visibility = "visible"
+      t_articleb.style.visibility = "visible"
+
+      Set cur_head = t_button
+      Set cur_headb = t_Head
+      Set cur_article = t_article
+      Set cur_articleb = t_articleb
+
+End Sub 
+
+sub moveme()
+	call ad.filters(0).MoveLight(0, window.event.clientX-80, window.event.clientY, 80, 1)
+end sub
+sub flash()
+	call ad.filters(0).ChangeStrength(0, 1000, 1)
+end sub
+sub unflash()
+	call ad.filters(0).ChangeStrength(0, 500, 1)
+end sub
+
+Sub Seq_onInit
+	call Seq("Logo").at(0.00, "fly(box2, pthBox1)") 
+	call Seq("Logo").at(0.00, "fly(channelbanner, pthLogo)")
+	call Seq("Logo").at(2.50, "show(ad)")
+	call Seq("Logo").at(3.50, "fly(checkOut, pthText1)") 
+	call Seq("Logo").at(3.50, "fly(RedBox2, pthBox2)") 
+'	call Seq("Logo").at(3.50, "fly(RedBox2shadow, pthBox2shadow)") 
+	call Seq("Logo").at(4.50, "blend(subscribe, 12)") 
+
+	call SeqSubClass()
+end Sub
+
+Sub Hide(t_Object)
+	t_Object.style.visibility = "hidden"
+End Sub
+
+Sub Show(t_Object)
+	t_Object.style.visibility = "visible"
+End Sub
+
+Sub fly(t_Object, t_Path)
+	t_Path.Target = t_Object.id
+	Call Show(t_Object)
+	Call t_Path.Play
+End Sub
+
+Sub channelBanner_onMouseOver()
+	channelBanner.style.filter = "glow(strength=3, color=white, enabled=1)"
+end sub
+
+Sub channelBanner_onMouseOut()
+	channelBanner.style.filter = "glow(enabled=0)"
+end sub
+
+Sub DoNothing
+End Sub 
+
+Sub Blend(t_Object, t_Trans)
+	t_Object.filters.item(0).Transition = t_Trans
+	t_Object.filters.item(0).Apply()
+	t_Object.style.visibility = ""
+	t_Object.filters.item(0).play(1)
+End Sub 
+
+sub channelbanner_onClick()
+	call fly(channelbanner, pthLogo2)
+	call show(compChan)
+end sub
+
+Sub PlayClick
+	if sound.isSoundCardEnabled then sound.run
+end sub
+
+Sub WooshClick
+	if sound2.isSoundCardEnabled then sound2.run
+end sub
+

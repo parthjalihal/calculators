@@ -1,0 +1,33 @@
+===================================
+MSN 2.5 UNINSTALL NOTES
+===================================
+
+This document contains the steps necessary to uninstall MSN 2.5 from
+your computer.
+
+NOTE:  UNINSTALLING WILL REMOVE ALL THE FILES NECESSARY FOR MSN TO
+WORK ON YOUR COMPUTER.  
+
+To uninstall MSN 2.5 from your machine you need to do the
+following steps:
+
+1) From the Windows Control Panel choose Add/Remove Programs.
+2) For each of the following components, select the component and
+   then click the Add/Remove button in the Install/Uninstall tab of
+   the Add/Remove Programs Control Panel. 
+
+  (Depending on whether you choose typical or full at install time, 
+   you may not have all the items listed below installed. Be sure to 
+   remove the components in the following order.  If you are prompted 
+   to remove files, click "Yes".)
+
+	Components to Remove
+	------------------------------------------------
+	- Connection Manager
+	- Microsoft Chat 2.0
+	- MSN v2.5
+	- RealPlayer 4.0
+
+3) Close the Add/Remove Programs Control Panel by pressing the "OK" button.
+
+You have now successfully uninstalled MSN 2.5.

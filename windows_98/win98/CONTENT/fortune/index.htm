@@ -1,0 +1,249 @@
+<!doctype html public "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- document created and programmed by Charles Herold -->
+<html>
+<head>
+	<title>Fortune Desktop</title>
+<style>
+	.head {
+		font: 13pt;
+		color: white;
+		font-family: Verdana;
+		position: relative;
+		left: 52;
+		top: 27;
+	}
+	.newsstory {
+		width:100%;
+		height:65%;
+		font:12;
+		color:black;
+		font-family: Verdana;
+	}
+	.headline {
+		font: 13pt;
+		color: white;
+		font-family: Verdana;
+		margin-left:10;
+		margin-right:10;
+	}
+	.subject {
+		font: 13pt;
+		color: white;
+		font-family: Verdana,Arial;
+	}
+	.descrip {
+		color: white;
+		font: 12pt;
+		font-family: Verdana,Arial;
+	}
+	.today {
+		font: 7pt;
+		color: white;
+		font-family: Verdana;
+		letter-spacing: -1;
+	}
+</STYLE>
+
+</head>
+
+<body id=body onload="start()" leftmargin=0 topmargin=0 bgcolor="#003DCC">
+<!--NoAd-->
+<img id=backgroundimage SRC="images/prebackg.gif" onmouseover="lightUp(this, defaultBox)">
+<img SRC="images/fortuneh.gif" style="position:absolute;top:0;left:0;">
+<img SRC="images/semicirc.gif" style="position:absolute;top:61;left:0;">
+
+<div id=datebar style="position:absolute;LEFT:0;TOP:70;">
+<img SRC="images/datetime.gif" style="position:absolute;LEFT:0;TOP:0;">
+<span id="date" class="today" style="position:absolute;LEFT:3;TOP:3;WIDTH:120;">
+</span>
+<span id="time" class="today" style="position:absolute;LEFT:75;TOP:3;HEIGHT:5;WIDTH:60;">
+</span>
+</div>
+
+<div id=tabs style="position:absolute;LEFT:0;TOP:105;WIDTH:170;HEIGHT:180;">
+
+<div id="newshead" style="position:absolute;top:0;height:10;"
+	onmouseover="lightUp(n, this.box);">
+<span id="n" class="head" STYLE="top:22">
+	NEWS
+</span><BR CLEAR="all">
+<img SRC="images/newstab.gif">
+</div>
+
+<div id="investhead"  style="position:absolute;top:38;"
+	onmouseover="lightUp(i, this.box);">
+<span id='i' class="head">
+	INVESTING<br clear="all">
+</span>
+	<img SRC="images/investta.gif" >
+</div>
+
+<div id="spendhead" style="position:absolute;top:81;"
+	onmouseover="lightUp(s, this.box);">
+<span id=s class="head">
+	SPENDING
+</span>
+	<img SRC="images/spentab.gif" >
+</div>
+
+<div style="position:absolute;top:188;left:-29;HEIGHT:100;WIDTH:200;">
+<DIV id="subscribehead" class="head" STYLE="cursor:hand;"
+	onmouseover="lightUp(this, subscribe);"
+	onclick="window.external.addChannel('http://www.pathfinder.com/fortune/channel/channel.cdf')">
+	<img SRC="images/ieaddcha.gif">
+</DIV>
+</div>
+</div>
+
+
+<img id=boximage SRC="images/previewb.gif" style="position:absolute;LEFT:190;TOP:125;" border=0 alt="">
+<div id=box style="position:absolute;LEFT:190;TOP:125;width:220;HEIGHT:217;" onmouseover="lightUp(this, defaultBox)">
+	<div id=defaultBox class="newsstory" style="position:absolute;font:17;visibility:visible;margin:10;LEFT:0;TOP:0;HEIGHT:182;">
+		<img SRC="images/activela.gif" border=0 alt="NEWS" style="position:absolute;top:-9;left:-10;">
+		<BR>
+		Market news and analysis from Fortune's top editors plus the data and personalized investment tools
+		for investing and spending for making smart financial decisions.
+	</div>
+	<div id=news class="headline" style="position:absolute;visibility:hidden;LEFT:0;TOP:0;clip:auto;">
+			<img SRC="images/newslabe.gif" width=121 height=30 border=0 alt="NEWS" style="position:absolute;top:0;left:-10;">
+<!--			<span style="position:absolute;top:18;left:80;font-weight:800;font:11;color:black;">Current News Headlines</span>-->
+			<br>
+			<div id=headlines class="newsstory" style="position:relative;LEFT:0;TOP:10;height:150;">
+			<FONT SIZE="+1">DOW Breaks 8,000</FONT>
+			<BR>
+The stock markets most familiar index has closed above 8,000 for the first
+time. The movement through the
+milestone caps an incredible three-month run for the stock market. The Dow
+was below 6,400 in mid-April,
+after losing nearly 10 percent of its value in a correction driven by fears
+about the economy. <!--But since that
+time, economic reports have consistently shown economic growth without
+significant inflation -- an ideal
+situation for investors. That, combined with strong corporate earnings, has
+helped the market to soar.-->
+			</div> <!-- end headlines -->
+	</div> <!-- end news -->
+
+	<div id=invest class="headline" style="position:absolute;visibility:hidden;LEFT:0;TOP:0;">
+		<img SRC="images/investla.gif" width=121 height=30 border=0 alt="NEWS" style="position:absolute;top:0;left:-10;">
+		<BR>
+		<div class="newsstory" STYLE="position:relative;top:5;left:0;margin-top:10">
+		Add market remote to your desktop for instant access to information on your stocks and funds.
+		<BR>
+		<img SRC="images/graphani.gif" STYLE="position:relative;top:5;left:0">		
+		</div>
+	</div> <!-- end invest -->
+
+
+	<div id=spend class="headline" style="position:absolute;visibility:hidden;LEFT:0;TOP:0;">
+			<img SRC="images/spendlab.gif" width=121 height=30 border=0 alt="NEWS" style="position:absolute;top:0;left:-10;">
+			<div id=spendlines class="newsstory" style="position:relative;LEFT:0;TOP:30;height:160;overflow:clip;">
+			<FONT SIZE="+1">Rooms to Remember</FONT>
+			<BR>
+			If all your nights on the road are spent in the same old cookie-cutter hotels, next time treat yourself to some style. In the past year or so, a bunch of one-of-a-kind high-concept hotels have surfaced; we polled the design community for their big-city favorites. Surprisingly, the going corporate rates for such quarters are comparable with or less ... <!--than
+			<!-- the better chains. -->
+			</div> <!-- end spendlines -->
+	</div> <!-- end spend -->
+
+	<div id=subscribe class="headline" style="position:absolute;visibility:hidden;LEFT:0;TOP:0;">
+			<img SRC="images/subscrib.gif" width=121 height=30 border=0 alt="NEWS" style="position:absolute;top:0;left:-10;">
+			<div id=subscribelines class="newsstory" style="position:relative;LEFT:0;TOP:40;height:135;">
+			Subscribe to the Fortune channel for news and advice on how to invest and spend your money
+			<BR><CENTER>
+			<IMG SRC="images/checkani.gif"></CENTER>
+			</div> <!-- end subscribelines -->
+	</div> <!-- end subscribe -->
+
+
+</div> <!-- end box -->
+
+
+
+</body>
+<script language="JavaScript">
+<!--
+//document.domain = "pathfinder.com";
+var currentBox = null;
+var litUp = null;
+var litUpBox = null;
+function start()
+{
+	currentBox = defaultBox;
+	newshead.box = news;
+	investhead.box = invest;
+	spendhead.box = spend;
+	startTime();
+}
+
+// DELETE THIS FUNCTION
+function printIt(index, where)
+{
+	var which = markers[index];
+	where.innerHTML = '<FONT SIZE="+1">' + which.headline + '</FONT><BR>' + which.story;
+}
+
+var headNormal = 'white';
+var headHighlight = 'red';
+function lightUp(which, box)
+{
+	var theBox = currentBox ? currentBox : defaultBox;
+	
+	if (litUp) {
+		litUp.style.color = headNormal;
+	}
+	which.style.color=headHighlight;
+	litUp = which;
+	if(box) {
+		setBox(box);
+		if (box != theBox)
+			transition(box, theBox);
+		currentBox = box;
+	}
+}
+function turnOff(which, box)
+{
+	which.style.color = headNormal;
+	transition(defaultBox, box);
+	unsetBox();
+}
+function unsetBox()
+{
+	if (currentBox != null) {
+		currentBox.style.visibility = 'hidden';
+		currentBox = null;
+	}
+}
+function setBox(which)
+{
+	currentBox = which;
+	currentBox.style.visibility = "visible";
+}
+
+//-->
+</script>
+<script language="JavaScript" SRC="time.js">
+</script>
+<!--**********VB Script**********-->
+
+<script language="VBScript">
+
+Sub transition(coming, going)
+	dim speed	
+	speed = 500
+	'Do the transition
+	coming.style.visibility = "hidden"
+
+	on error resume next
+	if err.number = 0 then
+		Box.stopPainting(TDbl)
+		TDbl.Item.Transition=7	
+		going.style.visibility = "hidden"
+		coming.style.visibility = ""
+		Box.startPainting(speed)
+	end if
+	on error goto 0
+End Sub
+
+</script>
+
+</html>

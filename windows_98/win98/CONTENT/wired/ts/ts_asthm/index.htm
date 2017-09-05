@@ -1,0 +1,242 @@
+<html>
+
+<head>
+
+<title>LiveWired: Asthma Cure</title>
+
+<script language="JavaScript">
+function onStart() {
+	chronos.Item("visiswitch").Play();
+	chronos.Item("visiswitch1").Play();
+	chronos.Item("visiswitch2").Play();
+}
+function onStop() {
+	chronos.Item("visiswitch").Stop();
+	chronos.Item("visiswitch1").Stop();
+	chronos.Item("visiswitch2").Stop();
+}
+</script>
+
+
+				
+
+<script language="JavaScript">
+
+function myPresentation_start() {
+
+
+
+}
+
+</script>
+
+
+
+<style type="text/css">
+
+   BODY { margin: 0; background: white }
+   
+   cite {color: green}
+   
+   em {color: red}
+   
+   .onhold {visibility: hidden}
+
+   .offhold {visibility: visible}
+
+#astclose { position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index:0;
+			visability: visible }
+			
+#astbig { position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				z-index:-10 }			
+
+ #headline { position: absolute;
+   			left: 68%;
+			top: 18%;
+			width: 92%;
+			height: 70%;
+			color: white;
+			font-family: arial black;
+			font-size: 72%;
+			z-index:6;
+			font-weight: normal;
+			visibility: hidden;
+			margin: 4;
+			line-height: 1.8;}
+
+  #rollover { position: absolute;
+   			left: 15%;
+			top: 2%;
+			width: 85%;
+			height: 15%;
+			color: white;
+			font-family: arial;
+			font-size: 40%;
+			visibility: hidden;
+			z-index:7;
+			text-align: left;
+			font-weight: normal;
+			margin: 4;
+			background: red}
+			
+	
+		#photocred { position: absolute;
+  			left: 0%;
+			top: 97.5%;
+			width: 23%;
+			height: 3%;
+			color: white;
+			font-family: arial;
+			visibility: hidden;
+			font-size: 20%;
+			z-index:7;
+			text-align: left;
+			margin: 4;
+			}
+					
+</style>
+
+</head>
+
+<body style="font-size: 40">
+<script language="JavaScript">
+
+/* 
+This is the collection of routines that provide minimal functionality for
+yuor HTML document to become a presentation that fits into the context of
+liveWired.  Most of the routines cover the scaling of elements, the
+starting and stoping of the channel and the getting the "state" of the
+world; i.e. is it in the 20 second intro, or is it on the leisurely
+screensaver, or is it being viewed outside the context of the livewired and
+needs to do something to account for that. 
+
+These functions are written as objects so when calling them in there one
+should make a new instance of the object so if an individual presentation
+needs to modify any of the routines they can do so at that level.
+
+*/
+
+// The stub for the object
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+
+</script>
+
+<script language="JavaScript">
+
+myPresentation = new presentation();
+
+function presentationControl() {
+  this.startIt = onStart;
+  this.stopIt = onStop;
+}
+
+control = new presentationControl();
+
+myPresentation.calcScale();
+
+</script>
+
+
+ <OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+ <IMG id="astclose" src="astclose.jpg" BORDER=0>
+
+ <IMG id="astbig" src="astbig.jpg" BORDER=0>
+
+
+ <div id="headline" class="onhold">
+ Asthma Cure
+ </div>
+
+ <div id="rollover" class="onhold">
+ More than 300,000 people suffering from respiratory ailments - arriving in
+ cars, special trains, and Indian Airlines charter flights - converged on the
+ Bathini family home in the southern Indian city of Hyderabad recently to receive a 150-year-old home asthma remedy: herbs and water stuffed into a 2-inch-long Murrell fish, swallowed live. Patients say fish helps clear the food pipe as it makes its way to the stomach, where it releases its medicinal properties.
+
+ </div>
+
+ <div id="photocred">
+ © D. RAVINDER REDDY/Reuters
+ </div>
+
+ <script id="chronosCall" language="javascript" for="chronos" event="onInit">
+	 chronos.Item("visiswitch").At(2.000,"flip()",1,0.100,15);
+	 chronos.Item("visiswitch1").At(4.000,"flip1()",1,0.100,16);
+	 chronos.Item("visiswitch2").At(6.000,"flip2()",1,0.100,17);
+ </script>
+
+
+ <script language="javascript">
+ function flip() {
+    astclose.style.visibility = "hidden";
+    photocred.style.visibility= "visible";
+ }
+ function flip1() {
+    headline.style.visibility = "visible";
+ }
+ function flip2() {
+    rollover.style.visibility = "visible";
+ }
+ </script>
+ <script language="JavaScript" for="window" event="onload">
+    parent.daScheduler.gramLoaded();
+ </script>
+ <script language="JavaScript" for="window" event="onunload">
+    parent.daScheduler.gramUnloaded();
+ </script>
+
+ </body>
+
+ </html>
+

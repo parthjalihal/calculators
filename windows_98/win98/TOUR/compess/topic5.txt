@@ -1,0 +1,33 @@
+value:string
+When you click the <B>Start</B> button, Microsoft Windows shows you the <B>Start</B> menu.@
+A menu is a list of software applications, documents, and other options available on your computer.@
+The <B>Start</B> menu is divided into three sections. The bottom section contains basic operating tasks, or commands, such as <b>Shut Down...</b>.@
+The middle section provides a way to open applications and customize options.@
+The top section is personalized with functions that you can add to the <B>Start</B> menu.@
+To the right of some of the items in the <B>Start</B> menu is a black triangular arrow pointing to the right edge of the menu.@
+You can point to one of these arrows with your mouse to bring up a submenu (also called a cascading menu).@
+Next you'll see how to open a program from the <B>Start</B> menu.@
+Click the <B>Start</B> button to view the <B>Start</B> menu. Point to <B>Programs</B>, and the cascading <B>Programs</B> menu appears.@
+On the <B>Programs</B> menu, point to <B>Accessories</B>, and another cascading menu appears. Click <B>WordPad</B>, at the bottom of the list, and the application opens.@
+Ready for a review of what you've learned? As you've done before, press the appropriate number in response to the questions.@
+Which part of the <B>Start</B> menu includes the commands for shutting down your computer?@
+<IMG SRC="images/num1.gif" align="bottom"> Correct! The bottom section of the <B>Start</B> menu is reserved for basic operating commands such as shutting down your computer.@
+You've selected the middle section, which provides a way to select applications and options. Try again.@
+This is the top section, which can be personalized with functions that you can choose to add. Try again.@
+You've selected a different area of the Microsoft Windows desktop. Try again.@
+The bottom section of the <B>Start</B> menu is reserved for basic operating tasks, or commands, such as shutting down your computer.@
+Which section of the <B>Start</B> menu provides a way to open applications and options?@
+You've selected the bottom section, which is reserved for basic operating tasks such as shutting down your computer. Try again.@
+<IMG SRC="images/num2.gif" align="bottom"> That's right! The middle section includes programs, documents, and other options that you can choose.@
+This is the top section, which can be personalized with functions that you can choose to add. Try again.@
+You've selected a different area of the Microsoft Windows desktop. Try again.@
+The middle section of the <B>Start</B> menu includes programs, documents, and other options that you can choose.@
+Which section of the <B>Start</B> menu can be personalized with functions of your choice?@
+You've selected the bottom section, which is reserved for basic operating tasks such as shutting down your computer. Try again.@
+You've selected the middle section, which provides a way to select applications and options. Try again.@
+<IMG SRC="images/num3.gif" align="bottom"> Correct! You've selected the top section of the <B>Start</B> menu, which you can personalize by adding different software, documents, and functions.@
+You've selected a different area of the Microsoft Windows desktop. Try again.@
+You can personalize the top section of the <B>Start</B> menu with any software, documents, and functions that you may want to add.@
+From the <B>Start</B> menu you can quickly open software applications, documents, and functions that you frequently use.@
+In the next lesson, <B>Working with Windows</B>, you'll learn how to work with the programs you opened from the <B>Start</B> menu.@
+Press <B>LEFT ARROW</B> <IMG class="always" id=backarr SRC="images/bkbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="prevseq()"> to go back; <B>RIGHT ARROW</B> <IMG class="always" id=frwdarr SRC="images/fwdbtn.gif" style="cursor:hand" ALIGN=MIDDLE onclick="nextseq()"> to continue.

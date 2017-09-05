@@ -1,0 +1,124 @@
+------------------------------------------------------
+            Power Management Trouble Shooter          
+                      (PMTShoot)                         
+                        README
+                            
+------------------------------------------------------
+
+(c) Copyright Microsoft Corporation, 1998
+
+
+This document provides complementary or late-breaking 
+information to supplement the Microsoft Windows 98 
+documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view PMTShoot.txt on-screen in Notepad, maximize 
+the Notepad window.
+
+To print PMTShoot.txt, open the file in Notepad or 
+another word processor, then on the File menu, click Print.
+
+--------
+CONTENTS
+--------
+
+INTRODUCTION
+INSTALLATION
+USAGE
+UNINSTALLING
+
+
+============
+INTRODUCTION
+============
+
+PMTShoot is a tool to assist you in identifying the
+application or device driver that prevents your computer
+from entering its standby (or suspended) state.
+
+PMTShoot monitors your computer system as it suspends,
+emphasizing those applications and drivers that can prevent
+your computer from suspending.
+
+As your system suspends and then resumes, you will see text
+displayed by PMTShoot.  This text is grouped according to
+the phases that comprise the suspend process. In many
+cases, you will find this grouping useful in diagnosing
+the cause of the suspend failure.
+
+
+============
+INSTALLATION
+============
+
+Follow these instructions to install PMTShoot on your computer.
+
+1. Run PMTShoot.exe
+
+   There are two ways to run PMTShoot:
+     A. From the Run dialog box:
+        1.  Insert the Windows 98 CD-ROM into your CD-ROM drive
+	2.  Click on Start, Run...
+        3.  Type D:\TOOLS\MSTUTIL\PMTSHOOT\PMTSHOOT.EXE (assuming 
+	    D: is your CD-ROM drive)
+	4.  Click OK
+
+     B. From Windows Explorer:
+        1.  Navagate to the D:\TOOLS\MSTUTIL\PMTSHOOT directory
+        2.  Double-click on PMTShoot.exe
+
+2.  Click Yes when setup asks if you would like
+    to continue.
+
+3.  Click OK when setup notifies you that a reboot
+    is necessary.
+
+4.  Click OK when setup asks you to restart your computer.
+
+5.  At this point, your computer will restart.
+
+
+=====
+USAGE
+=====
+
+Once installed, PMTShoot will run automatically when Windows
+starts.  Once PMTShoot is running, you can suspend your
+computer as you normally would.  As it suspends, PMTShoot
+displays all the activity on your computer.
+
+Once your computer has finished its suspend/resume process,
+note the text displayed by PMTShoot.  You may need to
+scroll up/down to see all of the text.  If you do not see
+a vertical scroll bar, resize the window slightly.  This
+will create a vertical scroll bar.
+
+Take note of the information displayed in red.  This is what
+PMTShoot considers to be most relevant to the suspend failure.
+Often, PMTShoot will display, in red, the name of the device
+and driver that caused the suspend to fail.  With this
+information, you can make the necessary adjustments to
+resolve the problem.
+
+
+============
+UNINSTALLING
+============
+
+It is important to uninstall PMTShoot when you are
+finished with it.  Follow these instructions to uninstall
+PMTShoot.
+
+1. Click on Start, Settings, Control Panel.
+
+2  Click on Add/Remove Programs.
+
+3. Click on "PMTShoot - Power Management Trouble Shooter".
+
+4. Click the Add/Remove button.
+
+5. Click Yes to restart the computer.

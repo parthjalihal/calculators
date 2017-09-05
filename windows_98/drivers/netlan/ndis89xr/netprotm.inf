@@ -1,0 +1,137 @@
+; netprotM.inx
+;
+; Proteon Network Interface Cards.
+;
+; Copyright 1993-1995, Microsoft Corporation
+
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+Class=Net
+provider=%V_MS%
+;SetupClass=
+
+[Manufacturer]
+%V_Proteon%=Proteon
+
+[Proteon]
+%*MCA1892.DeviceDesc%=*MCA1892.ndi, *MCA1892 ;Proteon Token Ring P1892
+
+;****************************************************************************
+;*MCA1892 Proteon Token Ring P1892
+;****************************************************************************
+[*MCA1892.ndi]
+AddReg=*MCA1892.ndi.reg,NDIS89XR.ndi.reg
+
+[*MCA1892.ndi.reg]
+HKR,Ndi,DeviceID,,"*MCA1892"
+
+;****************************************************************************
+; Proteon Token Ring 1892 Base Section
+;****************************************************************************
+[NDIS89XR.ndi.reg]
+; key,subkey,valuname,type,value
+HKR,,DevLoader,,*ndis
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+HKR,,DeviceVxDs,,proteon.vxd
+; NDIS Info
+HKR,NDIS,LogDriverName,,"PROTEON"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"NDI89XR$"
+HKR,NDIS\NDIS2,FileName,,"NDIS89XR.DOS"
+HKR,NDIS\ODI,DriverName,,"osh89xr"
+HKR,NDIS\ODI,FileName,,"osh89xr.com"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis2,ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+; Install sections
+HKR,Ndi\Install,ndis3,,"NDIS89XR.ndis3"
+HKR,Ndi\Install,ndis2,,"NDIS89XR.ndis2"
+;HKR,Ndi\Install,odi,,"NDIS89XR.odi"
+;params
+;Maximum Transmits
+;HKR,Ndi\params\MAXTRANSMITS,ParamDesc,,"Maximum Transmits"
+;HKR,Ndi\params\MAXTRANSMITS,type,,int
+;HKR,Ndi\params\MAXTRANSMITS,default,,40
+;HKR,Ndi\params\MAXTRANSMITS,min,,10
+;HKR,Ndi\params\MAXTRANSMITS,max,,100
+;HKR,Ndi\params\MAXTRANSMITS,step,,1
+;HKR,NDI\params\MAXTRANSMITS,flag,1,10,00,00,00
+;Maximum REQUESTS
+;HKR,Ndi\params\MAXREQUESTS,ParamDesc,,"Maximum Requests"
+;HKR,Ndi\params\MAXREQUESTS,type,,int
+;HKR,Ndi\params\MAXREQUESTS,default,,3
+;HKR,Ndi\params\MAXREQUESTS,min,,1
+;HKR,Ndi\params\MAXREQUESTS,max,,100
+;HKR,Ndi\params\MAXREQUESTS,step,,1
+;HKR,NDI\params\MAXREQUESTS,flag,1,10,00,00,00
+;Maximum RECEIVES
+;HKR,Ndi\params\MAXRECEIVES,ParamDesc,,"Maximum Receives"
+;HKR,Ndi\params\MAXRECEIVES,type,,int
+;HKR,Ndi\params\MAXRECEIVES,default,,3
+;HKR,Ndi\params\MAXRECEIVES,min,,1
+;HKR,Ndi\params\MAXRECEIVES,max,,100
+;HKR,Ndi\params\MAXRECEIVES,step,,1
+;HKR,NDI\params\MAXRECEIVES,flag,1,10,00,00,00
+;Maximum FRAMESIZE
+;HKR,Ndi\params\MAXFRAMESIZE,ParamDesc,,"Maximum FrameSize"
+;HKR,Ndi\params\MAXFRAMESIZE,type,,int
+;HKR,Ndi\params\MAXFRAMESIZE,default,,500
+;HKR,Ndi\params\MAXFRAMESIZE,min,,500
+;HKR,Ndi\params\MAXFRAMESIZE,max,,5000
+;HKR,Ndi\params\MAXFRAMESIZE,step,,100
+;HKR,NDI\params\MAXFRAMESIZE,flag,1,10,00,00,00
+; NetworkAddress
+HKR,NDI\params\NetworkAddress,ParamDesc,,"Network Address"
+HKR,NDI\params\NetworkAddress,type,,edit
+HKR,NDI\params\NetworkAddress,LimitText,,18
+HKR,NDI\params\NetworkAddress,UpperCase,,1
+HKR,Ndi\params\NetworkAddress,default,,""
+HKR,NDI\params\NetworkAddress,flag,1,20,00,00,00
+HKR,Ndi\params\NetworkAddress,optional,,1
+
+; Install NDIS3
+[NDIS89XR.ndis3]
+CopyFiles=NDIS89XR.ndis3.CopyFiles
+[NDIS89XR.ndis3.CopyFiles]
+proteon.vxd
+
+; Install NDIS2
+[NDIS89XR.ndis2]
+CopyFiles=NDIS89XR.ndis2.CopyFiles
+AddReg=NDIS89XR.ndis2.reg
+[NDIS89XR.ndis2.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",NDIS89xr.dos,,low
+[NDIS89XR.ndis2.CopyFiles]
+NDIS89XR.dos
+prorapm.dwn
+
+; Install ODI
+[NDIS89XR.odi]
+CopyFiles=NDIS89XR.odi.CopyFiles
+[NDIS89XR.odi.CopyFiles]
+osh99xr.com
+
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+DefaultDestDir              =11 ; LDID_SYS
+NDIS89XR.ndis3.CopyFiles    =11 ; LDID_SYS
+NDIS89XR.ndis2.CopyFiles    =26 ; LDID_WINBOOT
+NDIS89XR.odi.CopyFiles      =26 ; LDID_WINBOOT
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+; Provider
+V_MS="Microsoft"
+; Manufacturers
+V_Proteon="Proteon"
+; PNP Devices
+*MCA1892.DeviceDesc="Proteon ProNET-4/16 MCA Token Ring P1892"

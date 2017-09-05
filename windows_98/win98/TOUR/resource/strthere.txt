@@ -1,0 +1,32 @@
+%<!-- version 7.13.6 -->
+Microsoft Windows 98 Starts Here<sup>&#153;</sup>
+%|%
+The Official Interactive Training Companion to Microsoft Windows 98
+%|%
+If you've explored <i>Windows 98 Overview</i> or <i>Computer Essentials</i>, then you're ready to continue your training with the informative and easy-to-use <b><i>Microsoft Windows 98 Starts Here</i></b>. The same reliable
+source, Microsoft Press<SUP>&#174;</SUP>, brings each of these tutorials to you.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+<i>The Microsoft Windows 98 Starts Here</i> CD-ROM offers extensive multimedia training for Microsoft
+Windows 98. Using step-by-step exercises and self-assessment quizzes, you learn by working in
+the actual Windows environment.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+Click <a id=a1 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress&ar=win98tour&sba=win98demo" target="_blank" onmouseover="over(1)" onmouseout="out(1)" onfocus="over(1)" onblur="out(1)"><i>Microsoft
+Windows 98 Starts Here</i></a> to view a comprehensive overview and a brief demonstration.<br>
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+Order your copy today from your local reseller, or call (800) MSPRESS (677-7377), in the United
+States, or (800) 268-2222, in Canada, for more information. From other countries, click <a id=a2 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress&ar=win98tour&sba=shintl" target="_blank" onmouseover="over(2)" onmouseout="out(2)" onfocus="over(2)" onblur="out(2)">here</a>.<br> 
+<span style="line-height:6pt;">&nbsp;<br></span>
+
+The Microsoft Press <a id=a3 href="http://www.microsoft.com/isapi/redir.dll?prd=mspress&ar=win98tour&sba=shna" target="_blank" onmouseover="over(3)" onmouseout="out(3)" onfocus="over(3)" onblur="out(3)">Starts Here</a>
+series offers the very best in interactive training with Microsoft Press products.
+%|%
+Back
+%|%
+Close
+%|%Discover Windows 98%
+
+
+

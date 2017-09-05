@@ -1,0 +1,91 @@
+;
+; Setup file for AdvanSys ASC 3550 Windows 95 SCSI Miniport Driver
+; Copyright (c) 1998 Advanced System Products, Inc.
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=SCSIAdapter
+Provider=%ADV%
+CatalogFile=asc3550.cat
+
+[ClassInstall]
+Addreg=SCSIReg
+
+
+[SCSIReg]
+HKR,,,,%SCSIClassName%
+
+[Manufacturer]
+%ADV%=ADVANSYS
+
+; ----------------------------------------
+; Manufacturer Sections
+
+[ADVANSYS]
+%ABPPCI.DriverDesc%=ABPPCI,PCI\VEN_10CD&DEV_2300
+
+
+; ----------------------------------------
+; Driver Install Sections
+
+[ABPPCI]
+CopyFiles=@asc3550.mpd
+AddReg=IOS,ABPPCI.reg
+DelFiles=ASPIDEV
+UpdateInis=UpdateInisSection
+UpdateCfgSys=UpdateConfigSys
+
+; ---------------------------------------
+; AddReg Sections
+
+[ABPPCI.Reg]
+HKR,,PortDriver,,asc3550.mpd
+
+; ------------------------------
+; IOS common section
+[IOS]
+HKR,,DevLoader,,*IOS
+;HKR,,DontLoadIfConflict,,Y
+
+;[Poll]
+;HKR,,Polling,,1
+
+[ForceMPCopy]
+HKR,,NoSetupUI,,1
+
+;[FixInitID]
+;HKR,,AdapterSettings,,"/H7"
+
+[SourceDisksFiles]
+asc3550.mpd = 1
+asc3550.cat = 0,,920
+
+[SourceDisksNames]
+1 = %instd1%, ,
+
+[DestinationDirs]
+ASPIDEV = 11                    ; delete from SYSTEM dir if exists
+DefaultDestDir = 12             ; LDID_SYS
+
+[ControlFlags]
+
+[UpdateInisSection]
+%10%\IOS.INI, SafeList,, %AdvaspiStr%
+%10%\IOS.INI, SafeList,, %AdvancdStr%
+
+[UpdateConfigSys]
+DevDelete = ADVANCD.SYS,1
+DevDelete = ADV3550.sys,1
+
+; ----------------------------------------
+; User-visible Strings
+
+[Strings]
+SCSIClassName="SCSI Controllers"
+ADV="AdvanSys"
+ABPPCI.DriverDesc="AdvanSys PCI Ultra Wide SCSI Host Adapter"
+instd1 = "AdvanSys Ultra Wide SCSI Driver Diskette"
+AdvaspiStr = "adv3550.sys	; Advansys Ultra Wide ASPI Manager"
+AdvancdStr = "advancd.sys	; Advansys CD-ROM Driver"
+

@@ -1,0 +1,32 @@
+:Base SP.HLP
+1 Informations générales
+2 Généralités=General_Information
+1 Visualisation
+2 Fenêtre principale=Main_Window
+2 Ecran de visualisation de la communication=View_Communication
+2 Ecran de visualisation de la consommation de la charge=View_Load
+2 Ecran de visualisation de la sortie alimentant la charge=View_Output
+2 Ecran de visualisation de la batterie=View_Battery
+2 Ecran de visualisation du réseau d'entrée=View_Input
+2 Ecran de visualisation de l'état des prises=View_Plugs
+2 Ecran Visualisation des événements=View_Events
+2 Ecran Fichiers journaux=Log_Files
+1 Configuration
+2 Sélection du système surveillé
+3 Ecran Choisir le système courant=Select_Application
+3 Ecran Définition du système local=Define_Local_Application
+3 Ecran Définition des systèmes distants=Define_Distant_Application
+2 Définition des actions et des événements
+3 Ecran Définition d'action=Define_Action
+3 Ecran Définition des événements=Define_Events
+3 Ecran Option d'action=Action_Option
+3 Ecran Installation de nouveaux pilotes=Install_Driver
+3 Actions à effectuer suite à l'installation de Jericho=After_Jericho
+2 Configuration de l'onduleur
+3 Ecran Configuration des équipements=Output_Configuration
+3 Ecran Programmation des arrêts/marche système=Schedule
+2 Commande et test de l'onduleur
+3 Ecran Commande des équipements=Output_Control
+3 Ecran Diagnostics=Diagnostics
+1 Utilisation avancée
+2 Ecran Définition du mot de passe=Define_Password

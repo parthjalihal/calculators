@@ -1,0 +1,707 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Developer Studio">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>Document Title</TITLE>
+<STYLE>	
+		.styBigEight { font-family:verdana; font-weight:bold; font-size:x-large; color:white }	
+		.stySmallEight { font-family:verdana; font-weight:bold; font-size:medium; color:#D2D2D2 }
+		.styBigSix { font-family:verdana; font-weight:bold; font-size:large; color:white }	
+		.stySmallSix { font-family:verdana; font-weight:bold; font-size:x-small; color:#D2D2D2 }
+</STYLE>
+
+
+<SCRIPT LANGUAGE=JScript FOR=imgSubscribe EVENT="onclick">
+	window.external.addChannel("http://channel-espn.sportszone.com/ad/espn.cdf");
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=JScript>
+var intScreenWidth;
+var intScreenHeight;
+var intPanelMoveIncrement;
+var intBlockMoveIncrement;
+var intMoveCount = 10;
+var intSzLogo2MoveIncrement;
+var intSubscribeMoveIncrement
+
+var szESPNLogo;
+var szLeader;
+var szLogo;
+var szWebs;
+
+function szload() {
+	if (document.body.clientWidth > 1 && document.body.clientHeight > 1) { 
+
+		if (window.screen.width == 640)
+		{
+			imgBkgrd.src = "espnbg6.jpg";
+			imgPanel.src = "panel6.jpg";
+			szESPNLogo = "espnlog6.jpg";
+			szLeader = "leader6.jpg";
+			szLogo = "szlogo6.jpg";
+			szWebs = "webs6.jpg";
+			divBlock.style.width	= 640 - imgPanel.style.width;
+			divBlock.style.height	= 480 - imgPanel.style.height;
+			intScreenWidth = 640;
+			intScreenHeight = 480;		
+			divScreen.style.pixelLeft = 0;
+			divScreen.style.pixelTop =  0;
+
+			divBigText.className = "styBigSix";
+			divExpertAnalysis.className = "stySmallSix";
+			divLiveGame.className = "stySmallSix";
+			divInDepthLocal.className = "stySmallSix";
+			divFantesyGames.className = "stySmallSix";
+			divDeepStats.className = "stySmallSix";
+
+		}
+		else
+		{
+			imgBkgrd.src = "espnbg8.jpg";
+			imgPanel.src = "panel8.jpg";
+			szESPNLogo = "espnlog8.jpg";
+			szLeader = "leader8.jpg";
+			szLogo = "szlogo8.jpg";
+			szWebs = "webs8.jpg";
+			divBlock.style.width	= 800 - imgPanel.style.width;
+			divBlock.style.height	= 600 - imgPanel.style.height;
+			intScreenWidth = 800;
+			intScreenHeight = 600;
+			
+			if (window.screen.width > 800)
+			{
+				divScreen.style.pixelLeft = (window.document.body.clientWidth - intScreenWidth) / 2;
+				if (divScreen.style.pixelLeft < 0)
+				{
+					divScreen.style.pixelLeft = 0;
+				}
+				divScreen.style.pixelTop =  (window.document.body.clientHeight - intScreenHeight) / 2;
+				if (divScreen.style.pixelTop < 0)
+				{
+					divScreen.style.pixelTop = 0;
+				}
+			}
+			else
+			{
+				divScreen.style.pixelLeft = 0;
+				divScreen.style.pixelTop =  0;
+			}			
+
+			divBigText.className = "styBigEight";
+			divExpertAnalysis.className = "stySmallEight";
+			divLiveGame.className = "stySmallEight";
+			divInDepthLocal.className = "stySmallEight";
+			divFantesyGames.className = "stySmallEight";
+			divDeepStats.className = "stySmallEight";
+		}
+
+		
+		divEspnLogo.style.left   = intScreenWidth *.1484 
+		divEspnLogo.style.top    = intScreenHeight *.1614 
+		divEspnLogo.style.width  = intScreenWidth *.3232 
+		divEspnLogo.style.height = intScreenHeight *.1158 
+
+		divSzLogo.style.left   = intScreenWidth *.0654
+		divSzLogo.style.top    = intScreenHeight *.2565
+		divSzLogo.style.width  = intScreenWidth * .7343
+		divSzLogo.style.height = intScreenHeight * .1875
+
+		divLeader.style.left   = intScreenWidth *.3730
+		divLeader.style.top    = intScreenHeight *.6770
+		divLeader.style.width  = intScreenWidth * .3974
+		divLeader.style.height = intScreenHeight * .1445
+
+		divWebs.style.left	   = intScreenWidth *.7685
+		divWebs.style.top	   = intScreenHeight *.6750
+		divWebs.style.width	   = intScreenWidth * .1533
+		divWebs.style.height   = intScreenHeight * .0559
+
+		divPanel.style.width	= imgPanel.style.width;
+		divPanel.style.height	= imgPanel.style.height;
+		divPanel.style.left		= 0 - (imgPanel.style.width);
+		intPanelMoveIncrement	= (imgPanel.style.width) / intMoveCount;
+
+		divBlock.style.left	= window.screen.width + 10;
+		divBlock.style.backgroundColor	= "FFFFF0";
+		intBlockMoveIncrement	= (divBlock.style.width + 10) / intMoveCount;
+		intBlockMoveIncrement	= -(intBlockMoveIncrement);
+
+		divSzLogo2.style.left   = intScreenWidth + 1
+		intSzLogo2MoveIncrement	= ((intScreenWidth * .2890) - intScreenWidth) / intMoveCount;
+		divSzLogo2.style.top    = intScreenHeight * .0156
+		divSzLogo2.style.width  = intScreenWidth * .3837
+		divSzLogo2.style.height = intScreenHeight * .1484
+		imgSzLogo2.style.width  = intScreenWidth * .3837
+		imgSzLogo2.style.height = intScreenHeight * .1484
+		
+		divSubscribe.style.width	= intScreenWidth * .1700;
+		divSubscribe.style.height	= intScreenHeight * .0333;
+		imgSubscribe.style.width	= intScreenWidth * .1700;
+		imgSubscribe.style.height	= intScreenHeight * .0333;
+		divSubscribe.style.left		= 0 - divSubscribe.style.pixelWidth;
+		divSubscribe.style.top		= intScreenHeight * .8167;
+		intSubscribeMoveIncrement	= ((intScreenWidth * .1038) + divSubscribe.style.pixelWidth) / intMoveCount;
+
+		divDickie.style.left   = intScreenWidth * .3740
+		divDickie.style.top    = intScreenHeight *.1927
+		divDickie.style.width  = intScreenWidth * .1972
+		divDickie.style.height = intScreenHeight * .3567
+
+		divGammon.style.left   = intScreenWidth * .4482
+		divGammon.style.top    = intScreenHeight *.5013
+		divGammon.style.width  = intScreenWidth * .1972
+		divGammon.style.height = intScreenHeight * .3567
+
+		divMort.style.left   = intScreenWidth * .6455
+		divMort.style.top    = intScreenHeight *.1927
+		divMort.style.width  = intScreenWidth * .1972
+		divMort.style.height = intScreenHeight * .3567
+
+		divEisen.style.left   = intScreenWidth * .6904
+		divEisen.style.top    = intScreenHeight *.5013
+		divEisen.style.width  = intScreenWidth * .1775
+		divEisen.style.height = intScreenHeight * .3590
+
+		divNflcast.style.left   = intScreenWidth * .2851
+		divNflcast.style.top    = intScreenHeight *.3229
+		divNflcast.style.width  = intScreenWidth * .4434
+		divNflcast.style.height = intScreenHeight * .5273
+
+		divMlbcast.style.left   = intScreenWidth * .5136
+		divMlbcast.style.top    = intScreenHeight *.1315
+		divMlbcast.style.width  = intScreenWidth * .4658
+		divMlbcast.style.height = intScreenHeight * .5221
+
+		divNbaudio.style.left   = intScreenWidth * .8027
+		divNbaudio.style.top    = intScreenHeight *.5546
+		divNbaudio.style.width  = intScreenWidth * .1328
+		divNbaudio.style.height = intScreenHeight * .2903
+
+		divInside.style.left   = intScreenWidth * .6279
+		divInside.style.top    = intScreenHeight *.1601
+		divInside.style.width  = intScreenWidth * .3359
+		divInside.style.height = intScreenHeight * .5260
+
+		divClubhous.style.left   = intScreenWidth * .3085
+		divClubhous.style.top    = intScreenHeight *.2317
+		divClubhous.style.width  = intScreenWidth * .4003
+		divClubhous.style.height = intScreenHeight * .5143
+
+		divPlaycard.style.left   = intScreenWidth * .5595
+		divPlaycard.style.top    = intScreenHeight *.3815
+		divPlaycard.style.width  = intScreenWidth * .3486
+		divPlaycard.style.height = intScreenHeight * .4622
+
+		divPigpick.style.left   = intScreenWidth * .2919
+		divPigpick.style.top    = intScreenHeight *.2278
+		divPigpick.style.width  = intScreenWidth * .3251
+		divPigpick.style.height = intScreenHeight * .5078
+
+		divFanfball.style.left   = intScreenWidth * .5889
+		divFanfball.style.top    = intScreenHeight *.1875
+		divFanfball.style.width  = intScreenWidth * .3359
+		divFanfball.style.height = intScreenHeight * .5143
+
+		divBbchalen.style.left   = intScreenWidth * .4629
+		divBbchalen.style.top    = intScreenHeight *.3919
+		divBbchalen.style.width  = intScreenWidth * .2529
+		divBbchalen.style.height = intScreenHeight * .4518
+
+		divDepth.style.left   = intScreenWidth * .3173
+		divDepth.style.top    = intScreenHeight *.2253
+		divDepth.style.width  = intScreenWidth * .3613
+		divDepth.style.height = intScreenHeight * .4284
+
+		divPerf.style.left   = intScreenWidth * .3877
+		divPerf.style.top    = intScreenHeight *.4727
+		divPerf.style.width  = intScreenWidth * .3457
+		divPerf.style.height = intScreenHeight * .3815
+
+		divHit.style.left   = intScreenWidth * .5977
+		divHit.style.top    = intScreenHeight *.3190
+		divHit.style.width  = intScreenWidth * .3330
+		divHit.style.height = intScreenHeight * .4063
+
+		divFrntpage.style.left   = intScreenWidth * .2920
+		divFrntpage.style.top    = intScreenHeight *.1940
+		divFrntpage.style.width  = intScreenWidth * .4033
+		divFrntpage.style.height = intScreenHeight * .6015
+
+		divJoin.style.left   = intScreenWidth * .6973
+		divJoin.style.top    = intScreenHeight *.6940
+		divJoin.style.width  = intScreenWidth * .1416
+		divJoin.style.height = intScreenHeight * .1055
+
+		divSubnow.style.left   = intScreenWidth * .2900
+		divSubnow.style.top    = intScreenHeight *.8112
+		divSubnow.style.width  = intScreenWidth * .6025
+		divSubnow.style.height = intScreenHeight * .0467
+
+		divBigText.style.left   = intScreenWidth * .0290
+		divBigText.style.top    = intScreenHeight *.1888
+		divBigText.style.width  = intScreenWidth * .2168
+		divBigText.style.height = intScreenHeight * .1523
+
+		document.body.scroll = "no";
+
+		imgBkgrd.style.visibility = "visible"
+	}
+}
+
+window.onload=szload;
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=JScript for="seq" event="oninit" >
+	seq.Item("ActionSet1").At(0.000,"LoadImage(divEspnLogo,\"imgEspnLogo\",\"" + szESPNLogo + "\")",1);
+	seq.Item("ActionSet1").At(1.000,"PlayEnterSound()",1);
+	seq.Item("ActionSet1").At(1.000,"PlayImage(divEspnLogo)",1);
+	seq.Item("ActionSet1").At(1.500,"LoadImage(divLeader,\"imgLeader\",\"" + szLeader + "\")",1);
+	seq.Item("ActionSet1").At(2.000,"PlayImage(divLeader)",1);
+	seq.Item("ActionSet1").At(3.000,"LoadImage(divSzLogo,\"imgSzLogo\",\"" + szLogo + "\")",1);
+	seq.Item("ActionSet1").At(5.000,"PlayImage(divSzLogo)",1);
+	seq.Item("ActionSet1").At(6.000,"LoadImage(divDickie,\"imgDickie\",\"dickie.jpg\")",1);
+	seq.Item("ActionSet1").At(8.000,"MoveInWebs()",1);
+	seq.Item("ActionSet1").At(12.000,"WipeBackground0()",1);
+	seq.Item("ActionSet1").At(12.050,"SlideInPolygon(imgPanel,divPanel,intPanelMoveIncrement)",intMoveCount,00.100);
+	seq.Item("ActionSet1").At(13.000,"SlideInPolygon(imgPanel,divBlock,intBlockMoveIncrement)",intMoveCount,00.100);
+	seq.Item("ActionSet1").At(14.000,"LoadImage(divGammon,\"imgGammon\",\"gammon.gif\")",1);
+	seq.Item("ActionSet1").At(15.000,"SlideInPolygon(imgSzLogo2,divSzLogo2,intSzLogo2MoveIncrement)",intMoveCount,00.100);
+	seq.Item("ActionSet1").At(18.000,"SlideInPolygon(imgSubscribe,divSubscribe,intSubscribeMoveIncrement)",intMoveCount,00.100);
+	seq.Item("ActionSet1").At(19.000,"LoadImage(divMort,\"imgMort\",\"mort.jpg\")",1);
+	seq.Item("ActionSet1").At(21.000,"SetLargeText(\"Expert Analysis\",divBigText)",1);
+	seq.Item("ActionSet1").At(21.050,"PlayImage(divDickie)",1);
+	seq.Item("ActionSet1").At(23.000,"PlayImage(divGammon)",1);
+	seq.Item("ActionSet1").At(24.000,"LoadImage(divEisen,\"imgEisen\",\"eisen.gif\")",1);
+	seq.Item("ActionSet1").At(25.000,"PlayImage(divMort)",1);
+	seq.Item("ActionSet1").At(28.000,"PlayImage(divEisen)",1);
+	seq.Item("ActionSet1").At(29.000,"LoadImage(divNflcast,\"imgNflcast\",\"nflcast.jpg\")",1);
+	seq.Item("ActionSet1").At(30.000,"LoadImage(divMlbcast,\"imgMlbcast\",\"mlbcast.gif\")",1);
+	seq.Item("ActionSet1").At(32.000,"WipeBackground1()",1);
+	seq.Item("ActionSet1").At(32.050,"PlayImage(divNflcast)",1);
+	seq.Item("ActionSet1").At(34.000,"LoadImage(divNbaudio,\"imgNbaudio\",\"nbaudio.jpg\")",1);
+	seq.Item("ActionSet1").At(35.050,"PlayImage(divMlbcast)",1);
+	seq.Item("ActionSet1").At(37.000,"LoadImage(divClubhous,\"imgClubhous\",\"clubhous.jpg\")",1);
+	seq.Item("ActionSet1").At(38.000,"PlayImage(divNbaudio)",1);
+	seq.Item("ActionSet1").At(39.000,"LoadImage(divInside,\"imgInside\",\"inside.jpg\")",1);
+	seq.Item("ActionSet1").At(40.000,"LoadImage(divPlaycard,\"imgPlaycard\",\"playcard.jpg\")",1);
+	seq.Item("ActionSet1").At(42.000,"WipeBackground2()",1);
+	seq.Item("ActionSet1").At(42.500,"PlayImage(divClubhous)",1);
+	seq.Item("ActionSet1").At(45.050,"PlayImage(divInside)",1);
+	seq.Item("ActionSet1").At(47.000,"LoadImage(divPigpick,\"imgPigpick\",\"pigpick.jpg\")",1);
+	seq.Item("ActionSet1").At(48.000,"PlayImage(divPlaycard)",1);
+	seq.Item("ActionSet1").At(49.000,"LoadImage(divFanfball,\"imgFanfball\",\"fanfball.jpg\")",1);
+	seq.Item("ActionSet1").At(50.000,"LoadImage(divBbchalen,\"imgBbchalen\",\"bbchalen.jpg\")",1);
+	seq.Item("ActionSet1").At(52.000,"WipeBackground3()",1);
+	seq.Item("ActionSet1").At(52.500,"PlayImage(divPigpick)",1);
+	seq.Item("ActionSet1").At(55.500,"PlayImage(divFanfball)",1);
+	seq.Item("ActionSet1").At(57.000,"PlayImage(divBbchalen)",1);
+	seq.Item("ActionSet1").At(58.000,"LoadImage(divDepth,\"imgDepth\",\"depth.jpg\")",1);
+	seq.Item("ActionSet1").At(59.000,"LoadImage(divPerf,\"imgPerf\",\"perf.jpg\")",1);
+	seq.Item("ActionSet1").At(62.000,"LoadImage(divHit,\"imgHit\",\"hit.gif\")",1);
+	seq.Item("ActionSet1").At(63.000,"WipeBackground4()",1);
+	seq.Item("ActionSet1").At(63.500,"PlayImage(divDepth)",1);
+	seq.Item("ActionSet1").At(66.000,"PlayImage(divPerf)",1);
+	seq.Item("ActionSet1").At(68.000,"PlayImage(divHit)",1);
+	seq.Item("ActionSet1").At(69.000,"LoadImage(divFrntpage,\"imgFrntpage\",\"frntpage.jpg\")",1);
+	seq.Item("ActionSet1").At(70.000,"LoadImage(divJoin,\"imgJoin\",\"join.jpg\")",1);
+	seq.Item("ActionSet1").At(71.000,"LoadImage(divSubnow,\"imgSubnow\",\"subnow.jpg\")",1);
+	seq.Item("ActionSet1").At(73.000,"WipeBackground5()",1);
+	seq.Item("ActionSet1").At(73.500,"PlayImage(divFrntpage)",1);
+	seq.Item("ActionSet1").At(75.500,"PlayImage(divJoin)",1);
+	seq.Item("ActionSet1").At(79.000,"PlayImage(divSubnow)",1);
+	seq.Item("ActionSet1").At(79.500,"PlayExitSound()",1);
+	seq.Item("ActionSet1").play();
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=JScript>
+function PlayEnterSound() 
+{
+	if (entersound.isSoundCardEnabled())
+	{
+		entersound.Run();
+	}
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function PlayExitSound() 
+{
+	if (exitsound.isSoundCardEnabled())
+	{
+		exitsound.Run();
+	}
+}
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=JScript>
+function LoadImage(divImage,strImageName,strImageSrc) 
+{
+	divImage.filters[0].Apply(); 
+	divImage.innerHTML = "<IMG ID=" + strImageName + " STYLE=\"position:absolute; left:0; top:0; width:100%; height:100%;\" SRC=" + strImageSrc + ">"; 
+	var theImage = document.images.item(strImageName);
+	theImage.style.width  = divImage.style.width;
+	theImage.style.height = divImage.style.height;
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function PlayImage(divImage) 
+{
+	divImage.filters(0).Play(); 
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function MoveInWebs() 
+{
+	divWebs.filters[0].Apply(); 
+	divWebs.innerHTML = "<IMG ID=imgWebs STYLE=\"position:absolute; left:0; top:0; width:100%; height:100%;\" SRC=" + szWebs + ">"; 
+	imgWebs.style.width	   = divWebs.style.width;
+	imgWebs.style.height   = divWebs.style.height;
+	divWebs.filters[0].Play(); 
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function SlideInPolygon(imgPolygon,divPolygon,intMoveIncrement) 
+{
+	imgPolygon.style.visibility = "visible";
+	divPolygon.style.pixelLeft = divPolygon.style.pixelLeft + intMoveIncrement;
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function SetLargeText(strText,divText) 
+{
+	divText.innerText = strText;
+	divText.style.visibility = "visible";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground0() 
+{
+	document.bgColor = "000000";
+
+	imgEspnLogo.style.visibility = "hidden"; 
+	imgSzLogo.style.visibility = "hidden";
+	imgLeader.style.visibility = "hidden";
+	imgWebs.style.visibility = "hidden";
+	imgBkgrd.style.visibility = "hidden";
+
+	imgBkgrd.src = "";
+	imgEspnLogo.src = ""; 
+	imgSzLogo.src = "";
+	imgLeader.src = "";
+	imgWebs.src = "";
+
+	divPanel.style.zIndex = "0";
+	divBlock.style.zIndex = "-1";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground1() 
+{
+	divExpertAnalysis.style.left   = intScreenWidth * .1230
+	divExpertAnalysis.style.top    = intScreenHeight *.0742
+	divExpertAnalysis.style.width  = intScreenWidth * .1377
+	divExpertAnalysis.style.height = intScreenHeight * .0742
+	
+	document.bgColor = "000000";
+	
+	divBigText.style.visibility = "hidden";
+	imgDickie.style.visibility = "hidden"; 
+	imgGammon.style.visibility = "hidden";
+	imgMort.style.visibility = "hidden";
+	imgEisen.style.visibility = "hidden";
+
+	imgDickie.src = "";
+	imgGammon.src = ""; 
+	imgMort.src = "";
+	imgEisen.src = "";
+
+	divBlock.style.zIndex = "-1";
+	divPanel.style.zIndex = "0";
+
+	divExpertAnalysis.style.visibility = "visible";
+
+	divBigText.style.left   = intScreenWidth * .0290
+	divBigText.style.top    = intScreenHeight *.1888
+	divBigText.style.width  = intScreenWidth * .2637
+	divBigText.style.height = intScreenHeight * .1563
+
+	divBigText.innerText = "Live Game Coverage";
+	divBigText.style.visibility = "visible";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground2() 
+{
+	divLiveGame.style.left   = intScreenWidth * .1230
+	divLiveGame.style.top    = intScreenHeight *.1914
+	divLiveGame.style.width  = intScreenWidth * .1377
+	divLiveGame.style.height = intScreenHeight * .0755
+	
+	document.bgColor = "000000";
+
+	divBigText.style.visibility = "hidden";
+	imgNflcast.style.visibility = "hidden"; 
+	imgMlbcast.style.visibility = "hidden";
+	imgNbaudio.style.visibility = "hidden";
+
+	imgNflcast.src = "";
+	imgMlbcast.src = ""; 
+	imgNbaudio.src = "";
+
+	divBlock.style.zIndex = "-1";
+	divPanel.style.zIndex = "0";
+
+	divLiveGame.style.visibility = "visible";
+
+	divBigText.style.left   = intScreenWidth * .0290
+	divBigText.style.top    = intScreenHeight *.3021
+	divBigText.style.width  = intScreenWidth * .2373
+	divBigText.style.height = intScreenHeight * .2383
+
+	divBigText.innerText = "In-Depth Local Coverage";
+	divBigText.style.visibility = "visible";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground3() 
+{
+
+	divInDepthLocal.style.left   = intScreenWidth * .1230
+	divInDepthLocal.style.top    = intScreenHeight *.3099
+	divInDepthLocal.style.width  = intScreenWidth * .1377
+	divInDepthLocal.style.height = intScreenHeight * .1133
+
+	document.bgColor = "000000";
+
+	divBigText.style.visibility = "hidden";
+	imgInside.style.visibility = "hidden"; 
+	imgClubhous.style.visibility = "hidden";
+	imgPlaycard.style.visibility = "hidden";
+
+	imgInside.src = "";
+	imgClubhous.src = ""; 
+	imgPlaycard.src = "";
+
+	divBlock.style.zIndex = "-1";
+	divPanel.style.zIndex = "0";
+
+	divInDepthLocal.style.visibility = "visible";
+
+	divBigText.style.left   = intScreenWidth * .0290
+	divBigText.style.top    = intScreenHeight *.4479
+	divBigText.style.width  = intScreenWidth * .2275
+	divBigText.style.height = intScreenHeight * .2279
+
+	divBigText.innerText = "Fantasy Games & Contests";
+	divBigText.style.visibility = "visible";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground4() 
+{
+	divFantesyGames.style.left   = intScreenWidth * .1230
+	divFantesyGames.style.top    = intScreenHeight *.4661
+	divFantesyGames.style.width  = intScreenWidth * .1377
+	divFantesyGames.style.height = intScreenHeight * .1094
+
+	document.bgColor = "000000";
+
+	divBigText.style.visibility = "hidden";
+	imgPigpick.style.visibility = "hidden"; 
+	imgFanfball.style.visibility = "hidden";
+	imgBbchalen.style.visibility = "hidden";
+
+	imgPigpick.src = "";
+	imgFanfball.src = ""; 
+	imgBbchalen.src = "";
+
+	divBlock.style.zIndex = "-1";
+	divPanel.style.zIndex = "0";
+
+	divFantesyGames.style.visibility = "visible";
+
+	divBigText.style.left   = intScreenWidth * .0290
+	divBigText.style.top    = intScreenHeight *.6094
+	divBigText.style.width  = intScreenWidth * .2754
+	divBigText.style.height = intScreenHeight * .1510
+
+	divBigText.innerText = "Deep Stats Analysis";
+	divBigText.style.visibility = "visible";
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE=JScript>
+function WipeBackground5() 
+{
+	divDeepStats.style.left   = intScreenWidth * .1230
+	divDeepStats.style.top    = intScreenHeight *.6237
+	divDeepStats.style.width  = intScreenWidth * .1377
+	divDeepStats.style.height = intScreenHeight * .0716
+
+	document.bgColor = "000000";
+
+	divBigText.style.visibility = "hidden";
+	imgDepth.style.visibility = "hidden"; 
+	imgPerf.style.visibility = "hidden";
+	imgHit.style.visibility = "hidden";
+
+	imgDepth.src = "";
+	imgPerf.src = ""; 
+	imgHit.src = "";
+
+	divBlock.style.zIndex = "-1";
+	divPanel.style.zIndex = "0";
+
+	divDeepStats.style.visibility = "visible";
+}
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor=000000>
+<DIV ID=divScreen STYLE="position:absolute; left:0; top:0; z-index:-1; overflow:hidden;" >
+	<DIV ID=divBkgrd STYLE="position:absolute; left:0; top:0; z-index:-1; overflow:hidden;" >
+		<IMG ID=imgBkgrd STYLE="position:absolute; left:0; top:0; visibility:hidden;" SRC=espnbg8.jpg>
+	</DIV>
+
+	<DIV ID=divEspnLogo STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divSzLogo STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divLeader STYLE="position:absolute; left:0; top:0;  z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divWebs STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divPanel STYLE="position:absolute; left:0; top:0; z-index:3; overflow:clip;" >
+		<IMG ID=imgPanel STYLE="position:absolute; left:0; top:0; visibility:hidden;" SRC=panel6.jpg>
+	</DIV>
+
+	<DIV ID=divBlock STYLE="position:absolute; left:0; top:0; z-index:2; background-color:#000000; overflow:hidden;" ></DIV>
+
+	<DIV ID=divSzLogo2 STYLE="position:absolute; left:0; top:0; z-index:2; overflow:clip;" >
+		<IMG ID=imgSzLogo2 STYLE="position:absolute; left:0; top:0; visibility:hidden;" SRC=szlogo2.jpg>
+	</DIV>
+
+	<DIV ID=divSubscribe STYLE="position:absolute; left:0; top:0; z-index:1; overflow:clip;" >
+		<IMG ID=imgSubscribe STYLE="position:absolute; left:0; top:0; visibility:hidden;" SRC=subscrib.gif>
+	</DIV>
+
+	<DIV ID=divDickie STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divGammon STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divMort STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divEisen STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divNflcast STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divMlbcast STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divNbaudio STYLE="position:absolute; left:0; top:0; z-index:3; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divClubhous STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divInside STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divPlaycard STYLE="position:absolute; left:0; top:0; z-index:3; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divPigpick STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divFanfball STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divBbchalen STYLE="position:absolute; left:0; top:0; z-index:3; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divDepth STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divPerf STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divHit STYLE="position:absolute; left:0; top:0; z-index:3; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divFrntpage STYLE="position:absolute; left:0; top:0; z-index:1; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divJoin STYLE="position:absolute; left:0; top:0; z-index:2; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV ID=divSubnow STYLE="position:absolute; left:0; top:0; z-index:3; width:100; height:100; overflow:clip; filter:blendTrans(duration=1)" >
+	</DIV>
+
+	<DIV id=divBigText style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		Expert Analysis
+	</DIV>
+
+	<DIV id=divExpertAnalysis style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		Expert Analysis
+	</DIV>
+	<DIV id=divLiveGame style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		Live Game Coverage
+	</DIV>
+	<DIV id=divInDepthLocal style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		In-Depth Local Coverage
+	</DIV>
+	<DIV id=divFantesyGames style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		Fantasy Games & Contests
+	</DIV>
+	<DIV id=divDeepStats style="position:absolute; left:0; z-index:1; visibility:hidden" >
+		Deep Stats Analysis
+	</DIV-->
+</DIV>
+<OBJECT ID="entersound" WIDTH=0 HEIGHT=0 STYLE = "visibility:hidden"
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+		<PARAM NAME="showcontrols" VALUE="false">
+		<PARAM NAME="showdisplay" VALUE="false">
+		<PARAM NAME="AutoStart" VALUE="false">
+		<PARAM NAME="AutoRewind" VALUE="false">		
+		<PARAM NAME="PlayCount" VALUE="1">
+		<PARAM NAME="FileName" VALUE="1125sc1.wav">
+</OBJECT>
+
+<OBJECT ID="exitsound" WIDTH=0 HEIGHT=0	STYLE = "visibility:hidden"
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+		<PARAM NAME="showcontrols" VALUE="false">
+		<PARAM NAME="showdisplay" VALUE="false">
+		<PARAM NAME="AutoStart" VALUE="false">
+		<PARAM NAME="AutoRewind" VALUE="false">		
+		<PARAM NAME="PlayCount" VALUE="1">
+		<PARAM NAME="FileName" VALUE="1125sc3.wav">
+</OBJECT>
+
+<OBJECT ID="seq"
+	CLASSID="CLSID:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96">
+</OBJECT>
+
+</BODY>
+</HTML>

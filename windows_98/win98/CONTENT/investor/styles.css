@@ -1,0 +1,20 @@
+<STYLE TEXT="text/css">
+<!--
+
+	A:link {text-decoration: none}
+	A:visited {text-decoration: none}
+	A:active {text-decoration: none}
+
+	.Callout {position: absolute; z-index: 0;
+			visibility: hidden;
+ 			filter: revealTrans();
+ 			}
+
+	.Bgimage {position: relative; z-index: -1; 
+			width:780; height:500; 
+			visibility: hidden;
+			filter: revealTrans(duration=1.5, transition=3);	
+			}
+
+-->
+</STYLE>

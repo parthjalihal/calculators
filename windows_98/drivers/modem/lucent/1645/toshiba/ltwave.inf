@@ -1,0 +1,58 @@
+; name and version number:@(#)ltwave.inf	1.5*/
+; date of get: 		  06 Jun 1997 17:25:55*/
+; date of delta:	  15 Mar 1997 12:01:27*/
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+provider=%PROV%
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%MfgName%=Microsoft
+
+[Microsoft]
+; the device id's (MODEMWAVE\LT_Win_Modem)
+; correspond EXACTLY to the modem name with underscores in place of spaces.
+; the names must be an exact match or installer won't find device.
+; this scheme is because of the way the serial wave device enumeration occurs.
+
+; serial wave device - imaadpcm driver
+%Serial.DeviceDesc%=MSSERWAVE, MODEMWAVE\TOSHIBA_Internal_V.34_Modem
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[MSSERWAVE]
+AddReg=MSSERWAVE.AddReg
+
+[MSSERWAVE.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\wave,,,
+HKR,,Driver,,serwave.vxd
+HKR,Drivers\wave\serwvdrv.drv,Description,,%Serial.DeviceDesc%
+HKR,Drivers\wave\serwvdrv.drv,Driver,,serwvdrv.drv
+HKR,Drivers,SubClasses,,"wave"
+HKR,Config,XformModule,  , "umdmxfrm.dll"
+HKR,Config,XformID,     1, 04, 00, 00, 00
+HKR,Config,BaudRate,	1, 00, c2, 01, 00
+; 2 wave devices - line & local phone
+;HKR,Config,WaveDevices,  1, 02, 00
+; 1 wave device - only line
+HKR,Config,WaveDevices,  1, 01, 00
+
+;---------------------------------------------------------------;
+
+[Strings]
+PROV="LT"
+MfgName="LT"
+Serial.DeviceDesc="Voice Modem Serial Wave Device"
+MediaClassName="Sound, video and game controllers"
+

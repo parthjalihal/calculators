@@ -1,0 +1,82 @@
+; RPCPP.INF
+;
+; Microsoft RPC Print Provider
+;
+; Copyright 1993-1995, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=NetService
+provider=%V_MS%
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%RPCPP.DeviceDesc%=RPCPP.ndi, RPCPP; RPC Print Provider
+
+;*********************************************
+;    RPCPP
+;*********************************************
+[RPCPP.ndi]
+AddReg=RPCPP.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=RPCPP
+
+[RPCPP.ndi.reg]
+HKR,Ndi,DeviceID,,RPCPP
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"winnet4,winnet31,multinet31"
+HKR,Ndi\Interfaces,LowerRange,,"winnet4,winnet31,multinet31"
+;HKR,Ndi\Compatibility,RequireAny,,"NWREDIR,NETWARE3,NETWARE4"
+; Install-Remove Section
+HKR,Ndi\Install,,,"RPCPP.Install"
+HKR,Ndi\Remove,,,"RPCPP.Remove"
+; Context help
+HKR,Ndi,HelpText,,%RPCPP_HELP%
+
+[RPCPP.Install]
+AddReg=RPCPP.Add.reg
+CopyFiles=RPCPP.Add.files
+
+[RPCPP.Add.reg]
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Providers\Microsoft RPC Print Provider",Name,,"rpcpp.dll"
+
+[RPCPP.Add.files]
+rpcpp.dll
+
+[RPCPP.Remove]
+DelReg=RPCPP.Rmv.Reg
+
+[RPCPP.Rmv.Reg]
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Providers\Microsoft RPC Print Provider",Name,,"rpcpp.dll"
+
+;****************************************************************************
+; SourceDisks
+;****************************************************************************
+[SourceDisksNames]
+77=%DSK%, "", 0001
+
+[SourceDisksFiles]
+rpcpp.dll   =77,,48000
+
+;****************************************************************************
+; Destination directories
+;****************************************************************************
+[DestinationDirs]
+RPCPP.Add.files       = 11    ;LDID_SYS
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+
+; Devices
+RPCPP.DeviceDesc="Microsoft RPC Print Provider"
+
+; Context help
+RPCPP_HELP="Enhances network printing and remote administration when used with Microsoft Windows NT servers."
+
+DSK="Windows 95 resource kit"

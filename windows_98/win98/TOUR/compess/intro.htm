@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>Computer Essentials</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="intro.txt">
+</OBJECT>
+<script language=javascript>
+var rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function initarry(total){
+	for(i=0;i<total;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+	divEnter.innerHTML = txtary[5]
+	divInstruct.innerHTML = txtary[4]
+}
+</script>
+
+<SCRIPT LANGUAGE="VBScript">
+currentseq = 1
+
+sub window_onload()
+	window.focus()
+	initarry(6)
+	if parent.backwards then
+		currentseq=5
+		call seq("5").Play()
+		parent.backwards=false
+	else
+		call seq("1").Play()
+	end if
+end sub
+
+Sub document_onkeydown()
+	whatkey = window.event.keycode
+	select case whatkey
+		case 13
+			nextseq
+		case 37
+			prevseq
+		case 38
+			parent.location.href = "../default.htm"
+		case 39
+			nextseq
+		case 49
+			parent.nav.spanMeetComp.click
+		case 97
+			parent.nav.spanMeetComp.click
+		case 50
+			parent.nav.spanUseMouse.click
+		case 98
+			parent.nav.spanUseMouse.click
+		case 51
+			parent.nav.spanMeetDesk.click
+		case 99
+			parent.nav.spanMeetDesk.click
+	end select
+End Sub
+
+sub nextseq()
+	if currentseq < 5 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq + 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.nav.spanMeetComp.click
+	end if
+end sub
+
+sub prevseq()
+	if currentseq > 1 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq - 1
+		call seq(cstr(currentseq)).play()
+	end if
+end sub
+
+Sub seq_OnInit
+
+	Call seq("1").at(0.00, "doCallNav('hidden')")'cleanup for backing up
+	Call seq("1").at(0.00, "parent.hideall('kb')")
+	Call seq("1").at(0.00, "parent.dotext(0)")
+	Call seq("1").at(0.00, "parent.sound('./waves/intro/intro_1.mpa')")
+	Call seq("1").at(6.00, "parent.doShow(imgRightMark)")
+	Call seq("1").at(30.00, "parent.sound('./waves/misc/frwd.mpa')")
+
+	Call seq("2").at(0.00, "parent.hideall('kb')")
+	Call seq("2").at(0.00, "parent.doHide(divEnter)")'cleanup for backing up
+	Call seq("2").at(0.00, "parent.dotext(1)")
+	Call seq("2").at(0.00, "doCallNav('visible')")
+	Call seq("2").at(0.00, "parent.sound('./waves/intro/intro_3.mpa')")
+	Call seq("2").at(30.00, "parent.sound('./waves/misc/frwd.mpa')")
+
+	Call seq("3").at(0.00, "parent.doShow(divHolderText)")'cleanup for backing up
+	Call seq("3").at(0.00, "parent.doShow(divEnter)")	
+	Call seq("3").at(0.00, "parent.hideall('kb')")
+	Call seq("3").at(0.00, "doCallNav('hidden')")
+	Call seq("3").at(0.00, "parent.dotext(2)")
+	Call seq("3").at(0.00, "parent.sound('./waves/misc/bkwd.mpa')")
+	Call seq("3").at(4.50, "parent.doShow(imgLeftMark)")
+	Call seq("3").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("4").at(0.00, "parent.hideall('kb')")
+	Call seq("4").at(0.00, "parent.doShow(divEnter)")	
+	Call seq("4").at(0.00, "parent.doShow(divHolderText)")'cleanup for backing up
+	Call seq("4").at(0.00, "parent.doHide(divInstruct)")'cleanup for backing up
+	Call seq("4").at(0.00, "parent.dotext(3)")
+	Call seq("4").at(0.00, "parent.sound('./waves/misc/opening.mpa')")
+	Call seq("4").at(7.00, "parent.doShow(imgUpMark)")
+	Call seq("4").at(0.00, "parent.sound('./waves/misc/exit.mpa')")
+	Call seq("4").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("5").at(0.00, "parent.hideall()")
+	Call seq("5").at(0.00, "parent.doShow(divEnter)")	
+	Call seq("5").at(0.00, "parent.doHide(divHolderText)")
+	Call seq("5").at(0.00, "parent.doShow(divInstruct)")
+	Call seq("5").at(0.00, "parent.sound('./waves/intro/silence.mpa')")
+	Call seq("5").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+
+End Sub
+
+Sub doCallNav(showit)
+	parent.nav.circ1.style.visibility = showit
+End Sub
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR=#E3E3E3>
+
+<!--sequencer object-->
+<OBJECT ID="seq" 
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+</OBJECT>
+
+<!--keyboard images-->
+<IMG class="kb" ID="imgKbd" SRC="images/kbdfirst.gif" STYLE="position:absolute; top:-115; left:0; visibility:hidden">
+<IMG class="39" ID="imgRightMark" SRC="images/circles/b_right.gif" STYLE="position:absolute; top:152; left:327; visibility:hidden">
+<IMG class="37" ID="imgLeftMark" SRC="images/circles/b_left.gif" STYLE="position:absolute; top:152; left:189; visibility:hidden">
+<IMG class="38" ID="imgUpMark" SRC="images/circles/b_up.gif" STYLE="position:absolute; top:142; left:318; visibility:hidden">
+
+<DIV STYLE="position:absolute; top: 280; left:10; width:460; height: 128">
+	<!--holder div for text-->	
+	<DIV CLASS="clsHolder" ID="divHolderText" STYLE="height:135;">
+	</DIV>
+
+	<!--back and forward directions-->
+	<DIV CLASS="clsEnter" ID="divEnter" STYLE="visibility:hidden">
+	</DIV>
+</DIV>
+	<!--Instructions for pressing numbers to get to lessons-->
+<DIV CLASS="clsInst" ID="divInstruct" STYLE="left:5%; width:90%; height:200; visibility:hidden;">
+</DIV>
+</body>
+</html>

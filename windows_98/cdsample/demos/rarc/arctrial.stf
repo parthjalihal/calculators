@@ -1,0 +1,114 @@
+App Name	"Microsoft Return of Arcade Trial Version"
+App Version	96.0.4.11 (1033)
+Frame Bitmap	"arcade.dll, 121"
+Frame Caption	Microsoft Return of Arcade Trial Version Setup
+Dialog Caption Base	Return of Arcade Trial Version
+Usage String	Usage: Setup\n
+About Box String	Microsoft Return of Arcade Trial Version Setup\n\nCopyright (C) 1996 Microsoft Corporation.
+MSAPPS Mode	local
+Inf File Name	arctrial.inf
+Maximum Object ID	400
+Floppy Mode Root Object ID	11:01
+Maintenance Mode Root Object ID	13:01
+Batch Mode Root Object ID	12:01
+Setup Version	1.20.0.1915
+Suppress Serial Number Dialog
+
+ObjID	Install During Batch Mode	Title	Descr	Type	Data	BMP Id	Vital	Shared	Dir Chang	Dest Dir	Check Dir	Installed By Us
+1	yes	Microsoft Return of Arcade Trial Version		AppSearch	"c:\MSGames\ArcTrial<%p\Microsoft Games\RoA Trial Version>, ""ROAJOY32.DLL"", ""1.0.0.0"", 200, ""Yes"", ""Yes"", 2"							
+2	yes			SearchDrives	fixed							
+
+10	yes	==== Install Types ====										
+11	yes	Floppy Installation		AppMainDlg	21 : 25 30 100 110 120 130 150 301				Yes	%1		
+12	yes	Batch Mode Installation		Group	21 25 30 100 110 120 130					%1		
+13	yes	Return of Arcade Maintenance Installation		Group	25 30 50 100 110 130 140 301					%1		
+14	yes											
+20	yes	==== Main Dialog Options ====										
+21	yes	&Setup	The Microsoft Return of Arcade Trial Version will be installed.	Group	50 140	"arcade.dll, 111"						
+22	yes	C&ustom	Microsoft Return of Arcade will be installed with only the games you select.	CustomDlg	80 70 50 60 : 140	"arcade.dll, 112"						
+23	yes
+
+24	yes	===StampPID===
+25	yes			Group	26 27
+26	yes			CopyFile	"""SYSTEM"",""arcjoy_dll"""					%d
+27	yes			StampCDInfo	"26,106,196"
+
+30	yes	===Common to all===		Group	34 36 37
+34	yes			CopySection	"""ARCADE"""					%d	
+35	yes	NT ???		CustomAction	"""arcade.dll"", ""OnWindowsNT"","""""
+36	yes			Depend	35 ? : 200
+37	yes			Group	38 39 40					%D
+38	yes			CopySection	"""Help"""					%D	
+39	yes			CustomAction	"arcade.dll, ""KillFileType"", ""38,pacman.fts"""							
+40	yes			CustomAction	"arcade.dll, ""KillFileType"", ""38,Pacman.gid"""							
+
+
+50	yes	Pacman		Group	51 54 58					
+51	yes			CopySection	"""ARCADE\PACMAN"""					%d
+54	yes			Depend	35 ? 55
+55	yes			AddProgmanItem	"""Microsoft Return of Arcade"", ""Pac-Man Trial"", ""%s\pacdemo.exe"","""""					%d		
+58	yes			AddRegData	" ""HKEY_LOCAL_MACHINE"", ""Software\Microsoft\Return of Arcade Trial\Pac-Man"" "
+
+100	yes			AddRegData	"""HKEY_LOCAL_MACHINE"", ""Software\Microsoft\Microsoft Games\Return of Arcade Trial\96"", ""Version"", ""96"", """""					
+
+110	yes	Uninstall Support		Group	111 112 113 114 115					
+111	yes			CopySection	"""setup"""					%D\setup
+112	yes			WriteTableFile	"""setup.stf"""					%D\setup
+113	yes			AddRegData	"""HKEY_LOCAL_MACHINE"", ""Software\Microsoft\Windows\CurrentVersion\Uninstall\Return of Arcade Trial"", ""DisplayName"", ""Microsoft Return of Arcade Trial Version"", """""					
+114	yes			AddRegData	"""HKEY_LOCAL_MACHINE"", ""Software\Microsoft\Windows\CurrentVersion\Uninstall\Return of Arcade Trial"", ""UninstallString"", ""%s\setup.exe /m"", """""					%111
+115	yes			InstallComplianceFile	"""setup"", ""complinc"""					%D\setup
+
+120	yes 	256 Colors?		CustomAction	" ""arcade.dll"", ""devDisplayResults"", """" "
+
+130	yes	Ini File		CopySection	"""INI File"""					%W
+
+140	yes	WinG		Group	141 142 143 144 145					%M		
+141	yes			InstallSysFile	"""WinG"", ""WinG"""							
+142	yes			InstallSysFile	"""WinG"", ""WinG32"""							
+143	yes			InstallSysFile	"""WinG"", ""WinGde"""							
+144	yes			InstallSysFile	"""WinG"", ""WinGdib"""							
+145	yes			InstallSysFile	"""WinG"", ""WinGpal"""							
+
+150	Yes	Billboards		Group	151 152 153 154 155
+151	Yes	BB1		AddBillboard	"""arcade.dll"", ""1021"", ""FOffBlbrdDlgProc"""
+152	Yes	BB2		AddBillboard	"""arcade.dll"", ""1022"", ""FOffBlbrdDlgProc"""
+153	Yes	BB3		AddBillboard	"""arcade.dll"", ""1023"", ""FOffBlbrdDlgProc"""
+154	Yes	BB4		AddBillboard	"""arcade.dll"", ""1024"", ""FOffBlbrdDlgProc"""
+155	Yes	BB5		AddBillboard	"""arcade.dll"", ""1025"", ""FOffBlbrdDlgProc"""
+156	Yes	BB6	*disabled*	AddBillboard	"""arcade.dll"", ""1026"", ""FOffBlbrdDlgProc"""
+
+200	yes			Group	201 202
+201	yes	Get Shortcut path		CustomAction	"""arcade.dll"", ""GetPathFromReg"", ""HKEY_CURRENT_USER,Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders,Programs"""					
+202	yes			Group	203					%201\Games<%201\Microsoft Games>
+203	yes			Group	204					%D\RoATrial<%D\Return of Arcade Trial>
+204	yes			InstallShortcut	"""%51\pacdemo.exe"",""Pac-Man Trial"", ""%51"""					%D	
+
+300		=== add DirectX Support ===
+301	yes			Group	302					%d\Setup
+302	yes		... but not on NT	Depend	35 ? : 304 305 350
+
+
+303	yes	~ Make a DirectX image on the users machine ~
+304	yes			CustomAction	"arcade.dll,""SetDxPath"","""""					%D
+
+
+305	yes			Group	306 307 308					%304\RoaDxSet
+306	yes			CopySection	"""dxRoot"""					%111
+307	yes			CopySection	"""dxRoot"""					%D
+308	yes			Group	310 311					%d\DirectX
+310	yes			CopySection	"""dxDirectX"""					%d
+311	yes			Group	315 320					%d\Drivers
+315	yes			Group	316 317 318					%d\Display
+316	yes			CopySection	"""dxDisplay"""					%d
+317	yes			CopySection	"""dxMsDDraw"""					%d\MSDDRAW
+318	yes			CopySection	"""dxDisBin"""					%d\BIN
+320	yes			Group	325 330 335					%d\Audio
+325	yes			CopySection	"""dxAudBin"""					%d\BIN
+330	yes			CopySection	"""dxMsdsound"""					%d\MSDSOUND
+335	yes			CopySection	"""dxAudio"""					%d
+
+349	yes	~ Now actually call the DirectX Install ~
+350	yes			Group	355 360					%305
+355	yes	Arcade Setup	Please reboot Windows to complete the installation.	CustomAction	"arcade.dll,""InstallDirectX"",""DXALL"""					%308
+
+360	yes			CustomAction	"arcade.dll, ""KillObjectDstDir"""					%305		

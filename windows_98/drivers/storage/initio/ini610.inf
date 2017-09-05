@@ -1,0 +1,82 @@
+;-------------------------------------------------------------------------
+;INI610.INF  -- This file contains descriptions of INITIO INI-6100/6102
+;               SCSI Host adapters supported in Windows 95
+;-------------------------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=SCSIAdapter
+Provider=%INI%
+
+[ClassInstall]
+Addreg=SCSIClassReg
+
+[SCSIClassReg]
+HKR,,,,%SCSIClassName%
+
+[Manufacturer]
+%INI%=INITIO
+
+[INITIO]
+%*INI6100.DeviceDesc% = INI160,*INI6100
+
+; ---- ini610 Installation Section  -----
+[INI160]
+Copyfiles=@ini610.mpd
+AddReg=IOS,ini610.Reg
+UpdateInis=UpdateINIfile
+UpdateCfgSys=UpdateCFGfile
+LogConfig=*INI6100.LogConfig
+
+[ini610.Reg]
+HKR,,PortDriver,,ini610.mpd
+
+[UpdateINIfile]
+%10%\ios.ini,safelist,,ispi610.sys
+
+[UpdateCFGfile]
+LastDrive=Z
+
+[*INI6100.Det]
+AddReg=ForceMPCopy
+
+
+[*INI6100.LogConfig]
+ConfigPriority  = HARDRECONFIG
+IOConfig        = 330-33F(3FF::),340-34F(3FF::),230-23F(3FF::),240-24F(3FF::),130-13F(3FF::),140-14F(3FF::)
+IRQConfig       = 9,10,11,12,14,15
+DMAConfig       = 0,5,6,7
+
+
+; ---- IOS common section ----
+[IOS]
+HKR,,DevLoader,,*IOS
+HKR,,DontLoadIfConflict,,"Y"
+
+[IOSMCA]
+HKR,,ConfigFlags,1,00,02,00,00
+
+[Poll]
+HKR,,polling,,1
+
+[ForceMPCopy]
+HKR,,NoSetupUI,,1
+
+[FixInitID]
+HKR,,AdapterSettings,,"/H7"
+
+;----------------------------
+[DestinationDirs]
+ISPIDEV = 11                    ;delete from SYSTEM dir if exists
+DefaultDestDir = 12             ; IOSubsys directory
+
+[SourceDisksFiles]
+ini610.mpd = 1
+
+[SourceDisksNames]
+1 = %ID1%, Instd1, 0000-0000
+
+[Strings]
+SCSIClassName="SCSI Controllers"
+INI="Initio Corp."
+*INI6100.DeviceDesc="Initio INI-6100/6102 SCSI Host Adapter"
+ID1="INI-6100/6102 Windows 95 Installation disk"

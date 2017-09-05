@@ -1,0 +1,206 @@
+<HTML>
+
+<HEAD>
+
+<TITLE> Configuration Tools </TITLE>
+
+<BASEFONT face="Tahoma,Arial" color="black" size=1>
+<STYLE>
+<!--
+  TD      {text-align: left}
+  A       {font-weight: bold; text-decoration: none; color="black"}
+-->
+</STYLE>
+</HEAD>
+
+<SCRIPT language="VBScript">
+<!--
+
+  'Main functions to perform task highlighting on with mouse movement
+
+  Sub DoMouseOver(task)
+    document.anchors("Task" & task).style.color="#0000CC"
+    document.anchors("Task" & task).style.textdecorationunderline=true
+  End Sub
+
+  Sub DoMouseOut(task)
+    document.anchors("Task" & task).style.color="black"
+    document.anchors("Task" & task).style.textdecorationunderline=false
+  End Sub
+
+  Sub FireUpBinary(BinaryName, SubDir)
+    Call TMCTkpad.LaunchGUI(Cstr(BinaryName), CStr(SubDir))
+  End sub
+
+  Sub FireUpConsole()
+    Call TMCTkpad.LaunchConsole()
+  End sub
+
+  Sub FireUpConsoleEX( ConsoleEXEName, SubDir, ArgString )
+    Call TMCTkpad.LaunchConsoleEx(Cstr(ConsoleEXEName), CStr(SubDir), CStr(ArgString))
+  End sub
+
+  Sub FireUpHelp( HelpEXEName, SubDir, HelpID )
+    Call TMCTkpad.LaunchHelp(Cstr(HelpEXEName), CStr(SubDir), HelpID)
+  End sub
+
+-->
+</SCRIPT>
+
+<BODY bgcolor="white" topmargin=0 leftmargin=0>
+
+    <!--------------------------------->
+    <!-- TaskPad Title Area Table    -->
+    <!--------------------------------->
+
+<TABLE width="100%" border=0 cellpadding=0 cellspacing=0 background="NTtile.gif">
+  <TR height=89>
+    <TD width=89>
+      <IMG align="middle" src="NTDisk.gif" width=89 height=89>
+    </TD>
+
+    <TD valign="top">
+      <FONT size=4><B>
+
+      Configuration Tools
+
+      </B></FONT><BR>
+      <FONT size=2>
+
+      Tools and Utilities for Windows 98 Confirguration
+
+      </FONT>
+    </TD>
+
+    <TD halign=left valign=top width=5 background="NTtile.gif">
+    </TD>
+  </TR>
+</TABLE>
+<BR><BR>
+
+    <!--------------------------------->
+    <!-- TaskPad Tool Area Table     -->
+    <!--------------------------------->
+
+<TABLE width=* border=0 cellpadding=0 cellspacing=4>
+    <TR valign=top>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Code Page Changer -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon01" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("01")
+                           onMouseOut=DoMouseOut("01")
+                           onClick= "Call FireUpBinary('chdoscp.exe', '')">
+            <IMG SRC="gui.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task01" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("01")
+                           onMouseOut=DoMouseOut("01")
+                           onClick= "Call FireUpBinary('chdoscp.exe', '')">
+              Code Page Changer
+            </A><BR>
+            Changes the Code Page used for MS-DOS-based programs to match Windows 98 Regional Settings.
+        </FONT>
+      </TD>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Fat 32 Conversion Information Tool -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon02" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("02")
+                           onMouseOut=DoMouseOut("02")
+                           onClick= "Call FireUpBinary('fat32win.exe', '')">
+            <IMG SRC="gui.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task02" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("02")
+                           onMouseOut=DoMouseOut("02")
+                           onClick= "Call FireUpBinary('fat32win.exe', '')">
+              Fat 32 Conversion Information Tool
+            </A><BR>
+            Estimates the amount of free disk space gained by converting to a FAT32 file system.
+        </FONT>
+      </TD>
+      <TD halign=left valign=top width=5>
+      </TD>
+    </TR>
+
+    <!-- Blank Row for Spacing -->
+    <TR>
+      <TD>&nbsp;<BR>&nbsp;</TD>
+    </TR>
+
+
+    <TR valign=top>
+
+      <TD width=50></TD>
+
+        <!------------------>
+        <!-- Time Zone Editor -->
+        <!------------------>
+
+      <TD align=left valign=top width=34>
+          <A name="icon03" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("03")
+                           onMouseOut=DoMouseOut("03")
+                           onClick= "Call FireUpBinary('tzedit.exe', '')">
+            <IMG SRC="gui.gif" width="32" height="32" border="0">
+          </A>
+      </TD>
+
+      <TD width=300>
+        <FONT size=2>
+            <A name="task03" HREF="config.htm"
+                           language="VBScript"
+                           onMouseOver=DoMouseOver("03")
+                           onMouseOut=DoMouseOut("03")
+                           onClick= "Call FireUpBinary('tzedit.exe', '')">
+              Time Zone Editor
+            </A><BR>
+            Creates and edits time zone entries for the Date/Time icon in Control Panel.
+        </FONT>
+      </TD>
+      <TD halign=left valign=top width=5>
+      </TD>
+    </TR>
+
+    <!-- Blank Row for Spacing -->
+    <TR>
+      <TD>&nbsp;<BR>&nbsp;</TD>
+    </TR>
+
+
+</TABLE
+
+<P>
+    &nbsp;
+    <OBJECT id="TMCTkpad" name="TMCTkpad"
+    classid="CLSID:D306C3B7-2AD5-11D1-9E9A-00805F200005"
+    align="baseline" border="0" width="0" height="0">
+    </OBJECT>
+</P>
+
+</BODY>
+</HTML>

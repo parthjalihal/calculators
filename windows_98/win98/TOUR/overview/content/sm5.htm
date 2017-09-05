@@ -1,0 +1,364 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="Jscript">
+<!--
+  var engine = window.external;
+// -->
+</SCRIPT>
+
+<script language="VBScript" src="data/sm5.vbs"></script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+loadnum = -1
+
+SUB Window_Onload
+  demotext.innerText = dt
+  demotext.style.top = document.body.offsetHeight - document.all.demotext.offsetHeight - 10
+  playstep = engine.GetShortName()
+  Select Case playstep
+    Case 3
+      loadnum = 2
+      img1.src="images/502ossel.gif"
+      last.src="images/503oswin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(0),xy(1), xy(2),xy(3), xy(2),xy(3) )
+      t = Array(2.0, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.3, 10 ' online services highlights
+      P1.AddTimeMarker 2.5, 20 ' online services window appears
+    Case 5
+      loadnum = 2
+      img1.src="images/503oswin.gif"
+      last.src="images/504osclo.gif"
+      P1.Target = "arrow"
+      k = Array( xy(2),xy(3), xy(4),xy(5), xy(4),xy(5) )
+      t = Array(2.0, 1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.2, 30
+      P1.AddTimeMarker 2.6, 40
+      img1.style.visibility="visible"
+    Case 6
+      loadnum = 2
+      img1.src="images/505nethi.gif"
+      last.src="images/516tlwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(4),xy(5), xy(6),xy(7), xy(6),xy(7) )
+      t = Array(2.0,1.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.3, 50
+      P1.AddTimeMarker 2.5, 60
+    Case 7
+      loadnum = 8
+      img1.src="images/516tlwin.gif"
+      img2.src="images/507iebhi.gif"
+      img3.src="images/508ty101.gif"
+      img4.src="images/509ty102.gif"
+      img5.src="images/510ty103.gif"
+      img6.src="images/511ty104.gif"
+      img7.src="images/512ty105.gif"
+      last.src="images/513mscom.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(6),xy(7), xy(8),xy(9), xy(8),xy(9) )
+      t = Array(1.0, 3.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.5, 70
+      P1.AddTimeMarker 1.9, 80
+      P1.AddTimeMarker 2.0, 90
+      P1.AddTimeMarker 2.1, 100
+      P1.AddTimeMarker 2.2, 110
+      P1.AddTimeMarker 2.3, 120
+      P1.AddTimeMarker 3.3, 130
+    Case 8
+      loadnum = 4
+      img1.src="images/513mscom.gif"
+      img2.src="images/514tlhlt.gif"
+      img3.src="images/515tldep.gif"
+      last.src="images/519pnwin.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(8),xy(9), xy(10),xy(11), xy(10),xy(11) )
+      t = Array(1.0, 2.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.2, 140
+      P1.AddTimeMarker 1.5, 150
+      P1.AddTimeMarker 2.5, 160
+    Case 10
+      loadnum = 8
+      img1.src="images/519pnwin.gif"
+      img2.src="images/520bkhi.gif"
+      img3.src="images/521bktip.gif"
+      img4.src="images/513mscom.gif"
+      img5.src="images/531forbk.gif"
+      img6.src="images/523fwhi.gif"
+      img7.src="images/522bkdep.gif"
+      last.src="images/524fwdep.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(12),xy(13), xy(14),xy(15), xy(14),xy(15), xy(16),xy(17), xy(16),xy(17) )
+      t = Array(1.0, 1.3, 1.0, 1.3)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.1, 200
+      P1.AddTimeMarker 1.4, 210
+      P1.AddTimeMarker 1.8, 220
+      P1.AddTimeMarker 2.1, 230
+      P1.AddTimeMarker 3.6, 240
+      P1.AddTimeMarker 4.1, 250
+      P1.AddTimeMarker 4.3, 260
+    Case 11
+      loadnum = 5
+      img1.src="images/519pnwi2.gif"
+      img2.src="images/525bwhi.gif"
+      img3.src="images/526bwtip.gif"
+      img4.src="images/527bwdep.gif"
+      last.src="images/528bwwin.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(16),xy(17), xy(18),xy(19), xy(18),xy(19) )
+      t = Array(1.0, 2.1)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.2, 270
+      P1.AddTimeMarker 1.5, 280
+      P1.AddTimeMarker 1.8, 290
+      P1.AddTimeMarker 2.1, 300
+    Case 12
+      loadnum = 4
+      img1.src="images/528bwwin.gif"
+      img2.src="images/529bwwi2.gif"
+      img3.src="images/530link1.gif"
+      last.src="images/534l4win.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(18),xy(19), xy(20),xy(21), xy(20),xy(21), xy(22),xy(23), xy(22),xy(23), xy(24),xy(25), xy(24),xy(25), xy(26),xy(27), xy(26),xy(27), xy(28),xy(29), xy(30),xy(31), xy(30),xy(31), xy(32),xy(33), xy(32),xy(33), xy(34),xy(35), xy(34),xy(35) )
+      t = Array(1.0, 0.6, 1.0, 0.6, 1.0, 0.6, 1.0, 0.6, 1.0, 1.0, 0.6, 1.0, 0.6, 1.0, 1.6)
+      P1.KeyFrame 16, k, t
+      P1.AddTimeMarker 1.2, 310
+      P1.AddTimeMarker 2.8, 320
+      P1.AddTimeMarker 3.2, 330
+      P1.AddTimeMarker 4.4, 340
+      P1.AddTimeMarker 4.9, 350
+      P1.AddTimeMarker 6.0, 360
+      P1.AddTimeMarker 9.8, 380
+      P1.AddTimeMarker 11.8, 390
+      P1.AddTimeMarker 12.1, 400
+      P1.AddTimeMarker 13.0, 410
+    Case 13
+      loadnum = 4
+      img1.src="images/534l4win.gif"
+      img2.src="images/535hohlt.gif"
+      img3.src="images/536hodep.gif"
+      last.src="images/516tlwin.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(34),xy(35), xy(36),xy(37), xy(36),xy(37) )
+      t = Array(1.0, 1.6)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.1, 420
+      P1.AddTimeMarker 1.6, 430
+      P1.AddTimeMarker 1.9, 440
+    Case 14
+      loadnum = 2
+      img1.src="images/516tlwin.gif"
+      last.src="images/537ieclo.gif"
+      img1.style.visibility="visible"
+      P1.Target = "arrow"
+      k = Array( xy(36),xy(37), xy(38),xy(39), xy(38),xy(39))
+      t = Array(1.6, 1.6)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.0, 450
+      P1.AddTimeMarker 2.5, 460
+  End Select
+END SUB
+
+Sub P1_onplaymarker(m)
+  Select Case m
+' ------------------------ STEP 3
+    Case 10       ' ------------ ONLINE SERVICES HIGHLIGHTS
+      img1.style.visibility="visible"
+    Case 20       ' ------------ ONLINE SERVICES WINDOW APPEARS
+      img1.style.visibility="hidden"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 5
+    Case 30    ' ------------ CLOSE BUTTON DEPRESSES
+      last.style.visibility="visible"
+    Case 40    ' ---------------- CLOSE BUTTON AND ONLINE SERVICES WINDOW DISAPPEAR
+      last.style.visibility="hidden"
+      img1.style.visibility="hidden"
+
+' ------------------------ STEP 6
+    Case 50 ' ----------- 'THE INTERNET' HIGHLIGHTS
+      img1.style.visibility="visible"
+    Case 60 ' ----------- IE OPENS TO BLANK SCREEN
+      img1.style.visibility="hidden"
+      last.style.visibility="visible"
+
+' ------------------------ STEP 7
+    Case 70 ' ----------- CLICK SOUND, ADDRESS BOX HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 80 ' ----------- TYPING www.microsoft.com/
+      img3.style.visibility="visible"
+    Case 90 ' ----------- TYPING www.microsoft.com/
+      img4.style.visibility="visible"
+      img3.style.visibility="hidden"
+    Case 100 ' ----------- TYPING www.microsoft.com/
+      img5.style.visibility="visible"
+      img4.style.visibility="hidden"
+    Case 110 ' ----------- TYPING www.microsoft.com/
+      img6.style.visibility="visible"
+      img5.style.visibility="hidden"
+    Case 120 ' ----------- TYPING www.microsoft.com/
+      img7.style.visibility="visible"
+      img6.style.visibility="hidden"
+    Case 130 ' ----------- www.microsoft.com/ OPENS
+      last.style.visibility="visible"
+
+' ------------------------ STEP 8
+    Case 140 ' ---------- 'TODAY'S LINKS' HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 150 ' ---------- TODAY'S LINKS DEPRESSES
+      img2.style.visibility="hidden"
+      img3.style.visibility="visible"
+    Case 160 ' ---------- TODAY'S LINKS OPENS
+      last.style.visibility="visible"
+      img1.style.visibility="hidden"
+
+' ------------------------ STEP 10
+    Case 200 ' ------------ BACK BUTTON HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 210 ' ------------ BACK TOOL TIP APPEARS
+      img3.style.visibility="visible"
+    Case 220 ' ------------ BACK BUTTON DEPRESSED
+      img7.style.visibility="visible"
+    Case 230 ' ------------ BACK TO MS.COM
+      img2.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img4.style.visibility="visible"
+      img1.style.visibility="hidden"
+      img5.style.visibility="visible"
+      img7.style.visibility="hidden"
+    Case 240 ' ------------ 'FORWARD' HIGHLIGHTS
+      img6.style.visibility="visible"
+    Case 250 ' ------------
+      last.style.visibility="visible"
+    Case 260 ' ------------
+      last.style.visibility="hidden"
+      img6.style.visibility="hidden"
+      img1.style.visibility="visible"
+      img5.style.visibility="hidden"
+      img4.style.visibility="hidden"
+
+' ------------------------ STEP 11
+    Case 270 ' ------------ BOW HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 280 ' ------------ BOW TOOLTIP
+      img3.style.visibility="visible"
+    Case 290 ' ------------ DEPRESS
+      img4.style.visibility="visible"
+    Case 300 ' ------------ BOW PAGE APPEARS
+      img4.style.visibility="hidden"
+      img3.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      last.style.visibility="visible"
+
+
+' ------------------------ STEP 12
+    Case 310 ' --------- SCROLL DOWN
+      img2.style.visibility="visible"
+    Case 320 ' --------- CURSOR CHANGES TO HAND, STATUS BAR CHANGES
+      arrow.src="images/538hand.gif"
+      img3.style.visibility="visible"
+    Case 330 ' --------- CURSOR CHANGES TO ARROW
+      arrow.src="images/012arrow.gif"
+    Case 340 ' --------- CURSOR CHANGES TO HAND, STATUS BAR CHANGES
+      arrow.src="images/538hand.gif"
+    Case 350 ' --------- CURSOR CHANGES TO ARROW
+      arrow.src="images/012arrow.gif"
+      img3.style.visibility="hidden"
+    Case 360 ' --------- CURSOR CHANGES TO HAND, STATUS BAR CHANGES
+      arrow.src="images/538hand.gif"
+      img3.style.visibility="visible"
+    Case 380 ' --------- STATUS BAR CHANGES
+      img3.style.visibility="visible"
+    Case 390 ' --------- CURSOR CHANGES TO ARROW
+      arrow.src="images/012arrow.gif"
+      img3.style.visibility="hidden"
+    Case 400 ' --------- CURSOR CHANGES TO HAND, STATUS BAR CHANGES
+      arrow.src="images/538hand.gif"
+      img3.style.visibility="visible"
+    Case 410 ' --------- OPEN CINEMANIA PAGE
+      arrow.src="images/012arrow.gif"
+      last.style.visibility="visible"
+      img2.style.visibility="hidden"
+
+' ------------------------ STEP 13
+    Case 420 ' ---------- HOME BUTTON HIGHLIGHTS
+      img2.style.visibility="visible"
+    Case 430 ' ---------- HOME BUTTON DEPRESSES
+      img3.style.visibility="visible"
+      img2.style.visibility="hidden"
+    Case 440 ' ---------- HOME PAGE OPENS
+      last.style.visibility="visible"
+      img1.style.visibility="hidden"
+      img3.style.visibility="hidden"
+
+' ------------------------ STEP 14
+    Case 450 ' ------------ CLOSE BUTTON DEPRESSES
+      last.style.visibility="visible"
+    Case 460 ' ------------ IE GOES AWAY
+      last.style.visibility="hidden"
+      img1.style.visibility="hidden"
+
+  End Select
+End Sub
+
+' -->
+</SCRIPT>
+
+<script language="JScript" for="P1" event="onStop">
+<!--
+  timeout1 = window.setTimeout("showmedone();",500);
+//-->
+</script>
+
+<script language="javaScript" src="data/sm.js"></script>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" style="border:ridge;border-width:5;">
+
+<!-- ----------------------------- PLACE ALL IMAGES ON PAGE ----------------------- -->
+<div id="l" STYLE="visibility:hidden;">
+  <IMG ID=desktop SRC="images/001deskt.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:visible;">
+
+  <IMG ID=img1 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img2 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img3 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img4 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img5 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img6 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img7 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img8 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img9 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=last SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+
+  <IMG ID=arrow SRC="images/012arrow.gif" STYLE="position:absolute;LEFT: 220; TOP: 250;visibility:hidden;">
+  <div id="demotext" align="center"
+    style="color:#000000; position:relative; left:0; width:540; font-family:verdana, arial, helvetica, sans-serif; font-size:10pt; font-weight:bold; line-height:98%; visibility:visible; FILTER:revealTrans(Duration=1.2, Transition=6); z-index:10;">
+  </div>
+</div>
+
+<div id="loading" style="visibility:visible; position:absolute; top:0; left:0; width:100%; height:100%; background-color:ffffff; z-index:10" align=center>
+<img src="../../images/loading.gif" style="position:relative; top:200; visibility:visible;">
+</div>
+
+<!-- ----------------------------- OBJECTS ----------------------- -->
+<OBJECT ID=P1 width="0" height="0"
+  CLASSID = "clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,112 @@
+; QLOGIC.INF - This file contains descriptions of all the QLogic
+;              SCSI host adapters supported in Windows 95
+
+[Version]
+signature="$CHICAGO$"
+Class=SCSIAdapter
+Provider=%MSFT%
+LayoutFile=LAYOUT.INF
+
+; Class Install
+[ClassInstall]
+Addreg=SCSIReg
+
+[SCSIReg]
+HKR,,,,%SCSIClassName%
+HKR,,Icon,,-10
+
+; Table of Contents
+[Manufacturer]
+%QLOGIC%=QLOGIC
+
+;********************************
+; QLogic-manufacturer device list
+[QLOGIC]
+%*QL400BASIC.DeviceDesc%=QL400,*QL400BASIC
+%*QL400ISA.DeviceDesc%=QL400,*QL400ISA
+%*QL400EISA.DeviceDesc%=QL400,*QL400EISA
+%*QL400VESA.DeviceDesc%=QL400,*QL400VESA
+%PCI\VEN_1077&DEV_1020.DeviceDesc%=QL1000,PCI\VEN_1077&DEV_1020
+%PCI\VEN_1022&DEV_2020.DeviceDesc%=QL510,PCI\VEN_1022&DEV_2020
+%PCMCIA\QLOGIC_CORPORATION-pc05-02DE.DeviceDesc%=QLPCMCIA,PCMCIA\QLOGIC_CORPORATION-pc05-02DE
+%PCMCIA\QLOGIC_CORPORATION-pc05_rev_1.10-56C3.DeviceDesc%=QLPCMCIA,PCMCIA\QLOGIC_CORPORATION-pc05_rev_1.10-56C3
+%PCMCIA\QLogic-Fast!SCSI_PCMCIA-to-SCSI_Adapter-1BA8.DeviceDesc%=QLPCMCIA,PCMCIA\QLogic-Fast!SCSI_PCMCIA-to-SCSI_Adapter-1BA8
+%*QL400PNP.DeviceDesc%=QL400PNP,*QL400PNP
+
+;****************** QLogic Driver Installation Sections
+;
+[QL400]
+CopyFiles=@ql400.mpd
+AddReg=IOS,QL400.Reg
+LogConfig=QL400.LogConfig
+
+[QL400.Reg]
+HKR,,PortDriver,,ql400.mpd
+
+[QL400.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=230-23F(3FF::),330-33F(3FF::)
+IRQConfig=10,11,12,15
+
+[QL1000]
+CopyFiles=@ql1000.mpd
+AddReg=IOS,QL1000.Reg
+
+[QL1000.Reg]
+HKR,,PortDriver,,ql1000.mpd
+
+[QL510]
+CopyFiles=@ql510.mpd
+AddReg=IOS,QL510.Reg
+
+[QL510.Reg]
+HKR,,PortDriver,,ql510.mpd
+
+[QLPCMCIA]
+CopyFiles=@ql400.mpd
+AddReg=IOS,QLPCMCIA.Reg
+
+[QLPCMCIA.Reg]
+HKR,,PortDriver,,ql400.mpd
+HKR,,AdapterSettings,,PCMCIA
+
+[QL400PNP]
+CopyFiles=@ql400.mpd
+AddReg=IOS,QL400PNP.Reg
+
+[QL400PNP.Reg]
+HKR,,PortDriver,,ql400.mpd
+
+;**********************************************************
+[IOS]
+HKR,,DevLoader,,*IOS
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[SourceDisksFiles]
+ql400.mpd=30
+ql1000.mpd=30
+ql510.mpd=30
+
+[SourceDisksNames]
+30=%ID1%,,0000-0000
+
+[Strings]
+MSFT="Microsoft"
+SCSIClassName="SCSI Controllers"
+QLOGIC="QLogic"
+*QL400BASIC.DeviceDesc="QLogic Fast!SCSI Basic Adapter"
+*QL400ISA.DeviceDesc="QLogic Fast!SCSI ISA Adapter"
+*QL400EISA.DeviceDesc="QLogic Fast!SCSI EISA Adapter"
+*QL400VESA.DeviceDesc="QLogic Fast!SCSI VESA Local Adapter"
+PCI\VEN_1077&DEV_1020.DeviceDesc="QLogic Fast!SCSI IQ PCI Adapter"
+PCI\VEN_1022&DEV_2020.DeviceDesc="QLogic Fast!SCSI PCI Basic Adapter"
+PCMCIA\QLOGIC_CORPORATION-pc05-02DE.DeviceDesc="QLogic Fast!SCSI PCMCIA Adapter"
+PCMCIA\QLogic-Fast!SCSI_PCMCIA-to-SCSI_Adapter-1BA8.DeviceDesc="QLogic Fast!SCSI PCMCIA Adapter"
+PCMCIA\QLOGIC_CORPORATION-pc05_rev_1.10-56C3.DeviceDesc="QLogic Fast!SCSI PCMCIA Adapter"
+*QL400PNP.DeviceDesc="QLogic Fast!SCSI ISA PnP Adapter"
+ID1="QLogic SCSI Software Diskette"
+
+
+

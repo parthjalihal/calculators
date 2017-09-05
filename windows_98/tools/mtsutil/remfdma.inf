@@ -1,0 +1,13 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+DelReg=RemFDMA
+
+[RemFDMA]
+HKLM,System\CurrentControlSet\Services\VxD\PCI,122E8086
+HKLM,System\CurrentControlSet\Services\VxD\PCI,70008086
+HKLM,System\CurrentControlSet\Services\VxD\PCI,71108086
+HKLM,System\CurrentControlSet\Services\VxD\PCI,76008086
+
+

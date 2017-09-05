@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>Microsoft Computer Essentials</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="ce.css">
+<OBJECT ID="TDC1" WIDTH=100 HEIGHT=51 CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+	<PARAM NAME="FieldDelim" VALUE="@">
+	<PARAM NAME="UseHeader" VALUE="True">
+	<PARAM NAME="DataURL" VALUE="topic7.txt">
+</OBJECT>
+<SCRIPT LANGUAGE=JavaScript>
+rs = TDC1.recordset;
+rs.MoveFirst();
+var txtary = new Array();
+
+function initarry(){
+	for(i=0;i<7;i++){
+		txtary[i] = rs("value").value;
+		rs.MoveNext();
+	}
+	divEnter.innerHTML = txtary[6];
+}
+function doMyText(where, what){
+	where.innerHTML = txtary[what];
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="VBScript">
+dim currentseq
+currentseq = 1
+
+sub window_onload()
+	window.focus()
+	initarry()
+	if parent.backwards then
+		currentseq=6
+		call seq("6").Play()
+		parent.backwards = false
+	else
+		call seq("1").Play()
+	end if
+end sub
+
+Sub document_onkeydown()
+	whatkey = window.event.keycode
+	select case whatkey
+		case 37
+			prevseq
+		case 38
+			parent.location.href = "../default.htm"
+		case 39
+			nextseq
+	end select
+End Sub
+
+sub nextseq()
+	if currentseq < 6 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq + 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.nav.spanExit.click
+	end if
+end sub
+
+sub prevseq()
+	if currentseq > 1 then
+		call seq(cstr(currentseq)).stop()
+		currentseq = currentseq - 1
+		call seq(cstr(currentseq)).play()
+	else
+		parent.backwards=true
+		parent.nav.spanWorkWin.click
+	end if
+end sub
+
+Sub seq_OnInit
+	Call seq("1").at(0.00, "parent.hideall('MainC')")
+	Call seq("1").at(0.00, "parent.dotext(0)")
+	Call seq("1").at(0.00, "parent.sound('waves/topic7/top7_1.mpa')")
+	Call seq("1").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("2").at(0.00, "parent.hideall('MainC', 'smenu')")
+	Call seq("2").at(0.00, "parent.dotext(1)")
+	Call seq("2").at(0.00, "parent.doHide(imgWord)")
+	Call seq("2").at(0.00, "parent.doHide(imgHelp)")
+	Call seq("2").at(0.00, "parent.doHide(imgHelpGlow)")
+	Call seq("2").at(0.00, "parent.sound('waves/topic7/top7_1a.mpa')")
+	Call seq("2").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("3").at(0.00, "parent.hideall('MainC', 'word')")
+	Call seq("3").at(0.00, "parent.dotext(2)")
+	Call seq("3").at(2.00, "parent.doShow(imgHelp)")
+	Call seq("3").at(2.00, "parent.doShow(imgHelpGlow)")
+	Call seq("3").at(0.00, "parent.sound('waves/topic7/top7_5.mpa')")
+	Call seq("3").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("4").at(0.00, "parent.hideall('kbd')")
+	Call seq("4").at(0.00, "parent.doHide(imgStartBtnGlow)")
+	Call seq("4").at(0.00, "parent.doShow(imgKbd)")
+	Call seq("4").at(0.00, "parent.doShow(imgF1Mark)")
+	Call seq("4").at(0.00, "parent.dotext(3)")
+	Call seq("4").at(0.00, "parent.sound('waves/topic7/top7_6.mpa')")
+	Call seq("4").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("5").at(0.00, "parent.hideall('MainC', 'word', 'sbtng', 'help')")
+	Call seq("5").at(0.00, "parent.dotext(4)")
+	Call seq("5").at(0.00, "parent.sound('waves/topic7/top7_2b.mpa')")
+	Call seq("5").at(0.00, "parent.doShow(divHolderText)")
+	Call seq("5").at(0.00, "parent.doShow(divEnter)")
+	Call seq("5").at(0.00, "parent.doHide(divExtroText)")
+	Call seq("5").at(30.00, "parent.sound('./waves/misc/mvmt.mpa')")
+
+	Call seq("6").at(0.00, "parent.hideall()")
+	Call seq("6").at(0.00, "doMyText(divExtroText, 5)")
+	Call seq("6").at(0.00, "parent.doHide(divHolderText)")
+	Call seq("6").at(0.00, "parent.doHide(divEnter)")
+	Call seq("6").at(0.00, "parent.doShow(divExtroText)")
+	Call seq("6").at(0.00, "parent.sound('waves/topic7/end_1a.mpa')")
+end sub
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGCOLOR=#E3E3E3>
+
+<!--computer with big monitor image-->
+<IMG CLASS="MainC" ID="imgComputer" SRC="images/Monclose.gif" STYLE="position:absolute;left:0;top:0; visibility:hidden">
+
+<!--screen shots-->
+<IMG CLASS="MainC" ID="imgIcons" SRC="images/icons.gif" STYLE="position:absolute; left: 95; top: 40; visibility:hidden">
+<IMG CLASS="MainC" ID="imgTaskbar" SRC="images/taskbar.gif" STYLE="position:absolute; left: 87; top: 253; visibility:hidden">
+
+<IMG CLASS="smenu" ID="imgStartMenu" SRC="images/st_menu.gif" STYLE="position:absolute; left:88; top:118; visibility:hidden">
+<IMG CLASS="smenu" ID="imgStartBtnDown" SRC="images/st_btn_d.gif" STYLE="position:absolute; left:88; top:255; visibility:hidden">
+<IMG CLASS="smenu" ID="imgStartMenuHi" SRC="images/circles/c_smenu.gif" STYLE="position:absolute; left:87; top:100; visibility:hidden">
+<IMG CLASS="sbtng" ID="imgStartBtnGlow" SRC="images/circles/c_sbtn.gif" STYLE="position:absolute; z-index:2; left:82; top:245; visibility:hidden">
+
+<IMG CLASS="word" ID="imgWord" SRC="images/word.gif" STYLE="position:absolute; left: 87; top: 70; visibility: hidden">
+<IMG CLASS="help" ID="imgHelp" SRC="images/wordhelp.gif" STYLE="position:absolute; left: 360; top: 45; visibility: hidden">
+<IMG CLASS="help" ID="imgHelpGlow" SRC="images/circles/c_hlpbut.gif" STYLE="position:absolute; left: 304; top: 75; visibility: hidden;z-index:12">
+
+<!--keyboard images-->
+<IMG CLASS="kbd" ID="imgKbd" SRC="images/kbdfirst.gif" STYLE="position:absolute; top:-100; left:0;visibility:hidden">
+<IMG CLASS="kbd" ID="imgF1Mark" SRC="images/circles/b_f1.gif" STYLE="position:absolute; top:109; left:150;visibility:hidden">
+
+
+<!--sequencer object-->
+<OBJECT ID="seq" 
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+</OBJECT>
+
+<DIV STYLE="position:absolute; top: 315; left:10; width:460; height: 128">
+	<!--holder div for text-->	
+	<DIV CLASS="clsHolder" ID="divHolderText" STYLE="height:100;">
+	</DIV>
+
+	<!--back and forward directions-->
+	<DIV CLASS="clsEnter" ID="divEnter">
+	</DIV>
+</DIV>
+
+<DIV CLASS="clsHolder" ID="divExtroText" STYLE="position:absolute; top: 0; margin:5px; width: 460">
+</DIV>
+</body>
+</html>

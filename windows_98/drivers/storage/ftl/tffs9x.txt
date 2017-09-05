@@ -1,0 +1,382 @@
+			   TrueFFS-9x
+			  User's Guide
+
+      For Intel, AMD, Fujitsu, M-Systems and compatible
+		     Linear Flash Cards
+
+			   Sep-97
+
+   This document is for information only and is subject to
+   change without prior notice. No part of this document
+   may be reproduced, transmitted, transcribed, stored in a
+   retrieval system, or translated into any language or
+   computer language, in any form or by any means,
+   electronic, mechanical, magnetic, optical, chemical,
+   manual, or otherwise, without the prior written consent
+   of M-Systems Flash Disk Pioneers Ltd.
+   (c) Copyright 1995-1997 M-Systems Flash Disk Pioneers Ltd.
+
+   Corporate Headquarters	 North American Headquarters
+
+   M-Systems Ltd.		 M-Systems Inc.
+   Atidim Industrial Park	 39899 Ballentne Drive
+   P.O.B. 58036 		 Suite 335
+   Tel-Aviv 61580		 Newark, CA 94560
+   Israel			 USA
+
+   Tel: +972-3-647-7776 	 Tel: (510) 413-5950
+   Fax: +972-3-647-6668 	 Fax: (510) 413-5980
+   info@m-sys.com		 info@m-sys.com
+   http://www.m-sys.com
+
+   TrueFFS is a registered trade mark of M-Systems Ltd.
+   The TrueFFS software is protected by US Patent no. 5404485.
+   All other trade marks, service marks, trade names are the
+   property of their respective owners.
+
+
+	     TrueFFS for Windows-9x User's Guide
+
+1.1   Introduction
+
+   TrueFFS-9x is TrueFFS for Microsoft's Windows-9x: A new
+   version of M-Systems' TrueFFS Flash File System
+   supporting the FTL standard data format.
+    In keeping with the spirit of Windows 95, TrueFFS
+   breaks all ties with  real-mode DOS, and is a true 32-
+   bit protected mode VxD. TrueFFS-9x works in
+   coordination with the protected-mode Card Services &
+   Socket Services, with the plug-and-play configuration
+   manager and with the Windows-9x I/O Supervisor.
+   To TrueFFS for Windows-9x are attached several
+   utilities: TFORMAT to format Flash cards, and TCHECK to
+   verify and correct the TrueFFS format.
+   At installation time, these utilities are copied to your
+   \WINDOWS\TFFS95 directory.
+   The utilities are console applications, which means that
+   they have the general appearance of DOS commands, and
+   will run in what appears to be a DOS box (although in
+   fact they are Win-32 applications).
+
+1.2   Requirements & Compatibility
+
+   A PCMCIA adapter that is supported by Windows-9x Card &
+   Socket Services. It is assumed that the PCMCIA adapter
+   was properly configured and that Windows-9x Card
+   Services is accessing PC cards on it.
+
+   TrueFFS-9x works with:
+ ú   Intel Series-2 PC cards
+ ú   Intel Series-2+ PC cards
+ ú   Intel Value-100 PC cards
+ ú   Intel miniature cards
+ ú   AMD Series-D PC cards
+ ú   AMD miniature cards
+ ú   Fujitsu Series-D PC cards
+ ú   Fujitsu miniature cards
+ ú   M-Systems D-Series, V-Series & S-Series PC cards
+ ú   M-Systems Series-2000 PC cards
+ ú   Static RAM cards
+
+   This version of TrueFFS-9x has been tested and is compatible
+   with all Windows-95 retail releases, OEM service releases
+   and Windows-98 release.
+
+
+1.3   Installation
+
+   Follow these steps to install TrueFFS/9x:
+   1. If you have not yet read the "Requirements" section
+      above,   please read them now.
+   2. Is your PCMCIA socket installed ? If not, or you do not
+      know, refer to details on PCMCIA Socket installation in this
+      section below.
+   3. Insert the disk with TrueFFS installation files into a
+      drive.
+   4. Remove any Flash memory cards from the PCMCIA slots.
+   5. From the Windows-9x display, open "My Computer" on your
+      desktop or open the Windows Explorer.
+   6. Open the disk with TrueFFS installation files.
+   7. Click with the right mouse button on the file Trueffs.inf.
+      You will see a menu.
+   8. In the menu choose "Install" and click on it.
+   9. After  Windows-9x finishes copying installation files you
+      are ready to work with Flash Memory Cards.
+
+
+1.4   Installing the PCMCIA Socket
+
+   To find out if your PCMCIA Socket is installed:
+   1.	From the Windows-9x display, choose "Start", then
+      "Settings", then "Control Panel".
+   2.	Open "System".
+   3.	Click on "Device Manager".
+   4.	Scan the list of devices class for "PCMCIA socket". If
+      you find it, open it (click on +). It should contain at
+      least one line. If you do not find it, or it contains no
+      lines, your PCMCIA socket is not installed.
+
+   If your PCMCIA Socket is not installed, but the actual
+   PCMCIA hardware exists on your system, proceed to
+   install it:
+   1.	From the Windows-9x display, choose "Start", then
+      "Settings", then "Control Panel".
+   2.	Open "Add New Hardware".
+   3.	Click "Next".
+   4.	If the "Add new hardware wizard" suggests that Windows
+      look for your new hardware, click on the "No" button and
+      then click "Next".
+   5.	Choose "PCMCIA Socket" and click "Next".
+   6.	Choose from the list of known sockets, or click "Have
+      Disk" as appropriate to the PCMCIA hardware installed.
+
+1.5   Removing installed components
+
+   Follow these steps to uninstall TrueFFS/9x:
+   1. From the Windows-9x display choose "Start", then "Settings",
+      then "Control Panel".
+   2. Open "Add/Remove Programs". You will see the list of the software
+      that can be automatically removed by Windows.
+   3. Select "M-Systems TrueFFS driver" from the list and click "Add/Remove".
+   4. Windows-9x will remove all installed components.
+
+1.6   Formatting Flash Cards
+
+   Before TrueFFS can access a Flash medium, the medium must
+   be formatted. Formatting initializes the medium and writes
+   to it a new and empty DOS file system. When formatting
+   is complete, the medium contains only a root directory.
+   The DOS FORMAT command cannot be used for formatting
+   Flash media driven by TrueFFS.
+
+   The medium may be formatted more than once. However, all
+   data on the medium is destroyed each time it is
+   formatted.
+
+   There are two ways of formatting a flash card. You may use
+   a flash card formatter or the TFORMAT utility.
+
+1.6.1	Flash Card Formatter
+
+   To use the TrueFFS formatter, you should start the Windows Explorer. This
+   can be done through the desktop icon, or by right-clicking the "Start"
+   button on the task bar and selecting "Program", then "Windows Explorer".
+   Once Windows Explorer is running, the TrueFFS formatter can be invoked
+   in one of three ways:
+    * Select the "File" menu, and choose "Flash Card Format".
+    * With the mouse pointing to a TrueFFS drive, click its right
+      button, then select "Flash Card Format" from the pop-up menu.
+    * At the same pop-up menu, select "Properties", then choose "TrueFFS
+      formatting".
+
+   Once the formatter is running, The formatting process is only one step
+   away. Choose a volume label if you wish, then hit "Start" to begin the
+   formatting process. The bar graph will show you the progress.
+   When done, you can hit "Ok" or "Cancel".
+   Help is available through the "Help" key or by clicking the "?" icon on
+   the upper right side of the formatter window.
+
+1.6.2	TFORMAT - The TrueFFS Format Utility
+
+   After installation, the TFORMAT.EXE utility will be found in your
+   WINDOWS\TFFS95 directory.
+
+   The syntax of the TFORMAT command is:
+
+   TFORMAT  { drive-letter }
+      [ /S:boot-image-file-name ]
+      [ /S:drive-letter:]
+      [ /S:! ]
+      [ /S:* ]
+      [ /BOOTSIZE:boot-image-size ]
+      [ /USE:nnn ]
+      [ /LOWMEM:size ]
+      [ /LABEL:label ]
+      [ /DOSVER:dos-major-version ]
+      [ /SIZE:size ]
+      [ /SPARE:n ]
+      [ /Y ]
+
+       Note   An equal sign (=) may be used wherever a
+	       colon (:) is required.
+
+      Examples:
+	TFORMAT E:
+	TFORMAT D:  /SIZE=8M
+
+   All sizes specified in TFORMAT options are in bytes if
+   specified as simple numbers, in KBytes if specified with
+   the suffix K, or in megabytes if specified with the
+   suffix M.
+
+   The TFORMAT options are:
+   drive-letter     DOS drive letter of the TrueFFS drive.
+   /S:boot-image-file-name			 Create a
+		     boot-image partition with a boot-image
+		     copied from the file specified. The
+		     partition size will be the smallest
+		     that may contain the file contents,
+		     unless overridden by the /BOOTSIZE
+		     parameter described below.
+   /S:drive-letter: Create a boot-image partition, with a
+		     boot-image copied from a memory card
+		     residing on a different TrueFFS drive.
+		     The amount copied from the socket must
+		     be specified by the /BOOTSIZE
+		     parameter. The partition size will be
+		     the smallest that may contain the boot-
+		     image.
+		     This variation of the /S parameter is
+		     useful to create boot-images which are
+		     clones of another memory card.
+   /S:! 	    Do not create a boot-image partition.
+		     This option is necessary if, upon
+		     reformatting, an existing boot-image
+		     partition is to be deleted.
+   /S:* 	    Retain the previous boot-image
+		     partition. This is the default action.
+		     If no boot-image existed previously,
+		     this option acts like the /S:0
+		     parameter.
+   /BOOTSIZE:boot-image-size			 The size
+		     of the boot-image partition in bytes.
+		     This parameter must be specified when
+		     copying a boot-image from another
+		     socket. Otherwise it is defaulted as
+		     follows:
+		       /S:file-name   Number of bytes in the
+							file
+						 /S:!	   0
+				/S:*	  Old partition size
+   /USE:nnn	    Percentage of available space on the
+		     Flash medium to be used for file
+		     storage. nnn can be any number from 1
+		     to 100. Default is 99 (99%).
+		     The value of this option may affect
+		     the write performance of TrueFFS. For
+		     more details, see Performance
+		     Considerations, later in this manual.
+   /LOWMEM:size     The low-memory part of the TrueFFS DOS
+		     medium may be handled using a faster
+		     access mechanism than the rest of the
+		     medium.
+		     Since the FAT and root directory
+		     reside in low sector numbers, this may
+		     improve performance. However, this
+		     option has an overhead in TrueFFS
+		     memory requirements.
+		     For more details, see Performance
+		     Considerations, later in this manual.
+		     The default is 64 KBytes. In
+		     principle, it is possible to specify a
+		     size that will span the entire medium,
+		     if the memory required to handle this
+		     is available.
+   /SIZE:size	    The size of the Flash medium to be
+		     formatted (including the boot-image).
+		     By default the entire medium is
+		     formatted by TFORMAT. This option may
+		     be used to limit the formatted size to
+		     a smaller size.
+		     This option is useful if the memory
+		     card will be transported to a machine
+		     that is physically able to address
+		     only a part of Flash memory.
+   /LABEL:label     A string to be used as the DOS label
+		     of the formatted medium.
+   /DOSVER:dos-major-version			 Format for
+		     a target system running the specified
+		     DOS version. The default is the
+		     current DOS version (the one on which
+		     TFORMAT is executed). E.g. /DOSVER:3
+		     formats for DOS 3.x. Valid values are
+		     1 to 6.
+   /SPARE:n	    Leave n Flash erase units as spare
+		     units for garbage collection. The
+		     default is 1. At least one unit should
+		     be specified for the Flash medium to
+		     operate as a true read-write device.
+		     More than one spare unit may be
+		     specified to format media that have
+		     bad Flash units. In such a case the
+		     number of spare units should exceed
+		     the number of bad units by at least 1.
+		     It is also possible to specify more
+		     than one spare unit in anticipation of
+		     Flash units becoming bad in the
+		     future.
+		     A value of 0 spare units may be
+		     specified to create a WORM  (Write-
+		     Once-Read-Many) disk. When formatting
+		     with this option, the Flash medium can
+		     be written once only, after which it
+		     will become a read-only medium.
+		     TrueFFS will report that the medium is
+		     write-protected when space for writing
+		     is exhausted. This option provides
+		     very limited functionality, and should
+		     not be used except in special cases.
+		     The option has the advantage of
+		     lowering the formatting overhead of
+		     TrueFFS, since a spare Flash erase
+		     zone is not needed for space
+		     reclamation.
+   /Y		    Do not pause for confirmation before
+		     beginning to format.
+
+
+1.7  TCHECK - Format Verification Utility
+
+   The TCHECK utility is used to verify the underlying
+   TrueFFS format and, optionally, to correct formatting
+   inconsistencies. TCHECK is comparable to the SCANDISK
+   program or the Norton Disk Doctor, which do the same for
+   the DOS FAT format.
+   You may run SCANDISK or a Disk Doctor on a TrueFFS
+   drive, just as you may for any other standard DOS drive.
+   These utilities, however, will diagnose and fix DOS
+   errors. The TrueFFS format is transparent to them, as it
+   is to you.
+
+   After installation, the TCHECK.EXE utility will be found in your
+   WINDOWS\TFFS95 directory.
+
+   The syntax of the TCHECK command is as follows:
+       TCHECK  { drive-letter }  [ /F ]
+
+   For example,
+       TCHECK  D:
+
+   The TCHECK options are:
+
+   drive-letter DOS drive letter of the TrueFFS drive.
+   /F		Attempt to fix inconsistencies when they
+		 are found. The default is not to fix, but
+		 only to report errors.
+
+   TCHECK performs the following consistency scans of the
+   TrueFFS format:
+      It checks that the spare transfer units are
+       erasable. An error indicates that your system's
+       power supply to the Flash medium is insufficient, or
+       that the Flash unit involved is faulty.
+      If there is no problem in power supply, and all
+       transfer units are no longer erasable, the medium
+       should be reformatted with a larger value of the
+       /SPARE parameter. To do this without losing data,
+       download all files on the TrueFFS medium to a backup
+       medium, reformat with the new /SPARE value, and then
+       reload all files from the backup medium.
+      Logical-to-virtual scan of the format tables.
+      Logical-to-virtual errors are usually not serious,
+       and do not indicate damage to user data, unless they
+       occur often and in large numbers. They are usually
+       the result of occasional power failures or Flash
+       hardware failure. Fixing them will usually result in
+       regaining a sector that was inaccessible.
+      Virtual-to-logical scan of the format tables.
+      Virtual-to-logical errors will never occur unless
+       there is a serious malfunction in TrueFFS operation,
+       Socket Services operation, or hardware. Although
+       such errors can be fixed by TCHECK, such fixes will
+       often not prevent loss of user data.

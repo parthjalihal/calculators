@@ -1,0 +1,105 @@
+body         {font-family: Verdana, Arial, Helvetica;
+             }
+p            {font-family: Verdana, Arial, Helvetica;
+             }
+.MainTitle   {font-family: Arial, Helvetica;
+              font-size: 12pt;
+              line-height: 12pt;
+              margin-bottom: -10px;
+              top-margin: 5pt;
+              color: #330099;
+              font-weight:bold;
+              }
+.Welcome     {font-family: Arial, Helvetica;
+             font-size: 12pt;
+             font-weight: bold;
+             text-decoration: none;
+             }
+.Resources   {font-family: Verdana, Arial, Helvetica;
+             color: #333399;
+             font-size: 12pt;
+             font-weight: bold;
+             text-decoration: none;
+             cursor: hand;
+             }
+.Select      {font-family: verdana, Arial, Helvetica;
+             font-weight: bold;
+             text-decoration: none;
+             color: black;
+             cursor: hand;
+             }
+.SelectUnder {font-family: Verdana, Arial, Helvetica;
+             font-size: 10pt;
+             font-weight: bold;
+             text-decoration: underline;
+             color: #cc0099;
+             cursor: hand;
+             }
+.LessonTitle {font-family: Verdana, Arial, Helvetica;
+             font-size: 11pt;
+             font-weight: normal;
+             text-decoration: none;
+             }
+.SubTitle    {font-family: Verdana, Arial, Helvetica;
+             font-size: 10pt;
+             font-weight: bold;
+             }
+.indented    {margin-left:  20pt;
+             }
+.clickme     {font-family: Verdana, Arial, Helvetica;
+             font-size: 10pt;
+             color: white;
+             text-align: right;
+             cursor: hand;
+             text-decoration: none;
+             }
+.toolbar    {font-family: Verdana, Arial, Helvetica;
+             font-size: 10pt;
+             color: white;
+             }
+.Title        {font-family: Arial, Helvetica;
+              font-size: 14pt;
+              line-height: 12pt;
+              color: #cc0099;
+              font-weight:bold;
+              text-align: center;
+              }
+.lesson     {font-family: Verdana;
+             font-size: 10pt;
+             font-weight: bold;
+             color: #000000;
+             text-decoration: none;
+             cursor: hand;
+             }
+.lessonhl   {font-family: Verdana;
+             font-size: 10pt;
+             font-weight: bold;
+             color: #330099;
+             text-decoration: underline;
+             cursor: hand;
+             }
+.glossary    {font-family: Verdana;
+              font-size: 10pt;
+              text-decoration: underline;
+              color: blue;
+              cursor: hand;
+              }
+.invisible    {
+              font: 1pt Arial;
+              text-decoration: none;
+              color: white;
+              }
+.GreenBar    {font-family: verdana, Arial, Helvetica;
+             font-weight: bold;
+             text-decoration: none;
+             color: black;
+             line-height: 8pt;
+             }
+.tip    {font-family: Verdana, Arial, Helvetica;
+             font-style: italic;
+             font-weight: bold;
+             font-size: 10pt;
+             text-decoration: none;
+             color: blue;
+             }
+

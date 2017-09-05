@@ -1,0 +1,12 @@
+; Encrypt.INF
+; Copyright (c) 1993-1995, Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg=Disable.Plaintext
+
+[Disable.Plaintext]
+HKLM,System\CurrentControlSet\Services\VxD\VNETSUP,EnablePlainTextPassword,1,00,00,00,00
+

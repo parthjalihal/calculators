@@ -1,0 +1,22 @@
+
+[Version]
+
+
+
+Signature= "$Windows 95$"
+
+
+[Components]
+mts=mtssetup.dll,MTSSetupProc,mtssetup.inf
+
+[PageReplace]
+welcome=mts
+mode=mts
+final=mts
+
+[PageAdd]
+early = mts
+prenet = mts
+postnet = mts
+late = mts
+

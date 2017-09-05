@@ -1,0 +1,26 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\MediaResources\icm]
+@="Image Compression"
+"Installer"="C:\\WINDOWS\\SYSTEM\\mmsys.cpl"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\MediaResources\icm\vidc.IV31]
+"Description"="Indeo® video R3.2 by Intel"
+"Driver"="ir32_32.dll"
+"FriendlyName"="Indeo® video R3.2 by Intel"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\MediaResources\icm\vidc.IV32]
+"Description"="Indeo® video R3.2 by Intel"
+"Driver"="ir32_32.dll"
+"FriendlyName"="Indeo® video R3.2 by Intel"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\MediaResources\icm\VIDC.YVU9]
+"Description"="Indeo® video Raw YVU9 by Intel"
+"FriendlyName"="Indeo® video Raw YVU9 by Intel"
+"Driver"="iyvu9_32.dll"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\MediaResources\icm\vidc.IV41]
+"Description"="Indeo® video interactive R4.1 by Intel"
+"Driver"="ir41_32.dll"
+"FriendlyName"="Indeo® video interactive R4.1 by Intel"
+

@@ -1,0 +1,103 @@
+<html>
+<head>
+	<TITLE>Forbes Preview Channel</TITLE>
+	<style type="text/css">	
+		/* define the attributes for the body */
+		body
+		{
+			background-color:white;
+			color:black;
+			font-family:Arial;
+			font-size:10pt;
+		}
+
+		/* define the attributes common to all sub sections */
+		div.subSection
+		{
+			position:absolute;
+			height:440px;
+			width:600px;
+			top:0px;
+			left:0px;
+			visibility:hidden;
+			overflow:clip;
+			z-index:1;
+			background-image:url(../images/blurred.gif);
+			background-repeat:no-repeat;
+			background-position:center;
+			filter:blendTrans(duration=2);
+		}
+
+		/* define the attributes common to the navigation arrows */
+		img.navigationArrow
+		{
+			position:absolute;
+			height:25px;
+			width:75px;
+			cursor:hand;
+			z-index:4;
+		}
+
+		/* define the attributes common to the sub section headers */
+		p.subSectionHeader
+		{
+			font-size:14pt;
+			font-weight:bold;
+		}
+
+		/* define the attributes common to the sub section headers */
+		p.subSectionAbstract
+		{
+			font-size:10pt;
+		}
+	</style>
+	<script language="JavaScript" for="window" event="onload">
+		divSubSection.filters[0].apply();
+		divSubSection.style.visibility = 'visible';
+		divSubSection.filters[0].play();
+	</script>
+	<script language="JavaScript" for="divSubSection" event="onfilterchange">
+		spnNextPage.style.visibility = 'visible';
+		objSlidingTextPath.play();
+	</script>
+</head>
+
+<body id="body">
+<!-- begin path control for sliding text -->
+<object id="objSlidingTextPath" classid="clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6" style="display:none">
+	<param name="Duration" value="1">
+	<param name="TimerInterval" value="0.01">
+	<param name="Shape" value="PolyLine(2, 601, 250, 300, 250)">
+	<param name="Target" value="divSlidingText">
+</object>
+<!-- end path control for sliding text -->
+
+<!-- begin sub section -->
+<div id="divSubSection" class="subSection">
+	<!-- begin sliding text -->
+	<div id="divSlidingText" style="position:absolute; width:300px; left:601px; top:280px; z-index:3;">
+		<p class="subSectionHeader">
+			Media and Politics
+		</p>
+		<p class="subSectionAbstract">
+			Coverage of the media<br>
+			profession, its biases, its shortcomings<br>
+			and its successes in covering the news.<br>
+			Also, the politics of cyberspace and<br>
+			the policy decisions and legal procedings<br>
+			that shape of the Internet.
+		</p>
+	</div>
+	<!-- end sliding text -->
+	<img src="../images/hndglass.gif" border="0" style="position:absolute; top:0px; left:0px; z-index:2;">
+	<!-- begin navigation -->
+	<span id="spnNextPage" style="position:absolute; left:200px; top:50; z-index:14;">
+		<a href="thurday.htm"><IMG BORDER=0 SRC="../images/next.gif"></a>
+	</span>
+	<!-- end navigation -->
+</div>
+<!-- end sub section -->
+
+
+</body>
+</html>

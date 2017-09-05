@@ -1,0 +1,193 @@
+
+<html>
+<head>
+<title>CMP</title>
+ 
+<SCRIPT LANGUAGE="JavaScript">
+
+var timeoutIDs = new Array();
+var timeoutCount = 0;
+
+function AddTimeout(timeoutID) {
+ timeoutCount++;
+ timeoutIDs[timeoutCount-1] = timeoutID;
+}
+
+function ClearAllTimeouts() {
+ var i;
+ for (i=0; i<timeoutCount; i++)
+  clearTimeout(timeoutIDs[i]);
+}
+
+function doAddChannel() {
+  ClearAllTimeouts();
+  window.external.addChannel('http://msie.cmpnet.com/CMPnet.cdf');
+}
+
+function startAnimation() {
+	// 4 seconds gives time for the animated gif to play.
+	setTimeout("runSlides()",4000);
+}
+
+ function runSlides() {
+	 pthweb1.Play();
+}
+
+function loadNextPage() {
+	AddTimeout(setTimeout('window.location="cmp5.htm";', 3000));
+}
+
+//-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb1" Event="onstop">
+	pthweb2.play();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb2" Event="onstop">
+	pthweb3.play();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb3" Event="onstop">
+	pthweb4.play();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb4" Event="onstop">
+	pthweb5.play();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb5" Event="onstop">
+	pthweb6.play();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="pthweb6" Event="onstop">
+	loadNextPage();
+</SCRIPT>
+
+
+<STYLE TYPE="text/css">
+#cmp {POSITION: absolute; top: 70px; left: 80px; 
+ width:12; height:12; Z-INDEX: 5; }
+#addchanbut {POSITION: absolute; top: 370px; left:465px; 
+ width:12; height:12; Z-INDEX: 200; }
+#pro {POSITION: absolute; top: 160px; left:40px; 
+ width:12; height:12; Z-INDEX: 15; }
+#mags {POSITION: absolute; top: 74px; left:407px; 
+ width:250; height:272; Z-INDEX: 10; }
+.stlwhiteblock {POSITION: absolute; top: 348; left:407; width:252; height:273; 
+ background-color:white; Z-INDEX: 190; }
+</style>
+ 
+</HEAD>
+
+<BODY bgcolor="white" onLoad="startAnimation();">
+
+
+
+<div id=cmp>
+<IMG border=0 SRC="gifs/cmplsm.gif" WIDTH="204" height="81">
+</div>
+
+<div id=pro>
+<IMG border=0 SRC="gifs/provide.gif" WIDTH="310" height="91">
+</div>
+
+<div id=mags>
+<IMG border=0 SRC="animate/mags2.gif" WIDTH="250" height="272">
+</div>
+
+<div id="whiteblock" class="stlwhiteblock">
+ 
+</div>
+
+<div id=addchanbut>
+<IMG border=0 SRC="gifs/addchan.gif" WIDTH="136" height="20" onclick="doAddChannel();" onMouseover='this.style.cursor="hand";'>
+</div>
+
+<STYLE>
+DIV {}
+.webshot {
+  position: absolute;
+  top:349px;
+  left:407px;
+  width:252;
+  height:12;
+}
+</STYLE>
+
+<div id=webshot1 class="webshot" style="z-index: 150;">
+<IMG border=0 SRC="gifs/web1.gif" WIDTH="250" height="272">
+</div>
+<div id=webshot2 class="webshot" style="z-index: 165;">
+<IMG border=0 SRC="gifs/web2.gif" WIDTH="250" height="272">
+</div>
+<div id=webshot3 class="webshot" style="z-index: 170;">
+<IMG border=0 SRC="gifs/web3.gif" WIDTH="250" height="272">
+</div>
+<div id=webshot4 class="webshot" style="z-index: 175;">
+<IMG border=0 SRC="gifs/web4.gif" WIDTH="250" height="272">
+</div>
+<div id=webshot5 class="webshot" style="z-index: 180;">
+<IMG border=0 SRC="gifs/web5.gif" WIDTH="250" height="272">
+</div>
+<div id=webshot6 class="webshot" style="z-index: 185;">
+<IMG border=0 SRC="gifs/web6.gif" WIDTH="250" height="272">
+</div>
+
+<STYLE>
+DIV {}
+.stlImagePath {
+  position: absolute;
+  top: 100; left: 100;
+  height:100; width:100;
+}
+</STYLE>
+
+
+<OBJECT ID="pthweb1"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot1">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+	
+	<OBJECT ID="pthweb2"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot2">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+	
+	<OBJECT ID="pthweb3"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot3">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+	
+	<OBJECT ID="pthweb4"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot4">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+	
+	<OBJECT ID="pthweb5"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot5">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+	
+	<OBJECT ID="pthweb6"
+	CLASSID="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6"
+	class="stlImagePath">
+	<PARAM NAME="Shape" VALUE="Polyline(2,407,349,407,74)">
+	<PARAM NAME="Target" VALUE="webshot6">
+	<PARAM NAME="Duration" VALUE="2.0">
+	</OBJECT>
+
+
+</body>
+</html>
+

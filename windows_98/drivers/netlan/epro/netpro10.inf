@@ -1,0 +1,179 @@
+;*******************************************************************
+;
+;	Intel EtherExpress(TM) PRO/10 ISA LAN Adapter
+;	NETPRO10.INF file for Windows 95
+;	Version 1.03
+;
+;	Copyright 1997, Intel Corporation
+;*************************************************************************
+[version]
+signature="$CHICAGO$"
+Class=Net
+provider=%V_MS%
+
+[Manufacturer]
+%V_INTEL%=Intel
+
+[INTEL]
+%*pnp8132.devicedesc%=*pnp8132.ndi, *pnp8132    ; Intel EtherExpress(TM) PRO/10 ISA Adapter
+%*INT1031.devicedesc%=*INT1031.ndi, *INT1031, *INT1030  ; Intel EtherExpress(TM) PRO/10 ISA Adapter (PnP Enabled)
+%*pnp828A.devicedesc%=*pnp828A.ndi, *pnp828A    	; Intel 82595-Based Ethernet
+
+
+;****************************************************************************
+; *INT1031 Intel EtherExpress PRO/10+
+;****************************************************************************
+
+[*INT1031.ndi]
+AddReg=*INT1031.ndi.reg,epro.reg
+
+
+[*INT1031.ndi.reg]
+HKR,Ndi,DeviceID,,"*INT1031"
+
+[*INT1031.ndi.PosDup]
+*pnp8132
+
+;****************************************************************************
+; *PNP8132 Intel EtherExpress PRO/10+
+;****************************************************************************
+
+[*PNP8132.ndi]
+AddReg=*pnp8132.ndi.reg,epro.reg
+LogConfig=*pnp8132.LogConfig
+
+[*PNP8132.ndi.reg]
+HKR,Ndi,DeviceID,,"*PNP8132"
+
+[*PNP8132.LogConfig]
+IRQConfig=3,4,5,7,9,10,11,12
+IOConfig=10@200-39F%FFF0(3FF::)
+ConfigPriority=HARDRECONFIG
+
+;****************************************************************************
+; *PNP828A 82595-based Ethernet
+;****************************************************************************
+
+[*PNP828A.ndi]
+AddReg=*pnp828A.ndi.reg,epro.reg
+LogConfig=*pnp828A.LogConfig
+
+[*PNP828A.ndi.reg]
+HKR,Ndi,DeviceID,,"*PNP828A"
+
+[*PNP828A.LogConfig]
+IRQConfig=5,7,9,10,11
+IOConfig=10@200-39F%FFF0(3FF::)
+ConfigPriority=HARDRECONFIG
+
+;****************************************************************************
+; Epro base
+;****************************************************************************
+
+[Epro.reg]
+
+; key,subkey,valuname,type,value
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,epro10.sys
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+
+; NDIS Info
+HKR,NDIS,LogDriverName,,"EPRO"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"EPRO$"
+HKR,NDIS\NDIS2,FileName,,"epro.dos"
+HKR,NDIS\ODI,DriverName,,"eproodi"
+HKR,NDIS\ODI,FileName,,"eproodi.com"
+
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis2,ndis3"
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,UpperRange,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+
+; Install sections
+HKR,Ndi\Install,ndis3,,"EPRO.ndis3"
+HKR,Ndi\Install,ndis2,,"EPRO.ndis2"
+;HKR,Ndi\Install,odi,,"EPRO.odi"
+
+; Resources
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IoBaseAddress,1,02,00,00,00
+
+; Transceiver Type
+HKR,Ndi\params\TRANSCEIVER,ParamDesc,,"Transceiver Type"
+HKR,NDI\params\TRANSCEIVER,flag,1,20,00,00,00
+HKR,Ndi\params\TRANSCEIVER,default,,"0"
+HKR,Ndi\params\TRANSCEIVER,type,,enum
+HKR,Ndi\params\TRANSCEIVER\enum,"0",,"Auto-Connector"
+HKR,Ndi\params\TRANSCEIVER\enum,"1",,"AUI Connector"
+HKR,Ndi\params\TRANSCEIVER\enum,"2",,"BNC Connector"
+HKR,Ndi\params\TRANSCEIVER\enum,"3",,"TPE Connector"
+
+; Duplex Settings
+HKR,Ndi\params\ForceDpx,ParamDesc,,"Duplex Setting"
+HKR,Ndi\params\ForceDpx,flag,1,20,00,00,00
+HKR,Ndi\params\ForceDpx,default,,"0"
+HKR,Ndi\params\ForceDpx,type,,enum
+HKR,Ndi\params\ForceDpx\enum,"0",,"Auto Negotiate"
+HKR,Ndi\params\ForceDpx\enum,"1",,"Force Half-Duplex"
+HKR,Ndi\params\ForceDpx\enum,"2",,"Force Full-Duplex"
+
+; Power Management Settings
+HKR,Ndi\params\PowerMgt,ParamDesc,,"Power Management"
+HKR,Ndi\params\PowerMgt,flag,1,20,00,00,00
+HKR,Ndi\params\PowerMgt,default,,"0"
+HKR,Ndi\params\PowerMgt,type,,enum
+HKR,Ndi\params\PowerMgt\enum,"0",,"Off"
+HKR,Ndi\params\PowerMgt\enum,"1",,"On"
+
+; Collision Reduction Technology Settings
+HKR,,DynamicCRTMax,,"200"
+HKR,,DynamicCRTIncrement,,"0"
+HKR,,DynamicCRTInterval,,"5000"
+
+
+; Install NDIS3
+[epro.ndis3]
+CopyFiles=epro.ndis3.CopyFiles
+[epro.ndis3.CopyFiles]
+epro10.sys
+
+; Install NDIS2
+[epro.ndis2]
+CopyFiles=epro.ndis2.CopyFiles
+[epro.ndis2.CopyFiles]
+epro.dos
+
+; Install ODI
+[epro.odi]
+CopyFiles=epro.odi.CopyFiles
+[epro.odi.CopyFiles]
+eproodi.com
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+DefaultDestDir              =11 ; LDID_SYS
+epro.ndis3.CopyFiles        =11
+epro.ndis2.CopyFiles        =26 ; LDID_WINBOOT
+epro.odi.CopyFiles          =26
+epro.inf.CopyFiles          =17 ; INF_DIR
+epro.ndi.Copyfiles          =11 ; LDID_SYS
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+; Provider
+V_MS="Microsoft"
+; Manufacturers
+V_INTEL="Intel"
+; PNP Devices
+; NOTE: Do not change the following strings.  They are used by PROSet to find 
+;	the adapter's registry entries!
+*pnp8132.devicedesc="Intel EtherExpress(TM) PRO/10+"
+*INT1031.devicedesc="Intel EtherExpress(TM) PRO/10+ (PnP Enabled)"
+*pnp828A.devicedesc="Intel 82595-Based Ethernet"

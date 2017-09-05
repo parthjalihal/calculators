@@ -1,0 +1,139 @@
+[Version]
+Signature=$WINDOWS95$
+Class=MEDIA
+Provider=%String0%
+LayoutFile=layout.inf
+
+[ClassInstall]
+AddReg=Class.AddReg
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[Manufacturer]
+%String1%=NEOMAGIC
+
+[NEOMAGIC]
+%String2%=MagicWave_3D_2100,*NMX2110
+%String2%=MagicWave_3D_2100,*NMX2100
+%String3%=MSJSTICK,*NMX2120,*PNPB02F
+
+[*NMX2110.Det]
+AddReg=PreCopySection
+
+[*NMX2100.Det]
+AddReg=PreCopySection
+
+[*NMX2120.Det]
+AddReg=PreCopySection
+
+[MSJSTICK]
+CopyFiles=MSJSTICK.CopyList
+AddReg=JOYSTICK.AddReg,MSJSTICK.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+
+[MagicWave_3D_2100]
+DelFiles=NMA1SS.DelList
+CopyFiles=NMA1SS.CopyList
+AddReg=NMA1SS.AddReg,MagicWave_3D_2100.AddReg
+
+[NMA1SS.CopyList]
+nma1ss.vxd
+nma1ss.drv
+vymixd.vxd
+vsgm.vxd
+
+[NMA1SS.DelList]
+nma1ss.drv,,,1
+vopl3sa.386,,,1
+nma1ss.vxd,,,1
+vopl3sa.vxd,,,1
+vymixd.vxd,,,1
+vsgm.vxd,,,1
+
+[MSJSTICK.CopyList]
+vjoyd.vxd
+msjstick.drv
+
+[PreCopySection]
+HKR,,NoSetupUI,0,1
+
+[NMA1SS.AddReg]
+HKR,Drivers,MIGRATED,0,0
+HKLM,%KEY_IOC%\asm,,0,
+HKLM,%KEY_IOC%\Rec,,0,
+HKLM,%KEY_IOC%\MPlay,,0,
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,"SysTray.Exe"
+HKLM,%KEY_IOC%\Vol,,,
+HKLM,SOFTWARE\NEOMAGIC\Driver\MagicWave,ZVPort,1,00,00,00,00
+HKLM,SOFTWARE\NEOMAGIC\Driver\MagicWave,Enable3DBox,1,00,00,00,00
+
+[JOYSTICK.AddReg]
+HKR,,DevLoader,0,mmdevldr.vxd
+HKR,Drivers,MIGRATED,0,0
+HKR,Drivers\joystick,,0,
+
+[MSJSTICK.AddReg]
+HKR,,Driver,0,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Description,0,%String3%
+HKR,Drivers\joystick\msjstick.drv,Driver,0,msjstick.drv
+HKR,Drivers,SubClasses,0,joystick
+
+[MagicWave_3D_2100.AddReg]
+HKR,,DevLoader,0,mmdevldr.vxd
+HKR,,Driver,0,nma1ss.vxd
+HKR,Drivers\wave\nma1ss.drv,Driver,0,nma1ss.drv
+HKR,Drivers\wave\nma1ss.drv,Description,0,%WSSDesc%
+HKR,Drivers\aux\nma1ss.drv,Driver,0,nma1ss.drv
+HKR,Drivers\aux\nma1ss.drv,Description,0,%WSSDesc%
+HKR,Drivers\mixer\nma1ss.drv,Driver,0,nma1ss.drv
+HKR,Drivers\mixer\nma1ss.drv,Description,0,%MIXDesc%
+HKR,Drivers\midi\nma1ss.drv003,Driver,0,nma1ss.drv
+HKR,Drivers\midi\nma1ss.drv003,Description,0,%WSSDesc2%
+HKR,Drivers\midi\nma1ss.drv003,NumPorts,1,03,00,00,00
+HKR,Drivers\midi\nma1ss.drv003,Port,1,02,00,00,00
+HKR,Drivers\midi\nma1ss.drv002,Driver,0,nma1ss.drv
+HKR,Drivers\midi\nma1ss.drv002,External,1,01,00,00,00
+HKR,Drivers\midi\nma1ss.drv002,Description,0,%MPUDesc%
+HKR,Drivers\midi\nma1ss.drv002,NumPorts,1,03,00,00,00
+HKR,Drivers\midi\nma1ss.drv002,Port,1,01,00,00,00
+HKR,Drivers\midi\nma1ss.drv001,Driver,0,nma1ss.drv
+HKR,Drivers\midi\nma1ss.drv001,Description,0,%FMDesc%
+HKR,Drivers\midi\nma1ss.drv001,NumPorts,1,03,00,00,00
+HKR,Drivers\midi\nma1ss.drv001,Port,1,00,00,00,00
+HKR,Drivers,SubClasses,0,"midi,aux,mixer,wave"
+HKR,Config,MIC20dB,1,00
+
+[Class.AddReg]
+HKR,,,0,%MediaClassName%
+HKR,,Icon,0,-1
+HKR,,Installer,0,mmci.dll
+
+[MSJSTICK.UpdateInis]
+system.ini,drivers,joystick,,0
+
+[SourceDisksNames]
+1="NeoMagic MagicWave 3D Driver for Windows95 disk1",NMA195D1,0000-0000
+2="NeoMagic MagicWave 3D Driver for Windows95 disk2",NMA195D2,0000-0000
+
+[SourceDisksFiles]
+nma1ss.drv=1
+nma1ss.vxd=1
+vymixd.vxd=2
+vsgm.vxd=2
+
+[Strings]
+String0="NeoMagic Corporation"
+String1="NeoMagic Corporation"
+KEY_IOC="SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
+KEY_IOC="SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
+KEY_IOC="SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
+FMDesc="NeoMagic MagicWave 3D FM Synthesizer"
+WSSDesc="NeoMagic MagicWave 3D Sound System CODEC"
+MIXDesc="NeoMagic MagicWave 3D Mixer"
+WSSDesc2="NeoMagic MagicWave 3D SoftSynth"
+FMDesc="NeoMagic MagicWave 3D FM Synthesizer"
+MPUDesc="NeoMagic MagicWave 3D MPU401"
+String2="NeoMagic MagicWave 3D Sound System"
+String3="NeoMagic MagicWave 3D Gameport Joystick"
+MediaClassName="Media Devices"

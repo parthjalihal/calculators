@@ -1,0 +1,812 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Warner Bros. RHYTHMDOM: Home (preview)</TITLE>
+
+
+
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+	
+
+Sub Window_OnLoad
+
+	Seq("Intro").Play
+
+End Sub
+
+	
+
+Sub playSlideSnd
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelA.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playTabSnd
+
+	If ChannelC.IsSoundCardEnabled = true and ChannelC.ReadyState > 0 then
+
+		ChannelC.Stop
+
+		ChannelC.Run
+
+	End If
+
+End Sub
+
+
+
+Sub playBtnSnd
+
+	If ChannelB.IsSoundCardEnabled = true and ChannelB.ReadyState > 0 then
+
+		ChannelB.Stop
+
+		ChannelB.Run
+
+	End If
+
+End Sub
+
+	
+
+	
+
+		
+
+Sub SlideBtn1
+
+	pthbtn1.play()
+
+End Sub
+
+	
+
+Sub SlideBtn2
+
+	pthbtn2.play()
+
+End Sub
+
+	
+
+Sub SlideBtn3
+
+	pthbtn3.play()
+
+End Sub
+
+	
+
+Sub SlideBtn4
+
+	pthbtn4.play()
+
+End Sub
+
+
+
+Sub pthBtn1_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn2_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn3_onplay
+
+	playSlideSnd
+
+End Sub
+
+
+
+Sub pthBtn4_onplay
+
+	playSlideSnd
+
+End Sub
+
+	
+
+Sub Seq_onInit	
+
+	call Seq("Intro").at(1.000, "SlideBtn1")
+
+	call Seq("Intro").at(2.500, "SlideBtn2")
+
+	call Seq("Intro").at(4.000, "SlideBtn3")
+
+	call Seq("Intro").at(5.500, "SlideBtn4")
+
+End Sub
+
+	
+
+	
+
+	sub document_onclick()
+
+	dim clicked_obj, obj
+
+	set clicked_obj = window.event.srcElement
+
+	
+
+	Select case clicked_obj.classname
+
+	    case "hspots"
+
+	        select case clicked_obj.id	
+
+		        case "tab2"
+
+					playTabSnd
+
+					showCat1()
+
+					btn1_art.style.filter = "invert(enabled=0)"
+
+					btn2_art.style.filter = "invert(enabled=0)"
+
+					btn3_art.style.filter = "invert(enabled=0)"
+
+					btn4_art.style.filter = "invert(enabled=0)"
+
+		        case "tab3"
+
+					playTabSnd
+
+					showCat2()
+
+					btn1_art.style.filter = "invert(enabled=0)"
+
+					btn2_art.style.filter = "invert(enabled=0)"
+
+					btn3_art.style.filter = "invert(enabled=0)"
+
+					btn4_art.style.filter = "invert(enabled=0)"
+
+		        case "btn1_art"
+
+					'monitor_display.scrolling="No"
+
+					playBtnSnd
+
+					showArtist1()
+
+					blankTabs
+
+					btn1_art.style.filter = "invert(enabled=1)"
+
+					btn2_art.style.filter = "invert(enabled=0)"
+
+					btn3_art.style.filter = "invert(enabled=0)"
+
+					btn4_art.style.filter = "invert(enabled=0)"
+
+		        case "btn2_art"
+
+					playBtnSnd
+
+					showArtist2()
+
+					blankTabs
+
+					btn1_art.style.filter = "invert(enabled=0)"
+
+					btn2_art.style.filter = "invert(enabled=1)"
+
+					btn3_art.style.filter = "invert(enabled=0)"
+
+					btn4_art.style.filter = "invert(enabled=0)"
+
+			    case "btn3_art"
+
+					playBtnSnd
+
+					showArtist3()
+
+					blankTabs
+
+					btn1_art.style.filter = "invert(enabled=0)"
+
+					btn2_art.style.filter = "invert(enabled=0)"
+
+					btn3_art.style.filter = "invert(enabled=1)"
+
+					btn4_art.style.filter = "invert(enabled=0)"
+
+		        case "btn4_art"
+
+					playBtnSnd
+
+					showArtist4()
+
+					blankTabs
+
+					btn1_art.style.filter = "invert(enabled=0)"
+
+					btn2_art.style.filter = "invert(enabled=0)"
+
+					btn3_art.style.filter = "invert(enabled=0)"
+
+					btn4_art.style.filter = "invert(enabled=1)"
+
+			end select
+
+	    end select
+
+	End sub
+
+	
+
+	sub blankTabs
+
+		tab2.style.visibility="visible"
+
+		atab2.style.visibility="hidden"
+
+		tab3.style.visibility="visible"
+
+		atab3.style.visibility="hidden"
+
+	end sub
+
+	
+
+	Sub showCat1()
+
+	         Window.Status="R&B/Hip Hop"
+
+			'activate tab
+
+			tab2.style.visibility="hidden"
+
+			atab2.style.visibility="visible"
+
+			tab3.style.visibility="visible"
+
+			atab3.style.visibility="hidden"
+
+			monitor_display.document.location="u_rd_bc.htm"
+
+	End Sub
+
+	Sub showCat2()
+
+	        Window.Status="Pop/Rock"
+
+					'activate tab
+
+			tab2.style.visibility="visible"
+
+			atab2.style.visibility="hidden"
+
+			tab3.style.visibility="hidden"
+
+			atab3.style.visibility="visible"
+
+			monitor_display.document.location="u_rd_ba.htm"
+
+	End Sub
+
+	
+
+	Sub showArtist1()
+
+	        Window.Status="Paula Cole"
+
+			monitor_display.document.location="u_rd_a1.htm"
+
+	End Sub
+
+	
+
+	Sub showArtist2()
+
+	        Window.Status="Collective Soul"
+
+			monitor_display.document.location="u_rd_a2.htm"
+
+	End Sub
+
+	
+
+	Sub showArtist3()
+
+	        Window.Status="Doors"
+
+			monitor_display.document.location="u_rd_a3.htm"
+
+	End Sub
+
+	
+
+	Sub showArtist4()
+
+	        Window.Status="Fleetwood Mac"
+
+			monitor_display.document.location="u_rd_a4.htm"
+
+	End Sub
+
+
+
+
+
+sub document_onmouseover()
+
+dim clicked_objTB
+
+set clicked_objTB = window.event.srcElement 
+
+    Select case clicked_objTB.classname
+
+    case "TBhspots"
+
+		select case clicked_objTB.id
+
+	    	case "tbr_dom1"
+
+				tbr_dom1.style.borderWidth = 2
+
+			case "tbr_dom2"
+
+				tbr_dom2.style.borderWidth = 2
+
+		     case "tbr_dom3"
+
+				tbr_dom3.style.borderWidth = 2
+
+		end select
+
+    case "TBButtons"
+
+		select case clicked_objTB.id
+
+			case "tbr_btn1"
+
+				tbr_btn1a.style.visibility="visible"
+
+			case "tbr_btn2"
+
+				tbr_btn2a.style.visibility="visible"
+
+		     case "tbr_btn3"
+
+				tbr_btn3a.style.visibility="visible"
+
+		     case "tbr_btn4"
+
+				tbr_btn4a.style.visibility="visible"
+
+				tbr_btn4a.style.borderWidth = 2
+
+		end select
+
+	end select
+
+end sub
+
+
+
+sub document_onmouseout()
+
+dim clicked_objTB1
+
+set clicked_objTB1 = window.event.srcElement 
+
+    Select case clicked_objTB1.classname
+
+    case "TBhspots"
+
+		select case clicked_objTB1.id
+
+	    		case "tbr_dom1"
+
+				tbr_dom1.style.borderWidth = 0
+
+			case "tbr_dom2"
+
+				tbr_dom2.style.borderWidth = 0
+
+	        	case "tbr_dom3"
+
+				tbr_dom3.style.borderWidth = 0
+
+		end select
+
+    case "TBButtons"
+
+		select case clicked_objTB1.id
+
+	    		case "tbr_btn1a"
+
+				tbr_btn1a.style.visibility="hidden"
+
+	    		case "tbr_btn2a"
+
+				tbr_btn2a.style.visibility="hidden"
+
+	    		case "tbr_btn3a"
+
+				tbr_btn3a.style.visibility="hidden"
+
+	    		case "tbr_btn4a"
+
+				tbr_btn4a.style.visibility="hidden"
+
+				tbr_btn4a.style.borderWidth = 0
+
+		end select
+
+	end select
+
+end sub
+
+
+
+-->
+
+</SCRIPT>
+
+</HEAD>
+
+<body bgcolor=black background="img/bgtile.jpg" text=ffffff link=ffffff alink=ffffff vlink=ffffff>
+
+<!--MAIN COMPONENTS**************************************************************-->
+
+<center>
+
+<DIV ID=centeringDiv STYLE="POSITION:relative; WIDTH:640; top:0">
+
+
+
+
+
+<img src="img/marquee.jpg" border=0 class=hspots ID=marquee_bg STYLE="POSITION:ABSOLUTE; TOP:10; LEFT:0">
+
+
+
+<DIV ID=btn1 STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:121; HEIGHT:68; TOP:0; LEFT:-90; BACKGROUND-IMAGE:URL(img/f2.gif)">
+
+<img src="img/art_btn1.jpg" border=0 class=hspots id=btn1_art style="POSITION: ABSOLUTE; WIDTH:90; HEIGHT:40; TOP:16; LEFT:14; FILTER:invert(enabled=0)">
+
+</DIV>
+
+
+
+<DIV ID=btn2 STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:121; HEIGHT:68; TOP:66; LEFT:-90; BACKGROUND-IMAGE:URL(img/f2.gif)">
+
+<img src="img/art_btn2.jpg" border=0 class=hspots id=btn2_art style="POSITION: ABSOLUTE; WIDTH:90; HEIGHT:40; TOP:16; LEFT:14; FILTER:invert(enabled=0)">
+
+</DIV>
+
+
+
+<DIV ID=btn3 STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:121; HEIGHT:68; TOP:132; LEFT:-90; BACKGROUND-IMAGE:URL(img/f2.gif)">
+
+<img src="img/art_btn3.jpg" border=0 class=hspots id=btn3_art style="POSITION: ABSOLUTE; WIDTH:90; HEIGHT:40; TOP:16; LEFT:14; FILTER:invert(enabled=0)">
+
+</DIV>
+
+
+
+<DIV ID=btn4 STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:121; HEIGHT:68; TOP:198; LEFT:-90; BACKGROUND-IMAGE:URL(img/f2.gif)">
+
+<img src="img/art_btn4.jpg" border=0 class=hspots id=btn4_art  style="POSITION: ABSOLUTE; WIDTH:90; HEIGHT:40; TOP:16; LEFT:14; FILTER:invert(enabled=0)">
+
+</DIV>
+
+
+
+<DIV ID=blocker STYLE="POSITION:ABSOLUTE; WIDTH:130; HEIGHT:275; TOP:1; LEFT:-100; BACKGROUND-IMAGE:URL(img/bgtile.jpg)">
+
+</div>
+
+
+
+<img src="img/gtab2.jpg" border=0 class=hspots ID=atab2 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:5; VISIBILITY:HIDDEN">
+
+<img src="img/gtab3.jpg" border=0 class=hspots ID=atab3 STYLE="POSITION:ABSOLUTE; TOP:142; LEFT:5; VISIBILITY:HIDDEN">
+
+<img src="img/tab2.jpg" border=0 class=hspots ID=tab2 STYLE="POSITION:ABSOLUTE; TOP:1; LEFT:5">
+
+<img src="img/tab3.jpg" border=0 class=hspots ID=tab3 STYLE="POSITION:ABSOLUTE; TOP:142; LEFT:5">
+
+<img src="img/tv.jpg" border=0 class=hspots ID=monitor_frame STYLE="POSITION:ABSOLUTE; TOP:8; LEFT:160">
+
+
+
+<IFRAME ID=monitor_display STYLE="POSITION:ABSOLUTE; WIDTH:435; HEIGHT:211; TOP:39; LEFT:172; BACKGROUND:red" SRC="u_rd_pr0.htm" SCROLLING=no>
+
+</IFRAME>
+
+
+
+
+
+
+
+
+
+<DIV ID=toolbar STYLE="POSITION:ABSOLUTE; TOP:264; LEFT:15">
+
+<img ID=left src="img/tbr_left.jpg" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0">
+
+
+
+<img src="img/tbr_td.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:2">
+
+<a href="../toondom/td_unsub.htm"><img class=TBhspots ID=tbr_dom1 src="img/tbr_tdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:16" TITLE="Go to TOONDOM!"></a>
+
+
+
+<img src="img/tbr_sd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:60">
+
+<a href="../screendm/sd_unsub.htm"><img class=TBhspots ID=tbr_dom2 src="img/tbr_sdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:74" TITLE="Go to SCREENDOM!"></a>
+
+
+
+<img src="img/tbr_pd.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:118">
+
+<a href="../playdom/pd_unsub.htm"><img class=TBhspots ID=tbr_dom3 src="img/tbr_pdl.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:5; LEFT:132" TITLE="Go to PLAYDOM!"></a>
+
+
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1 class="TBButtons" src="img/tbr_ed.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+<a href="../ent_frm.htm"><img ID=tbr_btn1a class="TBButtons" src="img/tbr_eda.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:176;visibility:hidden" TITLE="Go to ENTERTAINDOM HOME!"></a>
+
+
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2 class="TBButtons" src="img/tbr_ss.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176" TITLE="Go to STUDIO PLAZA!"></a>
+
+<a href="../ss_frm.htm"><img ID=tbr_btn2a class="TBButtons" src="img/tbr_ssa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:20; LEFT:176;visibility:hidden" TITLE="Go to STUDIO PLAZA!"></a>
+
+
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3 class="TBButtons" src="img/tbr_wbc.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176" TITLE="Go to WarnerBros.Com!"></a>
+
+<a href="../wbc_frm.htm"><img ID=tbr_btn3a class="TBButtons" src="img/tbr_wbca.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:40; LEFT:176;visibility:hidden" TITLE="Go to WarnerBros.Com!"></a>
+
+
+
+<img src="img/tbr_go2.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:305">
+
+<img CLASS=TBButtons ID=tbr_btn4 src="img/tbr_go2l.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+<img CLASS=TBButtons ID=tbr_btn4a src="img/tbr_goa.gif" border=0 STYLE="POSITION:ABSOLUTE; TOP:3; LEFT:312;visibility:hidden" TITLE="For GoTwo, the ultimate in search capabilities, Add To Channels!">
+
+</DIV>
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID=ad1 STYLE="POSITION:ABSOLUTE; WIDTH:234; HEIGHT:60; TOP:264; LEFT:373;background:black">
+
+<A HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><IMG SRC="img/pb234x60.jpg" BORDER=0></A>
+
+</DIV>
+
+
+
+<img src="img/tunebar.jpg" border=0 ID=median STYLE="POSITION:ABSOLUTE; TOP:325; LEFT:0">
+
+
+
+<DIV ID=copy STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:500; TOP:365; LEFT:60">
+
+<center>
+
+<font size=4 face=Arial>
+
+Add RHYTHMDOM to your channels for a comprehensive daily index, the latest hits from your favorite artists and the hottest acts.  Discover fresh, new talent; find out more about your favorite artist and interact with fellow music fans.  RHYTHMDOM is the online location for all your musical passions!
+
+<br>
+
+<a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><img src="../img/atc_btn.gif" border=0 vspace=10></a>
+
+</font>
+
+<br><br><br>
+
+<h5>TM & &copy 1997 Warner Bros.</h5>
+
+</center>
+
+</DIV>
+
+
+
+
+
+
+
+</DIV>
+
+
+
+</center>
+
+
+
+<OBJECT ID=Seq
+
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn1"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,0, 37,0)">
+
+	<PARAM NAME="Target" VALUE="btn1">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">	
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn2"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,66, 37,66)">
+
+	<PARAM NAME="Target" VALUE="btn2">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">	
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthbtn3"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,132, 37,132)">
+
+	<PARAM NAME="Target" VALUE="btn3">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">	
+
+</OBJECT>
+
+ 
+
+<OBJECT ID="pthbtn4"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="1.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -94,198, 37,198)">
+
+	<PARAM NAME="Target" VALUE="btn4">
+
+	<PARAM NAME="TimerInterval" VALUE=".050">	
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/tracks.wav">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelB"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/zing.wav">
+
+</OBJECT>
+
+
+
+<OBJECT ID="ChannelC"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/digital.wav">
+
+</OBJECT>
+
+
+
+
+
+
+
+</BODY>
+
+</HTML>
+

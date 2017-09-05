@@ -1,0 +1,2104 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo]
+;  NOTE NOTE NOTE NOTE:
+;
+;  DO NOT MODIFY THIS FILE.
+;
+;  Any modification made to this file will adversely affect the
+;  operation of your modem.
+;
+;
+;       Version 1.07    7/29/97
+;       Version 1.08    8/29/97
+;       Version 1.09    9/15/97
+;       Version 1.10    9/15/97
+;           Added following section [BP] [TC] [CH] and [JP]
+;       Version 1.11    9/18/97
+;           Modified country lists for PnP ID's CPQB038 and CPQB039
+;
+;
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\PnPList]
+
+;Compaq Presario 336-VSCi, 56K Upgradeable
+"PNPID00"="CPQB013"
+
+;Compaq Presario 336-DFi
+"PNPID01"="CPQB025"
+
+;Compaq Presario 336-VSCi
+"PNPID02"="CPQAE38"
+
+;Compaq Presario 336-DF
+"PNPID03"="CPQB024"
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+"PNPID04"="CPQB015"
+
+;Compaq Presario 56K-DFi
+"PNPID05"="CPQB022"
+
+;Compaq Presario 336-VSCi
+"PNPID06"="CPQB019"
+
+;Compaq Presario 56K-VSC
+"PNPID07"="CPQB018"
+
+;Compaq Presario 56K-VSC
+"PNPID08"="CPQB014"
+
+;Compaq Presario 336-DF, 56K Upgradeable
+"PNPID09"="CPQB016"
+
+;Compaq Presario 56K-DF
+"PNPID0A"="CPQB021"
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+"PNPID0B"="CPQB038"
+
+;Compaq Presario 56K-DF
+"PNPID0C"="CPQB039"
+
+;Compaq Armada 1500 Series 560CL
+"PNPID0D"="CPQB0A1"
+
+;Compaq Presario 56K-DF
+"PNPID0E"="CPQB0A2"
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+"PNPID0F"="CPQB0A3"
+
+
+;Compaq Presario 336-VSCi, 56K Upgradeable
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB013]
+
+;No country selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;Denmark, 03
+"CTY03"="0309"
+
+;Finland, 04
+"CTY04"="040D"
+
+;France, 05
+"CTY05"="050E"
+
+;Germany, 06
+"CTY06"="060F"
+
+;Hong Kong, 19
+"CTY07"="1912"
+
+;India, 1E
+"CTY08"="1E13"
+
+;Indonesia, 17
+"CTY09"="1714"
+
+;Korea, 12
+"CTY0A"="1217"
+
+;Luxembourg, 02
+"CTY0B"="0218"
+
+;Malaysia, 14
+"CTY0C"="1419"
+
+;The Netherlands, 07
+"CTY0D"="071B"
+
+;New Zealand, 09
+"CTY0E"="091C"
+
+;Norway, 0A
+"CTY0F"="0A1E"
+
+;Philippines, 20
+"CTY10"="2022"
+
+;Singapore, 14
+"CTY11"="1425"
+
+;Sweden, 0C
+"CTY12"="0C27"
+
+;Switzerland, 0D
+"CTY13"="0D28"
+
+;United Kingdom, 0E
+"CTY14"="0E2B"
+
+;Vietnam, 1F
+"CTY15"="1F2E"
+
+
+;Compaq Presario 336-DFi
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB025]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;France, 05
+"CTY03"="050E"
+
+;Germany, 06
+"CTY04"="060F"
+
+;India, 1E
+"CTY05"="1E13"
+
+;Indonesia, 17
+"CTY06"="1714"
+
+;Malaysia, 14
+"CTY07"="1419"
+
+;The Netherlands, 07
+"CTY08"="071B"
+
+;New Zealand, 09
+"CTY09"="091C"
+
+;Philippines, 20
+"CTY0A"="2022"
+
+;Sweden, 0C
+"CTY0B"="0C27"
+
+;Switzerland, 0D
+"CTY0C"="0D28"
+
+;Thailand, 14
+"CTY0D"="142A"
+
+;United Kingdom, 0E
+"CTY0E"="0E2B"
+
+;Vietnam, 1F
+"CTY0F"="1F2E"
+
+
+;Compaq Presario 336-VSCi
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQAE38]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Austria, 0F
+"CTY01"="0F03"
+
+;Italy, 08
+"CTY02"="0815"
+
+;Portugal, 18
+"CTY03"="1823"
+
+;Spain, 0B
+"CTY04"="0B26"
+
+
+;Compaq Presario 336-DF
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB024]
+
+;No country selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Japan, 10
+"CTY0B"="1016"
+
+;Mexico, 19
+"CTY0C"="191A"
+
+;Nicaragua, 19
+"CTY0D"="191D"
+
+;Panama, 19
+"CTY0E"="191F"
+
+;Peru, 19
+"CTY0F"="1921"
+
+;Puerto Rico, 19
+"CTY10"="1924"
+
+;USA, 19
+"CTY11"="192C"
+
+;Venezuela, 19
+"CTY12"="192D"
+
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB015]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;Denmark, 03
+"CTY03"="0309"
+
+;Finland, 04
+"CTY04"="040D"
+
+;France, 05
+"CTY05"="050E"
+
+;Italy, 08
+"CTY06"="0815"
+
+;Korea, 12
+"CTY07"="1217"
+
+;The Netherlands, 07
+"CTY08"="071B"
+
+;New Zealand, 09
+"CTY09"="091C"
+
+;Norway, 0A
+"CTY0A"="0A1E"
+
+;Singapore, 14
+"CTY0B"="1425"
+
+;Sweden, 0C
+"CTY0C"="0C27"
+
+;Switzerland, 0D
+"CTY0D"="0D28"
+
+;United Kingdom, 0E
+"CTY0E"="0E2B"
+
+
+;Compaq Presario 56K-DFi
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB022]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;Denmark, 03
+"CTY03"="0309"
+
+;Finland, 04
+"CTY04"="040D"
+
+;France, 05
+"CTY05"="050E"
+
+;Italy, 08
+"CTY06"="0815"
+
+;Korea, 12
+"CTY07"="1217"
+
+;The Netherlands, 07
+"CTY08"="071B"
+
+;New Zealand, 09
+"CTY09"="091C"
+
+;Norway, 0A
+"CTY0A"="0A1E"
+
+;Singapore, 14
+"CTY0B"="1425"
+
+;Sweden, 0C
+"CTY0C"="0C27"
+
+;Switzerland, 0D
+"CTY0D"="0D28"
+
+;United Kingdom, 0E
+"CTY0E"="0E2B"
+
+
+;Compaq Presario 336-VSCi
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB019]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;France, 05
+"CTY02"="050E"
+
+;Germany, 06
+"CTY03"="060F"
+
+;India, 1E
+"CTY04"="1E13"
+
+;Indonesia, 17
+"CTY05"="1714"
+
+;Malaysia, 14
+"CTY06"="1419"
+
+;The Netherlands, 07
+"CTY07"="071B"
+
+;New Zealand, 09
+"CTY08"="091C"
+
+;Philippines, 20
+"CTY09"="2022"
+
+;Singapore, 14
+"CTY0A"="1425"
+
+;Sweden, 0C
+"CTY0B"="0C27"
+
+;Switzerland, 0D
+"CTY0C"="0D28"
+
+;United Kingdom, 0E
+"CTY0D"="0E2B"
+
+;Vietnam, 1F
+"CTY0E"="1F2E"
+
+
+;Compaq Presario 56K-VSC
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB018]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Japan, 10
+"CTY0B"="1016"
+
+;Mexico, 19
+"CTY0C"="191A"
+
+;Nicaragua, 19
+"CTY0D"="191D"
+
+;Panama, 19
+"CTY0E"="191F"
+
+;People's Republic of China, 11
+"CTY0F"="1120"
+
+;Peru, 19
+"CTY10"="1921"
+
+;Puerto Rico, 19
+"CTY11"="1924"
+
+;Taiwan, 19
+"CTY12"="1929"
+
+;USA, 19
+"CTY13"="192C"
+
+;Venezuela, 19
+"CTY14"="192D"
+
+
+;Compaq Presario 56K-VSC
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB014]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Japan, 10
+"CTY0B"="1016"
+
+;Mexico, 19
+"CTY0C"="191A"
+
+;Nicaragua, 19
+"CTY0D"="191D"
+
+;Panama, 19
+"CTY0E"="191F"
+
+;Peru, 19
+"CTY0F"="1921"
+
+;Puerto Rico, 19
+"CTY10"="1924"
+
+;Taiwan, 19
+"CTY11"="1929"
+
+;USA, 19
+"CTY12"="192C"
+
+;Venezuela, 19
+"CTY13"="192D"
+
+
+;Compaq Presario 336-DF, 56K Upgradeable
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB016]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Hong Kong, 19
+"CTY0B"="1912"
+
+;India, 1E
+"CTY0C"="1E13"
+
+;Indonesia, 17
+"CTY0D"="1714"
+
+;Japan, 10
+"CTY0E"="1016"
+
+;Malaysia, 14
+"CTY0F"="1419"
+
+;Mexico, 19
+"CTY10"="191A"
+
+;Nicaragua, 19
+"CTY11"="191D"
+
+;Panama, 19
+"CTY12"="191F"
+
+;People's Republic of China, 11
+"CTY13"="1120"
+
+;Peru, 19
+"CTY14"="1921"
+
+;Philippines, 20
+"CTY15"="2022"
+
+;Puerto Rico, 19
+"CTY16"="1924"
+
+;Taiwan, 19
+"CTY17"="1929"
+
+;Thailand, 14
+"CTY18"="142A"
+
+;USA, 19
+"CTY19"="192C"
+
+;Venezuela, 19
+"CTY1A"="192D"
+
+;Vietnam, 1F
+"CTY1B"="1F2E"
+
+
+;Compaq Presario 56K-DF
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB021]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Hong Kong, 19
+"CTY0B"="1912"
+
+;India, 1E
+"CTY0C"="1E13"
+
+;Indonesia, 17
+"CTY0D"="1714"
+
+;Japan, 10
+"CTY0E"="1016"
+
+;Malaysia, 14
+"CTY0F"="1419"
+
+;Mexico, 19
+"CTY10"="191A"
+
+;Nicaragua, 19
+"CTY11"="191D"
+
+;Panama, 19
+"CTY12"="191F"
+
+;People's Republic of China, 11
+"CTY13"="1120"
+
+;Peru, 19
+"CTY14"="1921"
+
+;Philippines, 20
+"CTY15"="2022"
+
+;Puerto Rico, 19
+"CTY16"="1924"
+
+;Taiwan, 19
+"CTY17"="1929"
+
+;Thailand, 14
+"CTY18"="142A"
+
+;USA, 19
+"CTY19"="192C"
+
+;Venezuela, 19
+"CTY1A"="192D"
+
+;Vietnam, 1F
+"CTY1B"="1F2E"
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB038]
+
+;No country selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;Denmark, 03
+"CTY03"="0309"
+
+;Finland, 04
+"CTY04"="040D"
+
+;France, 05
+"CTY05"="050E"
+
+;Germany, 06
+"CTY06"="060F"
+
+;Italy, 08
+"CTY07"="0815"
+
+;Korea, 12
+"CTY08"="1217"
+
+;The Netherlands, 07
+"CTY09"="071B"
+
+;New Zealand, 09
+"CTY0A"="091C"
+
+;Norway, 0A
+"CTY0B"="0A1E"
+
+;Singapore, 14
+"CTY0C"="1425"
+
+;Sweden, 0C
+"CTY0D"="0C27"
+
+;Switzerland, 0D
+"CTY0E"="0D28"
+
+;United Kingdom, 0E
+"CTY0F"="0E2B"
+
+
+
+;Compaq Presario 56K-DF
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB039]
+
+;No Country Selected
+"CTY00"="0000"
+     
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Hong Kong, 19
+"CTY0B"="1912"
+
+;Indonesia, 17
+"CTY0C"="1714"
+
+;Japan, 10
+"CTY0D"="1016"
+
+;Malaysia, 13
+"CTY0E"="1319"
+
+;Mexico, 19
+"CTY0F"="191A"
+
+;Nicaragua, 19
+"CTY10"="191D"
+
+;Panama, 19
+"CTY11"="191F"
+
+;People's Republic of China, 11
+"CTY12"="1120"
+
+;Peru, 19
+"CTY13"="1921"
+
+;Philippines, 20
+"CTY14"="2022"
+
+;Puerto Rico, 19
+"CTY15"="1924"
+
+;Taiwan, 15
+"CTY16"="1529"
+
+;Thailand, 14
+"CTY17"="142A"
+
+;USA, 19
+"CTY18"="192C"
+
+;Venezuela, 19
+"CTY19"="192D"
+
+;Vietnam, 1F
+"CTY1A"="1F2E"
+
+
+;Compaq Armada 1500 Series 560CL
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB0A1]
+
+;No country selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Hong Kong, 19
+"CTY0B"="1912"
+
+;Japan, 10
+"CTY0C"="1016"
+
+;Malaysia, 13
+"CTY0D"="1319"
+
+;Mexico, 19
+"CTY0E"="191A"
+
+;Nicaragua, 19
+"CTY0F"="191D"
+
+;Panama, 19
+"CTY10"="191F"
+
+;People's Republic of China, 11
+"CTY11"="1120"
+
+;Peru, 19
+"CTY12"="1921"
+
+;Puerto Rico, 19
+"CTY13"="1924"
+
+;Taiwan, 15
+"CTY14"="1529"
+
+;Thailand, 14
+"CTY15"="142A"
+
+;USA, 19
+"CTY16"="192C"
+
+;Venezuela, 19
+"CTY17"="192D"
+
+
+;Compaq Presario 56K-DF
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB0A2]
+
+;No country selected
+"CTY00"="0000"
+
+;Argentina, 19
+"CTY01"="1901"
+
+;Brazil, 19
+"CTY02"="1905"
+
+;Canada, 19
+"CTY03"="1906"
+
+;Caribbean, 19
+"CTY04"="1907"
+
+;Costa Rica, 19
+"CTY05"="1908"
+
+;Dominican Republic, 19
+"CTY06"="190A"
+
+;Ecuador, 19
+"CTY07"="190B"
+
+;El Salvador, 19
+"CTY08"="190C"
+
+;Guatemala, 19
+"CTY09"="1910"
+
+;Honduras, 19
+"CTY0A"="1911"
+
+;Japan, 10
+"CTY0B"="1016"
+
+;Mexico, 19
+"CTY0C"="191A"
+
+;Nicaragua, 19
+"CTY0D"="191D"
+
+;Panama, 19
+"CTY0E"="191F"
+
+;Peru, 19
+"CTY0F"="1921"
+
+;Puerto Rico, 19
+"CTY10"="1924"
+
+;Taiwan, 15
+"CTY11"="1529"
+
+;USA, 19
+"CTY12"="192C"
+
+;Venezuela, 19
+"CTY13"="192D"
+
+
+;Compaq Presario 336-DFi, 56K Upgradeable
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\List\CPQB0A3]
+
+;No Country Selected
+"CTY00"="0000"
+
+;Australia, 01
+"CTY01"="0102"
+
+;Belgium, 02
+"CTY02"="0204"
+
+;France, 05
+"CTY03"="050E"
+
+;Germany, 06
+"CTY04"="060F"
+
+;Hong Kong, 19
+"CTY05"="1912"
+
+;Indonesia, 17
+"CTY06"="1714"
+
+;Italy,  08
+"CTY07"="0815"
+
+;Malaysia, 13
+"CTY08"="1319"
+
+;The Netherlands, 07
+"CTY09"="071B"
+
+;New Zealand, 09
+"CTY0A"="091C"
+
+;People's Republic of China, 11
+"CTY0B"="1120"
+
+;Philippines, 20
+"CTY0C"="2022"
+
+;Singapore, 14
+"CTY0D"="1425"
+
+;Sweden, 0C
+"CTY0E"="0C27"
+
+;Switzerland, 0D
+"CTY0F"="0D28"
+
+;Thailand, 14
+"CTY10"="142A"
+
+;United Kingdom, 0E
+"CTY11"="0E2B"
+
+;Vietnam, 1F
+"CTY12"="1F2E"
+
+;------------------------------------------------------------------
+;
+; Following sections are Country names.
+; [US] = US English Section
+; [FC] = French Canadian
+; [LA] = LA Spanish
+; [BP] = Brazilian Portuguese
+; [TW] = Traditional Chinese
+; [CH] = Simpligied Chinese
+; [JP] = Japanese
+;------------------------------------------------------------------
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\English]
+;CTY ID = 00
+"CN00"="None"
+
+;CTY ID = 19
+"CN01"="Argentina"
+
+;CTY ID = 19
+"CN02"="Australia"
+
+;CTY ID = 0F
+"CN03"="Austria"
+
+;CTY ID = 02
+"CN04"="Belgium"
+
+;CTY ID = 19
+"CN05"="Brazil"
+
+;CTY ID = 19
+"CN06"="Canada"
+
+;CTY ID = 19
+"CN07"="Caribbean"
+
+;CTY ID = 19
+"CN08"="Costa Rica"
+
+;CTY ID = 03
+"CN09"="Denmark"
+
+;CTY ID = 19
+"CN0A"="Dominican Republic"
+
+;CTY ID = 19
+"CN0B"="Ecuador"
+
+;CTY ID = 19
+"CN0C"="El Salvador"
+
+;CTY ID = 04
+"CN0D"="Finland"
+
+;CTY ID = 05
+"CN0E"="France"
+
+;CTY ID = 06
+"CN0F"="Germany"
+
+;CTY ID = 19
+"CN10"="Guatemala"
+
+;CTY ID = 19
+"CN11"="Honduras"
+
+;CTY ID = 19
+"CN12"="Hong Kong"
+
+;CTY ID = 1E
+"CN13"="India"
+
+;CTY ID = 17
+"CN14"="Indonesia"
+
+;CTY ID = 08
+"CN15"="Italy"
+
+;CTY ID = 10
+"CN16"="Japan"
+
+;CTY ID = 12
+"CN17"="Korea"
+
+;CTY ID = 02
+"CN18"="Luxembourg"
+
+;CTY ID = 13
+"CN19"="Malaysia"
+
+;CTY ID = 19
+"CN1A"="Mexico"
+
+;CTY ID = 07
+"CN1B"="The Netherlands"
+
+;CTY ID = 09
+"CN1C"="New Zealand"
+
+;CTY ID = 19
+"CN1D"="Nicaragua"
+
+;CTY ID = 0A
+"CN1E"="Norway"
+
+;CTY ID = 19
+"CN1F"="Panama"
+
+;CTY ID = 11
+"CN20"="People's Republic of China"
+
+;CTY ID = 19
+"CN21"="Peru"
+
+;CTY ID = 20
+"CN22"="Philippines"
+
+;CTY ID = 18
+"CN23"="Portugal"
+
+;CTY ID = 19
+"CN24"="Puerto Rico"
+
+;CTY ID = 14
+"CN25"="Singapore"
+
+;CTY ID = 0B
+"CN26"="Spain"
+
+;CTY ID = 0C
+"CN27"="Sweden"
+
+;CTY ID = 0D
+"CN28"="Switzerland"
+
+;CTY ID = 19
+"CN29"="Taiwan"
+
+;CTY ID = 14
+"CN2A"="Thailand"
+
+;CTY ID = 0E
+"CN2B"="United Kingdom"
+
+;CTY ID = 19
+"CN2C"="USA"
+
+;CTY ID = 19
+"CN2D"="Venezuela"
+
+;CTY ID = 1F
+"CN2E"="Vietnam"
+
+;
+; Country Name Sections : Names are in French
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\French]
+
+;CTY ID = 00
+"CN00"="None"
+
+
+;CTY ID = 19
+"CN01"="Argentine"
+
+
+;CTY ID = 19
+"CN02"="Australie"
+
+;CTY ID = 0F
+"CN03"="Autriche"
+
+;CTY ID = 02
+"CN04"="Belgique"
+
+;CTY ID = 19
+"CN05"="BrÈzil"
+
+;CTY ID = 19
+"CN06"="Canada"
+
+;CTY ID = 19
+"CN07"="CaraÔbes"
+
+;CTY ID = 19
+"CN08"="Costa Rica"
+
+;CTY ID = 03
+"CN09"="Danemark"
+
+;CTY ID = 19
+"CN0A"="RÈpublique Dominicaine"
+
+;CTY ID = 19
+"CN0B"="Equateur"
+
+;CTY ID = 19
+"CN0C"="El Salvador"
+
+;CTY ID = 04
+"CN0D"="Finlande"
+
+;CTY ID = 05
+"CN0E"="France"
+
+;CTY ID = 06
+"CN0F"="Allemagne"
+
+;CTY ID = 19
+"CN10"="Guatemala"
+
+;CTY ID = 19
+"CN11"="Honduras"
+
+;CTY ID = 19
+"CN12"="Hong Kong"
+
+;CTY ID = 1E
+"CN13"="Inde"
+
+;CTY ID = 17
+"CN14"="Indonesie"
+
+;CTY ID = 08
+"CN15"="Italie"
+
+;CTY ID = 10
+"CN16"="Japon"
+
+;CTY ID = 12
+"CN17"="KorÈe"
+
+;CTY ID = 02
+"CN18"="Luxembourg"
+
+;CTY ID = 14
+"CN19"="Malaysie"
+
+;CTY ID = 19
+"CN1A"="Mexique"
+
+;CTY ID = 07
+"CN1B"="Pays-Bas"
+
+;CTY ID = 09
+"CN1C"="Nouvelle-ZÈlande"
+
+;CTY ID = 19
+"CN1D"="Nicaragua"
+
+;CTY ID = 0A
+"CN1E"="NorvËge"
+
+;CTY ID = 19
+"CN1F"="Panama"
+
+;CTY ID = 19
+"CN20"="RÈpublique de Chine"
+
+;CTY ID = 19
+"CN21"="Perou"
+
+;CTY ID = 20
+"CN22"="Philippines"
+
+;CTY ID = 18
+"CN23"="Portugal"
+
+;CTY ID = 19
+"CN24"="Porto Rico"
+
+;CTY ID = 14
+"CN25"="Singapour"
+
+;CTY ID = 0B
+"CN26"="Espagne"
+
+;CTY ID = 0C
+"CN27"="SuËde"
+
+;CTY ID = 0D
+"CN28"="Suisse"
+
+;CTY ID = 19
+"CN29"="TaÔwan"
+
+;CTY ID = 14
+"CN2A"="ThaÔlande"
+
+;CTY ID = 0E
+"CN2B"="Royaumes-Unies"
+
+;CTY ID = 19
+"CN2C"="…tats-Unies d'AmÈrique"
+
+;CTY ID = 19
+"CN2D"="Venezuela"
+
+;CTY ID = 1F
+"CN2E"="Vietnam"
+
+
+;
+; Country Name Sections : Names are in Spanish
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\LA Spanish]
+
+;CTY ID = 00
+"CN00"="Ninguno"
+
+
+;CTY ID = 19
+"CN01"="Argentina"
+
+
+;CTY ID = 19
+"CN02"="Australia"
+
+;CTY ID = 0F
+"CN03"="Austria"
+
+;CTY ID = 02
+"CN04"="Belgica"
+
+;CTY ID = 19
+"CN05"="Brazil"
+
+;CTY ID = 19
+"CN06"="Canad·"
+
+;CTY ID = 19
+"CN07"="El Caribe"
+
+;CTY ID = 19
+"CN08"="Costa Rica"
+
+;CTY ID = 03
+"CN09"="Dinamarca"
+
+;CTY ID = 19
+"CN0A"="Republica Dominicana"
+
+;CTY ID = 19
+"CN0B"="Ecuador"
+
+;CTY ID = 19
+"CN0C"="El Salvador"
+
+;CTY ID = 04
+"CN0D"="Finlandia"
+
+;CTY ID = 05
+"CN0E"="Francia"
+
+;CTY ID = 06
+"CN0F"="Alemania"
+
+;CTY ID = 19
+"CN10"="Guatemala"
+
+;CTY ID = 19
+"CN11"="Honduras"
+
+;CTY ID = 19
+"CN12"="Hong Kong"
+
+;CTY ID = 1E
+"CN13"="India"
+
+;CTY ID = 17
+"CN14"="Indonesia"
+
+;CTY ID = 08
+"CN15"="Italia"
+
+;CTY ID = 10
+
+"CN16"="Japon"
+
+;CTY ID = 12
+"CN17"="Korea"
+
+;CTY ID = 02
+"CN18"="Luxemburgo"
+
+;CTY ID = 14
+"CN19"="Malaysia"
+
+;CTY ID = 19
+"CN1A"="Mexico"
+
+;CTY ID = 07
+"CN1B"="Holanda"
+
+;CTY ID = 09
+"CN1C"="Nueva Zelanda"
+
+;CTY ID = 19
+"CN1D"="Nicaragua"
+
+;CTY ID = 0A
+"CN1E"="Noruega"
+
+;CTY ID = 19
+"CN1F"="Panama"
+
+;CTY ID = 19
+"CN20"="Republica de China"
+
+;CTY ID = 19
+"CN21"="Peru"
+
+;CTY ID = 20
+"CN22"="Filipinas"
+
+;CTY ID = 18
+"CN23"="Portugal"
+
+;CTY ID = 19
+"CN24"="Puerto Rico"
+
+;CTY ID = 14
+"CN25"="Singapor"
+
+;CTY ID = 0B
+"CN26"="EspaÒa"
+
+;CTY ID = 0C
+"CN27"="Suecia"
+
+;CTY ID = 0D
+"CN28"="Suisa"
+
+;CTY ID = 19
+"CN29"="Taiwan"
+
+;CTY ID = 14
+"CN2A"="Thailandia"
+
+;CTY ID = 0E
+"CN2B"="Reino Unido"
+
+;CTY ID = 19
+"CN2C"="Estados Unidos de America"
+;CTY ID = 19
+"CN2D"="Venezuela"
+
+;CTY ID = 1F
+"CN2E"="Vietnam"
+
+
+;
+; Country Name Sections : Names are in Brazilian Portuguese
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\BP]
+;CTY ID = 00
+; "None" 
+"CN00"="Nenhum"
+
+
+;CTY ID = 19
+;  "Argentina" 
+"CN01"="Argentina"
+
+
+;CTY ID = 19
+;  "Australia" 
+"CN02"="Austr·lia"
+
+;CTY ID = 0F
+;  "Austria"  
+"CN03"="¬ustria"
+
+;CTY ID = 02
+;  "Belgium"  
+"CN04"="BÈlgica"
+
+;CTY ID = 19
+;  "Brazil"   
+"CN05"="Brasil"
+
+;CTY ID = 19
+;  "Canada"   
+"CN06"="Canad·"
+
+;CTY ID = 19
+;  "Caribbean" 
+"CN07"="Caribe"
+
+;CTY ID = 19
+;  "Costa Rica"
+"CN08"="Costa Rica"
+
+;CTY ID = 03
+;  "Denmark"
+"CN09"="Dinamarca"
+
+;CTY ID = 19
+;  "Dominian Republic"
+"CN0A"="Rep˙blica Dominicana"
+
+;CTY ID = 19
+;  "Ecuador"
+"CN0B"="Equador"
+
+;CTY ID = 19
+;  "El Salvador"
+"CN0C"="El Salvador"
+
+;CTY ID = 04
+;  "Finland"
+"CN0D"="Finl‚ndia"
+
+;CTY ID = 05
+;  "France"
+"CN0E"="FranÁa"
+
+;CTY ID = 06
+;  "Germany"
+"CN0F"="Alemanha"
+
+;CTY ID = 19
+;  "Guatemala"
+"CN10"="Guatemala"
+
+;CTY ID = 19
+;  "Honduras"
+"CN11"="Honduras"
+
+;CTY ID = 19
+;  "Hong Kong"
+"CN12"="Hong Kong"
+
+;CTY ID = 1E
+;  "India"
+"CN13"="Õndia"
+
+;CTY ID = 17
+;  "Indonesia"
+"CN14"="IndonÈsia"
+
+;CTY ID = 08
+;  "Italy"
+"CN15"="It·lia"
+
+;CTY ID = 10
+;  "Japan"
+"CN16"="Jap„o"
+
+;CTY ID = 12
+;  "Korea"
+"CN17"="CorÈia"
+
+;CTY ID = 02
+;  "Luxembourg"
+"CN18"="Luxemburgo"
+
+;CTY ID = 14
+;  "Malaysia"
+"CN19"="Mal·sia"
+
+;CTY ID = 19
+;  "Mexico"
+"CN1A"="MÈxico"
+
+;CTY ID = 07
+;  "The Netherlands"
+"CN1B"="PaÌses Baixos"
+
+;CTY ID = 09
+;  "New Zealand"
+"CN1C"="Nova Zel‚ndia"
+
+;CTY ID = 19
+;  "Nicaragua"
+"CN1D"="Nicar·gua"
+
+;CTY ID = 0A
+;  "Norway"
+"CN1E"="Noruega"
+
+;CTY ID = 19
+;  "Panama"
+"CN1F"="Panam·"
+
+;CTY ID = 19
+;  "People's Republic of China"
+"CN20"="Rep˙blica Popular da China"
+
+;CTY ID = 19
+;  "Peru"
+"CN21"="Peru"
+
+;CTY ID = 20
+;  "Philippines"
+"CN22"="Filipinas"
+
+;CTY ID = 18
+;  "Portugal"
+"CN23"="Portugal"
+
+;CTY ID = 19
+;  "Puerto Rico"
+"CN24"="Porto Rico"
+
+;CTY ID = 14
+;  "Singapore"
+"CN25"="Cingapura"
+
+;CTY ID = 0B
+;  "Spain"
+"CN26"="Espanha"
+
+;CTY ID = 0C
+;  "Sweden"
+"CN27"="SuÈcia"
+
+;CTY ID = 0D
+;  "Switzerland"
+"CN28"="SuÌÁa"
+
+;CTY ID = 19
+;  "Taiwan"
+"CN29"="Formosa"
+
+;CTY ID = 14
+;  "Thailand"
+"CN2A"="Tail‚ndia"
+
+;CTY ID = 0E
+;  "United Kingdom"
+"CN2B"="Reino Unido"
+
+;CTY ID = 19
+;  "USA"
+"CN2C"="E.U.A."
+
+;CTY ID = 19
+;  "Venezuela"
+"CN2D"="Venezuela"
+
+;CTY ID = 1F
+;  "Vietnam"
+"CN2E"="Vietn„"
+
+
+;
+; Country Name Sections : Names are in Traditional Chinese
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\TW]
+"CN00"="µL"
+
+"CN01"="™¸Æ⁄ß "
+
+"CN02"="øD¨w"
+
+"CN03"="∂¯¶aßQ"
+
+"CN04"="§ÒßQÆ…"
+
+"CN05"="§⁄¶Ë"
+
+"CN06"="•[Æ≥§j"
+
+"CN07"="•[∞«§Ò"
+
+"CN08"="≠Ù¥µπFæ§•["
+
+"CN09"="§¶≥¡"
+
+"CN0A"="¶h¶Ã•ß•[¶@©M∞Í"
+
+"CN0B"="§Ã• ¶h∫∏"
+
+"CN0C"="¬ƒ∫∏•À¶h"
+
+"CN0D"="™‚ƒı"
+
+"CN0E"="™k∞Í"
+
+"CN0F"="ºw∞Í"
+
+"CN10"="¶M¶a∞®©‘"
+
+"CN11"="¨x≥£©‘¥µ"
+
+"CN12"="≠ª¥‰"
+
+"CN13"="¶L´◊"
+
+"CN14"="¶L´◊•ß¶Ë®»"
+
+"CN15"="∏q§jßQ"
+
+"CN16"="§È•ª"
+
+"CN17"="´n¡˙"
+
+"CN18"="øc¥À≥˘"
+
+"CN19"="∞®®”¶Ë®»"
+
+"CN1A"="æ•¶Ë≠Ù"
+
+"CN1B"="≤¸ƒı"
+
+"CN1C"="Ø√¶Ëƒı"
+
+"CN1D"="•ß•[©‘• "
+
+"CN1E"="Æø´¬"
+
+"CN1F"="§⁄Æ≥∞®"
+
+"CN20"="§§∞Í"
+
+"CN21"="Øµæ|"
+
+"CN22"="µ·´ﬂª´"
+
+"CN23"="∏≤µÂ§˙"
+
+"CN24"="™i¶hæ§≠Ù"
+
+"CN25"="∑s•[©Y"
+
+"CN26"="¶ËØZ§˙"
+
+"CN27"="∑Á®Â"
+
+"CN28"="∑Á§h"
+
+"CN29"="•x∆W"
+
+"CN2A"="Æı∞Í"
+
+"CN2B"="≠^∞Í"
+
+"CN2C"="¨¸∞Í"
+
+"CN2D"="©e§∫∑Á©‘"
+
+"CN2E"="∂V´n"
+
+;
+; Country Name Sections : Names are in Simplified Chinese
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\CH]
+"CN00"="Œﬁ"
+
+"CN01"="∞¢∏˘Õ¢"
+
+"CN02"="∞ƒ¥Û¿˚—«"
+
+"CN03"="∞¬µÿ¿˚"
+
+"CN04"="±»¿˚ ±"
+
+"CN05"="∞ÕŒ˜"
+
+"CN06"="º”ƒ√¥Û"
+
+"CN07"="º”¿’±»∫£µÿ«¯"
+
+"CN08"="∏ÁÀπ¥Ô¿Ëº”"
+
+"CN09"="µ§¬Û"
+
+"CN0A"="∂‡√◊ƒ·º”π≤∫Õπ˙"
+
+"CN0B"="∂Úπœ∂‡∂˚"
+
+"CN0C"="»¯∂˚Õﬂ∂‡"
+
+"CN0D"="∑“¿º"
+
+"CN0E"="∑®π˙"
+
+"CN0F"="µ¬π˙"
+
+"CN10"="Œ£µÿ¬Ì¿≠"
+
+"CN11"="∫È∂º¿≠Àπ"
+
+"CN12"="œ„∏€"
+
+"CN13"="”°∂»"
+
+"CN14"="”°∂»ƒ·Œ˜—«"
+
+"CN15"="“‚¥Û¿˚"
+
+"CN16"="»’±æ"
+
+"CN17"="∫´π˙"
+
+"CN18"="¬¨…≠±§"
+
+"CN19"="¬Ì¿¥Œ˜—«"
+
+"CN1A"="ƒ´Œ˜∏Á"
+
+"CN1B"="∫…¿º"
+
+"CN1C"="–¬Œ˜¿º"
+
+"CN1D"="ƒ·º”¿≠πœ"
+
+"CN1E"="≈≤Õ˛"
+
+"CN1F"="∞Õƒ√¬Ì"
+
+"CN20"="÷–ª™»À√Òπ≤∫Õπ˙"
+
+"CN21"="√ÿ¬≥"
+
+"CN22"="∑∆¬…±ˆ"
+
+"CN23"="∆œÃ——¿"
+
+"CN24"="≤®∂‡¿Ë∏˜"
+
+"CN25"="–¬º”∆¬"
+
+"CN26"="Œ˜∞‡—¿"
+
+"CN27"="»µ‰"
+
+"CN28"="» ø"
+
+"CN29"="Ã®ÕÂ"
+
+"CN2A"="Ã©π˙"
+
+"CN2B"="”¢π˙"
+
+"CN2C"="√¿π˙"
+
+"CN2D"="ŒØƒ⁄»¿≠"
+
+"CN2E"="‘Ωƒœ"
+
+
+;
+; Country Name Sections : Names are in Japanese 
+;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Compaq\ModemCountryInfo\CountryName\JP]
+;CTY ID = 00
+;  "None"
+"CN00"="Ç»Çµ"
+
+
+;CTY ID = 19
+;  "Argentina"
+"CN01"="±Ÿæﬁ›¡›"
+
+
+;CTY ID = 19
+;  "Australia"
+"CN02"="µ∞Ωƒ◊ÿ±"
+
+;CTY ID = 0F
+;  "Austria"
+"CN03"="µ∞Ωƒÿ±"
+
+;CTY ID = 02
+;  "Belgium"
+"CN04"="ÕﬁŸ∑ﬁ∞"
+
+;CTY ID = 19
+;  "Brazil"
+"CN05"="Ãﬁ◊ºﬁŸ"
+
+;CTY ID = 19
+;  "Canada"
+"CN06"="∂≈¿ﬁ"
+
+;CTY ID = 19
+;  "Caribbean"
+"CN07"="∂ÿÃﬁäCèîçë"
+
+;CTY ID = 19
+;  "Costa Rica"
+"CN08"="∫Ω¿ÿ∂"
+
+;CTY ID = 03
+;  "Denmark"
+"CN09"="√ﬁ›œ∞∏"
+
+;CTY ID = 19
+;  "Dominian Republic"
+"CN0A"="ƒﬁ–∆∂ã§òaçë"
+
+;CTY ID = 19
+;  "Ecuador"
+"CN0B"="¥∏±ƒﬁŸ"
+
+;CTY ID = 19
+;  "El Salvador"
+"CN0C"="¥ŸªŸ ﬁƒﬁŸ"
+
+;CTY ID = 04
+;  "Finland"
+"CN0D"="Ã®›◊›ƒﬁ"
+
+;CTY ID = 05
+;  "France"
+"CN0E"="Ã◊›Ω"
+
+;CTY ID = 06
+;  "Germany"
+"CN0F"="ƒﬁ≤¬"
+
+;CTY ID = 19
+;  "Guatemala"
+"CN10"="∏ﬁ±√œ◊"
+
+;CTY ID = 19
+;  "Honduras"
+"CN11"="Œ›ºﬁ≠◊Ω"
+
+;CTY ID = 19
+;  "Hong Kong"
+"CN12"="çÅç`"
+
+;CTY ID = 1E
+; Translate "India"
+"CN13"="≤›ƒﬁ"
+
+;CTY ID = 17
+;  "Indonesia"
+"CN14"="≤›ƒﬁ»º±"
+
+;CTY ID = 08
+;  "Italy"
+"CN15"="≤¿ÿ±"
+
+;CTY ID = 10
+;  "Japan"
+"CN16"="ì˙ñ{"
+
+;CTY ID = 12
+;  "Korea"
+"CN17"="äÿçë"
+
+;CTY ID = 02
+;  "Luxembourg"
+"CN18"="Ÿ∏æ›ÃﬁŸ∏ﬁ"
+
+;CTY ID = 14
+;  "Malaysia"
+"CN19"="œ⁄∞º±"
+
+;CTY ID = 19
+;  "Mexico"
+"CN1A"="“∑º∫"
+
+;CTY ID = 07
+;  "The Netherlands"
+"CN1B"="µ◊›¿ﬁ"
+
+;CTY ID = 09
+;  "New Zealand"
+"CN1C"="∆≠∞ºﬁ∞◊›ƒﬁ"
+
+;CTY ID = 19
+;  "Nicaragua"
+"CN1D"="∆∂◊∏ﬁ±"
+
+;CTY ID = 0A
+;  "Norway"
+"CN1E"="…Ÿ≥™∞"
+
+;CTY ID = 19
+;  "Panama"
+"CN1F"=" ﬂ≈œ"
+
+;CTY ID = 19
+;  "People's Republic of China" 
+"CN20"="íÜçë"
+
+;CTY ID = 19
+;  "Peru" 
+"CN21"="ÕﬂŸ∞"
+
+;CTY ID = 20
+;  "Philippines" 
+"CN22"="Ã®ÿÀﬂ›"
+
+;CTY ID = 18
+;  "Portugal" 
+"CN23"="ŒﬂŸƒ∂ﬁŸ"
+
+;CTY ID = 19
+;  "Puerto Rico" 
+"CN24"="Ãﬂ¥Ÿƒÿ∫"
+
+;CTY ID = 14
+;  "Singapore" 
+"CN25"="º›∂ﬁŒﬂ∞Ÿ"
+
+;CTY ID = 0B
+;  "Spain" 
+"CN26"="ΩÕﬂ≤›"
+
+;CTY ID = 0C
+;  "Sweden"
+"CN27"="Ω≥™∞√ﬁ›"
+
+;CTY ID = 0D
+;  "Switzerland" 
+"CN28"="Ω≤Ω"
+
+;CTY ID = 19
+;  "Taiwan"
+"CN29"="ë‰òp"
+
+;CTY ID = 14
+;  "Thailand" 
+"CN2A"="¿≤"
+
+;CTY ID = 0E
+;  "United Kingdom" 
+"CN2B"="≤∑ﬁÿΩ"
+
+;CTY ID = 19
+;  "USA" 
+"CN2C"="±“ÿ∂çáèOçë"
+
+;CTY ID = 19
+;  "Venezuela" 
+"CN2D"="Õﬁ»Ωﬁ¥◊"
+
+;CTY ID = 1F
+;  "Vietnam"
+"CN2E"="Õﬁƒ≈—"
+
+

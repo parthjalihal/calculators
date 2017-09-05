@@ -1,0 +1,155 @@
+;HP Printing System for Windows, ver. 9.2 INF File
+;Copyright Hewlett Packard 1994-1996
+
+
+[Version]
+Signature="$CHICAGO$"
+Class=Printer
+Provider=Hewlett-Packard
+
+[ClassInstall]
+AddReg=ClassReg
+
+[ClassReg]
+HKR,,,,Printer
+
+[Manufacturer]
+"HP"
+
+[HP]
+"HP DeskJet 850C Series" = DJ850C,LPTENUM\HEWLETT-PACKARDDESKJB35F
+"HP DeskJet 870C Series" = DJ870C,LPTENUM\HEWLETT-PACKARDDESKJB35F
+
+[DJ850C]
+CopyFiles=COMMON_FILES, ICM_FILE, DJ850C_FILES
+DataSection=DJ_DATA
+DriverFile=HPRDJC03.DRV
+
+[DJ870C]
+CopyFiles=COMMON_FILES, ICM_FILE, DJ870C_FILES
+DataSection=DJ_DATA
+DriverFile=HPRDJC03.DRV
+
+[DJ_DATA]
+DefaultDataType=EMF
+VendorSetup="HPRW3203.DLL,DESKJETC_EntryPoint"
+
+[COMMON_FILES]
+hpr24r03.dll
+hprcps03.dll
+hprcui03.dll
+hprdos03.dll
+hprecp03.dll
+hprhft03.dll
+hprmlc03.dll
+hprmon03.dll
+hprpml03.dll
+hprnet03.dll
+hprqpr03.dll
+hprst203.dll
+hprst303.dll
+hprsui03.dll
+hprttp03.dll
+hprw3203.dll
+hprwin03.dll
+hprdjc03.drv
+hprbkg03.exe
+hprcfg03.exe
+hprhid03.exe
+hprnhd03.exe
+hprlnk03.exe
+hprst103.exe
+hprcfg03.hlp
+hprcma03.hpm
+hprlnk03.ini
+hprst103.ini
+HPRTBX03.EXE
+hprcbl03.dll
+hprrdb03.dll
+hprrel03.ico
+hpcola16.dll
+hpnets16.hpa
+hpnwsh16.dll
+hpobj16.hpa
+hpprn16.hpa
+hpsnmp16.dll
+hprnwi03.exe
+
+[ICM_FILE]
+hpdesk.icm
+
+[DJ850C_FILES]
+hpr85003.hpc
+hpr85d03.hlp
+hpr85h03.hlp
+hpr85r03.hlp
+hpr85t03.hlp
+
+[DJ870C_FILES]
+hpr87003.hpc
+hpr87d03.hlp
+hpr87h03.hlp
+hpr87r03.hlp
+hpr87t03.hlp
+
+[DestinationDirs]
+DefaultDestDir=11
+ICM_FILE=23
+
+[SourceDisksFiles]
+hpr24r03.dll = 3
+hprcps03.dll = 3
+hprcui03.dll = 3
+hprdos03.dll = 3
+hprecp03.dll = 1
+hprhft03.dll = 3
+hprmlc03.dll = 1
+hprmon03.dll = 3
+hprpml03.dll = 1
+hprnet03.dll = 1
+hprqpr03.dll = 2
+hprst203.dll = 1
+hprst303.dll = 1
+hprsui03.dll = 2
+hprttp03.dll = 1
+hprw3203.dll = 1
+hprwin03.dll = 1
+hprdjc03.drv = 1
+hprbkg03.exe = 3
+hprcfg03.exe = 2
+hprhid03.exe = 2
+hprnhd03.exe = 2
+hprlnk03.exe = 2
+hprst103.exe = 1
+hprcma03.hpm = 1
+hprlnk03.ini = 2
+hprst103.ini = 1
+hpdesk.icm = 1
+hpr85003.hpc = 1
+hpr87003.hpc = 1
+hprcfg03.hlp = 2
+hpr85d03.hlp = 2
+hpr85h03.hlp = 2
+hpr85t03.hlp = 2
+hpr85r03.hlp = 2
+hpr87d03.hlp = 2
+hpr87h03.hlp = 2
+hpr87r03.hlp = 2
+hpr87t03.hlp = 2
+hprrel03.ico = 2
+HPRTBX03.EXE = 3
+hprcbl03.dll = 1
+hprrdb03.dll = 1
+hpcola16.dll = 3
+hpnets16.hpa = 3
+hpnwsh16.dll = 3
+hpobj16.hpa = 3
+hpprn16.hpa = 3
+hpsnmp16.dll = 3
+hprnwi03.exe = 3
+
+[SourceDisksNames]
+1 = "HP DeskJet Installation Disk 1",,
+2 = "HP DeskJet Installation Disk 2",,
+3 = "HP DeskJet Installation Disk 3",,
+

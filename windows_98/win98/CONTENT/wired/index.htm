@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>LiveWired</title>
+<style type="text/css">
+  @font-face { font-family: WiredDigital ; url(fonts/wireddigital.eot)}
+  #uberContainer{position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; margin: 0}
+  #grams {position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; margin: 0; background-color: black}
+  
+  /* Gram styles */
+  #TwensecondGif { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: -10; border: 0}
+  #countDown { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: -10; border: 0; visibility: hidden}
+  #striped{ position: absolute; left: 0; top: 31%; width: 100%; height: 52%; z-index: 20; visibility: visible; background: url(objects/introlin.gif)}
+  #slogan {position: absolute; left: 0; top: 31%; width: 100%; visibility: visible; color: white; font-family: Arial Black; font-size: 120%; text-align: center; vertical-align: middle; filter: DropShadow(color=#000000, offX=2, offY=2,positive=1); background-image: url(objects/introlin.gif)}
+
+  #separatorSpace {position: absolute; left: 0; top: 93%; width: 100%; height: 1%; font-size: 0; background-color: red; overflow: hidden; margin: 0}
+  #navbar {position: absolute; left: 0; top: 94%; width: 100%; height: 6%; margin: 0; background-color: black; overflow: hidden}
+  #logo {position: absolute; left: 0; top: 0; width: 30%; font-family: WiredDigital; color: lime; font-size: 65%; overflow: hidden; text-align: center; border-right: 1 solid lime}
+  #clock {position: absolute; left: 30%; top: 0; width: 15%; height: 100%; margin: 0; color: red; overflow: hidden; font-family: Arial; font-weight: bold; font-size: 30%; border-left: 1 solid lime; border-right: 1 solid lime; text-align: center; letter-spacing: .3em}
+  #date {border-bottom: 1 solid lime}
+  #milleniumClock {border-top: 1 solid lime}
+  #symbol {position: absolute; left: 45%; top: 0; width: 5%; height: 100%; margin: 0; overflow: hidden; color: red; font-size: 90%; font-family: Webdings; text-align: center; vertical-align: middle; border-left: 1 solid lime; border-right: 1 solid lime}
+  #todayIsTheDay { position: absolute; left: 50%; top: 0; width: 45%; font-size: 50%; text-align: center; margin: 0; vertical-align: middle; font-family: Arial Black; font-style: oblique; color: limegreen; overflow: hidden}
+</style>
+<script language="javascript">
+
+// Millenium Clock Functions
+
+var then = new Date(2000, 0, 1, 0, 0, 0);
+var dayNames = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+var monthNames = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+var today = new Date();
+var todayMonth = today.getMonth() + 1;
+	    
+function milleniumCount() {
+   var now = new Date();
+   milleniumClock.innerText = (Date.parse(then) - Date.parse(now)) / 1000;
+}
+
+function clockDate() {
+  document.writeln(todayMonth + '.' + today.getDate() + '.' + today.getYear());
+}
+
+function randSymbol() {
+   symbol.innerText = Math.round(Math.random() * 10);
+}
+
+function switchImg() { 
+   countDown.style.visibility = 'visible';
+   slogan.style.visibility = 'hidden';
+   TwensecondGif.style.visibility = 'hidden';
+
+}
+</script>
+<script language="javascript" for="chronos" event="onInit">
+   chronos.Item("milleniumBug").At(0.000, "milleniumCount",-1, 1.000, 14);
+   chronos.Item("milleniumBug").Play();
+   //chronos.Item("randSym").At(0.000, "randSymbol()",-1, 0.100, 14);
+   //chronos.Item("randSym").Play();
+   chronos.Item("imageSwitch").At(4.000, "switchImg()",1, 0.000, 13);
+</script>
+<script for="window" event="onload">
+   chronos.Item("imageSwitch").Play();
+</script>
+<script for="countDown" event="onload">
+   document.location = 'ambiant.htm';
+</script>
+</head>
+<body style="margin: 0; font-size: 40; background-color: black; overflow: hidden">
+<script language="JavaScript">
+// The stub for the object
+
+function presentation() {
+  this.onHold = presentation_onHold;
+  this.offHold = presentation_offHold;
+  this.calcScale = presentation_calcScale;
+  this.xFactor = document.body.offsetWidth / 800;
+  this.yFactor = document.body.offsetHeight / 576;
+  this.baseFontSize = parseInt(document.body.style.fontSize);
+  this.baseLineHeight = parseInt(document.body.style.lineHeight);
+}
+
+function presentation_onHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_offHold() {
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'offhold') {
+      document.all(i).style.visibility = 'visible';
+    } else if (document.all(i).className == 'onhold') {
+      document.all(i).style.visibility = 'hidden';
+    }
+  }
+}
+
+function presentation_calcScale() {
+  document.body.style.fontSize = Math.ceil(this.baseFontSize * this.yFactor);
+  //document.body.style.lineHeight = Math.ceil(this.baseLineHeight * this.yFactor);
+  for (i = 0; i < document.all.length; i++) {
+    if (document.all(i).className == 'sg') {
+      document.all(i).Scale(this.xFactor, this.yFactor, 0);
+    }
+  }
+  return;
+}
+
+new presentation();
+
+myPresentation = new presentation();
+myPresentation.calcScale();
+</script>
+<OBJECT id="chronos" STYLE="visibility: hidden" CLASSID="clsid:B0A6BAE2-AAF0-11d0-A152-00A0C908DB96"></OBJECT>
+
+<div id="uberContainer">
+   <div id="grams">
+      <IMG id="TwensecondGif" src="objects/20secs.gif">      
+      <div id="striped">
+
+      </div>
+      <img id="countDown" src="objects/betamati.gif">
+      <div id="slogan">
+         <span id="accelerating">THE WORLD IS ACCELERATING.</span><br>
+	 <span id="delivers">LiveWired delivers the future</span><br>
+	 <span id="twensec">in 20 seconds:</span><br>
+      </div>
+      
+   </div>
+   <div id="separatorSpace"></div>
+   <div id="navbar">
+
+      <img id="logo" src="objects/logo.gif">
+
+      <div id="clock">
+         <div id="date">
+	    <script language="JavaScript">
+	      clockDate();
+	    </script>
+	 </div>
+	 <div id="milleniumClock">
+	    get Wired	    
+	 </div>
+	  
+      </div>
+   
+      <div id="symbol">
+         n
+      </div>
+
+      <div id="todayIsTheDay">
+         <script language="JavaScript">
+	    document.writeln(dayNames[today.getDay()] + '_' + today.getDate() + '_' + monthNames[today.getMonth()]);
+         </script>
+      </div>
+
+   </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+; NETMON.INF
+;
+; Microsoft Network Monitor Driver Install
+; Provides network counters to Sysmon and frames to the Network Monitor Agent
+;
+; Copyright 1993-1994, Microsoft Corporation
+
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+Class=NetTrans
+provider=%V_MS%
+
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%NETMON.DeviceDesc%=   NETMON.ndi, NETMON    ;Network Monitor
+
+
+;****************************************************************************
+; Network Monitor
+;****************************************************************************
+[NETMON.ndi]
+AddReg=NETMON.ndi.reg
+DeviceID=NETMON
+;Specify if the device can be installed more than once
+;if not specify, default is MaxInstance=1
+MaxInstance=4
+;CopyFiles=NETMON.CopyFiles.SECOND,NETMON.CopyFiles.FIRST
+CopyFiles=NETMON.CopyFiles.SECOND
+
+[NETMON.ndi.reg]
+HKR,Ndi,DeviceID,,NETMON
+HKR,Ndi,MaxInstance,,4
+HKR,Ndi,NdiInstaller,,"nm95setp.dll,NetmonNdiProc"
+; NDIS Info
+HKR,NDIS,LogDriverName,,NETMON
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,Ndi\Interfaces,DefLower,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"ndis3"
+HKR,Ndi\Interfaces,DefUpper,,"nmagent"
+HKR,Ndi\Interfaces,UpperRange,,"nmagent"
+
+
+; Install sections
+HKR,Ndi\Install,,,"NETMON.Install"
+HKR,Ndi\Remove,,,"NETMON.Remove"
+
+;Sessions Parameter (global)
+HKR,Ndi\params\UserName,location,,"System\CurrentControlSet\Services\Vxd\NetMon"
+HKLM,System\CurrentControlSet\Services\VxD\NetMon\Ndi\params\UserName,default,,%VarNewUser%
+HKLM,System\CurrentControlSet\Services\VxD\Netmon\Ndi\params\UserName,ParamDesc,,%VarUserName%
+
+
+HKR,Ndi,HelpText,,%NETMON_HELP%
+
+[NETMON.Install]
+AddReg=NETMON.AddReg
+CopyFiles=NETMON.CopyFiles,NETMON.CopyFiles.FIRST
+
+[NETMON.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,NETMON.386
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON",DynamicVxD,,"NETMON.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON",StaticVxD,,"nmsupp4.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON",NAL,,"NDIS30 RNAL"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON",TimeScaleFactor,,"1"
+
+[NETMON.CopyFiles]
+nmsupp4.386
+NETMON.386
+ndis30.dll
+nal.dll
+nmthunk.dll
+
+[NETMON.CopyFiles.FIRST]
+netmon.inf
+
+[NETMON.CopyFiles.SECOND]
+nm95setp.dll
+bhsupp.dll
+
+[NETMON.Remove]
+DelReg=NETMON.Rmv.DelReg
+[NETMON.Rmv.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NETMON"
+
+
+
+
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+NETMON.CopyFiles            = 11 ; LDID_SYS
+NETMON.CopyFiles.FIRST      = 17; LDID_INF
+NETMON.CopyFiles.SECOND     = 11; LDID_SYS
+
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+V_CLASSNAME="Network Transport"
+VarNewUser="New User"
+VarUserName="User Name"
+
+; Source Disks
+
+; Devices
+NETMON.DeviceDesc="Microsoft Network Monitor Driver"
+
+; Parameters
+PARAM_YES="Yes"
+PARAM_NO="No"
+
+NETMON_HELP="Microsoft Network Monitor Driver provides counters to Sysmon on network performance or works with the Network Monitor Agent to provide remote packet capture ability to Microsoft SMS."
+
+[Sourcedisksfiles]
+nm95setp.dll=51
+bhsupp.dll=51
+
+[SourceDisksNames]
+51="NetMon Install Disk",,0

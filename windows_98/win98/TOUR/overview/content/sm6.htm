@@ -1,0 +1,375 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="Jscript">
+<!--
+  var engine = window.external;
+  function Glide() {
+      last.style.pixelLeft -= 10;
+      if (last.style.pixelLeft<= xy[18] ) {
+          window.clearInterval(id);
+      }
+  }
+// -->
+</SCRIPT>
+
+<script language="VBScript" src="data/sm6.vbs"></script>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+loadnum = -1
+
+SUB Window_Onload
+  demotext.innerText = dt
+  demotext.style.top = document.body.offsetHeight - document.all.demotext.offsetHeight - 10
+  playstep = engine.GetShortName()
+  Select Case playstep
+    Case 3
+      loadnum = 7
+      img1.src="images/601dtmen.gif"
+      img2.src="images/602adhi.gif"
+      img3.src="images/603admen.gif"
+      img4.src="images/604vwchg.gif"
+      img5.src="images/605vwhi.gif"
+      img6.src="images/606vwchr.gif"
+      last.src="images/607vwblk.gif"
+      P1.Target = "arrow"
+      k = Array( xy(0),xy(1), xy(2),xy(3), xy(2),xy(3), xy(4),xy(5), xy(4),xy(5) )
+      t = Array(1.5, 1.2, 0.8, 1.7)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.8, 10 ' popup menu appears
+      P1.AddTimeMarker 2.2, 20 ' active desktop highlights
+      P1.AddTimeMarker 2.6, 30 ' active desktop menu appears
+      P1.AddTimeMarker 3.4, 40 ' view as web page highlights
+      P1.AddTimeMarker 4.5, 50 ' desktop changes
+
+    Case 4
+      loadnum = 5
+      img1.src="images/607vwblk.gif"
+      img2.src="images/601dtmen.gif"
+      img3.src="images/602adhi.gif"
+      img4.src="images/603admen.gif"
+      last.src="images/605vwhi.gif"
+      P1.Target = "arrow"
+      k = Array( xy(4),xy(5), xy(6),xy(7), xy(6),xy(7), xy(8),xy(9), xy(8),xy(9) )
+      t = Array(1.5, 1.2, 0.8, 1.5)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.8, 60 ' popup menu appears
+      P1.AddTimeMarker 2.2, 70 ' active desktop highlights
+      P1.AddTimeMarker 2.6, 80 ' active desktop menu appears
+      P1.AddTimeMarker 3.4, 90 ' view as web page highlights
+      P1.AddTimeMarker 4.5, 100 ' desktop changes
+      img1.style.visibility="visible"
+
+    Case 7
+      loadnum = 4
+      img1.src="images/633iehlt.gif"
+      img2.src="images/634ietip.gif"
+      img3.src="images/635iedep.gif"
+      last.src="images/516tlwin.gif"
+      P1.Target = "arrow"
+      k = Array( xy(8),xy(9), xy(10),xy(11), xy(10),xy(11) )
+      t = Array(1.7, 2.9)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.7, 110 ' ie highlights
+      P1.AddTimeMarker 2.3, 120 ' ie tooltip appears
+      P1.AddTimeMarker 3.1, 130 ' depress ie button appears, tooltip & highlight disappear
+      P1.AddTimeMarker 3.7, 140 ' ie depressed gone, ie highlighted
+      P1.AddTimeMarker 4.3, 150 ' ie window appears
+
+    Case 8
+      loadnum = 2
+      img1.src="images/516tlwin.gif"
+      last.src="images/537ieclo.gif"
+      P1.Target = "arrow"
+      k = Array( xy(10),xy(11), xy(12),xy(13), xy(12),xy(13) )
+      t = Array(2.2, 2.5)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 2.6, 160 ' ie close button depress
+      P1.AddTimeMarker 3.0, 170 ' ie close button un-depress
+      P1.AddTimeMarker 3.5, 180 ' ie gone
+      img1.style.visibility="visible"
+
+    Case 9
+      loadnum = 5
+      img1.src="images/636chhlt.gif"
+      img2.src="images/637chtip.gif"
+      img3.src="images/638chdep.gif"
+      img4.src="images/639chgde.gif"
+      last.src="images/640chbar.gif"
+      P1.Target = "arrow"
+      k = Array( xy(12),xy(13), xy(14),xy(15), xy(14),xy(15), xy(16),xy(17), xy(16),xy(17) )
+      t = Array(2.2, 3.5, 1.6, 2.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 2.2, 190 ' channel quick launch highlights
+      P1.AddTimeMarker 2.6, 200 ' channel quick launch tool tip
+      P1.AddTimeMarker 3.2, 210 ' channel quick launch depresses
+      P1.AddTimeMarker 3.7, 220 ' channel quick launch un-depresses
+      P1.AddTimeMarker 4.4, 230 ' channel guide appears
+      P1.AddTimeMarker 6.2, 240 ' channel bar moves off left edge of screen
+
+    Case 10
+      loadnum = 5
+      img1.src="images/639chgde.gif"
+      img2.src="images/640chbar.gif"
+      img3.src="images/641pinhi.gif"
+      img4.src="images/642pinde.gif"
+      last.src="images/643panes.gif"
+      P1.Target = "arrow"
+      k = Array( xy(16),xy(17), xy(19),xy(20), xy(19),xy(20), xy(21),xy(22), xy(21),xy(22) )
+      t = Array(2.2, 1.0, 1.8, 2.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 2.2, 250 ' channel bar appears
+      P1.AddTimeMarker 5.0, 260 ' pushpin highlights
+      P1.AddTimeMarker 5.5, 270 ' pushpin depresses
+      P1.AddTimeMarker 6.1, 280 ' panes appear
+      img1.style.visibility="visible"
+
+    Case 11
+      loadnum = 6
+      img1.src="images/639chgde.gif"
+      img2.src="images/640chbar.gif"
+      img3.src="images/643panes.gif"
+      img4.src="images/644nbchi.gif"
+      img5.src="images/645msnbc.gif"
+      last.src="images/646subsc.gif"
+      P1.Target = "arrow"
+      k = Array( xy(21),xy(22), xy(23),xy(24), xy(23),xy(24), xy(25),xy(26), xy(25),xy(26) )
+      t = Array(1.8, 1.5, 1.8, 2.0)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.8, 290 ' msnbc on channel bar highlights
+      P1.AddTimeMarker 3.0, 300 ' msnbc page appears
+      P1.AddTimeMarker 5.7, 310 ' subscribe box appears
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+
+    Case 12
+      loadnum = 9
+      img1.src="images/639chgde.gif"
+      img2.src="images/640chbar.gif"
+      img3.src="images/643panes.gif"
+      img4.src="images/644nbchi.gif"
+      img5.src="images/645msnbc.gif"
+      img6.src="images/646subsc.gif"
+      img7.src="images/647subra.gif"
+      img8.src="images/648subok.gif"
+      last.src="images/649nbc1.gif"
+      P1.Target = "arrow"
+      k = Array( xy(25),xy(26), xy(27),xy(28), xy(27),xy(28), xy(29),xy(30), xy(29),xy(30) )
+      t = Array(1.4, 0.8, 0.7, 2.3)
+      P1.KeyFrame 5, k, t
+      P1.AddTimeMarker 1.8, 320 ' radio button selected
+      P1.AddTimeMarker 3.3, 330 ' ok depressed
+      P1.AddTimeMarker 3.8, 340 ' ok un-depressed
+      P1.AddTimeMarker 4.2, 350 ' dialog box disappears
+      P1.AddTimeMarker 4.9, 360 ' msnbc page opens
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+      img5.style.visibility="visible"
+      img6.style.visibility="visible"
+
+    Case 13
+      loadnum = 7
+      img1.src="images/639chgde.gif"
+      img2.src="images/640chbar.gif"
+      img3.src="images/643panes.gif"
+      img4.src="images/644nbchi.gif"
+      img5.src="images/649nbc1.gif"
+      img6.src="images/650chchi.gif"
+      last.src="images/651chclo.gif"
+      P1.Target = "arrow"
+      k = Array( xy(29),xy(30), xy(31),xy(32), xy(31),xy(32) )
+      t = Array(1.7, 2.0)
+      P1.KeyFrame 3, k, t
+      P1.AddTimeMarker 1.7, 370 ' close button highlighted
+      P1.AddTimeMarker 2.2, 380 ' close button depressed
+      P1.AddTimeMarker 2.7, 390 ' close button un-depressed
+      P1.AddTimeMarker 3.3, 400 ' channel window closed
+      img1.style.visibility="visible"
+      img2.style.visibility="visible"
+      img3.style.visibility="visible"
+      img4.style.visibility="visible"
+      img5.style.visibility="visible"
+  End Select
+END SUB
+
+Sub P1_onplaymarker(m)
+  Select Case m
+' ------------------------ STEP 3
+  Case 10 ' ---------------- POPUP MENU APPEARS
+    img1.style.visibility="visible"
+  Case 20 ' ---------------- ACTIVE DESKTOP IS HIGHLIGHTED
+    img2.style.visibility="visible"
+  Case 30 ' ---------------- ACTIVE DESKTOP MENU APPEARS
+    img3.style.visibility="visible"
+    img4.style.visibility="visible"
+  Case 40 ' ---------------- "VIEW AS WEB PAGE" HIGHLIGHTS
+    img5.style.visibility="visible"
+    img6.style.visibility="visible"
+  Case 50 ' ---------------- "VIEW" CLICKED AND MENUS DISAPPEAR
+    last.style.visibility="visible"
+    img1.style.visibility="hidden"
+    img2.style.visibility="hidden"
+    img3.style.visibility="hidden"
+    img4.style.visibility="hidden"
+    img5.style.visibility="hidden"
+    img6.style.visibility="hidden"
+
+' ------------------------ STEP 4
+  Case 60 ' ---------------- RCLICK APPEARS
+    img2.style.visibility="visible"
+  Case 70 ' ---------------- ACTIVE DESKTOP IS HIGHLIGHTED
+    img3.style.visibility="visible"
+  Case 80 ' ---------------- ACTIVE DESKTOP MENU APPEARS
+    img4.style.visibility="visible"
+  Case 90 ' ---------------- "VIEW AS WEB PAGE" HIGHLIGHTS
+    last.style.visibility="visible"
+  Case 100 ' ---------------- "VIEW" CLICKED AND MENUS DISAPPEAR
+    img1.style.visibility="hidden"
+    img2.style.visibility="hidden"
+    img3.style.visibility="hidden"
+    img4.style.visibility="hidden"
+    last.style.visibility="hidden"
+
+' ------------------------ STEP 7
+  Case 110 ' ie highlights
+      img1.style.visibility="visible"
+  Case 120 ' ie tooltip appears
+      img2.style.visibility="visible"
+  Case 130 ' depress ie button appears, tooltip & highlight disappear
+      img1.style.visibility="hidden"
+      img2.style.visibility="hidden"
+      img3.style.visibility="visible"
+  Case 140 ' ie depressed gone, ie highlighted
+      img3.style.visibility="hidden"
+      img1.style.visibility="visible"
+  Case 150 ' ie window appears
+      last.style.visibility="visible"
+
+' ------------------------ STEP 8
+  Case 160 ' ie close button depress
+      last.style.visibility="visible"
+  Case 170 ' ie close button un-depress
+      last.style.visibility="hidden"
+  Case 180 ' ie gone
+      img1.style.visibility="hidden"
+
+' ------------------------ STEP 9
+  Case 190 ' channel quick launch highlights
+    img1.style.visibility="visible"
+  Case 200 ' channel quick launch tool tip
+    img2.style.visibility="visible"
+  Case 210 ' channel quick launch depresses
+    img3.style.visibility="visible"
+    img2.style.visibility="hidden"
+    img1.style.visibility="hidden"
+  Case 220 ' channel quick launch un-depresses
+    img3.style.visibility="hidden"
+    img1.style.visibility="visible"
+  Case 230 ' channel guide appears
+    img4.style.visibility="visible"
+    last.style.visibility="visible"
+  Case 240 ' channel bar moves off left edge of screen
+    id = window.setInterval("Glide()",40)
+
+' ------------------------ STEP 10
+  Case 250 ' channel bar appears
+    img2.style.visibility="visible"
+  Case 260 ' pushpin highlights
+    img3.style.visibility="visible"
+  Case 270 ' pushpin depresses
+    img4.style.visibility="visible"
+  Case 280 ' panes appear
+    last.style.visibility="visible"
+    img3.style.visibility="hidden"
+    img4.style.visibility="hidden"
+
+' ------------------------ STEP 11
+  Case 290 ' msnbc on channel bar highlights
+    img4.style.visibility="visible"
+  Case 300 ' msnbc page appears
+    img5.style.visibility="visible"
+  Case 310 ' subscribe box appears
+    last.style.visibility="visible"
+
+' ------------------------ STEP 12
+  Case 320 ' radio button selected
+    img7.style.visibility="visible"
+  Case 330 ' ok depressed
+    img8.style.visibility="visible"
+  Case 340 ' ok un-depressed
+    img8.style.visibility="hidden"
+  Case 350 ' dialog box disappears
+    img6.style.visibility="hidden"
+    img7.style.visibility="hidden"
+  Case 360 ' msnbc page opens
+    last.style.visibility="visible"
+
+' ------------------------ STEP 13
+  Case 370 ' close button highlighted
+    img6.style.visibility="visible"
+  Case 380 ' close button depressed
+    last.style.visibility="visible"
+  Case 390 ' close button un-depressed
+    last.style.visibility="hidden"
+  Case 400 ' channel window closed
+    img6.style.visibility="hidden"
+    img5.style.visibility="hidden"
+    img4.style.visibility="hidden"
+    img3.style.visibility="hidden"
+    img2.style.visibility="hidden"
+    img1.style.visibility="hidden"
+
+  End Select
+End Sub
+' -->
+</SCRIPT>
+
+<script language="JScript" for="P1" event="onStop">
+<!--
+  timeout1 = window.setTimeout("showmedone();",1000);
+//-->
+</script>
+
+<script language="javaScript" src="data/sm.js"></script>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" style="border:ridge;border-width:5;">
+
+<!-- ----------------------------- PLACE ALL IMAGES ON PAGE ----------------------- -->
+<div id="l" STYLE="visibility:hidden;">
+  <IMG ID=desktop SRC="images/001deskt.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:visible;">
+
+  <IMG ID=img1 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img2 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img3 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img4 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img5 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img6 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img7 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img8 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=img9 SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+  <IMG ID=last SRC="images/014dummy.gif" STYLE="position:absolute;LEFT: 0; TOP: 0;visibility:hidden;" onload="javascript:loadTally();">
+
+  <IMG ID=arrow SRC="images/012arrow.gif" STYLE="position:absolute;LEFT: 220; TOP: 250;visibility:hidden;">
+  <div id="demotext" align="center"
+    style="color:#000000; position:relative; left:0; width:540; font-family:verdana, arial, helvetica, sans-serif; font-size:10pt; font-weight:bold; line-height:98%; visibility:visible; FILTER:revealTrans(Duration=1.2, Transition=6); z-index:10;">
+  </div>
+</div>
+
+<div id="loading" style="visibility:visible; position:absolute; top:0; left:0; width:100%; height:100%; background-color:ffffff; z-index:10" align=center>
+<img src="../../images/loading.gif" style="position:relative; top:200; visibility:visible;">
+</div>
+
+<!-- ----------------------------- OBJECTS ----------------------- -->
+<OBJECT ID="P1" width=0 height=0
+    CLASSID="clsid:D7A7D7C3-D47F-11d0-89D3-00A0C90833E6">
+</OBJECT>
+
+</BODY>
+</HTML>

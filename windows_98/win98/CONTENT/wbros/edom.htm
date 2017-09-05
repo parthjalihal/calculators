@@ -1,0 +1,519 @@
+<html>
+
+<HEAD>
+
+<TITLE>Warner Bros.: Subscribe to ENTERTAINDOM!</TITLE>
+
+
+<SCRIPT LANGUAGE="VBScript">
+
+<!--
+
+
+
+Sub Window_OnLoad
+	Seq("Intro").Play
+
+End Sub
+
+
+
+
+
+Sub animRR
+
+	pthRR.play()
+
+End Sub
+
+
+
+Sub animTZ
+
+	pthTZ.play()
+
+End Sub
+
+
+
+Sub animMV
+
+	pthMV.play()
+
+End Sub
+
+
+
+Sub animWE
+
+	pthWE.play()
+
+End Sub
+
+
+
+
+
+Sub Seq_onInit	
+
+	call Seq("Intro").at(2.000, "animRR", 10, 30.0)
+
+	call Seq("Intro").at(5.000, "animWE", 10, 30.0)
+
+	call Seq("Intro").at(12.000, "animTZ", 10, 30.0)
+
+	call Seq("Intro").at(22.000, "animMV", 10, 30.0)
+
+End Sub
+
+
+
+
+
+Sub dom1_ico_onmouseover
+
+	dom1_ani.style.visibility="visible"
+
+	dom2_ani.style.visibility="hidden"
+
+	dom3_ani.style.visibility="hidden"
+
+	dom4_ani.style.visibility="hidden"
+
+	If ChannelA.IsSoundCardEnabled = true and ChannelA.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelB.Stop
+
+		ChannelC.Stop
+
+		ChannelD.Stop
+
+		ChannelA.Run
+
+	End If
+
+End Sub
+
+
+
+Sub dom2_ico_onmouseover
+
+	dom1_ani.style.visibility="hidden"
+
+	dom2_ani.style.visibility="visible"
+
+	dom3_ani.style.visibility="hidden"
+
+	dom4_ani.style.visibility="hidden"
+
+	If ChannelB.IsSoundCardEnabled = true and ChannelB.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelB.Stop
+
+		ChannelC.Stop
+
+		ChannelD.Stop
+
+		ChannelB.Run
+
+	End If
+
+End Sub
+
+
+
+Sub dom3_ico_onmouseover
+
+	dom1_ani.style.visibility="hidden"
+
+	dom2_ani.style.visibility="hidden"
+
+	dom3_ani.style.visibility="visible"
+
+	dom4_ani.style.visibility="hidden"
+
+	If ChannelC.IsSoundCardEnabled = true and ChannelC.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelB.Stop
+
+		ChannelC.Stop
+
+		ChannelD.Stop
+
+		ChannelC.Run
+
+	End If
+
+End Sub
+
+
+
+Sub dom4_ico_onmouseover
+
+	dom1_ani.style.visibility="hidden"
+
+	dom2_ani.style.visibility="hidden"
+
+	dom3_ani.style.visibility="hidden"
+
+	dom4_ani.style.visibility="visible"
+
+	If ChannelD.IsSoundCardEnabled = true and ChannelD.ReadyState > 0 then
+
+		ChannelA.Stop
+
+		ChannelB.Stop
+
+		ChannelC.Stop
+
+		ChannelD.Stop
+
+		ChannelD.Run
+
+	End If
+
+End Sub
+
+
+
+
+
+
+
+
+
+-->
+
+</SCRIPT>
+
+
+
+</HEAD>
+
+<body bgcolor=black background="img/ent_bg.gif" text=ffffff link=ff0000 alink=ff0000 vlink=ff0000>
+
+
+
+<center>
+
+
+
+<DIV ID=centeringDiv STYLE="POSITION:relative; WIDTH:640; top:0">
+
+
+
+<DIV ID=logo STYLE="POSITION:ABSOLUTE; WIDTH:200; top:60; LEFT:140">
+
+<center>
+
+<img src="img/ent_logh.gif" border=0></center>
+
+</DIV>
+
+
+
+<DIV ID=entdom_copy STYLE="POSITION:ABSOLUTE; WIDTH:550; TOP:2; LEFT:17">
+
+<center>
+
+<font size=3 face=Arial><b>
+
+For the most entertaining online destination in the world...
+
+<br>
+
+<a HREF="javascript:window.external.addChannel('http://warnerbros.entertaindom.com/cdf/wb.cgi')"><img src="img/atc_btn.gif" border=0 vspace=4></a></b></font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<a href="toondom/td_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom1_ico SRC="img/td_log.gif" STYLE="POSITION:ABSOLUTE; TOP:117; LEFT:100"></a>
+
+<a href="toondom/td_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom1_ani SRC="img/td_ani.gif" STYLE="POSITION:ABSOLUTE; TOP:50; LEFT:70;VISIBILITY:hidden"></a>
+
+<IMG CLASS=hspots ID=dom1_title SRC="img/td_ttl.gif" STYLE="POSITION:ABSOLUTE; TOP:150; LEFT:65">
+
+
+
+<DIV ID=dom1_copy STYLE="POSITION:ABSOLUTE; WIDTH:100; top:170; LEFT:60">
+
+<center>
+
+<font size=2 face=Arial><b>From the world of Looney Tunes to characters created just for online, come meet the family of Warner Bros. 'toons.<br></b></font>
+
+</center>
+
+</DIV>
+
+
+
+<a href="rhythmdm/rd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom2_ico SRC="img/rd_log.gif" STYLE="POSITION:ABSOLUTE; TOP:117; LEFT:225"></a>
+
+<a href="rhythmdm/rd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom2_ani SRC="img/rd_ani.gif" STYLE="POSITION:ABSOLUTE; TOP:70; LEFT:214;VISIBILITY:hidden"></a>
+
+<IMG CLASS=hspots ID=dom2_title SRC="img/rd_ttl.gif" STYLE="POSITION:ABSOLUTE; TOP:150; LEFT:195">
+
+
+
+<DIV ID=dom2_copy STYLE="POSITION:ABSOLUTE; WIDTH:100; top:170; LEFT:195">
+
+<center>
+
+<font size=2 face=Arial><b>Preview the latest hits from your favorite artists, hear the newest acts, interact with fellow music fans, and much more!<br></b></font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<a href="screendm/sd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom3_ico SRC="img/sd_log.gif" STYLE="POSITION:ABSOLUTE; TOP:117; LEFT:350"></a>
+
+<a href="screendm/sd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom3_ani SRC="img/sd_ani.gif" STYLE="POSITION:ABSOLUTE; TOP:70; LEFT:332;VISIBILITY:hidden"></a>
+
+<IMG CLASS=hspots ID=dom3_title SRC="img/sd_ttl.gif" STYLE="POSITION:ABSOLUTE; TOP:150; LEFT:317">
+
+
+
+<DIV ID=dom3_copy STYLE="POSITION:ABSOLUTE; WIDTH:100; top:170; LEFT:320">
+
+<center>
+
+<font size=2 face=Arial><b>The magical world of Movies, Television, Home Video, Online Entertainment, and more!<br></b></font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+
+
+<a href="playdom/pd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom4_ico SRC="img/pd_log.gif" STYLE="POSITION:ABSOLUTE; TOP:117; LEFT:475"></a>
+
+<a href="playdom/pd_unsub.htm" target=_top><IMG border=0 CLASS=hspots ID=dom4_ani SRC="img/pd_ani.gif" STYLE="POSITION:ABSOLUTE; TOP:74; LEFT:454;VISIBILITY:hidden"></a>
+
+<IMG CLASS=hspots ID=dom4_title SRC="img/pd_ttl.gif" STYLE="POSITION:ABSOLUTE; TOP:150; LEFT:440">
+
+
+
+<DIV ID=dom4_copy STYLE="POSITION:ABSOLUTE; WIDTH:100; top:170; LEFT:445">
+
+<center>
+
+<font size=2 face=Arial><b>Interactive fun for all ages.  Play games, have fun and be entertained in the best playground in the online world.<br></b></font>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<DIV ID=copyright STYLE="overflow:hidden; POSITION:ABSOLUTE; WIDTH:600; HEIGHT:15; TOP:345; LEFT:10">
+
+<center>
+
+<h5>TM & &copy 1997 Warner Bros.</h5>
+
+</center>
+
+</DIV>
+
+
+
+
+
+<IMG ID=RR_anim SRC="img/ani_road.gif" STYLE="POSITION:ABSOLUTE; TOP:75; LEFT:-1000">
+
+
+
+<IMG ID=WE_anim SRC="img/ani_wile.gif" STYLE="POSITION:ABSOLUTE; TOP:75; LEFT:-1000">
+
+
+
+<IMG ID=TZ_anim SRC="img/ani_taz.gif" STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:-1000">
+
+
+
+<IMG ID=MV_anim SRC="img/ani_marv.gif" STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:4000">
+
+
+
+
+
+</DIV>
+
+
+
+<OBJECT ID=Seq
+
+CLASSID="CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthRR"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -1000,75, 3000,75)">
+
+	<PARAM NAME="Target" VALUE="RR_anim">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthWE"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -1000,75, 3000,75)">
+
+	<PARAM NAME="Target" VALUE="WE_anim">
+
+</OBJECT>
+
+
+
+<OBJECT ID="pthTZ"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, -1000,0, 3000,0)">
+
+	<PARAM NAME="Target" VALUE="TZ_anim">
+
+</OBJECT>
+
+
+
+
+
+<OBJECT ID="pthMV"  
+
+	CLASSID = "CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+
+	<PARAM NAME="AutoStart" VALUE="0">
+
+	<PARAM NAME="Duration" VALUE="6.0">
+
+	<PARAM NAME="Shape" VALUE="PolyLine(2, 3000,0, -1000,0)">
+
+	<PARAM NAME="Target" VALUE="MV_anim">
+
+</OBJECT>
+
+
+
+
+
+<OBJECT ID="ChannelA"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/wav/daffy.wav"">
+
+</OBJECT>
+
+<OBJECT ID="ChannelB"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/wav/beat.wav"">
+
+</OBJECT>
+
+<OBJECT ID="ChannelC"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/wav/project.wav"">
+
+</OBJECT>
+
+<OBJECT ID="ChannelD"
+
+	STYLE = "Position:absolute; LEFT: -500; TOP: 0;Display:none"
+
+	CLASSID="CLSID:05589FA1-C356-11CE-BF01-00AA0055595A">
+
+<PARAM NAME="ShowDisplay" VALUE="-1">
+
+<PARAM NAME="AutoStart" VALUE="0">
+
+<PARAM NAME="AutoRewind" VALUE="-1">
+
+<PARAM NAME="PlayCount" VALUE="1">
+
+<PARAM NAME="FileName" VALUE="med/wav/dice.wav"">
+
+</OBJECT>
+
+
+
+
+
+</body>
+
+</html>

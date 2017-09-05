@@ -1,0 +1,120 @@
+
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+</HEAD>
+
+<STYLE>
+.button {
+	position:absolute;
+	}
+
+.building {
+position: absolute;
+visibility: hidden;
+font-weight: bold;
+font-size: 13pt;
+z-index: 6;
+}
+
+.build {
+position: absolute;
+visibility: visible;
+font-weight: bold;
+font-size: 13pt;
+z-index: 6;
+}
+
+</STYLE>
+<SCRIPT>
+<!--
+
+function mv(obj) { obj.style.visibility = "visible"; }
+function miv(obj) { obj.style.visibility = "hidden"; }
+
+
+function Start()
+{
+	count = 0;
+	setTimeout("intro();", 500);
+}
+
+function intro()
+{
+	if(count == 0) {
+		mv(t3);
+		mv(t4);
+		mv(t5);
+		mv(t6);
+		mv(t7);
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 1) {
+		mv(t8);
+		mv(t9);
+		mv(t10);
+		timer = setTimeout("intro()", 4000);
+	}
+	else if(count == 2) {
+		mv(t11);
+		mv(t12);
+		mv(t14);
+		mv(t15);
+		timer = setTimeout("intro()", 5000);
+	}
+	else
+	{
+		//next page...
+		document.location = "find03a.htm";
+	}
+		
+	count++;
+
+}
+
+// -->
+</SCRIPT>
+
+<BODY BGCOLOR="#FFFFFF" BACKGROUND="images/back.gif" onLoad = "Start();">
+<!--------- ALL MAIN IMAGES ------------->
+
+<DIV class=button ID = "b1" STYLE="top: 0px; left: 600px; z-index: 3">
+	<a href="qfn3_1.htm"><img src="images/qtop.gif" WIDTH=40 HEIGHT=40 BORDER=0></a></DIV>
+<DIV class=button ID = "b2" STYLE="top: 79px; left: 0px; z-index: 3">
+	<IMG SRC="images/findman.gif" WIDTH=251 HEIGHT=361 BORDER=0></DIV>
+<DIV class=button ID = "b3" STYLE="top: 90px; left: 470px; z-index: 3">
+	<IMG SRC="images/bargraph.gif" WIDTH=74 HEIGHT=70 BORDER=0></DIV>
+	
+	
+<!-------- START OF ALL TEXT -----space between 15px---------------->
+<DIV class=build ID = "t2" STYLE="color: #ffffff; font-size: 17pt; top: 135px; left: 140px; z-index: 7">FIND</div>
+<DIV class=build ID = "t2a" STYLE="font-size: 17pt; top: 135px; left: 205px; z-index: 7">GREAT DEALS</DIV>
+
+<DIV class=building ID = "t3" STYLE="color: #860000; font-size: 10pt; top: 170px; left: 120px; z-index: 7">A FRIEND OF MINE TOLD ME I SHOULD TRY INSUREMARKET ON QUICKEN.COM.</DIV>
+<DIV class=building ID = "t4" STYLE="color: #860000; font-size: 10pt; top: 185px; left: 505px; z-index: 7">IT WAS GREAT.</DIV>
+<DIV class=building ID = "t5" STYLE="color: #860000; font-size: 10pt; top: 200px; left: 270px; z-index: 7">THEY WALKED ME THROUGH A FEW BRIEF QUESTIONS</DIV>
+<DIV class=building ID = "t6" STYLE="color: #860000; font-size: 10pt; top: 215px; left: 427px; z-index: 7">AND HELPED ME DETERMINE</DIV>
+<DIV class=building ID = "t7" STYLE="color: #860000; font-size: 10pt; top: 230px; left: 335px; z-index: 7">WHAT KIND OF POLICY WAS RIGHT FOR ME.</DIV>
+
+<DIV class=building ID = "t8" STYLE="color: #28385E; font-size: 10pt; top: 260px; left: 285	px; z-index: 7">QUICKEN.COM COMES BACK WITH A FULL REPORT,</DIV>
+<DIV class=building ID = "t9" STYLE="color: #28385E; font-size: 10pt; top: 275px; left: 280	px; z-index: 7">REALLY STRAIGHTFORWARD, COMPARING ALL THE</DIV>
+<DIV class=building ID = "t10" STYLE="color: #28385E; font-size: 10pt; top: 290px; left: 360	px; z-index: 7">POLICIES THAT FIT MY REQUIREMENTS.</DIV>
+
+<DIV class=building ID = "t11" STYLE="color: #583407; font-size: 10pt; top: 320px; left: 250	px; z-index: 7">IT WAS PRETTY EASY TO FIND ONE I COULD WORK WITH.</DIV>
+<DIV class=building ID = "t12" STYLE="color: #583407; font-size: 10pt; top: 335px; left: 380	px; z-index: 7">NOT ONLY DID I GET A GREAT DEAL,</DIV>
+<DIV class=building ID = "t14" STYLE="color: #583407; font-size: 10pt; top: 350px; left: 260	px; z-index: 7">BUT I WAS EVEN ABLE TO START THE BUYING PROCESS</DIV>
+<DIV class=building ID = "t15" STYLE="color: #583407; font-size: 10pt; top: 365px; left: 470	px; z-index: 7">RIGHT THEN ONLINE.</DIV>
+
+
+<!------ BOTTOM NAVIGATION ----------->
+<DIV class=button ID = "n1" STYLE="top: 439px; left: 0px; z-index: 3">
+	<IMG SRC="images/quicken.gif" BORDER=0></DIV>
+
+<!--DIV class=button ID = "n3l" STYLE="top: 439px; left: 327px; z-index: 3"><A HREF="qfn3_1.html"><IMG SRC="images/arrows_l.gif" WIDTH=30 HEIGHT=29 BORDER=0></A></DIV>
+
+<DIV class=button ID = "n3r" STYLE="top: 439px; left: 355px; z-index: 3"><A HREF="achieve01a.html"><IMG SRC="images/arrows_r.gif" WIDTH=28 HEIGHT=29 BORDER=0></A></DIV-->
+
+<DIV class=button ID = "n10" STYLE="top: 403px; left: 544px; z-index: 3"><a href="signup.htm"><IMG SRC="images/subscr.gif" BORDER=0 WIDTH=96 HEIGHT=65 BORDER=0></a></DIV>
+
+</BODY>
+</HTML>

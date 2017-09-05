@@ -1,0 +1,100 @@
+; NMAGENT.INF
+;
+; Network Management Agent Installer
+;
+; Copyright 1993-1994, Microsoft Corporation
+
+[version]
+LayoutFile=layout.inf
+signature="$CHICAGO$"
+Class=NetService
+provider=%V_MS%
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%NMAGENT.DeviceDesc%=   NMAGENT.ndi, NMAGENT    ;Network Monitor Agent
+
+
+;****************************************************************************
+; Network Monitor Agent installer
+;****************************************************************************
+[NMAGENT.ndi]
+AddReg=NMAGENT.ndi.reg
+DeviceID=NMAGENT
+;Specify if the device can be installed more than once
+;if not specify, default is MaxInstance=1
+MaxInstance=1
+CopyFiles=NMAGENT.CopyFiles.FIRST
+
+[NMAGENT.ndi.reg]
+HKR,Ndi,DeviceID,,NMAGENT
+HKR,Ndi\Install,,,"NMAGENT.Install"
+HKR,Ndi,InstallInf,,"NETMON.INF"
+HKR,Ndi\Remove,,,"NMAGENT.Remove"
+HKR,Ndi\Compatibility,RequireAll,,"NETMON"
+HKR,Ndi\Interfaces,DefLower,,"NMAGENT"
+HKR,Ndi\Interfaces,LowerRange,,"NMAGENT"
+HKR,Ndi,HelpText,,%NMAGENT_HELP%
+
+
+[NMAGENT.Install]
+AddReg=NMAGENT.AddReg
+CopyFiles=NMAGENT.CopyFiles,NMAGENT.CopyFiles.INF
+
+
+[NMAGENT.AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\NMAGENT",Name,,"Microsoft Network Monitor Agent"
+HKLM,"SYSTEM\CurrentControlSet\Services\NMAGENT",ProviderPath,,"nmagent.exe"
+
+[NMAGENT.CopyFiles]
+bhnetb.dll
+rnal.dll
+nmagent.exe
+
+[NMAGENT.CopyFiles.INF]
+nmagent.inf
+
+[NMAGENT.CopyFiles.FIRST]
+netmon.inf
+
+
+[NMAGENT.Remove]
+DelReg=NMAGENT.Rmv.DelReg
+[NMAGENT.Rmv.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\NetworkProvider\NMAGENT"
+
+
+
+
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+NMAGENT.CopyFiles           = 11 ; LDID_SYS
+NMAGENT.CopyFiles.FIRST     = 17 ; LDID_INF
+NMAGENT.CopyFiles.INF       = 17 ; LDID_INF
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS="Microsoft"
+V_CLASSNAME="Network Service"
+
+; Devices
+NMAGENT.DeviceDesc="Microsoft Network Monitor Agent"
+
+; Parameters
+PARAM_YES="Yes"
+PARAM_NO="No"
+NMAGENT_HELP="Microsoft Network Monitor Agent works with the Network Monitor to provide remote packet capture ability to the Microsoft Systems Management Server."
+
+[Sourcedisksfiles]
+netmon.inf=51
+
+[SourceDisksNames]
+51="NetMon Install Disk",,0
+

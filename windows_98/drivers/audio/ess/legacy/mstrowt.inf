@@ -1,0 +1,192 @@
+;; ESS Technology INF file. 
+;; Copyright (c) 1996, 1997. All rights Reserved.
+
+[Version]
+Signature="$Windows 95$"
+Class=MEDIA
+Provider=%PT%
+LayoutFile=layout.inf
+
+[ClassInstall]
+AddReg=Class.AddReg
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[Manufacturer]
+%MfgName%=AGOGODevices
+
+[AGOGODevices]
+%AGOGOXP.DeviceDesc%=   AGOGOXP_Device, *PTA0000
+%AGOGOSB.DeviceDesc%=   AGOGOSB_Device, AGOGO\SBP&FM
+%AGOGOSB.DeviceDesc%=   AGOGOSB_Device, AGOGO\SBP&FMNI
+%AGOGO401WD.DeviceDesc%=AGOGO401WD_Device, AGOGO\MPU401
+%AGOGO401W.DeviceDesc%= AGOGO401WD_Device, *PTA0002 
+%AGOGOJOY.DeviceDesc%= AGOGOJOY_Device, *PTA0003 
+
+;---------------------------------------------------------------;
+
+[AGOGOJOY_Device]
+AddReg=AGOGOJOY_Device.AddReg
+UpdateInis=AGOGOJOY.UpdateInis
+
+[AGOGOJOY_Device.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+HKR,,Driver,,mstrjoy.vxd
+HKR,Drivers\joystick\mstrjoy.drv,Description,,%AGOGOJOY.DeviceDesc%
+HKR,Drivers\joystick\mstrjoy.drv,Driver,,mstrjoy.drv
+HKR,Drivers,SubClasses,,"joystick"
+
+[AGOGOJOY.UpdateInis]
+system.ini,drivers,"joystick="
+
+[*PTA0000.Det]
+AddReg=PreCopySection
+
+[AGOGOXP_Device]
+AddReg=AGOGOXP.AddReg
+
+;---------------------------------------------------------------;
+
+[AGOGOSB_Device]
+AddReg=AGOGOSB_Device.AddReg
+
+[AGOGOSB_Device.AddReg]
+HKR,,Driver,,mstrsbp.vxd
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+
+;---------------------------------------------------------------;
+
+[AGOGO401WD_Device]
+AddReg=AGOGO401_Device.AddReg
+
+[AGOGO401_Device.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,,Driver,,mstr401.vxd
+HKR,Drivers\midi,,,
+HKR,Drivers\midi\MSTR401.drv,Driver,,MSTR401.drv
+HKR,Drivers\midi\MSTR401.drv,External,1,01,00,00,00
+HKR,Drivers\midi\MSTR401.drv,Description ,,%V_EXTERNAL%
+HKR,Drivers,SubClasses,,"midi"
+
+[AGOGOXP.AddReg]
+HKR,,Driver,,maestro.vxd
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,
+HKR,Drivers\midi,,,
+HKR,Drivers\wave,,,
+HKR,Drivers\mixer,,,
+HKR,Drivers\aux,,,
+HKLM,%KEY_IOC%\acm,,,
+HKLM,%KEY_IOC%\Rec,,,
+HKLM,%KEY_IOC%\MPlay,,,
+
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,SysTray.Exe
+HKLM,%KEY_IOC%\Vol,,,
+HKLM,%KEY_Q3D%,IsQ3DUsed,1,00,00,00,00
+
+HKR,Drivers\wave\maestro.drv,Description,, %AGOGOXP.DeviceDesc%
+HKR,Drivers\midi\maestro.drv,Description,, %AGOGOXP.DeviceDesc%
+HKR,Drivers\aux\maestro.drv,Description,,  %AGOGOXP.DeviceDesc%
+HKR,Drivers\mixer\maestro.drv,Description,,%AGOGOXP.DeviceDesc%
+
+HKR,Drivers\wave\maestro.drv,Driver,,maestro.drv
+HKR,Drivers\midi\maestro.drv,Driver,,maestro.drv
+HKR,Drivers\mixer\maestro.drv,Driver,,maestro.drv
+HKR,Drivers\aux\maestro.drv,Driver,,maestro.drv
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+HKR,,EnumPropPages,,"maestro.drv,DrvEnumPropPages"
+
+HKR,Config,Install,1,01,00
+HKR,Config,TrueDOSSupport,1,00,00
+HKR,Config,OffsetValue,1,80,03
+HKR,Config,HwAcceleration,1,01,00
+HKR,Config,Pcmout,1,04,00
+HKR,Config,MaxChan,1,02,00
+
+; change 02 to 04 to set default sound library to 4MB
+; Set default sound library to 2MB
+HKR,Config,SoundLibSize,1,02,00
+
+; Customized Volume defaults (AC97)
+; Playback
+HKR,Config,LeftMasterVol,1,d6,d6,00,00
+HKR,Config,RightMasterVol,1,d6,d6,00,00
+HKR,Config,MicMute,1,01,00,00,00
+HKR,Config,LeftSynthVol,1,ff,7f,00,00
+HKR,Config,RightSynthVol,1,ff,7f,00,00
+HKR,Config,LeftDACVol,1,d6,d6,00,00
+HKR,Config,RightDACVol,1,d6,d6,00,00
+HKR,Config,LeftLineInVol,1,d6,d6,00,00
+HKR,Config,RightLineInVol,1,d6,d6,00,00
+HKR,Config,LeftMicVol,1,d6,d6,00,00
+HKR,Config,RightMicVol,1,d6,d6,00,00
+HKR,Config,LeftAux1Vol,1,d6,d6,00,00
+HKR,Config,RightAux1Vol,1,d6,d6,00,00
+HKR,Config,LeftAux2Vol,1,d6,d6,00,00
+HKR,Config,RightAux2Vol,1,d6,d6,00,00
+HKR,Config,LeftCDVol,1,d6,d6,00,00
+HKR,Config,RightCDVol,1,d6,d6,00,00
+HKR,Config,MonoInVol,1,d6,d6,00,00
+HKR,Config,MonoOutVol,1,d6,d6,00,00
+
+; Record
+HKR,Config,LeftWaveADCMicVol,1,d6,d6,00,00
+HKR,Config,RightWaveADCMicVol,1,d6,d6,00,00
+HKR,Config,LeftWaveADCLineVol,1,65,65,00,00
+HKR,Config,RightWaveADCLineVol,1,65,65,00,00
+HKR,Config,LeftWaveADCCDVol,1,65,65,00,00
+HKR,Config,RightWaveADCCDVol,1,65,65,00,00
+HKR,Config,LeftWaveADCAux1Vol,1,65,65,00,00
+HKR,Config,RightWaveADCAux1Vol,1,65,65,00,00
+HKR,Config,LeftWaveADCMixerVol,1,65,65,00,00
+HKR,Config,RightWaveADCMixerVol,1,65,65,00,00
+HKR,Config,LeftWaveADCAuxBVol,1,65,65,00,00
+HKR,Config,RightWaveADCAuxBVol,1,65,65,00,00
+HKR,Config,LeftWaveADCAuxCVol,1,65,65,00,00
+HKR,Config,RightWaveADCAuxCVol,1,65,65,00,00
+HKR,Config,WaveADCMonoIn,1,65,65,00,00
+HKR,Config,WaveADCMonoMix,1,65,65,00,00
+
+; Deleting the semicolon before a "HKR,..." line below "enables" that line.
+; Enabling "Enable Mic Volume 20dB Boost" forces 20dB on of the Mic Volume Reg. (0Eh)
+HKR,Config,"Enable Mic Volume 20dB Boost",01,01,00,00,00
+
+;---------------------------------------------------------------;
+
+[PreCopySection]
+HKR,,NoSetupUI,0,1
+
+[Class.AddReg]
+HKR,,,0,%MediaClassName%
+HKR,,Icon,0,-1
+HKR,,Installer,0,mmci.dll
+
+[Drivers.fields]
+system.ini,boot,drivers,msmixmgr.dll
+system.ini,boot,drivers,mmmixer.dll
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+PT="ESS Technology, Inc."
+MfgName="ESS Technology, Inc."
+AGOGOXP.DeviceDesc="Maestro Wave / WaveTable Synthesis Devices"
+AGOGOSB.DeviceDesc="Maestro DOS Games/FM Devices (DOS)"
+AGOGO401WD.DeviceDesc="Maestro MPU401 Device (WIN/DOS)"
+AGOGO401W.DeviceDesc="Maestro MPU401 Device (WIN)"
+AGOGOJOY.DeviceDesc="Maestro Gameport Device (WIN)"
+
+KEY_IOC="SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
+KEY_FIL="SYSTEM\CurrentControlSet\Control\MediaResources\FilterList"
+KEY_Q3D="SYSTEM\CurrentControlSet\Services\Class\Q3D"
+
+V_EXTERNAL="Maestro External MIDI Port"
+V_INTERNAL="Maestro FM Synthesis"
+
+MediaClassName="Sound, video and game controllers"

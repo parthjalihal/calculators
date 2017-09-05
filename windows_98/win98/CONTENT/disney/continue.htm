@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+	<SCRIPT LANGUAGE="Javascript">
+<!--
+function myFlash_DoFSCommand(command,args) {
+	window.external.addChannel("http://www.disneyblast.com/ActiveDesktop/disney.cdf");
+	}
+	
+//-->
+</SCRIPT>
+
+	<SCRIPT language=VBScript>
+		Sub myFlash_FSCommand(ByVal command, ByVal args)
+			call myFlash_DoFSCommand(command,args)
+		end sub
+	</SCRIPT>
+ 
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" LEFTMARGIN=0 TOPMARGIN=0>
+
+<CENTER><OBJECT id="myFlash"
+        CLASSID=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000
+        width=640
+        height=445
+        align=center
+        >
+        <param NAME=Movie VALUE=ad_pooh2.swf>
+        <param NAME=Play VALUE=True>
+        <param NAME=Loop VALUE=True>
+        <param NAME=Quality VALUE=High>
+        <param NAME=Scale VALUE=exactfit>
+        <param NAME=salign VALUE=tl>
+        <param NAME=Menu VALUE=False>
+        <param NAME=BGColor VALUE=000000>
+		</object>
+</CENTER>
+		
+
+
+
+<BGSOUND SRC="pooh03.mid" LOOP="INFINITE">
+<EMBED src=pooh03.mid hidden=true autostart=true loop=true width=0 height=0>
+
+
+
+</BODY>
+</HTML>

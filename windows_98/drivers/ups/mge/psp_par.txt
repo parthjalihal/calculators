@@ -1,0 +1,250 @@
+Personal Solution-Pac : General parameters file descritption
+============================================================
+
+Note : - Comments may be inserted in the parameter file
+       by beginning the comment line with ;
+       - Default installation file PSP_PAR.INI is saved  in
+       DEFAULT directory under PSP directory.
+
+General parameters [General]
+============================
+AutomaticStartup
+----------------
+1 : automatic start of Personal Solution-Pac at system boot is enabled.
+0 : automatic start is disabled.
+
+DelayAfterBoot (0 - 9999 seconds)
+---------------------------------
+Delay between system initalization and effective start of PSP modules.
+
+
+PSP Monitoring Module parameters [Monitoring]
+=============================================
+ShutdownDuration (0 - 9999 seconds)
+-----------------------------------
+Duration of system shutdown.
+
+ShutdownTimer (0 - 9999 minutes)
+--------------------------------
+Maximum time between power failure and system shutdown.
+
+LowBatteryTime (0 - 9999 seconds)
+---------------------------------
+When UPS is on battery and battery remaining time goes under this minimum
+time, PSP start system shutdown (low battery condition).
+
+GracePeriod (0 - 9999 minutes)
+------------------------------
+Delay between utility failure and first utility failure notification to
+administrator and/or users.
+
+IntervalBetweenMessages (1 - 9999 minutes)
+------------------------------------------
+Delay between periodic messages sent to administrator and/or users after
+utility failure.
+
+DateTimeFormat
+--------------
+Format string of date and time displayed in messages sent to administrator
+and/or users.
+The format string consists of one or more codes. The formatting codes are
+preceded by a percent sign (%). Characters that do not begin with % are
+displayed unchanged. Valid formatting codes are :
+
+%a   Abbreviated weekday name
+%A   Full weekday name
+%b   Abbreviated month name
+%B   Full month name
+%d   Day of month as decimal number (01 - 31)
+%H   Hour in 24-hour format (00 - 23)
+%I   Hour in 12-hour format (01 - 12)
+%j   Day of year as decimal number (001 - 366)
+%m   Month as decimal number (01 - 12)
+%M   Minute as decimal number (00 - 59)
+%S   Second as decimal number (00 - 59)
+%U   Week of year as decimal number, with Sunday as first day of week (00 - 51)
+%w   Weekday as decimal number (0 - 6; Sunday is 0)
+%W   Week of year as decimal number, with Monday as first day of week (00 - 51)
+%y   Year without century, as decimal number (00 - 99)
+%Y   Year with century, as decimal number
+%%   Percent sign
+
+CommunicationDelay (60 - 9999 seconds)
+--------------------------------------
+Maximum delay between Monitoring module start and communication is established
+with the UPS.
+
+TaskSchedulingRate (100 - 99999 milliseconds)
+---------------------------------------------
+Internal delay between tasks.
+
+DownConfirmChar
+---------------
+NetWare only : if specified, confirmation character pushed to system console
+to confirm system shutdown if files are left opened.
+
+
+PSP Communication Module parameters [Communication]
+===================================================
+SerialPort
+----------
+Serial port used for communication with UPS.
+Windows 95 only : use "Auto" to enable automatic detection of serial port
+with a MGE UPS Systems "Plug and Play" UPS.
+
+BaudRate (2400 bauds)
+---------------------
+Serial baud rate used for communication with UPS.
+
+UTalkTimeout (50 - 99999 milliseconds)
+--------------------------------------
+Timeout for serial communication.
+
+MaxTimeoutError (1 - 9999)
+--------------------------
+Maximum number of timeouts for serial communication with UPS.
+After this number of timeouts, serial communication is reinitialized.
+
+TaskSchedulingRate (100 - 99999 milliseconds)
+---------------------------------------------
+Internal delay between tasks.
+
+PnPIdString
+-----------
+Windows 95 only : Identification string for "Plug and Play" UPS detection.
+
+
+Inter-process communication parameters [Ipc]
+============================================
+ChannelWaitTimeout (1000 - 99999 milliseconds)
+----------------------------------------------
+Internal timeout delay for communication channels.
+
+CommandTimeout (500 - 99999 milliseconds)
+-----------------------------------------
+Internal timeout for inter-process communication.
+
+TablePurgeDelay (1 - 9999 minutes)
+----------------------------------
+Purge delay of internal commands table buffer.
+
+Trace parameters [Trace]
+========================
+VerboseLevel (0-4)
+------------------
+Trace messages level.
+Windows NT : Using this parameter when modules are running as services
+will cause rapid growth of system application log.
+
+UPSTrace
+--------
+1 : serial communication is logged.
+0 : serial communication is not logged.
+
+UPSTraceFile
+------------
+Serial communication log filename.
+
+UPSTraceFileSize (500 - 9999 lines)
+-----------------------------------
+Serial communication log maximum size.
+
+File names and sizes [Files]
+============================
+LogScript
+---------
+Script file that logs events.
+
+ShutdownScript
+--------------
+Script file that starts system shutdown.
+
+BroadcastScript
+---------------
+Script file that sends messages.
+
+ScheduleFile
+------------
+Customizable schedule filename.
+
+ActionFile
+----------
+Customizable actions filename.
+
+EventFile
+---------
+Customizable events filename.
+
+LogFile
+-------
+Event log filename.
+
+LogFileSize (500 - 9999 lines)
+------------------------------
+Event log maximum size.
+
+
+Commands activation flags
+=========================
+The commands below are activated if the corresponding parameter is
+set to 1 and disabled if set to 0
+
+Initialisation commands activation flags [InitCommands]
+=======================================================
+Not applicable.
+
+Startup commands activation flags [StartupCommands]
+===================================================
+If activated, this command is sent once after module starts.
+
+Bn?
+---
+Command "Nominal Battery time"
+
+Monitoring commands activation flags [MonitoringCommands]
+=========================================================
+If activated, these commands are sent periodically during
+the monitoring cycle.
+
+Bn
+--
+Command "Battery time remaining"
+
+Us
+--
+Command "Utility status"
+
+Ps
+--
+Command "Bypass status"
+
+Ss
+--
+Command "System status"
+
+Bs
+--
+Command "Battery status"
+
+SStat
+-----
+Pseudo-command "Serial status"
+
+Shutdown commands activation flags [ShutdownCommands]
+=====================================================
+If activated, these commands are sent to turn UPS Off.
+
+SnX
+---
+Command "Set remote shutdown delay"
+
+Sm0
+---
+Command "Set delay before Power On"
+
+Sx5
+---
+Command "Valid automatic restart"
+Sx0
+---
+Command "UPS OFF"

@@ -1,0 +1,107 @@
+;
+; General Characteristics
+;
+[General]
+DebugFlag=0
+AppTitle=Scholastic's Magic School Bus Explores the Rain Forest Trial
+;Icon=msbdemos.exe
+ReturnAfterLaunch=1
+DemosAtSameLevel=0
+TaskbarAdjust=0
+BitmapDir=controls\
+SoundDir=controls\
+
+;
+; Main Screen
+;
+[Main]
+Image=screen.bmp
+;
+; Incoming Splash Screen
+;
+[SplashIn]
+UsingSplashIn=0
+BlackBackground=1
+Image=black.dib
+TitlebarAdjust=0
+UsingButtons=0
+OKButton=ok_up.bmp,ok_dwn.bmp,,84,194
+;QuitButton=quit_up.bmp,quit_dwn.bmp,,200,200
+
+;
+; Outgoing Splash Screen
+;
+[SplashOut]
+UsingSplashOut=1
+BlackBackground=1
+Image=black.dib
+TitlebarAdjust=0
+
+;-----------------------------------------------------
+; To enable / disable the PicClip facility, set
+; the UsingPicClip to 1 (enable) or 0 (disable).
+; (If set to 0, all other fields are ignored)
+;
+; - "Cols" & "Rows" describe the layout of the 
+;     PicClip source bitmap
+; - "Interval" is the VB Timer interval (milliseconds)
+;
+[PicClip]
+UsingPicClip=0
+Image=strip.bmp
+Left=353
+Top=219
+Cols=15
+Rows=1
+TimerInterval=20
+
+;--------------------------------------
+; Sound Section
+; There should always be a Splash sound.
+; At the very least, play SILENCE.WAV,
+; to turn off any sound that might still
+; be playing from a previous application.
+;
+[Sound]
+;SplashLength=1
+Splash=silence.wav
+Main=frizhere.wav
+BtnDown=btn_dwn.wav
+;BtnUp=btn_up.wav
+Demo=silence.wav
+Exit=silence.wav
+
+;-----------------------------------------------------------------
+; Define Buttons and the demos associated with them
+; Button 0 is the Exit -- doesn't have a demo.
+;
+[Buttons]
+nButtons=3
+Button0=retup.bmp,retdn.bmp,retov.bmp,440,388
+Button1=monkup.bmp,monkdn.bmp,monkov.bmp,320,0
+Button2=nightup.bmp,nightdn.bmp,nightov.bmp,45,268
+;Demo1ColorDepthRequired=256
+;Demo2ColorDepthRequired=256
+Demo1=mplaunch.exe EscapingMonkey
+Demo2=mplaunch.exe NiteStrat
+
+
+; Setup for an Extended Demos
+; (a bitmap which is itself second level set of
+;  demos and buttons, specified here.)
+
+
+;
+[CurrentLanguage]
+language=default
+;language=deutsch
+;language=francais
+;language=italian
+;language=espanol
+
+[Message1]
+default=Please insert the CD.
+deutsch=Legen Sie bitte die CD ein.
+francais=Veullez insérer le CD.
+italian=Per cortesia inserire il CD.
+espanol=Por favor, inserte el CD.

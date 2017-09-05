@@ -1,0 +1,82 @@
+%<b>Programs</b> are organized series of instructions that, when executed, cause a computer to behave in a predetermined manner. WordPad is a program, for example.
+%|%The <b>taskbar</b> is the gray rectangular bar usually located at the bottom of your screen. The taskbar includes the <b>Start</b> button, your computer's clock, and buttons for any programs that are currently open. It also displays toolbars.
+%|%The <b>title bar</b> is the horizontal bar located at the top of a window that usually displays the name of the document or program that appears in the window. The title bar also contains the icon for the program and the <b>Maximize</b>, <b>Minimize</b>, and <b>Close</b> buttons.
+%|%A <b>file</b> is a collection of text or data saved under a unique name. Most of the information stored on your computer is stored in files.
+%|%A <b>folder</b> is a container for programs, files, and other folders that are used to organize the information on your computer. A folder is represented in Windows by a file folder icon. Folders are the equivalent of directories in some other computer operating systems.
+%|%Used to record computer data, the <b>hard disk</b> is made up of inflexible, magnetic, round platters that are stacked inside a sealed metal container. Data is stored on both sides of the platters. Most hard disks have between two and eight platters.
+%|%To select a file or a folder, click it. To open a file or a folder, double-click it.
+%|%You <b>right-click</b> an item by placing your mouse pointer over the item and quickly pressing and releasing the right mouse button. Right-clicking an item displays a shortcut menu with commands that relate to the item.
+%|%<b>Dragging</b> is the procedure for moving or copying an object from one place to another on the screen with the mouse. Click and hold down the mouse button while the pointer is on the object, move the pointer to the new location, and release the mouse button.
+%|%You can also use the <b>Cut</b> and <b>Paste</b> buttons on the toolbar to move files between folders.
+%|%A <b>dialog box</b> is a type of window displayed by the Windows operating system or by a program; it requests your input or presents information.
+%|%<b>Active</b> is the state of the item (such as a window, icon, tab, or button) that you select using the mouse or the keyboard.
+%|%<b>Default</b> refers to a value or setting that a device or program automatically selects if you do not specify otherwise.
+%|%A <b>selected</b> item or section of text is an area that Windows or a program will act on when you issue the next command. To select a section of text, you drag your pointer over the section to highlight it. To select an item, such as an icon, you click the item.
+%|%If your computer is set to display file extensions, you will need to select the entire file name, <b>Document.doc</b>.
+%|%In the <b>Named:</b> box, you can also type just part of the name of the file that you are trying to find.
+%|%A <b>window</b> is a movable, re-sizable area in which information is displayed and with which you can interact.
+%|%An <b>icon</b> is a small graphic image that appears on your desktop or within a program, which represents a file, folder, command, program, or Web page.
+%|%Your <b>desktop</b> is the work area, which fills your monitor screen, that displays icons, desktop components, dialog boxes, windows, and other elements. The Windows desktop is an example of a graphical user interface.
+%|%You can move any open window on the desktop by dragging the window's title bar. If you cannot drag the window, it may be maximized. If a window is maximized, click the <b>Restore</b> button. 
+%|%The <b>taskbar</b> is the gray rectangular bar usually located at the bottom of your screen. The taskbar includes the <b>Start</b> button, your computer's clock, and buttons for any programs that are currently open. It also displays toolbars.
+%|%You can also rotate between open programs by holding down the ALT key and pressing TAB.
+%|%When you <b>minimize</b> a window, you hide the window on the desktop, but the button representing that window remains on the taskbar. A program continues to run while the program window is minimized.
+%|%When you <b>maximize</b> a window, it expands to fill the entire screen, or in some cases, to fill a larger window.
+%|%The <b>Restore</b> and <b>Maximize</b> buttons never appear together on a window title bar. If a window is maximized, the <b>Restore</b> button is displayed; if the window is a smaller size, the <b>Maximize</b> button is displayed.
+%|%You may need to drag the <b>Windows Explorer</b> window in order to see the <b>Close</b> button.
+%|%The <b>Internet</b> is a global collection of computer networks that people use to exchange and locate information.
+%|%An <b>Internet Service Provider</b>, or <b>ISP</b>, is a company that provides access to the Internet.
+%|%If you need help with your modem, refer to the Windows Help system or contact your ISP.
+%|%You can also view the list of ISPs by clicking the <b>Start</b> button, pointing to <b>Programs</b>, pointing to <b>Online Services</b>, and clicking the ISP you want.
+%|%In most cases, you will need to provide the selected ISP with your credit card number in order to finalize the sign up process.
+%|%If you have any difficulty downloading the Microsoft Web site, try clicking the <b>Refresh</b> button on the toolbar.
+%|%A <b>link</b> is a section of text or a graphic that you can click to go to another location such as a Web page, a file, or a specific location in a file. The linked object is connected to the new file or Web page by HTML code.
+%|%A <b>hyperlink</b> is an underlined word or string of text which, when clicked, jumps to another place in the same document or to a different document.
+%|%<b>Glossary terms</b> appear as underlined blue words. Clicking a glossary term will display its definition in a window like this one. Clicking anywhere on the screen will close it.
+%|%A tip is a helpful hint that appears in a window just like this one. After reading the tip, click anywhere on the screen to close it.
+%|%<b>Active Desktop</b> is the term used to describe the integration of Windows and Internet Explorer. The Active Desktop allows you to access, store, share, and explore information in a seamless manner, whether it's on your computer or the World Wide Web.
+%|%A Web <b>browser</b> is a program (such as Microsoft Internet Explorer) that allows you to view information on your computer, a network, or the World Wide Web. The Web browser translates HTML, the computer language for the Web, into a graphical format. For a Web browser to view information on the Web, the computer must have an established Internet connection.
+%|%On the standard Windows desktop, you need to open Internet Explorer before you can view Web content.
+%|%A <b>shortcut menu</b> appears when you right-click an item or area of your desktop. A shortcut menu includes a set of commands related to the item or area that you right-clicked.
+%|%If <b>View As Web Page</b> is not selected, the Active Desktop is disabled. To restore it, right-click an empty area of the desktop, point to Active Desktop, and click <b>View As Web Page</b> on the shortcut menu.
+%|%You can also restore the Active Desktop by clicking the <b>Start</b> button on the Windows taskbar, pointing to <b>Settings,</b> pointing to <b>Active Desktop,</b> and clicking <b>View as Web Page.</b>
+%|% A <b>toolbar</b> is a group of buttons (often displayed in a long row) that you click to perform commands.
+%|%<b>Windows</b> are movable, re-sizable areas in which information is displayed and with which you can interact.
+%|%The <b>Quick Launch</b> toolbar appears on the taskbar by default. If you don't see the <b>Quick Launch</b> toolbar on the taskbar, right-click an empty area of the taskbar, point to <b>Toolbars</b>, and click <b>Quick Launch.</b>
+%|%You can also open Internet Explorer by double-clicking the <b>Internet Explorer</b> icon on your desktop.
+%|%The <b>World Wide Web</b> is a global network that contains information you can access and explore using a Web browser, such as Microsoft Internet Explorer.
+%|%The rectangular <b>Channel bar</b> is usually located on the right side of your Active Desktop, and contains channels included with your software and channels to which you've subscribed.
+%|%If the Channel bar is still visible when you move your pointer to the right edge of the window, click the pushpin button on the title bar of the Channel bar. 
+%|%To hide the Channel bar again, click the pushpin button on the title bar of the Channel bar and move your pointer to the right edge of the window.
+%|%<b>Channel</b> refers to the special format by which content from the Internet is delivered to your computer, and through which you can subscribe to an article, cartoon, or section of a Web page.
+%|%A <b>pane</b> is a section of a window that is separated from other sections by a border. Depending on your view and the contents of the pane, a pane may have its own scroll bars.
+%|%Channel content can change daily. The subscription method described here may be different when you view the <b>MSNBC News</b> channel preview.
+%|%<b>Active Channels</b> are Web sites specially designed so you can view their content even when you are not connected to the Internet.
+%|%To <b>subscribe</b> is to use Internet Explorer to receive updates from specific Web sites and channels.
+%|%To <b>download</b> is to copy data from a main source or online service to your own computer.
+%|%You can <b>drag</b> (move or copy) an object from one place to another on the screen with the mouse. Click and hold down the mouse button while the pointer is on the object, move the pointer to the new location, and release the mouse button.
+%|%A <b>network</b> is a group of connected computers and computer-related equipment. A network usually consists of a central computer, called a server, which is linked by connecting cables to a number of personal computers, or clients. The server manages how the clients share resources on the network.
+%|%A <b>home page</b> is the first page of a Web site that appears when you access the site. The home page is often used as an index or table of contents for the Web site, and includes links to other pages in the site.
+%|%A <b>Web site</b> is a group of related Web pages, or HTML documents, on the World Wide Web. A typical Web site has a home page, which serves as a table of contents for the site, and includes links to the other pages on the site.
+%|%A <b>shortcut</b> is an icon on your desktop or a key combination that you can use to quickly open a document, program, folder, or Web page.
+%|%Each <b>file</b> is a collection of text or data saved under a unique name. Most of the information stored on your computer is stored in files.
+%|%<b>Folders</b> are containers for programs, files, and other folders that are used to organize the information on your computer. A folder is represented in Windows by a file folder icon. Folders are the equivalent of directories in some other computer operating systems.
+%|%A <b>hyperlink</b>, or link, is a section of text or a graphic that you can click to go to another location such as a Web page, a file, or a specific location in a file. The linked object is connected to the new file or Web page by HTML code.
+%|%<b>Links</b> are sections of text or graphic images that you can click to go to another location such as a Web page, a file, or a specific location in a file. The linked object is connected to the new file or Web page by HTML code.
+%|%Used to record computer data, the <b>hard disk</b> is made up of inflexible, magnetic, round platters that are stacked inside a sealed metal container. Data is stored on both sides of the platters. Most hard disks have between two and eight platters.
+%|%You may need to move the <b>My Computer</b> window to the left to see the contents of the window.
+%|%You may need to move the <b>Save As...</b> dialog box to the left in order to see the <b>Save</b> button.
+%|%Depending on your software, your <b>Thomas Hardy</b> document will either be a <b>WordPad</b> or a <b>Word</b> file.
+%|%If you are not connected to a network, you may not see a <b>Network Neighborhood</b> icon on your desktop. Just skip those steps that refer to the <b>Network Neighborhood</b>. You may need to drag one or more of the open windows to see the <b>Network Neighborhood</b> icon on the desktop. If you cannot drag the window, it may be maximized. If a window is maximized, click the <b>Restore</b> button.
+%|%You may need to drag one or more of the open windows to see the taskbar.
+%|%You may need to drag one or more of the open windows to see the <b>Network Neighborhood</b> title bar.
+%|%You may need to move the <b>Online Services</b> window to see the <b>Close</b> button.
+%|%If you don't see the <b>Links</b> toolbar, right-click a blank area on the <b>Internet Explorer</b> taskbar, point to <b>Toolbars</b>, and verify that <b>Links</b> is selected. You may also need to drag the <b>Internet Explorer</b> window to the left of the step window to see the <b>Internet Explorer News</b> button.
+%|%The <b>Web</b>, or World Wide Web (WWW), is a global network that contains information you can access and explore using a Web browser, such as Microsoft Internet Explorer.
+%|%To <b>double-click</b> is to quickly press and release your mouse button twice.
+%|%<b>Tabs</b> are overlapping pages in a dialog box. You click the tab at the top of the dialog box to display the corresponding page.
+%|%<b>Scrolling</b> changes the view of the contents in a window, box, or pane. You can scroll using your mouse, or using keyboard commands. To scroll with your mouse, drag the scroll box or click the scroll arrows on the scroll bar to shift the view of the contents horizontally or vertically.
+%|%Your <b>start page</b> is the Web page that opens when you open Internet Explorer. You can change your start page to another Web page at any time.
+%|%You may need to move the step window to see the <b>Modify Channel Usage</b> dialog box.
+%|%Depending on your word processing software, <b>Microsoft Word Document</b> may appear on the <b>File</b> menu instead of <b>WordPad Document</b>. 
+%|%Depending on your ISP, you may see a different Internet start page than the one shown here.
